@@ -26,25 +26,44 @@ function talentTable = parseTalentJS(skillFile, charName, version)
     rows = [];
     
     for s = 1:length(skills)
+        skillName = skills{s}.Name;
         for p = 1:length(skills{s}.ParamDesc)
             param = skills{s}.ParamDesc(p);
-            mvStr = param.ParamLevelList;                    % cellstr 或 string
-            mvNum = cellfun(@(x) str2double(regexp(x,'[\d.]+','match','once')), mvStr, 'UniformOutput',false);
+            mvStr = param.ParamLevelList;                     % 原始字符串
+            mvNum = zeros(1,15);
+            scaling = 'ATK';
+            multiplier = 1;
             
-            % 自动判断缩放类型（用于后续伤害计算）
-            if contains(param.Desc, '生命值上限')
+            % 自动识别缩放类型和倍率
+            descLower = lower(param.Desc);
+            if contains(descLower, '生命值上限')
                 scaling = 'MaxHP';
-            elseif contains(param.Desc, '攻击力')
-                scaling = 'ATK';
-            elseif contains(param.Desc, '防御力')
+            elseif contains(descLower, '防御力')
                 scaling = 'DEF';
-            else
-                scaling = 'ATK';   % 默认
+            end
+            if contains(descLower, '×')
+                multMatch = regexp(descLower, '×(\d+)', 'tokens');
+                if ~isempty(multMatch)
+                    multiplier = str2double(multMatch{1}{1});
+                end
             end
             
-            row = table(string(skills{s}.Name), {param.Desc},{mvStr},{mvNum},{scaling} ,{version}...
-                'VariableNames', {'Skill','Param','Multiplier1', 'Multiplier2', 'Multiplier3', 'Multiplier4','Multiplier5','Multiplier6','Multiplier7','Multiplier8','Multiplier9','Multiplier10','Multiplier11','Multiplier12','Multiplier13','Multiplier14','Multiplier15'});
-            rows = [rows; row];
+            % 剥离百分号和汉字，只保留纯数值
+            for lvl = 1:min(15, length(mvStr))
+                str = mvStr{lvl};
+                numStr = regexp(str, '[\d.]+', 'match', 'once');
+                mvNum(lvl) = str2double(numStr) / 100;   % 转为小数
+            end
+            
+            % 展开成 Level1~Level15 列
+            rowData = table({skillName}, {param.Desc}, {scaling}, multiplier, ...
+                mvNum(1), mvNum(2), mvNum(3), mvNum(4), mvNum(5), ...
+                mvNum(6), mvNum(7), mvNum(8), mvNum(9), mvNum(10), ...
+                mvNum(11), mvNum(12), mvNum(13), mvNum(14), mvNum(15), ...
+                'VariableNames', {'Skill','Param','ScalingType','Multiplier', ...
+                'Level1','Level2','Level3','Level4','Level5','Level6','Level7', ...
+                'Level8','Level9','Level10','Level11','Level12','Level13','Level14','Level15'});
+            rows = [rows; rowData];
         end
     end
     
