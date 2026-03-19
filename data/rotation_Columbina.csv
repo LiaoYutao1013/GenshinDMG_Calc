@@ -1,0 +1,8 @@
+Hits,TalentMV,Time,Action,Element,Reaction
+1,0.1672,1.5,E_Initial,Hydro,None
+3,0.0936,0.5,MoonWheel_Cont,Hydro,None
+12,0.111,0.3,Normal,Hydro,None
+5,0.2,0.4,GrassDew_Charged,Grass,Bloom
+1,0.325,1,Q,Hydro,None
+8,0.0936,0.5,MoonInterfere_MoonBloom,Grass,Interfere
+3,0.2,1,ReactionTrigger,MoonBloom,BuildGravity

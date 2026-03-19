@@ -1,0 +1,85 @@
+function [totalDMG, dps] = simulateColumbinaDPS(build, enemy, talentLevel)
+    base = readtable('../data/characters_哥伦比娅.csv');
+    talent = readtable('../data/talents_Columbina.csv', 'VariableNamingRule', 'preserve');   % 来自解析文件
+    rot = readtable('../data/rotation_Columbina.csv');
+
+    % 如果倍率列还是带 '%' 字符串，强制转成数字（只做一次）
+    for k = 3:width(talent)-2
+        if ~isnumeric(talent{:,k})
+            colData = talent{:,k};
+            if iscell(colData)
+                colData = string(colData);          % cell → string
+            end
+            cleaned = strrep(colData, '%', '');
+            talent{:,k} = str2double(cleaned);
+        end
+    end
+
+    %disp('=== 当前实际变量名 ===');
+    %disp(talent.Properties.VariableNames');
+    %disp('=== 原始列标题（就是你 Excel/CSV 里真正的名字） ===');
+    %disp(talent.Properties.VariableDescriptions');
+    
+    build.MaxHP = base.BaseHP * (1 + build.HPBonus) + 5000;
+    build.ATK = build.WeaponATK * 1.0 + 300;   % 可改成完整calcATK
+
+    totalDMG = 0; time = 0;gravity = 0;   % 引力值模拟
+    
+    for i = 1:height(rot)
+        mvRow = talent(strcmp(talent.("Skill"), rot.Action{i}), :);
+        mv = mvRow.MV_List(1) * build.MaxHP;
+        
+        if height(mvRow) == 0
+            warning('未找到技能：%s', rot.Action{i});
+            continue;
+        end
+
+        % ==================== 你要的动态选择天赋倍率 ====================
+        % talentLevel 可以是 'L'（最后一版） 或具体数字（如 9、10）
+        if strcmpi(talentLevel, 'L') || strcmpi(talentLevel, 'Multiplier10')
+            multCol = 'VarName12';                    % ← 使用最后一版天赋
+        elseif isnumeric(talentLevel) && talentLevel > 0
+            multCol = sprintf('Multiplier%d', talentLevel);  % 普通等级
+        else
+            error('talentLevel 必须是 ''L'' 或正整数！');
+        end
+    
+        multiplier = mvRow.(multCol);         % 动态取列（已转成数字）
+        mv = multiplier * build.MaxHP;        % ← 取代你原来的 mvRow.MV_List(1)
+        % ============================================================
+        % === 所有乘区精确叠加（顺序与游戏一致）===
+        baseDmg = mv;
+        dmg = baseDmg ...
+            * (1 + build.HydroDMGBonus + build.SkillDMGBonus * contains(rot.Action{i},'E') ...
+               + build.BurstDMGBonus * contains(rot.Action{i},'Q') ...
+               + build.NormalDMGBonus * contains(rot.Action{i},'Normal')) ...
+            * (1 + build.ReactionDMGBonus + build.Set4_MoonPromote) ...   % 月曜反应 + 擢升
+            * calcCrit(build) ...
+            * calcDefRes(enemy) ...
+            * (1 + build.PromoteBonus) ...
+            * (1 + build.Set4_InterfereBonus * contains(rot.Reaction{i},'Interfere'));
+        
+        % === 月曜反应 & 引力值特殊处理 ===
+        if contains(rot.Reaction{i}, 'Bloom')
+            dmg = dmg * 3.0 * (1 + 2.78*build.EM/(1400+build.EM)) * (1 + build.Set4_GravityBonus);
+            gravity = gravity + 20;
+        elseif contains(rot.Reaction{i}, 'Interfere')
+            dmg = dmg * 4.5;
+        end
+        
+        if gravity >= 60
+            dmg = dmg * 2.8 * (1 + build.Set4_GravityBonus);
+            gravity = 0;
+            fprintf('【矩波干涉触发！】额外伤害 %.0f\n', dmg*0.8);
+        end
+        
+        totalDMG = totalDMG + dmg * rot.Hits(i);
+        time = time + rot.Time(i);
+    end
+    
+    dps = totalDMG / time;
+    fprintf('🎯 【帷间夜曲 + 穹境示现之夜】最终DPS: %.0f（总伤害 %.0f）\n', dps, totalDMG);
+end
+
+function c = calcCrit(b) , c = 1 + min(b.CritRate,1)*b.CritDMG; end
+function d = calcDefRes(~) , d = 0.5; end   % 简化，可替换为之前core函数
