@@ -39,7 +39,7 @@ function [totalDMG, dps] = simulateColumbinaDPS(build, enemy, talentLevel,cLevel
             end
         end
         if cLevel >= 3
-            % C3: 战技等级+3 → 已在 talentLevel 中体现（用户可手动+3）
+            % C3: 战技等级+3 
         end
         if cLevel >= 4
             dmg = dmg * 1.125;                   % C4: 矩波干涉额外提升
@@ -70,4 +70,4 @@ function [totalDMG, dps] = simulateColumbinaDPS(build, enemy, talentLevel,cLevel
 end
 
 function c = calcCrit(b) , c = 1 + min(b.CritRate,1)*b.CritDMG; end
-function d = calcDefRes(~) , d = 0.5; end   % 简化，可替换为之前core函数
+function d = calcDefRes(~) , d = 0.5; end  
