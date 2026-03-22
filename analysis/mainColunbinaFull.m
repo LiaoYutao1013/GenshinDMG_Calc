@@ -12,5 +12,5 @@ enemy = struct('Level',90,'Res',0.10,'DefReduct',0);
 
 [talentLevel, constellation] = deal(10, 0);   % ← 指定天赋等级和命座
 
-[total, dps] = simulateColumbinaDPS(table2struct(build), enemy,talentLevel, constellation);    % 自动循环 + 伤害计算
+[total, dps] = simulateColumbinaDPS(table2struct(build), enemy,talentLevel, constellation,'../data/sequence_Columbina.txt');    % 自动循环 + 伤害计算
  

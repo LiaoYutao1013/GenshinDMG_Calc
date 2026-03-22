@@ -1,4 +1,56 @@
-function [totalDMG, dps] = simulateColumbinaDPS(build, enemy, talentLevel, cLevel)
+function [totalDMG, dps] = simulateColumbinaDPS(build, enemy, talentLevel, cLevel,seqFile)
+
+    % seqFile = 序列文件路径（可选，默认使用 sequence_Columbina.txt）
+    if nargin < 5 || isempty(seqFile)
+        seqFile = fullfile(fileparts(mfilename('fullpath')), '..', 'data', 'sequence_Columbina.txt');
+    end
+    
+    % ====================== 技能简称映射表 ======================
+    mapping = struct(...
+        'E1',       struct('Skill','月露泼降','Param','一段伤害'), ...
+        'E2',       struct('Skill','月露泼降','Param','二段伤害'), ...
+        'E3',       struct('Skill','月露泼降','Param','三段伤害'), ...
+        'A',        struct('Skill','月露泼降','Param','一段伤害'), ...
+        'SA3',       struct('Skill','月露泼降','Param','三段伤害'), ...
+        'Heavy',    struct('Skill','月露泼降','Param','重击伤害'), ...
+        'Q',        struct('Skill','她的乡愁','Param','技能伤害'), ...
+        'MoonCont', struct('Skill','万古潮汐','Param','引力涟漪·持续伤害','IsPeriodic',true,'TickInterval',0.25,'Duration',10), ...
+        'MoonBloom',struct('Skill','万古潮汐','Param','引力干涉·月绽放伤害','IsPeriodic',true,'TickInterval',0.5,'Duration',8), ...
+        'Interfere',struct('Skill','万古潮汐','Param','引力干涉·月绽放伤害','IsPeriodic',true,'TickInterval',0.5,'Duration',8));
+    
+    % ====================== 读取序列文件 ======================
+    fid = fopen(seqFile, 'r');
+    if fid == -1
+    error('无法打开序列文件：%s', seqFile);
+    end
+
+    actions = {};
+    while ~feof(fid)
+        line = fgetl(fid);
+        if ~ischar(line)
+            continue;
+        end
+    
+        line = strtrim(line);
+        if isempty(line) || startsWith(line, '#')
+            continue;
+        end
+    
+        % 取行首第一个非空白 token
+        [token, ~] = sscanf(line, '%s', 1);
+        if ~isempty(token)
+        actions{end+1} = token;
+        end
+    end
+    fclose(fid);
+
+    if isempty(actions)
+    warning('序列文件为空或无有效动作');
+    end
+    disp(['读取到 ' num2str(length(actions)) ' 个有效动作']);
+    
+    disp(['读取自定义序列：' num2str(length(actions)) ' 个动作']);
+
     % talentLevel = 天赋等级 (1~15，默认10)
     % cLevel = 命座等级 (0~6，默认0)
     if nargin < 3, talentLevel = 10; end
@@ -11,7 +63,11 @@ function [totalDMG, dps] = simulateColumbinaDPS(build, enemy, talentLevel, cLeve
     build.MaxHP = base.BaseHP * (1 + build.HPBonus) + 5000;
     build.ATK = build.WeaponATK + 300;
     
-    totalDMG = 0; time = 0; gravity = 0;
+    totalDMG = 0; 
+    time = 0; 
+    gravity = 0;
+    maxSimTime = 30;
+    cumTime = 0;
 
     disp(['rotation 表行数: ' num2str(height(rot))]);
     if height(rot) == 0
@@ -21,7 +77,45 @@ function [totalDMG, dps] = simulateColumbinaDPS(build, enemy, talentLevel, cLeve
     disp(head(rot, 5));
 
     for i = 1:height(rot)
+        abbr = actions{i};
+        if ~isfield(mapping,abbr)
+            fprintf('未知简称：%s，跳过\n', abbr');
+            continue;
+        end
+        info = mapping.(abbr);
+
+        % 查找对应倍率
+        match = strcmp(talent.Skill, info.Skill) & strcmp(talent.Param, info.Param);
+        if ~any(match)
+            fprintf('未找到：%s %s\n', info.Skill, info.Param);
+            continue;
+        end
+        mv = talent.(['Level' num2str(talentLevel)])(match) * build.MaxHP;
         
+        % === 持续型技能自动 tick ===
+        if isfield(info, 'IsPeriodic') && info.IsPeriodic
+            tickCount = floor(info.Duration / info.TickInterval);
+            tickMV = mv / tickCount;   % 把总伤害均分到每个 tick
+            
+            for t = 1:tickCount
+                if cumTime + info.TickInterval > maxSimTime
+                    break;
+                end
+                cumTime = cumTime + info.TickInterval;
+                stepDMG = tickMV * build.MaxHP;  % 这里可再乘反应/命座
+                totalDMG = totalDMG + stepDMG;
+                fprintf('  [持续] %s tick %d | 时间 %.2fs | 伤害 %.0f\n', abbr, t, cumTime, stepDMG);
+            end
+            continue;  % 持续型只算一次释放，后续自动
+        end
+
+        % === 普通技能（单次释放）===
+        stepTime = 0.8;  % 默认，可后面再优化
+        if cumTime + stepTime > maxSimTime
+            break;
+        end
+        cumTime = cumTime + stepTime;
+
         fprintf('处理第 %2d 步 | Action: "%s" | Reaction: "%s" | Hits: %.1f | Time: %.3f\n', ...
             i, rot.Action{i}, rot.Param{i}, rot.Reaction{i}, rot.Hits(i), rot.Time(i));
 
