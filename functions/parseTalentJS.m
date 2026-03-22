@@ -6,6 +6,7 @@ function talentTable = parseTalentJS(skillFile, charName, version)
     txt = fileread(skillFile);
     txt = strtrim(txt);
     
+    
     % 如果文件以 { 开头，直接decode；否则移除可能的var前缀
     if startsWith(txt, '{')
         data = jsondecode(txt);
@@ -69,7 +70,7 @@ function talentTable = parseTalentJS(skillFile, charName, version)
     
     % ================== 保存并返回 ==================
     talentTable = rows;
-    writetable(talentTable, '../data/talents_Columbina.csv');
+    writetable(talentTable, '../data/talents_Furina.csv');
     
     fprintf('✅ 天赋倍率提取完成！（Ver %s）共 %d 条，已保存\n', version, height(talentTable));
     disp(talentTable(:, [1 2 3 4 5 6 7 8 9 10 11 12]));   % 预览 Skill / Param / ScalingType
