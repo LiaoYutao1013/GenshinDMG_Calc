@@ -1,4 +1,4 @@
-function talentTable = parseTalentJS(skillFile, charName, version)
+function talentTable = parseTalentColumbina(skillFile, charName, version)
     % ================== 参数 ==================
     if nargin < 3, version = "1"; end   % 默认C0（Ver 1）
     

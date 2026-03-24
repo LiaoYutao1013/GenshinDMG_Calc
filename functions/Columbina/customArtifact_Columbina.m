@@ -1,4 +1,4 @@
-function build = customArtifact(selectedWeapon)
+function build = customArtifact_Columbina(selectedWeapon)
     % ====================== 在这里修改配置 ======================
     artifactSet = '黄金剧团';       % ← 4件套
     
