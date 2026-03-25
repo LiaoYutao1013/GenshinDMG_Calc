@@ -11,6 +11,7 @@
 % ========================================================
 
 clear; clc; close all;
+addpath('../functions')
 
 %% ================== 1. 自動解析天賦（如果不存在） ==================
 talentFile = '../data/Furina/talents_Furina_VerL.csv';
@@ -36,24 +37,10 @@ enemy = struct(...
 );
 
 %% ================== 4. 手法排軸檔案 ==================
-rotationFile = 'data/rotation_Furina.txt';   % ← 你的自定義排軸
-
-% 如果排軸不存在，自動生成一個最還原的範例
-if ~exist(rotationFile, 'file')
-    fprintf('偵測到無排軸檔案，正在生成最還原實戰排軸...\n');
-    fid = fopen(rotationFile, 'w');
-    fprintf(fid, 'E\t1\t1.5\t孤心沙龙启动（荒性）\n');
-    fprintf(fid, 'Normal\t12\t6.0\t荒性普攻 + 三海鮮輸出\n');
-    fprintf(fid, 'Heavy\t1\t0.8\t重击切换芒性\n');
-    fprintf(fid, 'Normal\t15\t7.5\t芒性普攻（C6强化）\n');
-    fprintf(fid, 'Q\t1\t1.0\t万众狂欢\n');
-    fprintf(fid, 'Normal\t10\t5.0\t芒性收尾\n');
-    fclose(fid);
-    fprintf('排軸已生成：%s\n\n', rotationFile);
-end
+rotationFile = '../data/Furina/rotation_Furina.txt';   % ← 你的自定義排軸
 
 %% ================== 5. 執行完整模擬 ==================
-fprintf('開始芙寧娜最還原實戰模擬...\n');
+fprintf('開始芙寧娜實戰模擬...\n');
 fprintf('配置：%s | 天賦%d | C%d\n\n', build.Weapon, 10, 6);
 
 [totalDMG, dps, breakdown] = simulateFurinaDPS(...
@@ -68,15 +55,15 @@ fprintf('配置：%s | 天賦%d | C%d\n\n', build.Weapon, 10, 6);
 fprintf('\n==================== 最終結果 ====================\n');
 fprintf('總傷害：%.0f\n', totalDMG);
 fprintf('DPS：%.0f\n', dps);
-fprintf('循環時間：%.1f 秒\n', sum(breakdown.Time));
+fprintf('循環時間：20 秒\n');
 fprintf('====================================================\n\n');
 
 % 顯示前10段詳細 breakdown
 disp(breakdown(1:min(10,height(breakdown)),:));
 
 % 保存到 Excel（方便後續分析）
-writetable(breakdown, 'output/Furina_DPS_Breakdown.xlsx');
-fprintf('詳細 breakdown 已保存至 output/Furina_DPS_Breakdown.xlsx\n');
+%writetable(breakdown, 'output/Furina_DPS_Breakdown.xlsx');
+%fprintf('詳細 breakdown 已保存至 output/Furina_DPS_Breakdown.xlsx\n');
 
 % 可選：自動開啟 Excel（Windows）
 % winopen('output/Furina_DPS_Breakdown.xlsx');

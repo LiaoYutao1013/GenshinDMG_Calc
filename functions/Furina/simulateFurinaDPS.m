@@ -1,121 +1,156 @@
-function [totalDMG, dps, breakdown] = simulateFurinaDPS(build, enemy, rotationFile, talentLevel, constellation)
-    % 最還原實戰版芙寧娜模擬 - 重擊切換形態 + 三海鮮獨立傷害 + 芒性普攻強化
+function [totalDMG, dps, breakdown] = simulateFurinaDPS(build, enemy, seqFile, talentLevel, constellation)
+% simulateFurinaDPS - 芙寧娜傷害模擬器（基於 artifacts_Furina.csv 字段）
+% build 來自 artifacts_Furina.csv 的結構
+
+
+seqFile = '../data/Furina/rotation_Furina.txt';
+
+% ====================== 載入天賦數據 ======================
+talent = readtable('../data/Furina/talents_Furina_VerL.csv');
+
+% ====================== 技能映射表 ======================
+mapping = struct(...
+    'N1',     struct('Skill','独舞之邀','Param','一段伤害'), ...
+    'N2',     struct('Skill','独舞之邀','Param','二段伤害'), ...
+    'N3',     struct('Skill','独舞之邀','Param','三段伤害'), ...
+    'N4',     struct('Skill','独舞之邀','Param','四段伤害'), ...
+    'Heavy',  struct('Skill','独舞之邀','Param','重击伤害'), ...
+    'SwitchAr', struct('Skill','独舞之邀','Param','重击伤害','Mode','荒性'), ...
+    'SwitchMa', struct('Skill','独舞之邀','Param','重击伤害','Mode','芒性'), ...
+    'E',      struct('Skill','孤心沙龙','Param','荒性泡沫伤害'), ...
+    'Usher',  struct('Skill','孤心沙龙','Param','乌瑟勋爵伤害','IsPeriodic',true,'TickInterval',6), ...
+    'Chev',   struct('Skill','孤心沙龙','Param','海薇玛夫人伤害','IsPeriodic',true,'TickInterval',6), ...
+    'Crab',   struct('Skill','孤心沙龙','Param','谢贝蕾妲小姐伤害','IsPeriodic',true,'TickInterval',6), ...
+    'Singer', struct('Skill','孤心沙龙','Param','众水的歌者治疗量','IsPeriodic',true,'TickInterval',6), ...
+    'Q',      struct('Skill','万众狂欢','Param','技能伤害'), ...
+    'Thorn',  struct('Skill','独舞之邀','Param','灵息之刺/流涌之刃伤害','IsPeriodic',true,'TickInterval',6), ...
+    'Plunge', struct('Skill','独舞之邀','Param','低空/高空坠地冲击伤害') ...
+);
+
+% ====================== 讀取自定義排軸 ======================
+actions = readFurinaSequence(seqFile);
+
+% ====================== 計算最終屬性 ======================
+MaxHP =  ...           % 芙寧娜為生命值主C，這裡簡化
+        (build.HPBonus * 10000 + 15000);    % 假設基礎 + 聖遺物加成，實際請替換為正確基礎生命
+
+if isfield(build, 'FlatHP')
+    MaxHP = MaxHP + build.FlatHP;
+end
+
+CritMult = 1 + build.CritRate * build.CritDMG;
+HydroMult = 1 + build.HydroDMGBonus;
+
+% ====================== 初始化 ======================
+totalDMG = 0;
+breakdown = table('Size',[0 3], 'VariableTypes',{'string','double','string'}, ...
+                  'VariableNames',{'Action','Damage','Note'});
+
+currentMode = '荒性';      % 預設荒性輸出
+atmosphere = 0;            % 氛圍值
+
+fprintf('芙寧娜模擬開始 | 天賦%d | C%d | 模式：%s | MaxHP ≈ %.0f\n', ...
+    talentLevel, constellation, currentMode, MaxHP);
+
+% ====================== 主模擬循環 ======================
+for i = 1:length(actions)
+    actKey = actions{i};
     
-    if nargin < 4, talentLevel = 10; end
-    if nargin < 5, constellation = 0; end
-    
-    talent = readtable('data/talents_Furina_VerL.csv');
-    rotRaw = readtable(rotationFile, 'ReadVariableNames', false, 'Delimiter', '\t');
-    
-    rot = table();
-    rot.Action = string(rotRaw{:,1});
-    rot.Hits   = str2double(rotRaw{:,2});
-    rot.Time   = str2double(rotRaw{:,3});
-    rot.Note   = string(rotRaw{:,4});
-    
-    % 基礎數據
-    charData = readtable('data/characters_Furina.csv');
-    build.MaxHP = charData.BaseHP * (1 + build.HPBonus) + 5000;
-    
-    % ================== 狀態追蹤 ==================
-    totalDMG = 0;
-    time = 0;
-    atmosphere = 0;
-    atmosphereCap = 300 + 100*(constellation >= 1);
-    currentState = 'Ousia';           % 預設荒性
-    salonEndTime = 0;
-    spotlightEndTime = 0;             % C6 萬眾瞩目
-    
-    breakdown = table('Size',[0 5],'VariableTypes',{'string','double','double','string','string'}, ...
-        'VariableNames',{'Action','Damage','Time','Note','State'});
-    
-    % ================== 主循環 ==================
-    for i = 1:height(rot)
-        action = rot.Action(i);
-        hits = rot.Hits(i);
-        t = rot.Time(i);
-        
-        dmgThis = 0;
-        
-        % ================== 重擊切換形態 ==================
-        if contains(action, {'Heavy','重击'})
-            currentState = 'Pneuma';   % 重擊切芒性
-            % 重擊本身傷害
-            row = talent(strcmp(talent.Param,'重击伤害'),:);
-            dmgThis = row.(['Level' num2str(talentLevel)]) * build.MaxHP;
-        end
-        
-        % ================== 技能傷害 ==================
-        switch action
-            case {'E','孤心沙龙'}
-                % 荒性泡沫主傷害
-                row = talent(strcmp(talent.Param,'荒性泡沫伤害'),:);
-                dmgThis = row.(['Level' num2str(talentLevel)]) * build.MaxHP;
-                salonEndTime = time + 30;
-                
-            case {'Q','万众狂欢'}
-                row = talent(strcmp(talent.Param,'技能伤害'),:);
-                dmgThis = row.(['Level' num2str(talentLevel)]) * build.MaxHP;
-                spotlightEndTime = time + 18;
-                
-            case {'Normal','普攻'}
-                if strcmp(currentState, 'Ousia')
-                    % ================== 荒性：三只海鮮各自計算 ==================
-                    usher = getSummonDmg(talent, 'Usher', talentLevel, build.MaxHP);      % 球球章魚
-                    cheval = getSummonDmg(talent, 'Chevalmarin', talentLevel, build.MaxHP); % 泡泡海馬
-                    crab = getSummonDmg(talent, 'Crabaletta', talentLevel, build.MaxHP);   % 重甲蟹
-                    dmgThis = usher + cheval + crab;
-                else
-                    % ================== 芒性：普攻強化（C6） ==================
-                    row = talent(strcmp(talent.Param,'一段伤害'),:);
-                    dmgThis = row.(['Level' num2str(talentLevel)]) * build.MaxHP;
-                    
-                    if constellation >= 6 && time <= spotlightEndTime
-                        dmgThis = dmgThis * (1 + 0.18 * build.MaxHP/1000 + 0.25);  % C6 額外強化
-                    end
-                end
-        end
-        
-        % ================== 乘區 ==================
-        dmgThis = dmgThis ...
-            * (1 + build.HydroDMGBonus) ...
-            * (1 + atmosphere * 0.001) ...
-            * calcCrit(build) ...
-            * calcDefRes(enemy);
-        
-        totalDMG = totalDMG + dmgThis * hits;
-        time = time + t;
-        
-        breakdown = [breakdown; {action, dmgThis*hits, t, rot.Note(i), currentState}];
+    if ~isfield(mapping, actKey)
+        warning('未知動作：%s', actKey);
+        continue;
     end
     
-    dps = totalDMG / time;
+    info = mapping.(actKey);
     
-    fprintf('芙寧娜最還原模擬完成 | 天賦%d | C%d | DPS: %.0f | 總傷害: %.0f (%.1f秒)\n', ...
-        talentLevel, constellation, dps, totalDMG, time);
-    disp(breakdown);
-end
-
-% ====================== 三海鮮各自傷害計算 ======================
-function dmg = getSummonDmg(talent, summonType, lvl, maxHP)
-    row = talent(strcmp(talent.SubType, summonType), :);
-    if isempty(row), dmg = 0; return; end
-    base = row.(['Level' num2str(lvl)]) * maxHP;
+    % 取得倍率
+    rowIdx = strcmp(talent.Skill, info.Skill) & strcmp(talent.Param, info.Param);
+    if ~any(rowIdx)
+        continue;
+    end
+    row = talent(rowIdx,:);
     
-    switch summonType
-        case 'Usher'      % 烏瑟勳爵（球球章魚）
-            dmg = base * 9.375;   % 30秒內約9.375次攻擊（3.2s/次）
-        case 'Chevalmarin' % 海薇瑪夫人（泡泡海馬）
-            dmg = base * 20;      % 30秒內20次（1.5s/次）
-        case 'Crabaletta' % 謝貝蕾妲小姐（重甲蟹）
-            dmg = base * 5.88;    % 30秒內5.88次（5.1s/次）
+    mv = row.(['Level' num2str(talentLevel)]) * MaxHP;
+    
+    % 基礎傷害
+    dmg = mv * HydroMult * CritMult * ...
+          (1 + build.ResShred) * 0.9;   % 簡化防禦與抗性乘區
+    
+    note = '';
+    
+    % ==================== 芙寧娜專屬機制 ====================
+    if strcmp(actKey, 'Usher') || strcmp(actKey, 'Chev') || strcmp(actKey, 'Crab')
+        if strcmp(currentMode, '荒性')
+            teamMult = build.TeamHPAbove50Mult;     % 直接使用 csv 中的字段
+            dmg = dmg * teamMult;
+            note = sprintf('沙龍成員 x%.2f', teamMult);
+        else
+            dmg = 0;
+        end
+        
+    elseif strcmp(actKey, 'Singer')
+        if strcmp(currentMode, '芒性')
+            note = '歌者治療（不計入傷害）';
+            dmg = 0;
+        else
+            dmg = 0;
+        end
+        
+    elseif strcmp(actKey, 'Q')
+        atmosphere = 300;                       % 可根據命座調整
+        note = '萬眾狂歡 + 氛圍值堆疊';
+        
+    elseif strcmp(actKey, 'SwitchAr')
+        currentMode = '荒性';
+        note = '切換 → 荒性';
+    elseif strcmp(actKey, 'SwitchMa')
+        currentMode = '芒性';
+        note = '切換 → 芒性';
+    end
+    
+    % 命座簡單加成
+    if constellation >= 2
+        dmg = dmg * 1.25;
+    end
+    if constellation >= 6
+        dmg = dmg * 1.18;
+    end
+    
+    if dmg > 0
+        totalDMG = totalDMG + dmg;
+        breakdown = [breakdown; {actKey, dmg, note}];
     end
 end
 
-function c = calcCrit(b)
-    c = 1 + min(b.CritRate,1) * b.CritDMG;
+dps = totalDMG / 20;   % 假設20秒循環
+
+fprintf('\n=== 芙寧娜傷害結果 ===\n');
+fprintf('總傷害: %.0f\n', totalDMG);
+fprintf('DPS:    %.0f\n', dps);
+disp(breakdown);
+
 end
 
-function d = calcDefRes(~)
-    d = 0.5;
+
+% ====================== 輔助函數 ======================
+function actions = readFurinaSequence(seqFile)
+    fid = fopen(seqFile, 'r');
+    if fid == -1
+        error('無法打開排軸檔案：%s', seqFile);
+    end
+    actions = {};
+    while ~feof(fid)
+        line = fgetl(fid);
+        if ~ischar(line), continue; end
+        line = strtrim(line);
+        if isempty(line) || startsWith(line, '#')
+            continue;
+        end
+        [token, ~] = sscanf(line, '%s', 1);
+        if ~isempty(token)
+            actions{end+1} = token;
+        end
+    end
+    fclose(fid);
+    fprintf('讀取排軸成功：%d 個動作\n', length(actions));
 end

@@ -29,7 +29,12 @@ function build = customArtifact_Furina()
     % ================== 自動寫入 CSV ==================
     % 转成 table 并保存（simulateFurinaDPS.m 会读取此档案）
     buildTable = struct2table(build);
-    outputPath = 'data/artifacts_Furina.csv';
+    outputPath = '../../data/Furina/artifacts_Furina.csv';
+    outputFolder = fileparts(outputPath);
+    if ~isfolder(outputFolder)
+        mkdir(outputFolder);
+        fprintf('已自动创建文件夹：%s\n', outputFolder);
+    end
     writetable(buildTable, outputPath);
     
     fprintf('✅ 芙宁娜圣遗物配置已生成！\n');

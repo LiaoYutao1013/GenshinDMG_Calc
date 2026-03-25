@@ -9,13 +9,15 @@
 % 4. 模拟重击切换形态、三海鲜各自伤害、芒性普攻强化、气氛值、C1/C2/C6
 % 5. 输出详细 breakdown + 总结
 % ========================================================
-clear; clc; addpath('../functions');
+clear; clc; 
+addpath('../functions');
+addpath('../functions/Columbina');
 
 %% ================== 1. 自动解析天赋（如果不存在） ==================
 talentFile = '../data/Columbina/talents_Columbina.csv';
 if ~exist(talentFile, 'file')
     fprintf('正在解析哥伦比娅天賦倍率...\n');
-    parseTalentJS('../data/Columbina/Columbina_skill.json', 'Columbina', 'L');
+    parseTalentColumbina('../data/Columbina/Columbina_skill.json', 'Columbina', 'L');
     fprintf('解析完成！\n\n');
 end
 
