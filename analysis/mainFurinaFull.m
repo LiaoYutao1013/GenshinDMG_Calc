@@ -12,11 +12,12 @@
 
 clear; clc; close all;
 addpath('../functions')
+addpath('../functions/Furina/')
 
 %% ================== 1. 自動解析天賦（如果不存在） ==================
 talentFile = '../data/Furina/talents_Furina_VerL.csv';
 if ~exist(talentFile, 'file')
-    fprintf('正在解析芙寧娜天賦倍率...\n');
+    fprintf('正在解析芙宁娜天赋倍率...\n');
     parseTalentJS('../data/Furina/Furina_skill.json', 'Furina', 'L');
     fprintf('解析完成！\n\n');
 end
@@ -40,8 +41,8 @@ enemy = struct(...
 rotationFile = '../data/Furina/rotation_Furina.txt';   % ← 你的自定義排軸
 
 %% ================== 5. 執行完整模擬 ==================
-fprintf('開始芙寧娜實戰模擬...\n');
-fprintf('配置：%s | 天賦%d | C%d\n\n', build.Weapon, 10, 6);
+fprintf('开始芙宁娜模拟...\n');
+fprintf('配置：%s | 天赋%d | C%d\n\n', build.Weapon, 10, 6);
 
 [totalDMG, dps, breakdown] = simulateFurinaDPS(...
     build, ...
@@ -53,9 +54,9 @@ fprintf('配置：%s | 天賦%d | C%d\n\n', build.Weapon, 10, 6);
 
 %% ================== 6. 結果輸出與保存 ==================
 fprintf('\n==================== 最終結果 ====================\n');
-fprintf('總傷害：%.0f\n', totalDMG);
+fprintf('总伤害：%.0f\n', totalDMG);
 fprintf('DPS：%.0f\n', dps);
-fprintf('循環時間：20 秒\n');
+fprintf('循环时间：120 秒\n');
 fprintf('====================================================\n\n');
 
 % 顯示前10段詳細 breakdown

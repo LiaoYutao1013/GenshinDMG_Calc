@@ -105,10 +105,10 @@ for i = 1:length(actions)
     
     % 命座簡單加成
     if constellation >= 2
-        dmg = mv * (HydroMult + 1.25) * CritMult * (1 + build.ResShred) * 0.9; 
+        dmg = dmg * 1.25;
     end
     if constellation >= 6
-        dmg = (mv + MaxHP*0.40) * (HydroMult + 1.25) * CritMult * (1 + build.ResShred) * 0.9;
+        dmg = dmg * 1.18;
     end
     
     if dmg > 0
