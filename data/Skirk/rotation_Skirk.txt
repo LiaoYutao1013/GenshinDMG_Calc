@@ -1,0 +1,13 @@
+# Default on-field Skirk loop
+E
+ExQ
+N1
+N2
+N3
+N4
+N5
+N1
+N2
+N3
+N4
+N5
