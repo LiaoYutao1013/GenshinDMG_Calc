@@ -1,4 +1,6 @@
 function [totalDMG, dps, breakdown, rotationTime] = simulateArlecchinoDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
+    % Arlecchino simulator. The key state is Bond of Life plus whether the
+    % current Blood-Debt directive has been applied, matured, or consumed.
     if nargin < 3 || isempty(seqFile)
         seqFile = fullfile(fileparts(mfilename('fullpath')), '..', '..', 'data', 'Arlecchino', 'rotation_Arlecchino.txt');
     end
@@ -121,10 +123,12 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateArlecchinoDPS(build,
 end
 
 function dmgBonus = localPyroBonus(build, teamContext, extraBonus)
+    % Helper for all additive pyro-side damage bonuses.
     dmgBonus = 1 + build.PyroDMGBonus + 0.40 + build.BurstDMGBonus * 0 + getFieldOrDefault(teamContext, 'AllDMGBonus', 0) + extraBonus;
 end
 
 function [critRate, critDMG] = localCritState(build, constellation, c6Active)
+    % Centralize constellation-driven crit-state changes here.
     critRate = build.CritRate;
     critDMG = build.CritDMG;
     if constellation >= 6 && c6Active
@@ -134,6 +138,7 @@ function [critRate, critDMG] = localCritState(build, constellation, c6Active)
 end
 
 function actionTime = localActionTime(action)
+    % Scripted durations define the standalone DPS denominator.
     switch action
         case 'E'
             actionTime = 0.70;

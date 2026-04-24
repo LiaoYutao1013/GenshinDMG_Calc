@@ -1,4 +1,6 @@
 function [totalDMG, dps] = simulateColumbinaDPS(build, enemy, talentLevel, cLevel,seqFile)
+    % Legacy Columbina simulator. It is more debug-oriented than the newer
+    % simulators and prints intermediate matching / timing information.
 
     % seqFile = 序列文件路径（可选，默认使用 sequence_Columbina.txt）
     if nargin < 5 || isempty(seqFile)

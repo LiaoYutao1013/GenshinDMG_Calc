@@ -10,6 +10,8 @@
 % 5. 输出详细 breakdown + 总结
 % ========================================================
 clear; clc; 
+% Legacy standalone Columbina entry that rebuilds talent / rotation data
+% and then runs the older debug-heavy simulator.
 addpath('../functions');
 addpath('../functions/Columbina');
 

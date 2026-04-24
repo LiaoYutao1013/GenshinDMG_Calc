@@ -1,9 +1,13 @@
 function [teamResult, memberResults] = simulateTeamDPS(teamSpec, enemy)
+    % Unified team entry. teamSpec can be either:
+    %   1. a cell/string list of character names, or
+    %   2. a struct with explicit Members / RotationDuration / SharedBuffs.
     if nargin < 2 || isempty(enemy)
         enemy = struct('Level', 90, 'Res', 0.10, 'DefReduct', 0);
     end
 
     if iscell(teamSpec) || isstring(teamSpec)
+        % Name-only input uses each character's default build and rotation.
         names = cellstr(string(teamSpec));
         members = cell(1, numel(names));
         for i = 1:numel(names)
@@ -19,6 +23,7 @@ function [teamResult, memberResults] = simulateTeamDPS(teamSpec, enemy)
         error('teamSpec must be a list of names or a struct with a Members field.');
     end
 
+    % Build the shared team state once, then reuse it for every member.
     teamContext = buildTeamContext(members, rotationDuration, sharedBuffs);
     memberCells = cell(1, numel(members));
     combinedBreakdown = table();
@@ -27,6 +32,8 @@ function [teamResult, memberResults] = simulateTeamDPS(teamSpec, enemy)
         memberCells{i} = simulateCharacterDPS(members{i}, enemy, teamContext);
         if ~isempty(memberCells{i}.Breakdown)
             currentBreakdown = memberCells{i}.Breakdown;
+            % Tag merged breakdown rows with the source character so later
+            % exports or plots can split the table back apart.
             currentBreakdown.Character = repmat(memberCells{i}.DisplayName, height(currentBreakdown), 1);
             combinedBreakdown = [combinedBreakdown; currentBreakdown]; %#ok<AGROW>
         end
@@ -37,6 +44,8 @@ function [teamResult, memberResults] = simulateTeamDPS(teamSpec, enemy)
     totalDMG = sum([memberResults.TotalDMG]);
     teamDPS = totalDMG / rotationDuration;
 
+    % Keep both team-cycle contribution and standalone DPS because short
+    % field-time units can look misleading if only one number is shown.
     memberSummary = table( ...
         [memberResults.DisplayName].', ...
         [memberResults.TotalDMG].', ...

@@ -1,4 +1,6 @@
 function charTable = parseBaseStatsJS(filePath, targetName)
+    % Extract one character's base stat block from the raw JS dump and
+    % export the subset needed by the simulators into a compact CSV.
     
     % 获取「本函数文件自己所在的文件夹」 → functions/
     funcFolder = fileparts(mfilename('fullpath'));

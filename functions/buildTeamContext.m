@@ -1,4 +1,7 @@
 function teamContext = buildTeamContext(members, rotationDuration, sharedBuffs)
+    % Collect all team-wide state in one place: member identity, elemental
+    % counts, simplified buffs, and passive assumptions shared by several
+    % character simulators.
     if nargin < 2 || isempty(rotationDuration)
         rotationDuration = 20;
     end
@@ -17,10 +20,13 @@ function teamContext = buildTeamContext(members, rotationDuration, sharedBuffs)
         memberConstellations(i) = getFieldOrDefault(members{i}, 'Constellation', 0);
     end
 
+    % Hydro/Cryo counts are reused by multiple team mechanics below.
     hydroMask = memberElements == "Hydro";
     cryoMask = memberElements == "Cryo";
     hydroCryoCount = sum(hydroMask | cryoMask);
 
+    % Furina is modeled here as a coarse team-wide damage buff so other
+    % simulators can consume one shared value instead of special-casing her.
     allDMGBonus = getFieldOrDefault(sharedBuffs, 'AllDMGBonus', 0);
     allDMGBonus = allDMGBonus + getFieldOrDefault(sharedBuffs, 'ApproxFurinaBonus', 0) * double(any(memberNames == "Furina"));
     if any(memberNames == "Furina") && ~isfield(sharedBuffs, 'ApproxFurinaBonus')
@@ -32,6 +38,9 @@ function teamContext = buildTeamContext(members, rotationDuration, sharedBuffs)
     pyroResShred = getFieldOrDefault(sharedBuffs, 'PyroResShred', 0);
     cryoCritDMGBonus = getFieldOrDefault(sharedBuffs, 'CryoCritDMGBonus', 0);
 
+    % Escoffier contributes Hydro/Cryo shred based on Hydro+Cryo teammate
+    % count. Her C1 cryo crit damage bonus is also team-derived, so it is
+    % more maintainable to compute it here once.
     if any(memberNames == "Escoffier")
         resSchedule = [0, 0.05, 0.10, 0.15, 0.55];
         resBonus = resSchedule(min(hydroCryoCount, 4) + 1);
@@ -48,6 +57,8 @@ function teamContext = buildTeamContext(members, rotationDuration, sharedBuffs)
     cryoCount = sum(cryoMask);
     hasSkirk = any(memberNames == "Skirk");
 
+    % Skirk-specific fields are simplified team-state proxies consumed by
+    % simulateSkirkDPS when estimating passive stack availability.
     teamContext = struct( ...
         'MemberNames', memberNames, ...
         'MemberElements', memberElements, ...
@@ -67,6 +78,7 @@ function teamContext = buildTeamContext(members, rotationDuration, sharedBuffs)
 end
 
 function element = localGetElement(name)
+    % Local registry for the unified team entry.
     switch lower(char(name))
         case 'skirk'
             element = "Cryo";

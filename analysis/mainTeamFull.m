@@ -1,4 +1,6 @@
 clear; clc; close all;
+% Unified team entry. Edit teamMembers below to choose which characters
+% participate in the shared team simulation.
 projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(fullfile(projectRoot, 'functions')));
 initProjectPaths();

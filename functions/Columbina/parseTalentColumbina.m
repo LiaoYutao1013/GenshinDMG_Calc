@@ -1,4 +1,6 @@
 function talentTable = parseTalentColumbina(skillFile, charName, version)
+    % Parse Columbina's raw skill JSON into a flat CSV. Scaling type and
+    % explicit multiplier suffixes are inferred from the Param text.
     % ================== 参数 ==================
     if nargin < 3, version = "1"; end   % 默认C0（Ver 1）
     

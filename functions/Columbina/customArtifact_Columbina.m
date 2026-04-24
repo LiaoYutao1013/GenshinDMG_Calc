@@ -1,4 +1,6 @@
 function build = customArtifact_Columbina(selectedWeapon)
+    % Legacy Columbina build generator that expands one weapon choice into
+    % the wide stat struct consumed by simulateColumbinaDPS.
     % ====================== 在这里修改配置 ======================
     artifactSet = '黄金剧团';       % ← 4件套
     

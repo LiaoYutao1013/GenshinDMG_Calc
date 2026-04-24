@@ -9,6 +9,10 @@
 % ========================================================
 
 function build = customArtifact_Furina()
+    % Furina keeps a slightly richer build schema because her simulator
+    % mixes direct Hydro damage, summon behavior, and team HP interactions.
+    % Central place for Furina's default build assumptions. The returned
+    % struct is mirrored to CSV to match the rest of the project.
     % ================== 在这里修改你的实际配置 ==================
     % 武器（必须与 weapons.csv 中的 Name 完全一致）
     selectedWeapon = '静水流涌之辉';          
@@ -29,6 +33,8 @@ function build = customArtifact_Furina()
     % ================== 自動寫入 CSV ==================
     % 转成 table 并保存（simulateFurinaDPS.m 会读取此档案）
     buildTable = struct2table(build);
+    % Keep the output path relative to the project layout expected by the
+    % rest of the analysis scripts.
     outputPath = '../../data/Furina/artifacts_Furina.csv';
     outputFolder = fileparts(outputPath);
     if ~isfolder(outputFolder)

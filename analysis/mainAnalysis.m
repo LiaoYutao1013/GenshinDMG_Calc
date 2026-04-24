@@ -1,4 +1,5 @@
 clear; clc; close all;
+% Minimal legacy example showing the original generic DPS calculation flow.
 addpath('../functions');  % 自动添加函数路径
 
 % ================== 示例数据 ==================

@@ -11,6 +11,8 @@
 % ========================================================
 
 clear; clc; close all;
+% Legacy standalone Furina entry that wires together build generation,
+% enemy setup, rotation selection, and final result printing.
 addpath('../functions')
 addpath('../functions/Furina/')
 

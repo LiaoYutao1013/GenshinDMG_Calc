@@ -1,4 +1,6 @@
 function initProjectPaths()
+    % Add function folders once per MATLAB session so entry scripts can be
+    % run from different working directories without manual path setup.
     persistent initialized;
     if ~isempty(initialized) && initialized
         return;

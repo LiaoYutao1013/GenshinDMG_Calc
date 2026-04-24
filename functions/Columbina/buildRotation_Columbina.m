@@ -1,4 +1,6 @@
 function rotTable = buildRotation_Columbina()
+    % Generate a default Columbina rotation table with explicit Param text
+    % so later matching can use Skill + Param together.
     % 自动生成哥伦比娅标准循环（带精确 Param 匹配）
     rotTable = table(...
         [1;  3;  12;  5;   1;   8;   3], ...                    % Hits

@@ -1,4 +1,7 @@
 function value = getTalentValue(talentTable, skillName, paramName, talentLevel)
+    % Resolve one Skill + Param row from a talent table and read the value
+    % for the requested level. If later levels are blank in the CSV, walk
+    % backward to the nearest populated level column.
     rowMask = strcmp(talentTable.Skill, skillName) & strcmp(talentTable.Param, paramName);
 
     if ~any(rowMask)

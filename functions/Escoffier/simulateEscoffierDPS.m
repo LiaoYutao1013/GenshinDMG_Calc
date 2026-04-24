@@ -1,4 +1,6 @@
 function [totalDMG, dps, breakdown, rotationTime] = simulateEscoffierDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
+    % Escoffier simulator. Personal damage, summon damage, and healing are
+    % all recorded here; team-side shred is prepared upstream.
     if nargin < 3 || isempty(seqFile)
         seqFile = fullfile(fileparts(mfilename('fullpath')), '..', '..', 'data', 'Escoffier', 'rotation_Escoffier.txt');
     end
@@ -82,6 +84,7 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateEscoffierDPS(build, 
 end
 
 function actionTime = localActionTime(action)
+    % Scripted durations define Escoffier's standalone rotation length.
     switch action
         case 'E'
             actionTime = 0.60;

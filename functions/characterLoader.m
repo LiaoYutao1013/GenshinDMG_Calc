@@ -1,4 +1,6 @@
 function charBase = loadCharacter(name)
+    % Legacy helper that loads one character row and its matching talent
+    % CSV by name. Newer code paths prefer getDefaultCharacterConfig.
     % 未来扩展：直接加 case 'HuTao' / 'Neuvillette' 等
     chars = readtable('data/characters.csv');
     row = chars(strcmp(chars.Name, name), :);

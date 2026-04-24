@@ -1,4 +1,5 @@
 function build = customArtifact_Arlecchino()
+    % Default baseline build used by standalone and unified-entry runs.
     build = struct( ...
         'Weapon', 'CrimsonMoon', ...
         'WeaponATK', 674, ...
@@ -14,6 +15,8 @@ function build = customArtifact_Arlecchino()
         'ResShred', 0.00 ...
     );
 
+    % Persist the baseline so analysis scripts can inspect or tweak the
+    % same assumptions from CSV without duplicating these fields elsewhere.
     thisFolder = fileparts(mfilename('fullpath'));
     outputPath = fullfile(thisFolder, '..', '..', 'data', 'Arlecchino', 'artifacts_Arlecchino.csv');
     writetable(struct2table(build), outputPath);

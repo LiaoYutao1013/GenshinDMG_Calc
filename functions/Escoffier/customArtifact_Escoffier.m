@@ -1,4 +1,5 @@
 function build = customArtifact_Escoffier()
+    % Default baseline build used by standalone and unified-entry runs.
     build = struct( ...
         'Weapon', 'Symphonist', ...
         'WeaponATK', 674, ...
@@ -13,6 +14,8 @@ function build = customArtifact_Escoffier()
         'ResShred', 0.00 ...
     );
 
+    % Write the struct back to the data folder so spreadsheet edits and
+    % scripted runs stay anchored to the same baseline artifact file.
     thisFolder = fileparts(mfilename('fullpath'));
     outputPath = fullfile(thisFolder, '..', '..', 'data', 'Escoffier', 'artifacts_Escoffier.csv');
     writetable(struct2table(build), outputPath);

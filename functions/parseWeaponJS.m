@@ -1,4 +1,6 @@
 function weaponTable = parseWeaponJS(filePath)
+    % Parse the project's raw JS weapon dump into the smaller CSV schema
+    % used by build generators and optimization scripts.
     % 获取「本函数文件自己所在的文件夹」 → functions/
     funcFolder = fileparts(mfilename('fullpath'));
     

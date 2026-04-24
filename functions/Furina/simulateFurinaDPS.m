@@ -1,4 +1,8 @@
 function [totalDMG, dps, breakdown, rotationTime] = simulateFurinaDPS(build, enemy, seqFile, talentLevel, constellation)
+% This simulator is driven by a plain-text action list so both standalone
+% and team-level entries can reuse the same action mapping.
+% Furina's rotation includes stance switches and non-damage support rows,
+% so the breakdown keeps notes in addition to numeric damage.
 % simulateFurinaDPS - 芙宁娜单角色循环伤害模拟
 
 thisFolder = fileparts(mfilename('fullpath'));
@@ -17,6 +21,8 @@ end
 base = readtable(fullfile(dataFolder, 'characters_芙宁娜.csv'));
 talent = readtable(fullfile(dataFolder, 'talents_Furina_VerL.csv'));
 
+% Map compact rotation tokens to the exact talent rows used by the generic
+% table lookup helper.
 mapping = struct( ...
     'N1', struct('Skill', '独舞之邀', 'Param', '一段伤害'), ...
     'N2', struct('Skill', '独舞之邀', 'Param', '二段伤害'), ...
@@ -38,6 +44,7 @@ mapping = struct( ...
 actions = readRotationTokens(seqFile);
 rotationTime = 20;
 
+% Precompute the rotation-wide multipliers once because most actions reuse them.
 maxHP = base.BaseHP(1) * (1 + build.HPBonus) + 5000;
 critMult = calcExpectedCritMultiplier(build.CritRate, build.CritDMG);
 damageMult = calcDamageMultiplier(90, enemy, getFieldOrDefault(build, 'ResShred', 0));
@@ -55,6 +62,8 @@ for i = 1:numel(actions)
         continue;
     end
 
+    % Some tokens only mutate state or mark healing/support events, so
+    % they are recorded in the breakdown but intentionally add no damage.
     info = mapping.(actKey);
     note = "";
 

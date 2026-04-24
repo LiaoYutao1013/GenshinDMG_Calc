@@ -1,4 +1,8 @@
 function talentTable = parseTalentFurina(skillFile, charName, version)
+    % Furina needs a dedicated parser because summon, healing, and stance
+    % parameters are all consumed later by the simulator.
+    % The export keeps both normalized numeric levels and selected raw text
+    % so non-standard entries remain inspectable after flattening.
     % parseTalentJS - 芙寧娜特化版：保留所有 ParamDesc（含非傷害字段）
     % 輸出 CSV 包含所有等級列 + SubType（召喚物分類） + IsDamage（是否傷害相關）
     
@@ -6,6 +10,7 @@ function talentTable = parseTalentFurina(skillFile, charName, version)
         version = 'L';
     end
     
+    % Source assets arrive as JavaScript assignments rather than pure JSON.
     txt = fileread(skillFile);
     txt = strtrim(txt);
     txt = regexprep(txt, '^var\s+.*?\=\s*', '');
@@ -20,6 +25,8 @@ function talentTable = parseTalentFurina(skillFile, charName, version)
     skills = data.(charName).Ver.(version).BattleSkills;
     rows = table();
     
+    % Flatten nested skill data into one row per ParamDesc so downstream
+    % damage code can stay table-driven.
     for si = 1:numel(skills)
         skill = skills(si);
         skillName = skill.Name;
@@ -115,6 +122,8 @@ function talentTable = parseTalentFurina(skillFile, charName, version)
         end
     end
     
+    % The CSV becomes the stable hand-off point between parsing once and
+    % simulating many times.
     outputFile = sprintf('../../data/Furina/talents_%s_Ver%s.csv', charName, version);
     writetable(rows, outputFile);
     

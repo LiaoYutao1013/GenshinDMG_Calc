@@ -1,4 +1,7 @@
 function cfg = getDefaultCharacterConfig(name)
+    % Resolve a name used by the unified entry into a complete default
+    % config bundle: display name, build, talent level, constellation, and
+    % the default rotation file.
     initProjectPaths();
     funcFolder = fileparts(mfilename('fullpath'));
     projectRoot = fileparts(funcFolder);

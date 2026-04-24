@@ -1,4 +1,6 @@
 function [totalDMG, dps, breakdown, rotationTime] = simulateSkirkDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
+    % Skirk single-character simulator. It tracks stance state, remaining
+    % resource, absorbed rifts, and constellation-triggered extra hits.
     if nargin < 3 || isempty(seqFile)
         seqFile = fullfile(fileparts(mfilename('fullpath')), '..', '..', 'data', 'Skirk', 'rotation_Skirk.txt');
     end
@@ -167,16 +169,19 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateSkirkDPS(build, enem
 end
 
 function atk = localAttackValue(build, base, teamContext, extraAtkBonus)
+    % Helper for all ATK-based Skirk damage instances.
     totalBonus = build.AtkBonus + getFieldOrDefault(teamContext, 'ATKBonus', 0) + extraAtkBonus;
     atk = (base.BaseATK(1) + build.WeaponATK) * (1 + totalBonus) ...
         + build.FlatATK + getFieldOrDefault(teamContext, 'FlatATK', 0);
 end
 
 function dmgBonus = localCryoBonus(build, teamContext, extraBonus)
+    % Helper for stacking additive cryo-side damage bonuses.
     dmgBonus = 1 + build.CryoDMGBonus + getFieldOrDefault(teamContext, 'AllDMGBonus', 0) + extraBonus;
 end
 
 function actionTime = localActionTime(action)
+    % Scripted durations support standalone DPS and stance-resource decay.
     switch action
         case 'E'
             actionTime = 0.40;
