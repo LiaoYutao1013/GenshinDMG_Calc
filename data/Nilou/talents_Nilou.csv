@@ -1,0 +1,9 @@
+Skill,Param,ScalingType,Level10
+Skill,Dance1HP,MaxHP,0.105
+Skill,Dance2HP,MaxHP,0.118
+Skill,Dance3HP,MaxHP,0.150
+Skill,AuraHP,MaxHP,0.085
+Burst,CastHP,MaxHP,0.268
+Burst,LotusHP,MaxHP,0.410
+Reaction,BountifulCore,FLAT,1720
+Passive,AeonsBonus,DMG,0.09

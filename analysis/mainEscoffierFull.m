@@ -9,13 +9,15 @@ initProjectPaths();
 % Match the baseline enemy assumptions used by the shared team entry.
 enemy = struct('Level', 90, 'Res', 0.10, 'DefReduct', 0);
 % Pull the reusable default build/rotation bundle from common config.
-cfg = getDefaultCharacterConfig('Escoffier');
+constellation = 0;
+cfg = getDefaultCharacterConfig('Escoffier', struct('Constellation', constellation));
 
 [totalDMG, dps, breakdown, rotationTime] = simulateEscoffierDPS( ...
     cfg.Build, enemy, cfg.RotationFile, cfg.TalentLevel, cfg.Constellation, []);
 
-fprintf('==================== 爱可菲 ====================\n');
-fprintf('总伤害: %.0f\n', totalDMG);
+fprintf('==================== Escoffier ====================\n');
+fprintf('Constellation: C%d\n', cfg.Constellation);
+fprintf('Total Damage: %.0f\n', totalDMG);
 fprintf('DPS: %.0f\n', dps);
-fprintf('循环时长: %.2f s\n', rotationTime);
+fprintf('Rotation Time: %.2f s\n', rotationTime);
 disp(breakdown);

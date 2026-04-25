@@ -1,26 +1,37 @@
 function [teamResult, memberResults] = simulateTeamDPS(teamSpec, enemy)
     % Unified team entry. teamSpec can be either:
-    %   1. a cell/string list of character names, or
+    %   1. a cell list of names or name+override structs, or
     %   2. a struct with explicit Members / RotationDuration / SharedBuffs.
     if nargin < 2 || isempty(enemy)
         enemy = struct('Level', 90, 'Res', 0.10, 'DefReduct', 0);
     end
 
-    if iscell(teamSpec) || isstring(teamSpec)
-        % Name-only input uses each character's default build and rotation.
-        names = cellstr(string(teamSpec));
-        members = cell(1, numel(names));
-        for i = 1:numel(names)
-            members{i} = getDefaultCharacterConfig(names{i});
+    if isstring(teamSpec)
+        memberSpecs = cellstr(teamSpec);
+        members = cell(1, numel(memberSpecs));
+        for i = 1:numel(memberSpecs)
+            members{i} = localResolveMemberSpec(memberSpecs{i});
+        end
+        rotationDuration = 20;
+        sharedBuffs = struct();
+    elseif iscell(teamSpec)
+        memberSpecs = teamSpec;
+        members = cell(1, numel(memberSpecs));
+        for i = 1:numel(memberSpecs)
+            members{i} = localResolveMemberSpec(memberSpecs{i});
         end
         rotationDuration = 20;
         sharedBuffs = struct();
     elseif isstruct(teamSpec) && isfield(teamSpec, 'Members')
-        members = teamSpec.Members;
+        rawMembers = teamSpec.Members;
+        members = cell(1, numel(rawMembers));
+        for i = 1:numel(rawMembers)
+            members{i} = localResolveMemberSpec(rawMembers{i});
+        end
         rotationDuration = getFieldOrDefault(teamSpec, 'RotationDuration', 20);
         sharedBuffs = getFieldOrDefault(teamSpec, 'SharedBuffs', struct());
     else
-        error('teamSpec must be a list of names or a struct with a Members field.');
+        error('teamSpec must be a list of members or a struct with a Members field.');
     end
 
     % Build the shared team state once, then reuse it for every member.
@@ -61,4 +72,21 @@ function [teamResult, memberResults] = simulateTeamDPS(teamSpec, enemy)
         'Summary', memberSummary, ...
         'Breakdown', combinedBreakdown, ...
         'TeamContext', teamContext);
+end
+
+function member = localResolveMemberSpec(spec)
+    if isstring(spec) || ischar(spec)
+        member = getDefaultCharacterConfig(spec);
+        return;
+    end
+
+    if isstruct(spec)
+        if ~isfield(spec, 'Name')
+            error('Member override structs must include a Name field.');
+        end
+        member = getDefaultCharacterConfig(spec.Name, spec);
+        return;
+    end
+
+    error('Unsupported member specification in unified team entry.');
 end

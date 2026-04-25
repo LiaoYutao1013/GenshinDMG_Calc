@@ -1,0 +1,8 @@
+Skill,Param,ScalingType,Level10
+Skill,CastDEF,DEF,1.25
+Skill,LumiDEF,DEF,1.05
+Skill,CrushDEF,DEF,2.80
+Burst,CastDEF,DEF,2.10
+Burst,HealDEF,DEF,0.45
+Reaction,LunarCrystallize,FLAT,1650
+Passive,FieldCatalogDEF,DEF,1.50

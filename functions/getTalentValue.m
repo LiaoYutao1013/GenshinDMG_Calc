@@ -23,5 +23,25 @@ function value = getTalentValue(talentTable, skillName, paramName, talentLevel)
         end
     end
 
+    % Some simplified tables only provide a subset of level columns
+    % (for example, only Level10). Fall back to the nearest available
+    % populated level so the simulator can still run.
+    levelColumns = talentTable.Properties.VariableNames(startsWith(talentTable.Properties.VariableNames, 'Level'));
+    if ~isempty(levelColumns)
+        availableLevels = zeros(1, numel(levelColumns));
+        for i = 1:numel(levelColumns)
+            availableLevels(i) = str2double(extractAfter(levelColumns{i}, "Level"));
+        end
+
+        [~, order] = sort(abs(availableLevels - maxLevel), 'ascend');
+        for idx = order
+            candidate = talentTable.(levelColumns{idx})(rowIndex);
+            if ~isnan(candidate)
+                value = candidate;
+                return;
+            end
+        end
+    end
+
     error('No numeric talent value found: %s / %s', skillName, paramName);
 end

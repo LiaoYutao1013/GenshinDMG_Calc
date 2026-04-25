@@ -1,0 +1,2 @@
+Weapon,WeaponATK,DEFBonus,FlatDEF,CritRate,CritDMG,GeoDMGBonus,SkillDMGBonus,BurstDMGBonus,HealingBonus,EM,ResShred
+MoonstringRepeater,608,1.1,240,0.78,1.82,0.466,0.2,0.2,0.15,80,0

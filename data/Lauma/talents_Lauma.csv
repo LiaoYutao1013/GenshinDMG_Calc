@@ -1,0 +1,8 @@
+Skill,Param,ScalingType,Level10
+Skill,CastATK,ATK,2.28
+Skill,SanctuaryATK,ATK,0.92
+Skill,SanctuaryEM,EM,1.55
+Skill,HoldPerDew,EM,1.10
+Burst,CastATK,ATK,1.72
+Burst,PaleHymnBonus,DMG,0.025
+Reaction,LunarBloomBase,FLAT,1900

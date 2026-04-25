@@ -20,13 +20,14 @@ function teamContext = buildTeamContext(members, rotationDuration, sharedBuffs)
         memberConstellations(i) = getFieldOrDefault(members{i}, 'Constellation', 0);
     end
 
-    % Hydro/Cryo counts are reused by multiple team mechanics below.
     hydroMask = memberElements == "Hydro";
     cryoMask = memberElements == "Cryo";
+    pyroMask = memberElements == "Pyro";
+    dendroMask = memberElements == "Dendro";
+    electroMask = memberElements == "Electro";
+    geoMask = memberElements == "Geo";
     hydroCryoCount = sum(hydroMask | cryoMask);
 
-    % Furina is modeled here as a coarse team-wide damage buff so other
-    % simulators can consume one shared value instead of special-casing her.
     allDMGBonus = getFieldOrDefault(sharedBuffs, 'AllDMGBonus', 0);
     allDMGBonus = allDMGBonus + getFieldOrDefault(sharedBuffs, 'ApproxFurinaBonus', 0) * double(any(memberNames == "Furina"));
     if any(memberNames == "Furina") && ~isfield(sharedBuffs, 'ApproxFurinaBonus')
@@ -36,11 +37,12 @@ function teamContext = buildTeamContext(members, rotationDuration, sharedBuffs)
     hydroResShred = getFieldOrDefault(sharedBuffs, 'HydroResShred', 0);
     cryoResShred = getFieldOrDefault(sharedBuffs, 'CryoResShred', 0);
     pyroResShred = getFieldOrDefault(sharedBuffs, 'PyroResShred', 0);
+    dendroResShred = getFieldOrDefault(sharedBuffs, 'DendroResShred', 0);
+    electroResShred = getFieldOrDefault(sharedBuffs, 'ElectroResShred', 0);
+    geoResShred = getFieldOrDefault(sharedBuffs, 'GeoResShred', 0);
     cryoCritDMGBonus = getFieldOrDefault(sharedBuffs, 'CryoCritDMGBonus', 0);
+    geoCritDMGBonus = getFieldOrDefault(sharedBuffs, 'GeoCritDMGBonus', 0);
 
-    % Escoffier contributes Hydro/Cryo shred based on Hydro+Cryo teammate
-    % count. Her C1 cryo crit damage bonus is also team-derived, so it is
-    % more maintainable to compute it here once.
     if any(memberNames == "Escoffier")
         resSchedule = [0, 0.05, 0.10, 0.15, 0.55];
         resBonus = resSchedule(min(hydroCryoCount, 4) + 1);
@@ -55,10 +57,34 @@ function teamContext = buildTeamContext(members, rotationDuration, sharedBuffs)
 
     hydroCount = sum(hydroMask);
     cryoCount = sum(cryoMask);
+    pyroCount = sum(pyroMask);
+    dendroCount = sum(dendroMask);
+    electroCount = sum(electroMask);
+    geoCount = sum(geoMask);
     hasSkirk = any(memberNames == "Skirk");
+    hasLauma = any(memberNames == "Lauma");
+    hasIneffa = any(memberNames == "Ineffa");
+    hasLinnea = any(memberNames == "Linnea");
+    hasNilou = any(memberNames == "Nilou");
+    hasNefer = any(memberNames == "Nefer");
 
-    % Skirk-specific fields are simplified team-state proxies consumed by
-    % simulateSkirkDPS when estimating passive stack availability.
+    lunarBloomEnabled = hasLauma || hasNefer;
+    lunarChargedEnabled = hasIneffa && hydroCount >= 1;
+    lunarCrystallizeEnabled = hasLinnea && hydroCount >= 1;
+    nilouPureBloomTeam = hasNilou && (hydroCount + dendroCount == memberCount) && hydroCount >= 1 && dendroCount >= 1;
+
+    lunarBloomBonus = getFieldOrDefault(sharedBuffs, 'LunarBloomBonus', 0) + 0.40 * double(lunarBloomEnabled);
+    lunarChargedBonus = getFieldOrDefault(sharedBuffs, 'LunarChargedBonus', 0) + 0.30 * double(lunarChargedEnabled);
+    lunarCrystallizeBonus = getFieldOrDefault(sharedBuffs, 'LunarCrystallizeBonus', 0) + 0.30 * double(lunarCrystallizeEnabled);
+    nilouBloomBonus = getFieldOrDefault(sharedBuffs, 'NilouBloomBonus', 0) + 0.20 * double(nilouPureBloomTeam);
+
+    reactionCritRate = getFieldOrDefault(sharedBuffs, 'ReactionCritRate', 0);
+    reactionCritDMG = getFieldOrDefault(sharedBuffs, 'ReactionCritDMG', 0);
+    if lunarBloomEnabled
+        reactionCritRate = max(reactionCritRate, 0.10);
+        reactionCritDMG = max(reactionCritDMG, 0.20);
+    end
+
     teamContext = struct( ...
         'MemberNames', memberNames, ...
         'MemberElements', memberElements, ...
@@ -66,11 +92,32 @@ function teamContext = buildTeamContext(members, rotationDuration, sharedBuffs)
         'AllDMGBonus', allDMGBonus, ...
         'FlatATK', getFieldOrDefault(sharedBuffs, 'FlatATK', 0), ...
         'ATKBonus', getFieldOrDefault(sharedBuffs, 'ATKBonus', 0), ...
+        'EMBonus', getFieldOrDefault(sharedBuffs, 'EMBonus', 0), ...
         'HydroResShred', hydroResShred, ...
         'CryoResShred', cryoResShred, ...
         'PyroResShred', pyroResShred, ...
+        'DendroResShred', dendroResShred, ...
+        'ElectroResShred', electroResShred, ...
+        'GeoResShred', geoResShred, ...
         'CryoCritDMGBonus', cryoCritDMGBonus, ...
+        'GeoCritDMGBonus', geoCritDMGBonus, ...
         'HydroCryoCount', hydroCryoCount, ...
+        'HydroCount', hydroCount, ...
+        'CryoCount', cryoCount, ...
+        'PyroCount', pyroCount, ...
+        'DendroCount', dendroCount, ...
+        'ElectroCount', electroCount, ...
+        'GeoCount', geoCount, ...
+        'LunarBloomEnabled', lunarBloomEnabled, ...
+        'LunarChargedEnabled', lunarChargedEnabled, ...
+        'LunarCrystallizeEnabled', lunarCrystallizeEnabled, ...
+        'NilouPureBloomTeam', nilouPureBloomTeam, ...
+        'LunarBloomBonus', lunarBloomBonus, ...
+        'LunarChargedBonus', lunarChargedBonus, ...
+        'LunarCrystallizeBonus', lunarCrystallizeBonus, ...
+        'NilouBloomBonus', nilouBloomBonus, ...
+        'ReactionCritRate', reactionCritRate, ...
+        'ReactionCritDMG', reactionCritDMG, ...
         'SkirkSkillLevelBonus', double(hasSkirk && hydroCount >= 1 && cryoCount >= 1 && hydroCryoCount == memberCount), ...
         'SkirkDeathCrossingStacks', double(hasSkirk) * min(3, hydroCount + max(cryoCount - 1, 0)), ...
         'SkirkVoidRifts', double(hasSkirk && hydroCount >= 1 && cryoCount >= 1) * 3 ...
@@ -88,6 +135,16 @@ function element = localGetElement(name)
             element = "Pyro";
         case 'furina'
             element = "Hydro";
+        case 'lauma'
+            element = "Dendro";
+        case 'ineffa'
+            element = "Electro";
+        case 'linnea'
+            element = "Geo";
+        case 'nilou'
+            element = "Hydro";
+        case 'nefer'
+            element = "Dendro";
         otherwise
             element = "Physical";
     end

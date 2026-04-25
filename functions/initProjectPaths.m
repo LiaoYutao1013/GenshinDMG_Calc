@@ -13,6 +13,11 @@ function initProjectPaths()
     addpath(fullfile(root, 'functions', 'Skirk'));
     addpath(fullfile(root, 'functions', 'Escoffier'));
     addpath(fullfile(root, 'functions', 'Arlecchino'));
+    addpath(fullfile(root, 'functions', 'Lauma'));
+    addpath(fullfile(root, 'functions', 'Ineffa'));
+    addpath(fullfile(root, 'functions', 'Linnea'));
+    addpath(fullfile(root, 'functions', 'Nilou'));
+    addpath(fullfile(root, 'functions', 'Nefer'));
 
     initialized = true;
 end

@@ -27,6 +27,21 @@ function result = simulateCharacterDPS(memberCfg, enemy, teamContext)
             teamAdjustedBuild.ResShred = teamAdjustedBuild.ResShred + getFieldOrDefault(teamContext, 'HydroResShred', 0);
             [totalDMG, dps, breakdown, rotationTime] = simulateFurinaDPS( ...
                 teamAdjustedBuild, enemy, memberCfg.RotationFile, memberCfg.TalentLevel, memberCfg.Constellation);
+        case 'lauma'
+            [totalDMG, dps, breakdown, rotationTime] = simulateLaumaDPS( ...
+                memberCfg.Build, enemy, memberCfg.RotationFile, memberCfg.TalentLevel, memberCfg.Constellation, teamContext);
+        case 'ineffa'
+            [totalDMG, dps, breakdown, rotationTime] = simulateIneffaDPS( ...
+                memberCfg.Build, enemy, memberCfg.RotationFile, memberCfg.TalentLevel, memberCfg.Constellation, teamContext);
+        case 'linnea'
+            [totalDMG, dps, breakdown, rotationTime] = simulateLinneaDPS( ...
+                memberCfg.Build, enemy, memberCfg.RotationFile, memberCfg.TalentLevel, memberCfg.Constellation, teamContext);
+        case 'nilou'
+            [totalDMG, dps, breakdown, rotationTime] = simulateNilouDPS( ...
+                memberCfg.Build, enemy, memberCfg.RotationFile, memberCfg.TalentLevel, memberCfg.Constellation, teamContext);
+        case 'nefer'
+            [totalDMG, dps, breakdown, rotationTime] = simulateNeferDPS( ...
+                memberCfg.Build, enemy, memberCfg.RotationFile, memberCfg.TalentLevel, memberCfg.Constellation, teamContext);
         otherwise
             error('No simulator registered for %s', memberCfg.Name);
     end

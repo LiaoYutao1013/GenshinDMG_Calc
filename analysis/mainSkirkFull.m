@@ -9,13 +9,15 @@ initProjectPaths();
 % Keep standalone validation on the same enemy baseline as team simulation.
 enemy = struct('Level', 90, 'Res', 0.10, 'DefReduct', 0);
 % Centralized defaults keep standalone and unified entry behavior aligned.
-cfg = getDefaultCharacterConfig('Skirk');
+constellation = 0;
+cfg = getDefaultCharacterConfig('Skirk', struct('Constellation', constellation));
 
 [totalDMG, dps, breakdown, rotationTime] = simulateSkirkDPS( ...
     cfg.Build, enemy, cfg.RotationFile, cfg.TalentLevel, cfg.Constellation, []);
 
-fprintf('==================== 丝柯克 ====================\n');
-fprintf('总伤害: %.0f\n', totalDMG);
+fprintf('==================== Skirk ====================\n');
+fprintf('Constellation: C%d\n', cfg.Constellation);
+fprintf('Total Damage: %.0f\n', totalDMG);
 fprintf('DPS: %.0f\n', dps);
-fprintf('循环时长: %.2f s\n', rotationTime);
+fprintf('Rotation Time: %.2f s\n', rotationTime);
 disp(breakdown);
