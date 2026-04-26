@@ -1,0 +1,6 @@
+Skill,Param,ScalingType,Level10
+Skill,SharkEntryHP,MaxHP,0.145
+Skill,SharkBiteHP,MaxHP,0.215
+Skill,MissileHP,MaxHP,0.285
+Burst,CastHP,MaxHP,0.510
+Reaction,VaporizeBonus,DMG,0.50

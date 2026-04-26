@@ -1,50 +1,57 @@
 function charTable = parseBaseStatsJS(filePath, targetName)
-    % Extract one character's base stat block from the raw JS dump and
-    % export the subset needed by the simulators into a compact CSV.
-    
-    % 获取「本函数文件自己所在的文件夹」 → functions/
+    % 从原始 AvatarExcelConfigData.js 中提取单个角色的基础面板数据。
+    % 输出结果会写入 data/characters_<角色名>.csv，供后续模拟器、
+    % 构筑脚本或数据校验脚本直接读取。
+
+    % 这里固定以当前函数所在目录为锚点推导 data 路径，避免调用时
+    % 受当前工作目录影响。filePath 参数目前主要保留给旧接口兼容。
     funcFolder = fileparts(mfilename('fullpath'));
-    
-    % 往上一级到项目根目录，再进入 data
     dataFolder = fullfile(funcFolder, '..', 'data');
-    filePath   = fullfile(dataFolder, 'AvatarExcelConfigData.js');
-    
-    % 调试用：建议先保留这几行，确认路径正确后再注释掉
-    %fprintf('期望的文件完整路径：\n%s\n', filePath);
-    %if ~exist(filePath, 'file')
-    %    error('文件找不到：\n%s\n请确认文件是否存在，以及脚本是否在正确的位置运行', filePath);
-    %end
+    filePath = fullfile(dataFolder, 'AvatarExcelConfigData.js');
+
+    % 读取原始 JS 文本。原文件不是纯 JSON，后面会先做文本清洗。
     txt = fileread(filePath);
-    % 清理成可解析的JSON数组
+
+    % 去掉变量赋值前缀和尾部分号，整理为可被 jsondecode 解析的数组。
     txt = regexprep(txt, 'var __AvatarInfoConfig = ', '');
     txt = regexprep(txt, 'var _MaterialConfig = .*?var index_avatar = .*?;', '', 'once');
     txt = regexprep(txt, ';$', '');
-    data = jsondecode(txt);   % MATLAB R2019b+
-    
-    n = length(data);
+    data = jsondecode(txt);
 
-
-    % 遍历找到目标角色
+    % 遍历查找目标角色，允许大小写宽松匹配。
+    obj = [];
     for i = 1:length(data)
-        if strcmp(data{i}.Name, targetName) || contains(data{i}.Name, targetName, 'IgnoreCase',true)
+        if strcmp(data{i}.Name, targetName) || contains(data{i}.Name, targetName, 'IgnoreCase', true)
             obj = data{i};
             break;
         end
     end
 
-    % 提取关键属性（ShowStats 为90级基础，ShowStats2 为突破后参考）
-    baseHP  = obj.ShowStats.HP;
+    % 若未命中，直接报错，提醒维护者检查角色英文键名是否正确。
+    if isempty(obj)
+        error('未在 AvatarExcelConfigData.js 中找到角色 %s。', targetName);
+    end
+
+    % 提取工程当前会用到的基础字段：
+    % ShowStats 视作 90 级基础参考面板，CustomPromote 与 Custom 用于
+    % 记录突破附加属性类型及数值。
+    baseHP = obj.ShowStats.HP;
     baseATK = obj.ShowStats.ATK;
     baseDEF = obj.ShowStats.DEF;
-    customVal = obj.ShowStats.Custom;          % 突破属性数值
-    customType = obj.CustomPromote;            % CR / CD / HP / EM 等
+    customVal = obj.ShowStats.Custom;
+    customType = obj.CustomPromote;
 
-    charTable = table(string(obj.Name), baseHP, baseATK, baseDEF, 90, ...
-        num2cell(customType), num2cell(customVal), string(obj.Weapon), string(obj.Element), ...
+    % 统一写成一行表结构，字段名与项目内其它角色基础表保持一致。
+    charTable = table( ...
+        string(obj.Name), baseHP, baseATK, baseDEF, 90, ...
+        string(customType), customVal, string(obj.Weapon), string(obj.Element), ...
         'VariableNames', {'Name','BaseHP','BaseATK','BaseDEF','Level', ...
-                          'AscensionType','AscensionValue','Weapon','Element'});
+        'AscensionType','AscensionValue','Weapon','Element'});
 
-    writetable(charTable, ['../data/characters_', targetName, '.csv']);
-    fprintf('✅ 解析完成！%s 已保存\n', targetName);
+    % 导出到工程 data 目录，供模拟器和构筑脚本读取。
+    outputPath = fullfile(funcFolder, '..', 'data', ['characters_', targetName, '.csv']);
+    writetable(charTable, outputPath);
+
+    fprintf('基础面板解析完成：%s\n', targetName);
     disp(charTable);
 end

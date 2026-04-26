@@ -1,0 +1,7 @@
+Skill,Param,ScalingType,Level10
+Skill,CastDEF,DEF,1.95
+Skill,SpringDEF,DEF,1.25
+Skill,ChargeDEF,DEF,2.90
+Burst,CastDEF,DEF,3.55
+Burst,StonehoofDEF,DEF,1.60
+Reaction,LunarCrystallize,FLAT,1720

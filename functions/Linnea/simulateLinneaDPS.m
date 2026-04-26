@@ -1,6 +1,6 @@
 function [totalDMG, dps, breakdown, rotationTime] = simulateLinneaDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
-    % Simplified Linnea simulator focused on Lumi follow-up hits, DEF-based
-    % Geo damage, and Lunar-Crystallize detonations.
+    % Linnea simulator. It models Lumi uptime, Field Catalog stack growth,
+    % burst healing, and the heavy Crush finisher that spends stored stacks.
     if nargin < 3 || isempty(seqFile)
         seqFile = fullfile(fileparts(mfilename('fullpath')), '..', '..', 'data', 'Linnea', 'rotation_Linnea.txt');
     end
@@ -35,71 +35,89 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateLinneaDPS(build, ene
         lunarCrystallizeEnabled = true;
     end
 
+    state = struct( ...
+        'LumiTime', 0, ...
+        'LumiHits', 0, ...
+        'FieldCatalogStacks', 0, ...
+        'MaxFieldCatalog', 6 + 3 * double(constellation >= 6), ...
+        'BurstTime', 0 ...
+    );
+
     totalDMG = 0;
-    rotationTime = 0;
     healTotal = 0;
-    lumiHits = 0;
-    fieldCatalogStacks = 0;
-    maxFieldCatalog = 6 + 3 * double(constellation >= 6);
+    rotationTime = 0;
     breakdown = table('Size', [0 3], 'VariableTypes', {'string', 'double', 'string'}, ...
         'VariableNames', {'Action', 'Damage', 'Note'});
 
     for i = 1:numel(actions)
         action = actions{i};
+        actionTime = localActionTime(action);
         note = "";
         dmg = 0;
 
         switch action
             case 'E'
-                mv = getTalentValue(talent, 'Skill', 'CastDEF', talentLevel);
-                dmg = defStat * mv * localGeoBonus(build, teamContext, getFieldOrDefault(build, 'SkillDMGBonus', 0)) ...
+                dmg = defStat * getTalentValue(talent, 'Skill', 'CastDEF', talentLevel) ...
+                    * localGeoBonus(build, teamContext, getFieldOrDefault(build, 'SkillDMGBonus', 0)) ...
                     * geoCritMult * geoMult;
-                fieldCatalogStacks = min(maxFieldCatalog, fieldCatalogStacks + 2);
-                note = sprintf('Lumi deployed, field catalog=%d', fieldCatalogStacks);
+                state.LumiTime = 12.0;
+                state.LumiHits = 0;
+                state.FieldCatalogStacks = min(state.MaxFieldCatalog, state.FieldCatalogStacks + 2);
+                note = sprintf('Lumi deployed, field catalog=%d', state.FieldCatalogStacks);
 
             case 'Lumi'
-                lumiHits = lumiHits + 1;
-                mv = getTalentValue(talent, 'Skill', 'LumiDEF', talentLevel);
-                dmg = defStat * mv * localGeoBonus(build, teamContext, getFieldOrDefault(build, 'SkillDMGBonus', 0)) ...
-                    * geoCritMult * geoMult;
-                fieldCatalogStacks = min(maxFieldCatalog, fieldCatalogStacks + 1);
-                note = sprintf('Lumi strike #%d', lumiHits);
+                if state.LumiTime > 0
+                    state.LumiHits = state.LumiHits + 1;
+                    state.FieldCatalogStacks = min(state.MaxFieldCatalog, state.FieldCatalogStacks + 1);
+                    lumiBonus = 1 + 0.06 * state.LumiHits + 0.04 * state.FieldCatalogStacks;
+                    dmg = defStat * getTalentValue(talent, 'Skill', 'LumiDEF', talentLevel) * lumiBonus ...
+                        * localGeoBonus(build, teamContext, getFieldOrDefault(build, 'SkillDMGBonus', 0)) ...
+                        * geoCritMult * geoMult;
+                    note = sprintf('Lumi strike #%d, field catalog=%d', state.LumiHits, state.FieldCatalogStacks);
+                else
+                    note = "Lumi expired";
+                end
 
             case 'Harmony'
                 if lunarCrystallizeEnabled
-                    reactionBonus = 1 + getFieldOrDefault(teamContext, 'LunarCrystallizeBonus', 0) + 0.25 * double(constellation >= 6);
+                    reactionBonus = 1 + getFieldOrDefault(teamContext, 'LunarCrystallizeBonus', 0) ...
+                        + 0.05 * state.FieldCatalogStacks + 0.25 * double(constellation >= 6);
                     dmg = calcReactionDamage(getTalentValue(talent, 'Reaction', 'LunarCrystallize', talentLevel), ...
                         getFieldOrDefault(build, 'EM', 0), enemy, geoResShred, reactionBonus, ...
                         getFieldOrDefault(build, 'CritRate', 0), geoCritDMG);
-                    note = "Lunar-Crystallize detonation";
+                    note = sprintf('Lunar-Crystallize detonation, field catalog=%d', state.FieldCatalogStacks);
                 else
                     note = "No Hydro aura for Lunar-Crystallize";
                 end
 
             case 'Q'
-                mv = getTalentValue(talent, 'Burst', 'CastDEF', talentLevel);
-                dmg = defStat * mv * localGeoBonus(build, teamContext, getFieldOrDefault(build, 'BurstDMGBonus', 0)) ...
+                burstBonus = 1 + 0.04 * state.FieldCatalogStacks;
+                dmg = defStat * getTalentValue(talent, 'Burst', 'CastDEF', talentLevel) * burstBonus ...
+                    * localGeoBonus(build, teamContext, getFieldOrDefault(build, 'BurstDMGBonus', 0)) ...
                     * geoCritMult * geoMult;
                 healTotal = healTotal + defStat * getTalentValue(talent, 'Burst', 'HealDEF', talentLevel) ...
                     * (1 + getFieldOrDefault(build, 'HealingBonus', 0));
-                fieldCatalogStacks = min(maxFieldCatalog, fieldCatalogStacks + 2);
-                note = sprintf('Burst cast, field catalog=%d', fieldCatalogStacks);
+                state.BurstTime = 10.0;
+                state.FieldCatalogStacks = min(state.MaxFieldCatalog, state.FieldCatalogStacks + 2);
+                note = sprintf('Burst cast, field catalog=%d', state.FieldCatalogStacks);
 
             case 'Crush'
                 crushCritDMG = geoCritDMG + 1.50 * double(constellation >= 2);
                 crushCritMult = calcExpectedCritMultiplier(getFieldOrDefault(build, 'CritRate', 0), crushCritDMG);
                 mv = getTalentValue(talent, 'Skill', 'CrushDEF', talentLevel);
-                dmg = defStat * mv * localGeoBonus(build, teamContext, getFieldOrDefault(build, 'SkillDMGBonus', 0)) ...
+                spendBonus = 1 + 0.05 * state.FieldCatalogStacks + 0.10 * double(state.BurstTime > 0);
+                dmg = defStat * mv * spendBonus ...
+                    * localGeoBonus(build, teamContext, getFieldOrDefault(build, 'SkillDMGBonus', 0)) ...
                     * crushCritMult * geoMult;
 
-                if constellation >= 1 && fieldCatalogStacks > 0
-                    stackBonus = defStat * getTalentValue(talent, 'Passive', 'FieldCatalogDEF', talentLevel) * fieldCatalogStacks;
+                if constellation >= 1 && state.FieldCatalogStacks > 0
+                    stackBonus = defStat * getTalentValue(talent, 'Passive', 'FieldCatalogDEF', talentLevel) * state.FieldCatalogStacks;
                     if constellation >= 6
                         stackBonus = stackBonus * 1.50;
                     end
                     dmg = dmg + stackBonus;
-                    note = sprintf('Consumed %d field catalog stacks', fieldCatalogStacks);
-                    fieldCatalogStacks = 0;
+                    note = sprintf('Consumed %d field catalog stacks', state.FieldCatalogStacks);
+                    state.FieldCatalogStacks = 0;
                 else
                     note = "Million-Ton Crush";
                 end
@@ -110,7 +128,8 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateLinneaDPS(build, ene
 
         totalDMG = totalDMG + dmg;
         breakdown = [breakdown; {string(action), dmg, note}]; %#ok<AGROW>
-        rotationTime = rotationTime + localActionTime(action);
+        rotationTime = rotationTime + actionTime;
+        state = localAdvanceState(state, actionTime);
     end
 
     if healTotal > 0
@@ -123,6 +142,12 @@ end
 function dmgBonus = localGeoBonus(build, teamContext, extraBonus)
     dmgBonus = 1 + getFieldOrDefault(build, 'GeoDMGBonus', 0) ...
         + getFieldOrDefault(teamContext, 'AllDMGBonus', 0) + extraBonus;
+end
+
+function state = localAdvanceState(state, actionTime)
+    % Advance Lumi and burst windows so stack generation stays time-aware.
+    state.LumiTime = max(0, state.LumiTime - actionTime);
+    state.BurstTime = max(0, state.BurstTime - actionTime);
 end
 
 function actionTime = localActionTime(action)
