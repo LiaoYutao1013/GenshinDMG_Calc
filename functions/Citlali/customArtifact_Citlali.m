@@ -1,5 +1,6 @@
 function build = customArtifact_Citlali()
-    % Default EM/Cryo support build for Citlali's shield and burst window.
+    % 茜特菈莉默认构筑。
+    % 默认面板强调精通和冰伤，适配护盾、追击星体和爆发头骨段。
     build = struct( ...
         'Weapon', 'ObsidianWhisper', ...
         'WeaponATK', 542, ...
@@ -12,6 +13,7 @@ function build = customArtifact_Citlali()
         'ResShred', 0.00 ...
     );
 
+    % 回写 CSV，便于后续直接在表格中查看或微调。
     thisFolder = fileparts(mfilename('fullpath'));
     outputPath = fullfile(thisFolder, '..', '..', 'data', 'Citlali', 'artifacts_Citlali.csv');
     writetable(struct2table(build), outputPath);

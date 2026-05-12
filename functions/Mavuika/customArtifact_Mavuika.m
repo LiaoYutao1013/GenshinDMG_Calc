@@ -1,5 +1,6 @@
 function build = customArtifact_Mavuika()
-    % Default ATK/crit Pyro build for Mavuika's fighting-spirit burst window.
+    % 玛薇卡默认构筑。
+    % 默认面板偏向攻击、双暴和火伤，适配战意型爆发窗口。
     build = struct( ...
         'Weapon', 'SunforgedClaymore', ...
         'WeaponATK', 741, ...
@@ -13,6 +14,7 @@ function build = customArtifact_Mavuika()
         'ResShred', 0.00 ...
     );
 
+    % 回写 CSV，便于统一入口和人工调参共用。
     thisFolder = fileparts(mfilename('fullpath'));
     outputPath = fullfile(thisFolder, '..', '..', 'data', 'Mavuika', 'artifacts_Mavuika.csv');
     writetable(struct2table(build), outputPath);

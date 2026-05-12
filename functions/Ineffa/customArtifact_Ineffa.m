@@ -1,6 +1,6 @@
 function build = customArtifact_Ineffa()
-    % Default crit/ATK-oriented Ineffa build with enough EM to make
-    % Lunar-Charged side damage visible in mixed teams.
+    % 伊涅芙默认构筑。
+    % 默认面板偏向暴击和攻击，同时保留一定精通以体现月感电派生伤害。
     build = struct( ...
         'Weapon', 'VanillaVoltage', ...
         'WeaponATK', 674, ...
@@ -15,6 +15,7 @@ function build = customArtifact_Ineffa()
         'ResShred', 0.00 ...
     );
 
+    % 回写 CSV，供分析脚本和统一入口共用。
     thisFolder = fileparts(mfilename('fullpath'));
     outputPath = fullfile(thisFolder, '..', '..', 'data', 'Ineffa', 'artifacts_Ineffa.csv');
     writetable(struct2table(build), outputPath);

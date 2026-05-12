@@ -1,6 +1,7 @@
 function build = customArtifact_Skirk()
-    % Default baseline build used by the standalone Skirk entry and the
-    % unified team entry.
+    % 丝柯克默认构筑。
+    % 该函数同时服务于单角色入口和统一配队入口，返回的结构体会被
+    % 同步写回 CSV，便于你在脚本和表格之间保持同一套默认面板。
     build = struct( ...
         'Weapon', 'Azurelight', ...
         'WeaponATK', 674, ...
@@ -16,6 +17,7 @@ function build = customArtifact_Skirk()
         'EM', 40 ...
     );
 
+    % 将默认构筑回写到 data 目录，方便人工检查或二次修改。
     thisFolder = fileparts(mfilename('fullpath'));
     outputPath = fullfile(thisFolder, '..', '..', 'data', 'Skirk', 'artifacts_Skirk.csv');
     writetable(struct2table(build), outputPath);

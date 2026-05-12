@@ -1,5 +1,6 @@
 function build = customArtifact_Zibai()
-    % Default DEF/crit build for Zibai's Geo constructs and charge finisher.
+    % 兹白默认构筑。
+    % 默认面板以防御、双暴和岩伤为主，适配泉场与重击终结段。
     build = struct( ...
         'Weapon', 'CloudhoofBlade', ...
         'WeaponATK', 608, ...
@@ -14,6 +15,7 @@ function build = customArtifact_Zibai()
         'ResShred', 0.00 ...
     );
 
+    % 回写 CSV，供分析入口和统一入口共同使用。
     thisFolder = fileparts(mfilename('fullpath'));
     outputPath = fullfile(thisFolder, '..', '..', 'data', 'Zibai', 'artifacts_Zibai.csv');
     writetable(struct2table(build), outputPath);

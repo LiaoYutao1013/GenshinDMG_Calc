@@ -1,5 +1,6 @@
 function build = customArtifact_Arlecchino()
-    % Default baseline build used by standalone and unified-entry runs.
+    % 阿蕾奇诺默认构筑。
+    % 作为单角色入口与统一入口的共享默认面板，同时会回写 CSV。
     build = struct( ...
         'Weapon', 'CrimsonMoon', ...
         'WeaponATK', 674, ...
@@ -15,8 +16,7 @@ function build = customArtifact_Arlecchino()
         'ResShred', 0.00 ...
     );
 
-    % Persist the baseline so analysis scripts can inspect or tweak the
-    % same assumptions from CSV without duplicating these fields elsewhere.
+    % 持久化到 CSV，方便分析脚本和手工调参读取同一套字段。
     thisFolder = fileparts(mfilename('fullpath'));
     outputPath = fullfile(thisFolder, '..', '..', 'data', 'Arlecchino', 'artifacts_Arlecchino.csv');
     writetable(struct2table(build), outputPath);

@@ -1,0 +1,17 @@
+Skill,Param,ScalingType,Level10
+Skill,ConfirmATK,ATK,1.9008
+Skill,Deny1ATK,ATK,1.0989
+Skill,Deny2ATK,ATK,0.9044
+Skill,Deny3ATK,ATK,1.3003
+Burst,White1ATK,ATK,1.7894
+Burst,White2ATK,ATK,1.6388
+Burst,White3ATK,ATK,2.0223
+Burst,Dark1ATK,ATK,2.2579
+Burst,Dark2ATK,ATK,1.8317
+Burst,Dark3ATK,ATK,2.0131
+Burst,WhiteDragonATK,ATK,1.7035
+Burst,DarkDragonATK,ATK,2.3371
+Passive,DarkAmp,DMG,0.40
+Passive,C2Bonus,DMG,0.50
+Constellation,C4BurstBonus,DMG,0.40
+Constellation,C6WhiteDefReduct,DMG,0.30

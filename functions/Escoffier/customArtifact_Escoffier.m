@@ -1,5 +1,7 @@
 function build = customArtifact_Escoffier()
-    % Default baseline build used by standalone and unified-entry runs.
+    % 爱可菲默认构筑。
+    % 返回结构体后会同步写回 CSV，作为单角色入口与统一入口共用的
+    % 默认构筑基线。
     build = struct( ...
         'Weapon', 'Symphonist', ...
         'WeaponATK', 674, ...
@@ -14,8 +16,7 @@ function build = customArtifact_Escoffier()
         'ResShred', 0.00 ...
     );
 
-    % Write the struct back to the data folder so spreadsheet edits and
-    % scripted runs stay anchored to the same baseline artifact file.
+    % 将默认构筑回写到 data 目录，保证表格与脚本读取的是同一份基线。
     thisFolder = fileparts(mfilename('fullpath'));
     outputPath = fullfile(thisFolder, '..', '..', 'data', 'Escoffier', 'artifacts_Escoffier.csv');
     writetable(struct2table(build), outputPath);

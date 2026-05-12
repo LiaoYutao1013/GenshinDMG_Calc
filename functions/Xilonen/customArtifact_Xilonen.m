@@ -1,5 +1,6 @@
 function build = customArtifact_Xilonen()
-    % Default DEF/support build for Xilonen's source samples and burst heal.
+    % 希诺宁默认构筑。
+    % 默认面板以防御和岩伤为主，同时保留治疗加成，适配采样与爆发治疗。
     build = struct( ...
         'Weapon', 'TrailforgedEdge', ...
         'WeaponATK', 608, ...
@@ -14,6 +15,7 @@ function build = customArtifact_Xilonen()
         'ResShred', 0.00 ...
     );
 
+    % 回写 CSV，供统一入口和分析脚本复用。
     thisFolder = fileparts(mfilename('fullpath'));
     outputPath = fullfile(thisFolder, '..', '..', 'data', 'Xilonen', 'artifacts_Xilonen.csv');
     writetable(struct2table(build), outputPath);

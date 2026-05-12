@@ -1,0 +1,3 @@
+# AUTO lets the simulator choose a finer rotation based on constellation,
+# available convertible teammate elements, and whether burst is worth fitting.
+AUTO

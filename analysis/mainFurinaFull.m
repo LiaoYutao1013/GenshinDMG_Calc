@@ -1,72 +1,67 @@
 % ========================================================
 % mainFurinaFull.m
-% 芙寧娜完整模擬入口（最還原實戰版）
-% 
-% 功能：
-% 1. 自動檢查並解析天賦倍率（如果不存在）
-% 2. 自定義武器 + 聖遺物配置（可直接修改）
-% 3. 從 TXT 讀入自定義手法排軸
-% 4. 嚴格模擬重擊切換形態、三海鮮各自傷害、芒性普攻強化、氛圍值、C1/C2/C6
-% 5. 輸出詳細 breakdown + 總結
+% 芙宁娜旧版完整模拟入口
+%
+% 该脚本保留了项目早期 Furina 专用工作流：
+% 1. 检查并解析天赋倍率表；
+% 2. 生成默认构筑；
+% 3. 读取手写轮转脚本；
+% 4. 调用旧版 Furina 专用模拟器；
+% 5. 输出总伤与分段明细。
 % ========================================================
 
 clear; clc; close all;
-% Legacy standalone Furina entry that wires together build generation,
-% enemy setup, rotation selection, and final result printing.
-addpath('../functions')
-addpath('../functions/Furina/')
 
-%% ================== 1. 自動解析天賦（如果不存在） ==================
+% 旧版 Furina 入口仍使用独立函数目录，因此需要单独加路径。
+addpath('../functions');
+addpath('../functions/Furina/');
+
+%% 1. 天赋数据准备
+% 若扁平化天赋表不存在，则先从原始技能 JSON 重新解析一次。
 talentFile = '../data/Furina/talents_Furina_VerL.csv';
 if ~exist(talentFile, 'file')
     fprintf('正在解析芙宁娜天赋倍率...\n');
     parseTalentJS('../data/Furina/Furina_skill.json', 'Furina', 'L');
-    fprintf('解析完成！\n\n');
+    fprintf('解析完成。\n\n');
 end
 
-%% ================== 2. 自定義武器 + 聖遺物配置 ==================
-% ←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←
-% 自動載入最新聖遺物配置
-build = customArtifact_Furina();   % 或直接 readtable
+%% 2. 默认构筑准备
+% 生成旧版 Furina 默认构筑，并同步写回 artifacts_Furina.csv。
+build = customArtifact_Furina();
 
-% 可選：如果你有多套聖遺物預設，可在這裡切換
-% build = loadPreset('Furina_Build1');   % 未來可擴展
-
-%% ================== 3. 敵人設定 ==================
-enemy = struct(...
-    'Level',     90, ...
-    'Res',       0.10, ...      % 抗性
+%% 3. 敌人配置
+enemy = struct( ...
+    'Level', 90, ...
+    'Res', 0.10, ...
     'DefReduct', 0 ...
 );
 
-%% ================== 4. 手法排軸檔案 ==================
-rotationFile = '../data/Furina/rotation_Furina.txt';   % ← 你的自定義排軸
+%% 4. 轮转文件
+% 旧版 Furina 使用纯文本动作脚本描述轮转。
+rotationFile = '../data/Furina/rotation_Furina.txt';
 
-%% ================== 5. 執行完整模擬 ==================
+%% 5. 执行模拟
 fprintf('开始芙宁娜模拟...\n');
-fprintf('配置：%s | 天赋%d | C%d\n\n', build.Weapon, 10, 6);
+fprintf('配置：%s | 天赋 %d | C%d\n\n', build.Weapon, 10, 6);
 
-[totalDMG, dps, breakdown] = simulateFurinaDPS(...
+[totalDMG, dps, breakdown] = simulateFurinaDPS( ...
     build, ...
     enemy, ...
     rotationFile, ...
-    10, ...      % 天賦等級（可改）
-    6 ...        % 命座等級（可改 0~6）
+    10, ...
+    6 ...
 );
 
-%% ================== 6. 結果輸出與保存 ==================
-fprintf('\n==================== 最終結果 ====================\n');
+%% 6. 输出结果
+fprintf('\n==================== 最终结果 ====================\n');
 fprintf('总伤害：%.0f\n', totalDMG);
 fprintf('DPS：%.0f\n', dps);
-fprintf('循环时间：120 秒\n');
-fprintf('====================================================\n\n');
+fprintf('循环时长：20 秒\n');
+fprintf('==================================================\n\n');
 
-% 顯示前10段詳細 breakdown
-disp(breakdown(1:min(10,height(breakdown)),:));
+% 只预览前几行明细，避免控制台输出过长。
+disp(breakdown(1:min(10, height(breakdown)), :));
 
-% 保存到 Excel（方便後續分析）
-%writetable(breakdown, 'output/Furina_DPS_Breakdown.xlsx');
-%fprintf('詳細 breakdown 已保存至 output/Furina_DPS_Breakdown.xlsx\n');
-
-% 可選：自動開啟 Excel（Windows）
-% winopen('output/Furina_DPS_Breakdown.xlsx');
+% 如需导出为 Excel，可打开下面两行注释。
+% writetable(breakdown, 'output/Furina_DPS_Breakdown.xlsx');
+% fprintf('明细已导出到 output/Furina_DPS_Breakdown.xlsx\n');

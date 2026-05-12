@@ -1,6 +1,6 @@
 function build = customArtifact_Nefer()
-    % EM/Dendro damage baseline for Nefer's Shadow Dance and Lunar-Bloom
-    % focused field time.
+    % 奈芙尔默认构筑。
+    % 默认面板强调精通和草伤，适配影舞与月绽放核心玩法。
     build = struct( ...
         'Weapon', 'SecretArchive', ...
         'WeaponATK', 608, ...
@@ -15,6 +15,7 @@ function build = customArtifact_Nefer()
         'ResShred', 0.00 ...
     );
 
+    % 回写 CSV，方便统一入口和单角色入口共用同一基线。
     thisFolder = fileparts(mfilename('fullpath'));
     outputPath = fullfile(thisFolder, '..', '..', 'data', 'Nefer', 'artifacts_Nefer.csv');
     writetable(struct2table(build), outputPath);

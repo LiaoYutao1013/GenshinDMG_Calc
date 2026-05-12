@@ -1,6 +1,7 @@
 function build = customArtifact_Nilou()
-    % HP-oriented baseline build for Nilou's Hydro damage plus Bountiful
-    % Core contribution in Hydro/Dendro teams.
+    % 妮露默认构筑。
+    % 默认面板以生命值为核心，同时兼顾一定精通，用于模拟水伤和
+    % 丰穰之核两部分贡献。
     build = struct( ...
         'Weapon', 'KeyOfKhajNisut', ...
         'WeaponATK', 542, ...
@@ -15,6 +16,7 @@ function build = customArtifact_Nilou()
         'ResShred', 0.00 ...
     );
 
+    % 回写 CSV，便于和脚本内默认值保持一致。
     thisFolder = fileparts(mfilename('fullpath'));
     outputPath = fullfile(thisFolder, '..', '..', 'data', 'Nilou', 'artifacts_Nilou.csv');
     writetable(struct2table(build), outputPath);

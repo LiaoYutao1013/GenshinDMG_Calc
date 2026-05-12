@@ -1,5 +1,6 @@
 function build = customArtifact_Flins()
-    % Default crit/electro build for Flins's summon-heavy burst window.
+    % 菲林斯默认构筑。
+    % 当前默认面板偏向双暴与雷伤，兼顾少量精通以体现月感电派生伤害。
     build = struct( ...
         'Weapon', 'NightwatchPike', ...
         'WeaponATK', 674, ...
@@ -15,6 +16,7 @@ function build = customArtifact_Flins()
         'ResShred', 0.00 ...
     );
 
+    % 回写 CSV，便于后续直接从表格检查默认值。
     thisFolder = fileparts(mfilename('fullpath'));
     outputPath = fullfile(thisFolder, '..', '..', 'data', 'Flins', 'artifacts_Flins.csv');
     writetable(struct2table(build), outputPath);

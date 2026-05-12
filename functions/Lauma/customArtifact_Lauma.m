@@ -1,5 +1,6 @@
 function build = customArtifact_Lauma()
-    % EM-leaning default build for Lauma's Lunar-Bloom support profile.
+    % 菈乌玛默认构筑。
+    % 当前默认面板偏向精通与草伤，服务月绽放辅助定位。
     build = struct( ...
         'Weapon', 'MoonforestPrayer', ...
         'WeaponATK', 542, ...
@@ -15,6 +16,7 @@ function build = customArtifact_Lauma()
         'ResShred', 0.00 ...
     );
 
+    % 将默认构筑写回 CSV，方便后续直接从表格查看和微调。
     thisFolder = fileparts(mfilename('fullpath'));
     outputPath = fullfile(thisFolder, '..', '..', 'data', 'Lauma', 'artifacts_Lauma.csv');
     writetable(struct2table(build), outputPath);

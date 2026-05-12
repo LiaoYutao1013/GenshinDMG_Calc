@@ -1,5 +1,6 @@
 function build = customArtifact_Neuvillette()
-    % Default HP/crit Hydro build for Neuvillette beam-focused damage.
+    % 那维莱特默认构筑。
+    % 默认面板以生命值、双暴和重击增伤为主，适配水柱输出核心玩法。
     build = struct( ...
         'Weapon', 'TomeOfTheEternalFlow', ...
         'WeaponATK', 542, ...
@@ -14,6 +15,7 @@ function build = customArtifact_Neuvillette()
         'ResShred', 0.00 ...
     );
 
+    % 回写 CSV，作为默认面板的可视化落盘版本。
     thisFolder = fileparts(mfilename('fullpath'));
     outputPath = fullfile(thisFolder, '..', '..', 'data', 'Neuvillette', 'artifacts_Neuvillette.csv');
     writetable(struct2table(build), outputPath);

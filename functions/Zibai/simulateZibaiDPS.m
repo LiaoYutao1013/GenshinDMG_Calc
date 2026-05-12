@@ -1,7 +1,7 @@
 function [totalDMG, dps, breakdown, rotationTime] = simulateZibaiDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
-    % Zibai simulator. It tracks spring-field uptime, stored pressure, the
-    % burst follow-up, and how those states feed into Lunar-Crystallize and
-    % the charge finisher.
+    % 兹白单角色模拟器。
+    % 重点跟踪泉场持续时间、蓄压层数、爆发后的额外窗口，以及这些
+    % 状态如何共同影响月结晶与重击终结段。
     if nargin < 3 || isempty(seqFile)
         seqFile = fullfile(fileparts(mfilename('fullpath')), '..', '..', 'data', 'Zibai', 'rotation_Zibai.txt');
     end
@@ -25,8 +25,10 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateZibaiDPS(build, enem
     critMult = calcExpectedCritMultiplier(getFieldOrDefault(build, 'CritRate', 0), getFieldOrDefault(build, 'CritDMG', 0));
     geoResShred = getFieldOrDefault(build, 'ResShred', 0) + getFieldOrDefault(teamContext, 'GeoResShred', 0);
     geoMult = calcDamageMultiplier(90, enemy, geoResShred);
+    % 单人调试时，只要有宽松水元素环境假设，也允许启用月结晶。
     lunarCrystallizeEnabled = getFieldOrDefault(teamContext, 'LunarCrystallizeEnabled', false) || getFieldOrDefault(teamContext, 'HydroCount', 0) >= 1;
 
+    % state 保存泉场、蓄压和爆发强化状态。
     state = struct( ...
         'SpringTime', 0, ...
         'SpringHits', 0, ...
@@ -47,6 +49,7 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateZibaiDPS(build, enem
 
         switch action
             case 'E'
+                % 战技布置泉场，并给予初始蓄压。
                 mv = getTalentValue(talent, 'Skill', 'CastDEF', talentLevel);
                 dmg = defStat * mv * localGeoBonus(build, teamContext, getFieldOrDefault(build, 'SkillDMGBonus', 0)) * critMult * geoMult;
                 state.SpringTime = 12.0;
@@ -56,6 +59,7 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateZibaiDPS(build, enem
 
             case 'Spring'
                 if state.SpringTime > 0
+                    % 泉场脉冲会继续攒压，并可能顺带触发月结晶。
                     state.SpringHits = state.SpringHits + 1;
                     mv = getTalentValue(talent, 'Skill', 'SpringDEF', talentLevel);
                     springBonus = 1 + 0.10 * state.Pressure + 0.05 * max(0, state.SpringHits - 1) + 0.08 * double(state.BurstTime > 0);
@@ -76,6 +80,7 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateZibaiDPS(build, enem
                 end
 
             case 'Q'
+                % 爆发本体结算一次，并开启后续强化窗口。
                 mv = getTalentValue(talent, 'Burst', 'CastDEF', talentLevel);
                 dmg = defStat * mv * localGeoBonus(build, teamContext, getFieldOrDefault(build, 'BurstDMGBonus', 0)) * critMult * geoMult;
                 state.BurstTime = 10.0;
@@ -89,6 +94,7 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateZibaiDPS(build, enem
 
             case 'Charge'
                 if state.Pressure > 0
+                    % 重击终结段会消耗当前全部蓄压。
                     mv = getTalentValue(talent, 'Skill', 'ChargeDEF', talentLevel);
                     finisherBonus = 1 + 0.18 * state.Pressure + 0.10 * double(state.BurstTime > 0);
                     dmg = defStat * mv * finisherBonus ...
@@ -116,12 +122,13 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateZibaiDPS(build, enem
 end
 
 function dmgBonus = localGeoBonus(build, teamContext, extraBonus)
+    % 统一处理兹白所有岩元素段伤的增伤叠加。
     dmgBonus = 1 + getFieldOrDefault(build, 'GeoDMGBonus', 0) ...
         + getFieldOrDefault(teamContext, 'AllDMGBonus', 0) + extraBonus;
 end
 
 function state = localAdvanceState(state, actionTime)
-    % Shared timing update for Zibai's spring field and burst follow-up.
+    % 推进泉场与爆发窗口时间。
     state.SpringTime = max(0, state.SpringTime - actionTime);
     state.BurstTime = max(0, state.BurstTime - actionTime);
 end

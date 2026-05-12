@@ -1,6 +1,7 @@
 function [totalDMG, dps, breakdown, rotationTime] = simulateLinneaDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
-    % Linnea simulator. It models Lumi uptime, Field Catalog stack growth,
-    % burst healing, and the heavy Crush finisher that spends stored stacks.
+    % 莉奈娅单角色模拟器。
+    % 主要建模 Lumi 持续时间、场志目录层数增长、爆发治疗快照，
+    % 以及会消耗层数的重击终结段。
     if nargin < 3 || isempty(seqFile)
         seqFile = fullfile(fileparts(mfilename('fullpath')), '..', '..', 'data', 'Linnea', 'rotation_Linnea.txt');
     end
@@ -30,11 +31,13 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateLinneaDPS(build, ene
     geoCritMult = calcExpectedCritMultiplier(getFieldOrDefault(build, 'CritRate', 0), geoCritDMG);
     geoResShred = getFieldOrDefault(build, 'ResShred', 0) + getFieldOrDefault(teamContext, 'GeoResShred', 0);
     geoMult = calcDamageMultiplier(90, enemy, geoResShred);
+    % 单人模式下允许宽松启用月结晶，以便独立调试角色逻辑。
     lunarCrystallizeEnabled = getFieldOrDefault(teamContext, 'LunarCrystallizeEnabled', false);
     if ~lunarCrystallizeEnabled && getFieldOrDefault(teamContext, 'HydroCount', 0) == 0
         lunarCrystallizeEnabled = true;
     end
 
+    % state 保存召唤物、层数和爆发窗口相关状态。
     state = struct( ...
         'LumiTime', 0, ...
         'LumiHits', 0, ...
@@ -57,6 +60,7 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateLinneaDPS(build, ene
 
         switch action
             case 'E'
+                % 战技部署 Lumi，并提供初始场志目录层数。
                 dmg = defStat * getTalentValue(talent, 'Skill', 'CastDEF', talentLevel) ...
                     * localGeoBonus(build, teamContext, getFieldOrDefault(build, 'SkillDMGBonus', 0)) ...
                     * geoCritMult * geoMult;
@@ -67,6 +71,7 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateLinneaDPS(build, ene
 
             case 'Lumi'
                 if state.LumiTime > 0
+                    % Lumi 后续攻击会持续累积层数，并随触发次数增强。
                     state.LumiHits = state.LumiHits + 1;
                     state.FieldCatalogStacks = min(state.MaxFieldCatalog, state.FieldCatalogStacks + 1);
                     lumiBonus = 1 + 0.06 * state.LumiHits + 0.04 * state.FieldCatalogStacks;
@@ -80,6 +85,7 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateLinneaDPS(build, ene
 
             case 'Harmony'
                 if lunarCrystallizeEnabled
+                    % 月结晶伤害受当前目录层数和队伍加成影响。
                     reactionBonus = 1 + getFieldOrDefault(teamContext, 'LunarCrystallizeBonus', 0) ...
                         + 0.05 * state.FieldCatalogStacks + 0.25 * double(constellation >= 6);
                     dmg = calcReactionDamage(getTalentValue(talent, 'Reaction', 'LunarCrystallize', talentLevel), ...
@@ -91,6 +97,7 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateLinneaDPS(build, ene
                 end
 
             case 'Q'
+                % 爆发会抬高当前伤害并记录治疗快照，同时补充层数。
                 burstBonus = 1 + 0.04 * state.FieldCatalogStacks;
                 dmg = defStat * getTalentValue(talent, 'Burst', 'CastDEF', talentLevel) * burstBonus ...
                     * localGeoBonus(build, teamContext, getFieldOrDefault(build, 'BurstDMGBonus', 0)) ...
@@ -102,6 +109,7 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateLinneaDPS(build, ene
                 note = sprintf('Burst cast, field catalog=%d', state.FieldCatalogStacks);
 
             case 'Crush'
+                % 重击终结段会把前面攒下来的目录层数一并消耗。
                 crushCritDMG = geoCritDMG + 1.50 * double(constellation >= 2);
                 crushCritMult = calcExpectedCritMultiplier(getFieldOrDefault(build, 'CritRate', 0), crushCritDMG);
                 mv = getTalentValue(talent, 'Skill', 'CrushDEF', talentLevel);
@@ -140,12 +148,13 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateLinneaDPS(build, ene
 end
 
 function dmgBonus = localGeoBonus(build, teamContext, extraBonus)
+    % 统一处理莉奈娅所有岩元素段伤的增伤叠加。
     dmgBonus = 1 + getFieldOrDefault(build, 'GeoDMGBonus', 0) ...
         + getFieldOrDefault(teamContext, 'AllDMGBonus', 0) + extraBonus;
 end
 
 function state = localAdvanceState(state, actionTime)
-    % Advance Lumi and burst windows so stack generation stays time-aware.
+    % 推进 Lumi 和爆发窗口时间，保持层数增长与动作时长同步。
     state.LumiTime = max(0, state.LumiTime - actionTime);
     state.BurstTime = max(0, state.BurstTime - actionTime);
 end

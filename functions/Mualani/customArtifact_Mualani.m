@@ -1,5 +1,6 @@
 function build = customArtifact_Mualani()
-    % Default HP/crit build for Mualani's surf-bite burst profile.
+    % 玛拉妮默认构筑。
+    % 默认面板以生命值与双暴为主，适配咬击与导弹终结段的轮转输出。
     build = struct( ...
         'Weapon', 'SurfingTome', ...
         'WeaponATK', 542, ...
@@ -14,6 +15,7 @@ function build = customArtifact_Mualani()
         'ResShred', 0.00 ...
     );
 
+    % 回写 CSV，作为后续脚本和表格的统一基线。
     thisFolder = fileparts(mfilename('fullpath'));
     outputPath = fullfile(thisFolder, '..', '..', 'data', 'Mualani', 'artifacts_Mualani.csv');
     writetable(struct2table(build), outputPath);

@@ -1,7 +1,7 @@
 function [totalDMG, dps, breakdown, rotationTime] = simulateFlinsDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
-    % Flins simulator. It tracks phantom lamp uptime, burst resonance
-    % linking, and the Lunar-Charged ownership attached to recurring
-    % phantom strikes.
+    % 菲林斯单角色模拟器。
+    % 该实现显式跟踪幻灯持续时间、爆发共鸣窗口和幻灯攻击附带的
+    % 月感电追击，以反映后台角色的真实轮转贡献。
     if nargin < 3 || isempty(seqFile)
         seqFile = fullfile(fileparts(mfilename('fullpath')), '..', '..', 'data', 'Flins', 'rotation_Flins.txt');
     end
@@ -27,8 +27,10 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateFlinsDPS(build, enem
     critMult = calcExpectedCritMultiplier(getFieldOrDefault(build, 'CritRate', 0), getFieldOrDefault(build, 'CritDMG', 0));
     electroResShred = getFieldOrDefault(build, 'ResShred', 0) + getFieldOrDefault(teamContext, 'ElectroResShred', 0);
     electroMult = calcDamageMultiplier(90, enemy, electroResShred);
+    % 队伍有水角色时，近似认为可持续触发月感电。
     lunarChargedEnabled = getFieldOrDefault(teamContext, 'LunarChargedEnabled', false) || getFieldOrDefault(teamContext, 'HydroCount', 0) >= 1;
 
+    % state 保存幻灯与共鸣相关的所有状态。
     state = struct( ...
         'LampTime', 0, ...
         'PhantomCount', 0, ...
@@ -48,6 +50,7 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateFlinsDPS(build, enem
 
         switch action
             case 'E'
+                % 战技部署幻灯，并开启后续 Phantom 触发窗口。
                 mv = getTalentValue(talent, 'Skill', 'Cast', talentLevel);
                 dmg = atk * mv * localElectroBonus(build, teamContext, getFieldOrDefault(build, 'SkillDMGBonus', 0)) * critMult * electroMult;
                 state.LampTime = 12.0;
@@ -56,6 +59,7 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateFlinsDPS(build, enem
 
             case 'Phantom'
                 if state.LampTime > 0
+                    % 幻灯攻击可触发爆发共鸣，并按次数提高月感电收益。
                     state.PhantomCount = state.PhantomCount + 1;
                     mv = getTalentValue(talent, 'Skill', 'Phantom', talentLevel);
                     phantomBonus = 1 + 0.08 * state.PhantomCount + 0.15 * double(constellation >= 1);
@@ -82,6 +86,7 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateFlinsDPS(build, enem
                 end
 
             case 'Q'
+                % 爆发只负责开启后续共鸣状态，本体伤害在此结算一次。
                 mv = getTalentValue(talent, 'Burst', 'Cast', talentLevel);
                 dmg = atk * mv * localElectroBonus(build, teamContext, getFieldOrDefault(build, 'BurstDMGBonus', 0)) * critMult * electroMult;
                 state.ResonanceTime = 10.0;
@@ -91,6 +96,7 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateFlinsDPS(build, enem
                 note = "Burst enters resonance state";
 
             case {'N1', 'N2'}
+                % 普攻主要用于兼容轮转脚本中的前台站场片段。
                 mv = getTalentValue(talent, 'Normal', action, talentLevel);
                 dmg = atk * mv * localElectroBonus(build, teamContext, getFieldOrDefault(build, 'NormalDMGBonus', 0)) * critMult * electroMult;
                 if constellation >= 6 && strcmp(action, 'N2')
@@ -114,12 +120,13 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateFlinsDPS(build, enem
 end
 
 function dmgBonus = localElectroBonus(build, teamContext, extraBonus)
+    % 统一处理菲林斯所有雷元素段伤的增伤叠加。
     dmgBonus = 1 + getFieldOrDefault(build, 'ElectroDMGBonus', 0) ...
         + getFieldOrDefault(teamContext, 'AllDMGBonus', 0) + extraBonus;
 end
 
 function state = localAdvanceState(state, actionTime)
-    % Shared timer update for lamp and resonance uptime.
+    % 推进幻灯持续和爆发共鸣窗口。
     state.LampTime = max(0, state.LampTime - actionTime);
     state.ResonanceTime = max(0, state.ResonanceTime - actionTime);
 end

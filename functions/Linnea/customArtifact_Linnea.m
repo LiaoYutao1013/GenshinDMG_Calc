@@ -1,5 +1,6 @@
 function build = customArtifact_Linnea()
-    % DEF-oriented baseline build for Linnea's summon and Geo burst pattern.
+    % 莉奈娅默认构筑。
+    % 默认面板以防御和双暴为主，适配 Lumi 与岩系爆发段。
     build = struct( ...
         'Weapon', 'MoonstringRepeater', ...
         'WeaponATK', 608, ...
@@ -15,6 +16,7 @@ function build = customArtifact_Linnea()
         'ResShred', 0.00 ...
     );
 
+    % 回写 CSV，作为工程内统一默认基线。
     thisFolder = fileparts(mfilename('fullpath'));
     outputPath = fullfile(thisFolder, '..', '..', 'data', 'Linnea', 'artifacts_Linnea.csv');
     writetable(struct2table(build), outputPath);
