@@ -77,6 +77,9 @@ function cfg = getDefaultCharacterConfig(name, overrides)
         case {'durin'}
             cfg = localBaseConfig('Durin', customArtifact_Durin(), fullfile(projectRoot, 'data', 'Durin', 'rotation_Durin.txt'));
 
+        case {'nicole'}
+            cfg = localBaseConfig('Nicole', customArtifact_Nicole(), fullfile(projectRoot, 'data', 'Nicole', 'rotation_Nicole.txt'));
+
         otherwise
             error('Unsupported character in unified entry: %s', name);
     end

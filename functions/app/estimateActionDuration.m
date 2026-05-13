@@ -1,0 +1,65 @@
+function duration = estimateActionDuration(characterName, action, fallbackDuration)
+    % 为 GUI 输出轴提供通用动作耗时估计。
+    % 该估计只用于可视化时间轴，不参与底层伤害模拟。
+    if nargin < 3 || isempty(fallbackDuration)
+        fallbackDuration = 0.60;
+    end
+
+    action = string(action);
+    if strlength(action) == 0
+        duration = 0;
+        return;
+    end
+
+    lowerAction = lower(action);
+    duration = fallbackDuration;
+
+    if lowerAction == "auto"
+        duration = NaN;
+        return;
+    end
+
+    if startsWith(lowerAction, "n")
+        token = regexp(char(lowerAction), 'n(\d+)', 'tokens', 'once');
+        if ~isempty(token)
+            normalIndex = str2double(token{1});
+            duration = min(0.85, 0.28 + 0.08 * normalIndex);
+            return;
+        end
+    end
+
+    switch lowerAction
+        case {"e", "skill"}
+            duration = 0.70;
+        case {"exq", "enhancedskill"}
+            duration = 0.65;
+        case {"q", "burst"}
+            duration = 1.25;
+        case {"charge", "charged", "heavy"}
+            duration = 0.78;
+        case "plunge"
+            duration = 0.95;
+        case {"droplet", "drain"}
+            duration = 0.35;
+        case {"switchpneuma", "switchousia"}
+            duration = 0.25;
+        case {"usher", "cheval", "crab"}
+            duration = 1.45;
+        case "singer"
+            duration = 1.80;
+        case {"debttick", "summon", "arkhe"}
+            duration = 0.40;
+        otherwise
+            % 针对少量角色动作 token 做额外修正。
+            switch lower(char(string(characterName)))
+                case 'skirk'
+                    if any(strcmp(lowerAction, ["n4a", "n4b", "n5"]))
+                        duration = 0.60;
+                    end
+                case 'arlecchino'
+                    if any(strcmp(lowerAction, ["n4a", "n4b"]))
+                        duration = 0.45;
+                    end
+            end
+    end
+end

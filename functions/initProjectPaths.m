@@ -1,5 +1,6 @@
 function initProjectPaths()
-    % Initialize function search paths once per MATLAB session.
+    % 初始化工程函数搜索路径。
+    % 该函数会在 MATLAB 会话内只执行一次，避免重复 addpath。
     persistent initialized;
     if ~isempty(initialized) && initialized
         return;
@@ -7,6 +8,7 @@ function initProjectPaths()
 
     root = fileparts(fileparts(mfilename('fullpath')));
     addpath(fullfile(root, 'functions'));
+    addpath(fullfile(root, 'functions', 'app'));
     addpath(fullfile(root, 'functions', 'Furina'));
     addpath(fullfile(root, 'functions', 'Columbina'));
     addpath(fullfile(root, 'functions', 'Chasca'));
@@ -29,6 +31,7 @@ function initProjectPaths()
     addpath(fullfile(root, 'functions', 'Iansan'));
     addpath(fullfile(root, 'functions', 'Varesa'));
     addpath(fullfile(root, 'functions', 'Durin'));
+    addpath(fullfile(root, 'functions', 'Nicole'));
 
     initialized = true;
 end

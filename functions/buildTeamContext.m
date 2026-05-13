@@ -1,6 +1,7 @@
 function teamContext = buildTeamContext(members, rotationDuration, sharedBuffs)
     % Build a reusable team-level context so every character simulator can
     % read the same counts, shared buffs, and lightweight team assumptions.
+    initProjectPaths();
     if nargin < 2 || isempty(rotationDuration)
         rotationDuration = 20;
     end
@@ -86,6 +87,7 @@ function teamContext = buildTeamContext(members, rotationDuration, sharedBuffs)
     hasIansan = any(memberNames == "Iansan");
     hasVaresa = any(memberNames == "Varesa");
     hasDurin = any(memberNames == "Durin");
+    hasNicole = any(memberNames == "Nicole");
 
     lunarBloomEnabled = hasLauma || hasNefer || (hasColumbina && hydroCount >= 1 && dendroCount >= 1);
     lunarChargedEnabled = (hasIneffa || hasFlins || hasColumbina) && hydroCount >= 1 && electroCount >= 1;
@@ -100,6 +102,7 @@ function teamContext = buildTeamContext(members, rotationDuration, sharedBuffs)
     overloadReady = pyroCount >= 1 && electroCount >= 1;
     durinWhiteSupportReady = burningReady || overloadReady || pyroSwirlReady || pyroCrystallizeReady;
     durinDarkAmpReady = hydroCount >= 1 || cryoCount >= 1;
+    hexereiCount = localCountHexerei(memberNames);
 
     sharedLunarBloomBonus = getFieldOrDefault(sharedBuffs, 'LunarBloomBonus', 0);
     sharedLunarChargedBonus = getFieldOrDefault(sharedBuffs, 'LunarChargedBonus', 0);
@@ -171,7 +174,25 @@ function teamContext = buildTeamContext(members, rotationDuration, sharedBuffs)
         geoResShred = geoResShred + 0.20 * double(pyroCrystallizeReady);
     end
 
-    flatATK = getFieldOrDefault(sharedBuffs, 'FlatATK', 0);
+    nicoleSupport = localDefaultNicoleSupport();
+    if hasNicole
+        nicoleIndex = find(memberNames == "Nicole", 1, 'first');
+        nicoleSupport = localBuildNicoleSupport( ...
+            members{nicoleIndex}, members, memberNames, memberElements, hexereiCount, sharedBuffs);
+        pyroResShred = pyroResShred + nicoleSupport.SharedPyroResShred;
+        hydroResShred = hydroResShred + nicoleSupport.SharedHydroResShred;
+        cryoResShred = cryoResShred + nicoleSupport.SharedCryoResShred;
+        electroResShred = electroResShred + nicoleSupport.SharedElectroResShred;
+        dendroResShred = dendroResShred + nicoleSupport.SharedDendroResShred;
+        geoResShred = geoResShred + nicoleSupport.SharedGeoResShred;
+    end
+    nicoleTeamFlatATK = nicoleSupport.SharedFlatATK;
+    nicoleHexereiFlatATK = nicoleSupport.HexereiProjectionFlatBase;
+    nicoleProjectionBonus = 0;
+    nicoleProjectionElement = nicoleSupport.ProjectionOwnerElement;
+    nicoleHexereiProjectionReady = nicoleSupport.HasHexereiSecretRite;
+
+    flatATK = getFieldOrDefault(sharedBuffs, 'FlatATK', 0) + nicoleTeamFlatATK;
     atkBonus = getFieldOrDefault(sharedBuffs, 'ATKBonus', 0) + chevreuseATKBonus + iansanBurstATKBonus;
     overloadBonus = sharedOverloadBonus + 0.35 * double(chevreuseOverloadReady) + 0.08 * double(hasVaresa && overloadReady);
 
@@ -243,6 +264,41 @@ function teamContext = buildTeamContext(members, rotationDuration, sharedBuffs)
         'DurinWhiteSupportReady', durinWhiteSupportReady, ...
         'DurinDarkAmpReady', durinDarkAmpReady, ...
         'DurinPreferredMode', durinPreferredMode, ...
+        'HexereiCount', hexereiCount, ...
+        'NicoleTeamFlatATK', nicoleTeamFlatATK, ...
+        'NicoleHexereiFlatATK', nicoleHexereiFlatATK, ...
+        'NicoleProjectionBonus', nicoleProjectionBonus, ...
+        'NicoleProjectionElement', nicoleProjectionElement, ...
+        'NicoleHexereiProjectionReady', nicoleHexereiProjectionReady, ...
+        'NicoleATK', nicoleSupport.NicoleATK, ...
+        'NicoleSkillLevel', nicoleSupport.SkillLevel, ...
+        'NicoleBurstLevel', nicoleSupport.BurstLevel, ...
+        'NicoleGraceFlatATK', nicoleSupport.GraceFlatATK, ...
+        'NicoleGuidanceFlatATK', nicoleSupport.GuidanceFlatATK, ...
+        'NicoleGuidanceResShred', nicoleSupport.GuidanceResShred, ...
+        'NicoleC6DefIgnore', nicoleSupport.C6DefIgnore, ...
+        'NicolePathfinderFlatDamage', nicoleSupport.PathfinderFlatDamage, ...
+        'NicolePathfinderMaxHits', nicoleSupport.PathfinderMaxHits, ...
+        'NicoleProjectionMultiplier', nicoleSupport.ProjectionMultiplier, ...
+        'NicoleProjectionCooldown', nicoleSupport.ProjectionCooldown, ...
+        'NicoleProjectionMaxCount', nicoleSupport.ProjectionMaxCount, ...
+        'NicoleProjectionOwnerName', nicoleSupport.ProjectionOwnerName, ...
+        'NicoleProjectionOwnerElement', nicoleSupport.ProjectionOwnerElement, ...
+        'NicoleProjectionOwnerIsHexerei', nicoleSupport.ProjectionOwnerIsHexerei, ...
+        'NicoleProjectionOwnerConfig', nicoleSupport.ProjectionOwnerConfig, ...
+        'NicoleHexereiProjectionFlatBase', nicoleSupport.HexereiProjectionFlatBase, ...
+        'NicoleUnityMultiplier', nicoleSupport.UnityMultiplier, ...
+        'NicoleUnityCooldown', nicoleSupport.UnityCooldown, ...
+        'NicoleWeaponActiveDMGBonus', nicoleSupport.WeaponActiveDMGBonus, ...
+        'NicoleWeaponHexereiOffFieldDMGBonus', nicoleSupport.WeaponHexereiOffFieldDMGBonus, ...
+        'NicoleWeaponEnergyRestore', nicoleSupport.WeaponEnergyRestore, ...
+        'NicoleApproxSharedFlatATK', nicoleSupport.SharedFlatATK, ...
+        'NicoleApproxSharedPyroResShred', nicoleSupport.SharedPyroResShred, ...
+        'NicoleApproxSharedHydroResShred', nicoleSupport.SharedHydroResShred, ...
+        'NicoleApproxSharedCryoResShred', nicoleSupport.SharedCryoResShred, ...
+        'NicoleApproxSharedElectroResShred', nicoleSupport.SharedElectroResShred, ...
+        'NicoleApproxSharedDendroResShred', nicoleSupport.SharedDendroResShred, ...
+        'NicoleApproxSharedGeoResShred', nicoleSupport.SharedGeoResShred, ...
         'PyroElectroOnlyTeam', pyroElectroOnlyTeam, ...
         'ChevreuseOverloadReady', chevreuseOverloadReady, ...
         'ChevreuseATKBonus', chevreuseATKBonus, ...
@@ -321,6 +377,206 @@ function mode = localResolveDurinMode(sharedBuffs, whiteReady, darkReady)
     end
 end
 
+function count = localCountHexerei(memberNames)
+    count = 0;
+    for i = 1:numel(memberNames)
+        if localIsHexerei(memberNames(i))
+            count = count + 1;
+        end
+    end
+end
+
+function tf = localIsHexerei(name)
+    switch lower(char(name))
+        case {'nicole', 'alice', 'prune'}
+            tf = true;
+        otherwise
+            tf = false;
+    end
+end
+
+function atk = localApproxMemberATK(member, fallbackBaseATK)
+    build = getFieldOrDefault(member, 'Build', struct());
+    atk = (fallbackBaseATK + getFieldOrDefault(build, 'WeaponATK', 0)) ...
+        * (1 + getFieldOrDefault(build, 'AtkBonus', 0)) + getFieldOrDefault(build, 'FlatATK', 0);
+end
+
+function support = localDefaultNicoleSupport()
+    support = struct( ...
+        'NicoleATK', 0, ...
+        'SkillLevel', 10, ...
+        'BurstLevel', 10, ...
+        'GraceFlatATK', 0, ...
+        'GuidanceFlatATK', 300, ...
+        'GuidanceResShred', 0, ...
+        'C6DefIgnore', 0, ...
+        'PathfinderFlatDamage', 0, ...
+        'PathfinderMaxHits', 0, ...
+        'ProjectionMultiplier', 0, ...
+        'ProjectionCooldown', 3.0, ...
+        'ProjectionMaxCount', 4, ...
+        'ProjectionOwnerName', "Nicole", ...
+        'ProjectionOwnerElement', "Pyro", ...
+        'ProjectionOwnerIsHexerei', false, ...
+        'ProjectionOwnerConfig', struct(), ...
+        'HasHexereiSecretRite', false, ...
+        'HexereiProjectionFlatBase', 0, ...
+        'UnityMultiplier', 0, ...
+        'UnityCooldown', 6.0, ...
+        'WeaponActiveDMGBonus', 0, ...
+        'WeaponHexereiOffFieldDMGBonus', 0, ...
+        'WeaponEnergyRestore', 0, ...
+        'SharedFlatATK', 0, ...
+        'SharedPyroResShred', 0, ...
+        'SharedHydroResShred', 0, ...
+        'SharedCryoResShred', 0, ...
+        'SharedElectroResShred', 0, ...
+        'SharedDendroResShred', 0, ...
+        'SharedGeoResShred', 0);
+end
+
+function support = localBuildNicoleSupport(nicoleMember, members, memberNames, memberElements, hexereiCount, sharedBuffs)
+    support = localDefaultNicoleSupport();
+    constellation = getFieldOrDefault(nicoleMember, 'Constellation', 0);
+    talentLevel = getFieldOrDefault(nicoleMember, 'TalentLevel', 10);
+    build = getFieldOrDefault(nicoleMember, 'Build', struct());
+    nicoleATK = localApproxMemberATK(nicoleMember, 342);
+    skillLevel = talentLevel + 3 * double(constellation >= 3);
+    burstLevel = talentLevel + 3 * double(constellation >= 5);
+    refine = max(1, min(5, getFieldOrDefault(build, 'WeaponRefinement', 1)));
+
+    talentPath = fullfile(fileparts(mfilename('fullpath')), '..', 'data', 'Nicole', 'talents_Nicole.csv');
+    talent = readtable(talentPath);
+
+    support.NicoleATK = nicoleATK;
+    support.SkillLevel = skillLevel;
+    support.BurstLevel = burstLevel;
+    support.GraceFlatATK = min( ...
+        getTalentValue(talent, 'Skill', 'GraceATKCap', skillLevel), ...
+        nicoleATK * getTalentValue(talent, 'Skill', 'GraceATKRatio', skillLevel));
+    support.GuidanceFlatATK = 300;
+    support.GuidanceResShred = 0.25 * double(constellation >= 2);
+    support.C6DefIgnore = 0.40 * double(constellation >= 6);
+    support.PathfinderFlatDamage = 0.70 * nicoleATK * double(constellation >= 4);
+    support.PathfinderMaxHits = 8 * double(constellation >= 4);
+    support.ProjectionMultiplier = getTalentValue(talent, 'Burst', 'ProjectionATK', burstLevel);
+    support.ProjectionCooldown = 3.0;
+    support.ProjectionMaxCount = 4;
+    support.UnityMultiplier = 6.0 * double(constellation >= 1);
+    support.UnityCooldown = 6.0;
+    support.HasHexereiSecretRite = hexereiCount >= 2 || numel(memberNames) == 1;
+    support.HexereiProjectionFlatBase = 3.0 * nicoleATK * double(support.HasHexereiSecretRite);
+
+    [ownerName, ownerElement, ownerIsHexerei, ownerConfig] = localResolveNicoleProjectionOwner( ...
+        members, memberNames, memberElements, sharedBuffs);
+    support.ProjectionOwnerName = ownerName;
+    support.ProjectionOwnerElement = ownerElement;
+    support.ProjectionOwnerIsHexerei = ownerIsHexerei;
+    support.ProjectionOwnerConfig = ownerConfig;
+
+    % 专武「尘光七谕」在 Nicole 身上是高优先默认武器，其团队增伤可近似
+    % 进共享 DMG 区；更精细的“仅前台生效/Hexerei 后台吃半额”会在 Nicole
+    % 自身模拟器里继续单独使用。
+    support.WeaponActiveDMGBonus = localNicoleWeaponActiveBonus(nicoleATK, refine);
+    support.WeaponHexereiOffFieldDMGBonus = 0.50 * support.WeaponActiveDMGBonus;
+    support.WeaponEnergyRestore = 13 + refine;
+
+    support.SharedFlatATK = support.GraceFlatATK + support.GuidanceFlatATK;
+    if constellation >= 2
+        support.SharedFlatATK = support.SharedFlatATK + 300;
+        [pyroShred, hydroShred, cryoShred, electroShred, dendroShred, geoShred] = ...
+            localNicoleSharedResShred(memberNames, memberElements);
+        support.SharedPyroResShred = pyroShred;
+        support.SharedHydroResShred = hydroShred;
+        support.SharedCryoResShred = cryoShred;
+        support.SharedElectroResShred = electroShred;
+        support.SharedDendroResShred = dendroShred;
+        support.SharedGeoResShred = geoShred;
+    end
+end
+
+function [ownerName, ownerElement, ownerIsHexerei, ownerConfig] = localResolveNicoleProjectionOwner(members, memberNames, memberElements, sharedBuffs)
+    overrideName = string(getFieldOrDefault(sharedBuffs, 'NicoleProjectionOwner', ""));
+    ownerIndex = [];
+    if strlength(overrideName) > 0
+        ownerIndex = find(memberNames == overrideName, 1, 'first');
+    end
+
+    if isempty(ownerIndex)
+        ownerIndex = localResolveNicoleProjectionOwnerIndex(memberNames, memberElements);
+    end
+
+    ownerName = memberNames(ownerIndex);
+    ownerElement = memberElements(ownerIndex);
+    ownerIsHexerei = localIsHexerei(ownerName);
+    ownerConfig = members{ownerIndex};
+end
+
+function ownerIndex = localResolveNicoleProjectionOwnerIndex(memberNames, memberElements)
+    filteredIndices = zeros(1, 0);
+    filteredElements = strings(1, 0);
+    for i = 1:numel(memberNames)
+        if memberNames(i) ~= "Nicole"
+            filteredIndices(end + 1) = i; %#ok<AGROW>
+            filteredElements(end + 1) = memberElements(i); %#ok<AGROW>
+        end
+    end
+
+    if isempty(filteredIndices)
+        ownerIndex = find(memberNames == "Nicole", 1, 'first');
+        return;
+    end
+
+    priority = ["Hydro", "Cryo", "Electro", "Anemo", "Geo", "Dendro", "Pyro"];
+    for i = 1:numel(priority)
+        matchIndex = find(filteredElements == priority(i), 1, 'first');
+        if ~isempty(matchIndex)
+            ownerIndex = filteredIndices(matchIndex);
+            return;
+        end
+    end
+
+    ownerIndex = filteredIndices(1);
+end
+
+function [pyroShred, hydroShred, cryoShred, electroShred, dendroShred, geoShred] = localNicoleSharedResShred(memberNames, memberElements)
+    pyroShred = 0;
+    hydroShred = 0;
+    cryoShred = 0;
+    electroShred = 0;
+    dendroShred = 0;
+    geoShred = 0;
+
+    uniqueElements = unique(memberElements(memberNames ~= "Nicole"));
+    for i = 1:numel(uniqueElements)
+        switch lower(char(uniqueElements(i)))
+            case 'pyro'
+                pyroShred = 0.25;
+            case 'hydro'
+                hydroShred = 0.25;
+            case 'cryo'
+                cryoShred = 0.25;
+            case 'electro'
+                electroShred = 0.25;
+            case 'dendro'
+                dendroShred = 0.25;
+            case 'geo'
+                geoShred = 0.25;
+        end
+    end
+end
+
+function bonus = localNicoleWeaponActiveBonus(nicoleATK, refinement)
+    perThousand = [0.10, 0.13, 0.16, 0.19, 0.22];
+    cap = [0.26, 0.34, 0.42, 0.50, 0.58];
+    bonus = min(cap(refinement), perThousand(refinement) * nicoleATK / 1000);
+end
+
+function element = localResolveNicoleProjectionElement(memberNames, memberElements)
+    ownerIndex = localResolveNicoleProjectionOwnerIndex(memberNames, memberElements);
+    element = memberElements(ownerIndex);
+end
+
 function element = localGetElement(name)
     switch lower(char(name))
         case 'skirk'
@@ -366,6 +622,8 @@ function element = localGetElement(name)
         case 'varesa'
             element = "Electro";
         case 'durin'
+            element = "Pyro";
+        case 'nicole'
             element = "Pyro";
         otherwise
             element = "Physical";

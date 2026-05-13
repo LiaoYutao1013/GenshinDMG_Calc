@@ -1,0 +1,2 @@
+Weapon,WeaponATK,WeaponSubStatType,WeaponSubStatValue,WeaponRefinement,AtkBonus,FlatATK,ER,EM,CritRate,CritDMG,PyroDMGBonus,NormalDMGBonus,SkillDMGBonus,BurstDMGBonus,ResShred
+Angelos' Heptades,741,ATK%,0.165,1,1.18,344,1.45,80,0.62,1.42,0.466,0,0.15,0.18,0
