@@ -8,99 +8,107 @@ function result = simulateCharacterDPS(memberCfg, enemy, teamContext)
     end
 
     name = lower(strtrim(char(string(memberCfg.Name))));
+    compiledBuild = compileArtifactSetBonuses(memberCfg.Name, memberCfg.Build, teamContext);
+    if nargin >= 3 && ~isempty(teamContext)
+        memberCfg.EnemyState = createEnemyState(enemy, teamContext, getCharacterElement(memberCfg.Name));
+    elseif ~isfield(memberCfg, 'EnemyState') || isempty(memberCfg.EnemyState)
+        memberCfg.EnemyState = createEnemyState(enemy, teamContext, getCharacterElement(memberCfg.Name));
+    end
+    memberTeamContext = teamContext;
+    memberTeamContext.EnemyState = memberCfg.EnemyState;
 
     switch name
         case 'skirk'
             [totalDMG, dps, breakdown, rotationTime] = simulateSkirkDPS( ...
-                memberCfg.Build, enemy, memberCfg.RotationFile, memberCfg.TalentLevel, memberCfg.Constellation, teamContext);
+                compiledBuild, enemy, memberCfg.RotationFile, memberCfg.TalentLevel, memberCfg.Constellation, memberTeamContext);
 
         case 'escoffier'
             [totalDMG, dps, breakdown, rotationTime] = simulateEscoffierDPS( ...
-                memberCfg.Build, enemy, memberCfg.RotationFile, memberCfg.TalentLevel, memberCfg.Constellation, teamContext);
+                compiledBuild, enemy, memberCfg.RotationFile, memberCfg.TalentLevel, memberCfg.Constellation, memberTeamContext);
 
         case 'arlecchino'
             [totalDMG, dps, breakdown, rotationTime] = simulateArlecchinoDPS( ...
-                memberCfg.Build, enemy, memberCfg.RotationFile, memberCfg.TalentLevel, memberCfg.Constellation, teamContext);
+                compiledBuild, enemy, memberCfg.RotationFile, memberCfg.TalentLevel, memberCfg.Constellation, memberTeamContext);
 
         case 'furina'
             [totalDMG, dps, breakdown, rotationTime] = simulateFurinaDPS( ...
-                memberCfg.Build, enemy, memberCfg.RotationFile, memberCfg.TalentLevel, memberCfg.Constellation, teamContext);
+                compiledBuild, enemy, memberCfg.RotationFile, memberCfg.TalentLevel, memberCfg.Constellation, memberTeamContext);
 
         case 'columbina'
             [totalDMG, dps, breakdown, rotationTime] = simulateColumbinaDPS( ...
-                memberCfg.Build, enemy, memberCfg.RotationFile, memberCfg.TalentLevel, memberCfg.Constellation, teamContext);
+                compiledBuild, enemy, memberCfg.RotationFile, memberCfg.TalentLevel, memberCfg.Constellation, memberTeamContext);
 
         case 'chasca'
             [totalDMG, dps, breakdown, rotationTime] = simulateChascaDPS( ...
-                memberCfg.Build, enemy, memberCfg.RotationFile, memberCfg.TalentLevel, memberCfg.Constellation, teamContext);
+                compiledBuild, enemy, memberCfg.RotationFile, memberCfg.TalentLevel, memberCfg.Constellation, memberTeamContext);
 
         case 'lauma'
             [totalDMG, dps, breakdown, rotationTime] = simulateLaumaDPS( ...
-                memberCfg.Build, enemy, memberCfg.RotationFile, memberCfg.TalentLevel, memberCfg.Constellation, teamContext);
+                compiledBuild, enemy, memberCfg.RotationFile, memberCfg.TalentLevel, memberCfg.Constellation, memberTeamContext);
 
         case 'ineffa'
             [totalDMG, dps, breakdown, rotationTime] = simulateIneffaDPS( ...
-                memberCfg.Build, enemy, memberCfg.RotationFile, memberCfg.TalentLevel, memberCfg.Constellation, teamContext);
+                compiledBuild, enemy, memberCfg.RotationFile, memberCfg.TalentLevel, memberCfg.Constellation, memberTeamContext);
 
         case 'linnea'
             [totalDMG, dps, breakdown, rotationTime] = simulateLinneaDPS( ...
-                memberCfg.Build, enemy, memberCfg.RotationFile, memberCfg.TalentLevel, memberCfg.Constellation, teamContext);
+                compiledBuild, enemy, memberCfg.RotationFile, memberCfg.TalentLevel, memberCfg.Constellation, memberTeamContext);
 
         case 'nilou'
             [totalDMG, dps, breakdown, rotationTime] = simulateNilouDPS( ...
-                memberCfg.Build, enemy, memberCfg.RotationFile, memberCfg.TalentLevel, memberCfg.Constellation, teamContext);
+                compiledBuild, enemy, memberCfg.RotationFile, memberCfg.TalentLevel, memberCfg.Constellation, memberTeamContext);
 
         case 'nefer'
             [totalDMG, dps, breakdown, rotationTime] = simulateNeferDPS( ...
-                memberCfg.Build, enemy, memberCfg.RotationFile, memberCfg.TalentLevel, memberCfg.Constellation, teamContext);
+                compiledBuild, enemy, memberCfg.RotationFile, memberCfg.TalentLevel, memberCfg.Constellation, memberTeamContext);
 
         case 'flins'
             [totalDMG, dps, breakdown, rotationTime] = simulateFlinsDPS( ...
-                memberCfg.Build, enemy, memberCfg.RotationFile, memberCfg.TalentLevel, memberCfg.Constellation, teamContext);
+                compiledBuild, enemy, memberCfg.RotationFile, memberCfg.TalentLevel, memberCfg.Constellation, memberTeamContext);
 
         case 'zibai'
             [totalDMG, dps, breakdown, rotationTime] = simulateZibaiDPS( ...
-                memberCfg.Build, enemy, memberCfg.RotationFile, memberCfg.TalentLevel, memberCfg.Constellation, teamContext);
+                compiledBuild, enemy, memberCfg.RotationFile, memberCfg.TalentLevel, memberCfg.Constellation, memberTeamContext);
 
         case 'mualani'
             [totalDMG, dps, breakdown, rotationTime] = simulateMualaniDPS( ...
-                memberCfg.Build, enemy, memberCfg.RotationFile, memberCfg.TalentLevel, memberCfg.Constellation, teamContext);
+                compiledBuild, enemy, memberCfg.RotationFile, memberCfg.TalentLevel, memberCfg.Constellation, memberTeamContext);
 
         case 'mavuika'
             [totalDMG, dps, breakdown, rotationTime] = simulateMavuikaDPS( ...
-                memberCfg.Build, enemy, memberCfg.RotationFile, memberCfg.TalentLevel, memberCfg.Constellation, teamContext);
+                compiledBuild, enemy, memberCfg.RotationFile, memberCfg.TalentLevel, memberCfg.Constellation, memberTeamContext);
 
         case 'citlali'
             [totalDMG, dps, breakdown, rotationTime] = simulateCitlaliDPS( ...
-                memberCfg.Build, enemy, memberCfg.RotationFile, memberCfg.TalentLevel, memberCfg.Constellation, teamContext);
+                compiledBuild, enemy, memberCfg.RotationFile, memberCfg.TalentLevel, memberCfg.Constellation, memberTeamContext);
 
         case 'xilonen'
             [totalDMG, dps, breakdown, rotationTime] = simulateXilonenDPS( ...
-                memberCfg.Build, enemy, memberCfg.RotationFile, memberCfg.TalentLevel, memberCfg.Constellation, teamContext);
+                compiledBuild, enemy, memberCfg.RotationFile, memberCfg.TalentLevel, memberCfg.Constellation, memberTeamContext);
 
         case 'neuvillette'
             [totalDMG, dps, breakdown, rotationTime] = simulateNeuvilletteDPS( ...
-                memberCfg.Build, enemy, memberCfg.RotationFile, memberCfg.TalentLevel, memberCfg.Constellation, teamContext);
+                compiledBuild, enemy, memberCfg.RotationFile, memberCfg.TalentLevel, memberCfg.Constellation, memberTeamContext);
 
         case 'chevreuse'
             [totalDMG, dps, breakdown, rotationTime] = simulateChevreuseDPS( ...
-                memberCfg.Build, enemy, memberCfg.RotationFile, memberCfg.TalentLevel, memberCfg.Constellation, teamContext);
+                compiledBuild, enemy, memberCfg.RotationFile, memberCfg.TalentLevel, memberCfg.Constellation, memberTeamContext);
 
         case 'iansan'
             [totalDMG, dps, breakdown, rotationTime] = simulateIansanDPS( ...
-                memberCfg.Build, enemy, memberCfg.RotationFile, memberCfg.TalentLevel, memberCfg.Constellation, teamContext);
+                compiledBuild, enemy, memberCfg.RotationFile, memberCfg.TalentLevel, memberCfg.Constellation, memberTeamContext);
 
         case 'varesa'
             [totalDMG, dps, breakdown, rotationTime] = simulateVaresaDPS( ...
-                memberCfg.Build, enemy, memberCfg.RotationFile, memberCfg.TalentLevel, memberCfg.Constellation, teamContext);
+                compiledBuild, enemy, memberCfg.RotationFile, memberCfg.TalentLevel, memberCfg.Constellation, memberTeamContext);
 
         case 'durin'
             [totalDMG, dps, breakdown, rotationTime] = simulateDurinDPS( ...
-                memberCfg.Build, enemy, memberCfg.RotationFile, memberCfg.TalentLevel, memberCfg.Constellation, teamContext);
+                compiledBuild, enemy, memberCfg.RotationFile, memberCfg.TalentLevel, memberCfg.Constellation, memberTeamContext);
 
         case 'nicole'
             [totalDMG, dps, breakdown, rotationTime] = simulateNicoleDPS( ...
-                memberCfg.Build, enemy, memberCfg.RotationFile, memberCfg.TalentLevel, memberCfg.Constellation, teamContext);
+                compiledBuild, enemy, memberCfg.RotationFile, memberCfg.TalentLevel, memberCfg.Constellation, memberTeamContext);
 
         otherwise
             error('No simulator registered for %s', memberCfg.Name);

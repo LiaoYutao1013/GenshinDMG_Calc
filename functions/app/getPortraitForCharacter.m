@@ -21,8 +21,13 @@ function imagePath = getPortraitForCharacter(characterName, cacheDir)
 
     fileBase = char(avatarKey);
     pngPath = fullfile(cacheDir, [fileBase '.png']);
+    failMarkerPath = fullfile(cacheDir, [fileBase '.missing']);
     if isfile(pngPath)
         imagePath = pngPath;
+        return;
+    end
+    if isfile(failMarkerPath)
+        imagePath = localCreatePlaceholder(cacheDir, fileBase, displayName);
         return;
     end
 
@@ -40,6 +45,10 @@ function imagePath = getPortraitForCharacter(characterName, cacheDir)
         end
     end
 
+    fid = fopen(failMarkerPath, 'w');
+    if fid ~= -1
+        fclose(fid);
+    end
     imagePath = localCreatePlaceholder(cacheDir, fileBase, displayName);
 end
 

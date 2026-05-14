@@ -13,6 +13,7 @@
 
 - 单人模拟：直接运行 `analysis/main<角色>Full.m`
 - 队伍模拟：直接运行 `analysis/mainTeamFull.m`
+- GUI 可视化模拟：运行 `analysis/launchGenshinDMGApp.m`
 
 ---
 
@@ -456,6 +457,37 @@ functions/<Character>/customArtifact_<Character>.m
 data/<Character>/artifacts_<Character>.csv
 ```
 
+### 8.1.1 圣遗物套装字段
+
+当前工程已经补入统一的圣遗物套装元数据字段，常见包括：
+
+```matlab
+ArtifactSet1
+ArtifactSet1Pieces
+ArtifactSet2
+ArtifactSet2Pieces
+ArtifactSet4Active
+```
+
+含义：
+
+- `ArtifactSet1`：主套装 ID
+- `ArtifactSet1Pieces`：主套装件数
+- `ArtifactSet2`：副套装 ID
+- `ArtifactSet2Pieces`：副套装件数
+- `ArtifactSet4Active`：是否启用 4 件套效果
+
+当前套装效果由统一入口 `simulateCharacterDPS` 在分发到各角色模拟器前统一编译。
+
+注意：
+
+- 工程历史上的很多默认 build 仍然是“面板校准值”，不是从 5 件圣遗物逐条反推出来的
+- 因此现在的套装系统主要用于：
+  - 让角色正确触发 2 件套 / 4 件套
+  - 让 GUI 能显式选择圣遗物套装
+  - 为后续继续细化逐件圣遗物系统预留统一字段
+- 若你后续发现某些角色存在“套装数值重复计入”，应优先检查其默认 `customArtifact_<Character>.m` 是否已把套装静态属性预烘焙进面板
+
 ---
 
 ## 8.2 修改手法
@@ -597,4 +629,3 @@ initProjectPaths();
 如果你要维护工程或继续开发，请看：
 
 - `docs/DEVELOPMENT.md`
-

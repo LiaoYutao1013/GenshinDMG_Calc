@@ -15,6 +15,7 @@ function build = loadBuildPreset(characterName, presetId)
 
         case "csv"
             build = localReadBuildCsv(preset.Path);
+            build = materializeArtifactPieceModel(characterName, build, struct());
 
         otherwise
             cfg = getDefaultCharacterConfig(characterName);

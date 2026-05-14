@@ -5,7 +5,7 @@ function filePath = writeTempRotationFile(tempDir, characterName, slotIndex, rot
         rotationText = "";
     end
 
-    if ~exist(tempDir, 'dir')
+    if exist(tempDir, 'dir') ~= 7
         mkdir(tempDir);
     end
 

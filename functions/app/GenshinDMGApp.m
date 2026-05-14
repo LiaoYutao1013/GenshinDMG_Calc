@@ -29,6 +29,7 @@ classdef GenshinDMGApp < handle
         SlotCharacterDropdowns
         SlotPresetDropdowns
         SlotWeaponDropdowns
+        SlotArtifactDropdowns
         SlotConstellationSpinners
         SlotTalentSpinners
         SlotRefinementSpinners
@@ -36,11 +37,17 @@ classdef GenshinDMGApp < handle
         SlotEnableCheckboxes
         SlotEditButtons
         SlotPortraits
+        SlotWeaponBadges
+        SlotArtifactBadges
         SlotFooters
 
         SelectedSlotLabel
         SelectedPortrait
         SelectedSummaryText
+        SelectedWeaponBadge
+        SelectedArtifactBadge
+        ArtifactSetDropdown
+        ArtifactModeDropdown
         BuildTable
         RotationTextArea
         BuildHintLabel
@@ -88,6 +95,21 @@ classdef GenshinDMGApp < handle
                 delete(obj.Figure);
             end
         end
+
+        function runSingle(obj)
+            % 公开包装方法，便于脚本或自动化测试直接触发单人模拟。
+            obj.runSingleSimulation();
+        end
+
+        function runTeam(obj)
+            % 公开包装方法，便于脚本或自动化测试直接触发整队模拟。
+            obj.runTeamSimulation();
+        end
+
+        function refreshTimeline(obj)
+            % 公开包装方法，便于脚本或自动化测试刷新输出轴预览。
+            obj.refreshTimelinePreview();
+        end
     end
 
     methods (Access = private)
@@ -117,9 +139,16 @@ classdef GenshinDMGApp < handle
                 'WeaponName', "", ...
                 'WeaponList', table(), ...
                 'WeaponRefinement', 1, ...
+                'ArtifactSet1', "None", ...
+                'ArtifactSet1Pieces', 0, ...
+                'ArtifactSet2', "None", ...
+                'ArtifactSet2Pieces', 0, ...
+                'ArtifactSet4Active', 1, ...
                 'StartTime', 0, ...
                 'Enabled', true, ...
-                'PortraitPath', "");
+                'PortraitPath', "", ...
+                'WeaponBadgePath', "", ...
+                'ArtifactBadgePath', "");
         end
 
         function createUI(obj)
@@ -169,6 +198,7 @@ classdef GenshinDMGApp < handle
             obj.SlotCharacterDropdowns = cell(1, slotCount);
             obj.SlotPresetDropdowns = cell(1, slotCount);
             obj.SlotWeaponDropdowns = cell(1, slotCount);
+            obj.SlotArtifactDropdowns = cell(1, slotCount);
             obj.SlotConstellationSpinners = cell(1, slotCount);
             obj.SlotTalentSpinners = cell(1, slotCount);
             obj.SlotRefinementSpinners = cell(1, slotCount);
@@ -176,7 +206,10 @@ classdef GenshinDMGApp < handle
             obj.SlotEnableCheckboxes = cell(1, slotCount);
             obj.SlotEditButtons = cell(1, slotCount);
             obj.SlotPortraits = cell(1, slotCount);
+            obj.SlotWeaponBadges = cell(1, slotCount);
+            obj.SlotArtifactBadges = cell(1, slotCount);
             obj.SlotFooters = cell(1, slotCount);
+            [artifactLabels, artifactIds] = getArtifactSetChoices();
 
             characterLabels = obj.getCharacterDropdownLabels();
             characterKeys = cellstr(string({obj.Registry.Key}));
@@ -191,25 +224,35 @@ classdef GenshinDMGApp < handle
                 slotPanel.Layout.Column = 1;
                 obj.SlotPanels{i} = slotPanel;
 
-                slotGrid = uigridlayout(slotPanel, [6 3]);
-                slotGrid.ColumnWidth = {100, '1x', 92};
-                slotGrid.RowHeight = {24, 28, 28, 28, 48, 22};
+                slotGrid = uigridlayout(slotPanel, [7 4]);
+                slotGrid.ColumnWidth = {96, 52, '1x', 92};
+                slotGrid.RowHeight = {24, 28, 52, 28, 28, 48, 22};
                 slotGrid.ColumnSpacing = 8;
                 slotGrid.RowSpacing = 6;
                 slotGrid.Padding = [10 10 10 10];
                 slotGrid.BackgroundColor = [1.00 1.00 1.00];
 
                 avatar = uiimage(slotGrid, 'ScaleMethod', 'fill');
-                avatar.Layout.Row = [1 6];
+                avatar.Layout.Row = [1 7];
                 avatar.Layout.Column = 1;
                 obj.SlotPortraits{i} = avatar;
+
+                artifactBadge = uiimage(slotGrid, 'ScaleMethod', 'fit');
+                artifactBadge.Layout.Row = 3;
+                artifactBadge.Layout.Column = 2;
+                obj.SlotArtifactBadges{i} = artifactBadge;
+
+                weaponBadge = uiimage(slotGrid, 'ScaleMethod', 'fit');
+                weaponBadge.Layout.Row = 4;
+                weaponBadge.Layout.Column = 2;
+                obj.SlotWeaponBadges{i} = weaponBadge;
 
                 headerLabel = uilabel(slotGrid, ...
                     'Text', sprintf('槽位 %d', i), ...
                     'FontWeight', 'bold', ...
                     'FontColor', [0.18 0.24 0.34]);
                 headerLabel.Layout.Row = 1;
-                headerLabel.Layout.Column = 2;
+                headerLabel.Layout.Column = [2 3];
 
                 editButton = uibutton(slotGrid, 'push', ...
                     'Text', '编辑', ...
@@ -217,7 +260,7 @@ classdef GenshinDMGApp < handle
                     'FontColor', [0.16 0.13 0.08], ...
                     'ButtonPushedFcn', @(~, ~) obj.selectSlot(i));
                 editButton.Layout.Row = 1;
-                editButton.Layout.Column = 3;
+                editButton.Layout.Column = 4;
                 obj.SlotEditButtons{i} = editButton;
 
                 characterDropdown = uidropdown(slotGrid, ...
@@ -225,28 +268,36 @@ classdef GenshinDMGApp < handle
                     'ItemsData', characterKeys, ...
                     'ValueChangedFcn', @(src, ~) obj.onSlotCharacterChanged(i, src.Value));
                 characterDropdown.Layout.Row = 2;
-                characterDropdown.Layout.Column = [2 3];
+                characterDropdown.Layout.Column = [2 4];
                 obj.SlotCharacterDropdowns{i} = characterDropdown;
 
-                presetDropdown = uidropdown(slotGrid, ...
-                    'Items', {'默认构筑'}, ...
-                    'ItemsData', {'default'}, ...
-                    'ValueChangedFcn', @(src, ~) obj.onSlotPresetChanged(i, src.Value));
-                presetDropdown.Layout.Row = 3;
-                presetDropdown.Layout.Column = [2 3];
-                obj.SlotPresetDropdowns{i} = presetDropdown;
+                artifactDropdown = uidropdown(slotGrid, ...
+                    'Items', artifactLabels, ...
+                    'ItemsData', artifactIds, ...
+                    'ValueChangedFcn', @(src, ~) obj.onSlotArtifactSetChanged(i, src.Value));
+                artifactDropdown.Layout.Row = 3;
+                artifactDropdown.Layout.Column = [3 4];
+                obj.SlotArtifactDropdowns{i} = artifactDropdown;
 
                 weaponDropdown = uidropdown(slotGrid, ...
                     'Items', {''}, ...
                     'ItemsData', {''}, ...
                     'ValueChangedFcn', @(src, ~) obj.onSlotWeaponChanged(i, src.Value));
                 weaponDropdown.Layout.Row = 4;
-                weaponDropdown.Layout.Column = [2 3];
+                weaponDropdown.Layout.Column = [3 4];
                 obj.SlotWeaponDropdowns{i} = weaponDropdown;
 
+                presetDropdown = uidropdown(slotGrid, ...
+                    'Items', {'默认构筑'}, ...
+                    'ItemsData', {'default'}, ...
+                    'ValueChangedFcn', @(src, ~) obj.onSlotPresetChanged(i, src.Value));
+                presetDropdown.Layout.Row = 5;
+                presetDropdown.Layout.Column = [2 4];
+                obj.SlotPresetDropdowns{i} = presetDropdown;
+
                 controlGrid = uigridlayout(slotGrid, [2 4]);
-                controlGrid.Layout.Row = 5;
-                controlGrid.Layout.Column = [2 3];
+                controlGrid.Layout.Row = 6;
+                controlGrid.Layout.Column = [2 4];
                 controlGrid.RowHeight = {16, 28};
                 controlGrid.ColumnWidth = {'1x', '1x', '1x', '1x'};
                 controlGrid.ColumnSpacing = 6;
@@ -304,8 +355,8 @@ classdef GenshinDMGApp < handle
                 enableCheckbox = uicheckbox(slotGrid, ...
                     'Text', '参与队伍计算', ...
                     'ValueChangedFcn', @(src, ~) obj.onSlotEnabledChanged(i, logical(src.Value)));
-                enableCheckbox.Layout.Row = 6;
-                enableCheckbox.Layout.Column = 2;
+                enableCheckbox.Layout.Row = 7;
+                enableCheckbox.Layout.Column = [2 3];
                 obj.SlotEnableCheckboxes{i} = enableCheckbox;
 
                 footer = uilabel(slotGrid, ...
@@ -313,8 +364,8 @@ classdef GenshinDMGApp < handle
                     'HorizontalAlignment', 'right', ...
                     'FontSize', 11, ...
                     'FontColor', [0.44 0.48 0.56]);
-                footer.Layout.Row = 6;
-                footer.Layout.Column = 3;
+                footer.Layout.Row = 7;
+                footer.Layout.Column = 4;
                 obj.SlotFooters{i} = footer;
             end
         end
@@ -330,7 +381,7 @@ classdef GenshinDMGApp < handle
             editorPanel.Layout.Column = 2;
 
             editorGrid = uigridlayout(editorPanel, [4 1]);
-            editorGrid.RowHeight = {34, 192, '1x', 240};
+            editorGrid.RowHeight = {34, 280, '1x', 240};
             editorGrid.ColumnWidth = {'1x'};
             editorGrid.RowSpacing = 12;
             editorGrid.Padding = [12 12 12 12];
@@ -350,23 +401,74 @@ classdef GenshinDMGApp < handle
             heroCard.Layout.Row = 2;
             heroCard.Layout.Column = 1;
 
-            heroGrid = uigridlayout(heroCard, [1 2]);
+            heroGrid = uigridlayout(heroCard, [2 2]);
             heroGrid.ColumnWidth = {180, '1x'};
+            heroGrid.RowHeight = {132, '1x'};
             heroGrid.RowHeight = {'1x'};
             heroGrid.ColumnSpacing = 14;
             heroGrid.Padding = [10 10 10 10];
             heroGrid.BackgroundColor = [0.96 0.97 0.99];
 
             obj.SelectedPortrait = uiimage(heroGrid, 'ScaleMethod', 'fit');
-            obj.SelectedPortrait.Layout.Row = 1;
+            obj.SelectedPortrait.Layout.Row = [1 2];
             obj.SelectedPortrait.Layout.Column = 1;
+
+            badgeGrid = uigridlayout(heroGrid, [2 3]);
+            badgeGrid.Layout.Row = 1;
+            badgeGrid.Layout.Column = 2;
+            badgeGrid.RowHeight = {20, '1x'};
+            badgeGrid.ColumnWidth = {120, 120, '1x'};
+            badgeGrid.ColumnSpacing = 8;
+            badgeGrid.RowSpacing = 4;
+            badgeGrid.Padding = [0 0 0 0];
+            badgeGrid.BackgroundColor = [0.96 0.97 0.99];
+
+            artifactLabel = uilabel(badgeGrid, 'Text', '圣遗物套装', 'FontWeight', 'bold', 'FontColor', [0.18 0.24 0.34]);
+            artifactLabel.Layout.Row = 1;
+            artifactLabel.Layout.Column = 1;
+
+            weaponLabel = uilabel(badgeGrid, 'Text', '武器', 'FontWeight', 'bold', 'FontColor', [0.18 0.24 0.34]);
+            weaponLabel.Layout.Row = 1;
+            weaponLabel.Layout.Column = 2;
+
+            obj.SelectedArtifactBadge = uiimage(badgeGrid, 'ScaleMethod', 'fit');
+            obj.SelectedArtifactBadge.Layout.Row = 2;
+            obj.SelectedArtifactBadge.Layout.Column = 1;
+
+            obj.SelectedWeaponBadge = uiimage(badgeGrid, 'ScaleMethod', 'fit');
+            obj.SelectedWeaponBadge.Layout.Row = 2;
+            obj.SelectedWeaponBadge.Layout.Column = 2;
+
+            artifactCtrlGrid = uigridlayout(badgeGrid, [2 1]);
+            artifactCtrlGrid.Layout.Row = [1 2];
+            artifactCtrlGrid.Layout.Column = 3;
+            artifactCtrlGrid.RowHeight = {28, 28};
+            artifactCtrlGrid.ColumnWidth = {'1x'};
+            artifactCtrlGrid.RowSpacing = 6;
+            artifactCtrlGrid.Padding = [0 0 0 0];
+            artifactCtrlGrid.BackgroundColor = [0.96 0.97 0.99];
+
+            [artifactLabels, artifactIds] = getArtifactSetChoices();
+            obj.ArtifactSetDropdown = uidropdown(artifactCtrlGrid, ...
+                'Items', artifactLabels, ...
+                'ItemsData', artifactIds, ...
+                'ValueChangedFcn', @(src, ~) obj.onSelectedArtifactSetChanged(src.Value));
+            obj.ArtifactSetDropdown.Layout.Row = 1;
+            obj.ArtifactSetDropdown.Layout.Column = 1;
+
+            obj.ArtifactModeDropdown = uidropdown(artifactCtrlGrid, ...
+                'Items', {'4件套', '2+2 混搭', '2件套', '无套装'}, ...
+                'ItemsData', {'4pc', '2p2p', '2pc', '0pc'}, ...
+                'ValueChangedFcn', @(src, ~) obj.onSelectedArtifactModeChanged(src.Value));
+            obj.ArtifactModeDropdown.Layout.Row = 2;
+            obj.ArtifactModeDropdown.Layout.Column = 1;
 
             obj.SelectedSummaryText = uitextarea(heroGrid, ...
                 'Editable', 'off', ...
                 'FontSize', 12, ...
                 'BackgroundColor', [0.99 0.99 1.00], ...
                 'Value', {'当前角色信息会显示在这里。'});
-            obj.SelectedSummaryText.Layout.Row = 1;
+            obj.SelectedSummaryText.Layout.Row = 2;
             obj.SelectedSummaryText.Layout.Column = 2;
 
             buildPanel = uipanel(editorGrid, ...
@@ -648,6 +750,11 @@ classdef GenshinDMGApp < handle
             slot.WeaponList = listWeaponsForCharacter(cfg.Name);
             slot.WeaponName = string(getFieldOrDefault(slot.Build, 'Weapon', ""));
             slot.WeaponRefinement = max(1, min(5, getFieldOrDefault(slot.Build, 'WeaponRefinement', 1)));
+            slot.ArtifactSet1 = string(getFieldOrDefault(slot.Build, 'ArtifactSet1', "None"));
+            slot.ArtifactSet1Pieces = getFieldOrDefault(slot.Build, 'ArtifactSet1Pieces', 0);
+            slot.ArtifactSet2 = string(getFieldOrDefault(slot.Build, 'ArtifactSet2', "None"));
+            slot.ArtifactSet2Pieces = getFieldOrDefault(slot.Build, 'ArtifactSet2Pieces', 0);
+            slot.ArtifactSet4Active = getFieldOrDefault(slot.Build, 'ArtifactSet4Active', 1);
             slot.Enabled = true;
             slot.PortraitPath = string(getPortraitForCharacter(cfg.Name, obj.PortraitCacheDir));
 
@@ -659,6 +766,8 @@ classdef GenshinDMGApp < handle
             end
 
             slot.Build = obj.applyWeaponStatsToBuild(slot.Build, slot.WeaponList, slot.WeaponName, slot.WeaponRefinement);
+            slot.Build = obj.applyArtifactSelectionToBuild(slot.Build, slot);
+            [slot.ArtifactBadgePath, slot.WeaponBadgePath] = obj.resolveEquipmentBadgePaths(slot);
             obj.Slots(slotIndex) = slot;
         end
 
@@ -688,6 +797,7 @@ classdef GenshinDMGApp < handle
             obj.SlotCharacterDropdowns{slotIndex}.Value = char(slot.CharacterKey);
             obj.updatePresetDropdown(slotIndex);
             obj.updateWeaponDropdown(slotIndex);
+            obj.updateArtifactDropdown(slotIndex);
 
             obj.SlotConstellationSpinners{slotIndex}.Value = slot.Constellation;
             obj.SlotTalentSpinners{slotIndex}.Value = slot.TalentLevel;
@@ -695,11 +805,17 @@ classdef GenshinDMGApp < handle
             obj.SlotStartTimeFields{slotIndex}.Value = slot.StartTime;
             obj.SlotEnableCheckboxes{slotIndex}.Value = slot.Enabled;
 
-            footerText = sprintf('%s | %s', char(slot.DisplayName), char(slot.WeaponName));
+            footerText = sprintf('%s | %s', char(slot.DisplayName), char(slot.ArtifactSet1));
             obj.SlotFooters{slotIndex}.Text = footerText;
 
             if strlength(slot.PortraitPath) > 0 && isfile(slot.PortraitPath)
                 obj.SlotPortraits{slotIndex}.ImageSource = char(slot.PortraitPath);
+            end
+            if strlength(slot.WeaponBadgePath) > 0 && isfile(slot.WeaponBadgePath)
+                obj.SlotWeaponBadges{slotIndex}.ImageSource = char(slot.WeaponBadgePath);
+            end
+            if strlength(slot.ArtifactBadgePath) > 0 && isfile(slot.ArtifactBadgePath)
+                obj.SlotArtifactBadges{slotIndex}.ImageSource = char(slot.ArtifactBadgePath);
             end
         end
 
@@ -734,11 +850,21 @@ classdef GenshinDMGApp < handle
             if strlength(slot.PortraitPath) > 0 && isfile(slot.PortraitPath)
                 obj.SelectedPortrait.ImageSource = char(slot.PortraitPath);
             end
+            if strlength(slot.WeaponBadgePath) > 0 && isfile(slot.WeaponBadgePath)
+                obj.SelectedWeaponBadge.ImageSource = char(slot.WeaponBadgePath);
+            end
+            if strlength(slot.ArtifactBadgePath) > 0 && isfile(slot.ArtifactBadgePath)
+                obj.SelectedArtifactBadge.ImageSource = char(slot.ArtifactBadgePath);
+            end
+
+            obj.ArtifactSetDropdown.Value = char(slot.ArtifactSet1);
+            obj.ArtifactModeDropdown.Value = obj.resolveArtifactMode(slot);
 
             summaryLines = { ...
                 sprintf('角色：%s | 英文键：%s', char(slot.DisplayName), char(slot.CharacterKey)), ...
                 sprintf('构筑预设：%s', char(obj.lookupPresetLabel(slot))), ...
                 sprintf('武器：%s | 精炼 %d', char(slot.WeaponName), slot.WeaponRefinement), ...
+                sprintf('圣遗物：%s (%s)', char(slot.ArtifactSet1), char(obj.resolveArtifactModeLabel(slot))), ...
                 sprintf('命座：%d | 统一天赋等级：%d', slot.Constellation, slot.TalentLevel), ...
                 sprintf('起轴时间：%.1f s | 参与队伍计算：%s', slot.StartTime, obj.localOnOff(slot.Enabled)), ...
                 '', ...
@@ -793,10 +919,17 @@ classdef GenshinDMGApp < handle
             slot = obj.Slots(obj.SelectedSlot);
             if ~isempty(obj.BuildTable.Data)
                 slot.Build = tableDataToBuildStruct(obj.BuildTable.Data);
+                slot.Build = materializeArtifactPieceModel(slot.CharacterKey, slot.Build, struct());
             end
             slot.RotationText = obj.getRotationTextValue();
             slot.WeaponName = string(getFieldOrDefault(slot.Build, 'Weapon', slot.WeaponName));
             slot.WeaponRefinement = max(1, min(5, getFieldOrDefault(slot.Build, 'WeaponRefinement', slot.WeaponRefinement)));
+            slot.ArtifactSet1 = string(getFieldOrDefault(slot.Build, 'ArtifactSet1', slot.ArtifactSet1));
+            slot.ArtifactSet1Pieces = getFieldOrDefault(slot.Build, 'ArtifactSet1Pieces', slot.ArtifactSet1Pieces);
+            slot.ArtifactSet2 = string(getFieldOrDefault(slot.Build, 'ArtifactSet2', slot.ArtifactSet2));
+            slot.ArtifactSet2Pieces = getFieldOrDefault(slot.Build, 'ArtifactSet2Pieces', slot.ArtifactSet2Pieces);
+            slot.ArtifactSet4Active = getFieldOrDefault(slot.Build, 'ArtifactSet4Active', slot.ArtifactSet4Active);
+            [slot.ArtifactBadgePath, slot.WeaponBadgePath] = obj.resolveEquipmentBadgePaths(slot);
             obj.Slots(obj.SelectedSlot) = slot;
 
             obj.refreshSlotCard(obj.SelectedSlot);
@@ -846,10 +979,11 @@ classdef GenshinDMGApp < handle
             itemData = {};
             if ~isempty(slot.WeaponList)
                 itemData = cellstr(string(slot.WeaponList.Name));
+                itemData = itemData(:);
             end
             currentWeapon = char(slot.WeaponName);
             if ~isempty(currentWeapon) && ~any(strcmp(itemData, currentWeapon))
-                itemData = [{currentWeapon}, itemData];
+                itemData = [{currentWeapon}; itemData];
             end
             if isempty(itemData)
                 itemData = {''};
@@ -862,6 +996,19 @@ classdef GenshinDMGApp < handle
             if ~isempty(currentWeapon) && any(strcmp(itemData, currentWeapon))
                 dropdown.Value = currentWeapon;
             end
+        end
+
+        function updateArtifactDropdown(obj, slotIndex)
+            % 刷新圣遗物套装下拉框。
+            [labels, ids] = getArtifactSetChoices();
+            dropdown = obj.SlotArtifactDropdowns{slotIndex};
+            dropdown.Items = labels;
+            dropdown.ItemsData = ids;
+            currentValue = char(obj.Slots(slotIndex).ArtifactSet1);
+            if ~any(strcmp(ids, currentValue))
+                currentValue = 'None';
+            end
+            dropdown.Value = currentValue;
         end
 
         function build = applyWeaponStatsToBuild(obj, build, weaponList, weaponName, refinement) %#ok<INUSD>
@@ -891,6 +1038,93 @@ classdef GenshinDMGApp < handle
             build.WeaponATK = weaponList.BaseATK(idx);
             build.WeaponSubStatType = char(weaponList.SubstatType(idx));
             build.WeaponSubStatValue = weaponList.SubstatValue(idx);
+        end
+
+        function build = applyArtifactSelectionToBuild(obj, build, slot) %#ok<MANU>
+            % 将当前槽位中的套装选择同步回 build 元数据字段。
+            build = materializeArtifactPieceModel(slot.CharacterKey, build, struct());
+            build.ArtifactSet1 = char(slot.ArtifactSet1);
+            build.ArtifactSet1Pieces = slot.ArtifactSet1Pieces;
+            build.ArtifactSet2 = char(slot.ArtifactSet2);
+            build.ArtifactSet2Pieces = slot.ArtifactSet2Pieces;
+            build.ArtifactSet4Active = slot.ArtifactSet4Active;
+            build = obj.syncArtifactPieceFields(build, slot);
+        end
+
+        function build = syncArtifactPieceFields(obj, build, slot) %#ok<INUSL>
+            slotNames = {'Flower', 'Feather', 'Sands', 'Goblet', 'Circlet'};
+            if slot.ArtifactSet1Pieces >= 4
+                setLayout = {char(slot.ArtifactSet1), char(slot.ArtifactSet1), char(slot.ArtifactSet1), char(slot.ArtifactSet1), 'None'};
+            elseif slot.ArtifactSet1Pieces == 2 && slot.ArtifactSet2Pieces >= 2
+                setLayout = {char(slot.ArtifactSet1), char(slot.ArtifactSet1), char(slot.ArtifactSet2), char(slot.ArtifactSet2), 'None'};
+            elseif slot.ArtifactSet1Pieces == 2
+                setLayout = {char(slot.ArtifactSet1), char(slot.ArtifactSet1), 'None', 'None', 'None'};
+            else
+                setLayout = {'None', 'None', 'None', 'None', 'None'};
+            end
+
+            for i = 1:numel(slotNames)
+                build.(sprintf('Artifact%sSet', slotNames{i})) = setLayout{i};
+            end
+            build = materializeArtifactPieceModel(slot.CharacterKey, build, struct());
+        end
+
+        function [artifactBadgePath, weaponBadgePath] = resolveEquipmentBadgePaths(obj, slot)
+            % 为当前槽位生成套装图标与武器图标。
+            [artifactDisplayName, artifactShort, artifactColor] = getArtifactSetTheme(slot.ArtifactSet1);
+            badgeDir = fullfile(tempdir, 'genshin_dmg_calc_equipment');
+            artifactSubLabel = sprintf('%s | %s', artifactShort, obj.resolveArtifactModeLabel(slot));
+            artifactBadgePath = string(getEquipmentBadge('artifact', slot.ArtifactSet1, artifactDisplayName, artifactSubLabel, badgeDir, artifactColor));
+
+            weaponColor = obj.localWeaponBadgeColor(slot);
+            weaponSubLabel = sprintf('R%d', slot.WeaponRefinement);
+            weaponBadgePath = string(getEquipmentBadge('weapon', slot.WeaponName, slot.WeaponName, weaponSubLabel, badgeDir, weaponColor));
+        end
+
+        function color = localWeaponBadgeColor(obj, slot) %#ok<MANU>
+            if isempty(slot.WeaponList)
+                color = [0.55 0.64 0.76];
+                return;
+            end
+            idx = find(string(slot.WeaponList.Name) == slot.WeaponName, 1, 'first');
+            if isempty(idx)
+                color = [0.55 0.64 0.76];
+                return;
+            end
+            rank = slot.WeaponList.Rank(idx);
+            switch rank
+                case 5
+                    color = [0.86 0.66 0.22];
+                case 4
+                    color = [0.58 0.46 0.80];
+                otherwise
+                    color = [0.45 0.58 0.74];
+            end
+        end
+
+        function modeValue = resolveArtifactMode(obj, slot) %#ok<MANU>
+            if slot.ArtifactSet1Pieces >= 4
+                modeValue = '4pc';
+            elseif slot.ArtifactSet1Pieces == 2 && slot.ArtifactSet2Pieces == 2
+                modeValue = '2p2p';
+            elseif slot.ArtifactSet1Pieces == 2
+                modeValue = '2pc';
+            else
+                modeValue = '0pc';
+            end
+        end
+
+        function modeLabel = resolveArtifactModeLabel(obj, slot) %#ok<MANU>
+            switch obj.resolveArtifactMode(slot)
+                case '4pc'
+                    modeLabel = '4件套';
+                case '2p2p'
+                    modeLabel = '2+2';
+                case '2pc'
+                    modeLabel = '2件套';
+                otherwise
+                    modeLabel = '无套装';
+            end
         end
 
         function memberCfg = buildMemberConfig(obj, slotIndex)
@@ -1203,8 +1437,30 @@ classdef GenshinDMGApp < handle
             slot.Build = loadBuildPreset(slot.CharacterKey, slot.BuildPresetId);
             slot.WeaponName = string(getFieldOrDefault(slot.Build, 'Weapon', slot.WeaponName));
             slot.WeaponRefinement = max(1, min(5, getFieldOrDefault(slot.Build, 'WeaponRefinement', slot.WeaponRefinement)));
+            slot.ArtifactSet1 = string(getFieldOrDefault(slot.Build, 'ArtifactSet1', slot.ArtifactSet1));
+            slot.ArtifactSet1Pieces = getFieldOrDefault(slot.Build, 'ArtifactSet1Pieces', slot.ArtifactSet1Pieces);
+            slot.ArtifactSet2 = string(getFieldOrDefault(slot.Build, 'ArtifactSet2', slot.ArtifactSet2));
+            slot.ArtifactSet2Pieces = getFieldOrDefault(slot.Build, 'ArtifactSet2Pieces', slot.ArtifactSet2Pieces);
+            slot.ArtifactSet4Active = getFieldOrDefault(slot.Build, 'ArtifactSet4Active', slot.ArtifactSet4Active);
             slot.WeaponList = listWeaponsForCharacter(slot.CharacterKey);
             slot.Build = obj.applyWeaponStatsToBuild(slot.Build, slot.WeaponList, slot.WeaponName, slot.WeaponRefinement);
+            slot.Build = obj.applyArtifactSelectionToBuild(slot.Build, slot);
+            [slot.ArtifactBadgePath, slot.WeaponBadgePath] = obj.resolveEquipmentBadgePaths(slot);
+            obj.Slots(slotIndex) = slot;
+            obj.refreshSlotCard(slotIndex);
+            if obj.SelectedSlot == slotIndex
+                obj.refreshEditorForSelectedSlot();
+            end
+        end
+
+        function onSlotArtifactSetChanged(obj, slotIndex, artifactSetId)
+            % 更换当前角色套装。
+            obj.saveSelectedSlotState();
+            slot = obj.Slots(slotIndex);
+            slot.ArtifactSet1 = string(artifactSetId);
+            slot = obj.applyArtifactModeToSlot(slot, obj.resolveArtifactMode(slot));
+            slot.Build = obj.applyArtifactSelectionToBuild(slot.Build, slot);
+            [slot.ArtifactBadgePath, slot.WeaponBadgePath] = obj.resolveEquipmentBadgePaths(slot);
             obj.Slots(slotIndex) = slot;
             obj.refreshSlotCard(slotIndex);
             if obj.SelectedSlot == slotIndex
@@ -1269,9 +1525,17 @@ classdef GenshinDMGApp < handle
             % 用户直接编辑 build 表格后的回写逻辑。
             slot = obj.Slots(obj.SelectedSlot);
             slot.Build = tableDataToBuildStruct(obj.BuildTable.Data);
+            slot.Build = materializeArtifactPieceModel(slot.CharacterKey, slot.Build, struct());
             slot.WeaponName = string(getFieldOrDefault(slot.Build, 'Weapon', slot.WeaponName));
             slot.WeaponRefinement = max(1, min(5, getFieldOrDefault(slot.Build, 'WeaponRefinement', slot.WeaponRefinement)));
+            slot.ArtifactSet1 = string(getFieldOrDefault(slot.Build, 'ArtifactSet1', slot.ArtifactSet1));
+            slot.ArtifactSet1Pieces = getFieldOrDefault(slot.Build, 'ArtifactSet1Pieces', slot.ArtifactSet1Pieces);
+            slot.ArtifactSet2 = string(getFieldOrDefault(slot.Build, 'ArtifactSet2', slot.ArtifactSet2));
+            slot.ArtifactSet2Pieces = getFieldOrDefault(slot.Build, 'ArtifactSet2Pieces', slot.ArtifactSet2Pieces);
+            slot.ArtifactSet4Active = getFieldOrDefault(slot.Build, 'ArtifactSet4Active', slot.ArtifactSet4Active);
             slot.Build = obj.applyWeaponStatsToBuild(slot.Build, slot.WeaponList, slot.WeaponName, slot.WeaponRefinement);
+            slot.Build = obj.applyArtifactSelectionToBuild(slot.Build, slot);
+            [slot.ArtifactBadgePath, slot.WeaponBadgePath] = obj.resolveEquipmentBadgePaths(slot);
             obj.Slots(obj.SelectedSlot) = slot;
 
             obj.refreshSlotCard(obj.SelectedSlot);
@@ -1293,6 +1557,56 @@ classdef GenshinDMGApp < handle
             obj.Slots(obj.SelectedSlot) = slot;
             obj.RotationTextArea.Value = obj.rotationStringToTextAreaValue(slot.RotationText);
             obj.refreshTimelinePreview();
+        end
+
+        function onSelectedArtifactSetChanged(obj, setId)
+            % 中间编辑区的套装选择回写。
+            slot = obj.Slots(obj.SelectedSlot);
+            slot.ArtifactSet1 = string(setId);
+            slot.Build = obj.applyArtifactSelectionToBuild(slot.Build, slot);
+            [slot.ArtifactBadgePath, slot.WeaponBadgePath] = obj.resolveEquipmentBadgePaths(slot);
+            obj.Slots(obj.SelectedSlot) = slot;
+            obj.refreshSlotCard(obj.SelectedSlot);
+            obj.refreshEditorForSelectedSlot();
+        end
+
+        function onSelectedArtifactModeChanged(obj, modeValue)
+            % 中间编辑区的套装件数模式切换回写。
+            slot = obj.Slots(obj.SelectedSlot);
+            slot = obj.applyArtifactModeToSlot(slot, modeValue);
+            slot.Build = obj.applyArtifactSelectionToBuild(slot.Build, slot);
+            [slot.ArtifactBadgePath, slot.WeaponBadgePath] = obj.resolveEquipmentBadgePaths(slot);
+            obj.Slots(obj.SelectedSlot) = slot;
+            obj.refreshSlotCard(obj.SelectedSlot);
+            obj.refreshEditorForSelectedSlot();
+        end
+
+        function slot = applyArtifactModeToSlot(obj, slot, modeValue) %#ok<MANU>
+            % 按 GUI 模式将件数分配回槽位状态。
+            switch char(string(modeValue))
+                case '4pc'
+                    slot.ArtifactSet1Pieces = 4;
+                    slot.ArtifactSet2 = "None";
+                    slot.ArtifactSet2Pieces = 0;
+                    slot.ArtifactSet4Active = 1;
+                case '2p2p'
+                    slot.ArtifactSet1Pieces = 2;
+                    if slot.ArtifactSet2 == "None"
+                        slot.ArtifactSet2 = "ATK18";
+                    end
+                    slot.ArtifactSet2Pieces = 2;
+                    slot.ArtifactSet4Active = 0;
+                case '2pc'
+                    slot.ArtifactSet1Pieces = 2;
+                    slot.ArtifactSet2 = "None";
+                    slot.ArtifactSet2Pieces = 0;
+                    slot.ArtifactSet4Active = 0;
+                otherwise
+                    slot.ArtifactSet1Pieces = 0;
+                    slot.ArtifactSet2 = "None";
+                    slot.ArtifactSet2Pieces = 0;
+                    slot.ArtifactSet4Active = 0;
+            end
         end
 
         function onResetCurrentSlot(obj)

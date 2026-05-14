@@ -30,6 +30,7 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateDurinDPS(build, enem
     critRate = min(1, getFieldOrDefault(build, 'CritRate', 0));
     critDMG = getFieldOrDefault(build, 'CritDMG', 0) + 0.20 * double(constellation >= 6);
     pyroResShred = getFieldOrDefault(build, 'ResShred', 0) + getFieldOrDefault(teamContext, 'PyroResShred', 0);
+    enemyState = getFieldOrDefault(teamContext, 'EnemyState', createEnemyState(enemy, teamContext, "Pyro"));
 
     % state 追踪当前变身形态、龙持续时间、聚变层与命座窗口。
     state = struct( ...
@@ -51,6 +52,7 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateDurinDPS(build, enem
     for i = 1:numel(actions.Tokens)
         action = actions.Tokens{i};
         actionTime = localActionTime(action);
+        enemyState = advanceEnemyStateTime(enemyState, actionTime, "Pyro", teamContext);
         dmg = 0;
         note = "";
         extraRows = table('Size', [0 3], 'VariableTypes', {'string', 'double', 'string'}, ...
@@ -78,11 +80,12 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateDurinDPS(build, enem
                     getTalentValue(talent, 'Skill', 'Deny2ATK', localSkillTalentLevel(talentLevel, constellation)), ...
                     getTalentValue(talent, 'Skill', 'Deny3ATK', localSkillTalentLevel(talentLevel, constellation))];
                 for hitIndex = 1:numel(denyHits)
-                    hitDMG = localResolvedPyroAttack(atk, denyHits(hitIndex), build, teamContext, enemy, pyroResShred, ...
-                        getFieldOrDefault(build, 'SkillDMGBonus', 0), critRate, critDMG, em, state, false, constellation, ...
-                        getTalentValue(talent, 'Passive', 'DarkAmp', talentLevel), true);
+                    [hitDMG, state, enemyState, reactionName] = localResolvedPyroAttack( ...
+                        atk, denyHits(hitIndex), build, teamContext, enemy, pyroResShred, ...
+                        getFieldOrDefault(build, 'SkillDMGBonus', 0), critRate, critDMG, em, state, enemyState, ...
+                        false, constellation, getTalentValue(talent, 'Passive', 'DarkAmp', talentLevel), true);
                     dmg = dmg + hitDMG;
-                    extraRows = [extraRows; {string(sprintf('Deny%d', hitIndex)), hitDMG, "Dark transmutation hit"}]; %#ok<AGROW>
+                    extraRows = [extraRows; {string(sprintf('Deny%d', hitIndex)), hitDMG, localReactionRowNote("Dark transmutation hit", reactionName)}]; %#ok<AGROW>
                 end
                 state.Mode = "Denial";
                 state.ModeTime = 30.0;
@@ -91,7 +94,9 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateDurinDPS(build, enem
             case 'Q'
                 if state.Mode == "Denial"
                     [dmg, extraRows, state] = localResolveDarkBurst( ...
-                        atk, em, build, enemy, teamContext, pyroResShred, talent, talentLevel, constellation, state, extraRows, critRate, critDMG);
+                        atk, em, build, enemy, teamContext, pyroResShred, talent, talentLevel, constellation, state, extraRows, critRate, critDMG, enemyState);
+                    enemyState = state.EnemyState;
+                    state = rmfield(state, 'EnemyState');
                     note = "Principle of Darkness";
                 else
                     [dmg, extraRows, state] = localResolveWhiteBurst( ...
@@ -102,7 +107,9 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateDurinDPS(build, enem
             case 'WhiteTick'
                 if state.DragonTime > 0 && state.DragonMode == "White"
                     [dmg, state] = localResolveDragonTick( ...
-                        atk, em, build, enemy, teamContext, pyroResShred, talent, talentLevel, constellation, state, "White", critRate, critDMG);
+                        atk, em, build, enemy, teamContext, pyroResShred, talent, talentLevel, constellation, state, "White", critRate, critDMG, enemyState);
+                    enemyState = state.EnemyState;
+                    state = rmfield(state, 'EnemyState');
                     note = sprintf('White dragon follow-up, stacks=%.1f', state.FusionStacks);
                 else
                     note = "White dragon inactive";
@@ -111,7 +118,9 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateDurinDPS(build, enem
             case 'DarkTick'
                 if state.DragonTime > 0 && state.DragonMode == "Dark"
                     [dmg, state] = localResolveDragonTick( ...
-                        atk, em, build, enemy, teamContext, pyroResShred, talent, talentLevel, constellation, state, "Dark", critRate, critDMG);
+                        atk, em, build, enemy, teamContext, pyroResShred, talent, talentLevel, constellation, state, "Dark", critRate, critDMG, enemyState);
+                    enemyState = state.EnemyState;
+                    state = rmfield(state, 'EnemyState');
                     note = sprintf('Dark dragon follow-up, stacks=%.1f', state.FusionStacks);
                 else
                     note = "Dark dragon inactive";
@@ -191,7 +200,7 @@ function [dmg, rows, state] = localResolveWhiteBurst(atk, build, enemy, teamCont
     end
 end
 
-function [dmg, rows, state] = localResolveDarkBurst(atk, em, build, enemy, teamContext, pyroResShred, talent, talentLevel, constellation, state, rows, critRate, critDMG)
+function [dmg, rows, state] = localResolveDarkBurst(atk, em, build, enemy, teamContext, pyroResShred, talent, talentLevel, constellation, state, rows, critRate, critDMG, enemyState)
     burstLevel = localBurstTalentLevel(talentLevel, constellation);
     state.DragonMode = "Dark";
     state.DragonTime = 20.0;
@@ -207,21 +216,25 @@ function [dmg, rows, state] = localResolveDarkBurst(atk, em, build, enemy, teamC
         getTalentValue(talent, 'Burst', 'Dark3ATK', burstLevel)];
     dmg = 0;
     for hitIndex = 1:numel(darkHits)
-        [hitDMG, state] = localResolvedPyroAttack(atk, darkHits(hitIndex), build, teamContext, enemy, pyroResShred, ...
+        [hitDMG, state, enemyState, reactionName] = localResolvedPyroAttack( ...
+            atk, darkHits(hitIndex), build, teamContext, enemy, pyroResShred, ...
             getFieldOrDefault(build, 'BurstDMGBonus', 0) + getTalentValue(talent, 'Constellation', 'C4BurstBonus', talentLevel) * double(constellation >= 4), ...
-            critRate, critDMG, em, state, true, constellation, getTalentValue(talent, 'Passive', 'DarkAmp', talentLevel), true);
+            critRate, critDMG, em, state, enemyState, true, constellation, ...
+            getTalentValue(talent, 'Passive', 'DarkAmp', talentLevel), true);
         dmg = dmg + hitDMG;
-        rows = [rows; {string(sprintf('DarkBurst%d', hitIndex)), hitDMG, "Dark burst hit"}]; %#ok<AGROW>
+        rows = [rows; {string(sprintf('DarkBurst%d', hitIndex)), hitDMG, localReactionRowNote("Dark burst hit", reactionName)}]; %#ok<AGROW>
     end
+    state.EnemyState = enemyState;
 end
 
-function [dmg, state] = localResolveDragonTick(atk, em, build, enemy, teamContext, pyroResShred, talent, talentLevel, constellation, state, mode, critRate, critDMG)
+function [dmg, state] = localResolveDragonTick(atk, em, build, enemy, teamContext, pyroResShred, talent, talentLevel, constellation, state, mode, critRate, critDMG, enemyState)
     burstLevel = localBurstTalentLevel(talentLevel, constellation);
     if strcmpi(mode, 'Dark')
         mv = getTalentValue(talent, 'Burst', 'DarkDragonATK', burstLevel);
-        [dmg, state] = localResolvedPyroAttack(atk, mv, build, teamContext, enemy, pyroResShred, ...
-            getFieldOrDefault(build, 'BurstDMGBonus', 0), critRate, critDMG, em, state, true, constellation, ...
-            getTalentValue(talent, 'Passive', 'DarkAmp', talentLevel), true);
+        [dmg, state, enemyState, ~] = localResolvedPyroAttack( ...
+            atk, mv, build, teamContext, enemy, pyroResShred, ...
+            getFieldOrDefault(build, 'BurstDMGBonus', 0), critRate, critDMG, em, state, enemyState, ...
+            true, constellation, getTalentValue(talent, 'Passive', 'DarkAmp', talentLevel), true);
     else
         mv = getTalentValue(talent, 'Burst', 'WhiteDragonATK', burstLevel);
         fusionBonus = localFusionBonus(atk, state);
@@ -234,9 +247,10 @@ function [dmg, state] = localResolveDragonTick(atk, em, build, enemy, teamContex
             state.WhiteDefShredTime = 10.0;
         end
     end
+    state.EnemyState = enemyState;
 end
 
-function [dmg, state] = localResolvedPyroAttack(atk, mv, build, teamContext, enemy, pyroResShred, extraBonus, critRate, critDMG, em, state, darkMode, constellation, darkPassiveBonus, allowReaction)
+function [dmg, state, enemyState, reactionName] = localResolvedPyroAttack(atk, mv, build, teamContext, enemy, pyroResShred, extraBonus, critRate, critDMG, em, state, enemyState, darkMode, constellation, darkPassiveBonus, allowReaction)
     % 统一处理杜林火伤段，必要时附加蒸发/融化与命座平伤。
     bonus = extraBonus + localFusionBonus(atk, state) * double(isstruct(state) && isfield(state, 'FusionStacks'));
     if isstruct(state) && isfield(state, 'C2Time')
@@ -250,10 +264,13 @@ function [dmg, state] = localResolvedPyroAttack(atk, mv, build, teamContext, ene
     end
 
     defIgnore = 0.40 * double(darkMode && constellation >= 6);
+    reactionName = "";
     if allowReaction && localHasDarkReaction(teamContext)
-        [reactionMult, reactionBonus] = localDarkReactionData(teamContext, darkPassiveBonus);
         baseDMG = localPyroDamage(atk, mv + flatMV, build, teamContext, enemy, pyroResShred, bonus, critRate, critDMG, defIgnore, 0);
-        dmg = baseDMG * reactionMult * localAmpBonus(em) * reactionBonus;
+        [reactionMult, enemyState, reaction] = getAmplifyingReactionMultiplier( ...
+            enemyState, "Pyro", em, teamContext, 1.0, 0, darkPassiveBonus);
+        dmg = baseDMG * reactionMult;
+        reactionName = reaction.Name;
     else
         dmg = localPyroDamage(atk, mv + flatMV, build, teamContext, enemy, pyroResShred, bonus, critRate, critDMG, defIgnore, 0);
     end
@@ -297,19 +314,6 @@ function tf = localHasDarkReaction(teamContext)
     tf = getFieldOrDefault(teamContext, 'HydroCount', 0) >= 1 || getFieldOrDefault(teamContext, 'CryoCount', 0) >= 1;
 end
 
-function [reactionMult, reactionBonus] = localDarkReactionData(teamContext, passiveBonus)
-    if getFieldOrDefault(teamContext, 'CryoCount', 0) >= 1
-        reactionMult = 2.0;
-    else
-        reactionMult = 1.5;
-    end
-    reactionBonus = 1 + passiveBonus;
-end
-
-function amp = localAmpBonus(em)
-    amp = 1 + 2.78 * em / (em + 1400);
-end
-
 function state = localAdvanceState(state, actionTime)
     % 推进双形态窗口、龙持续与命座增益时间。
     state.ModeTime = max(0, state.ModeTime - actionTime);
@@ -321,6 +325,14 @@ function state = localAdvanceState(state, actionTime)
     end
     if state.DragonTime <= 0
         state.DragonMode = "";
+    end
+end
+
+function note = localReactionRowNote(baseNote, reactionName)
+    if reactionName == ""
+        note = baseNote;
+    else
+        note = sprintf('%s, %s', baseNote, lower(char(reactionName)));
     end
 end
 

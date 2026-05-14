@@ -38,11 +38,14 @@ function [teamResult, memberResults] = simulateTeamDPS(teamSpec, enemy)
 
     % 先构造一次共享团队上下文，再复用给每个角色。
     % 这样可保证减抗、元素计数、共享增益和反应开关在全队内部一致。
-    teamContext = buildTeamContext(members, rotationDuration, sharedBuffs);
+    teamContext = buildTeamContext(members, rotationDuration, sharedBuffs, enemy);
     memberCells = cell(1, numel(members));
     combinedBreakdown = table();
 
     for i = 1:numel(members)
+        if ~isfield(members{i}, 'EnemyState') || isempty(members{i}.EnemyState)
+            members{i}.EnemyState = createEnemyState(enemy, teamContext, getCharacterElement(members{i}.Name));
+        end
         memberCells{i} = simulateCharacterDPS(members{i}, enemy, teamContext);
         if ~isempty(memberCells{i}.Breakdown)
             currentBreakdown = memberCells{i}.Breakdown;

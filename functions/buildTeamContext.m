@@ -1,4 +1,4 @@
-function teamContext = buildTeamContext(members, rotationDuration, sharedBuffs)
+function teamContext = buildTeamContext(members, rotationDuration, sharedBuffs, enemy)
     % Build a reusable team-level context so every character simulator can
     % read the same counts, shared buffs, and lightweight team assumptions.
     initProjectPaths();
@@ -7,6 +7,9 @@ function teamContext = buildTeamContext(members, rotationDuration, sharedBuffs)
     end
     if nargin < 3 || isempty(sharedBuffs)
         sharedBuffs = struct();
+    end
+    if nargin < 4 || isempty(enemy)
+        enemy = struct();
     end
 
     memberCount = numel(members);
@@ -38,6 +41,7 @@ function teamContext = buildTeamContext(members, rotationDuration, sharedBuffs)
     hydroCryoCount = sum(hydroMask | cryoMask);
 
     sharedAllDMGBonus = getFieldOrDefault(sharedBuffs, 'AllDMGBonus', 0);
+    sharedArtifactBuffs = localCollectArtifactTeamBuffs(members);
     furinaApproxBonus = getFieldOrDefault(sharedBuffs, 'ApproxFurinaBonus', []);
     furinaIndex = find(memberNames == "Furina", 1, 'first');
     if isempty(furinaApproxBonus)
@@ -52,7 +56,7 @@ function teamContext = buildTeamContext(members, rotationDuration, sharedBuffs)
     hydroResShred = getFieldOrDefault(sharedBuffs, 'HydroResShred', 0);
     cryoResShred = getFieldOrDefault(sharedBuffs, 'CryoResShred', 0);
     pyroResShred = getFieldOrDefault(sharedBuffs, 'PyroResShred', 0);
-    dendroResShred = getFieldOrDefault(sharedBuffs, 'DendroResShred', 0);
+    dendroResShred = getFieldOrDefault(sharedBuffs, 'DendroResShred', 0) + getFieldOrDefault(sharedArtifactBuffs, 'DendroResShred', 0);
     electroResShred = getFieldOrDefault(sharedBuffs, 'ElectroResShred', 0);
     geoResShred = getFieldOrDefault(sharedBuffs, 'GeoResShred', 0);
     cryoCritDMGBonus = getFieldOrDefault(sharedBuffs, 'CryoCritDMGBonus', 0);
@@ -193,7 +197,8 @@ function teamContext = buildTeamContext(members, rotationDuration, sharedBuffs)
     nicoleHexereiProjectionReady = nicoleSupport.HasHexereiSecretRite;
 
     flatATK = getFieldOrDefault(sharedBuffs, 'FlatATK', 0) + nicoleTeamFlatATK;
-    atkBonus = getFieldOrDefault(sharedBuffs, 'ATKBonus', 0) + chevreuseATKBonus + iansanBurstATKBonus;
+    atkBonus = getFieldOrDefault(sharedBuffs, 'ATKBonus', 0) + getFieldOrDefault(sharedArtifactBuffs, 'ATKBonus', 0) ...
+        + chevreuseATKBonus + iansanBurstATKBonus;
     overloadBonus = sharedOverloadBonus + 0.35 * double(chevreuseOverloadReady) + 0.08 * double(hasVaresa && overloadReady);
 
     hydroBeamBonus = 0.00;
@@ -210,6 +215,12 @@ function teamContext = buildTeamContext(members, rotationDuration, sharedBuffs)
         memberNames, hasLauma, hasNefer, hasNilou, hasIneffa, hasFlins, ...
         hasLinnea, hasZibai, lunarBloomEnabled, lunarChargedEnabled, ...
         lunarCrystallizeEnabled, sharedBuffs);
+    enemyState = createEnemyState(enemy, struct( ...
+        'PyroCount', pyroCount, ...
+        'HydroCount', hydroCount, ...
+        'CryoCount', cryoCount, ...
+        'ElectroCount', electroCount, ...
+        'DendroCount', dendroCount), localResolveDefaultTriggerElement(memberNames, memberElements));
 
     teamContext = struct( ...
         'MemberNames', memberNames, ...
@@ -217,7 +228,9 @@ function teamContext = buildTeamContext(members, rotationDuration, sharedBuffs)
         'MemberConstellations', memberConstellations, ...
         'MemberCount', memberCount, ...
         'RotationDuration', rotationDuration, ...
+        'EnemyState', enemyState, ...
         'SharedAllDMGBonus', sharedAllDMGBonus, ...
+        'ArtifactTeamBuffs', sharedArtifactBuffs, ...
         'ApproxFurinaBonus', furinaApproxBonus, ...
         'AllDMGBonus', allDMGBonus, ...
         'FlatATK', flatATK, ...
@@ -311,6 +324,34 @@ function teamContext = buildTeamContext(members, rotationDuration, sharedBuffs)
         'SkirkSkillLevelBonus', double(hasSkirk && hydroCount >= 1 && cryoCount >= 1 && hydroCryoCount == memberCount), ...
         'SkirkDeathCrossingStacks', double(hasSkirk) * min(3, hydroCount + max(cryoCount - 1, 0)), ...
         'SkirkVoidRifts', double(hasSkirk && hydroCount >= 1 && cryoCount >= 1) * 3);
+end
+
+function buffs = localCollectArtifactTeamBuffs(members)
+    buffs = struct('ATKBonus', 0, 'DendroResShred', 0);
+    for i = 1:numel(members)
+        if ~isfield(members{i}, 'Build')
+            continue;
+        end
+        build = normalizeArtifactBuild(members{i}.Build, members{i}.Name);
+        memberBuffs = getArtifactTeamBuffs(members{i}.Name, build);
+        buffs.ATKBonus = max(buffs.ATKBonus, getFieldOrDefault(memberBuffs, 'ATKBonus', 0));
+        buffs.DendroResShred = max(buffs.DendroResShred, getFieldOrDefault(memberBuffs, 'DendroResShred', 0));
+    end
+end
+
+function triggerElement = localResolveDefaultTriggerElement(memberNames, memberElements)
+    triggerElement = "";
+    priority = ["Pyro", "Hydro", "Cryo", "Electro", "Dendro"];
+    for i = 1:numel(priority)
+        matchIndex = find(memberElements == priority(i), 1, 'first');
+        if ~isempty(matchIndex)
+            if memberNames(matchIndex) == "Nicole"
+                continue;
+            end
+            triggerElement = priority(i);
+            return;
+        end
+    end
 end
 
 function dominantReaction = localResolveDominantLunarReaction(memberNames, hasLauma, hasNefer, hasNilou, ...
