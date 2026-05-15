@@ -32,7 +32,7 @@ function imagePath = getPortraitForCharacter(characterName, cacheDir)
     end
 
     candidateUrls = localBuildAvatarCandidates(avatarKey);
-    requestOptions = weboptions('Timeout', 4);
+    requestOptions = weboptions('Timeout', 2);
     for i = 1:numel(candidateUrls)
         try
             websave(pngPath, candidateUrls{i}, requestOptions);

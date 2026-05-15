@@ -1,5 +1,7 @@
 function bonus = getArtifactSetBonusContribution(characterName, build, teamContext)
-    % 根据当前圣遗物件数和条件化假设，返回应加到 build 面板上的套装增益。
+    % 根据角色当前穿戴的圣遗物套装，返回会直接写回面板的套装增益。
+    % 这里只处理“角色自身可直接消费”的数值加成；
+    % 需要写入队伍共享上下文或敌人抗性的效果，由 getArtifactTeamBuffs 处理。
     if nargin < 3 || isempty(teamContext)
         teamContext = struct();
     end
@@ -9,8 +11,8 @@ function bonus = getArtifactSetBonusContribution(characterName, build, teamConte
     setNames = fieldnames(setPieces);
 
     for i = 1:numel(setNames)
-        setId = setNames{i};
-        pieces = min(5, setPieces.(setId));
+        setId = string(setNames{i});
+        pieces = min(5, setPieces.(setNames{i}));
         if pieces >= 2
             bonus = localAddStatStruct(bonus, localTwoPieceBonus(setId, characterName));
         end
@@ -30,7 +32,7 @@ function setPieces = localCollectSetPieces(build)
         if strlength(setId) == 0 || setId == "None"
             continue;
         end
-        key = char(setId);
+        key = matlab.lang.makeValidName(char(setId));
         if ~isfield(setPieces, key)
             setPieces.(key) = 0;
         end
@@ -47,7 +49,7 @@ function setPieces = localCollectSetPieces(build)
             if setId == "None" || pieces <= 0
                 continue;
             end
-            key = char(setId);
+            key = matlab.lang.makeValidName(char(setId));
             if ~isfield(setPieces, key)
                 setPieces.(key) = 0;
             end
@@ -60,69 +62,90 @@ function bonus = localTwoPieceBonus(setId, characterName)
     bonus = localEmptyStatStruct();
     element = getCharacterElement(characterName);
 
-    switch char(string(setId))
-        case {'ATK18', 'FragmentOfHarmonicWhimsy'}
+    switch lower(char(setId))
+        case {'atk18', 'fragmentofharmonicwhimsy', 'gladiatorsfinale', 'shimenawasreminiscence', 'nighttimewhispersintheechoingwoods'}
             bonus.AtkBonus = 0.18;
-        case 'HP20'
+
+        case {'hp20', 'tenacityofthemillelith', 'vourukashasglow'}
             bonus.HPBonus = 0.20;
-        case {'EM80', 'WanderersTroupe'}
+
+        case {'em80', 'wandererstroupe', 'gildeddreams', 'instructor', 'flowerofparadiselost'}
             bonus.EM = 80;
-        case 'ER20'
+
+        case {'er20', 'emblemofseveredfate'}
             bonus.ER = 0.20;
-        case 'Healing15'
+
+        case {'healing15', 'songofdayspast', 'oceanhuedclam'}
             bonus.HealingBonus = 0.15;
-        case 'GoldenTroupe'
-            bonus.SkillDMGBonus = 0.20;
-        case 'MarechausseeHunter'
-            bonus.NormalDMGBonus = 0.15;
-            bonus.ChargeDMGBonus = 0.15;
-            bonus.ChargedDMGBonus = 0.15;
-        case 'ObsidianCodex'
-            bonus.NormalDMGBonus = 0.15;
-            bonus.ChargeDMGBonus = 0.15;
-            bonus.ChargedDMGBonus = 0.15;
-            bonus.SkillDMGBonus = 0.15;
-            bonus.BurstDMGBonus = 0.15;
-        case 'BlizzardStrayer'
-            bonus = localAddElementBonus(bonus, element, 0.15);
-        case 'DeepwoodMemories'
-            bonus.DendroDMGBonus = 0.15;
-        case 'NoblesseOblige'
-            bonus.BurstDMGBonus = 0.20;
-        case 'TenacityOfTheMillelith'
-            bonus.HPBonus = 0.20;
-        case 'HuskOfOpulentDreams'
-            bonus.DEFBonus = 0.30;
-        case 'HeartOfDepth'
+
+        case {'pyro15', 'crimsonwitchofflames'}
+            bonus.PyroDMGBonus = 0.15;
+
+        case {'hydro15', 'heartofdepth', 'nymphsdream'}
             bonus.HydroDMGBonus = 0.15;
+
+        case {'cryo15', 'blizzardstrayer'}
+            bonus.CryoDMGBonus = 0.15;
+
+        case {'electro15', 'thunderingfury'}
+            bonus.ElectroDMGBonus = 0.15;
+
+        case {'anemo15', 'viridescentvenerer', 'desertpavilionchronicle'}
+            bonus.AnemoDMGBonus = 0.15;
+
+        case {'geo15', 'archaicpetra'}
+            bonus.GeoDMGBonus = 0.15;
+
+        case {'dendro15', 'deepwoodmemories'}
+            bonus.DendroDMGBonus = 0.15;
+
+        case 'goldentroupe'
+            bonus.SkillDMGBonus = 0.20;
+
+        case 'marechausseehunter'
+            bonus.NormalDMGBonus = 0.15;
+            bonus.ChargeDMGBonus = 0.15;
+            bonus.ChargedDMGBonus = 0.15;
+
+        case 'obsidiancodex'
+            bonus = localAddCommonActionBonus(bonus, 0.15);
+
+        case 'noblesseoblige'
+            bonus.BurstDMGBonus = 0.20;
+
+        case 'huskofopulentdreams'
+            bonus.DEFBonus = 0.30;
+
+        otherwise
+            bonus = localAddElementBonus(bonus, element, 0);
     end
 end
 
 function bonus = localFourPieceBonus(setId, characterName, build, teamContext)
     bonus = localEmptyStatStruct();
 
-    switch char(string(setId))
-        case 'GoldenTroupe'
+    switch lower(char(setId))
+        case 'goldentroupe'
             bonus.SkillDMGBonus = 0.25;
             if logical(getFieldOrDefault(build, 'ArtifactAssumeOffFieldSkill', localIsMostlyOffFieldSkillUser(characterName)))
                 bonus.SkillDMGBonus = bonus.SkillDMGBonus + 0.25;
             end
 
-        case 'MarechausseeHunter'
+        case 'marechausseehunter'
             stackCount = min(3, max(0, getFieldOrDefault(build, 'ArtifactAssumeMarechausseeStacks', 3)));
             bonus.CritRate = 0.12 * stackCount;
 
-        case 'FragmentOfHarmonicWhimsy'
+        case 'fragmentofharmonicwhimsy'
             stackCount = max(0, getFieldOrDefault(build, 'ArtifactAssumeBondOfLifeStacks', double(localUsesBondOfLife(characterName))));
             stackCount = max(stackCount, double(localUsesBondOfLife(characterName)));
             bonus = localAddCommonActionBonus(bonus, 0.18 * max(1, stackCount));
 
-        case 'ObsidianCodex'
+        case 'obsidiancodex'
             if logical(getFieldOrDefault(build, 'ArtifactAssumeObsidianActive', false))
                 bonus.CritRate = 0.40;
             end
 
-        case 'BlizzardStrayer'
+        case 'blizzardstrayer'
             cryoAura = logical(getFieldOrDefault(build, 'ArtifactAssumeCryoAura', false));
             frozen = logical(getFieldOrDefault(build, 'ArtifactAssumeFrozen', false)) ...
                 || getFieldOrDefault(teamContext, 'HydroCount', 0) >= 1;
@@ -133,19 +156,30 @@ function bonus = localFourPieceBonus(setId, characterName, build, teamContext)
                 bonus.CritRate = bonus.CritRate + 0.20;
             end
 
-        case 'HeartOfDepth'
+        case 'heartofdepth'
             bonus.NormalDMGBonus = 0.30;
             bonus.ChargeDMGBonus = 0.30;
             bonus.ChargedDMGBonus = 0.30;
 
-        case 'HuskOfOpulentDreams'
+        case 'huskofopulentdreams'
             stackCount = min(4, max(0, getFieldOrDefault(build, 'ArtifactAssumeHuskStacks', 0)));
             bonus.DEFBonus = 0.06 * stackCount;
             bonus.GeoDMGBonus = 0.06 * stackCount;
 
-        case 'WanderersTroupe'
-            bonus.ChargeDMGBonus = 0.35;
-            bonus.ChargedDMGBonus = 0.35;
+        case 'wandererstroupe'
+            if localUsesCatalystOrBow(characterName)
+                bonus.ChargeDMGBonus = 0.35;
+                bonus.ChargedDMGBonus = 0.35;
+            end
+
+        case 'gladiatorsfinale'
+            if localUsesMeleeWeapon(characterName)
+                bonus.NormalDMGBonus = 0.35;
+            end
+
+        otherwise
+            % 复杂或尚未显式建模的 4 件套，在 registry 中保留展示信息，
+            % 这里先不对角色面板做错误近似。
     end
 end
 
@@ -153,6 +187,7 @@ function bonus = localAddCommonActionBonus(bonus, value)
     bonus.NormalDMGBonus = bonus.NormalDMGBonus + value;
     bonus.ChargeDMGBonus = bonus.ChargeDMGBonus + value;
     bonus.ChargedDMGBonus = bonus.ChargedDMGBonus + value;
+    bonus.PlungeDMGBonus = bonus.PlungeDMGBonus + value;
     bonus.SkillDMGBonus = bonus.SkillDMGBonus + value;
     bonus.BurstDMGBonus = bonus.BurstDMGBonus + value;
 end
@@ -191,7 +226,28 @@ end
 function tf = localIsMostlyOffFieldSkillUser(characterName)
     tf = any(strcmpi(char(string(characterName)), { ...
         'Furina', 'Escoffier', 'Citlali', 'Chevreuse', 'Iansan', ...
-        'Nicole', 'Lauma', 'Linnea', 'Nefer', 'Flins', 'Zibai'}));
+        'Nicole', 'Lauma', 'Linnea', 'Nefer', 'Flins', 'Zibai', 'Xianyun'}));
+end
+
+function tf = localUsesCatalystOrBow(characterName)
+    switch lower(char(string(characterName)))
+        case {'chasca', 'citlali', 'lauma', 'linnea', 'mualani', 'nefer', ...
+                'neuvillette', 'nicole', 'varesa', 'xianyun'}
+            tf = true;
+        otherwise
+            tf = false;
+    end
+end
+
+function tf = localUsesMeleeWeapon(characterName)
+    switch lower(char(string(characterName)))
+        case {'arlecchino', 'durin', 'escoffier', 'flins', 'furina', 'iansan', ...
+                'ineffa', 'mavuika', 'nilou', 'skirk', 'xilonen', 'zibai', ...
+                'chevreuse'}
+            tf = true;
+        otherwise
+            tf = false;
+    end
 end
 
 function stats = localEmptyStatStruct()

@@ -214,6 +214,8 @@ function setId = localRecommendedSet(characterName)
             setId = "HuskOfOpulentDreams";
         case 'nicole'
             setId = "GoldenTroupe";
+        case 'xianyun'
+            setId = "NoblesseOblige";
         otherwise
             setId = "None";
     end

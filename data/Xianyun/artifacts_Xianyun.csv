@@ -1,0 +1,2 @@
+Weapon,WeaponATK,WeaponSubStatType,WeaponSubStatValue,WeaponRefinement,AtkBonus,FlatATK,ER,CritRate,CritDMG,AnemoDMGBonus,PlungeDMGBonus,SkillDMGBonus,BurstDMGBonus,HealingBonus,ResShred,ArtifactSet1,ArtifactSet1Pieces,ArtifactSet2,ArtifactSet2Pieces,ArtifactSet4Active
+Crane's Echoing Call,740.5801544,ATK%,0.165384,1,1.72,410,1.72,0.42,1.02,0.466,0,0.18,0.2,0.15,0,NoblesseOblige,4,None,0,1

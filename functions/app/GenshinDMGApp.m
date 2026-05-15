@@ -47,7 +47,12 @@ classdef GenshinDMGApp < handle
         SelectedWeaponBadge
         SelectedArtifactBadge
         ArtifactSetDropdown
+        ArtifactSet2Dropdown
         ArtifactModeDropdown
+        SelectedWeaponDropdown
+        SelectedConstellationSpinner
+        SelectedTalentSpinner
+        SelectedRefinementSpinner
         BuildTable
         RotationTextArea
         BuildHintLabel
@@ -381,7 +386,7 @@ classdef GenshinDMGApp < handle
             editorPanel.Layout.Column = 2;
 
             editorGrid = uigridlayout(editorPanel, [4 1]);
-            editorGrid.RowHeight = {34, 280, '1x', 240};
+            editorGrid.RowHeight = {34, 340, '1x', 240};
             editorGrid.ColumnWidth = {'1x'};
             editorGrid.RowSpacing = 12;
             editorGrid.Padding = [12 12 12 12];
@@ -401,16 +406,15 @@ classdef GenshinDMGApp < handle
             heroCard.Layout.Row = 2;
             heroCard.Layout.Column = 1;
 
-            heroGrid = uigridlayout(heroCard, [2 2]);
+            heroGrid = uigridlayout(heroCard, [3 2]);
             heroGrid.ColumnWidth = {180, '1x'};
-            heroGrid.RowHeight = {132, '1x'};
-            heroGrid.RowHeight = {'1x'};
+            heroGrid.RowHeight = {132, 90, '1x'};
             heroGrid.ColumnSpacing = 14;
             heroGrid.Padding = [10 10 10 10];
             heroGrid.BackgroundColor = [0.96 0.97 0.99];
 
             obj.SelectedPortrait = uiimage(heroGrid, 'ScaleMethod', 'fit');
-            obj.SelectedPortrait.Layout.Row = [1 2];
+            obj.SelectedPortrait.Layout.Row = [1 3];
             obj.SelectedPortrait.Layout.Column = 1;
 
             badgeGrid = uigridlayout(heroGrid, [2 3]);
@@ -439,10 +443,10 @@ classdef GenshinDMGApp < handle
             obj.SelectedWeaponBadge.Layout.Row = 2;
             obj.SelectedWeaponBadge.Layout.Column = 2;
 
-            artifactCtrlGrid = uigridlayout(badgeGrid, [2 1]);
+            artifactCtrlGrid = uigridlayout(badgeGrid, [3 1]);
             artifactCtrlGrid.Layout.Row = [1 2];
             artifactCtrlGrid.Layout.Column = 3;
-            artifactCtrlGrid.RowHeight = {28, 28};
+            artifactCtrlGrid.RowHeight = {28, 28, 28};
             artifactCtrlGrid.ColumnWidth = {'1x'};
             artifactCtrlGrid.RowSpacing = 6;
             artifactCtrlGrid.Padding = [0 0 0 0];
@@ -455,20 +459,78 @@ classdef GenshinDMGApp < handle
                 'ValueChangedFcn', @(src, ~) obj.onSelectedArtifactSetChanged(src.Value));
             obj.ArtifactSetDropdown.Layout.Row = 1;
             obj.ArtifactSetDropdown.Layout.Column = 1;
+            obj.ArtifactSet2Dropdown = uidropdown(artifactCtrlGrid, ...
+                'Items', artifactLabels, ...
+                'ItemsData', artifactIds, ...
+                'ValueChangedFcn', @(src, ~) obj.onSelectedArtifactSet2Changed(src.Value));
+            obj.ArtifactSet2Dropdown.Layout.Row = 2;
+            obj.ArtifactSet2Dropdown.Layout.Column = 1;
 
             obj.ArtifactModeDropdown = uidropdown(artifactCtrlGrid, ...
                 'Items', {'4件套', '2+2 混搭', '2件套', '无套装'}, ...
                 'ItemsData', {'4pc', '2p2p', '2pc', '0pc'}, ...
                 'ValueChangedFcn', @(src, ~) obj.onSelectedArtifactModeChanged(src.Value));
-            obj.ArtifactModeDropdown.Layout.Row = 2;
+            obj.ArtifactModeDropdown.Layout.Row = 3;
             obj.ArtifactModeDropdown.Layout.Column = 1;
+
+            detailCtrlGrid = uigridlayout(heroGrid, [2 4]);
+            detailCtrlGrid.Layout.Row = 2;
+            detailCtrlGrid.Layout.Column = 2;
+            detailCtrlGrid.RowHeight = {16, 28};
+            detailCtrlGrid.ColumnWidth = {'1.8x', '1x', '1x', '1x'};
+            detailCtrlGrid.ColumnSpacing = 8;
+            detailCtrlGrid.RowSpacing = 2;
+            detailCtrlGrid.Padding = [0 0 0 0];
+            detailCtrlGrid.BackgroundColor = [0.96 0.97 0.99];
+
+            detailLabels = {'姝﹀櫒', '鍛藉骇', '澶╄祴', '绮剧偧'};
+            for detailIndex = 1:numel(detailLabels)
+                label = uilabel(detailCtrlGrid, ...
+                    'Text', detailLabels{detailIndex}, ...
+                    'HorizontalAlignment', 'center', ...
+                    'FontSize', 11, ...
+                    'FontColor', [0.42 0.46 0.54]);
+                label.Layout.Row = 1;
+                label.Layout.Column = detailIndex;
+            end
+
+            obj.SelectedWeaponDropdown = uidropdown(detailCtrlGrid, ...
+                'Items', {''}, ...
+                'ItemsData', {''}, ...
+                'ValueChangedFcn', @(src, ~) obj.onSelectedWeaponChanged(src.Value));
+            obj.SelectedWeaponDropdown.Layout.Row = 2;
+            obj.SelectedWeaponDropdown.Layout.Column = 1;
+
+            obj.SelectedConstellationSpinner = uispinner(detailCtrlGrid, ...
+                'Limits', [0 6], ...
+                'RoundFractionalValues', 'on', ...
+                'Step', 1, ...
+                'ValueChangedFcn', @(src, ~) obj.onSelectedConstellationChanged(src.Value));
+            obj.SelectedConstellationSpinner.Layout.Row = 2;
+            obj.SelectedConstellationSpinner.Layout.Column = 2;
+
+            obj.SelectedTalentSpinner = uispinner(detailCtrlGrid, ...
+                'Limits', [1 15], ...
+                'RoundFractionalValues', 'on', ...
+                'Step', 1, ...
+                'ValueChangedFcn', @(src, ~) obj.onSelectedTalentChanged(src.Value));
+            obj.SelectedTalentSpinner.Layout.Row = 2;
+            obj.SelectedTalentSpinner.Layout.Column = 3;
+
+            obj.SelectedRefinementSpinner = uispinner(detailCtrlGrid, ...
+                'Limits', [1 5], ...
+                'RoundFractionalValues', 'on', ...
+                'Step', 1, ...
+                'ValueChangedFcn', @(src, ~) obj.onSelectedRefinementChanged(src.Value));
+            obj.SelectedRefinementSpinner.Layout.Row = 2;
+            obj.SelectedRefinementSpinner.Layout.Column = 4;
 
             obj.SelectedSummaryText = uitextarea(heroGrid, ...
                 'Editable', 'off', ...
                 'FontSize', 12, ...
                 'BackgroundColor', [0.99 0.99 1.00], ...
                 'Value', {'当前角色信息会显示在这里。'});
-            obj.SelectedSummaryText.Layout.Row = 2;
+            obj.SelectedSummaryText.Layout.Row = 3;
             obj.SelectedSummaryText.Layout.Column = 2;
 
             buildPanel = uipanel(editorGrid, ...
@@ -858,7 +920,12 @@ classdef GenshinDMGApp < handle
             end
 
             obj.ArtifactSetDropdown.Value = char(slot.ArtifactSet1);
+            obj.ArtifactSet2Dropdown.Value = char(slot.ArtifactSet2);
             obj.ArtifactModeDropdown.Value = obj.resolveArtifactMode(slot);
+            obj.SelectedConstellationSpinner.Value = slot.Constellation;
+            obj.SelectedTalentSpinner.Value = slot.TalentLevel;
+            obj.SelectedRefinementSpinner.Value = slot.WeaponRefinement;
+            obj.updateSelectedWeaponDropdown();
 
             summaryLines = { ...
                 sprintf('角色：%s | 英文键：%s', char(slot.DisplayName), char(slot.CharacterKey)), ...
@@ -995,6 +1062,35 @@ classdef GenshinDMGApp < handle
 
             if ~isempty(currentWeapon) && any(strcmp(itemData, currentWeapon))
                 dropdown.Value = currentWeapon;
+            end
+        end
+
+        function updateSelectedWeaponDropdown(obj)
+            % 刷新中间编辑区武器下拉框，并与当前槽位保持一致。
+            if isempty(obj.SelectedWeaponDropdown) || obj.SelectedSlot < 1 || obj.SelectedSlot > numel(obj.Slots)
+                return;
+            end
+
+            slot = obj.Slots(obj.SelectedSlot);
+            itemData = {};
+            if ~isempty(slot.WeaponList)
+                itemData = cellstr(string(slot.WeaponList.Name));
+                itemData = itemData(:);
+            end
+            currentWeapon = char(slot.WeaponName);
+            if ~isempty(currentWeapon) && ~any(strcmp(itemData, currentWeapon))
+                itemData = [{currentWeapon}; itemData];
+            end
+            if isempty(itemData)
+                itemData = {''};
+            end
+
+            obj.SelectedWeaponDropdown.Items = itemData;
+            obj.SelectedWeaponDropdown.ItemsData = itemData;
+            if ~isempty(currentWeapon) && any(strcmp(itemData, currentWeapon))
+                obj.SelectedWeaponDropdown.Value = currentWeapon;
+            else
+                obj.SelectedWeaponDropdown.Value = itemData{1};
             end
         end
 
@@ -1481,6 +1577,17 @@ classdef GenshinDMGApp < handle
             end
         end
 
+        function onSelectedWeaponChanged(obj, weaponName)
+            % 中间编辑区武器下拉回写。
+            slot = obj.Slots(obj.SelectedSlot);
+            slot.WeaponName = string(weaponName);
+            slot.Build = obj.applyWeaponStatsToBuild(slot.Build, slot.WeaponList, slot.WeaponName, slot.WeaponRefinement);
+            [slot.ArtifactBadgePath, slot.WeaponBadgePath] = obj.resolveEquipmentBadgePaths(slot);
+            obj.Slots(obj.SelectedSlot) = slot;
+            obj.refreshSlotCard(obj.SelectedSlot);
+            obj.refreshEditorForSelectedSlot();
+        end
+
         function onSlotConstellationChanged(obj, slotIndex, value)
             % 命座修改回写。
             obj.Slots(slotIndex).Constellation = round(value);
@@ -1489,12 +1596,24 @@ classdef GenshinDMGApp < handle
             end
         end
 
+        function onSelectedConstellationChanged(obj, value)
+            obj.Slots(obj.SelectedSlot).Constellation = round(value);
+            obj.refreshSlotCard(obj.SelectedSlot);
+            obj.refreshEditorForSelectedSlot();
+        end
+
         function onSlotTalentChanged(obj, slotIndex, value)
             % 天赋等级修改回写。
             obj.Slots(slotIndex).TalentLevel = round(value);
             if obj.SelectedSlot == slotIndex
                 obj.refreshEditorForSelectedSlot();
             end
+        end
+
+        function onSelectedTalentChanged(obj, value)
+            obj.Slots(obj.SelectedSlot).TalentLevel = round(value);
+            obj.refreshSlotCard(obj.SelectedSlot);
+            obj.refreshEditorForSelectedSlot();
         end
 
         function onSlotRefinementChanged(obj, slotIndex, value)
@@ -1507,6 +1626,16 @@ classdef GenshinDMGApp < handle
             if obj.SelectedSlot == slotIndex
                 obj.refreshEditorForSelectedSlot();
             end
+        end
+
+        function onSelectedRefinementChanged(obj, value)
+            slot = obj.Slots(obj.SelectedSlot);
+            slot.WeaponRefinement = round(value);
+            slot.Build = obj.applyWeaponStatsToBuild(slot.Build, slot.WeaponList, slot.WeaponName, slot.WeaponRefinement);
+            [slot.ArtifactBadgePath, slot.WeaponBadgePath] = obj.resolveEquipmentBadgePaths(slot);
+            obj.Slots(obj.SelectedSlot) = slot;
+            obj.refreshSlotCard(obj.SelectedSlot);
+            obj.refreshEditorForSelectedSlot();
         end
 
         function onSlotStartTimeChanged(obj, slotIndex, value)
@@ -1570,6 +1699,20 @@ classdef GenshinDMGApp < handle
             obj.refreshEditorForSelectedSlot();
         end
 
+        function onSelectedArtifactSet2Changed(obj, setId)
+            % 中间编辑区第二套圣遗物回写。
+            slot = obj.Slots(obj.SelectedSlot);
+            slot.ArtifactSet2 = string(setId);
+            if obj.resolveArtifactMode(slot) ~= "2p2p" && slot.ArtifactSet2 ~= "None"
+                slot = obj.applyArtifactModeToSlot(slot, '2p2p');
+            end
+            slot.Build = obj.applyArtifactSelectionToBuild(slot.Build, slot);
+            [slot.ArtifactBadgePath, slot.WeaponBadgePath] = obj.resolveEquipmentBadgePaths(slot);
+            obj.Slots(obj.SelectedSlot) = slot;
+            obj.refreshSlotCard(obj.SelectedSlot);
+            obj.refreshEditorForSelectedSlot();
+        end
+
         function onSelectedArtifactModeChanged(obj, modeValue)
             % 中间编辑区的套装件数模式切换回写。
             slot = obj.Slots(obj.SelectedSlot);
@@ -1592,7 +1735,7 @@ classdef GenshinDMGApp < handle
                 case '2p2p'
                     slot.ArtifactSet1Pieces = 2;
                     if slot.ArtifactSet2 == "None"
-                        slot.ArtifactSet2 = "ATK18";
+                        slot.ArtifactSet2 = obj.resolveDefaultArtifactSet2(slot);
                     end
                     slot.ArtifactSet2Pieces = 2;
                     slot.ArtifactSet4Active = 0;
@@ -1606,6 +1749,39 @@ classdef GenshinDMGApp < handle
                     slot.ArtifactSet2 = "None";
                     slot.ArtifactSet2Pieces = 0;
                     slot.ArtifactSet4Active = 0;
+            end
+        end
+
+        function setId = resolveDefaultArtifactSet2(obj, slot) %#ok<MANU>
+            % 为 2+2 混搭模式选择默认第二套。
+            primarySet = string(slot.ArtifactSet1);
+            element = string(getCharacterElement(slot.CharacterKey));
+
+            if any(primarySet == ["GoldenTroupe", "MarechausseeHunter", "FragmentOfHarmonicWhimsy", "ObsidianCodex"])
+                switch lower(char(element))
+                    case 'pyro'
+                        setId = "Pyro15";
+                    case 'hydro'
+                        setId = "Hydro15";
+                    case 'cryo'
+                        setId = "Cryo15";
+                    case 'electro'
+                        setId = "Electro15";
+                    case 'anemo'
+                        setId = "Anemo15";
+                    case 'geo'
+                        setId = "Geo15";
+                    case 'dendro'
+                        setId = "Dendro15";
+                    otherwise
+                        setId = "ATK18";
+                end
+            elseif primarySet == "HuskOfOpulentDreams"
+                setId = "Geo15";
+            elseif primarySet == "DeepwoodMemories"
+                setId = "EM80";
+            else
+                setId = "ATK18";
             end
         end
 

@@ -110,6 +110,10 @@ function result = simulateCharacterDPS(memberCfg, enemy, teamContext)
             [totalDMG, dps, breakdown, rotationTime] = simulateNicoleDPS( ...
                 compiledBuild, enemy, memberCfg.RotationFile, memberCfg.TalentLevel, memberCfg.Constellation, memberTeamContext);
 
+        case 'xianyun'
+            [totalDMG, dps, breakdown, rotationTime] = simulateXianyunDPS( ...
+                compiledBuild, enemy, memberCfg.RotationFile, memberCfg.TalentLevel, memberCfg.Constellation, memberTeamContext);
+
         otherwise
             error('No simulator registered for %s', memberCfg.Name);
     end

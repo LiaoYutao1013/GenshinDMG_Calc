@@ -1,7 +1,8 @@
 function imagePath = getEquipmentBadge(kind, key, displayName, subLabel, cacheDir, accentColor)
-    % 生成并缓存用于 GUI 展示的装备图标卡片。
-    % 当前工程里的武器和套装命名并不完全对应官方资源，因此这里采用
-    % “本地生成徽章图标”的方式，确保所有条目都能稳定显示。
+    % 为 GUI 生成装备图标。
+    % 优先级如下：
+    % 1. 若能解析到真实图标资源，则下载并缓存真实图标；
+    % 2. 若无法解析或下载失败，则回退到本地生成的 badge 图。
     if nargin < 5 || strlength(string(cacheDir)) == 0
         cacheDir = fullfile(tempdir, 'genshin_dmg_calc_equipment');
     end
@@ -14,11 +15,158 @@ function imagePath = getEquipmentBadge(kind, key, displayName, subLabel, cacheDi
 
     safeKind = regexprep(char(string(kind)), '[^a-zA-Z0-9_-]', '_');
     safeKey = regexprep(char(string(key)), '[^a-zA-Z0-9_-]', '_');
-    imagePath = fullfile(cacheDir, sprintf('%s_%s.png', safeKind, safeKey));
-    if isfile(imagePath)
+
+    remoteIconPath = fullfile(cacheDir, sprintf('%s_%s_icon.png', safeKind, safeKey));
+    failMarkerPath = fullfile(cacheDir, sprintf('%s_%s_icon.missing', safeKind, safeKey));
+    badgePath = fullfile(cacheDir, sprintf('%s_%s_badge.png', safeKind, safeKey));
+
+    if isfile(remoteIconPath)
+        imagePath = remoteIconPath;
         return;
     end
 
+    if ~isfile(failMarkerPath)
+        remoteUrl = localResolveRemoteIconUrl(kind, key);
+        if strlength(remoteUrl) > 0
+            try
+                websave(remoteIconPath, char(remoteUrl), weboptions('Timeout', 2));
+            catch
+                % 下载真实图标失败时，回退到本地 badge。
+            end
+        end
+
+        if ~isfile(remoteIconPath)
+            fid = fopen(failMarkerPath, 'w');
+            if fid ~= -1
+                fclose(fid);
+            end
+        end
+    end
+
+    if isfile(remoteIconPath)
+        imagePath = remoteIconPath;
+        return;
+    end
+
+    if isfile(badgePath)
+        imagePath = badgePath;
+        return;
+    end
+
+    localCreateBadge(badgePath, kind, displayName, subLabel, accentColor);
+    imagePath = badgePath;
+end
+
+function remoteUrl = localResolveRemoteIconUrl(kind, key)
+    switch lower(char(string(kind)))
+        case 'artifact'
+            remoteUrl = localResolveArtifactIconUrl(key);
+        case 'weapon'
+            remoteUrl = localResolveWeaponIconUrl(key);
+        otherwise
+            remoteUrl = "";
+    end
+end
+
+function remoteUrl = localResolveArtifactIconUrl(setId)
+    remoteUrl = "";
+    registry = getArtifactSetRegistry();
+    idx = find(string({registry.Id}) == string(setId), 1, 'first');
+    if isempty(idx)
+        return;
+    end
+
+    slug = string(registry(idx).ApiSlug);
+    if strlength(slug) == 0
+        return;
+    end
+
+    try
+        apiUrl = sprintf('https://genshin-db-api.vercel.app/api/v5/artifacts?vh=1&query=%s', char(slug));
+        payload = webread(apiUrl, weboptions('Timeout', 2));
+        if isstruct(payload) && isfield(payload, 'images') && isfield(payload.images, 'flower')
+            remoteUrl = string(payload.images.flower);
+        end
+    catch
+        remoteUrl = "";
+    end
+end
+
+function remoteUrl = localResolveWeaponIconUrl(weaponName)
+    remoteUrl = "";
+    iconKey = localLookupWeaponIconKey(weaponName);
+    if strlength(iconKey) == 0
+        return;
+    end
+    remoteUrl = "https://enka.network/ui/" + iconKey + ".png";
+end
+
+function iconKey = localLookupWeaponIconKey(weaponName)
+    iconKey = "";
+    persistent weaponIndex
+
+    if isempty(weaponIndex)
+        weaponIndex = localBuildWeaponIconIndex();
+    end
+
+    normalizedName = localNormalizeLookupKey(weaponName);
+    names = string({weaponIndex.Name});
+    normalizedNames = string({weaponIndex.NormalizedName});
+    idx = find(normalizedNames == normalizedName, 1, 'first');
+    if ~isempty(idx)
+        iconKey = string(weaponIndex(idx).IconKey);
+        return;
+    end
+
+    % 少量默认英文别名在本地武器表中不一定能精确匹配，这里补一个手工映射。
+    aliasEntries = { ...
+        'craneechoingcall', 'UI_EquipIcon_Catalyst_MountainGale'; ...
+        'cranesechoingcall', 'UI_EquipIcon_Catalyst_MountainGale'; ...
+        'crane''sechoingcall', 'UI_EquipIcon_Catalyst_MountainGale'; ...
+        'favoniuslance', 'UI_EquipIcon_Pole_Zephyrus'; ...
+        'rightfulreward', 'UI_EquipIcon_Pole_Mechanic'; ...
+        'keyofkhajnisut', 'UI_EquipIcon_Sword_Deshret'; ...
+        'tomeoftheeternalflow', 'UI_EquipIcon_Catalyst_Iudex'; ...
+        'silvershowerheartstrings', 'UI_EquipIcon_Sword_Regalis'; ...
+        'angelosheptades', 'UI_EquipIcon_Catalyst_MountainGale' ...
+    };
+    for i = 1:size(aliasEntries, 1)
+        if normalizedName == aliasEntries{i, 1}
+            iconKey = string(aliasEntries{i, 2});
+            return;
+        end
+    end
+end
+
+function index = localBuildWeaponIconIndex()
+    index = struct('Name', {}, 'NormalizedName', {}, 'IconKey', {});
+
+    thisFolder = fileparts(mfilename('fullpath'));
+    projectRoot = fileparts(fileparts(thisFolder));
+    jsPath = fullfile(projectRoot, 'data', 'WeaponExcelConfigData.js');
+    if exist(jsPath, 'file') ~= 2
+        return;
+    end
+
+    raw = fileread(jsPath);
+    pattern = '"Name"\s*:\s*"([^"]+)"[\s\S]*?"Icons"\s*:\s*"([^"]+)"';
+    tokens = regexp(raw, pattern, 'tokens');
+    for i = 1:numel(tokens)
+        name = string(tokens{i}{1});
+        icon = string(tokens{i}{2});
+        index(end + 1) = struct( ... %#ok<AGROW>
+            'Name', name, ...
+            'NormalizedName', localNormalizeLookupKey(name), ...
+            'IconKey', icon);
+    end
+end
+
+function normalized = localNormalizeLookupKey(text)
+    normalized = lower(regexprep(char(string(text)), '[^a-zA-Z0-9\u4e00-\u9fa5]', ''));
+    normalized = string(normalized);
+end
+
+function localCreateBadge(imagePath, kind, displayName, subLabel, accentColor)
     width = 256;
     height = 256;
     try
@@ -84,7 +232,7 @@ function output = localTrim(inputText, maxLen)
     if strlength(string(txt)) <= maxLen
         output = txt;
     else
-        output = [extractBefore(string(txt), maxLen) '.'];
+        output = char(extractBefore(string(txt), maxLen) + ".");
     end
 end
 

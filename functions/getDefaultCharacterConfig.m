@@ -80,6 +80,9 @@ function cfg = getDefaultCharacterConfig(name, overrides)
         case {'nicole'}
             cfg = localBaseConfig('Nicole', customArtifact_Nicole(), fullfile(projectRoot, 'data', 'Nicole', 'rotation_Nicole.txt'));
 
+        case {'xianyun', 'liuyun'}
+            cfg = localBaseConfig('Xianyun', customArtifact_Xianyun(), fullfile(projectRoot, 'data', 'Xianyun', 'rotation_Xianyun.txt'));
+
         otherwise
             error('Unsupported character in unified entry: %s', name);
     end

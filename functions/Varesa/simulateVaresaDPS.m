@@ -27,7 +27,9 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateVaresaDPS(build, ene
         * (1 + getFieldOrDefault(build, 'AtkBonus', 0) + getFieldOrDefault(teamContext, 'ATKBonus', 0)) ...
         + getFieldOrDefault(build, 'FlatATK', 0) + getFieldOrDefault(teamContext, 'FlatATK', 0);
     em = getFieldOrDefault(build, 'EM', 0) + getFieldOrDefault(teamContext, 'EMBonus', 0);
-    critRate = min(1, getFieldOrDefault(build, 'CritRate', 0) + 0.15 * double(constellation >= 1) + 0.20 * double(constellation >= 6));
+    critRate = min(1, getFieldOrDefault(build, 'CritRate', 0) ...
+        + getFieldOrDefault(teamContext, 'PlungeCritRateBonus', 0) ...
+        + 0.15 * double(constellation >= 1) + 0.20 * double(constellation >= 6));
     critDMG = getFieldOrDefault(build, 'CritDMG', 0) + 0.60 * double(constellation >= 6);
     electroResShred = getFieldOrDefault(build, 'ResShred', 0) + getFieldOrDefault(teamContext, 'ElectroResShred', 0);
     electroMult = calcDamageMultiplier(90, enemy, electroResShred);
@@ -100,8 +102,11 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateVaresaDPS(build, ene
                     if constellation >= 6
                         plungeBonus = plungeBonus + 0.35;
                     end
+                    plungeExtraBonus = getFieldOrDefault(build, 'PlungeDMGBonus', 0) ...
+                        + getFieldOrDefault(teamContext, 'PlungeDMGBonus', 0);
                     dmg = localDirectDamage(atk, mv * plungeBonus, build, teamContext, state, electroMult, ...
-                        getFieldOrDefault(build, 'PlungeDMGBonus', 0), critRate, critDMG);
+                        plungeExtraBonus, critRate, critDMG);
+                    dmg = dmg + getFieldOrDefault(teamContext, 'XianyunFlatPlungeBonus', 0);
 
                     if getFieldOrDefault(teamContext, 'ElectroChargedReady', false)
                         reactionDMG = calcReactionDamage(getTalentValue(talent, 'Reaction', 'ElectroCharged', talentLevel), ...

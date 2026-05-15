@@ -53,11 +53,11 @@ function teamContext = buildTeamContext(members, rotationDuration, sharedBuffs, 
     end
     allDMGBonus = sharedAllDMGBonus + furinaApproxBonus;
 
-    hydroResShred = getFieldOrDefault(sharedBuffs, 'HydroResShred', 0);
-    cryoResShred = getFieldOrDefault(sharedBuffs, 'CryoResShred', 0);
-    pyroResShred = getFieldOrDefault(sharedBuffs, 'PyroResShred', 0);
+    hydroResShred = getFieldOrDefault(sharedBuffs, 'HydroResShred', 0) + getFieldOrDefault(sharedArtifactBuffs, 'HydroResShred', 0);
+    cryoResShred = getFieldOrDefault(sharedBuffs, 'CryoResShred', 0) + getFieldOrDefault(sharedArtifactBuffs, 'CryoResShred', 0);
+    pyroResShred = getFieldOrDefault(sharedBuffs, 'PyroResShred', 0) + getFieldOrDefault(sharedArtifactBuffs, 'PyroResShred', 0);
     dendroResShred = getFieldOrDefault(sharedBuffs, 'DendroResShred', 0) + getFieldOrDefault(sharedArtifactBuffs, 'DendroResShred', 0);
-    electroResShred = getFieldOrDefault(sharedBuffs, 'ElectroResShred', 0);
+    electroResShred = getFieldOrDefault(sharedBuffs, 'ElectroResShred', 0) + getFieldOrDefault(sharedArtifactBuffs, 'ElectroResShred', 0);
     geoResShred = getFieldOrDefault(sharedBuffs, 'GeoResShred', 0);
     cryoCritDMGBonus = getFieldOrDefault(sharedBuffs, 'CryoCritDMGBonus', 0);
     geoCritDMGBonus = getFieldOrDefault(sharedBuffs, 'GeoCritDMGBonus', 0);
@@ -92,6 +92,7 @@ function teamContext = buildTeamContext(members, rotationDuration, sharedBuffs, 
     hasVaresa = any(memberNames == "Varesa");
     hasDurin = any(memberNames == "Durin");
     hasNicole = any(memberNames == "Nicole");
+    hasXianyun = any(memberNames == "Xianyun");
 
     lunarBloomEnabled = hasLauma || hasNefer || (hasColumbina && hydroCount >= 1 && dendroCount >= 1);
     lunarChargedEnabled = (hasIneffa || hasFlins || hasColumbina) && hydroCount >= 1 && electroCount >= 1;
@@ -196,10 +197,19 @@ function teamContext = buildTeamContext(members, rotationDuration, sharedBuffs, 
     nicoleProjectionElement = nicoleSupport.ProjectionOwnerElement;
     nicoleHexereiProjectionReady = nicoleSupport.HasHexereiSecretRite;
 
+    xianyunSupport = localDefaultXianyunSupport();
+    if hasXianyun
+        xianyunIndex = find(memberNames == "Xianyun", 1, 'first');
+        xianyunSupport = localBuildXianyunSupport(members{xianyunIndex});
+    end
+
     flatATK = getFieldOrDefault(sharedBuffs, 'FlatATK', 0) + nicoleTeamFlatATK;
     atkBonus = getFieldOrDefault(sharedBuffs, 'ATKBonus', 0) + getFieldOrDefault(sharedArtifactBuffs, 'ATKBonus', 0) ...
         + chevreuseATKBonus + iansanBurstATKBonus;
+    emBonus = getFieldOrDefault(sharedBuffs, 'EMBonus', 0) + getFieldOrDefault(sharedArtifactBuffs, 'EMBonus', 0);
     overloadBonus = sharedOverloadBonus + 0.35 * double(chevreuseOverloadReady) + 0.08 * double(hasVaresa && overloadReady);
+    plungeDMGBonus = getFieldOrDefault(sharedBuffs, 'PlungeDMGBonus', 0) + xianyunSupport.WeaponPlungeDMGBonus;
+    plungeCritRateBonus = getFieldOrDefault(sharedBuffs, 'PlungeCritRateBonus', 0) + xianyunSupport.PlungeCritRateBonus;
 
     hydroBeamBonus = 0.00;
     if hasNeuvillette
@@ -235,7 +245,12 @@ function teamContext = buildTeamContext(members, rotationDuration, sharedBuffs, 
         'AllDMGBonus', allDMGBonus, ...
         'FlatATK', flatATK, ...
         'ATKBonus', atkBonus, ...
-        'EMBonus', getFieldOrDefault(sharedBuffs, 'EMBonus', 0), ...
+        'EMBonus', emBonus, ...
+        'PlungeDMGBonus', plungeDMGBonus, ...
+        'PlungeCritRateBonus', plungeCritRateBonus, ...
+        'XianyunFlatPlungeBonus', xianyunSupport.FlatPlungeDamage, ...
+        'XianyunSupportATK', xianyunSupport.ATK, ...
+        'XianyunBurstSupportActive', xianyunSupport.StarwickerActive, ...
         'HydroResShred', hydroResShred, ...
         'CryoResShred', cryoResShred, ...
         'PyroResShred', pyroResShred, ...
@@ -327,7 +342,14 @@ function teamContext = buildTeamContext(members, rotationDuration, sharedBuffs, 
 end
 
 function buffs = localCollectArtifactTeamBuffs(members)
-    buffs = struct('ATKBonus', 0, 'DendroResShred', 0);
+    buffs = struct( ...
+        'ATKBonus', 0, ...
+        'EMBonus', 0, ...
+        'DendroResShred', 0, ...
+        'PyroResShred', 0, ...
+        'HydroResShred', 0, ...
+        'CryoResShred', 0, ...
+        'ElectroResShred', 0);
     for i = 1:numel(members)
         if ~isfield(members{i}, 'Build')
             continue;
@@ -335,7 +357,12 @@ function buffs = localCollectArtifactTeamBuffs(members)
         build = normalizeArtifactBuild(members{i}.Build, members{i}.Name);
         memberBuffs = getArtifactTeamBuffs(members{i}.Name, build);
         buffs.ATKBonus = max(buffs.ATKBonus, getFieldOrDefault(memberBuffs, 'ATKBonus', 0));
+        buffs.EMBonus = max(buffs.EMBonus, getFieldOrDefault(memberBuffs, 'EMBonus', 0));
         buffs.DendroResShred = max(buffs.DendroResShred, getFieldOrDefault(memberBuffs, 'DendroResShred', 0));
+        buffs.PyroResShred = max(buffs.PyroResShred, getFieldOrDefault(memberBuffs, 'PyroResShred', 0));
+        buffs.HydroResShred = max(buffs.HydroResShred, getFieldOrDefault(memberBuffs, 'HydroResShred', 0));
+        buffs.CryoResShred = max(buffs.CryoResShred, getFieldOrDefault(memberBuffs, 'CryoResShred', 0));
+        buffs.ElectroResShred = max(buffs.ElectroResShred, getFieldOrDefault(memberBuffs, 'ElectroResShred', 0));
     end
 end
 
@@ -440,6 +467,36 @@ function atk = localApproxMemberATK(member, fallbackBaseATK)
     build = getFieldOrDefault(member, 'Build', struct());
     atk = (fallbackBaseATK + getFieldOrDefault(build, 'WeaponATK', 0)) ...
         * (1 + getFieldOrDefault(build, 'AtkBonus', 0)) + getFieldOrDefault(build, 'FlatATK', 0);
+end
+
+function support = localDefaultXianyunSupport()
+    support = struct( ...
+        'ATK', 0, ...
+        'FlatPlungeDamage', 0, ...
+        'PlungeCritRateBonus', 0, ...
+        'WeaponPlungeDMGBonus', 0, ...
+        'StarwickerActive', false);
+end
+
+function support = localBuildXianyunSupport(xianyunMember)
+    support = localDefaultXianyunSupport();
+    constellation = getFieldOrDefault(xianyunMember, 'Constellation', 0);
+    build = getFieldOrDefault(xianyunMember, 'Build', struct());
+    atk = localApproxMemberATK(xianyunMember, 335);
+    support.ATK = atk;
+    support.StarwickerActive = true;
+    support.PlungeCritRateBonus = 0.10;
+    support.FlatPlungeDamage = min(9000, 2.0 * atk);
+    if constellation >= 2
+        support.FlatPlungeDamage = min(18000, 4.0 * atk);
+    end
+
+    refine = max(1, min(5, getFieldOrDefault(build, 'WeaponRefinement', 1)));
+    weaponName = lower(char(string(getFieldOrDefault(build, 'Weapon', ""))));
+    if contains(weaponName, 'crane')
+        plungeBonusByRefine = [0.28, 0.41, 0.54, 0.67, 0.80];
+        support.WeaponPlungeDMGBonus = plungeBonusByRefine(refine);
+    end
 end
 
 function support = localDefaultNicoleSupport()
@@ -666,6 +723,8 @@ function element = localGetElement(name)
             element = "Pyro";
         case 'nicole'
             element = "Pyro";
+        case 'xianyun'
+            element = "Anemo";
         otherwise
             element = "Physical";
     end

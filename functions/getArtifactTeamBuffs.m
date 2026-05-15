@@ -1,11 +1,22 @@
 function buffs = getArtifactTeamBuffs(characterName, build)
-    % 返回会影响整队或敌人抗性的套装效果。
-    % 这里只放入真正的“共享态”效果，角色自身的直伤加成仍在 compileArtifactSetBonuses 中处理。
-    build = normalizeArtifactBuild(build, characterName);
+    % 返回会影响队伍共享状态或敌人抗性的圣遗物套装效果。
+    % 这里不重复处理角色自己的直伤增益，只处理：
+    % 1. 全队攻击力等共享增益；
+    % 2. 敌人元素抗性削减；
+    % 3. 当前工程里已明确建模的套装团队效果。
+    if nargin < 1
+        characterName = "";
+    end
 
+    build = normalizeArtifactBuild(build, characterName);
     buffs = struct( ...
         'ATKBonus', 0, ...
-        'DendroResShred', 0);
+        'EMBonus', 0, ...
+        'DendroResShred', 0, ...
+        'PyroResShred', 0, ...
+        'HydroResShred', 0, ...
+        'CryoResShred', 0, ...
+        'ElectroResShred', 0);
 
     if ~logical(getFieldOrDefault(build, 'ArtifactApplySetBonuses', 0))
         return;
@@ -14,17 +25,39 @@ function buffs = getArtifactTeamBuffs(characterName, build)
     setPieces = localCollectSetPieces(build);
     setNames = fieldnames(setPieces);
     for i = 1:numel(setNames)
-        setId = setNames{i};
-        pieces = min(5, setPieces.(setId));
+        setId = lower(char(string(setNames{i})));
+        pieces = min(5, setPieces.(setNames{i}));
         if pieces < 4 || ~logical(getFieldOrDefault(build, 'ArtifactSet4Active', 1))
             continue;
         end
 
         switch setId
-            case 'DeepwoodMemories'
+            case 'deepwoodmemories'
                 buffs.DendroResShred = max(buffs.DendroResShred, 0.30);
-            case {'NoblesseOblige', 'TenacityOfTheMillelith'}
+
+            case 'noblesseoblige'
                 buffs.ATKBonus = max(buffs.ATKBonus, 0.20);
+
+            case 'tenacityofthemillelith'
+                buffs.ATKBonus = max(buffs.ATKBonus, 0.20);
+
+            case 'instructor'
+                buffs.EMBonus = max(buffs.EMBonus, 120);
+
+            case 'viridescentvenerer'
+                if localLikelySwirlSupport(characterName)
+                    element = getCharacterElement(characterName);
+                    switch lower(char(element))
+                        case 'pyro'
+                            buffs.PyroResShred = max(buffs.PyroResShred, 0.40);
+                        case 'hydro'
+                            buffs.HydroResShred = max(buffs.HydroResShred, 0.40);
+                        case 'cryo'
+                            buffs.CryoResShred = max(buffs.CryoResShred, 0.40);
+                        case 'electro'
+                            buffs.ElectroResShred = max(buffs.ElectroResShred, 0.40);
+                    end
+                end
         end
     end
 end
@@ -39,7 +72,7 @@ function setPieces = localCollectSetPieces(build)
         if strlength(setId) == 0 || setId == "None"
             continue;
         end
-        key = char(setId);
+        key = matlab.lang.makeValidName(char(setId));
         if ~isfield(setPieces, key)
             setPieces.(key) = 0;
         end
@@ -56,11 +89,15 @@ function setPieces = localCollectSetPieces(build)
             if setId == "None" || pieces <= 0
                 continue;
             end
-            key = char(setId);
+            key = matlab.lang.makeValidName(char(setId));
             if ~isfield(setPieces, key)
                 setPieces.(key) = 0;
             end
             setPieces.(key) = setPieces.(key) + pieces;
         end
     end
+end
+
+function tf = localLikelySwirlSupport(characterName)
+    tf = any(strcmpi(char(string(characterName)), {'Xianyun', 'Chasca'}));
 end

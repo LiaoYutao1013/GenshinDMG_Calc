@@ -47,6 +47,8 @@ function element = getCharacterElement(name)
             element = "Pyro";
         case 'nicole'
             element = "Pyro";
+        case 'xianyun'
+            element = "Anemo";
         otherwise
             element = "Physical";
     end

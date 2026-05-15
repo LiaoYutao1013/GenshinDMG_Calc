@@ -154,6 +154,12 @@ function profile = getArtifactModelProfile(characterName, build)
             profile.SandsMainStat = "AtkBonus";
             profile.GobletMainStat = "PyroDMGBonus";
             profile.CircletMainStat = "CritRate";
+
+        case 'xianyun'
+            profile.SandsMainStat = "AtkBonus";
+            profile.GobletMainStat = "AnemoDMGBonus";
+            profile.CircletMainStat = "AtkBonus";
+            profile.ApplySetBonuses = true;
     end
 
     if getFieldOrDefault(build, 'HealingBonus', 0) >= 0.30 ...

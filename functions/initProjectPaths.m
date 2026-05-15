@@ -32,6 +32,7 @@ function initProjectPaths()
     addpath(fullfile(root, 'functions', 'Varesa'));
     addpath(fullfile(root, 'functions', 'Durin'));
     addpath(fullfile(root, 'functions', 'Nicole'));
+    addpath(fullfile(root, 'functions', 'Xianyun'));
 
     initialized = true;
 end
