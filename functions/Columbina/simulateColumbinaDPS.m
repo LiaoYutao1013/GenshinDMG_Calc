@@ -1,201 +1,430 @@
-function [totalDMG, dps] = simulateColumbinaDPS(build, enemy, talentLevel, cLevel,seqFile)
-    % Legacy Columbina simulator. It is more debug-oriented than the newer
-    % simulators and prints intermediate matching / timing information.
-
-    % seqFile = 序列文件路径（可选，默认使用 sequence_Columbina.txt）
-    if nargin < 5 || isempty(seqFile)
-        seqFile = fullfile(fileparts(mfilename('fullpath')), '..', 'data', 'sequence_Columbina.txt');
-    end
-    
-    % ====================== 技能简称映射表 ======================
-    mapping = struct(...
-        'E1',       struct('Skill','月露泼降','Param','一段伤害'), ...
-        'E2',       struct('Skill','月露泼降','Param','二段伤害'), ...
-        'E3',       struct('Skill','月露泼降','Param','三段伤害'), ...
-        'A',        struct('Skill','月露泼降','Param','一段伤害'), ...
-        'SA3',       struct('Skill','月露泼降','Param','三段伤害'), ...
-        'Heavy',    struct('Skill','月露泼降','Param','重击伤害'), ...
-        'Q',        struct('Skill','她的乡愁','Param','技能伤害'), ...
-        'MoonCont', struct('Skill','万古潮汐','Param','引力涟漪·持续伤害','IsPeriodic',true,'TickInterval',0.25,'Duration',10), ...
-        'MoonBloom',struct('Skill','万古潮汐','Param','引力干涉·月绽放伤害','IsPeriodic',true,'TickInterval',0.5,'Duration',8), ...
-        'Interfere',struct('Skill','万古潮汐','Param','引力干涉·月绽放伤害','IsPeriodic',true,'TickInterval',0.5,'Duration',8));
-    
-    % ====================== 读取序列文件 ======================
-    fid = fopen(seqFile, 'r');
-    if fid == -1
-    error('无法打开序列文件：%s', seqFile);
+function [totalDMG, dps, breakdown, rotationTime] = simulateColumbinaDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
+    % Columbina simulator rewritten to match the project's unified entry.
+    % The model keeps three independent damage channels:
+    % 1. normal / charged / burst direct hydro damage,
+    % 2. MoonCont sustained follow-up hits,
+    % 3. lunar-reaction follow-up hits that consume teamContext bonuses.
+    %
+    % The legacy implementation used a different argument order
+    %   (build, enemy, talentLevel, constellation, seqFile).
+    % To avoid breaking old analysis scripts, this version detects that
+    % layout and transparently remaps the inputs.
+    if nargin >= 3 && (isnumeric(seqFile) || islogical(seqFile))
+        legacyTalentLevel = seqFile;
+        legacyConstellation = 0;
+        legacySeqFile = [];
+        if nargin >= 4
+            legacyConstellation = talentLevel;
+        end
+        if nargin >= 5
+            legacySeqFile = constellation;
+        end
+        talentLevel = legacyTalentLevel;
+        constellation = legacyConstellation;
+        seqFile = legacySeqFile;
     end
 
-    actions = {};
-    while ~feof(fid)
-        line = fgetl(fid);
-        if ~ischar(line)
-            continue;
-        end
-    
-        line = strtrim(line);
-        if isempty(line) || startsWith(line, '#')
-            continue;
-        end
-    
-        % 取行首第一个非空白 token
-        [token, ~] = sscanf(line, '%s', 1);
-        if ~isempty(token)
-        actions{end+1} = token;
-        end
+    thisFolder = fileparts(mfilename('fullpath'));
+    dataFolder = fullfile(thisFolder, '..', '..', 'data', 'Columbina');
+
+    if nargin < 3 || isempty(seqFile)
+        seqFile = localResolveExistingFile(dataFolder, {'rotation_Columbina.txt', 'sequence_Columbina.txt'});
     end
-    fclose(fid);
-
-    if isempty(actions)
-    warning('序列文件为空或无有效动作');
+    if nargin < 4 || isempty(talentLevel)
+        talentLevel = 10;
     end
-    disp(['读取到 ' num2str(length(actions)) ' 个有效动作']);
-    
-    disp(['读取自定义序列：' num2str(length(actions)) ' 个动作']);
-
-    % talentLevel = 天赋等级 (1~15，默认10)
-    % cLevel = 命座等级 (0~6，默认0)
-    if nargin < 3, talentLevel = 10; end
-    if nargin < 4, cLevel = 0; end
-    
-    base = readtable('../data/characters_哥伦比娅.csv');
-    talent = readtable('../data/talents_Columbina.csv');
-    rot = readtable('../data/rotation_Columbina.csv');
-    
-    build.MaxHP = base.BaseHP * (1 + build.HPBonus) + 5000;
-    build.ATK = build.WeaponATK + 300;
-    
-    totalDMG = 0; 
-    time = 0; 
-    gravity = 0;
-    maxSimTime = 30;
-    cumTime = 0;
-
-    disp(['rotation 表行数: ' num2str(height(rot))]);
-    if height(rot) == 0
-        error('rotation_Columbina.csv 为空或读取失败，请检查文件路径和内容');
+    if nargin < 5 || isempty(constellation)
+        constellation = 0;
     end
-    disp('rotation 前5行预览：');
-    disp(head(rot, 5));
+    if nargin < 6 || isempty(teamContext)
+        teamContext = buildTeamContext({struct( ...
+            'Name', 'Columbina', ...
+            'Constellation', constellation, ...
+            'TalentLevel', talentLevel, ...
+            'Build', build)}, 20, struct());
+    end
 
-    for i = 1:height(rot)
-        abbr = actions{i};
-        if ~isfield(mapping,abbr)
-            fprintf('未知简称：%s，跳过\n', abbr');
-            continue;
-        end
-        info = mapping.(abbr);
+    basePath = localResolveExistingFile(dataFolder, {'characters_Columbina.csv', 'characters_哥伦比娅.csv'});
+    base = readtable(basePath);
+    talent = readtable(fullfile(dataFolder, 'talents_Columbina.csv'));
+    actions = localResolveRotation(seqFile);
 
-        % 查找对应倍率
-        match = strcmp(talent.Skill, info.Skill) & strcmp(talent.Param, info.Param);
-        if ~any(match)
-            fprintf('未找到：%s %s\n', info.Skill, info.Param);
-            continue;
-        end
-        mv = talent.(['Level' num2str(talentLevel)])(match) * build.MaxHP;
-        
-        % === 持续型技能自动 tick ===
-        if isfield(info, 'IsPeriodic') && info.IsPeriodic
-            tickCount = floor(info.Duration / info.TickInterval);
-            tickMV = mv / tickCount;   % 把总伤害均分到每个 tick
-            
-            for t = 1:tickCount
-                if cumTime + info.TickInterval > maxSimTime
-                    break;
+    maxHP = base.BaseHP(1) * (1 + getFieldOrDefault(build, 'HPBonus', 0)) + getFieldOrDefault(build, 'FlatHP', 5000);
+    em = getFieldOrDefault(build, 'EM', 0) + getFieldOrDefault(teamContext, 'EMBonus', 0);
+    critRate = min(1, max(0, getFieldOrDefault(build, 'CritRate', 0)));
+    critDMG = max(0, getFieldOrDefault(build, 'CritDMG', 0));
+    hydroResShred = getFieldOrDefault(build, 'ResShred', 0) + getFieldOrDefault(teamContext, 'HydroResShred', 0);
+    enemyState = getFieldOrDefault(teamContext, 'EnemyState', createEnemyState(enemy, teamContext, "Hydro"));
+
+    state = struct( ...
+        'SkillFieldTime', 0, ...
+        'BurstTime', 0, ...
+        'EnemyState', enemyState);
+
+    totalDMG = 0;
+    rotationTime = 0;
+    breakdown = table('Size', [0 3], 'VariableTypes', {'string', 'double', 'string'}, ...
+        'VariableNames', {'Action', 'Damage', 'Note'});
+
+    normalLevel = talentLevel;
+    skillLevel = localSkillTalentLevel(talentLevel, constellation);
+    burstLevel = localBurstTalentLevel(talentLevel, constellation);
+
+    for i = 1:numel(actions)
+        actionToken = string(actions{i});
+        actionKey = upper(char(actionToken));
+        actionTime = localActionTime(actionKey);
+        dmg = 0;
+        note = "";
+        advanceAfterAction = true;
+
+        switch actionKey
+            case {'E1', 'N1', 'A'}
+                [dmg, state.EnemyState, reactionName] = localApplyHydroHit( ...
+                    state.EnemyState, maxHP, localLevelValue(talent, 1, normalLevel), ...
+                    build, teamContext, enemy, hydroResShred, em, ...
+                    localHydroDamageBonus(build, teamContext, getFieldOrDefault(build, 'NormalDMGBonus', 0), constellation), ...
+                    critRate, critDMG, 1.0, 0);
+                note = localMergeReactionNote("一段直伤", reactionName);
+
+            case {'E2', 'N2'}
+                [dmg, state.EnemyState, reactionName] = localApplyHydroHit( ...
+                    state.EnemyState, maxHP, localLevelValue(talent, 2, normalLevel), ...
+                    build, teamContext, enemy, hydroResShred, em, ...
+                    localHydroDamageBonus(build, teamContext, getFieldOrDefault(build, 'NormalDMGBonus', 0), constellation), ...
+                    critRate, critDMG, 1.0, 0);
+                note = localMergeReactionNote("二段直伤", reactionName);
+
+            case {'E3', 'N3', 'SA3'}
+                [dmg, state.EnemyState, reactionName] = localApplyHydroHit( ...
+                    state.EnemyState, maxHP, localLevelValue(talent, 3, normalLevel), ...
+                    build, teamContext, enemy, hydroResShred, em, ...
+                    localHydroDamageBonus(build, teamContext, getFieldOrDefault(build, 'NormalDMGBonus', 0), constellation), ...
+                    critRate, critDMG, 1.0, 0);
+                note = localMergeReactionNote("三段 / 终结直伤", reactionName);
+
+            case {'HEAVY', 'CA'}
+                chargedBonus = max(getFieldOrDefault(build, 'ChargedDMGBonus', 0), getFieldOrDefault(build, 'ChargeDMGBonus', 0));
+                [dmg, state.EnemyState, reactionName] = localApplyHydroHit( ...
+                    state.EnemyState, maxHP, localLevelValue(talent, 4, normalLevel), ...
+                    build, teamContext, enemy, hydroResShred, em, ...
+                    localHydroDamageBonus(build, teamContext, chargedBonus, constellation), ...
+                    critRate, critDMG, 1.2, 0);
+                note = localMergeReactionNote("重击", reactionName);
+
+            case {'PLUNGE'}
+                plungeBonus = getFieldOrDefault(build, 'PlungeDMGBonus', 0) + getFieldOrDefault(teamContext, 'PlungeDMGBonus', 0);
+                [dmg, state.EnemyState, reactionName] = localApplyHydroHit( ...
+                    state.EnemyState, maxHP, localLevelValue(talent, 8, normalLevel), ...
+                    build, teamContext, enemy, hydroResShred, em, ...
+                    localHydroDamageBonus(build, teamContext, plungeBonus, constellation), ...
+                    min(1, critRate + getFieldOrDefault(teamContext, 'PlungeCritRateBonus', 0)), critDMG, 1.5, 0);
+                note = localMergeReactionNote("下落", reactionName);
+
+            case {'E', 'SKILL'}
+                [dmg, state.EnemyState, reactionName] = localApplyHydroHit( ...
+                    state.EnemyState, maxHP, localLevelValue(talent, 9, skillLevel), ...
+                    build, teamContext, enemy, hydroResShred, em, ...
+                    localHydroDamageBonus(build, teamContext, getFieldOrDefault(build, 'SkillDMGBonus', 0), constellation), ...
+                    critRate, critDMG, 1.0, 0);
+                state.SkillFieldTime = max(state.SkillFieldTime, 10.0);
+                note = localMergeReactionNote("战技施放", reactionName);
+
+            case {'MOONCONT', 'SUMMON'}
+                state.SkillFieldTime = max(state.SkillFieldTime, 10.0);
+                [dmg, state.EnemyState, reactionCount] = localResolveMoonCont( ...
+                    state.EnemyState, maxHP, talent, skillLevel, build, teamContext, enemy, hydroResShred, em, critRate, critDMG, constellation);
+                note = sprintf('战技持续段 40 tick，触发增幅反应 %d 次', reactionCount);
+                actionTime = 10.0;
+                advanceAfterAction = false;
+
+            case {'Q', 'BURST'}
+                [dmg, state.EnemyState, reactionName] = localApplyHydroHit( ...
+                    state.EnemyState, maxHP, localLevelValue(talent, 17, burstLevel), ...
+                    build, teamContext, enemy, hydroResShred, em, ...
+                    localHydroDamageBonus(build, teamContext, getFieldOrDefault(build, 'BurstDMGBonus', 0), constellation), ...
+                    critRate, critDMG, 1.0, 0);
+                state.BurstTime = max(state.BurstTime, 12.0);
+                burstReactionBonus = localLevelValue(talent, 18, burstLevel);
+                note = localMergeReactionNote(sprintf('爆发开启，月感反应额外增伤 %.0f%%', 100 * burstReactionBonus), reactionName);
+
+            case {'MOONBLOOM', 'MOONCHARGED', 'MOONCRYSTALLIZE', 'INTERFERE', 'LUNARBLOOM', 'LUNARCHARGED', 'LUNARCRYSTALLIZE'}
+                [reactionLabel, rowIndex, bonusField] = localResolveLunarReaction(actionKey, teamContext);
+                if rowIndex <= 0
+                    note = "当前配队未启用可用的月感反应";
+                else
+                    [dmg, state.EnemyState] = localResolveLunarField( ...
+                        state.EnemyState, maxHP, talent, rowIndex, skillLevel, burstLevel, build, teamContext, enemy, hydroResShred, em, state, constellation);
+                    note = sprintf('%s 16 tick', reactionLabel);
+                    actionTime = 8.0;
+                    advanceAfterAction = false;
                 end
-                cumTime = cumTime + info.TickInterval;
-                stepDMG = tickMV * build.MaxHP;  % 这里可再乘反应/命座
-                totalDMG = totalDMG + stepDMG;
-                fprintf('  [持续] %s tick %d | 时间 %.2fs | 伤害 %.0f\n', abbr, t, cumTime, stepDMG);
-            end
-            continue;  % 持续型只算一次释放，后续自动
+
+            otherwise
+                note = "未识别动作";
         end
 
-        % === 普通技能（单次释放）===
-        stepTime = 0.8;  % 默认，可后面再优化
-        if cumTime + stepTime > maxSimTime
-            break;
-        end
-        cumTime = cumTime + stepTime;
+        totalDMG = totalDMG + dmg;
+        breakdown = [breakdown; {actionToken, dmg, note}]; %#ok<AGROW>
+        rotationTime = rotationTime + actionTime;
 
-        fprintf('处理第 %2d 步 | Action: "%s" | Reaction: "%s" | Hits: %.1f | Time: %.3f\n', ...
-            i, rot.Action{i}, rot.Param{i}, rot.Reaction{i}, rot.Hits(i), rot.Time(i));
-
-        % 尝试匹配（加调试）
-        %match_idx = strcmp(talent.Skill, rot.Action{i});
-        % 改成（替换原匹配行）：
-        action_clean = strtrim(string(rot.Action{i}));
-        skill_clean  = strtrim(string(talent.Skill));
-
-        % 双重匹配：Skill + Param 完全一致
-        match_idx = strcmp(talent.Skill, rot.Action{i}) & ...
-                strcmp(talent.Param, rot.Param{i});
-
-        fprintf('  → 匹配成功 (行数: %d)\n', sum(match_idx));
-    
-        lvlCol = ['Level' num2str(talentLevel)];
-        mv_raw = talent.(lvlCol)(match_idx);
-        fprintf('  → 原始倍率值: %.4f\n', mv_raw);
-    
-        mv = mv_raw * build.MaxHP;
-        fprintf('  → mv (MaxHP缩放后): %.2f\n', mv);
-
-        action = strtrim(string(rot.Action{i}));
-        idx = strcmpi(strtrim(string(talent.Skill)), action);
-
-        % 根据指定天赋等级取值
-        lvlCol = ['Level' num2str(talentLevel)];
-        mv_raw = talent.(lvlCol)(match_idx);
-        mv = mv_raw * build.MaxHP;
-        
-        if strcmp(talent.ScalingType{1}, 'MaxHP')
-            mv = mv * talent.Multiplier(1);   % 处理 ×3 等
+        if advanceAfterAction
+            state.EnemyState = advanceEnemyStateTime(state.EnemyState, actionTime, "Hydro", teamContext);
         end
-        
-        % === 基础乘区 ===
-        dmg = mv ...
-            * (1 + build.HydroDMGBonus + build.SkillDMGBonus * contains(rot.Action{i},'E') ...
-               + build.BurstDMGBonus * contains(rot.Action{i},'Q')) ...
-            * (1 + build.ReactionDMGBonus + build.Set4_MoonPromote) ...
-            * calcCrit(build) * calcDefRes(enemy) * (1 + build.PromoteBonus);
-        
-        % === 命座专属乘区（开关控制）===
-        if cLevel >= 1
-            dmg = dmg * 1.03;                    % C1: 擢升3%
-        end
-        if cLevel >= 2
-            gravity = gravity + 20 * 1.34;       % C2: 引力积攒+34%
-            if gravity >= 60
-                dmg = dmg * (1 + 0.3);           % C2 皎辉生命加成间接提升
-            end
-        end
-        if cLevel >= 4
-            dmg = dmg * 1.125;                   % C4: 矩波干涉额外提升
-        end
-        if cLevel >= 6
-            dmg = dmg * (1 + 0.80);              % C6: 对应元素暴击伤害+80%
-        end
-        
-        % === 月曜反应 & 引力值 ===
-        if contains(rot.Reaction{i}, 'Bloom')
-            dmg = dmg * 3.0 * (1 + 2.78*build.EM/(1400+build.EM)) * (1 + build.Set4_GravityBonus);
-            gravity = gravity + 20;
-        elseif contains(rot.Reaction{i}, 'Interfere')
-            dmg = dmg * 4.5 * (1 + build.Set4_InterfereBonus);
-        end
-        
-        if gravity >= 60
-            dmg = dmg * 2.8;
-            gravity = 0;
-        end
-        
-        totalDMG = totalDMG + dmg * rot.Hits(i);
-        fprintf('步 %2d | 伤害 %.0f | 累积 %.0f\n', i, dmg * rot.Hits(i), totalDMG);
-        time = time + rot.Time(i);
+        state = localAdvanceState(state, actionTime);
     end
-    dps = totalDMG / time;
-    fprintf('🎯 天赋等级 %d | 命座C%d | DPS %.2f（总伤害 %.2f , 时间 %.2fs）\n', talentLevel, cLevel, dps, totalDMG,time);
+
+    if rotationTime <= 0
+        rotationTime = getFieldOrDefault(teamContext, 'RotationDuration', 20);
+    end
+    dps = totalDMG / rotationTime;
 end
 
-function c = calcCrit(b), c = 1 + min(b.CritRate,1)*b.CritDMG; end
-function d = calcDefRes(~), d = 0.5; end
+function [dmg, enemyState, reactionName] = localApplyHydroHit(enemyState, maxHP, mv, build, teamContext, enemy, hydroResShred, em, dmgBonusMult, critRate, critDMG, gaugeUnits, reactionBonus)
+    baseDMG = maxHP * mv * dmgBonusMult ...
+        * calcExpectedCritMultiplier(critRate, critDMG) ...
+        * calcDamageMultiplier(90, enemy, hydroResShred);
+    [reactionMultiplier, enemyState, reaction] = getAmplifyingReactionMultiplier( ...
+        enemyState, "Hydro", em, teamContext, gaugeUnits, 0, reactionBonus);
+    dmg = baseDMG * reactionMultiplier;
+    reactionName = reaction.Name;
+end
+
+function [totalDMG, enemyState, reactionCount] = localResolveMoonCont(enemyState, maxHP, talent, skillLevel, build, teamContext, enemy, hydroResShred, em, critRate, critDMG, constellation)
+    totalDMG = 0;
+    reactionCount = 0;
+
+    [castDMG, enemyState, reactionName] = localApplyHydroHit( ...
+        enemyState, maxHP, localLevelValue(talent, 9, skillLevel), ...
+        build, teamContext, enemy, hydroResShred, em, ...
+        localHydroDamageBonus(build, teamContext, getFieldOrDefault(build, 'SkillDMGBonus', 0), constellation), ...
+        critRate, critDMG, 1.0, 0);
+    totalDMG = totalDMG + castDMG;
+    reactionCount = reactionCount + double(reactionName ~= "");
+
+    tickMV = localLevelValue(talent, 10, skillLevel);
+    for tickIndex = 1:40
+        enemyState = advanceEnemyStateTime(enemyState, 0.25, "Hydro", teamContext);
+        [tickDMG, enemyState, reactionName] = localApplyHydroHit( ...
+            enemyState, maxHP, tickMV, build, teamContext, enemy, hydroResShred, em, ...
+            localHydroDamageBonus(build, teamContext, getFieldOrDefault(build, 'SkillDMGBonus', 0), constellation), ...
+            critRate, critDMG, 0.5, 0);
+        totalDMG = totalDMG + tickDMG;
+        reactionCount = reactionCount + double(reactionName ~= "");
+    end
+end
+
+function [totalDMG, enemyState] = localResolveLunarField(enemyState, maxHP, talent, rowIndex, skillLevel, burstLevel, build, teamContext, enemy, hydroResShred, em, state, constellation)
+    totalDMG = 0;
+    bonusField = localLunarBonusField(rowIndex);
+    reactionBonus = 1 ...
+        + getFieldOrDefault(build, 'ReactionDMGBonus', 0) ...
+        + getFieldOrDefault(build, 'Set4_MoonPromote', 0) ...
+        + getFieldOrDefault(build, 'Set4_InterfereBonus', 0) ...
+        + getFieldOrDefault(teamContext, bonusField, 0);
+
+    if state.BurstTime > 0
+        reactionBonus = reactionBonus + localLevelValue(talent, 18, burstLevel);
+    end
+    if constellation >= 2
+        reactionBonus = reactionBonus + 0.15;
+    end
+    if constellation >= 4
+        reactionBonus = reactionBonus + 0.10;
+    end
+    if state.SkillFieldTime > 0
+        reactionBonus = reactionBonus + 0.05;
+    end
+
+    reactionCritRate = getFieldOrDefault(teamContext, 'ReactionCritRate', 0);
+    reactionCritDMG = getFieldOrDefault(teamContext, 'ReactionCritDMG', 0);
+    if reactionCritRate <= 0 && reactionCritDMG <= 0
+        reactionCritRate = 0.10;
+        reactionCritDMG = 0.20;
+    end
+    if constellation >= 6
+        reactionCritRate = reactionCritRate + 0.10;
+        reactionCritDMG = reactionCritDMG + 0.30;
+    end
+
+    tickBase = maxHP * localLevelValue(talent, rowIndex, skillLevel);
+    for tickIndex = 1:16
+        enemyState = advanceEnemyStateTime(enemyState, 0.50, "Hydro", teamContext);
+        totalDMG = totalDMG + calcReactionDamage( ...
+            tickBase, em, enemy, hydroResShred, reactionBonus, reactionCritRate, reactionCritDMG);
+    end
+end
+
+function bonusMult = localHydroDamageBonus(build, teamContext, extraBonus, constellation)
+    totalBonus = getFieldOrDefault(build, 'HydroDMGBonus', 0) ...
+        + getFieldOrDefault(teamContext, 'AllDMGBonus', 0) ...
+        + getFieldOrDefault(build, 'PromoteBonus', 0) ...
+        + getFieldOrDefault(build, 'TeamHPAbove50Mult', 0) ...
+        + extraBonus;
+
+    if constellation >= 1
+        totalBonus = totalBonus + 0.03;
+    end
+    if constellation >= 4
+        totalBonus = totalBonus + 0.125;
+    end
+    bonusMult = 1 + totalBonus;
+end
+
+function [reactionLabel, rowIndex, bonusField] = localResolveLunarReaction(actionKey, teamContext)
+    reactionLabel = "";
+    rowIndex = 0;
+    bonusField = "";
+
+    switch actionKey
+        case {'MOONCHARGED', 'LUNARCHARGED'}
+            reactionLabel = "月感电";
+            rowIndex = 11;
+            bonusField = "LunarChargedBonus";
+        case {'MOONCRYSTALLIZE', 'LUNARCRYSTALLIZE'}
+            reactionLabel = "月结晶";
+            rowIndex = 13;
+            bonusField = "LunarCrystallizeBonus";
+        case {'MOONBLOOM', 'LUNARBLOOM'}
+            reactionLabel = "月绽放";
+            rowIndex = 12;
+            bonusField = "LunarBloomBonus";
+        otherwise
+            preferred = string(getFieldOrDefault(teamContext, 'DominantLunarReaction', ""));
+            switch lower(char(preferred))
+                case 'lunarcharged'
+                    reactionLabel = "月感电";
+                    rowIndex = 11;
+                    bonusField = "LunarChargedBonus";
+                case 'lunarcrystallize'
+                    reactionLabel = "月结晶";
+                    rowIndex = 13;
+                    bonusField = "LunarCrystallizeBonus";
+                case 'lunarbloom'
+                    reactionLabel = "月绽放";
+                    rowIndex = 12;
+                    bonusField = "LunarBloomBonus";
+            end
+    end
+
+    if rowIndex == 0
+        if getFieldOrDefault(teamContext, 'LunarBloomEnabled', false)
+            reactionLabel = "月绽放";
+            rowIndex = 12;
+            bonusField = "LunarBloomBonus";
+        elseif getFieldOrDefault(teamContext, 'LunarChargedEnabled', false)
+            reactionLabel = "月感电";
+            rowIndex = 11;
+            bonusField = "LunarChargedBonus";
+        elseif getFieldOrDefault(teamContext, 'LunarCrystallizeEnabled', false)
+            reactionLabel = "月结晶";
+            rowIndex = 13;
+            bonusField = "LunarCrystallizeBonus";
+        end
+    end
+end
+
+function bonusField = localLunarBonusField(rowIndex)
+    switch rowIndex
+        case 11
+            bonusField = "LunarChargedBonus";
+        case 13
+            bonusField = "LunarCrystallizeBonus";
+        otherwise
+            bonusField = "LunarBloomBonus";
+    end
+end
+
+function state = localAdvanceState(state, deltaTime)
+    state.SkillFieldTime = max(0, state.SkillFieldTime - deltaTime);
+    state.BurstTime = max(0, state.BurstTime - deltaTime);
+end
+
+function actions = localResolveRotation(seqFile)
+    actions = {};
+    if ~isempty(seqFile) && isfile(seqFile)
+        actions = readRotationTokens(seqFile);
+    end
+    if isempty(actions)
+        actions = {'E1', 'E2', 'E3', 'SA3', 'Heavy', 'MoonCont', 'Q', 'MoonBloom'};
+        return;
+    end
+
+    if numel(actions) == 1 && strcmpi(actions{1}, 'AUTO')
+        actions = {'E1', 'E2', 'E3', 'SA3', 'Heavy', 'MoonCont', 'Q', 'MoonBloom'};
+    end
+end
+
+function level = localSkillTalentLevel(talentLevel, constellation)
+    level = talentLevel + 3 * double(constellation >= 3);
+end
+
+function level = localBurstTalentLevel(talentLevel, constellation)
+    level = talentLevel + 3 * double(constellation >= 5);
+end
+
+function actionTime = localActionTime(actionKey)
+    switch upper(char(string(actionKey)))
+        case {'E1', 'N1', 'A'}
+            actionTime = 0.45;
+        case {'E2', 'N2'}
+            actionTime = 0.52;
+        case {'E3', 'N3', 'SA3'}
+            actionTime = 0.72;
+        case {'HEAVY', 'CA'}
+            actionTime = 0.95;
+        case {'PLUNGE'}
+            actionTime = 0.85;
+        case {'E', 'SKILL'}
+            actionTime = 0.70;
+        case {'MOONCONT', 'SUMMON'}
+            actionTime = 10.0;
+        case {'Q', 'BURST'}
+            actionTime = 1.30;
+        case {'MOONBLOOM', 'MOONCHARGED', 'MOONCRYSTALLIZE', 'INTERFERE', 'LUNARBLOOM', 'LUNARCHARGED', 'LUNARCRYSTALLIZE'}
+            actionTime = 8.0;
+        otherwise
+            actionTime = 0.60;
+    end
+end
+
+function note = localMergeReactionNote(baseNote, reactionName)
+    if strlength(string(reactionName)) == 0
+        note = string(baseNote);
+    else
+        note = sprintf('%s, %s', char(string(baseNote)), lower(char(string(reactionName))));
+    end
+end
+
+function value = localLevelValue(talentTable, rowIndex, talentLevel)
+    if rowIndex < 1 || rowIndex > height(talentTable)
+        error('Invalid Columbina talent row index: %d', rowIndex);
+    end
+
+    targetLevel = min(max(round(talentLevel), 1), 15);
+    value = NaN;
+    for level = targetLevel:-1:1
+        levelName = sprintf('Level%d', level);
+        if ismember(levelName, talentTable.Properties.VariableNames)
+            candidate = talentTable.(levelName)(rowIndex);
+            if ~isnan(candidate)
+                value = candidate;
+                return;
+            end
+        end
+    end
+
+    error('No numeric Columbina talent value found for row %d.', rowIndex);
+end
+
+function filePath = localResolveExistingFile(folderPath, candidateNames)
+    filePath = "";
+    for i = 1:numel(candidateNames)
+        currentPath = fullfile(folderPath, candidateNames{i});
+        if isfile(currentPath)
+            filePath = currentPath;
+            return;
+        end
+    end
+    error('Required Columbina data file is missing under %s.', folderPath);
+end

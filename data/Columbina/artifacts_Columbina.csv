@@ -1,2 +1,2 @@
-Weapon,WeaponATK,WeaponSubType,WeaponSubValue,HPBonus,CritRate,CritDMG,HydroDMGBonus,SkillDMGBonus,BurstDMGBonus,NormalDMGBonus,ReactionDMGBonus,EM,ResShred,Set4_MoonPromote,Set4_GravityBonus,Set4_InterfereBonus,PromoteBonus,TeamHPAbove50Mult
-帷间夜曲,541.829758,CD,0.882048,1.428,1.011,3.882048,0,0,0,0,0.25,120,0.9,0,0.2,0.15,0.075,0
+Weapon,WeaponATK,WeaponSubStatType,WeaponSubStatValue,WeaponRefinement,HPBonus,FlatHP,AtkBonus,FlatATK,ER,EM,CritRate,CritDMG,HydroDMGBonus,NormalDMGBonus,ChargeDMGBonus,ChargedDMGBonus,SkillDMGBonus,BurstDMGBonus,ReactionDMGBonus,ResShred,Set4_MoonPromote,Set4_GravityBonus,Set4_InterfereBonus,PromoteBonus,TeamHPAbove50Mult,ArtifactSet1,ArtifactSet1Pieces,ArtifactSet2,ArtifactSet2Pieces,ArtifactSet4Active
+帷间夜曲,541.829758,CD,0.882048,1,1.42,4780,0,311,1.1,120,0.72,2.2,0.466,0.15,0.18,0.18,0.6,0.2,0.35,0,0,0,0,0,0,GoldenTroupe,4,None,0,1

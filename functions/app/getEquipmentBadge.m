@@ -1,53 +1,52 @@
 function imagePath = getEquipmentBadge(kind, key, displayName, subLabel, cacheDir, accentColor)
-    % 为 GUI 生成装备图标。
-    % 优先级如下：
-    % 1. 若能解析到真实图标资源，则下载并缓存真实图标；
-    % 2. 若无法解析或下载失败，则回退到本地生成的 badge 图。
-    if nargin < 5 || strlength(string(cacheDir)) == 0
-        cacheDir = fullfile(tempdir, 'genshin_dmg_calc_equipment');
-    end
-    if exist(cacheDir, 'dir') ~= 7
-        mkdir(cacheDir);
-    end
+    % 返回武器 / 圣遗物图标路径。
+    % 资源策略改为项目内 art 目录优先：
+    % 1. 优先使用 art/weapons 或 art/artifacts 中的真实素材；
+    % 2. 若旧缓存目录已有素材，则迁移 / 复用；
+    % 3. 本地不存在时才联网下载，并保存回 art；
+    % 4. 仍失败时，再回退到本地生成的 badge。
     if nargin < 6 || isempty(accentColor)
         accentColor = [0.52 0.62 0.78];
     end
 
-    safeKind = regexprep(char(string(kind)), '[^a-zA-Z0-9_-]', '_');
-    safeKey = regexprep(char(string(key)), '[^a-zA-Z0-9_-]', '_');
+    [assetDir, legacyDir] = localResolveAssetDirs(kind, cacheDir);
+    localEnsureDir(assetDir);
+    localEnsureDir(legacyDir);
 
-    remoteIconPath = fullfile(cacheDir, sprintf('%s_%s_icon.png', safeKind, safeKey));
-    failMarkerPath = fullfile(cacheDir, sprintf('%s_%s_icon.missing', safeKind, safeKey));
-    badgePath = fullfile(cacheDir, sprintf('%s_%s_badge.png', safeKind, safeKey));
-
-    if isfile(remoteIconPath)
-        imagePath = remoteIconPath;
-        return;
+    [fileStem, remoteUrl] = localResolveRemoteAsset(kind, key);
+    if strlength(fileStem) == 0
+        fileStem = localSafeFileStem(key);
     end
 
-    if ~isfile(failMarkerPath)
-        remoteUrl = localResolveRemoteIconUrl(kind, key);
-        if strlength(remoteUrl) > 0
-            try
-                websave(remoteIconPath, char(remoteUrl), weboptions('Timeout', 2));
-            catch
-                % 下载真实图标失败时，回退到本地 badge。
-            end
-        end
+    imagePath = fullfile(assetDir, char(fileStem + ".png"));
+    legacyPath = fullfile(legacyDir, char(fileStem + ".png"));
+    failMarkerPath = fullfile(assetDir, char(fileStem + ".missing"));
+    badgePath = fullfile(assetDir, char(fileStem + "_badge.png"));
 
-        if ~isfile(remoteIconPath)
-            fid = fopen(failMarkerPath, 'w');
-            if fid ~= -1
-                fclose(fid);
-            end
+    if isfile(imagePath)
+        return;
+    end
+    if legacyDir ~= string(assetDir) && isfile(legacyPath)
+        copyfile(legacyPath, imagePath);
+        if isfile(imagePath)
+            return;
         end
     end
 
-    if isfile(remoteIconPath)
-        imagePath = remoteIconPath;
-        return;
+    if ~isfile(failMarkerPath) && strlength(remoteUrl) > 0
+        try
+            websave(imagePath, char(remoteUrl), weboptions('Timeout', 5));
+        catch
+            % 真实图标下载失败时，后续自动回退到本地 badge。
+        end
+        if ~isfile(imagePath)
+            localWriteFailMarker(failMarkerPath);
+        end
     end
 
+    if isfile(imagePath)
+        return;
+    end
     if isfile(badgePath)
         imagePath = badgePath;
         return;
@@ -57,13 +56,53 @@ function imagePath = getEquipmentBadge(kind, key, displayName, subLabel, cacheDi
     imagePath = badgePath;
 end
 
-function remoteUrl = localResolveRemoteIconUrl(kind, key)
+function [assetDir, legacyDir] = localResolveAssetDirs(kind, cacheDir)
+    projectRoot = localProjectRoot();
+    folderName = localKindFolderName(kind);
+    assetDir = string(fullfile(projectRoot, 'art', folderName));
+
+    if nargin < 2 || strlength(string(cacheDir)) == 0
+        legacyDir = assetDir;
+        return;
+    end
+
+    rawDir = string(cacheDir);
+    [~, folderTail] = fileparts(char(rawDir));
+    if strcmpi(folderTail, 'art')
+        legacyDir = string(fullfile(char(rawDir), folderName));
+    else
+        legacyDir = rawDir;
+    end
+end
+
+function folderName = localKindFolderName(kind)
     switch lower(char(string(kind)))
         case 'artifact'
+            folderName = 'artifacts';
+        case 'weapon'
+            folderName = 'weapons';
+        otherwise
+            folderName = 'misc';
+    end
+end
+
+function [fileStem, remoteUrl] = localResolveRemoteAsset(kind, key)
+    kind = lower(char(string(kind)));
+    switch kind
+        case 'artifact'
+            fileStem = localSafeFileStem(key);
             remoteUrl = localResolveArtifactIconUrl(key);
         case 'weapon'
-            remoteUrl = localResolveWeaponIconUrl(key);
+            iconKey = localLookupWeaponIconKey(key);
+            if strlength(iconKey) > 0
+                fileStem = iconKey;
+                remoteUrl = "https://enka.network/ui/" + iconKey + ".png";
+            else
+                fileStem = localSafeFileStem(key);
+                remoteUrl = "";
+            end
         otherwise
+            fileStem = localSafeFileStem(key);
             remoteUrl = "";
     end
 end
@@ -83,22 +122,13 @@ function remoteUrl = localResolveArtifactIconUrl(setId)
 
     try
         apiUrl = sprintf('https://genshin-db-api.vercel.app/api/v5/artifacts?vh=1&query=%s', char(slug));
-        payload = webread(apiUrl, weboptions('Timeout', 2));
+        payload = webread(apiUrl, weboptions('Timeout', 5));
         if isstruct(payload) && isfield(payload, 'images') && isfield(payload.images, 'flower')
             remoteUrl = string(payload.images.flower);
         end
     catch
         remoteUrl = "";
     end
-end
-
-function remoteUrl = localResolveWeaponIconUrl(weaponName)
-    remoteUrl = "";
-    iconKey = localLookupWeaponIconKey(weaponName);
-    if strlength(iconKey) == 0
-        return;
-    end
-    remoteUrl = "https://enka.network/ui/" + iconKey + ".png";
 end
 
 function iconKey = localLookupWeaponIconKey(weaponName)
@@ -110,7 +140,6 @@ function iconKey = localLookupWeaponIconKey(weaponName)
     end
 
     normalizedName = localNormalizeLookupKey(weaponName);
-    names = string({weaponIndex.Name});
     normalizedNames = string({weaponIndex.NormalizedName});
     idx = find(normalizedNames == normalizedName, 1, 'first');
     if ~isempty(idx)
@@ -118,7 +147,6 @@ function iconKey = localLookupWeaponIconKey(weaponName)
         return;
     end
 
-    % 少量默认英文别名在本地武器表中不一定能精确匹配，这里补一个手工映射。
     aliasEntries = { ...
         'craneechoingcall', 'UI_EquipIcon_Catalyst_MountainGale'; ...
         'cranesechoingcall', 'UI_EquipIcon_Catalyst_MountainGale'; ...
@@ -141,8 +169,7 @@ end
 function index = localBuildWeaponIconIndex()
     index = struct('Name', {}, 'NormalizedName', {}, 'IconKey', {});
 
-    thisFolder = fileparts(mfilename('fullpath'));
-    projectRoot = fileparts(fileparts(thisFolder));
+    projectRoot = localProjectRoot();
     jsPath = fullfile(projectRoot, 'data', 'WeaponExcelConfigData.js');
     if exist(jsPath, 'file') ~= 2
         return;
@@ -164,6 +191,10 @@ end
 function normalized = localNormalizeLookupKey(text)
     normalized = lower(regexprep(char(string(text)), '[^a-zA-Z0-9\u4e00-\u9fa5]', ''));
     normalized = string(normalized);
+end
+
+function fileStem = localSafeFileStem(key)
+    fileStem = string(regexprep(char(string(key)), '[\\/:*?"<>|]', '_'));
 end
 
 function localCreateBadge(imagePath, kind, displayName, subLabel, accentColor)
@@ -248,4 +279,22 @@ function localFallbackImage(imagePath, accentColor)
     img(:, :, 2) = uint8(45 + 120 * yGrid * accentColor(2));
     img(:, :, 3) = uint8(55 + 110 * (1 - yGrid) * accentColor(3));
     imwrite(img, imagePath);
+end
+
+function root = localProjectRoot()
+    thisFolder = fileparts(mfilename('fullpath'));
+    root = fileparts(fileparts(thisFolder));
+end
+
+function localEnsureDir(dirPath)
+    if exist(char(dirPath), 'dir') ~= 7
+        mkdir(char(dirPath));
+    end
+end
+
+function localWriteFailMarker(markerPath)
+    fid = fopen(markerPath, 'w');
+    if fid ~= -1
+        fclose(fid);
+    end
 end

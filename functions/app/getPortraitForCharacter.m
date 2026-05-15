@@ -1,13 +1,15 @@
 function imagePath = getPortraitForCharacter(characterName, cacheDir)
-    % 为 GUI 返回角色头像文件路径。
-    % 优先使用本地缓存；若缓存不存在，则尝试从 enka.network 下载常见头像资源；
-    % 若仍失败，则生成一个本地占位图，避免界面报错。
-    if nargin < 2 || strlength(string(cacheDir)) == 0
-        cacheDir = fullfile(tempdir, 'genshin_dmg_calc_portraits');
-    end
-    if ~exist(cacheDir, 'dir')
-        mkdir(cacheDir);
-    end
+    % 返回角色头像路径。
+    % 资源查找顺序调整为：
+    % 1. 优先读取项目内 art/portraits 的本地素材；
+    % 2. 若旧缓存目录中已有资源，则迁移 / 复用；
+    % 3. 若本地不存在，再尝试联网下载并保存回 art/portraits；
+    % 4. 最后才生成占位图，避免 GUI 直接报错。
+    projectRoot = localProjectRoot();
+    localDir = fullfile(projectRoot, 'art', 'portraits');
+    requestedDir = localNormalizePortraitDir(cacheDir, localDir);
+    localEnsureDir(localDir);
+    localEnsureDir(requestedDir);
 
     registry = getCharacterRegistry();
     keys = string({registry.Key});
@@ -20,36 +22,54 @@ function imagePath = getPortraitForCharacter(characterName, cacheDir)
     end
 
     fileBase = char(avatarKey);
-    pngPath = fullfile(cacheDir, [fileBase '.png']);
-    failMarkerPath = fullfile(cacheDir, [fileBase '.missing']);
-    if isfile(pngPath)
-        imagePath = pngPath;
+    imagePath = fullfile(localDir, [fileBase '.png']);
+    legacyPath = fullfile(requestedDir, [fileBase '.png']);
+    failMarkerPath = fullfile(localDir, [fileBase '.missing']);
+
+    if isfile(imagePath)
         return;
     end
+    if requestedDir ~= string(localDir) && isfile(legacyPath)
+        copyfile(legacyPath, imagePath);
+        if isfile(imagePath)
+            return;
+        end
+    end
     if isfile(failMarkerPath)
-        imagePath = localCreatePlaceholder(cacheDir, fileBase, displayName);
+        imagePath = localCreatePlaceholder(localDir, fileBase, displayName);
         return;
     end
 
     candidateUrls = localBuildAvatarCandidates(avatarKey);
-    requestOptions = weboptions('Timeout', 2);
+    requestOptions = weboptions('Timeout', 5);
     for i = 1:numel(candidateUrls)
         try
-            websave(pngPath, candidateUrls{i}, requestOptions);
-            if isfile(pngPath)
-                imagePath = pngPath;
+            websave(imagePath, candidateUrls{i}, requestOptions);
+            if isfile(imagePath)
                 return;
             end
         catch
-            % 网络或资源缺失时静默回退到下一个候选地址。
+            % 联网下载失败时静默降级到下一个候选地址。
         end
     end
 
-    fid = fopen(failMarkerPath, 'w');
-    if fid ~= -1
-        fclose(fid);
+    localWriteFailMarker(failMarkerPath);
+    imagePath = localCreatePlaceholder(localDir, fileBase, displayName);
+end
+
+function dirPath = localNormalizePortraitDir(cacheDir, defaultDir)
+    if nargin < 1 || strlength(string(cacheDir)) == 0
+        dirPath = string(defaultDir);
+        return;
     end
-    imagePath = localCreatePlaceholder(cacheDir, fileBase, displayName);
+
+    rawDir = string(cacheDir);
+    [~, folderName] = fileparts(char(rawDir));
+    if strcmpi(folderName, 'art')
+        dirPath = fullfile(char(rawDir), 'portraits');
+    else
+        dirPath = rawDir;
+    end
 end
 
 function urls = localBuildAvatarCandidates(avatarKey)
@@ -110,9 +130,26 @@ function imagePath = localCreatePlaceholder(cacheDir, fileBase, displayName)
         exportgraphics(ax, imagePath, 'Resolution', 120);
         close(f);
     catch
-        % 若当前 MATLAB 环境无法无头绘图，则保留基础渐变占位图。
         if exist('f', 'var') && isvalid(f)
             close(f);
         end
+    end
+end
+
+function root = localProjectRoot()
+    thisFolder = fileparts(mfilename('fullpath'));
+    root = fileparts(fileparts(thisFolder));
+end
+
+function localEnsureDir(dirPath)
+    if exist(char(dirPath), 'dir') ~= 7
+        mkdir(char(dirPath));
+    end
+end
+
+function localWriteFailMarker(markerPath)
+    fid = fopen(markerPath, 'w');
+    if fid ~= -1
+        fclose(fid);
     end
 end

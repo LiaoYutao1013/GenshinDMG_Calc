@@ -84,7 +84,9 @@ classdef GenshinDMGApp < handle
             initProjectPaths();
             obj.Registry = getCharacterRegistry();
             obj.Enemy = struct('Level', 90, 'Res', 0.10, 'DefReduct', 0);
-            obj.PortraitCacheDir = fullfile(tempdir, 'genshin_dmg_calc_portraits');
+            appFolder = fileparts(mfilename('fullpath'));
+            projectRoot = fileparts(fileparts(appFolder));
+            obj.PortraitCacheDir = fullfile(projectRoot, 'art', 'portraits');
             obj.TempRotationDir = fullfile(tempdir, 'genshin_dmg_calc_rotations');
 
             obj.initializeSlots();
@@ -483,7 +485,7 @@ classdef GenshinDMGApp < handle
             detailCtrlGrid.Padding = [0 0 0 0];
             detailCtrlGrid.BackgroundColor = [0.96 0.97 0.99];
 
-            detailLabels = {'姝﹀櫒', '鍛藉骇', '澶╄祴', '绮剧偧'};
+            detailLabels = {'武器', '命座', '天赋', '精炼'};
             for detailIndex = 1:numel(detailLabels)
                 label = uilabel(detailCtrlGrid, ...
                     'Text', detailLabels{detailIndex}, ...
@@ -1168,7 +1170,9 @@ classdef GenshinDMGApp < handle
         function [artifactBadgePath, weaponBadgePath] = resolveEquipmentBadgePaths(obj, slot)
             % 为当前槽位生成套装图标与武器图标。
             [artifactDisplayName, artifactShort, artifactColor] = getArtifactSetTheme(slot.ArtifactSet1);
-            badgeDir = fullfile(tempdir, 'genshin_dmg_calc_equipment');
+            appFolder = fileparts(mfilename('fullpath'));
+            projectRoot = fileparts(fileparts(appFolder));
+            badgeDir = fullfile(projectRoot, 'art');
             artifactSubLabel = sprintf('%s | %s', artifactShort, obj.resolveArtifactModeLabel(slot));
             artifactBadgePath = string(getEquipmentBadge('artifact', slot.ArtifactSet1, artifactDisplayName, artifactSubLabel, badgeDir, artifactColor));
 
