@@ -107,6 +107,42 @@ function cfg = getDefaultCharacterConfig(name, overrides)
         case {'kinich'}
             cfg = localBaseConfig('Kinich', customArtifact_Kinich(), fullfile(projectRoot, 'data', 'Kinich', 'rotation_Kinich.txt'));
 
+        case {'sethos'}
+            cfg = localBaseConfig('Sethos', customArtifact_Sethos(), fullfile(projectRoot, 'data', 'Sethos', 'rotation_Sethos.txt'));
+
+        case {'ororon', 'olorun'}
+            cfg = localBaseConfig('Ororon', customArtifact_Ororon(), fullfile(projectRoot, 'data', 'Ororon', 'rotation_Ororon.txt'));
+
+        case {'mizuki', 'yumemizuki mizuki', 'yumemizukimizuki'}
+            cfg = localBaseConfig('Mizuki', customArtifact_Mizuki(), fullfile(projectRoot, 'data', 'Mizuki', 'rotation_Mizuki.txt'));
+
+        case {'ifa'}
+            cfg = localBaseConfig('Ifa', customArtifact_Ifa(), fullfile(projectRoot, 'data', 'Ifa', 'rotation_Ifa.txt'));
+
+        case {'dahlia'}
+            cfg = localBaseConfig('Dahlia', customArtifact_Dahlia(), fullfile(projectRoot, 'data', 'Dahlia', 'rotation_Dahlia.txt'));
+
+        case {'aino'}
+            cfg = localBaseConfig('Aino', customArtifact_Aino(), fullfile(projectRoot, 'data', 'Aino', 'rotation_Aino.txt'));
+
+        case {'jahoda'}
+            cfg = localBaseConfig('Jahoda', customArtifact_Jahoda(), fullfile(projectRoot, 'data', 'Jahoda', 'rotation_Jahoda.txt'));
+
+        case {'illuga'}
+            cfg = localBaseConfig('Illuga', customArtifact_Illuga(), fullfile(projectRoot, 'data', 'Illuga', 'rotation_Illuga.txt'));
+
+        case {'varka'}
+            cfg = localBaseConfig('Varka', customArtifact_Varka(), fullfile(projectRoot, 'data', 'Varka', 'rotation_Varka.txt'));
+
+        case {'lohen'}
+            cfg = localBaseConfig('Lohen', customArtifact_Lohen(), fullfile(projectRoot, 'data', 'Lohen', 'rotation_Lohen.txt'));
+
+        case {'prune'}
+            cfg = localBaseConfig('Prune', customArtifact_Prune(), fullfile(projectRoot, 'data', 'Prune', 'rotation_Prune.txt'));
+
+        case {'lanyan', 'lan yan', 'lanyan'}
+            cfg = localBaseConfig('LanYan', customArtifact_LanYan(), fullfile(projectRoot, 'data', 'LanYan', 'rotation_LanYan.txt'));
+
         otherwise
             error('Unsupported character in unified entry: %s', name);
     end

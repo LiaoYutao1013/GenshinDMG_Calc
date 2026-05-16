@@ -69,6 +69,8 @@ function element = getCharacterElement(name)
             element = "Electro";
         case 'ororon'
             element = "Electro";
+        case {'mizuki', 'yumemizuki mizuki'}
+            element = "Anemo";
         case 'ifa'
             element = "Anemo";
         case 'dahlia'
@@ -79,9 +81,13 @@ function element = getCharacterElement(name)
             element = "Hydro";
         case 'varka'
             element = "Anemo";
+        case 'lohen'
+            element = "Cryo";
         case 'illuga'
             element = "Geo";
-        case 'lanyan'
+        case 'prune'
+            element = "Anemo";
+        case {'lanyan', 'lan yan'}
             element = "Anemo";
         otherwise
             element = "Physical";

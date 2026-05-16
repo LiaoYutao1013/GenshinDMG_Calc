@@ -1,0 +1,1958 @@
+{
+  "info": {
+    "name": "Jahoda",
+    "description": "The Curatorium of Secrets' extremely reliable, do-it-all super employee (or so she claims).",
+    "rarity": "QUALITY_PURPLE",
+    "weapon": "WEAPON_BOW",
+    "birthday": "5/1",
+    "element": "Anemo",
+    "title": "Windthreading Shadow",
+    "constellation": "Fragum",
+    "affiliation": "Curatorium of Secrets",
+    "cv": {
+      "EN": "Sonya Krueger",
+      "CHS": "韩娇娇",
+      "JP": "稲垣好",
+      "KR": "Oh Ro-ah"
+    },
+    "attributes": [
+      {
+        "level": 1,
+        "ascension": 0,
+        "hp": 809,
+        "atk": 19,
+        "def": 49,
+        "Healing_": "0"
+      },
+      {
+        "level": 2,
+        "ascension": 0,
+        "hp": 876,
+        "atk": 20,
+        "def": 53,
+        "Healing_": "0"
+      },
+      {
+        "level": 3,
+        "ascension": 0,
+        "hp": 942,
+        "atk": 22,
+        "def": 57,
+        "Healing_": "0"
+      },
+      {
+        "level": 4,
+        "ascension": 0,
+        "hp": 1009,
+        "atk": 23,
+        "def": 61,
+        "Healing_": "0"
+      },
+      {
+        "level": 5,
+        "ascension": 0,
+        "hp": 1076,
+        "atk": 25,
+        "def": 65,
+        "Healing_": "0"
+      },
+      {
+        "level": 6,
+        "ascension": 0,
+        "hp": 1143,
+        "atk": 26,
+        "def": 69,
+        "Healing_": "0"
+      },
+      {
+        "level": 7,
+        "ascension": 0,
+        "hp": 1209,
+        "atk": 28,
+        "def": 73,
+        "Healing_": "0"
+      },
+      {
+        "level": 8,
+        "ascension": 0,
+        "hp": 1276,
+        "atk": 30,
+        "def": 77,
+        "Healing_": "0"
+      },
+      {
+        "level": 9,
+        "ascension": 0,
+        "hp": 1343,
+        "atk": 31,
+        "def": 81,
+        "Healing_": "0"
+      },
+      {
+        "level": 10,
+        "ascension": 0,
+        "hp": 1410,
+        "atk": 33,
+        "def": 85,
+        "Healing_": "0"
+      },
+      {
+        "level": 11,
+        "ascension": 0,
+        "hp": 1477,
+        "atk": 34,
+        "def": 89,
+        "Healing_": "0"
+      },
+      {
+        "level": 12,
+        "ascension": 0,
+        "hp": 1543,
+        "atk": 36,
+        "def": 93,
+        "Healing_": "0"
+      },
+      {
+        "level": 13,
+        "ascension": 0,
+        "hp": 1610,
+        "atk": 37,
+        "def": 97,
+        "Healing_": "0"
+      },
+      {
+        "level": 14,
+        "ascension": 0,
+        "hp": 1677,
+        "atk": 39,
+        "def": 101,
+        "Healing_": "0"
+      },
+      {
+        "level": 15,
+        "ascension": 0,
+        "hp": 1744,
+        "atk": 40,
+        "def": 105,
+        "Healing_": "0"
+      },
+      {
+        "level": 16,
+        "ascension": 0,
+        "hp": 1811,
+        "atk": 42,
+        "def": 109,
+        "Healing_": "0"
+      },
+      {
+        "level": 17,
+        "ascension": 0,
+        "hp": 1877,
+        "atk": 43,
+        "def": 113,
+        "Healing_": "0"
+      },
+      {
+        "level": 18,
+        "ascension": 0,
+        "hp": 1944,
+        "atk": 45,
+        "def": 117,
+        "Healing_": "0"
+      },
+      {
+        "level": 19,
+        "ascension": 0,
+        "hp": 2011,
+        "atk": 46,
+        "def": 121,
+        "Healing_": "0"
+      },
+      {
+        "level": 20,
+        "ascension": 0,
+        "hp": 2078,
+        "atk": 48,
+        "def": 125,
+        "Healing_": "0"
+      },
+      {
+        "level": 21,
+        "ascension": 1,
+        "hp": 2748,
+        "atk": 64,
+        "def": 165,
+        "Healing_": "0"
+      },
+      {
+        "level": 22,
+        "ascension": 1,
+        "hp": 2815,
+        "atk": 65,
+        "def": 169,
+        "Healing_": "0"
+      },
+      {
+        "level": 23,
+        "ascension": 1,
+        "hp": 2882,
+        "atk": 67,
+        "def": 173,
+        "Healing_": "0"
+      },
+      {
+        "level": 24,
+        "ascension": 1,
+        "hp": 2949,
+        "atk": 68,
+        "def": 177,
+        "Healing_": "0"
+      },
+      {
+        "level": 25,
+        "ascension": 1,
+        "hp": 3016,
+        "atk": 70,
+        "def": 181,
+        "Healing_": "0"
+      },
+      {
+        "level": 26,
+        "ascension": 1,
+        "hp": 3082,
+        "atk": 71,
+        "def": 185,
+        "Healing_": "0"
+      },
+      {
+        "level": 27,
+        "ascension": 1,
+        "hp": 3149,
+        "atk": 73,
+        "def": 189,
+        "Healing_": "0"
+      },
+      {
+        "level": 28,
+        "ascension": 1,
+        "hp": 3216,
+        "atk": 74,
+        "def": 193,
+        "Healing_": "0"
+      },
+      {
+        "level": 29,
+        "ascension": 1,
+        "hp": 3283,
+        "atk": 76,
+        "def": 197,
+        "Healing_": "0"
+      },
+      {
+        "level": 30,
+        "ascension": 1,
+        "hp": 3349,
+        "atk": 77,
+        "def": 201,
+        "Healing_": "0"
+      },
+      {
+        "level": 31,
+        "ascension": 1,
+        "hp": 3416,
+        "atk": 79,
+        "def": 205,
+        "Healing_": "0"
+      },
+      {
+        "level": 32,
+        "ascension": 1,
+        "hp": 3483,
+        "atk": 81,
+        "def": 210,
+        "Healing_": "0"
+      },
+      {
+        "level": 33,
+        "ascension": 1,
+        "hp": 3550,
+        "atk": 82,
+        "def": 213,
+        "Healing_": "0"
+      },
+      {
+        "level": 34,
+        "ascension": 1,
+        "hp": 3617,
+        "atk": 84,
+        "def": 218,
+        "Healing_": "0"
+      },
+      {
+        "level": 35,
+        "ascension": 1,
+        "hp": 3683,
+        "atk": 85,
+        "def": 222,
+        "Healing_": "0"
+      },
+      {
+        "level": 36,
+        "ascension": 1,
+        "hp": 3750,
+        "atk": 87,
+        "def": 226,
+        "Healing_": "0"
+      },
+      {
+        "level": 37,
+        "ascension": 1,
+        "hp": 3817,
+        "atk": 88,
+        "def": 230,
+        "Healing_": "0"
+      },
+      {
+        "level": 38,
+        "ascension": 1,
+        "hp": 3884,
+        "atk": 90,
+        "def": 234,
+        "Healing_": "0"
+      },
+      {
+        "level": 39,
+        "ascension": 1,
+        "hp": 3951,
+        "atk": 91,
+        "def": 238,
+        "Healing_": "0"
+      },
+      {
+        "level": 40,
+        "ascension": 1,
+        "hp": 4017,
+        "atk": 93,
+        "def": 242,
+        "Healing_": "0"
+      },
+      {
+        "level": 41,
+        "ascension": 2,
+        "hp": 4514,
+        "atk": 104,
+        "def": 271,
+        "Healing_": "4.6"
+      },
+      {
+        "level": 42,
+        "ascension": 2,
+        "hp": 4580,
+        "atk": 106,
+        "def": 275,
+        "Healing_": "4.6"
+      },
+      {
+        "level": 43,
+        "ascension": 2,
+        "hp": 4647,
+        "atk": 107,
+        "def": 279,
+        "Healing_": "4.6"
+      },
+      {
+        "level": 44,
+        "ascension": 2,
+        "hp": 4713,
+        "atk": 109,
+        "def": 283,
+        "Healing_": "4.6"
+      },
+      {
+        "level": 45,
+        "ascension": 2,
+        "hp": 4780,
+        "atk": 111,
+        "def": 288,
+        "Healing_": "4.6"
+      },
+      {
+        "level": 46,
+        "ascension": 2,
+        "hp": 4848,
+        "atk": 112,
+        "def": 292,
+        "Healing_": "4.6"
+      },
+      {
+        "level": 47,
+        "ascension": 2,
+        "hp": 4914,
+        "atk": 114,
+        "def": 296,
+        "Healing_": "4.6"
+      },
+      {
+        "level": 48,
+        "ascension": 2,
+        "hp": 4981,
+        "atk": 115,
+        "def": 300,
+        "Healing_": "4.6"
+      },
+      {
+        "level": 49,
+        "ascension": 2,
+        "hp": 5047,
+        "atk": 117,
+        "def": 304,
+        "Healing_": "4.6"
+      },
+      {
+        "level": 50,
+        "ascension": 2,
+        "hp": 5114,
+        "atk": 118,
+        "def": 308,
+        "Healing_": "4.6"
+      },
+      {
+        "level": 51,
+        "ascension": 3,
+        "hp": 5753,
+        "atk": 133,
+        "def": 346,
+        "Healing_": "9.2"
+      },
+      {
+        "level": 52,
+        "ascension": 3,
+        "hp": 5820,
+        "atk": 135,
+        "def": 350,
+        "Healing_": "9.2"
+      },
+      {
+        "level": 53,
+        "ascension": 3,
+        "hp": 5887,
+        "atk": 136,
+        "def": 354,
+        "Healing_": "9.2"
+      },
+      {
+        "level": 54,
+        "ascension": 3,
+        "hp": 5954,
+        "atk": 138,
+        "def": 358,
+        "Healing_": "9.2"
+      },
+      {
+        "level": 55,
+        "ascension": 3,
+        "hp": 6021,
+        "atk": 139,
+        "def": 362,
+        "Healing_": "9.2"
+      },
+      {
+        "level": 56,
+        "ascension": 3,
+        "hp": 6087,
+        "atk": 141,
+        "def": 366,
+        "Healing_": "9.2"
+      },
+      {
+        "level": 57,
+        "ascension": 3,
+        "hp": 6154,
+        "atk": 142,
+        "def": 370,
+        "Healing_": "9.2"
+      },
+      {
+        "level": 58,
+        "ascension": 3,
+        "hp": 6221,
+        "atk": 144,
+        "def": 374,
+        "Healing_": "9.2"
+      },
+      {
+        "level": 59,
+        "ascension": 3,
+        "hp": 6288,
+        "atk": 145,
+        "def": 378,
+        "Healing_": "9.2"
+      },
+      {
+        "level": 60,
+        "ascension": 3,
+        "hp": 6355,
+        "atk": 147,
+        "def": 382,
+        "Healing_": "9.2"
+      },
+      {
+        "level": 61,
+        "ascension": 4,
+        "hp": 6850,
+        "atk": 158,
+        "def": 412,
+        "Healing_": "9.2"
+      },
+      {
+        "level": 62,
+        "ascension": 4,
+        "hp": 6918,
+        "atk": 160,
+        "def": 416,
+        "Healing_": "9.2"
+      },
+      {
+        "level": 63,
+        "ascension": 4,
+        "hp": 6984,
+        "atk": 161,
+        "def": 420,
+        "Healing_": "9.2"
+      },
+      {
+        "level": 64,
+        "ascension": 4,
+        "hp": 7051,
+        "atk": 163,
+        "def": 424,
+        "Healing_": "9.2"
+      },
+      {
+        "level": 65,
+        "ascension": 4,
+        "hp": 7117,
+        "atk": 165,
+        "def": 428,
+        "Healing_": "9.2"
+      },
+      {
+        "level": 66,
+        "ascension": 4,
+        "hp": 7185,
+        "atk": 166,
+        "def": 432,
+        "Healing_": "9.2"
+      },
+      {
+        "level": 67,
+        "ascension": 4,
+        "hp": 7252,
+        "atk": 168,
+        "def": 436,
+        "Healing_": "9.2"
+      },
+      {
+        "level": 68,
+        "ascension": 4,
+        "hp": 7318,
+        "atk": 169,
+        "def": 440,
+        "Healing_": "9.2"
+      },
+      {
+        "level": 69,
+        "ascension": 4,
+        "hp": 7385,
+        "atk": 171,
+        "def": 444,
+        "Healing_": "9.2"
+      },
+      {
+        "level": 70,
+        "ascension": 4,
+        "hp": 7451,
+        "atk": 172,
+        "def": 448,
+        "Healing_": "9.2"
+      },
+      {
+        "level": 71,
+        "ascension": 5,
+        "hp": 7948,
+        "atk": 184,
+        "def": 478,
+        "Healing_": "13.9"
+      },
+      {
+        "level": 72,
+        "ascension": 5,
+        "hp": 8014,
+        "atk": 185,
+        "def": 482,
+        "Healing_": "13.9"
+      },
+      {
+        "level": 73,
+        "ascension": 5,
+        "hp": 8081,
+        "atk": 187,
+        "def": 486,
+        "Healing_": "13.9"
+      },
+      {
+        "level": 74,
+        "ascension": 5,
+        "hp": 8148,
+        "atk": 188,
+        "def": 490,
+        "Healing_": "13.9"
+      },
+      {
+        "level": 75,
+        "ascension": 5,
+        "hp": 8215,
+        "atk": 190,
+        "def": 494,
+        "Healing_": "13.9"
+      },
+      {
+        "level": 76,
+        "ascension": 5,
+        "hp": 8282,
+        "atk": 191,
+        "def": 498,
+        "Healing_": "13.9"
+      },
+      {
+        "level": 77,
+        "ascension": 5,
+        "hp": 8348,
+        "atk": 193,
+        "def": 502,
+        "Healing_": "13.9"
+      },
+      {
+        "level": 78,
+        "ascension": 5,
+        "hp": 8415,
+        "atk": 195,
+        "def": 506,
+        "Healing_": "13.9"
+      },
+      {
+        "level": 79,
+        "ascension": 5,
+        "hp": 8482,
+        "atk": 196,
+        "def": 510,
+        "Healing_": "13.9"
+      },
+      {
+        "level": 80,
+        "ascension": 5,
+        "hp": 8549,
+        "atk": 198,
+        "def": 514,
+        "Healing_": "13.9"
+      },
+      {
+        "level": 81,
+        "ascension": 6,
+        "hp": 9045,
+        "atk": 209,
+        "def": 544,
+        "Healing_": "18.5"
+      },
+      {
+        "level": 82,
+        "ascension": 6,
+        "hp": 9111,
+        "atk": 211,
+        "def": 548,
+        "Healing_": "18.5"
+      },
+      {
+        "level": 83,
+        "ascension": 6,
+        "hp": 9179,
+        "atk": 212,
+        "def": 552,
+        "Healing_": "18.5"
+      },
+      {
+        "level": 84,
+        "ascension": 6,
+        "hp": 9245,
+        "atk": 214,
+        "def": 556,
+        "Healing_": "18.5"
+      },
+      {
+        "level": 85,
+        "ascension": 6,
+        "hp": 9312,
+        "atk": 215,
+        "def": 560,
+        "Healing_": "18.5"
+      },
+      {
+        "level": 86,
+        "ascension": 6,
+        "hp": 9378,
+        "atk": 217,
+        "def": 564,
+        "Healing_": "18.5"
+      },
+      {
+        "level": 87,
+        "ascension": 6,
+        "hp": 9445,
+        "atk": 218,
+        "def": 568,
+        "Healing_": "18.5"
+      },
+      {
+        "level": 88,
+        "ascension": 6,
+        "hp": 9512,
+        "atk": 220,
+        "def": 572,
+        "Healing_": "18.5"
+      },
+      {
+        "level": 89,
+        "ascension": 6,
+        "hp": 9579,
+        "atk": 221,
+        "def": 576,
+        "Healing_": "18.5"
+      },
+      {
+        "level": 90,
+        "ascension": 6,
+        "hp": 9646,
+        "atk": 223,
+        "def": 580,
+        "Healing_": "18.5"
+      },
+      {
+        "level": 95,
+        "ascension": 6,
+        "hp": 9979,
+        "atk": 251,
+        "def": 600,
+        "Healing_": "18.5"
+      },
+      {
+        "level": 100,
+        "ascension": 6,
+        "hp": 10313,
+        "atk": 280,
+        "def": 620,
+        "Healing_": "18.5"
+      }
+    ]
+  },
+  "icons": {
+    "forward": "UI_AvatarIcon_Jahoda",
+    "coop_img": "UI_CoopImg_Jahoda"
+  },
+  "ascension": {
+    "x202": 7.0499E+6,
+    "exp": {
+      "x104001": 2,
+      "x104003": 418
+    },
+    "speciality": {
+      "x101257": 168
+    },
+    "elemental": {
+      "x104151": 1,
+      "x104152": 9,
+      "x104153": 9,
+      "x104154": 6
+    },
+    "worldmonster": {
+      "x112122": 18,
+      "x112123": 30,
+      "x112124": 36
+    },
+    "elitemonster": {
+      "x113078": 46
+    }
+  },
+  "skills": {
+    "normalattack": {
+      "name": "Strike While the Arrow's Hot",
+      "icon": "Skill_A_02",
+      "multipliers": {
+        "x1_HitDMG": [
+          "41.67%",
+          "45.07%",
+          "48.46%",
+          "53.3%",
+          "56.7%",
+          "60.57%",
+          "65.9%",
+          "71.23%",
+          "76.56%",
+          "82.38%",
+          "88.19%",
+          "94.01%",
+          "99.82%",
+          "105.64%",
+          "111.45%"
+        ],
+        "x2_HitDMG": [
+          "19.23%×2",
+          "20.8%×2",
+          "22.36%×2",
+          "24.6%×2",
+          "26.16%×2",
+          "27.95%×2",
+          "30.41%×2",
+          "32.87%×2",
+          "35.33%×2",
+          "38.02%×2",
+          "40.7%×2",
+          "43.38%×2",
+          "46.07%×2",
+          "48.75%×2",
+          "51.43%×2"
+        ],
+        "x3_HitDMG": [
+          "51.2%",
+          "55.36%",
+          "59.53%",
+          "65.49%",
+          "69.65%",
+          "74.41%",
+          "80.96%",
+          "87.51%",
+          "94.06%",
+          "101.2%",
+          "108.35%",
+          "115.49%",
+          "122.64%",
+          "129.78%",
+          "136.92%"
+        ],
+        "AimedShot": [
+          "43.86%",
+          "47.43%",
+          "51%",
+          "56.1%",
+          "59.67%",
+          "63.75%",
+          "69.36%",
+          "74.97%",
+          "80.58%",
+          "86.7%",
+          "92.82%",
+          "98.94%",
+          "105.06%",
+          "111.18%",
+          "117.3%"
+        ],
+        "Fully_ChargedAimedShot": [
+          "124%",
+          "133.3%",
+          "142.6%",
+          "155%",
+          "164.3%",
+          "173.6%",
+          "186%",
+          "198.4%",
+          "210.8%",
+          "223.2%",
+          "235.6%",
+          "248%",
+          "263.5%",
+          "279%",
+          "294.5%"
+        ],
+        "PlungeDMG": [
+          "56.83%",
+          "61.45%",
+          "66.08%",
+          "72.69%",
+          "77.31%",
+          "82.6%",
+          "89.87%",
+          "97.14%",
+          "104.41%",
+          "112.34%",
+          "120.27%",
+          "128.2%",
+          "136.12%",
+          "144.05%",
+          "151.98%"
+        ],
+        "Low_HighPlungeDMG": [
+          "113.63%/141.93%",
+          "122.88%/153.49%",
+          "132.13%/165.04%",
+          "145.35%/181.54%",
+          "154.59%/193.1%",
+          "165.16%/206.3%",
+          "179.7%/224.45%",
+          "194.23%/242.61%",
+          "208.77%/260.76%",
+          "224.62%/280.57%",
+          "240.48%/300.37%",
+          "256.34%/320.18%",
+          "272.19%/339.98%",
+          "288.05%/359.79%",
+          "303.9%/379.59%"
+        ]
+      },
+      "description": "<color=#FFD780FF>Normal Attack</color>\\nPerforms up to 3 consecutive shots with a bow.\\n\\n<color=#FFD780FF>Charged Attack</color>\\nPerforms a more precise <color=#FFD780FF>Aimed Shot</color> with increased DMG.\\nWhile aiming, mighty winds will accumulate on the arrowhead. A fully charged wind arrow will deal <color=#80FFD7FF>Anemo DMG</color>.\\n\\n<color=#FFD780FF>Plunging Attack</color>\\nFires off a shower of arrows in mid-air before falling and striking the ground, hitting opponents along the path and dealing AoE DMG upon impact."
+    },
+    "elementalskill": {
+      "name": "Savvy Strategy: Splitting the Spoils",
+      "icon": "Skill_S_Jahoda_01",
+      "multipliers": {
+        "SmokeBombDMG": [
+          "159%",
+          "170.92%",
+          "182.85%",
+          "198.75%",
+          "210.68%",
+          "222.6%",
+          "238.5%",
+          "254.4%",
+          "270.3%",
+          "286.2%",
+          "302.1%",
+          "318%",
+          "337.88%",
+          "357.75%",
+          "377.62%"
+        ],
+        "UnfilledTreasureFlaskDMG": [
+          "190.8%",
+          "205.11%",
+          "219.42%",
+          "238.5%",
+          "252.81%",
+          "267.12%",
+          "286.2%",
+          "305.28%",
+          "324.36%",
+          "343.44%",
+          "362.52%",
+          "381.6%",
+          "405.45%",
+          "429.3%",
+          "453.15%"
+        ],
+        "FilledTreasureFlaskDMG": [
+          "212%",
+          "227.9%",
+          "243.8%",
+          "265%",
+          "280.9%",
+          "296.8%",
+          "318%",
+          "339.2%",
+          "360.4%",
+          "381.6%",
+          "402.8%",
+          "424%",
+          "450.5%",
+          "477%",
+          "503.5%"
+        ],
+        "TreasureFlaskDuration": [
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s"
+        ],
+        "MeowballDMG": [
+          "128%",
+          "137.6%",
+          "147.2%",
+          "160%",
+          "169.6%",
+          "179.2%",
+          "192%",
+          "204.8%",
+          "217.6%",
+          "230.4%",
+          "243.2%",
+          "256%",
+          "272%",
+          "288%",
+          "304%"
+        ],
+        "CD": [
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s"
+        ]
+      },
+      "description": "Jahoda dashes toward her opponent, entering the Shadow Pursuit state upon contact. While in this state, Jahoda moves continuously and swiftly: If nearby opponents are affected by <color=#FF9999FF>Pyro</color>, <color=#80C0FFFF>Hydro</color>, <color=#FFACFFFF>Electro</color>, or <color=#99FFFFFF>Cryo</color>, she will quietly convert her {LINK#N11240001}<color=#FFD780FF>Purr-loined Treasure Flask</color>{/LINK} to that element, gradually filling it. When the duration ends or the skill is used again, Jahoda drains the <color=#FFD780FF>Purr-loined Treasure Flask</color> and deals a single instance of <color=#80FFD7FF>Anemo DMG</color> to nearby opponents. When the <color=#FFD780FF>Purr-loined Treasure Flask</color> is full, Jahoda immediately drains it, exiting the Shadow Pursuit state and dealing a more powerful instance of <color=#80FFD7FF>Anemo DMG</color>.\\nIf her dash fails to make contact with an opponent, Jahoda instead drops a Smoke Bomb at her location, dealing a single instance of <color=#80FFD7FF>Anemo DMG</color> to nearby opponents.\\n\\n<color=#FFD780FF>Moonsign: Ascendant Gleam</color>: When the <color=#FFD780FF>Purr-loined Treasure Flask</color> becomes full, Jahoda will not immediately discharge it. Instead, for a short duration, she steadily consumes the stored element inside and periodically fires <color=#FFD780FF>Fluffy Meowballs</color> at nearby opponents, dealing DMG of the corresponding element stored in the <color=#FFD780FF>Purr-loined Treasure Flask</color>. When a <color=#FFD780FF>Fluffy Meowball</color> hits an opponent, Jahoda regenerates 2 Elemental Energy. This effect can be triggered once every 3.5s.\\n\\n<i>There are many ways to divide wealth in this world — but for Nod-Krai's treasure hunters — and hoarders — only one has ever proven sufficiently effective.</i>"
+    },
+    "elementalburst": {
+      "name": "Hidden Aces: Seven Tools of the Hunter",
+      "icon": "Skill_E_Jahoda_01",
+      "multipliers": {
+        "SkillDMG": [
+          "207.2%",
+          "222.74%",
+          "238.28%",
+          "259%",
+          "274.54%",
+          "290.08%",
+          "310.8%",
+          "331.52%",
+          "352.24%",
+          "372.96%",
+          "393.68%",
+          "414.4%",
+          "440.3%",
+          "466.2%",
+          "492.1%"
+        ],
+        "PurrsonalCoordinatedAssistanceRobotDMG": [
+          "17.27%",
+          "18.56%",
+          "19.86%",
+          "21.58%",
+          "22.88%",
+          "24.17%",
+          "25.9%",
+          "27.63%",
+          "29.35%",
+          "31.08%",
+          "32.81%",
+          "34.53%",
+          "36.69%",
+          "38.85%",
+          "41.01%"
+        ],
+        "PurrsonalCoordinatedAssistanceRobotDuration": [
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s"
+        ],
+        "PurrsonalCoordinatedAssistanceRobotHealing": [
+          "79.87% ATK+501",
+          "85.86% ATK+551",
+          "91.85% ATK+605",
+          "99.84% ATK+664",
+          "105.83% ATK+726",
+          "111.82% ATK+793",
+          "119.81% ATK+864",
+          "127.8% ATK+939",
+          "135.78% ATK+1018",
+          "143.77% ATK+1102",
+          "151.76% ATK+1189",
+          "159.74% ATK+1281",
+          "169.73% ATK+1377",
+          "179.71% ATK+1477",
+          "189.7% ATK+1582"
+        ],
+        "LowestHPCharacterAdditionalHealing": [
+          "30.72% ATK+193",
+          "33.02% ATK+212",
+          "35.33% ATK+233",
+          "38.4% ATK+255",
+          "40.7% ATK+279",
+          "43.01% ATK+305",
+          "46.08% ATK+332",
+          "49.15% ATK+361",
+          "52.22% ATK+392",
+          "55.3% ATK+424",
+          "58.37% ATK+457",
+          "61.44% ATK+493",
+          "65.28% ATK+530",
+          "69.12% ATK+568",
+          "72.96% ATK+608"
+        ],
+        "CD": [
+          "18s",
+          "18s",
+          "18s",
+          "18s",
+          "18s",
+          "18s",
+          "18s",
+          "18s",
+          "18s",
+          "18s",
+          "18s",
+          "18s",
+          "18s",
+          "18s",
+          "18s"
+        ],
+        "EnergyCost": [
+          "70",
+          "70",
+          "70",
+          "70",
+          "70",
+          "70",
+          "70",
+          "70",
+          "70",
+          "70",
+          "70",
+          "70",
+          "70",
+          "70",
+          "70"
+        ]
+      },
+      "description": "Time to reveal those pocket aces! Jahoda retrieves 2 {LINK#N11240002}<color=#FFD780FF>Purrsonal Coordinated Assistance Robots</color>{/LINK} and deals a single instance of <color=#80FFD7FF>Anemo DMG</color> to nearby opponents.\\n\\n<i>\"Coordinated assistance? It means you 'assist' some Mora our way, and we handle the 'coordination.' Makes purrfect sense, don't you agree?\"</i>"
+    },
+    "leveling": {
+      "crown": {
+        "x104319": 3
+      },
+      "books": {
+        "x104362": 9,
+        "x104363": 63,
+        "x104364": 114
+      },
+      "worldmonster": {
+        "x112122": 18,
+        "x112123": 66,
+        "x112124": 93
+      },
+      "weekly": {
+        "x113073": 18
+      }
+    }
+  },
+  "passives": {
+    "p1": {
+      "name": "Plan to Get Paid",
+      "description": "When your team has at least one <color=#FF9999FF>Pyro</color>, <color=#80C0FFFF>Hydro</color>, <color=#FFACFFFF>Electro</color>, or <color=#99FFFFFF>Cryo</color> character, the {LINK#N11240002}<color=#FFD780FF>Purrsonal Coordinated Assistance Robots</color>{/LINK} from the Elemental Burst <color=#FFD780FF>Hidden Aces: Seven Tools of the Hunter</color> will be enhanced based on the number of characters of each corresponding element.\\nJahoda secretly keeps track of these characters. Among them, the element with the highest number of characters determines the enhancement effect:\\n· <color=#FF9999FF>Pyro</color>: <color=#FFD780FF>Purrsonal Coordinated Assistance Robots</color> deal 130% of their original DMG.\\n· <color=#80C0FFFF>Hydro</color>: <color=#FFD780FF>Purrsonal Coordinated Assistance Robots</color> heal for 120% of their original healing amount.\\n· <color=#FFACFFFF>Electro</color>: The number of <color=#FFD780FF>Purrsonal Coordinated Assistance Robots</color> increases by one.\\n· <color=#99FFFFFF>Cryo</color>: The attack interval of <color=#FFD780FF>Purrsonal Coordinated Assistance Robots</color> is reduced by 10%.\\n\\nIf there's a tie between elements, the order of priority that determines which enhancement takes effect is: <color=#FF9999FF>Pyro</color>, <color=#80C0FFFF>Hydro</color>, <color=#FFACFFFF>Electro</color>, then <color=#99FFFFFF>Cryo</color>. Only one elemental effect can initially be triggered.",
+      "icon": "UI_Talent_S_Jahoda_05"
+    },
+    "p2": {
+      "name": "Sweet Berry Bounty",
+      "description": "When a {LINK#N11240002}<color=#FFD780FF>Purrsonal Coordinated Assistance Robot</color>{/LINK} from the Elemental Burst <color=#FFD780FF>Hidden Aces: Seven Tools of the Hunter</color> triggers healing on an active team member, if that character's HP is above 70%, their Elemental Mastery will be increased by 100 for 6s.",
+      "icon": "UI_Talent_S_Jahoda_06"
+    },
+    "p3": {
+      "name": "Moonsign Benediction: Rooftop Dash",
+      "description": "When Jahoda is in the party, the party's <color=#FFD780FF>Moonsign</color> will increase by 1 level.",
+      "icon": "UI_Talent_S_Jahoda_07"
+    },
+    "p4": {
+      "name": "Backstreet Guile",
+      "description": "When dispatched on an expedition in Nod-Krai, time consumed is reduced by 25%.\n\\nAdditionally, as the employee of the Curatorium of Secrets, Jahoda seemingly has the ability to obtain intelligence from a variety of sources — intelligence that certain factions in Nasha Town might find extremely interesting...",
+      "icon": "UI_Talent_S_Jahoda_08"
+    }
+  },
+  "constellations": {
+    "const1": {
+      "name": "One More Flask!",
+      "description": "When a <color=#FFD780FF>Fluffy Meowball</color> fired by the {LINK#N11240001}<color=#FFD780FF>Purr-loined Treasure Flask</color>{/LINK} from the Elemental Skill <color=#FFD780FF>Savvy Strategy: Splitting the Spoils</color> hits an enemy, there is a 50% chance for it to bounce, dealing the corresponding Elemental DMG to nearby opponents.",
+      "icon": "UI_Talent_S_Jahoda_03"
+    },
+    "const2": {
+      "name": "Rogue's Quick Thinking",
+      "description": "<color=#FFD780FF>Moonsign: Ascendant Gleam</color>: In the Ascension Talent {LINK#P1242101}<color=#FFD780FF>\"Plan to Get Paid,\"</color>{/LINK} Jahoda can secretly track, in addition to the element with the highest number of characters, the element with the next highest number of characters among the remaining types. This allows up to two elemental effects to be active at once. You must first unlock the Ascension Talent \"Plan to Get Paid.\"",
+      "icon": "UI_Talent_S_Jahoda_02"
+    },
+    "const3": {
+      "name": "Desperate Gamble",
+      "description": "Increases the Level of <color=#FFD780FF>{LINK#S11245}Hidden Aces: Seven Tools of the Hunter{/LINK}</color> by 3.\\nMaximum upgrade level is 15.",
+      "icon": "UI_Talent_U_Jahoda_01"
+    },
+    "const4": {
+      "name": "Wild Berry Amid the Dust",
+      "description": "When a {LINK#N11240002}<color=#FFD780FF>Purrsonal Coordinated Assistance Robot</color>{/LINK} from the Elemental Burst <color=#FFD780FF>Hidden Aces: Seven Tools of the Hunter</color> undergoes an Elemental Conversion, Jahoda will recover 4 Elemental Energy.",
+      "icon": "UI_Talent_S_Jahoda_01"
+    },
+    "const5": {
+      "name": "The Greatest Treasure",
+      "description": "Increases the Level of <color=#FFD780FF>{LINK#S11242}Savvy Strategy: Splitting the Spoils{/LINK}</color> by 3.\\nMaximum upgrade level is 15.",
+      "icon": "UI_Talent_U_Jahoda_02"
+    },
+    "const6": {
+      "name": "The Littlest Luck",
+      "description": "<color=#FFD780FF>Moonsign: Ascendant Gleam</color>: After the {LINK#N11240001}<color=#FFD780FF>Purr-loined Treasure Flask</color>{/LINK} from the Elemental Skill <color=#FFD780FF>Savvy Strategy: Splitting the Spoils</color> is full, nearby Moonsign characters in your party have their CRIT Rate increased by 5% and CRIT DMG increased by 40% for 20s.",
+      "icon": "UI_Talent_S_Jahoda_04"
+    }
+  },
+  "hyperlinks": [
+    {
+      "id": 1.1240001E+7,
+      "name": "Purr-loined Treasure Flask",
+      "description": "A small elemental vessel that Jahoda retrieves after casting her Elemental Skill Savvy Strategy: Splitting the Spoils.\\nWhile Jahoda is in the Shadow Pursuit state, if nearby opponents are affected by Pyro, Hydro, Electro, or Cryo, the Purr-loined Treasure Flask will convert to that element and begin filling up. The order of priority that determines which element will be converted to is: Pyro, Hydro, Electro, then Cryo. After each use of her Elemental Skill, the Purr-loined Treasure Flask can undergo one such conversion.\\nWhen the Purr-loined Treasure Flask is full, Jahoda immediately drains it, exiting the Shadow Pursuit state and dealing a single instance of Anemo DMG to nearby opponents.\\nEach time the Elemental Skill is cast, Jahoda takes out a brand-new Purr-loined Treasure Flask.\\n\\nMoonsign: Ascendant Gleam: When the Purr-loined Treasure Flask becomes full, Jahoda will not immediately discharge it. Instead, for a short duration, she steadily consumes the stored element inside and periodically fires Fluffy Meowballs at nearby opponents, dealing DMG of the corresponding element stored in the Purr-loined Treasure Flask.",
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": 1.1240002E+7,
+      "name": "Purrsonal Coordinated Assistance Robots",
+      "description": "One of the gadgets that Jahoda — a former treasure hunter — carries around with her. It is deployed upon using her Elemental Burst Hidden Aces: Seven Tools of the Hunter.\\nPurrsonal Coordinated Assistance Robots continuously restore HP to your active character. If the healed character's HP is above 70%, they also restore HP to the nearby party member with the lowest HP.\\n\\nMoonsign: Ascendant Gleam: If nearby opponents are affected by Pyro, Hydro, Electro, or Cryo, Purrsonal Coordinated Assistance Robots will convert to that element. The order of priority that determines which element will be converted to is: Pyro, Hydro, Electro, then Cryo. After each deployment, a Purrsonal Coordinated Assistance Robot can undergo one such conversion. After converting, the Purrsonal Coordinated Assistance Robot will periodically attack up to 3 nearby opponents, dealing damage of the corresponding element.",
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    }
+  ],
+  "stories": {
+    "x124200": {
+      "storyTitle": "Character Details",
+      "storyText": "When people from Nasha Town speak of the only official employee of the Curatorium of Secrets, they always acknowledge Jahoda's abilities — well, some of them — before wondering aloud:\\nWhy would the boss of the Curatorium of Secrets hire no one else but her?\\nAfter all, that loose-tongued, ever-stumbling girl is always going on about how she's \"the master thief who's plundered every corner of Nod-Krai,\" \"the most street-smart local around,\" \"the one who's got connections everywhere.\" Such talk might fool a few outsiders, but there's no way it could ever fool the sharp-eyed Lady Nefer, right?\\n\"At any rate, just trust my judgement.\"\\nWhenever a partner shows even the slightest doubt, Nefer always responds with a gentle smile.\\nOn some days when Lady Luck seemed to have completely abandoned her, Jahoda, after running into one problem after another during her commissions, would ask her dear boss with anxiety written across her face:\\n\"Boss Nef... There's no chance you'll fire me, right...?\"\\n\"How could I?\" her dear boss replied with a gentle smile. \"If you were gone, who would brush Ashru's fur, fill his bowl, or make sure your boss here got a good night's sleep?\"\\n\"W–What? That's the only reason?\"\\n\"Meow-meow, meow–!\"\\n\"Ah! Ashru! You little rascal, get off from my head! That braid took me forever!\"\\nAs always, Jahoda caught the mischievous Ashru and threatened to give him a bath, while the troublemaker wriggled wildly, covering her in a storm of cat fur.\\nNefer watched from the side, chin propped on one hand, smiling softly.\\nThis young girl was one of the few people in Nod-Krai who could pique her curiosity.\\n\"Jahoda... what kind of person will you grow into, I wonder?\"\\nHer murmured words were lost in the playful clamor of girl and cat — but Nefer knew that, someday, Jahoda would hear them.\\n\"...And when that day comes, what great things will you have achieved?\"",
+      "unlockConds": []
+    },
+    "x124201": {
+      "storyTitle": "Character Story 1",
+      "storyText": "When Jahoda was first taken in by the Seahook Gang, or, in her own words, \"recruited,\" she occasionally had trouble sleeping.\\nSometimes it was the commotion outside. Sometimes, it was a job that hadn't gone smoothly. And sometimes... it was the curiosity she couldn't contain.\\nNoisy crowds were easy enough to handle. The boss had told Jahoda that if she wanted everyone to quiet down, all she had to do was grab whatever was at hand — a cup, a plate, even a chair — and throw it into the crowd while yelling at everyone to be quiet.\\nJahoda had tried it, and it really worked. She'd leap out of bed, snatch up a stuffed toy, and hurl it out the window, then shout at the top of her lungs. And the thieves outside, staggering around, yelling and drinking, would actually fall silent. After that, Jahoda would mess with her tangled hair, hug her blanket, and flop back into bed. Meanwhile, everyone below would be trying not to laugh as they watched the unlucky one who had been hit by the toy. This time, it was his turn to wash it and sneak it back to Jahoda's bedside, or else their little lady would wake up in a sulk the next morning.\\nA job that didn't go well could leave Jahoda feeling down for a long time. When it got too much, she would slip out of the house and quietly wake Zinaida. Half-asleep, Zinaida would listen as Jahoda mumbled that she'd lost her keys because there were just too many of them in the house, and they all looked the same. Next time, she promised herself, she'd color-code every key... that would solve the problem for sure.\\n\"And remember that time I accidentally fell off the roof and landed right in front of the boss? He was in the middle of negotiating with a rival. So... why did I hand him the apple I was holding? Well... because the boss had been talking for so long, he must've been thirsty! And I only had one apple, so of course it had to go to him. What was I supposed to do, give it to the rival? I mean, sorry... I guess I'll bring two next time...\"\\nJahoda would ramble on until she finally fell asleep, resting her head on Zinaida's shoulder. Zinaida, having seen this countless times, would carry her back to the house, tuck her into bed, and set a glass of water on the nightstand, knowing that after all that talking, she'd be thirsty in the morning.\\nOf course, the hardest to quiet was her occasional bursts of curiosity.\\nAnd sometimes, to calm that curiosity... she had to take a few risks.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 2
+      }
+    },
+    "x124202": {
+      "storyTitle": "Character Story 2",
+      "storyText": "As Jahoda grew a bit older, some Seahook Gang members would occasionally have restless nights.\\nSometimes it was from drinking too much, sometimes from injuries, and sometimes simply because they didn't feel like sleeping.\\nBut there was only one time when the entire gang stayed up all night.\\nAfter a certain \"business deal,\" the gang held a feast to celebrate their victory. That black-hearted merchant had finally gotten his comeuppance, handing over all the money he'd swindled. After returning the victims' share, everyone in the gang was guaranteed a nice cut.\\nAt one point during the chaos, when someone reached for a necklace, the merchant had suddenly lunged, almost possessed, trying to snatch it back. He was too frail, though, and the gang easily subdued him.\\nWhat followed was the same old cliché they'd seen a thousand times. The swindler started bawling, swearing he'd give up everything if they'd just return the pendant. According to him, it held the only picture left of his wife and daughter.\\nThese experienced thieves, of course, weren't fooled. Nine out of ten swindlers they'd tied up would use the same excuse to beg for something back, and that \"something\" usually hid a clue to some treasure, a way for them to crawl back from rock bottom. After tossing the merchant a bit of money, the gang headed straight back to their base.\\nBut just as everyone had eaten and drunk their fill, and it had come time to divvy up the spoils...\\n\"Wait... Where's Jahoda? She was just here...\"\\n\"Boss, that necklace is gone! C—Could it be...?\"\\nJahoda had disappeared. And with her went the necklace — neither too expensive nor too cheap, but enough to cause a stir.\\nSilence swept through the hall. The seasoned thieves glanced at one another. None of them believed Jahoda would betray them over some random necklace. Besides, Jahoda probably didn't even know what the word \"betrayal\" meant.\\nAt last, Zinaida spoke up, hesitant and uncertain.\\n\"She wouldn't... really have gone to return that necklace, would she...?\"\\nBefore she even finished, a small door at the back of the hall creaked open. Jahoda slowly poked her head out. But instead of sneaking back into the noisy, crowded room she'd imagined, she froze at the heavy silence that greeted her.\\n\"S—Sorry... I... I was just in the bathroom...\"\\nThe first weary sigh came from the boss, his face buried in his hands. The second came from Zinaida, now certain she'd guessed right. One sigh after another followed, filling the hall, while Jahoda lingered at the doorway, still peeking in, unsure whether she should step inside.\\n\"Jahoda, dear, come here.\"\\nThe boss beckoned to the girl, who was fresh off finishing a secret little adventure.\\n\"We're deducting the cost of that necklace from your share, so you'll get nothing this time.\"\\n\"B—But that necklace... Huh? Wh—What necklace? I have no idea what you're talking about! I...\"\\n\"Jahoda.\"\\n\"Yes, Boss!\"\\n\"Quiet. Eat your meal.\"\\n\"Yes, Boss...\"",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 3
+      }
+    },
+    "x124203": {
+      "storyTitle": "Character Story 3",
+      "storyText": "By the time Jahoda's childhood came to an end, her enemies were the ones losing sleep.\\nIn the past, Ratfan had always trusted in the power of money. It could hire members of the Seahook Gang to take out their own boss, throwing the troublesome gang into disarray. It could buy barrels of oil to burn away all the evidence and scare off the faint-hearted. And most importantly, it could be used to buy valuable intelligence from that mysterious businesswoman.\\nThe hidden powers that once controlled Nasha Town were gone, leaving only money as the path to power.\\nBut the hunter who had set his sights on him didn't need it.\\n\"Enough! Show yourself! What do you want from me!?\"\\nThe burly man bellowed into the silent forest. His camp had just been raided again. Somehow, the small, wiry assassin had slipped inside, effortlessly taking down one guard after another. She had pierced three warning drums with her arrows and even reached the very center of the camp. If she hadn't stumbled from the roof in her weakened state, Ratfan's head would already have been separated from his body. Yet even after taking two arrows and a hammer blow, she had still dashed back into the forest, disappearing without a trace. And just like countless nights before, she would return the next night, always managing to track Ratfan no matter where he fled.\\nExhaustion and fear had everyone on edge. Some said the girl had long since died, and that what kept returning was merely her spirit, driven by obsession. Others said she had devolved into a member of the Wild Hunt, and that only the Ratniki could stop her now.\\nBut Ratfan knew the truth: she was just a little girl. He had seen Jahoda when he scouted the Seahook Gang before, and even the gang's boss had praised her highly.\\nBack then, Jahoda was a slight and ingenuous kid. When she stood below with the others, she would secretly tug at her companion's hand, swaying back and forth, only calming down after a gentle tap on the head. She had looked nothing like a thief. By any measure, she still had a long way to grow, or perhaps, she didn't even know what form she wanted to shape herself into.\\nNow Ratfan knew he had been wrong. Jahoda didn't need time to grow — she just needed a reason.\\nAnd he had given her that reason with his own hands.\\n—So be it, then. They would settle this in the way thieves knew best.\\nAnother night, Ratfan had torches planted all around the camp, and he stood alone in the center, weapon in hand.\\nHe couldn't even remember the last time he had held a weapon himself. The sword felt impossibly heavy, heavier than a bag stuffed full of Mora.\\nAs expected, his opponent appeared, calmly stepping into the obvious trap.\\nThe torches lit up Jahoda's face, gaunt from hunger. A lingering fever had drained all color from her skin, and her hair clung to her cheeks like withered grass. Her lips were cracked like parched earth, yet her eyes still shone, bright, sharp, and unyielding. It was as if she had struck a bargain with death itself, her soul burning with a fierce vitality that would last until her vengeance was complete.\\nJahoda was a lone gambler, and her life was her final chip.\\nSince she had nothing to lose, why not go all in?\\n\"Kid... let's talk, alright? Whatever you want, I can give it to you, just name it.\"\\nRatfan swallowed hard, the bravery he'd scraped together already slipping away.\\nHe knew those eyes too well. They belonged to a desperate soul.\\n\"I—I know you're a good person, Jahoda...\"\\nJahoda had nothing. But he had so much — money, jewels, gold, wealth, luxury, all waiting for him.\\n\"L—Listen to me, don't do anything reckless... we can...\"\\nBut Jahoda didn't need any of it.\\nShe had already sunk her teeth into her prey.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 4
+      }
+    },
+    "x124204": {
+      "storyTitle": "Character Story 4",
+      "storyText": "\"It seems you won't be able to afford the outstanding sum, little girl.\"\\nNefer looked over the weakened Jahoda. She was covered in wounds, but at least she'd survived.\\n\"I'll pay you.\"\\n\"I don't see what else you have left to offer me.\"\\n\"I can work for you.\"\\nJahoda brushed her hand over her empty right sleeve, then added:\\n\"Anything you need.\"\\nThe ever-resourceful Lady Nefer shrugged, unfazed by Jahoda's desperate tone. Money meant nothing to her. The only reason she'd told Jahoda where to find Ratfan in the first place was to let someone else take care of a puppet that had started tugging at its strings. Even if it failed, it would still serve as a warning.\\nBut to her surprise, that scrawny little hyena had actually torn out the wolf's throat. It seemed the girl she had planted as a hidden pawn was no longer of any use.\\n\"What's your next plan? Continue with your old trade as a thief? I can introduce you to a few... somewhat more reliable Treasure Hoarders.\"\\n\"...\"\\n\"Oh, that doesn't appeal to you? Then how about the Adventurers' Guild? You might just get lucky and strike it rich in some ruins.\"\\n\"...\"\\n\"Still refusing? Fine. Perhaps you want to leave Nod-Krai to heal the scars in your heart...\"\\n\"I don't need those scars healed.\"\\nJahoda broke her silence, giving her final answer.\\nShe had once loathed those ugly, aching scars, like rotting fruit sinking in a swamp or the remains left by a beast's meal.\\nYet when fever nearly caused her to miss the ambush from her perch in the tree, it was the pain from a scar on her back that jolted her awake. And when an enemy's trap nearly caught her, the freshly healed scar on her hand reminded her not to repeat the same mistake...\\nFor some lucky souls living a comfortable life, scars are nothing more than unfortunate blemishes.\\nBut for Jahoda, scars bore witness to the choices she had made and the path she had forged for herself.\\nShe had endured the scars, so she would endure life, just as she always had.\\nNefer suddenly clapped her hands, cutting the conversation just as before. She had heard enough.\\n\"Alright, that's enough for today. Any longer, and you'll pass out again.\" She narrowed her eyes and smiled. \"The rest doesn't matter, but since you said you'd work for me and could do anything... I believe we have a deal.\"\\nThe contract has suddenly been sealed. Still unsure of what had just happened, Jahoda hesitated, then nodded. At least she now had a place to stay.\\n\"...Yes, Miss Nefer.\"\\n\"Call me Boss.\"\\n\"Huh?\"\\n\"From now on, call me Boss Nefer.\"\\n\"Yes. Boss... Nefer.\"",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 5
+      }
+    },
+    "x124205": {
+      "storyTitle": "Character Story 5",
+      "storyText": "After officially joining the Curatorium of Secrets, Jahoda never expected to run into the swindler who had once been cleaned out by the Seahook Gang.\\nShe had just finished a commission and was leaping across rooftops with her payment, taking the fastest route back. Just as she prepared to jump to the next roof, a window swung open, and a voice bellowed:\\n\"Hey! Miss Jahoda! Miss Jahoda!\"\\nJahoda turned around in a daze, shadows from the past flashing through her mind.\\n\"You're... that swindler...\"\\n\"Ahem! Not a swindler anymore, I swear. I've long since turned over a new leaf.\"\\nThe merchant waved his hands wildly, repeatedly urging Jahoda inside before hurrying to lay out sweet biscuits and tea. Jahoda glanced around; not much had changed since her last \"visit.\"\\n\"*sigh* I must thank you for what you did back then, Miss Jahoda. You were so kind to return the necklace. If I had really lost it, I don't know how I would've gotten by.\"\\nAs he spoke, the merchant kept patting his chest and sighing, babbling on about how he'd cleaned up his act over the years, how he'd made a comeback, and was now doing good deeds to make up for his past.\\nMemories Jahoda had long tried to bury began to resurface. The merchant's voice faded, replaced by voices far more familiar.\\n\"B—Besides, the money's already been returned to the victims. Giving back a necklace to that swindler won't hurt! One thing at a time...\"\\n\"Boss! Ow, ow! That hurtsssow! Stop pulling my ear!\"\\n\"J—Just because we're thieves doesn't mean we always have to do bad things. You've all taken care of me for so long, haven't you...?\"\\n\"If it really doesn't work out, how about bad deeds on odd days, good deeds on even days? That way, neither side gets neglected. And on Sundays... I'll just... ah! Ouch, ouch, ouch!\"\\n\"Please, no! Boss, take me with you to the negotiation! I don't want to eat Zinaida's cooking — it tastes awful!\"\\nBy the time the merchant finished his rambling and saw Jahoda off with endless thanks, evening had already fallen.\\nPushing open the door of the Curatorium of Secrets, Jahoda stepped inside, only to have Ashru rush up first, eager to play. Even after he messed up her hair, he didn't get the usual head rubs in return.\\n\"Looks like you ran into an old friend,\" Nefer said, setting down her teacup.\\n\"Boss... you knew everything?\"\\n\"Heh, let's just say our paths happened to cross. And I happened to learn about both the good and the bad things you've done.\"\\n\"Boss, I...\"\\n\"If you're going to ask me whether your 'good' or 'bad' deeds are truly 'right' or 'wrong,' I won't answer.\"\\nNefer stood up and closed the door of the Curatorium of Secrets. The day's work was over.\\n\"You'll have to find the answers to such questions yourself.\"\\nJahoda slumped as if deflated. Ashru hopped onto her head, letting out a disgruntled grumble, clearly still annoyed that Jahoda hadn't played with him.\\nNefer turned back, her gaze falling on her little employee, lying there with downcast eyes and a heavy heart.\\nPerhaps, in all of Nod-Krai, Jahoda was the one who resembled her the most.\\nBoth had crossed treacherous waters alone, both had hunted foes who needed removal alone, and both had their own \"problems\" to resolve.\\nPerhaps, once each of them had found their answers...\\nThe owner of the Curatorium of Secrets shook her head, cutting those thoughts off.\\n\"...Heh, leaving a little suspense for the future isn't so bad, I suppose.\"",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 6
+      }
+    },
+    "x124206": {
+      "storyTitle": "\"Clanky-Clanky Arm\"",
+      "storyText": "Jahoda's \"metal arm\" was personally built, fitted, and even cosmetically refined by Aino.\\nDuring the crafting process, Aino suggested several modifications, including but not limited to installing a sweeping device like Ineffa's, turning the fingertips into retractable \"rocket fingers,\" embedding high-intensity lights or thrusters in the palm...\\nIn the end, constrained both by Jahoda's firm stance and a limited budget, Aino's creation, dubbed the \"Clanky-Clanky Arm,\" retained only the most basic mobility and minor transformative functions.\\nTo quickly adapt to the new arm, Jahoda followed Ineffa's advice and began a rigorous \"paper-star-folding training regimen.\"\\nBy the time she had folded thirty jars of paper stars, she could deftly use cutlery with the new arm.\\nAt fifty jars, she could braid her hair.\\nAt seventy jars, she could skillfully sew cloth dolls.\\nUpon reaching one hundred jars, she finally mustered the courage to write with the new arm.\\nUnder Ineffa's guidance, she penned her first test phrase:\\n\"Hello, Jahoda.\"",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 4
+      }
+    },
+    "x124207": {
+      "storyTitle": "Vision",
+      "storyText": "The news that Jahoda possessed a Vision was spread by Nefer.\\nAs Nefer put it, if the boss had a treasure, the employee ought to have one too. Otherwise, Jahoda might be at a disadvantage in future dealings.\\n\"Boss, but I don't have a Vision...\"\\n\"No matter. I'll get you a glass bead to wear.\"\\n\"People will see through it immediately!\"\\n\"Not necessarily. Besides Vision holders themselves, who can truly verify its authenticity?\"\\n\"Ah? Well... I suppose you're right...\"\\nAnd so, adorned with a cyan glass sphere out of nowhere provided by her Boss, Jahoda continued her busy life as usual.\\nJust as Nefer predicted, people's attitudes improved noticeably once they learned Jahoda had a Vision. Not only were remunerations given to her slightly higher, but she was also entrusted with more challenging commissions...\\nOf course, the high pay, difficulty, and expectations weighed heavily on Jahoda, who knew full well she had no real Vision. This pressure made her work even harder, spinning like a little top all day long. But overall, she found genuine joy in being more useful, earning more, and finally earning some trust.\\nEven in her dreams, she often found herself aiding others or achieving great feats.\\n\"Don't... don't worry, I have... a Vision...\"\\nShe mumbled, flailing her fists as if she'd just defeated some formidable foe in her sleep.\\nIn reality, having just returned from a nighttime outing, Nefer sat beside Jahoda. The \"Curatorium of Secrets' sole full-time employee's\" backpack lay open, the green glass bead within wrapped in layers of cloth to both prevent breakage and deter prying eyes.\\nJahoda swung her arm unconsciously and slurred:\\n\"I'll help you... I have... a Vision...\"\\n\"With a Vision... you can do good deeds...\"\\n\"With a Vision... you can...\"\\nAs Nefer rose to leave, a fleeting glimmer of aquamarine light caught her eye.\\nThe owner of the Curatorium of Secrets paused in surprise, then chuckled softly.\\nA lie repeated a thousand times had somehow willed itself into truth.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 6
+      }
+    }
+  },
+  "quotes": {
+    "x124000": {
+      "quoteTitle": "Hello",
+      "quoteText": "Hey, nice to meet you. If you've got a commission, spit it out. As long as the pay's right, I can help you with anything... Uh, most things... I can help you with most things.",
+      "unlockConds": []
+    },
+    "x124001": {
+      "quoteTitle": "Chat: Nefer",
+      "quoteText": "Ugh... Boss Nef, when can I get a raise? There's so much stuff I wanna buy...",
+      "unlockConds": []
+    },
+    "x124002": {
+      "quoteTitle": "Chat: Walking the Streets",
+      "quoteText": "Come on, let's hit the town. I'll show you someplace fun... But keep it quiet, yeah? Mum's the word.",
+      "unlockConds": []
+    },
+    "x124003": {
+      "quoteTitle": "Chat: Ashru",
+      "quoteText": "Last time I tried to pet Ashru, the little fluffball ran away. Hmph! Someone's not getting their dried fish today!",
+      "unlockConds": []
+    },
+    "x124004": {
+      "quoteTitle": "When It Rains",
+      "quoteText": "Rain? Gogogo, we gotta find some cover before we get soaked.",
+      "unlockConds": []
+    },
+    "x124005": {
+      "quoteTitle": "When It Snows",
+      "quoteText": "Waaah! Snow down my back, coldcoldcold...",
+      "unlockConds": []
+    },
+    "x124006": {
+      "quoteTitle": "In the Desert",
+      "quoteText": "*Pfft!* *Pfft!* *Pfft!* Ugh, sand in my mouth!",
+      "unlockConds": []
+    },
+    "x124007": {
+      "quoteTitle": "Good Morning",
+      "quoteText": "Morning. Have breakfast yet? I know a good place.",
+      "unlockConds": []
+    },
+    "x124008": {
+      "quoteTitle": "Good Afternoon",
+      "quoteText": "*yawn* How about we head back to the shop for a nap? I'm so sleepy...",
+      "unlockConds": []
+    },
+    "x124009": {
+      "quoteTitle": "Good Evening",
+      "quoteText": "It's that late already? Pack it up, worktime's over, it's Ashru time~",
+      "unlockConds": []
+    },
+    "x124010": {
+      "quoteTitle": "Good Night",
+      "quoteText": "*yawn* Better hit the sack... Hey! You still at it? You should probably call it a night, too.",
+      "unlockConds": []
+    },
+    "x124011": {
+      "quoteTitle": "About Jahoda: Experience",
+      "quoteText": "Before I came to the Curatorium of Secrets, my work history was... checkered. Finally meeting Boss Nef after barely scraping by was a real turning point.",
+      "unlockConds": []
+    },
+    "x124012": {
+      "quoteTitle": "About Jahoda: Curatorium of Secrets",
+      "quoteText": "Boss Nef's good to me, and Ashru's pretty friendly, too. Sometimes I forget to call Nef \"Boss.\" Old habits die hard, I guess...",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x124013": {
+      "quoteTitle": "About Us: Homeland",
+      "quoteText": "My hometown? Don't remember... and I don't really care about that kinda thing anyway. Anywhere I can have a full belly and a good night's sleep is \"home\" enough for me.",
+      "unlockConds": []
+    },
+    "x124014": {
+      "quoteTitle": "About Us: Friends",
+      "quoteText": "We've been through hell and back together, of course we're friends! Next time I'm in trouble, I know you'll have my back. And try not to sell me out... or at least, make sure you get a good price if you do. Hah! I'm joking, I know you'd never betray me. You're too noble to do something that greedy.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 6",
+        "Complete \"Elegy of Dust and Lamplight\""
+      ]
+    },
+    "x124015": {
+      "quoteTitle": "About the Vision",
+      "quoteText": "Hehe, it's my pride and joy! Ever since I got it, work's been way less stress! Never imagined I'd ever be this lucky...",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x124016": {
+      "quoteTitle": "Something to Share: Treasure Hunters",
+      "quoteText": "You ever run into anyone calling themselves a \"treasure hunter\"? Don't let the fancy title fool you, they're just Nod-Krai mercenaries. Give 'em enough money and they'll do pretty much anything for you. If you ever wanna hire some, let me know. I can introduce you to a few of the more reliable ones.",
+      "unlockConds": []
+    },
+    "x124017": {
+      "quoteTitle": "Something to Share: Cannon",
+      "quoteText": "When the Boom and Blast Kuuvahki Energy Cannon gets going, it's a thing of beauty. *sigh* If only I could get my hands on a scale mechanical model... Wonder if Aino could make one for me? After all, she made the original.",
+      "unlockConds": [
+        "Complete \"Elegy of Dust and Lamplight\""
+      ]
+    },
+    "x124018": {
+      "quoteTitle": "Interesting Things",
+      "quoteText": "So, yesterday, I was just thinking... How many grains of sand does it take to make a pile? Is a hundred a pile? What about a thousand? Doesn't seem right... I'll go ask Aino in a few days, she definitely knows!",
+      "unlockConds": []
+    },
+    "x124019": {
+      "quoteTitle": "About Lauma",
+      "quoteText": "Miss Lauma? Uhm... I don't really know too much about her, but I know she's kind of a big deal, and she's powerful... and she can talk to animals... Thinking about it, she must have eyes and furry little ears all over Hiisi Island. No wonder treasure hunters don't go \"looking for treasure\" there, you'd be walking straight into a trap...",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x124020": {
+      "quoteTitle": "About Ineffa",
+      "quoteText": "Oh, that dumb clanker? She's good at baking krumkakes, but she's got a memory like a leaky sieve and zero humor. Every time I crack a joke she asks me to explain why it's funny. But her krumkakes are the bomb, you have got to try them.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x124021": {
+      "quoteTitle": "About Nefer",
+      "quoteText": "Nef's the best boss in the whole world! Hehe, not only does she pay me on time, she even covers food and board! I might be her only actual employee... No, wait, I almost forgot about Ashru! Though he's not exactly an employee, right? He's never even completed a single commission! Hmph! Can't have anyone freeloading... Next job, he's coming with me!",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x124022": {
+      "quoteTitle": "About Aino",
+      "quoteText": "Aino's got some serious skills. No matter what I put my arm through, she always gets it working again. It's just... every time she fixes it, she always doodles on it. Says it's cuter that way. I mean, it is kinda cute, but why doesn't she ever draw on Ineffa?",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x124023": {
+      "quoteTitle": "About Flins",
+      "quoteText": "I've heard Nef talk about how the Lightkeepers are a really old organization, chock full of powerful, smart people who know tons of ancient secrets. Say... You think Flins has any leads on ancient treasures? Or maybe some untouched old ruins? Uh, I'm just thinking out loud here, I'd never actually ask! Otherwise, Nef'd chew me out again.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x124024": {
+      "quoteTitle": "About Varka",
+      "quoteText": "Ohh, Varka? Yeah, he told me he was the Grand Master of the Knights of Favonius, but seriously, he sure doesn't seem like it. Shouldn't a Grand Master be all serious and dependable-looking? Uh, not trying to say he's not responsible! It's just... If the Grand Master of the Knights of Favonius is here, then who's back in Mondstadt actually managing the Knights...? Eh? Someone serious and dependable-looking? Well, okay, haha... The Knights of Favonius sure are something...",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x124025": {
+      "quoteTitle": "About Kuutar",
+      "quoteText": "That VIP... *sigh* Back in the day, if I came across someone with a background that murky, I'd have run for the hills! The farther the better! But... she saved me, so now I owe her, and debts are debts.\\nStill, that's easy to say, but I've only got one life to lose, and at this rate, no amount of lives would be enough to cover the tab... O Boss Nef! Save me, you're my only hope...",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4",
+        "Complete \"An Elegy for Faded Moonlight\""
+      ]
+    },
+    "x124026": {
+      "quoteTitle": "About Marionette",
+      "quoteText": "I'm never going anywhere like that ever again! And... Okay, even if I did, Boss Nef would have to go with me. Between the Wild Hunt and Fatui... what's the point of making money if you're not alive to spend it!?",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4",
+        "Complete \"Elegy of Dust and Lamplight\""
+      ]
+    },
+    "x124027": {
+      "quoteTitle": "More About Jahoda: I",
+      "quoteText": "At the Curatorium, Nef handles the big stuff, I take the small stuff, and Ashru's on door duty. What counts as big and what doesn't? That's up to Boss Nef, she calls the shots...",
+      "unlockConds": []
+    },
+    "x124028": {
+      "quoteTitle": "More About Jahoda: II",
+      "quoteText": "Earn well, eat well, that's my motto these days. Point is, as long as I stick with Nef, I know I won't go hungry, hehehe...",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 3"
+      ]
+    },
+    "x124029": {
+      "quoteTitle": "More About Jahoda: III",
+      "quoteText": "My arm? Ah, that... no big deal. It was just the \"price\" I paid in a trade. Don't worry, it's fine! It was well worth it. In fact, I'd say I came out ahead.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x124030": {
+      "quoteTitle": "More About Jahoda: IV",
+      "quoteText": "It's no different than how you gotta use Mora to buy stuff. If you want something, you have to pay some kind of \"price.\" Visible prices you can plan for, calculate, but some of the invisible ones are impossible to gauge. They lurk in your shadow, biding their time, waiting until you're at your most vulnerable... that's when they appear, demanding a ransom from you that you could never hope to pay.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 5"
+      ]
+    },
+    "x124031": {
+      "quoteTitle": "More About Jahoda: V",
+      "quoteText": "Hey, if you ever need to pay a \"ransom\" for some reason, you can come to me. Even if I can't drum up the money myself, I can swallow my pride and ask Nef. Worst comes to worst... I'll work off the debt again. But don't you dare ask Nef yourself. If you're gonna owe someone, better it be me. The hardest debt to repay is a debt in Nef's ledger... How do I know that? Uh, well, I, um... Look, don't ask, just take my word for it, okay!?",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 6"
+      ]
+    },
+    "x124032": {
+      "quoteTitle": "Jahoda's Hobbies",
+      "quoteText": "Sometimes, I sew rag dolls when I've got some downtime. It's not like I had formal lessons from a teacher or anything, but my old... acquaintances all said I was pretty good. I'll make you one next time.",
+      "unlockConds": []
+    },
+    "x124033": {
+      "quoteTitle": "Jahoda's Troubles",
+      "quoteText": "I dunno why, but I can't sleep if the bed's too soft. Give me a rock-hard floor to lie on, and not only am I out like a light, I sleep like a baby! Wonder why that is? Just one of those things, I guess...",
+      "unlockConds": []
+    },
+    "x124034": {
+      "quoteTitle": "Favorite Food",
+      "quoteText": "Favorite food? Tough call... I like meat and fish, but sugar sculptures and cookies are great too... Hehe, as long as it's tasty, I'm all for it!",
+      "unlockConds": []
+    },
+    "x124035": {
+      "quoteTitle": "Least Favorite Food",
+      "quoteText": "I don't like those thick stews where all the ingredients are thrown in together and boiled forever, until it's all melted into mush... Uh, if I absolutely have to have some, it's not like I can't, it's just... I'd really rather not...",
+      "unlockConds": []
+    },
+    "x124036": {
+      "quoteTitle": "Receiving a Gift: I",
+      "quoteText": "YUM! Wow, since when can you cook like this? Seconds, please, hehehe. This is so much better than Nef's... *cough*! Uh, you eat already? If not... wanna share?",
+      "unlockConds": []
+    },
+    "x124037": {
+      "quoteTitle": "Receiving a Gift: II",
+      "quoteText": "Not bad! Hehe. Let's chow down! Gotta fuel up for work.",
+      "unlockConds": []
+    },
+    "x124038": {
+      "quoteTitle": "Receiving a Gift: III",
+      "quoteText": "Ugh... I can— I can finish this... Must... not... waste... food. Haha... ha...",
+      "unlockConds": []
+    },
+    "x124039": {
+      "quoteTitle": "Birthday",
+      "quoteText": "Happy birthday! Here ya go, this doll's for you! I just finished sewing it. It was my first time trying this technique — took ages, you know! I stuffed it with calming herbs that'll help you sleep, so just put it next to your pillow and I promise you'll sleep nice and soundly, 100% nightmare-free. The bandage on my hand...? Ah... just a little scratch from... playing with Ashru, hahaha... It's nothing, really...",
+      "unlockConds": []
+    },
+    "x124040": {
+      "quoteTitle": "Feelings About Ascension: Intro",
+      "quoteText": "Oh? Not bad at all!",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 1"
+      ]
+    },
+    "x124041": {
+      "quoteTitle": "Feelings About Ascension: Building Up",
+      "quoteText": "Nimbler than ever.",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 2"
+      ]
+    },
+    "x124042": {
+      "quoteTitle": "Feelings About Ascension: Climax",
+      "quoteText": "Alright... Time to get moving!",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 4"
+      ]
+    },
+    "x124043": {
+      "quoteTitle": "Feelings About Ascension: Conclusion",
+      "quoteText": "Hehe, I'm feeling ready for a big job now... How 'bout it? You wanna join me?",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 6"
+      ]
+    },
+    "x124044": {
+      "quoteTitle": "Elemental Skill: I",
+      "quoteText": "You're my target!",
+      "unlockConds": []
+    },
+    "x124045": {
+      "quoteTitle": "Elemental Skill: II",
+      "quoteText": "Smash-'n'-grab!",
+      "unlockConds": []
+    },
+    "x124046": {
+      "quoteTitle": "Elemental Skill: III",
+      "quoteText": "You're not going anywhere!",
+      "unlockConds": []
+    },
+    "x124047": {
+      "quoteTitle": "Elemental Burst: I",
+      "quoteText": "Finders keepers!",
+      "unlockConds": []
+    },
+    "x124048": {
+      "quoteTitle": "Elemental Burst: II",
+      "quoteText": "Hand it over!",
+      "unlockConds": []
+    },
+    "x124049": {
+      "quoteTitle": "Elemental Burst: III",
+      "quoteText": "I never leave empty-handed.",
+      "unlockConds": []
+    },
+    "x124050": {
+      "quoteTitle": "Opening Treasure Chest: I",
+      "quoteText": "Oh! It's alllll ours!",
+      "unlockConds": []
+    },
+    "x124051": {
+      "quoteTitle": "Opening Treasure Chest: II",
+      "quoteText": "Not a bad haul, makes it worth our while.",
+      "unlockConds": []
+    },
+    "x124052": {
+      "quoteTitle": "Opening Treasure Chest: III",
+      "quoteText": "Let's add it to the pile~",
+      "unlockConds": []
+    },
+    "x124053": {
+      "quoteTitle": "Low HP: I",
+      "quoteText": "Okay... okay...",
+      "unlockConds": []
+    },
+    "x124054": {
+      "quoteTitle": "Low HP: II",
+      "quoteText": "Just you wait...!",
+      "unlockConds": []
+    },
+    "x124055": {
+      "quoteTitle": "Low HP: III",
+      "quoteText": "I'm gonna...!",
+      "unlockConds": []
+    },
+    "x124056": {
+      "quoteTitle": "Ally at Low HP: I",
+      "quoteText": "You got a death wish!?",
+      "unlockConds": []
+    },
+    "x124057": {
+      "quoteTitle": "Ally at Low HP: II",
+      "quoteText": "Get back!",
+      "unlockConds": []
+    },
+    "x124058": {
+      "quoteTitle": "Fallen: I",
+      "quoteText": "Still couldn't... get away...",
+      "unlockConds": []
+    },
+    "x124059": {
+      "quoteTitle": "Fallen: II",
+      "quoteText": "My debts... are settled...",
+      "unlockConds": []
+    },
+    "x124060": {
+      "quoteTitle": "Fallen: III",
+      "quoteText": "I guess... this'll do...",
+      "unlockConds": []
+    },
+    "x124061": {
+      "quoteTitle": "Joining Party: I",
+      "quoteText": "Got work for me?",
+      "unlockConds": []
+    },
+    "x124062": {
+      "quoteTitle": "Joining Party: II",
+      "quoteText": "Leave it to me!",
+      "unlockConds": []
+    },
+    "x124063": {
+      "quoteTitle": "Joining Party: III",
+      "quoteText": "Watch and learn.",
+      "unlockConds": []
+    }
+  },
+  "energy": {
+    "source": "ElementalBall_GenerateEnergy",
+    "particles": "4",
+    "chance": "100%",
+    "cd": "0.5s"
+  },
+  "attacks": [
+    {
+      "name": "Bullet_ShootArrow_Enchanted_WithoutWind",
+      "icd_source": "Tag: ExtraAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV2/10",
+      "element": "-",
+      "attackType": "Default",
+      "strikeType": "Pierce",
+      "damageParam": "DamageWithoutWind"
+    },
+    {
+      "name": "Bullet_ShootArrow_Enchanted_WithWind",
+      "icd_source": "Tag: ExtraAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV2/20",
+      "element": "Wind",
+      "attackType": "Default",
+      "strikeType": "Pierce",
+      "damageParam": "DamageWithWind"
+    },
+    {
+      "name": "ElementalArt",
+      "icd_source": "Tag: Elemental_Art (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV3/80",
+      "element": "Wind",
+      "attackType": "Default",
+      "strikeType": "-",
+      "damageParam": "ElementalArt_SmokeAttack"
+    },
+    {
+      "name": "ElementalArt_Second_Attack",
+      "icd_source": "Tag: Elemental_Art (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV3/80",
+      "element": "Wind",
+      "attackType": "Melee",
+      "strikeType": "-",
+      "damageParam": "ElementalArt_AvatarExplode_Uncharged"
+    },
+    {
+      "name": "ElementalArt_Second_Attack",
+      "icd_source": "Tag: Elemental_Art (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV3/120",
+      "element": "Wind",
+      "attackType": "Melee",
+      "strikeType": "-",
+      "damageParam": "ElementalArt_AvatarExplode"
+    },
+    {
+      "name": "Bullet_ElementalArt_Attack",
+      "icd_source": "Tag: Elemental_Art (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV2/35",
+      "element": "Fire",
+      "attackType": "Range",
+      "strikeType": "-",
+      "damageParam": "ElementalArt_BulletExplode"
+    },
+    {
+      "name": "Bullet_ElementalArt_Attack",
+      "icd_source": "Tag: Elemental_Art (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV2/35",
+      "element": "Water",
+      "attackType": "Range",
+      "strikeType": "-",
+      "damageParam": "ElementalArt_BulletExplode"
+    },
+    {
+      "name": "Bullet_ElementalArt_Attack",
+      "icd_source": "Tag: Elemental_Art (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV2/35",
+      "element": "Electric",
+      "attackType": "Range",
+      "strikeType": "-",
+      "damageParam": "ElementalArt_BulletExplode"
+    },
+    {
+      "name": "Bullet_ElementalArt_Attack",
+      "icd_source": "Tag: Elemental_Art (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV2/35",
+      "element": "Ice",
+      "attackType": "Range",
+      "strikeType": "-",
+      "damageParam": "ElementalArt_BulletExplode"
+    },
+    {
+      "name": "Bullet_ElementalArt_Attack",
+      "icd_source": "Tag: Jahoda_Constellation_1",
+      "icd_rule": "2 hits / 15s",
+      "gauge": "1U",
+      "poise": "LV2/25",
+      "element": "Fire",
+      "attackType": "Range",
+      "strikeType": "-",
+      "damageParam": "ElementalArt_BulletExplode"
+    },
+    {
+      "name": "Bullet_ElementalArt_Attack",
+      "icd_source": "Tag: Jahoda_Constellation_1",
+      "icd_rule": "2 hits / 15s",
+      "gauge": "1U",
+      "poise": "LV2/25",
+      "element": "Water",
+      "attackType": "Range",
+      "strikeType": "-",
+      "damageParam": "ElementalArt_BulletExplode"
+    },
+    {
+      "name": "Bullet_ElementalArt_Attack",
+      "icd_source": "Tag: Jahoda_Constellation_1",
+      "icd_rule": "2 hits / 15s",
+      "gauge": "1U",
+      "poise": "LV2/25",
+      "element": "Electric",
+      "attackType": "Range",
+      "strikeType": "-",
+      "damageParam": "ElementalArt_BulletExplode"
+    },
+    {
+      "name": "Bullet_ElementalArt_Attack",
+      "icd_source": "Tag: Jahoda_Constellation_1",
+      "icd_rule": "2 hits / 15s",
+      "gauge": "1U",
+      "poise": "LV2/25",
+      "element": "Ice",
+      "attackType": "Range",
+      "strikeType": "-",
+      "damageParam": "ElementalArt_BulletExplode"
+    },
+    {
+      "name": "ElementalBurst",
+      "icd_source": "Tag: Jahoda_ElementBurst",
+      "icd_rule": "4 hits / 15s",
+      "gauge": "1U",
+      "poise": "LV2/30",
+      "element": "Electric",
+      "attackType": "Default",
+      "strikeType": "-",
+      "damageParam": "ElementalBurst_BulletExplode"
+    },
+    {
+      "name": "ElementalBurst",
+      "icd_source": "Tag: Jahoda_ElementBurst",
+      "icd_rule": "4 hits / 15s",
+      "gauge": "1U",
+      "poise": "LV2/30",
+      "element": "Electric",
+      "attackType": "Default",
+      "strikeType": "-",
+      "damageParam": "ElementalBurst_BulletExplode|Fire_DPRatio|MUL"
+    },
+    {
+      "name": "ElementalBurst",
+      "icd_source": "Tag: Jahoda_ElementBurst",
+      "icd_rule": "4 hits / 15s",
+      "gauge": "1U",
+      "poise": "LV2/30",
+      "element": "Fire",
+      "attackType": "Default",
+      "strikeType": "-",
+      "damageParam": "ElementalBurst_BulletExplode"
+    },
+    {
+      "name": "ElementalBurst",
+      "icd_source": "Tag: Jahoda_ElementBurst",
+      "icd_rule": "4 hits / 15s",
+      "gauge": "1U",
+      "poise": "LV2/30",
+      "element": "Fire",
+      "attackType": "Default",
+      "strikeType": "-",
+      "damageParam": "ElementalBurst_BulletExplode|Fire_DPRatio|MUL"
+    },
+    {
+      "name": "ElementalBurst",
+      "icd_source": "Tag: Jahoda_ElementBurst",
+      "icd_rule": "4 hits / 15s",
+      "gauge": "1U",
+      "poise": "LV2/30",
+      "element": "Ice",
+      "attackType": "Default",
+      "strikeType": "-",
+      "damageParam": "ElementalBurst_BulletExplode"
+    },
+    {
+      "name": "ElementalBurst",
+      "icd_source": "Tag: Jahoda_ElementBurst",
+      "icd_rule": "4 hits / 15s",
+      "gauge": "1U",
+      "poise": "LV2/30",
+      "element": "Ice",
+      "attackType": "Default",
+      "strikeType": "-",
+      "damageParam": "ElementalBurst_BulletExplode|Fire_DPRatio|MUL"
+    },
+    {
+      "name": "ElementalBurst",
+      "icd_source": "Tag: Jahoda_ElementBurst",
+      "icd_rule": "4 hits / 15s",
+      "gauge": "1U",
+      "poise": "LV2/30",
+      "element": "Water",
+      "attackType": "Default",
+      "strikeType": "-",
+      "damageParam": "ElementalBurst_BulletExplode"
+    },
+    {
+      "name": "ElementalBurst",
+      "icd_source": "Tag: Jahoda_ElementBurst",
+      "icd_rule": "4 hits / 15s",
+      "gauge": "1U",
+      "poise": "LV2/30",
+      "element": "Water",
+      "attackType": "Default",
+      "strikeType": "-",
+      "damageParam": "ElementalBurst_BulletExplode|Fire_DPRatio|MUL"
+    },
+    {
+      "name": "ElementalBurst",
+      "icd_source": "Tag: Elemental_Burst (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV2/120",
+      "element": "Wind",
+      "attackType": "Melee",
+      "strikeType": "-",
+      "damageParam": "ElementalBurst_AvatarExplode"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "0U",
+      "poise": "LV2/10",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Pierce",
+      "damageParam": "FallingAnthem_Normal_Loop_Damage"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV2/50",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Pierce",
+      "damageParam": "FallingAnthem_Normal_Rank_1_Damage"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV3/100",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Pierce",
+      "damageParam": "FallingAnthem_Normal_Rank_2_Damage"
+    }
+  ],
+  "endure": []
+}

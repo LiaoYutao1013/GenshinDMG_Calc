@@ -1,0 +1,34 @@
+function [totalDMG, dps, breakdown, rotationTime] = simulateAinoDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
+    % Aino simulator using staged skill strikes and multi-hit burst water balls.
+    if nargin < 3 || isempty(seqFile)
+        seqFile = fullfile(fileparts(mfilename('fullpath')), '..', '..', 'data', 'Aino', 'rotation_Aino.txt');
+    end
+    if nargin < 4 || isempty(talentLevel)
+        talentLevel = 10;
+    end
+    if nargin < 5 || isempty(constellation)
+        constellation = 0;
+    end
+    if nargin < 6 || isempty(teamContext)
+        teamContext = buildTeamContext({struct('Name', 'Aino', 'Constellation', constellation, 'Build', build)}, 20, struct());
+    end
+
+    actions = struct();
+    actions.N1 = struct('TalentGroup', "Normal", 'Param', "x1HitDMG", 'DamageField', "NormalDMGBonus", 'BaseMultiplier', 1.00, 'Note', "Normal 1");
+    actions.N2 = struct('TalentGroup', "Normal", 'Param', "x2HitDMG", 'DamageField', "NormalDMGBonus", 'BaseMultiplier', 1.00, 'Note', "Normal 2");
+    actions.N3 = struct('TalentGroup', "Normal", 'Param', "x3HitDMG", 'DamageField', "NormalDMGBonus", 'BaseMultiplier', 1.00, 'Note', "Normal 3");
+    actions.E1 = struct('TalentGroup', "Skill", 'Param', "Stage1DMG", 'DamageField', "SkillDMGBonus", 'BaseMultiplier', 1.00, 'Note', "Skill stage 1");
+    actions.E2 = struct('TalentGroup', "Skill", 'Param', "Stage2DMG", 'DamageField', "SkillDMGBonus", 'BaseMultiplier', 1.00, 'Note', "Skill stage 2");
+    actions.Q = struct('TalentGroup', "Burst", 'Param', "WaterBallDMG", 'DamageField', "BurstDMGBonus", 'BaseMultiplier', 1.00, 'HitCount', 5, 'PostSetBurstActiveTime', 14.0, 'Note', "Water ball burst");
+
+    spec = struct( ...
+        'Element', "Hydro", ...
+        'ScalingMode', "ATK", ...
+        'DefaultActionTime', 0.8, ...
+        'DefaultRotation', {{'E1', 'E2', 'Q', 'N1', 'N2', 'N3'}}, ...
+        'ActionTimeMap', struct('N1', 0.35, 'N2', 0.35, 'N3', 0.45, 'E1', 0.50, 'E2', 0.65, 'Q', 1.10), ...
+        'Actions', actions);
+
+    [totalDMG, dps, breakdown, rotationTime] = simulateSimpleCharacterDPS( ...
+        'Aino', build, enemy, seqFile, talentLevel, constellation, teamContext, spec);
+end

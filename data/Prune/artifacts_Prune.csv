@@ -1,0 +1,2 @@
+Weapon,WeaponATK,WeaponSubStatType,WeaponSubStatValue,WeaponRefinement,AtkBonus,FlatATK,EM,ER,CritRate,CritDMG,AnemoDMGBonus,PyroDMGBonus,HydroDMGBonus,CryoDMGBonus,ElectroDMGBonus,SkillDMGBonus,BurstDMGBonus,ResShred,ArtifactSet1,ArtifactSet1Pieces,ArtifactSet2,ArtifactSet2Pieces,ArtifactSet4Active
+Lost Prayer to the Sacred Winds,608,CR,0.331,1,0.92,311,180,1.35,0.76,1.98,0.466,0.2,0.2,0.2,0.2,0.24,0.2,0,ViridescentVenerer,4,None,0,1

@@ -1,0 +1,2 @@
+Weapon,WeaponATK,WeaponSubStatType,WeaponSubStatValue,WeaponRefinement,AtkBonus,FlatATK,HPBonus,FlatHP,ER,EM,CritRate,CritDMG,HydroDMGBonus,SkillDMGBonus,BurstDMGBonus,HealingBonus,ResShred,ArtifactSet1,ArtifactSet1Pieces,ArtifactSet2,ArtifactSet2Pieces,ArtifactSet4Active
+Favonius Sword,454,ER,0.613,5,0.72,220,0.35,1200,1.7,80,0.58,1.32,0.466,0.2,0.24,0.15,0,NoblesseOblige,4,None,0,1

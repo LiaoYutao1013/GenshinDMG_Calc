@@ -117,6 +117,7 @@ function aliasMap = localCharacterAliasMap()
     aliasMap('SkirkNew') = struct('Key', "Skirk", 'DisplayName', "Skirk", 'AvatarKey', "SkirkNew", 'Include', true);
     aliasMap('Liuyun') = struct('Key', "Xianyun", 'DisplayName', "Xianyun", 'AvatarKey', "Liuyun", 'Include', true);
     aliasMap('Lanyan') = struct('Key', "LanYan", 'DisplayName', "Lan Yan", 'AvatarKey', "Lanyan", 'Include', true);
+    aliasMap('Olorun') = struct('Key', "Ororon", 'DisplayName', "Ororon", 'AvatarKey', "Olorun", 'Include', true);
 end
 
 function mapping = localResolveCharacterMapping(rawName, aliasMap)

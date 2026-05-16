@@ -1,0 +1,2 @@
+Weapon,WeaponATK,WeaponSubStatType,WeaponSubStatValue,WeaponRefinement,AtkBonus,FlatATK,EM,ER,CritRate,CritDMG,AnemoDMGBonus,SkillDMGBonus,BurstDMGBonus,ReactionDMGBonus,HealingBonus,ResShred,ArtifactSet1,ArtifactSet1Pieces,ArtifactSet2,ArtifactSet2Pieces,ArtifactSet4Active
+Sunny Morning Sleep-In,542,EM,265,1,0.48,220,780,1.35,0.42,0.98,0.466,0.18,0.18,0.15,0.15,0,ViridescentVenerer,4,None,0,1

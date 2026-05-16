@@ -225,6 +225,82 @@ function profile = getArtifactModelProfile(characterName, build)
             profile.ApplySetBonuses = true;
             profile.AssumeNightsoulBlessing = true;
             profile.AssumeObsidianActive = true;
+
+        case 'sethos'
+            profile.SandsMainStat = "EM";
+            profile.GobletMainStat = "ElectroDMGBonus";
+            profile.CircletMainStat = "CritRate";
+            profile.ApplySetBonuses = true;
+
+        case 'ororon'
+            profile.SandsMainStat = "AtkBonus";
+            profile.GobletMainStat = "ElectroDMGBonus";
+            profile.CircletMainStat = "CritRate";
+            profile.ApplySetBonuses = true;
+            profile.AssumeNightsoulBlessing = true;
+            profile.AssumeObsidianActive = true;
+
+        case 'mizuki'
+            profile.SandsMainStat = "EM";
+            profile.GobletMainStat = "AnemoDMGBonus";
+            profile.CircletMainStat = "EM";
+            profile.ApplySetBonuses = true;
+
+        case 'ifa'
+            profile.SandsMainStat = "AtkBonus";
+            profile.GobletMainStat = "AnemoDMGBonus";
+            profile.CircletMainStat = "CritRate";
+            profile.ApplySetBonuses = true;
+
+        case 'dahlia'
+            profile.SandsMainStat = "AtkBonus";
+            profile.GobletMainStat = "HydroDMGBonus";
+            profile.CircletMainStat = "CritRate";
+            profile.ApplySetBonuses = true;
+
+        case 'aino'
+            profile.SandsMainStat = "AtkBonus";
+            profile.GobletMainStat = "HydroDMGBonus";
+            profile.CircletMainStat = "CritRate";
+            profile.ApplySetBonuses = true;
+
+        case 'jahoda'
+            profile.SandsMainStat = "AtkBonus";
+            profile.GobletMainStat = "AnemoDMGBonus";
+            profile.CircletMainStat = "CritRate";
+            profile.ApplySetBonuses = true;
+
+        case 'illuga'
+            profile.SandsMainStat = "EM";
+            profile.GobletMainStat = "GeoDMGBonus";
+            profile.CircletMainStat = "CritRate";
+            profile.ApplySetBonuses = true;
+            profile.AssumeHuskStacks = 4;
+
+        case 'varka'
+            profile.SandsMainStat = "AtkBonus";
+            profile.GobletMainStat = "AnemoDMGBonus";
+            profile.CircletMainStat = "CritRate";
+            profile.ApplySetBonuses = true;
+
+        case 'lohen'
+            profile.SandsMainStat = "AtkBonus";
+            profile.GobletMainStat = "CryoDMGBonus";
+            profile.CircletMainStat = "CritRate";
+            profile.ApplySetBonuses = true;
+            profile.AssumeCryoAura = true;
+
+        case 'prune'
+            profile.SandsMainStat = "AtkBonus";
+            profile.GobletMainStat = "AnemoDMGBonus";
+            profile.CircletMainStat = "CritRate";
+            profile.ApplySetBonuses = true;
+
+        case 'lanyan'
+            profile.SandsMainStat = "AtkBonus";
+            profile.GobletMainStat = "AnemoDMGBonus";
+            profile.CircletMainStat = "CritRate";
+            profile.ApplySetBonuses = true;
     end
 
     if getFieldOrDefault(build, 'HealingBonus', 0) >= 0.30 ...

@@ -101,6 +101,8 @@ function teamContext = buildTeamContext(members, rotationDuration, sharedBuffs, 
     hasDurin = any(memberNames == "Durin");
     hasNicole = any(memberNames == "Nicole");
     hasXianyun = any(memberNames == "Xianyun");
+    hasMizuki = any(memberNames == "Mizuki");
+    hasPrune = any(memberNames == "Prune");
 
     lunarBloomEnabled = hasLauma || hasNefer || (hasColumbina && hydroCount >= 1 && dendroCount >= 1);
     lunarChargedEnabled = (hasIneffa || hasFlins || hasColumbina) && hydroCount >= 1 && electroCount >= 1;
@@ -218,6 +220,30 @@ function teamContext = buildTeamContext(members, rotationDuration, sharedBuffs, 
     overloadBonus = sharedOverloadBonus + 0.35 * double(chevreuseOverloadReady) + 0.08 * double(hasVaresa && overloadReady);
     plungeDMGBonus = getFieldOrDefault(sharedBuffs, 'PlungeDMGBonus', 0) + xianyunSupport.WeaponPlungeDMGBonus;
     plungeCritRateBonus = getFieldOrDefault(sharedBuffs, 'PlungeCritRateBonus', 0) + xianyunSupport.PlungeCritRateBonus;
+
+    if hasMizuki
+        mizukiIndex = find(memberNames == "Mizuki", 1, 'first');
+        mizukiBuild = getFieldOrDefault(members{mizukiIndex}, 'Build', struct());
+        mizukiEM = getFieldOrDefault(mizukiBuild, 'EM', 0);
+        if getFieldOrDefault(members{mizukiIndex}, 'Constellation', 0) >= 2
+            elementalShare = 0.0004 * mizukiEM;
+            pyroDMGBonus = pyroDMGBonus + elementalShare;
+            hydroDMGBonus = hydroDMGBonus + elementalShare;
+            cryoDMGBonus = cryoDMGBonus + elementalShare;
+            electroDMGBonus = electroDMGBonus + elementalShare;
+        end
+        if getFieldOrDefault(members{mizukiIndex}, 'Constellation', 0) >= 6
+            reactionCritRate = max(reactionCritRate, 0.30);
+            reactionCritDMG = max(reactionCritDMG, 1.00);
+        end
+    end
+
+    if hasPrune
+        pruneIndex = find(memberNames == "Prune", 1, 'first');
+        pruneATK = localApproxMemberATK(members{pruneIndex}, 221);
+        pruneSharedBonus = min(0.50, max(0, 0.00025 * max(0, pruneATK - 2000)));
+        allDMGBonus = allDMGBonus + pruneSharedBonus;
+    end
 
     hydroBeamBonus = 0.00;
     if hasNeuvillette
@@ -837,6 +863,8 @@ function element = localGetElement(name)
             element = "Electro";
         case 'ororon'
             element = "Electro";
+        case {'mizuki', 'yumemizuki mizuki'}
+            element = "Anemo";
         case 'ifa'
             element = "Anemo";
         case 'dahlia'
@@ -847,8 +875,12 @@ function element = localGetElement(name)
             element = "Hydro";
         case 'varka'
             element = "Anemo";
+        case 'lohen'
+            element = "Cryo";
         case 'illuga'
             element = "Geo";
+        case 'prune'
+            element = "Anemo";
         case {'lanyan', 'lanyan '}
             element = "Anemo";
         otherwise

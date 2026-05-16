@@ -1,0 +1,2 @@
+Weapon,WeaponATK,WeaponSubStatType,WeaponSubStatValue,WeaponRefinement,AtkBonus,FlatATK,EM,ER,CritRate,CritDMG,ElectroDMGBonus,ChargedDMGBonus,SkillDMGBonus,BurstDMGBonus,ReactionDMGBonus,ResShred,ArtifactSet1,ArtifactSet1Pieces,ArtifactSet2,ArtifactSet2Pieces,ArtifactSet4Active
+Slingshot,354,CR,0.311,5,0.28,180,620,1.2,0.74,1.72,0.466,0.35,0.18,0.18,0.15,0,WanderersTroupe,4,None,0,1

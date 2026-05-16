@@ -1,0 +1,1845 @@
+{
+  "info": {
+    "name": "Illuga",
+    "description": "Member of the investigation squad, the Nightmare Orioles. The youngest squad leader among the Lightkeepers.",
+    "rarity": "QUALITY_PURPLE",
+    "weapon": "WEAPON_POLE",
+    "birthday": "23/12",
+    "element": "Geo",
+    "title": "Nightmare's Burning Heart",
+    "constellation": "Oriolus",
+    "affiliation": "Lightkeepers",
+    "cv": {
+      "EN": "Jonathon Ha",
+      "CHS": "昱头",
+      "JP": "梅田修一朗",
+      "KR": "Hwang Dong-hyun"
+    },
+    "attributes": [
+      {
+        "level": 1,
+        "ascension": 0,
+        "hp": 1003,
+        "atk": 16,
+        "def": 68,
+        "EM": 0
+      },
+      {
+        "level": 2,
+        "ascension": 0,
+        "hp": 1086,
+        "atk": 17,
+        "def": 74,
+        "EM": 0
+      },
+      {
+        "level": 3,
+        "ascension": 0,
+        "hp": 1168,
+        "atk": 19,
+        "def": 79,
+        "EM": 0
+      },
+      {
+        "level": 4,
+        "ascension": 0,
+        "hp": 1252,
+        "atk": 20,
+        "def": 85,
+        "EM": 0
+      },
+      {
+        "level": 5,
+        "ascension": 0,
+        "hp": 1334,
+        "atk": 21,
+        "def": 91,
+        "EM": 0
+      },
+      {
+        "level": 6,
+        "ascension": 0,
+        "hp": 1417,
+        "atk": 23,
+        "def": 96,
+        "EM": 0
+      },
+      {
+        "level": 7,
+        "ascension": 0,
+        "hp": 1499,
+        "atk": 24,
+        "def": 102,
+        "EM": 0
+      },
+      {
+        "level": 8,
+        "ascension": 0,
+        "hp": 1583,
+        "atk": 25,
+        "def": 108,
+        "EM": 0
+      },
+      {
+        "level": 9,
+        "ascension": 0,
+        "hp": 1666,
+        "atk": 27,
+        "def": 113,
+        "EM": 0
+      },
+      {
+        "level": 10,
+        "ascension": 0,
+        "hp": 1748,
+        "atk": 28,
+        "def": 119,
+        "EM": 0
+      },
+      {
+        "level": 11,
+        "ascension": 0,
+        "hp": 1831,
+        "atk": 29,
+        "def": 125,
+        "EM": 0
+      },
+      {
+        "level": 12,
+        "ascension": 0,
+        "hp": 1914,
+        "atk": 31,
+        "def": 130,
+        "EM": 0
+      },
+      {
+        "level": 13,
+        "ascension": 0,
+        "hp": 1997,
+        "atk": 32,
+        "def": 136,
+        "EM": 0
+      },
+      {
+        "level": 14,
+        "ascension": 0,
+        "hp": 2079,
+        "atk": 33,
+        "def": 141,
+        "EM": 0
+      },
+      {
+        "level": 15,
+        "ascension": 0,
+        "hp": 2162,
+        "atk": 35,
+        "def": 147,
+        "EM": 0
+      },
+      {
+        "level": 16,
+        "ascension": 0,
+        "hp": 2246,
+        "atk": 36,
+        "def": 153,
+        "EM": 0
+      },
+      {
+        "level": 17,
+        "ascension": 0,
+        "hp": 2328,
+        "atk": 37,
+        "def": 158,
+        "EM": 0
+      },
+      {
+        "level": 18,
+        "ascension": 0,
+        "hp": 2411,
+        "atk": 39,
+        "def": 164,
+        "EM": 0
+      },
+      {
+        "level": 19,
+        "ascension": 0,
+        "hp": 2493,
+        "atk": 40,
+        "def": 170,
+        "EM": 0
+      },
+      {
+        "level": 20,
+        "ascension": 0,
+        "hp": 2577,
+        "atk": 41,
+        "def": 175,
+        "EM": 0
+      },
+      {
+        "level": 21,
+        "ascension": 1,
+        "hp": 3408,
+        "atk": 54,
+        "def": 232,
+        "EM": 0
+      },
+      {
+        "level": 22,
+        "ascension": 1,
+        "hp": 3491,
+        "atk": 56,
+        "def": 237,
+        "EM": 0
+      },
+      {
+        "level": 23,
+        "ascension": 1,
+        "hp": 3575,
+        "atk": 57,
+        "def": 243,
+        "EM": 0
+      },
+      {
+        "level": 24,
+        "ascension": 1,
+        "hp": 3657,
+        "atk": 58,
+        "def": 249,
+        "EM": 0
+      },
+      {
+        "level": 25,
+        "ascension": 1,
+        "hp": 3740,
+        "atk": 60,
+        "def": 254,
+        "EM": 0
+      },
+      {
+        "level": 26,
+        "ascension": 1,
+        "hp": 3822,
+        "atk": 61,
+        "def": 260,
+        "EM": 0
+      },
+      {
+        "level": 27,
+        "ascension": 1,
+        "hp": 3906,
+        "atk": 62,
+        "def": 266,
+        "EM": 0
+      },
+      {
+        "level": 28,
+        "ascension": 1,
+        "hp": 3988,
+        "atk": 64,
+        "def": 271,
+        "EM": 0
+      },
+      {
+        "level": 29,
+        "ascension": 1,
+        "hp": 4071,
+        "atk": 65,
+        "def": 277,
+        "EM": 0
+      },
+      {
+        "level": 30,
+        "ascension": 1,
+        "hp": 4153,
+        "atk": 66,
+        "def": 282,
+        "EM": 0
+      },
+      {
+        "level": 31,
+        "ascension": 1,
+        "hp": 4237,
+        "atk": 68,
+        "def": 288,
+        "EM": 0
+      },
+      {
+        "level": 32,
+        "ascension": 1,
+        "hp": 4320,
+        "atk": 69,
+        "def": 294,
+        "EM": 0
+      },
+      {
+        "level": 33,
+        "ascension": 1,
+        "hp": 4402,
+        "atk": 70,
+        "def": 299,
+        "EM": 0
+      },
+      {
+        "level": 34,
+        "ascension": 1,
+        "hp": 4485,
+        "atk": 72,
+        "def": 305,
+        "EM": 0
+      },
+      {
+        "level": 35,
+        "ascension": 1,
+        "hp": 4568,
+        "atk": 73,
+        "def": 311,
+        "EM": 0
+      },
+      {
+        "level": 36,
+        "ascension": 1,
+        "hp": 4651,
+        "atk": 74,
+        "def": 316,
+        "EM": 0
+      },
+      {
+        "level": 37,
+        "ascension": 1,
+        "hp": 4733,
+        "atk": 76,
+        "def": 322,
+        "EM": 0
+      },
+      {
+        "level": 38,
+        "ascension": 1,
+        "hp": 4816,
+        "atk": 77,
+        "def": 328,
+        "EM": 0
+      },
+      {
+        "level": 39,
+        "ascension": 1,
+        "hp": 4900,
+        "atk": 78,
+        "def": 333,
+        "EM": 0
+      },
+      {
+        "level": 40,
+        "ascension": 1,
+        "hp": 4982,
+        "atk": 80,
+        "def": 339,
+        "EM": 0
+      },
+      {
+        "level": 41,
+        "ascension": 2,
+        "hp": 5597,
+        "atk": 89,
+        "def": 381,
+        "EM": 24
+      },
+      {
+        "level": 42,
+        "ascension": 2,
+        "hp": 5680,
+        "atk": 91,
+        "def": 386,
+        "EM": 24
+      },
+      {
+        "level": 43,
+        "ascension": 2,
+        "hp": 5763,
+        "atk": 92,
+        "def": 392,
+        "EM": 24
+      },
+      {
+        "level": 44,
+        "ascension": 2,
+        "hp": 5845,
+        "atk": 93,
+        "def": 398,
+        "EM": 24
+      },
+      {
+        "level": 45,
+        "ascension": 2,
+        "hp": 5928,
+        "atk": 95,
+        "def": 403,
+        "EM": 24
+      },
+      {
+        "level": 46,
+        "ascension": 2,
+        "hp": 6012,
+        "atk": 96,
+        "def": 409,
+        "EM": 24
+      },
+      {
+        "level": 47,
+        "ascension": 2,
+        "hp": 6094,
+        "atk": 97,
+        "def": 414,
+        "EM": 24
+      },
+      {
+        "level": 48,
+        "ascension": 2,
+        "hp": 6177,
+        "atk": 99,
+        "def": 420,
+        "EM": 24
+      },
+      {
+        "level": 49,
+        "ascension": 2,
+        "hp": 6259,
+        "atk": 100,
+        "def": 426,
+        "EM": 24
+      },
+      {
+        "level": 50,
+        "ascension": 2,
+        "hp": 6343,
+        "atk": 101,
+        "def": 431,
+        "EM": 24
+      },
+      {
+        "level": 51,
+        "ascension": 3,
+        "hp": 7135,
+        "atk": 114,
+        "def": 485,
+        "EM": 48
+      },
+      {
+        "level": 52,
+        "ascension": 3,
+        "hp": 7218,
+        "atk": 115,
+        "def": 491,
+        "EM": 48
+      },
+      {
+        "level": 53,
+        "ascension": 3,
+        "hp": 7301,
+        "atk": 117,
+        "def": 497,
+        "EM": 48
+      },
+      {
+        "level": 54,
+        "ascension": 3,
+        "hp": 7383,
+        "atk": 118,
+        "def": 502,
+        "EM": 48
+      },
+      {
+        "level": 55,
+        "ascension": 3,
+        "hp": 7467,
+        "atk": 119,
+        "def": 508,
+        "EM": 48
+      },
+      {
+        "level": 56,
+        "ascension": 3,
+        "hp": 7549,
+        "atk": 121,
+        "def": 513,
+        "EM": 48
+      },
+      {
+        "level": 57,
+        "ascension": 3,
+        "hp": 7632,
+        "atk": 122,
+        "def": 519,
+        "EM": 48
+      },
+      {
+        "level": 58,
+        "ascension": 3,
+        "hp": 7714,
+        "atk": 123,
+        "def": 525,
+        "EM": 48
+      },
+      {
+        "level": 59,
+        "ascension": 3,
+        "hp": 7798,
+        "atk": 125,
+        "def": 530,
+        "EM": 48
+      },
+      {
+        "level": 60,
+        "ascension": 3,
+        "hp": 7881,
+        "atk": 126,
+        "def": 536,
+        "EM": 48
+      },
+      {
+        "level": 61,
+        "ascension": 4,
+        "hp": 8496,
+        "atk": 136,
+        "def": 578,
+        "EM": 48
+      },
+      {
+        "level": 62,
+        "ascension": 4,
+        "hp": 8579,
+        "atk": 137,
+        "def": 583,
+        "EM": 48
+      },
+      {
+        "level": 63,
+        "ascension": 4,
+        "hp": 8661,
+        "atk": 138,
+        "def": 589,
+        "EM": 48
+      },
+      {
+        "level": 64,
+        "ascension": 4,
+        "hp": 8744,
+        "atk": 140,
+        "def": 595,
+        "EM": 48
+      },
+      {
+        "level": 65,
+        "ascension": 4,
+        "hp": 8827,
+        "atk": 141,
+        "def": 600,
+        "EM": 48
+      },
+      {
+        "level": 66,
+        "ascension": 4,
+        "hp": 8910,
+        "atk": 142,
+        "def": 606,
+        "EM": 48
+      },
+      {
+        "level": 67,
+        "ascension": 4,
+        "hp": 8993,
+        "atk": 144,
+        "def": 612,
+        "EM": 48
+      },
+      {
+        "level": 68,
+        "ascension": 4,
+        "hp": 9075,
+        "atk": 145,
+        "def": 617,
+        "EM": 48
+      },
+      {
+        "level": 69,
+        "ascension": 4,
+        "hp": 9159,
+        "atk": 146,
+        "def": 623,
+        "EM": 48
+      },
+      {
+        "level": 70,
+        "ascension": 4,
+        "hp": 9241,
+        "atk": 148,
+        "def": 628,
+        "EM": 48
+      },
+      {
+        "level": 71,
+        "ascension": 5,
+        "hp": 9856,
+        "atk": 158,
+        "def": 670,
+        "EM": 72
+      },
+      {
+        "level": 72,
+        "ascension": 5,
+        "hp": 9939,
+        "atk": 159,
+        "def": 676,
+        "EM": 72
+      },
+      {
+        "level": 73,
+        "ascension": 5,
+        "hp": 10022,
+        "atk": 160,
+        "def": 682,
+        "EM": 72
+      },
+      {
+        "level": 74,
+        "ascension": 5,
+        "hp": 10105,
+        "atk": 161,
+        "def": 687,
+        "EM": 72
+      },
+      {
+        "level": 75,
+        "ascension": 5,
+        "hp": 10187,
+        "atk": 163,
+        "def": 693,
+        "EM": 72
+      },
+      {
+        "level": 76,
+        "ascension": 5,
+        "hp": 10271,
+        "atk": 164,
+        "def": 699,
+        "EM": 72
+      },
+      {
+        "level": 77,
+        "ascension": 5,
+        "hp": 10353,
+        "atk": 165,
+        "def": 704,
+        "EM": 72
+      },
+      {
+        "level": 78,
+        "ascension": 5,
+        "hp": 10436,
+        "atk": 167,
+        "def": 710,
+        "EM": 72
+      },
+      {
+        "level": 79,
+        "ascension": 5,
+        "hp": 10518,
+        "atk": 168,
+        "def": 715,
+        "EM": 72
+      },
+      {
+        "level": 80,
+        "ascension": 5,
+        "hp": 10602,
+        "atk": 169,
+        "def": 721,
+        "EM": 72
+      },
+      {
+        "level": 81,
+        "ascension": 6,
+        "hp": 11217,
+        "atk": 179,
+        "def": 763,
+        "EM": 96
+      },
+      {
+        "level": 82,
+        "ascension": 6,
+        "hp": 11299,
+        "atk": 181,
+        "def": 768,
+        "EM": 96
+      },
+      {
+        "level": 83,
+        "ascension": 6,
+        "hp": 11383,
+        "atk": 182,
+        "def": 774,
+        "EM": 96
+      },
+      {
+        "level": 84,
+        "ascension": 6,
+        "hp": 11465,
+        "atk": 183,
+        "def": 780,
+        "EM": 96
+      },
+      {
+        "level": 85,
+        "ascension": 6,
+        "hp": 11548,
+        "atk": 185,
+        "def": 785,
+        "EM": 96
+      },
+      {
+        "level": 86,
+        "ascension": 6,
+        "hp": 11630,
+        "atk": 186,
+        "def": 791,
+        "EM": 96
+      },
+      {
+        "level": 87,
+        "ascension": 6,
+        "hp": 11714,
+        "atk": 187,
+        "def": 797,
+        "EM": 96
+      },
+      {
+        "level": 88,
+        "ascension": 6,
+        "hp": 11796,
+        "atk": 188,
+        "def": 802,
+        "EM": 96
+      },
+      {
+        "level": 89,
+        "ascension": 6,
+        "hp": 11879,
+        "atk": 190,
+        "def": 808,
+        "EM": 96
+      },
+      {
+        "level": 90,
+        "ascension": 6,
+        "hp": 11962,
+        "atk": 191,
+        "def": 814,
+        "EM": 96
+      },
+      {
+        "level": 95,
+        "ascension": 6,
+        "hp": 12376,
+        "atk": 216,
+        "def": 842,
+        "EM": 96
+      },
+      {
+        "level": 100,
+        "ascension": 6,
+        "hp": 12790,
+        "atk": 240,
+        "def": 870,
+        "EM": 96
+      }
+    ]
+  },
+  "icons": {
+    "forward": "UI_AvatarIcon_Illuga",
+    "coop_img": "UI_CoopImg_Illuga"
+  },
+  "ascension": {
+    "x202": 7.0499E+6,
+    "exp": {
+      "x104001": 2,
+      "x104003": 418
+    },
+    "speciality": {
+      "x101269": 168
+    },
+    "elemental": {
+      "x104171": 1,
+      "x104172": 9,
+      "x104173": 9,
+      "x104174": 6
+    },
+    "worldmonster": {
+      "x112122": 18,
+      "x112123": 30,
+      "x112124": 36
+    },
+    "elitemonster": {
+      "x113080": 46
+    }
+  },
+  "skills": {
+    "normalattack": {
+      "name": "Oathkeeper's Spear",
+      "icon": "Skill_A_03",
+      "multipliers": {
+        "x1_HitDMG": [
+          "47.37%",
+          "51.22%",
+          "55.08%",
+          "60.58%",
+          "64.44%",
+          "68.85%",
+          "74.9%",
+          "80.96%",
+          "87.02%",
+          "93.63%",
+          "100.24%",
+          "106.85%",
+          "113.46%",
+          "120.07%",
+          "126.68%"
+        ],
+        "x2_HitDMG": [
+          "48.53%",
+          "52.48%",
+          "56.42%",
+          "62.07%",
+          "66.02%",
+          "70.53%",
+          "76.74%",
+          "82.94%",
+          "89.15%",
+          "95.92%",
+          "102.69%",
+          "109.46%",
+          "116.24%",
+          "123.01%",
+          "129.78%"
+        ],
+        "x3_HitDMG": [
+          "31.43%+31.43%",
+          "33.99%+33.99%",
+          "36.55%+36.55%",
+          "40.2%+40.2%",
+          "42.76%+42.76%",
+          "45.69%+45.69%",
+          "49.71%+49.71%",
+          "53.73%+53.73%",
+          "57.75%+57.75%",
+          "62.13%+62.13%",
+          "66.52%+66.52%",
+          "70.91%+70.91%",
+          "75.29%+75.29%",
+          "79.68%+79.68%",
+          "84.07%+84.07%"
+        ],
+        "x4_HitDMG": [
+          "76.28%",
+          "82.49%",
+          "88.7%",
+          "97.57%",
+          "103.77%",
+          "110.87%",
+          "120.63%",
+          "130.38%",
+          "140.14%",
+          "150.78%",
+          "161.43%",
+          "172.07%",
+          "182.71%",
+          "193.36%",
+          "204%"
+        ],
+        "ChargedAttackDMG": [
+          "111.03%",
+          "120.06%",
+          "129.1%",
+          "142.01%",
+          "151.05%",
+          "161.37%",
+          "175.58%",
+          "189.78%",
+          "203.98%",
+          "219.47%",
+          "234.96%",
+          "250.45%",
+          "265.95%",
+          "281.44%",
+          "296.93%"
+        ],
+        "ChargedAttackStaminaCost": [
+          "25",
+          "25",
+          "25",
+          "25",
+          "25",
+          "25",
+          "25",
+          "25",
+          "25",
+          "25",
+          "25",
+          "25",
+          "25",
+          "25",
+          "25"
+        ],
+        "PlungeDMG": [
+          "63.93%",
+          "69.14%",
+          "74.34%",
+          "81.77%",
+          "86.98%",
+          "92.93%",
+          "101.1%",
+          "109.28%",
+          "117.46%",
+          "126.38%",
+          "135.3%",
+          "144.22%",
+          "153.14%",
+          "162.06%",
+          "170.98%"
+        ],
+        "Low_HighPlungeDMG": [
+          "127.84%/159.68%",
+          "138.24%/172.67%",
+          "148.65%/185.67%",
+          "163.51%/204.24%",
+          "173.92%/217.23%",
+          "185.81%/232.09%",
+          "202.16%/252.51%",
+          "218.51%/272.93%",
+          "234.86%/293.36%",
+          "252.7%/315.64%",
+          "270.54%/337.92%",
+          "288.38%/360.2%",
+          "306.22%/382.48%",
+          "324.05%/404.76%",
+          "341.89%/427.04%"
+        ]
+      },
+      "description": "<color=#FFD780FF>Normal Attack</color>\\nPerforms up to 4 consecutive spear strikes.\\n\\n<color=#FFD780FF>Charged Attack</color>\\nConsumes a certain amount of Stamina to lunge forward, dealing damage to opponents along the way.\\n\\n<color=#FFD780FF>Plunging Attack</color>\\nPlunges from mid-air to strike the ground below, damaging opponents along the path and dealing AoE DMG upon impact."
+    },
+    "elementalskill": {
+      "name": "Dawnbearing Songbird",
+      "icon": "Skill_S_Illuga_01",
+      "multipliers": {
+        "PressDMG": [
+          "482.56% Elemental Mastery+241.28% DEF",
+          "518.75% Elemental Mastery+259.38% DEF",
+          "554.94% Elemental Mastery+277.47% DEF",
+          "603.2% Elemental Mastery+301.6% DEF",
+          "639.39% Elemental Mastery+319.7% DEF",
+          "675.58% Elemental Mastery+337.79% DEF",
+          "723.84% Elemental Mastery+361.92% DEF",
+          "772.1% Elemental Mastery+386.05% DEF",
+          "820.35% Elemental Mastery+410.18% DEF",
+          "868.61% Elemental Mastery+434.3% DEF",
+          "916.86% Elemental Mastery+458.43% DEF",
+          "965.12% Elemental Mastery+482.56% DEF",
+          "1025.44% Elemental Mastery+512.72% DEF",
+          "1085.76% Elemental Mastery+542.88% DEF",
+          "1146.08% Elemental Mastery+573.04% DEF"
+        ],
+        "HoldDMG": [
+          "603.2% Elemental Mastery+301.6% DEF",
+          "648.44% Elemental Mastery+324.22% DEF",
+          "693.68% Elemental Mastery+346.84% DEF",
+          "754% Elemental Mastery+377% DEF",
+          "799.24% Elemental Mastery+399.62% DEF",
+          "844.48% Elemental Mastery+422.24% DEF",
+          "904.8% Elemental Mastery+452.4% DEF",
+          "965.12% Elemental Mastery+482.56% DEF",
+          "1025.44% Elemental Mastery+512.72% DEF",
+          "1085.76% Elemental Mastery+542.88% DEF",
+          "1146.08% Elemental Mastery+573.04% DEF",
+          "1206.4% Elemental Mastery+603.2% DEF",
+          "1281.8% Elemental Mastery+640.9% DEF",
+          "1357.2% Elemental Mastery+678.6% DEF",
+          "1432.6% Elemental Mastery+716.3% DEF"
+        ],
+        "CD": [
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s"
+        ]
+      },
+      "description": "Summons the trusty messenger bird, \"Aedon.\" Different effects are produced depending on whether the skill is Tapped or Held.\\n\\n<color=#FFD780FF>Tap</color>\\nAedon dashes towards enemies in front, dealing <color=#FFE699FF>Geo DMG</color> to enemies it comes into contact with.\\n\\n<color=#FFD780FF>Hold</color>\\nEnter aiming mode, and command Aedon to dash towards opponents being aimed at, dealing <color=#FFE699FF>Geo DMG</color> to opponents it comes into contact with.\n\\n\\n<i>The messenger bird Aedon is a being born from kuuvahki and a guardian of this land, who will not falter even when facing the Wild Hunt.</i>"
+    },
+    "elementalburst": {
+      "name": "Shadowless Reflection",
+      "icon": "Skill_E_Illuga_01",
+      "multipliers": {
+        "SkillDMG": [
+          "827.2% Elemental Mastery+413.6% DEF",
+          "889.24% Elemental Mastery+444.62% DEF",
+          "951.28% Elemental Mastery+475.64% DEF",
+          "1034% Elemental Mastery+517% DEF",
+          "1096.04% Elemental Mastery+548.02% DEF",
+          "1158.08% Elemental Mastery+579.04% DEF",
+          "1240.8% Elemental Mastery+620.4% DEF",
+          "1323.52% Elemental Mastery+661.76% DEF",
+          "1406.24% Elemental Mastery+703.12% DEF",
+          "1488.96% Elemental Mastery+744.48% DEF",
+          "1571.68% Elemental Mastery+785.84% DEF",
+          "1654.4% Elemental Mastery+827.2% DEF",
+          "1757.8% Elemental Mastery+878.9% DEF",
+          "1861.2% Elemental Mastery+930.6% DEF",
+          "1964.6% Elemental Mastery+982.3% DEF"
+        ],
+        "GeoDMGBonus": [
+          "33.6% Elemental Mastery",
+          "36.12% Elemental Mastery",
+          "38.64% Elemental Mastery",
+          "42% Elemental Mastery",
+          "44.52% Elemental Mastery",
+          "47.04% Elemental Mastery",
+          "50.4% Elemental Mastery",
+          "53.76% Elemental Mastery",
+          "57.12% Elemental Mastery",
+          "60.48% Elemental Mastery",
+          "63.84% Elemental Mastery",
+          "67.2% Elemental Mastery",
+          "71.4% Elemental Mastery",
+          "75.6% Elemental Mastery",
+          "79.8% Elemental Mastery"
+        ],
+        "Lunar_CrystallizeReactionDMGBonus": [
+          "225.92% Elemental Mastery",
+          "242.86% Elemental Mastery",
+          "259.81% Elemental Mastery",
+          "282.4% Elemental Mastery",
+          "299.34% Elemental Mastery",
+          "316.29% Elemental Mastery",
+          "338.88% Elemental Mastery",
+          "361.47% Elemental Mastery",
+          "384.06% Elemental Mastery",
+          "406.66% Elemental Mastery",
+          "429.25% Elemental Mastery",
+          "451.84% Elemental Mastery",
+          "480.08% Elemental Mastery",
+          "508.32% Elemental Mastery",
+          "536.56% Elemental Mastery"
+        ],
+        "Nightingale_sSongStacksGainedFromElementalBurst": [
+          "21",
+          "21",
+          "21",
+          "21",
+          "21",
+          "21",
+          "21",
+          "21",
+          "21",
+          "21",
+          "21",
+          "21",
+          "21",
+          "21",
+          "21"
+        ],
+        "Nightingale_sSongStacksGainedFromGeoConstructs": [
+          " 5 Per Geo Construct",
+          " 5 Per Geo Construct",
+          " 5 Per Geo Construct",
+          " 5 Per Geo Construct",
+          " 5 Per Geo Construct",
+          " 5 Per Geo Construct",
+          " 5 Per Geo Construct",
+          " 5 Per Geo Construct",
+          " 5 Per Geo Construct",
+          " 5 Per Geo Construct",
+          " 5 Per Geo Construct",
+          " 5 Per Geo Construct",
+          " 5 Per Geo Construct",
+          " 5 Per Geo Construct",
+          " 5 Per Geo Construct"
+        ],
+        "Duration": [
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s"
+        ],
+        "CD": [
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s"
+        ],
+        "EnergyCost": [
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60"
+        ]
+      },
+      "description": "Light the lamp, dealing <color=#FFE699FF>AoE Geo DMG</color>, and gain Haunted Night's Oriole-Song effect for 20s. When this effect is active, Illuga gains 21 stacks of {LINK#N11270001}<color=#FFD780FF>Nightingale's Song</color>{/LINK}. When Normal Attacks, Charged Attacks, Plunging Attacks, Elemental Skills, and Elemental Bursts of nearby active party members deal <color=#FFE699FF>Geo DMG</color> to opponents, 1 stack of Nightingale's Song is consumed to increase the DMG dealt. Increase in DMG is based on Illuga's Elemental Mastery. If DMG is inflicted by Lunar-Crystallize, DMG dealt will increase further.\\nWhen <color=#FFE699FF>Geo DMG</color> dealt in this manner hits multiple opponents, multiple stacks of Nightingale's Song will be consumed, depending on how many opponents are hit.\\n\\nAdditionally, if there are <color=#FFE699FF>Geo Constructs</color> created by nearby party members on the battlefield while Illuga unleashes his Elemental Burst, or when nearby party members create <color=#FFE699FF>Geo Constructs</color> while Haunted Night's Oriole-Song is active, every <color=#FFE699FF>Geo Construct</color> on the battlefield will allow Illuga to gain 5 additional stacks of Nightingale's Song. Within 20s after unleashing his Elemental Burst, Illuga can gain a maximum of 15 additional stacks of Nightingale's Song this way.\\n\\nWhen all stacks of Nightingale's Song have been consumed, or when the state's duration ends, the Haunted Night's Oriole-Song effect will end.\n\\n\\n<i>\"Whomsoever cradles the flame and keeps it burning unquenched need not descend into that darkness.\"</i>"
+    },
+    "leveling": {
+      "crown": {
+        "x104319": 3
+      },
+      "books": {
+        "x104359": 9,
+        "x104360": 63,
+        "x104361": 114
+      },
+      "worldmonster": {
+        "x112122": 18,
+        "x112123": 66,
+        "x112124": 93
+      },
+      "weekly": {
+        "x113068": 18
+      }
+    }
+  },
+  "passives": {
+    "p1": {
+      "name": "Torchforger's Covenant",
+      "description": "After unleashing Elemental Skill <color=#FFD780FF>{LINK#S11272}Dawnbearing Songbird{/LINK}</color> or Elemental Burst <color=#FFD780FF>{LINK#S11275}Shadowless Reflection{/LINK}</color>, other nearby party members will gain the Lightkeeper's Oath effect for 20s: For <color=#FFE699FF>Geo DMG</color> dealt to opponents, CRIT Rate increases by 5% and CRIT DMG increases by 10%.\\n\\n<color=#FFD780FF>Moonsign: Ascendant Gleam</color> \\nParty members affected by the Lightkeeper's Oath effect have their Elemental Mastery increased by 50.",
+      "icon": "UI_Talent_S_Illuga_05"
+    },
+    "p2": {
+      "name": "Demonhunter's Dusk",
+      "description": "{LINK#N11270001}<color=#FFD780FF>Nightingale's Song</color>{/LINK}'s effects are enhanced: When there are 1/2/3 <color=#80C0FFFF>Hydro</color> or <color=#FFE699FF>Geo</color> characters in the party, Nightingale's Song will further increase DMG. Increase in DMG is equal to 7%/14%/24% of Illuga's Elemental Mastery. If this aforementioned DMG is inflicted by a Lunar-Crystallize reaction, increase in DMG is equal to 48%/96%/160% of Illuga's Elemental Mastery.",
+      "icon": "UI_Talent_S_Illuga_06"
+    },
+    "p3": {
+      "name": "Moonsign Benediction: Unwithering in Winter",
+      "description": "When Illuga is in the party, the party's <color=#FFD780FF>Moonsign</color> will increase by 1 level.",
+      "icon": "UI_Talent_S_Illuga_07"
+    },
+    "p4": {
+      "name": "Night Warden's Stride",
+      "description": "At night (18:00 – 06:00), your party members gain the Swift Stride effect: Movement SPD increased by 10%.\\nDoes not take effect in Domains, Trounce Domains, or Spiral Abyss. Swift Stride does not stack.\\nAdditionally, Illuga appears to be able to decipher the whispers of the Wild Hunt...",
+      "icon": "UI_Talent_S_Illuga_08"
+    }
+  },
+  "constellations": {
+    "const1": {
+      "name": "Vigilant Sentinel",
+      "description": "After Illuga triggers a <color=#FFE699FF>Geo-related Reaction</color> on the field, he will regain 12 Elemental Energy. This effect can be triggered at most once every 15s.",
+      "icon": "UI_Talent_S_Illuga_01"
+    },
+    "const2": {
+      "name": "Elk With Fanged Antlers",
+      "description": "When Elemental Burst {LINK#S11275}<color=#FFD780FF>Shadowless Reflection</color>{/LINK}'s Haunted Night's Oriole-Song effect is active, for every 7 stacks of {LINK#N11270001}<color=#FFD780FF>Nightingale's Song</color>{/LINK} consumed, Illuga will summon Aedon, dealing a single instance of <color=#FFE699FF>Geo DMG</color> to 1 nearby opponent. The DMG dealt is based on 400% of Illuga's Elemental Mastery and 200% of his DEF. This DMG is considered Elemental Burst DMG.",
+      "icon": "UI_Talent_S_Illuga_02"
+    },
+    "const3": {
+      "name": "Earthshaking Maw",
+      "description": "Increases the Level of Elemental Burst <color=#FFD780FF>{LINK#S11275}Shadowless Reflection{/LINK}</color> by 3.\\nMaximum upgrade level is 15.",
+      "icon": "UI_Talent_U_Illuga_01"
+    },
+    "const4": {
+      "name": "Solarhunting Wolf",
+      "description": "When Elemental Burst <color=#FFD780FF>{LINK#S11275}Shadowless Reflection{/LINK}</color>'s Haunted Night's Oriole-Song effect is active, nearby active party members will have their DEF increased by 200.",
+      "icon": "UI_Talent_S_Illuga_03"
+    },
+    "const5": {
+      "name": "Hurricane Steed",
+      "description": "Increases the Level of Elemental Skill <color=#FFD780FF>{LINK#S11272}Dawnbearing Songbird{/LINK}</color> by 3.\\nMaximum upgrade level is 15.",
+      "icon": "UI_Talent_U_Illuga_02"
+    },
+    "const6": {
+      "name": "Nightmare Orioles",
+      "description": "Enhances the Lightkeeper's Oath effect of the Ascension Talent <color=#FFD780FF>{LINK#P1272101}Torchforger's Covenant{/LINK}</color>: For <color=#FFE699FF>Geo DMG</color> dealt to opponents, CRIT Rate is increased by 10%, CRIT DMG is increased by 30%.\\n\\n<color=#FFD780FF>Moonsign: Ascendant Gleam:</color>\\nWhen characters are affected by Lightkeeper's Oath, Elemental Mastery is increased by 80.\\nYou must first unlock the Ascension Talent \"<color=#FFD780FF>Torchforger's Covenant</color>.\"",
+      "icon": "UI_Talent_S_Illuga_04"
+    }
+  },
+  "hyperlinks": {
+    "id": 1.1270001E+7,
+    "name": "Nightingale's Song",
+    "description": "The effect gained after Illuga unleashes his Elemental Burst Shadowless Reflection. It can increase the Geo DMG inflicted by current active characters.",
+    "params": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  "stories": {
+    "x127200": {
+      "storyTitle": "Character Details",
+      "storyText": "Spring in Nod-Krai is cruel.\\nUnlike the Northlands, where snow blankets the earth through all four seasons, denying even a glimmer of hope to the life buried beneath, the spring in Nod-Krai ushers in a false sense of optimism.\\nAs the bitter winter loosens its grip, the frost melts into the thirsty soil, and seeds buried deep since the year before drink once more of the sweet, damp earth. They sense warmth above and stir, believing the frigid foe who shattered their stems and leaves has vanished with the passing of time — spurred by that fleeting promise, tender sprouts strain to push through the cracked earth and taste the air above.\\nBut it is all a lie — a trap woven for the unwary. A single night of early-spring frost is enough to obliterate all their efforts, leaving behind an empty wilderness — desolate, broken, barren.\\nSpring in Nod-Krai is cunning.\\nBut if a plant can survive the recurring wind and frost — a harshness that the very earth itself seems weary of — then even the humblest Winter Icelea can find sunlight in a world reborn. It is a reward for resilience, or perhaps for courage, though the two are often intertwined.\\nPerhaps for this reason, the Lightkeepers of Nod-Krai are known to liken themselves to Winter Iceleas. Yet those who endure the bitter cold and survive the early spring are few. And rather than a plant, Illuga — who grew up in the shadow of the lighthouse — dreams of becoming the sunlight itself.\\nIn a tale passed down among the Lightkeepers and known to few beyond, nightingales carrying burning wicks in their beaks take flight in darkest night and streak through the sky like shooting stars, the smoldering blades of grass they hold bestowing the light of day.\\nIlluga never told Nikita that he preferred to be a nightingale rather than a Winter Icelea.",
+      "unlockConds": []
+    },
+    "x127201": {
+      "storyTitle": "Character Story 1",
+      "storyText": "Accompanied by the cheerful blare of its horn, the passenger ship slowly eases into Nasha Town's new harbor. Before the port officials can inspect the manifest, the passengers are already streaming ashore.\\nIt should go without saying that customs procedures have always been little more than a formality here — Nod-Krai is a paradise for vagrants, its gates standing open to anyone who might choose to enter, regardless of wealth or status. But this time, something is different. As the customs inspector casually saunters over, a single couple still remains on board.\\n\"Are you two waiting for someone?\"\\nThe customs inspector steps forward, wondering if the couple might perhaps have encountered some difficulty.\\n\"Oh, no, not really. We just thought someone would need to inspect our travel documents. My dearest here was worried that if we simply upped and left, it might cause some trouble. But now you're here.\"\\nAs the husband spoke, his wife seemed to hide behind him, as though she was unaccustomed to showing her face in public.\\nPerhaps they were a young couple struggling to make ends meet, taken in by the boundless boasts of sailors and resolved to start a new life abroad. Or perhaps she was a pampered lady, yet eloped with a penniless youth, who had boarded the passenger ship under cover of night to defy the strictures of society.\\nWhatever the case, it hardly mattered. This was Nod-Krai, a land where no one asks about your past.\\nWith their registration complete, the customs inspector stood and watched their silhouettes fade into the distance, a faint, inexpressible feeling stirring in his chest.\\nFor ordinary people, finding a stable livelihood in Nod-Krai had once been a luxury beyond reach. Yet fortunately for this couple, these were rare times indeed. The Wild Hunt that had long haunted the region had not launched a large-scale assault in decades. The terror it once inspired lingered only as fragmented memories, diluted by time and the passing of those who had witnessed it firsthand, until it was little more than folklore whispered in local taverns. They would settle down here, perhaps build a home, perhaps even start a family. They might yet enjoy a pastoral, almost idyllic existence, one without danger or risk.\\nBut can such peaceful times ever truly endure?\\n...\\nDisaster is not in the habit of issuing warnings. When Illuga awoke, all that greeted him was a sea of flames.\\nIf it truly was fire, it should have burned red. Yet what hemmed him in were curtains of obsidian black, leaping and writhing like flames. He remembered hearing of similar flames from old tales, stories told to a backdrop of wolves howling in the night — stories that had shaped his earliest nightmares.\\nPerhaps they had not been nightmares after all. Or perhaps nightmares are simply the truths that reality refuses to speak aloud, revealed without disguise.\\nIf he had been any other child, he would probably have wept in fear. But Illuga still remembered what his mother had said when telling him the story of the black fire. He must not cry, for if he did, the monsters — seeking signs of life — would find him. Sure enough, the wailing and screaming around him soon fell silent — the monsters must have taken them all.\\nHow long that deathly stillness lasted, he could not tell. Gradually, Illuga began to hear faint, fragmented sounds stirring within the darkness, like whispers rising up from hell itself. Yet those sounds soon faded too, and in their place, the heavy rhythm of hurried footsteps, followed by spreading light.\\n\"Poor little thing, shaking so hard... This is no place for someone so young — nothing living, only the Wild Hunt.\"\\n\"She really was an amazing mother... for her child... A child who can survive all this is certain to grow up strong.\"\\nLosing his parents, along with everything they owned, felt less like a tragedy to Illuga than like waking from a dream that belonged to someone else. Had he truly survived that disaster? He could no longer recall his parents' names. Perhaps the Wild Hunt had destroyed more than the place he once called home. Perhaps, in passing, it had erased his former life as well, leaving behind an emptiness that could never be filled.\\nAnd yet, given enough time, even the deepest wounds will close and heal. And fortunately, this was Nod-Krai, a land where no one asks about your past.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 2
+      }
+    },
+    "x127202": {
+      "storyTitle": "Character Story 2",
+      "storyText": "Compared to the hustle and bustle of Nasha Town, Piramida, perched atop its hill, feels more like a military stronghold. Built around a towering lighthouse, the city stands like a lone warrior on the open plain, keeping solitary watch beneath the clear blue sky.\\nAside from the occasional merchant bringing much-needed supplies, the city is populated almost entirely by Lightkeepers. While there, Illuga's life was one of peace and tranquility.\\nThe man who had carried him from the ashes of his previous life was Nikita, a Lightkeeper who had recently inherited the role of Starshyna — though perhaps this description does not do justice to the task he faced, as his job was now little less than to rebuild the Lightkeepers from scratch, with only a handful of their number having survived the great battle just passed.\\nYet after enduring such catastrophe, the people of the Lempo Isles finally came to realize that the terrifying tales passed down by their ancestors were no mere myths. Many young men and women resolutely stepped forward, joining the ranks of those who would stand vigil through the long night.\\nThe newly recruited Lightkeepers affectionately referred to Nikita as \"Old Man,\" even though he was at most a middle-aged man marked by years of hardship. Thoughtful and perceptive, he had a knack for putting square pegs in square holes, giving each member a sense of purpose that made them feel at home.\\nFor an organization that demanded its members forsake a life of comfort to live eternally on the margins of danger — one that offered little in return but mere honor — this was nothing short of miraculous.\\nFor the time being, however, this had little to do with the young Illuga.\\nDuring his first year or two in Piramida, Nikita himself looked after Illuga. He wasn't much good at teaching the finer points of everyday life — largely because he didn't know them himself — but he did teach Illuga a great deal about combat. Things like how to track the movements of wild beasts, and how to catch them off guard to deliver a fatal blow. Illuga learned quickly. When he focused on the fight before him, the nightmares no longer seemed able to trouble him.\\nBefore long, however, perhaps feeling that he was doing the children a disservice, and with military duties growing ever more pressing as the Lightkeepers' ranks swelled, Nikita decided to house the orphans of war who had sought refuge in Piramida in a separate residence and provide them with dedicated caregivers.\\nAmong these children, Illuga was the oldest, and he was able to move freely about the city on his own. The Lightkeepers were like an extended family — there were many \"uncles\" and \"aunts\" among them who cared for him as if he were their own. Yet Illuga kept a cautious distance from such kindness. Aside from helping to look after the other children, he spent most of his remaining time alone in the Lightkeepers' archives, losing himself in the dull stacks of records.\\nThose records were filled with tales of heroes, yet not a single one ended in triumph. At the close of every entry, the same formulaic line appeared: \"This great Lightkeeper laid down their life to protect their home.\"\\n\"Home?\" Illuga instinctively shied away from the very concept. While he had long since come to see this place as his home, he had never allowed himself to speak the word aloud, as though by refusing to acknowledge it, he might somehow deceive the world.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 3
+      }
+    },
+    "x127203": {
+      "storyTitle": "Character Story 3",
+      "storyText": "For most of the year, life in Piramida is hard — especially for children, whose thirst for novelty and excitement the city is unable to quench. Only when a banquet is held in the great mead hall at the very top of the fortress do the Lightkeepers return from their postings to lend a hint of vitality to this otherwise grim stronghold.\\nAt such times, the older children will help out in the kitchens. For them, the focus of any banquet is the rare delicacies they get the invaluable chance to taste — and Illuga was no exception. The returning Lightkeepers brought ingredients from far-off lands, and under the guidance of the cooks, Illuga picked up quite a few cooking skills of his own.\\nIn accordance with the rules laid down by the Starshyna, the children were only allowed to take their seats once the adults' banquet had ended. Nikita's explanation was simple: \"Children aren't allowed to drink mead.\" A reason that could only fool a child, Illuga thought to himself — for he had already outgrown his childhood.\\nOnce, he slipped into the hall unnoticed, curious to see what delicacies they were keeping to themselves. What he found instead were grown-ups in tears over their cups, so lost in sorrow that none of them noticed his presence.\\nAre banquets not supposed to be a cause for joy? Why did everyone seem so sad? Illuga kept those questions buried deep within his heart.\\nTime ground slowly onward, day by day. For reasons he could not understand, the banquets became more and more frequent. Yet the adults showed no sign of cheer — if anything, their gloom only became harder to conceal.\\nEven Illuga began to sense that something was wrong. His \"uncle\" in the records room, who would always hand him a slice of Lakkaberry Pie, did not return to his desk once winter ended. His \"aunt,\" who had taught him to bake bread in the kitchens, was suddenly replaced by an unfamiliar young man. He asked the adults about it once or twice, but the answers he received were vague and uncertain.\\nDuring the fourth banquet of the year, the shortage of hands in the kitchen had grown so severe that Illuga was tasked with leading the children to prepare the appetizers. This time, he was finally able to enter the hall as the banquet began.\\nThe room was silent. Carrying a tray, Illuga saw the Lightkeepers standing in solemn rows, raising their cups toward the sky in a wordless offering. The sharp crack of porcelain shattering against the floor broke the stillness. In that instant, it all became clear to him, and tears spilled forth before he could stop them.\\nThe great mead hall at the very top of Piramida was a place where banquets were held to mark bitter, hard-won victories. The adults had painstakingly fashioned a papier-mache shell, hoping to shield the children from the cruelness of reality. Yet the unstaunched blood of that reality had seeped through all the same, unnoticed, saturating their fragile shield.\\nPerhaps Illuga had understood it all along. He had witnessed far crueler scenes, replayed in every uninvited nightmare. He thought that by hiding in the dark, as he once had, he could keep the monsters at bay, until he noticed that the sand he clutched so tightly had never stopped slipping through his fingers.\\nOne day, that sand would run dry, just as the nightmares would eventually catch up with him. Before that day came, he had to do something — anything — to slow its flow, if only a little.\\nAnd so he finally made up his mind, a strange sense of relief washing over him as he headed for Nikita's command post.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 4
+      }
+    },
+    "x127204": {
+      "storyTitle": "Character Story 4",
+      "storyText": "In the thick of night, the command post of Starshyna Nikita shines bright against the darkness.\\nIn the minds of the people, Lightkeepers only ever appear after dark, as though they have no need for sleep.\\nNaturally, this is far from the truth. As the Starshyna, Nikita had drawn up a meticulously balanced nighttime patrol schedule for his order, doing his utmost to ensure everyone received sufficient rest and remained fit for duty.\\nNikita himself was no exception. He was not a man known for working himself to exhaustion, and so it should come as no surprise that he did not demand such of others.\\nOn the desk inside the command post, neatly processed reports were stacked to one side. Only a thin bundle of letters lay before Nikita. The broad-shouldered, middle-aged man braced his hands against the tabletop, his posture betraying no small measure of unease.\\nJust then, a flicker of ghostly blue flame flashed past the wall.\\nNikita could hardly have failed to notice it, though he seemed long accustomed to such occurrences.\\n\"Good to see you, Flins. Next time, I would be grateful if you used the door.\"\\n\"I was on patrol,\" the ghostly flame replied as it took on human form, ignoring Nikita's remark. He pulled up a chair and sat beside the desk. \"I saw your lamps still burning, so I thought I'd pay you a visit.\"\\n\"Speaking of patrols... I'm afraid you'll have to shoulder more of the burden for a while. We've taken heavy losses this year, and we're already stretched thin...\"\\n\"If manpower is tight, then it's only right and fair that I do my part,\" Flins answered solemnly, though he had never so much as glanced at the patrol schedule. \"Has recruitment also been down recently?\"\\n\"After such brutal fighting, many have been frightened off,\" Nikita said with a bitter smile. \"They were all young, with bright futures ahead of them. Yet I had no choice but to send them to the battlefield.\"\\n\"Maybe this is the burden a Starshyna must bear.\" It was unclear whether Flins meant this as consolation or merely a statement of fact. His gaze drifted to the letters on the desk. \"These are the applicants?\"\\n\"Take a look. You know this one.\" Nikita handed him the note.\\n\"Illuga... I remember him — the child you rescued from the ashes.\"\\n\"I didn't save those children just to raise them into soldiers... He deserves a better future — not to die on some battlefield.\"\\n\"But you do require his aid, do you not?\" Flins countered. \"Does he have skills?\"\\n\"His combat skills are almost flawless. When he faces monsters, he hardly seems like a child at all.\"\\n\"You were his teacher?\"\\nNikita fell silent.\\nAfter a long pause, he let out a deep sigh. \"...I should've found him a good home, let him start anew, rather than keeping him here in this castle, following the same path I did. But you've met the people in Nasha Town... You can never be sure who they really are beneath the surface. How could I be sure I was leaving him with good people, and not someone whose true motives were hidden behind a harmless smile...?\"\\n\"The dawn approaches. I should take my leave.\" Flins knew that the answer Nikita sought already lay within his heart. Rising, he returned the letter to the desk and departed from the command post.\\nThis time, he left through the door.\\nSeeing someone emerge, Illuga, who had been waiting outside the command post, felt a twinge of confusion. When had the man entered? Could it be that Illuga had dozed off while waiting and missed him?\\nBefore he could open his mouth, the approaching Lightkeeper spoke.\\n\"Go inside. The old man is waiting for you.\" And with that, he vanished into the night.\\nIn the eastern sky, the morning stars had already risen. Across the land — shrouded in darkness — the first light of dawn was about to break.",
+      "unlockConds": [
+        {
+          "type": "FETTER_COND_FETTER_LEVEL",
+          "value": 5
+        },
+        {
+          "type": "FETTER_COND_FINISH_QUEST",
+          "value": 601108
+        }
+      ]
+    },
+    "x127205": {
+      "storyTitle": "Character Story 5",
+      "storyText": "Illuga achieved his wish of joining the Lightkeepers.\\nPerhaps because Nikita was not so callous as to throw a child straight into the heat of battle, he was assigned to the logistics squad. It didn't take Illuga long to realize that his new responsibilities were much the same as those he had before joining the Lightkeepers.\\nHe considered protesting — to request an assignment to the most dangerous posts, where his abilities would be truly tested. In the end, though, he remained in the logistics squad, trusting that the old man had good reason for placing him there.\\nAt least one thing was different — he could finally open his heart to the world. Perhaps because he wanted to hold on a little tighter, nearly everyone in Piramida felt the warmth of his goodwill. After all, he was a Lightkeeper now — surely it was only natural to view his colleagues as family?\\nLogistics work involves many varied tasks — organizing supplies, collating reports, delivering messages, the list goes on. Before long, he had visited every outpost the Lightkeepers kept, both large and small. There wasn't a Lightkeeper in Nod-Krai who wasn't familiar with this enthusiastic young man.\\nIlluga, too, took care to remember every face — the strict Sergeant Major, Marushkin, the calm and composed Olav, the ever-cheerful brothers, Ivar and Rollon... even those he had met only once were treated as family.\\nThis attentiveness, perhaps, was in no small part inherited from Nikita. During missions, he would even prepare each person's favorite food. If someone, half-jokingly, wished for a particular treat, they would later find a small surprise waiting for them, courtesy of Illuga.\\nMany who joined the Lightkeepers arrived with bitter pasts, and in a sense, he came to fill the holes in the hearts of his colleagues. Perhaps the empty void he himself carried inside him was also beginning to shrink, slowly filled by the presence of \"family.\"\\nThose he cared for often asked him about his favorite foods. Perhaps he didn't want others to feel burdened by returning the favor, or perhaps he simply didn't know. Either way, he would always deflect their questions, deftly steering the conversation in other directions.\\nEven so, on the first anniversary of his joining the Lightkeepers, everyone prepared a surprise. Each person brought carefully chosen ingredients, which were all cooked together in a single pot. Gathered around the fire, they spent a lively, joyful night together.\\nThe next day, Illuga was reassigned to the investigation squad. It felt like a natural move. His teammates trusted that this young man would lead them toward a brighter future, just as Illuga trusted them.\\nPerhaps that had been the old man's intention all along.",
+      "unlockConds": [
+        {
+          "type": "FETTER_COND_FETTER_LEVEL",
+          "value": 6
+        },
+        {
+          "type": "FETTER_COND_FINISH_PARENT_QUEST",
+          "value": 76101
+        }
+      ]
+    },
+    "x127206": {
+      "storyTitle": "\"Aedon\"",
+      "storyText": "Influenced by kuuvahki, many of Nod-Krai's creatures have followed a unique path of evolution, astonishing even the most seasoned of travelers.\\nBeasts that tread upon crackling thunder with floating horns, fruits that sprout from plant roots and scurry and hide, even gargantuan insects that could only be seen in ancient times.\\nCompared to these, a nightingale that ever glimmers with golden light hardly seems remarkable.\\nIlluga first encountered Aedon during a perilous mission. He had become separated from his squad and was lost in the endless expanse of a dark forest — though in hindsight, it was likely the Wild Hunt's mist-shrouded illusions, for the wilderness of Nod-Krai held no forest so deep.\\nRunning through the darkness, he chased a faint glimmer, as it guided him out of the woods. Only when the moonlight pierced the mist did he see the light's source — a bird as translucent as crystal, radiant and pure.\\nFrom then on, the nightingale often traveled by his side, helping him deal with countless problems, and wherever he was stationed, Illuga would always leave a place for it by his door.\\nTo Illuga, Aedon was a reliable companion. Even when he later learned from Alia that it had once belonged to the Torchforger, Solovei, it had little effect on him.\\nThe creatures that dwell beneath the moon stand guard over this land — they who predate even the Lightkeepers. Long before humans set foot in Nod-Krai, they waged their endless struggle against the eternal dark.\\nIn the story of the wick-bearing nightingales, the sun that illuminates the mortal world is, in fact, formed from countless birds carrying burning embers in their beaks.\\nIlluga felt that Aedon was a nightingale from that story. And one day, he too would become just like it — one bird among many.",
+      "unlockConds": [
+        {
+          "type": "FETTER_COND_FETTER_LEVEL",
+          "value": 4
+        },
+        {
+          "type": "FETTER_COND_FINISH_PARENT_QUEST",
+          "value": 76101
+        }
+      ]
+    },
+    "x127207": {
+      "storyTitle": "Vision",
+      "storyText": "Illuga stood before the gravestones, unmoving.\\nJust last month, they had endured a brutal battle. What was meant to be a routine investigation had turned disastrous when something unforeseen at an ancient ruin triggered a surge of Wild Hunt that swept across the northern reaches of Nod-Krai.\\nOnly after deploying multiple squads and paying a grievous price did the Lightkeepers finally purge the monsters. Many innocent civilians lost their lives in the chaos.\\nIlluga's squad was the first to encounter the anomaly, bearing the heaviest losses. Their captain, Olsson, had died heroically while covering their retreat. Only Illuga and Ivar survived — the latter dragged from the battlefield by the former.\\nOnce more, Illuga found himself surviving a catastrophe that had left those around him dead.\\nOf course, he hadn't fled the battlefield out of fear. He had left the wounded behind so he could seek reinforcements to save them.\\nOr was that a lie he told himself? That night, he heard familiar, fragmented voices calling from the darkness, as if mocking his cowardice. If he had been the one to cover their retreat, would more of them have lived? At the very least, Olsson would still...\\nAfter the battle, however, Starshyna Nikita sealed off Kipumaki Cliff, the source of the Wild Hunt, and forbade anyone from getting close. With nowhere to lay his doubts to rest, Illuga could only wander the graves of his fallen comrades, searching for answers that were not there.\\nYet on this particular day, he was not alone.\\n\"Mr. Flins? Are you here to pay your respects as well?\"\\nThis Ratnik stationed on a lonely island no longer belonged to any active squad. His seniority among the Lightkeepers seemed to rival even Nikita's, and Illuga suspected that he, too, carried an unspoken history of grief — one shrouded in the same veil of mystery as the man himself.\\n\"My old comrades rest elsewhere — this place was built to house those who fell in the last decade or so. The old man asked me to see if anything here needed repair. I spend most of my time around graves, after all — I've become something of an expert.\"\\nNikita had also asked him to keep an eye on the melancholy young Illuga, but Flins left that part unspoken.\\nIlluga had a sense that perhaps he should share his troubles with Flins. Someone who had survived as many battles as he might be able to dispel his doubts. Yet Illuga couldn't put his troubles into words. Perhaps he only needed an opportunity — a chance to confirm the answer he already carried in his heart.\\n\"Mr. Flins, in your opinion, which is more unforgivable of a Lightkeeper — recklessness, or cowardice?\"\\n\"I'm afraid the premise of your question is misguided. To join the Lightkeepers is itself a testament to courage. And as a steadfast, upright Lightkeeper — what reason would you have to doubt your choices derive from a sense of justice?\"\\nAfter returning from the cemetery, Illuga submitted his request to assume command of the investigation squad. Ivar's injuries meant he could no longer fight, so in truth, Illuga now WAS the squad.\\nUnlike with his request to join the Lightkeepers, this time he received a swift response. His appointment letter was heavier than he had expected, and when he opened it, a gleaming gemstone fell out. He had seen such a stone in Flins's possession, but only now did he believe the stories that had once seemed so implausible.\\nThis was indeed a gift from the world. The gemstone weighed heavy in his palm, much like the responsibility he was about to shoulder.",
+      "unlockConds": [
+        {
+          "type": "FETTER_COND_FETTER_LEVEL",
+          "value": 6
+        },
+        {
+          "type": "FETTER_COND_FINISH_PARENT_QUEST",
+          "value": 76101
+        }
+      ]
+    }
+  },
+  "quotes": {
+    "x127000": {
+      "quoteTitle": "Chat: On Guard",
+      "quoteText": "They say that the calmer things seem on the surface, the more likely that danger lurks in the shadows... Not sure if that's always true, but it never hurts to stay alert.",
+      "unlockConds": []
+    },
+    "x127001": {
+      "quoteTitle": "Chat: Night Patrol",
+      "quoteText": "You cold? Gotta be careful you don't catch a chill. C'mon, I'll fix you a bowl of hot soup.",
+      "unlockConds": []
+    },
+    "x127002": {
+      "quoteTitle": "Chat: Adversity",
+      "quoteText": "Just doing what you're good at won't cut it, y'know. Sometimes, the only way to grow stronger is to step out of your comfort zone.",
+      "unlockConds": []
+    },
+    "x127003": {
+      "quoteTitle": "Hello",
+      "quoteText": "Hey there! I'm Illuga, leader of the Lightkeepers' investigation squad. Lost your way, huh? Heh, don't worry... that happens a lot. These paths aren't exactly \"traveler-friendly,\" even on the best of days. Just follow my lead — I'll light the way ahead.",
+      "unlockConds": []
+    },
+    "x127004": {
+      "quoteTitle": "After the Rain",
+      "quoteText": "Sun is back! Looks like the light won again.",
+      "unlockConds": []
+    },
+    "x127005": {
+      "quoteTitle": "When Thunder Strikes",
+      "quoteText": "As my old pops always says, \"the gods are at it again.\" Just hope they don't drag the rest of us into it...",
+      "unlockConds": []
+    },
+    "x127006": {
+      "quoteTitle": "When the Sun Is Out",
+      "quoteText": "Finally, some decent weather for a change. If only it were like this more often, us Lightkeepers wouldn't have half as much to worry about.",
+      "unlockConds": []
+    },
+    "x127007": {
+      "quoteTitle": "When the Wind Is Blowing",
+      "quoteText": "Wind's kicking up... That's never a good sign. We'd better make camp before it turns nasty.",
+      "unlockConds": []
+    },
+    "x127008": {
+      "quoteTitle": "Good Morning",
+      "quoteText": "Another dawn... Another night safely behind us.",
+      "unlockConds": []
+    },
+    "x127009": {
+      "quoteTitle": "Good Afternoon",
+      "quoteText": "Now the sun's up, I should probably take the chance to scout out our surroundings. Problem is... I could really use a nap.",
+      "unlockConds": []
+    },
+    "x127010": {
+      "quoteTitle": "Good Evening",
+      "quoteText": "You never know what might be lurking in the shadows of night. If you really have to travel, make sure to stay sharp.",
+      "unlockConds": []
+    },
+    "x127011": {
+      "quoteTitle": "Good Night",
+      "quoteText": "It's getting late. You go ahead and get some rest — I'll keep watch tonight.",
+      "unlockConds": []
+    },
+    "x127012": {
+      "quoteTitle": "About Illuga: Lightkeepers",
+      "quoteText": "Hehe, it took a lot of pestering before my old pops finally let me join the Lightkeepers. I just couldn't bear the idea of staying in Piramida safe and sound while others were out there risking their lives. Like I told him, I'd rather be on the frontlines helping keep the Wild Hunt at bay.",
+      "unlockConds": []
+    },
+    "x127013": {
+      "quoteTitle": "About Illuga: Squad Leader",
+      "quoteText": "Being squad leader essentially means I'm responsible for keeping my comrades alive. Some days I still wonder if I'm really cut out for it... but since they've placed their trust in me, I can't let them down.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x127014": {
+      "quoteTitle": "About Us: Duty",
+      "quoteText": "It's a Lightkeeper's duty to protect the merchants and travelers who pass through our lands. Does that include adventurers, you ask? Well... technically, it's not part of the job description, but I can tell you this — no one's getting hurt on my watch.",
+      "unlockConds": []
+    },
+    "x127015": {
+      "quoteTitle": "About Us: Squad Members",
+      "quoteText": "Now that you're a member of the investigation squad, I'm responsible for your safety, and a whole squad's worth of \"little birds\" tell me you've been off adventuring in dangerous places again. Seeing you safe and sound puts my mind at ease, but I'd feel even better if you let me come with you!",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 6",
+        "Complete \"Nightingale's Song\""
+      ]
+    },
+    "x127016": {
+      "quoteTitle": "About the Vision",
+      "quoteText": "Someone once told me these were no more than pretty gemstones. It wasn't until I held one myself that I understood what it truly meant. I don't think fate gave it to me by accident, but still... the onus is on me to prove I'm worthy.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x127017": {
+      "quoteTitle": "Something to Share",
+      "quoteText": "If you look north from the highest point in Piramida, you can just about make out the edge of the Snezhnayan tundra. They say that was the homeland of our first Starshyna, Torchforger Solovei. He ended up losing everything, even his home... Yet here, he found a place to belong. Maybe that's why this fortress exists — as a refuge for people like us, a place to find warmth in each other.",
+      "unlockConds": []
+    },
+    "x127018": {
+      "quoteTitle": "Interesting Things",
+      "quoteText": "Around Piramida, you'll run into all sorts of strange creatures brimming with kuuvahki... Mandragoras, Slothsheep, you name it. They might look like animals, but they're actually plants — so don't be fooled by the mimicry. Still, they taste delicious! I could whip something up for you to try if you'd like... How do I know how they taste...? Uhh, let's just say... when you're out in the middle of nowhere on night patrol, a little improvisation goes a long way.",
+      "unlockConds": []
+    },
+    "x127019": {
+      "quoteTitle": "About Flins: Drop-Ins",
+      "quoteText": "When I first met Mr. Flins, I assumed that the reason he lived alone was either because he didn't like being around people, or that he was just a little... eccentric. Turns out that the complete opposite is true — well, at least in terms of his social appetite. Only thing is, every time we talk, he always seems to end his stories on a cliffhanger... Sometimes, I wonder if that's his way of making sure I'll come back to hear the rest.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4",
+        "Complete \"Elegy of Dust and Lamplight\""
+      ]
+    },
+    "x127020": {
+      "quoteTitle": "About Flins: Secrets",
+      "quoteText": "You're saying there's a lot more to Mr. Flins than meets the eye? Hah... Well, that's hardly unusual for a Ratnik. We're all from different walks of life, so who doesn't have a few things they'd rather keep to themselves? Even my old pops rarely talks about his past. As for Mr. Flins... well, I've certainly got to know him a lot better, and after everything that's been going on lately, I've got a rough idea of what he might be hiding. I actually asked about it once, but he neither confirmed nor denied my suspicions. In a way, I guess that's an answer in itself.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4",
+        "Complete \"True Moon\""
+      ]
+    },
+    "x127021": {
+      "quoteTitle": "About Lauma",
+      "quoteText": "Our friendship with the Frostmoon Scions goes all the way back to the days of the Torchforger himself. Truth is, though, even if it didn't, I'd still have nothing but admiration for the current Moonchanter. She's kind, gentle, and I end up learning something new every time I visit. In times like these, her job can't be any easier than ours — yet somehow, she always manages to stay so serene. I'd bet that she's been shouldering a lot more than she lets on.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x127022": {
+      "quoteTitle": "About Varka",
+      "quoteText": "I've fought side-by-side with Mr. Varka against the Wild Hunt, and I can tell you this — his fighting skills are up there with the best of them. I've heard that the Knights of Favonius were founded to defend their homeland, just like us Lightkeepers. I hope that someday, once we've finally driven the Wild Hunt from Nod-Krai, we'll be able to travel beyond these lands and fight for those living in hardship elsewhere as well.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x127023": {
+      "quoteTitle": "About Nefer",
+      "quoteText": "Our operations in Nasha Town have become way smoother in recent times, and it's mostly thanks to the Curatorium of Secrets. It sure wasn't like this before, I'll tell you that. Before Miss Nefer arrived on the scene, it was like we were locked in a constant battle with the town's gangs, and it used to worry my old pops sick. Things have improved immensely since then, though. That said, Miss Nefer seems to love teasing me just as much as Mr. Flins does... and I have to admit, that can be a bit of a headache sometimes.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x127024": {
+      "quoteTitle": "About Aino",
+      "quoteText": "Whenever the Lightkeepers need help fixing complex machinery, we tend to ask for Miss Aino's assistance. She really seems determined to teach us how to do it ourselves, though. Ever since she caught me trying to repair something on my own, she's been constantly insisting that I attend her classes... How exactly was I trying to fix it, you ask? Hah, well, if you must know, it was a trick I learned from my old pops. As he likes to put it, \"if something's not working, just whack it a few times!\" To my shock, that set her off something fierce...",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x127025": {
+      "quoteTitle": "About Linnea",
+      "quoteText": "Even in a place as diverse as Nod-Krai, Fae ladies like Miss Linnea are few and far between. I originally figured she'd be the quiet, graceful type, but it turns out that was WAY off. For instance, the first time she saw Aedon, she got so excited that she practically pounced on him. It spooked him so bad that now, the second he hears her voice, he bolts for my lamp. And remember, this is Aedon we're talking about here — a messenger bird who's usually so \"unflappable\" that he wouldn't flinch for anything, not even the Wild Hunt...",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x127026": {
+      "quoteTitle": "About the Moon Goddess",
+      "quoteText": "Nod-Krai is an \"elysium\" built by human hands, a dream kept alive over the centuries by the blood and sacrifice of countless generations of Lightkeepers. There might be a new deity in town, but I don't think our way of life will suddenly change because of that. It's not that I doubt the Moon Goddess herself — far from it. I just believe that... rather than waiting for someone else to save us, we'd do better to rely on our own strength.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4",
+        "Complete \"True Moon\""
+      ]
+    },
+    "x127027": {
+      "quoteTitle": "More About Illuga: I",
+      "quoteText": "You want to know about my past? Hmm, let me think... Nope, I don't think there's anything in there that would put a smile on your face. You... sure you wanna hear it?",
+      "unlockConds": []
+    },
+    "x127028": {
+      "quoteTitle": "More About Illuga: II",
+      "quoteText": "Meet Aedon, my messenger bird — the trusty little guy who comes with me whenever I head out on night patrol. Honestly, I couldn't ask for a better companion. Not only does he alert me to danger, he even lights the way ahead... Huh? You mean, despite all that traveling, even you've never seen a bird that glows like this before? Hold up... Could he... actually be more than just a regular messenger bird?",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 3"
+      ]
+    },
+    "x127029": {
+      "quoteTitle": "More About Illuga: III",
+      "quoteText": "You've probably noticed that my Oath Lantern is a bit different from the standard-issue ones that everyone else carries. It's not because I'm a squad leader or anything like that — it's just the signal lamp I used back when I served in the logistics squad. Later, when our equipment was upgraded, this became the last of its kind. I guess you could say I've grown kinda attached to it. The idea of replacing it... doesn't quite feel right.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x127030": {
+      "quoteTitle": "More About Illuga: IV",
+      "quoteText": "You know how I call Nikita \"my old pops\"? Well, it probably wouldn't surprise you to hear that the others all call him \"old man\" too. Despite that, though, I don't actually think he's aged much at all. He still remembers the positions of every lighthouse and who's stationed there even better than I do, and no matter how hard I try, I can never hide a thing from him. But that's exactly why I can't help but wonder — what will happen someday when the years finally catch up to him?",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 5"
+      ]
+    },
+    "x127031": {
+      "quoteTitle": "More About Illuga: V",
+      "quoteText": "Whenever the Wild Hunt comes forth, the wails of the dead follow in its wake... and every time I hear those cries, I feel like I'm back on that battlefield, reliving the day that my old pops took me in. Perhaps as long as the Wild Hunt still roams this land, the nightmares that haunt me will never truly fade.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 6"
+      ]
+    },
+    "x127032": {
+      "quoteTitle": "Illuga's Hobbies",
+      "quoteText": "Now you mention it, I guess I spend most of my downtime with my squadmates too. Lately, we've all been hooked on this new game called \"Tabletop Troupe.\" We're still short a couple of players, though... So how about it? Wanna join us?",
+      "unlockConds": []
+    },
+    "x127033": {
+      "quoteTitle": "Illuga's Troubles",
+      "quoteText": "The thought of innocent people dying in sudden, meaningless calamities is something I can never accept. I just wish that no one else ever has to go through something like that again... That's all I've ever worked for.",
+      "unlockConds": []
+    },
+    "x127034": {
+      "quoteTitle": "Favorite Food",
+      "quoteText": "To be honest, I don't really have any strong preferences when it comes to food. The way I see it, as long as we can all gather around the fire and share a warm meal, whatever's on the table tastes like the finest cuisine there is.",
+      "unlockConds": []
+    },
+    "x127035": {
+      "quoteTitle": "Least Favorite Food",
+      "quoteText": "As long as it's hot, I'm fine with just about anything. Cold food, though... Yeah, not so much. Imagine — you're out on night watch in the dead of winter, and you're handed a bowl of stone cold gruel. The mere thought of it makes me wanna say something I really shouldn't...",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 6"
+      ]
+    },
+    "x127036": {
+      "quoteTitle": "Receiving a Gift: I",
+      "quoteText": "Wow, now that's what I call flavor... Seriously, what's the secret ingredient? I wanna learn how to make this myself!",
+      "unlockConds": []
+    },
+    "x127037": {
+      "quoteTitle": "Receiving a Gift: II",
+      "quoteText": "Not bad! Heh, wait till my comrades get a taste of this!",
+      "unlockConds": []
+    },
+    "x127038": {
+      "quoteTitle": "Receiving a Gift: III",
+      "quoteText": "Ahem... Hey, I can teach you a few other dishes, if you'd like!",
+      "unlockConds": []
+    },
+    "x127039": {
+      "quoteTitle": "Birthday",
+      "quoteText": "Happy birthday, squadmate! Forget about commissions and adventures — days like this are reserved for close friends, full bellies, and catching up on sleep! I'll be standing watch, so you just focus on letting your hair down. And on the off-chance we get gate-crashers, I'll scare 'em off with my trusty lamp.",
+      "unlockConds": []
+    },
+    "x127040": {
+      "quoteTitle": "Feelings About Ascension: Intro",
+      "quoteText": "Huh, if only I'd known about this sooner. Now that's what I call a game-changer.",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 1"
+      ]
+    },
+    "x127041": {
+      "quoteTitle": "Feelings About Ascension: Building Up",
+      "quoteText": "I'm certainly feeling stronger... but I can tell I've still got a long way to go.",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 2"
+      ]
+    },
+    "x127042": {
+      "quoteTitle": "Feelings About Ascension: Climax",
+      "quoteText": "Can't believe how much I've learned, and it's all thanks to you. Heh, I might finally be starting to believe in myself...",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 4"
+      ]
+    },
+    "x127043": {
+      "quoteTitle": "Feelings About Ascension: Conclusion",
+      "quoteText": "I've relied on you so much up till now, and I really appreciate your help. Now that I'm feeling up to it, I hope you'll let me return the favor... once in a while, at least.",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 6"
+      ]
+    },
+    "x127044": {
+      "quoteTitle": "Elemental Skill: I",
+      "quoteText": "Go get 'em, Aedon!",
+      "unlockConds": []
+    },
+    "x127045": {
+      "quoteTitle": "Elemental Skill: II",
+      "quoteText": "While the light shines bright!",
+      "unlockConds": []
+    },
+    "x127046": {
+      "quoteTitle": "Elemental Skill: III",
+      "quoteText": "You got this!",
+      "unlockConds": []
+    },
+    "x127047": {
+      "quoteTitle": "Elemental Skill: IV",
+      "quoteText": "Target acquired.",
+      "unlockConds": []
+    },
+    "x127048": {
+      "quoteTitle": "Elemental Skill: V",
+      "quoteText": "You're in my sights.",
+      "unlockConds": []
+    },
+    "x127049": {
+      "quoteTitle": "Elemental Skill: VI",
+      "quoteText": "Press the advantage!",
+      "unlockConds": []
+    },
+    "x127050": {
+      "quoteTitle": "Elemental Burst: I",
+      "quoteText": "Begone, shadow of darkness!",
+      "unlockConds": []
+    },
+    "x127051": {
+      "quoteTitle": "Elemental Burst: II",
+      "quoteText": "The light compels you!",
+      "unlockConds": []
+    },
+    "x127052": {
+      "quoteTitle": "Elemental Burst: III",
+      "quoteText": "Behold the dawn!",
+      "unlockConds": []
+    },
+    "x127053": {
+      "quoteTitle": "Opening Treasure Chest: I",
+      "quoteText": "This should go to those that need it.",
+      "unlockConds": []
+    },
+    "x127054": {
+      "quoteTitle": "Opening Treasure Chest: II",
+      "quoteText": "So it wasn't a trap, after all.",
+      "unlockConds": []
+    },
+    "x127055": {
+      "quoteTitle": "Opening Treasure Chest: III",
+      "quoteText": "Huh, how'd this slip through the net...",
+      "unlockConds": []
+    },
+    "x127056": {
+      "quoteTitle": "Low HP: I",
+      "quoteText": "This looks bad...",
+      "unlockConds": []
+    },
+    "x127057": {
+      "quoteTitle": "Low HP: II",
+      "quoteText": "Guess I got cocky...",
+      "unlockConds": []
+    },
+    "x127058": {
+      "quoteTitle": "Low HP: III",
+      "quoteText": "Is it... too late to call for backup?",
+      "unlockConds": []
+    },
+    "x127059": {
+      "quoteTitle": "Ally at Low HP: I",
+      "quoteText": "Stay behind me!",
+      "unlockConds": []
+    },
+    "x127060": {
+      "quoteTitle": "Ally at Low HP: II",
+      "quoteText": "My turn!",
+      "unlockConds": []
+    },
+    "x127061": {
+      "quoteTitle": "Fallen: I",
+      "quoteText": "I could've... done more...",
+      "unlockConds": []
+    },
+    "x127062": {
+      "quoteTitle": "Fallen: II",
+      "quoteText": "Just... make sure the intel gets back.",
+      "unlockConds": []
+    },
+    "x127063": {
+      "quoteTitle": "Fallen: III",
+      "quoteText": "I couldn't... keep you all safe...",
+      "unlockConds": []
+    },
+    "x127064": {
+      "quoteTitle": "Light Hit Taken: I",
+      "quoteText": "Argh...",
+      "unlockConds": []
+    },
+    "x127065": {
+      "quoteTitle": "Light Hit Taken: II",
+      "quoteText": "I got careless...",
+      "unlockConds": []
+    },
+    "x127066": {
+      "quoteTitle": "Heavy Hit Taken: I",
+      "quoteText": "Not on my watch...",
+      "unlockConds": []
+    },
+    "x127067": {
+      "quoteTitle": "Heavy Hit Taken: II",
+      "quoteText": "Gotta hold fast!",
+      "unlockConds": []
+    },
+    "x127068": {
+      "quoteTitle": "Joining Party: I",
+      "quoteText": "Ratnik reporting for duty!",
+      "unlockConds": []
+    },
+    "x127069": {
+      "quoteTitle": "Joining Party: II",
+      "quoteText": "I'll light the path ahead.",
+      "unlockConds": []
+    },
+    "x127070": {
+      "quoteTitle": "Joining Party: III",
+      "quoteText": "I won't let you down.",
+      "unlockConds": []
+    }
+  },
+  "energy": [
+    {
+      "source": "ElementalArt_DropBall",
+      "particles": "4",
+      "chance": "50%",
+      "cd": "0.5s"
+    },
+    {
+      "source": "ElementalArt_DropBall",
+      "particles": "5",
+      "chance": "50%",
+      "cd": "0.5s"
+    }
+  ],
+  "attacks": [
+    {
+      "name": "ExtraAttack_Bullet",
+      "icd_source": "Grp: Avatar_Pole_ExtraAttack (Tag Miss)",
+      "icd_rule": "24 hits / 0.5s",
+      "gauge": "1U",
+      "poise": "LV5/120",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Spear",
+      "damageParam": "ExtraAttack_Normal"
+    },
+    {
+      "name": "ExtraAttack_Bullet",
+      "icd_source": "Grp: Avatar_Pole_ExtraAttack (Tag Miss)",
+      "icd_rule": "24 hits / 0.5s",
+      "gauge": "1U",
+      "poise": "LV6/120",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Spear",
+      "damageParam": "ExtraAttack_Normal"
+    },
+    {
+      "name": "ElementalArt_Click_Bullet",
+      "icd_source": "Tag: Elemental_Art (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV3/75",
+      "element": "Rock",
+      "attackType": "Range",
+      "strikeType": "Blunt",
+      "damageParam": "-"
+    },
+    {
+      "name": "ElementalArt_Charge_Bullet",
+      "icd_source": "Tag: Elemental_Art (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV3/100",
+      "element": "Rock",
+      "attackType": "Range",
+      "strikeType": "Blunt",
+      "damageParam": "-"
+    },
+    {
+      "name": "ElementalArt_Charge_Bullet_NoTarget",
+      "icd_source": "Tag: Elemental_Art (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV3/100",
+      "element": "Rock",
+      "attackType": "Range",
+      "strikeType": "Blunt",
+      "damageParam": "-"
+    },
+    {
+      "name": "ElementalBurst",
+      "icd_source": "Tag: Elemental_Burst (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV4/150",
+      "element": "Rock",
+      "attackType": "Melee",
+      "strikeType": "Blunt",
+      "damageParam": "-"
+    },
+    {
+      "name": "Constellation_6_Bullet",
+      "icd_source": "Tag: Elemental_Burst (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV1/75",
+      "element": "Rock",
+      "attackType": "Default",
+      "strikeType": "Blunt",
+      "damageParam": "-"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "0U",
+      "poise": "LV2/25",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Slash",
+      "damageParam": "FallingAnthem_Normal_Loop_Damage"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "0U",
+      "poise": "LV4/25",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Slash",
+      "damageParam": "FallingAnthem_Normal_Loop_Damage"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV4/100",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Blunt",
+      "damageParam": "FallingAnthem_Normal_Rank_1_Damage"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV7/150",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Blunt",
+      "damageParam": "FallingAnthem_Normal_Rank_2_Damage"
+    }
+  ],
+  "endure": {
+    "ability": "ElementalArt",
+    "handler": "ElementalArt_Focus",
+    "Actor_EndureDelta": 0.5
+  }
+}

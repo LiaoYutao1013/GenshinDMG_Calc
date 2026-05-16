@@ -1,5 +1,1 @@
-E
-Drill
-Q
-Quake
-Drill
+AUTO

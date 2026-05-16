@@ -1,0 +1,1796 @@
+{
+  "info": {
+    "name": "Emilie",
+    "description": "A Fontainian perfumer, one who bottles secrets.",
+    "rarity": "QUALITY_ORANGE",
+    "weapon": "WEAPON_POLE",
+    "birthday": "22/9",
+    "element": "Dendro",
+    "title": "A Thousand Scents Traced",
+    "constellation": "Pomum de Ambra",
+    "affiliation": "Court of Fontaine",
+    "cv": {
+      "EN": "Amber Aviles",
+      "CHS": "木子橙",
+      "JP": "日笠陽子",
+      "KR": "Kwon Da-ye"
+    },
+    "attributes": [
+      {
+        "level": 1,
+        "ascension": 0,
+        "hp": 1056,
+        "atk": 26,
+        "def": 57,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 2,
+        "ascension": 0,
+        "hp": 1144,
+        "atk": 28,
+        "def": 62,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 3,
+        "ascension": 0,
+        "hp": 1232,
+        "atk": 30,
+        "def": 66,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 4,
+        "ascension": 0,
+        "hp": 1320,
+        "atk": 33,
+        "def": 71,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 5,
+        "ascension": 0,
+        "hp": 1408,
+        "atk": 35,
+        "def": 76,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 6,
+        "ascension": 0,
+        "hp": 1497,
+        "atk": 37,
+        "def": 81,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 7,
+        "ascension": 0,
+        "hp": 1584,
+        "atk": 39,
+        "def": 85,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 8,
+        "ascension": 0,
+        "hp": 1673,
+        "atk": 41,
+        "def": 90,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 9,
+        "ascension": 0,
+        "hp": 1762,
+        "atk": 43,
+        "def": 95,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 10,
+        "ascension": 0,
+        "hp": 1850,
+        "atk": 46,
+        "def": 100,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 11,
+        "ascension": 0,
+        "hp": 1938,
+        "atk": 48,
+        "def": 104,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 12,
+        "ascension": 0,
+        "hp": 2027,
+        "atk": 50,
+        "def": 109,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 13,
+        "ascension": 0,
+        "hp": 2116,
+        "atk": 52,
+        "def": 114,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 14,
+        "ascension": 0,
+        "hp": 2206,
+        "atk": 54,
+        "def": 119,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 15,
+        "ascension": 0,
+        "hp": 2294,
+        "atk": 57,
+        "def": 123,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 16,
+        "ascension": 0,
+        "hp": 2383,
+        "atk": 59,
+        "def": 128,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 17,
+        "ascension": 0,
+        "hp": 2473,
+        "atk": 61,
+        "def": 133,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 18,
+        "ascension": 0,
+        "hp": 2561,
+        "atk": 63,
+        "def": 138,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 19,
+        "ascension": 0,
+        "hp": 2651,
+        "atk": 65,
+        "def": 143,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 20,
+        "ascension": 0,
+        "hp": 2740,
+        "atk": 68,
+        "def": 147,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 21,
+        "ascension": 1,
+        "hp": 3735,
+        "atk": 92,
+        "def": 201,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 22,
+        "ascension": 1,
+        "hp": 3825,
+        "atk": 94,
+        "def": 206,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 23,
+        "ascension": 1,
+        "hp": 3915,
+        "atk": 97,
+        "def": 211,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 24,
+        "ascension": 1,
+        "hp": 4005,
+        "atk": 99,
+        "def": 215,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 25,
+        "ascension": 1,
+        "hp": 4095,
+        "atk": 101,
+        "def": 220,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 26,
+        "ascension": 1,
+        "hp": 4185,
+        "atk": 103,
+        "def": 225,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 27,
+        "ascension": 1,
+        "hp": 4275,
+        "atk": 106,
+        "def": 230,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 28,
+        "ascension": 1,
+        "hp": 4365,
+        "atk": 108,
+        "def": 235,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 29,
+        "ascension": 1,
+        "hp": 4456,
+        "atk": 110,
+        "def": 240,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 30,
+        "ascension": 1,
+        "hp": 4546,
+        "atk": 112,
+        "def": 245,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 31,
+        "ascension": 1,
+        "hp": 4636,
+        "atk": 114,
+        "def": 249,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 32,
+        "ascension": 1,
+        "hp": 4727,
+        "atk": 117,
+        "def": 254,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 33,
+        "ascension": 1,
+        "hp": 4818,
+        "atk": 119,
+        "def": 259,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 34,
+        "ascension": 1,
+        "hp": 4908,
+        "atk": 121,
+        "def": 264,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 35,
+        "ascension": 1,
+        "hp": 4999,
+        "atk": 123,
+        "def": 269,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 36,
+        "ascension": 1,
+        "hp": 5091,
+        "atk": 126,
+        "def": 274,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 37,
+        "ascension": 1,
+        "hp": 5181,
+        "atk": 128,
+        "def": 279,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 38,
+        "ascension": 1,
+        "hp": 5272,
+        "atk": 130,
+        "def": 284,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 39,
+        "ascension": 1,
+        "hp": 5363,
+        "atk": 132,
+        "def": 289,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 40,
+        "ascension": 1,
+        "hp": 5455,
+        "atk": 135,
+        "def": 294,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 41,
+        "ascension": 2,
+        "hp": 6189,
+        "atk": 153,
+        "def": 333,
+        "CRITDMG_": "9.6"
+      },
+      {
+        "level": 42,
+        "ascension": 2,
+        "hp": 6281,
+        "atk": 155,
+        "def": 338,
+        "CRITDMG_": "9.6"
+      },
+      {
+        "level": 43,
+        "ascension": 2,
+        "hp": 6373,
+        "atk": 157,
+        "def": 343,
+        "CRITDMG_": "9.6"
+      },
+      {
+        "level": 44,
+        "ascension": 2,
+        "hp": 6464,
+        "atk": 160,
+        "def": 348,
+        "CRITDMG_": "9.6"
+      },
+      {
+        "level": 45,
+        "ascension": 2,
+        "hp": 6556,
+        "atk": 162,
+        "def": 353,
+        "CRITDMG_": "9.6"
+      },
+      {
+        "level": 46,
+        "ascension": 2,
+        "hp": 6648,
+        "atk": 164,
+        "def": 358,
+        "CRITDMG_": "9.6"
+      },
+      {
+        "level": 47,
+        "ascension": 2,
+        "hp": 6740,
+        "atk": 166,
+        "def": 363,
+        "CRITDMG_": "9.6"
+      },
+      {
+        "level": 48,
+        "ascension": 2,
+        "hp": 6832,
+        "atk": 169,
+        "def": 368,
+        "CRITDMG_": "9.6"
+      },
+      {
+        "level": 49,
+        "ascension": 2,
+        "hp": 6925,
+        "atk": 171,
+        "def": 373,
+        "CRITDMG_": "9.6"
+      },
+      {
+        "level": 50,
+        "ascension": 2,
+        "hp": 7016,
+        "atk": 173,
+        "def": 378,
+        "CRITDMG_": "9.6"
+      },
+      {
+        "level": 51,
+        "ascension": 3,
+        "hp": 7966,
+        "atk": 197,
+        "def": 429,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 52,
+        "ascension": 3,
+        "hp": 8059,
+        "atk": 199,
+        "def": 434,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 53,
+        "ascension": 3,
+        "hp": 8151,
+        "atk": 201,
+        "def": 439,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 54,
+        "ascension": 3,
+        "hp": 8244,
+        "atk": 203,
+        "def": 444,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 55,
+        "ascension": 3,
+        "hp": 8337,
+        "atk": 206,
+        "def": 449,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 56,
+        "ascension": 3,
+        "hp": 8430,
+        "atk": 208,
+        "def": 454,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 57,
+        "ascension": 3,
+        "hp": 8523,
+        "atk": 210,
+        "def": 459,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 58,
+        "ascension": 3,
+        "hp": 8616,
+        "atk": 213,
+        "def": 464,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 59,
+        "ascension": 3,
+        "hp": 8709,
+        "atk": 215,
+        "def": 469,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 60,
+        "ascension": 3,
+        "hp": 8802,
+        "atk": 217,
+        "def": 474,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 61,
+        "ascension": 4,
+        "hp": 9538,
+        "atk": 235,
+        "def": 513,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 62,
+        "ascension": 4,
+        "hp": 9631,
+        "atk": 238,
+        "def": 518,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 63,
+        "ascension": 4,
+        "hp": 9725,
+        "atk": 240,
+        "def": 523,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 64,
+        "ascension": 4,
+        "hp": 9818,
+        "atk": 242,
+        "def": 528,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 65,
+        "ascension": 4,
+        "hp": 9912,
+        "atk": 245,
+        "def": 533,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 66,
+        "ascension": 4,
+        "hp": 10006,
+        "atk": 247,
+        "def": 538,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 67,
+        "ascension": 4,
+        "hp": 10099,
+        "atk": 249,
+        "def": 543,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 68,
+        "ascension": 4,
+        "hp": 10193,
+        "atk": 252,
+        "def": 549,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 69,
+        "ascension": 4,
+        "hp": 10287,
+        "atk": 254,
+        "def": 554,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 70,
+        "ascension": 4,
+        "hp": 10381,
+        "atk": 256,
+        "def": 559,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 71,
+        "ascension": 5,
+        "hp": 11119,
+        "atk": 274,
+        "def": 598,
+        "CRITDMG_": "28.8"
+      },
+      {
+        "level": 72,
+        "ascension": 5,
+        "hp": 11214,
+        "atk": 277,
+        "def": 603,
+        "CRITDMG_": "28.8"
+      },
+      {
+        "level": 73,
+        "ascension": 5,
+        "hp": 11308,
+        "atk": 279,
+        "def": 608,
+        "CRITDMG_": "28.8"
+      },
+      {
+        "level": 74,
+        "ascension": 5,
+        "hp": 11402,
+        "atk": 281,
+        "def": 614,
+        "CRITDMG_": "28.8"
+      },
+      {
+        "level": 75,
+        "ascension": 5,
+        "hp": 11497,
+        "atk": 284,
+        "def": 619,
+        "CRITDMG_": "28.8"
+      },
+      {
+        "level": 76,
+        "ascension": 5,
+        "hp": 11591,
+        "atk": 286,
+        "def": 624,
+        "CRITDMG_": "28.8"
+      },
+      {
+        "level": 77,
+        "ascension": 5,
+        "hp": 11686,
+        "atk": 288,
+        "def": 629,
+        "CRITDMG_": "28.8"
+      },
+      {
+        "level": 78,
+        "ascension": 5,
+        "hp": 11781,
+        "atk": 291,
+        "def": 634,
+        "CRITDMG_": "28.8"
+      },
+      {
+        "level": 79,
+        "ascension": 5,
+        "hp": 11876,
+        "atk": 293,
+        "def": 639,
+        "CRITDMG_": "28.8"
+      },
+      {
+        "level": 80,
+        "ascension": 5,
+        "hp": 11971,
+        "atk": 295,
+        "def": 644,
+        "CRITDMG_": "28.8"
+      },
+      {
+        "level": 81,
+        "ascension": 6,
+        "hp": 12710,
+        "atk": 314,
+        "def": 684,
+        "CRITDMG_": "38.4"
+      },
+      {
+        "level": 82,
+        "ascension": 6,
+        "hp": 12805,
+        "atk": 316,
+        "def": 689,
+        "CRITDMG_": "38.4"
+      },
+      {
+        "level": 83,
+        "ascension": 6,
+        "hp": 12900,
+        "atk": 318,
+        "def": 694,
+        "CRITDMG_": "38.4"
+      },
+      {
+        "level": 84,
+        "ascension": 6,
+        "hp": 12995,
+        "atk": 321,
+        "def": 699,
+        "CRITDMG_": "38.4"
+      },
+      {
+        "level": 85,
+        "ascension": 6,
+        "hp": 13090,
+        "atk": 323,
+        "def": 704,
+        "CRITDMG_": "38.4"
+      },
+      {
+        "level": 86,
+        "ascension": 6,
+        "hp": 13186,
+        "atk": 325,
+        "def": 710,
+        "CRITDMG_": "38.4"
+      },
+      {
+        "level": 87,
+        "ascension": 6,
+        "hp": 13281,
+        "atk": 328,
+        "def": 715,
+        "CRITDMG_": "38.4"
+      },
+      {
+        "level": 88,
+        "ascension": 6,
+        "hp": 13377,
+        "atk": 330,
+        "def": 720,
+        "CRITDMG_": "38.4"
+      },
+      {
+        "level": 89,
+        "ascension": 6,
+        "hp": 13473,
+        "atk": 333,
+        "def": 725,
+        "CRITDMG_": "38.4"
+      },
+      {
+        "level": 90,
+        "ascension": 6,
+        "hp": 13568,
+        "atk": 335,
+        "def": 730,
+        "CRITDMG_": "38.4"
+      },
+      {
+        "level": 95,
+        "ascension": 6,
+        "hp": 14050,
+        "atk": 373,
+        "def": 756,
+        "CRITDMG_": "38.4"
+      },
+      {
+        "level": 100,
+        "ascension": 6,
+        "hp": 14533,
+        "atk": 410,
+        "def": 782,
+        "CRITDMG_": "38.4"
+      }
+    ]
+  },
+  "icons": {
+    "forward": "UI_AvatarIcon_Emilie",
+    "coop_img": "UI_CoopImg_Emilie"
+  },
+  "ascension": {
+    "x202": 7.0499E+6,
+    "exp": {
+      "x104001": 2,
+      "x104003": 418
+    },
+    "speciality": {
+      "x101238": 168
+    },
+    "elemental": {
+      "x104131": 1,
+      "x104132": 9,
+      "x104133": 9,
+      "x104134": 6
+    },
+    "worldmonster": {
+      "x112083": 18,
+      "x112084": 30,
+      "x112085": 36
+    },
+    "elitemonster": {
+      "x113059": 46
+    }
+  },
+  "skills": {
+    "normalattack": {
+      "name": "Shadow-Hunting Spear (Custom)",
+      "icon": "Skill_A_03",
+      "multipliers": {
+        "x1_HitDMG": [
+          "48.56%",
+          "52.51%",
+          "56.47%",
+          "62.11%",
+          "66.07%",
+          "70.58%",
+          "76.79%",
+          "83%",
+          "89.22%",
+          "95.99%",
+          "102.77%",
+          "109.54%",
+          "116.32%",
+          "123.1%",
+          "129.87%"
+        ],
+        "x2_HitDMG": [
+          "44.9%",
+          "48.55%",
+          "52.2%",
+          "57.42%",
+          "61.08%",
+          "65.25%",
+          "71%",
+          "76.74%",
+          "82.48%",
+          "88.75%",
+          "95.01%",
+          "101.28%",
+          "107.54%",
+          "113.8%",
+          "120.07%"
+        ],
+        "x3_HitDMG": [
+          "59.3%",
+          "64.13%",
+          "68.95%",
+          "75.85%",
+          "80.68%",
+          "86.19%",
+          "93.78%",
+          "101.36%",
+          "108.95%",
+          "117.22%",
+          "125.5%",
+          "133.77%",
+          "142.05%",
+          "150.32%",
+          "158.59%"
+        ],
+        "x4_HitDMG": [
+          "75.1%",
+          "81.22%",
+          "87.33%",
+          "96.06%",
+          "102.17%",
+          "109.16%",
+          "118.77%",
+          "128.37%",
+          "137.98%",
+          "148.46%",
+          "158.94%",
+          "169.42%",
+          "179.9%",
+          "190.38%",
+          "200.86%"
+        ],
+        "ChargedAttackDMG": [
+          "91.33%",
+          "98.77%",
+          "106.2%",
+          "116.82%",
+          "124.25%",
+          "132.75%",
+          "144.43%",
+          "156.11%",
+          "167.8%",
+          "180.54%",
+          "193.28%",
+          "206.03%",
+          "218.77%",
+          "231.52%",
+          "244.26%"
+        ],
+        "ChargedAttackStaminaCost": [
+          "25",
+          "25",
+          "25",
+          "25",
+          "25",
+          "25",
+          "25",
+          "25",
+          "25",
+          "25",
+          "25",
+          "25",
+          "25",
+          "25",
+          "25"
+        ],
+        "PlungeDMG": [
+          "63.93%",
+          "69.14%",
+          "74.34%",
+          "81.77%",
+          "86.98%",
+          "92.93%",
+          "101.1%",
+          "109.28%",
+          "117.46%",
+          "126.38%",
+          "135.3%",
+          "144.22%",
+          "153.14%",
+          "162.06%",
+          "170.98%"
+        ],
+        "Low_HighPlungeDMG": [
+          "127.84%/159.68%",
+          "138.24%/172.67%",
+          "148.65%/185.67%",
+          "163.51%/204.24%",
+          "173.92%/217.23%",
+          "185.81%/232.09%",
+          "202.16%/252.51%",
+          "218.51%/272.93%",
+          "234.86%/293.36%",
+          "252.7%/315.64%",
+          "270.54%/337.92%",
+          "288.38%/360.2%",
+          "306.22%/382.48%",
+          "324.05%/404.76%",
+          "341.89%/427.04%"
+        ]
+      },
+      "description": "<color=#FFD780FF>Normal Attack</color>\\nPerforms up to 4 consecutive spear strikes.\\n\\n<color=#FFD780FF>Charged Attack</color>\\nConsumes a certain amount of Stamina to perform an upward slash.\\n\\n<color=#FFD780FF>Plunging Attack</color>\\nPlunges from mid-air to strike the ground below, damaging opponents along the path and dealing AoE DMG upon impact."
+    },
+    "elementalskill": {
+      "name": "Fragrance Extraction",
+      "icon": "Skill_S_Emilie_01",
+      "multipliers": {
+        "SkillDMG": [
+          "47.08%",
+          "50.61%",
+          "54.14%",
+          "58.85%",
+          "62.38%",
+          "65.91%",
+          "70.62%",
+          "75.33%",
+          "80.04%",
+          "84.74%",
+          "89.45%",
+          "94.16%",
+          "100.05%",
+          "105.93%",
+          "111.81%"
+        ],
+        "Level1LumidouceCaseAttackDMG": [
+          "39.6%",
+          "42.57%",
+          "45.54%",
+          "49.5%",
+          "52.47%",
+          "55.44%",
+          "59.4%",
+          "63.36%",
+          "67.32%",
+          "71.28%",
+          "75.24%",
+          "79.2%",
+          "84.15%",
+          "89.1%",
+          "94.05%"
+        ],
+        "Level2LumidouceCaseAttackDMG": [
+          "84%×2",
+          "90.3%×2",
+          "96.6%×2",
+          "105%×2",
+          "111.3%×2",
+          "117.6%×2",
+          "126%×2",
+          "134.4%×2",
+          "142.8%×2",
+          "151.2%×2",
+          "159.6%×2",
+          "168%×2",
+          "178.5%×2",
+          "189%×2",
+          "199.5%×2"
+        ],
+        "LumidouceCaseDuration": [
+          "22s",
+          "22s",
+          "22s",
+          "22s",
+          "22s",
+          "22s",
+          "22s",
+          "22s",
+          "22s",
+          "22s",
+          "22s",
+          "22s",
+          "22s",
+          "22s",
+          "22s"
+        ],
+        "SpiritbreathThornDMG": [
+          "38.52%",
+          "41.41%",
+          "44.3%",
+          "48.15%",
+          "51.04%",
+          "53.93%",
+          "57.78%",
+          "61.63%",
+          "65.48%",
+          "69.34%",
+          "73.19%",
+          "77.04%",
+          "81.85%",
+          "86.67%",
+          "91.48%"
+        ],
+        "SpiritbreathThornInterval": [
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s"
+        ],
+        "SkillCD": [
+          "14s",
+          "14s",
+          "14s",
+          "14s",
+          "14s",
+          "14s",
+          "14s",
+          "14s",
+          "14s",
+          "14s",
+          "14s",
+          "14s",
+          "14s",
+          "14s",
+          "14s"
+        ]
+      },
+      "description": "Creates a Lumidouce Case that deals <color=#99FF88FF>AoE Dendro DMG</color>.\\n\\n<color=#FFD780FF>Lumidouce Case</color>\\n·Fires Puffs of Puredew at nearby opponents at intervals, dealing <color=#99FF88FF>Dendro DMG</color>.\\n·When nearby opponents are affected by Burning, they will give off Scents at intervals, and 1 Scent can be created this way every 2s. The Lumidouce Case collects nearby Scents. The Lumidouce Case will level up after gathering 2 of them, after which it will fire 1 extra Puff of Puredew when firing, while the DMG dealt by and DMG AoE of the above attack will also be increased.\\n·1 Lumidouce Case created by Emilie herself can exist at any one time. The Case starts at Level 1 and can go up to Level 2. If the Case does not collect any Scents for 8s while it is on the field, it will go back to Level 1.\\n\\n<color=#FFD780FF>Arkhe: Pneuma</color>\\nAt intervals, after Emilie creates a Lumidouce Case this way, a Spiritbreath Thorn will descend in front of her and pierce her opponent, dealing Pneuma-aligned <color=#99FF88FF>Dendro DMG</color>.\\n\\n<i>\"The world is an endless harmony of fragrance, color, and song.\"</i>"
+    },
+    "elementalburst": {
+      "name": "Aromatic Explication",
+      "icon": "Skill_E_Emilie_01",
+      "multipliers": {
+        "Level3LumidouceCaseAttackDMG": [
+          "217.2%",
+          "233.49%",
+          "249.78%",
+          "271.5%",
+          "287.79%",
+          "304.08%",
+          "325.8%",
+          "347.52%",
+          "369.24%",
+          "390.96%",
+          "412.68%",
+          "434.4%",
+          "461.55%",
+          "488.7%",
+          "515.85%"
+        ],
+        "Level3LumidouceCaseDuration": [
+          "2.8s",
+          "2.8s",
+          "2.8s",
+          "2.8s",
+          "2.8s",
+          "2.8s",
+          "2.8s",
+          "2.8s",
+          "2.8s",
+          "2.8s",
+          "2.8s",
+          "2.8s",
+          "2.8s",
+          "2.8s",
+          "2.8s"
+        ],
+        "CD": [
+          "13.5s",
+          "13.5s",
+          "13.5s",
+          "13.5s",
+          "13.5s",
+          "13.5s",
+          "13.5s",
+          "13.5s",
+          "13.5s",
+          "13.5s",
+          "13.5s",
+          "13.5s",
+          "13.5s",
+          "13.5s",
+          "13.5s"
+        ],
+        "EnergyCost": [
+          "50",
+          "50",
+          "50",
+          "50",
+          "50",
+          "50",
+          "50",
+          "50",
+          "50",
+          "50",
+          "50",
+          "50",
+          "50",
+          "50",
+          "50"
+        ]
+      },
+      "description": "Guiding the fragrances collected within the Case, Emilie converts them into pure Dendro energy, creating a Level 3 Lumidouce Case and stowing existing Cases away.\\nWhile it exists, the Level 3 Lumidouce Case will not gather nearby Scents, but it will continuously cause Scented Dew to descend, attacking opponents within range and dealing <color=#99FF88FF>Dendro DMG</color>. During this time, 1 drop of Scented Dew will descend every 0.3 seconds, and 1 opponent can become the target every 0.7 seconds.\\nWhen the duration ends, a Level 1 Lumidouce Case will be recreated. If a Lumidouce Case was stowed away when using Aromatic Explication, then the Case that was stowed away will be deployed instead, and its duration will be reset.\\nWhile <color=#FFD780FF>Aromatic Explication</color> is active, the Elemental Skill \"Fragrance Extraction\" will not create a Lumidouce Case.\\n\\n<i>No matter the perfume, it will begin to change the instant it comes into contact with the air, before finally dissipating amidst the whispers of wind, trees, and grass. In that sense, no two people will appreciate the exact same fragrance.\\nSo it is for the paths taken by all who live. In that sense, you can consider perfumes an explication of human life.</i>"
+    },
+    "leveling": {
+      "crown": {
+        "x104319": 3
+      },
+      "books": {
+        "x104344": 9,
+        "x104345": 63,
+        "x104346": 114
+      },
+      "worldmonster": {
+        "x112083": 18,
+        "x112084": 66,
+        "x112085": 93
+      },
+      "weekly": {
+        "x113061": 18
+      }
+    }
+  },
+  "passives": {
+    "p1": {
+      "name": "Lingering Fragrance",
+      "description": "Each time it collects 2 <color=#FFD780FF>Scents</color>, the Level 2 Lumidouce Case will consume Scents and release Cleardew Cologne that deals <color=#99FF88FF>AoE Dendro DMG</color> equal to 600% of Emilie's ATK to opponents. This DMG is not considered Elemental Skill DMG.",
+      "icon": "UI_Talent_S_Emilie_05"
+    },
+    "p2": {
+      "name": "Rectification",
+      "description": "Emilie deals increased DMG to Burning opponents based on her ATK, with every 1,000 ATK increasing DMG dealt by 15%. The maximum DMG bonus that can be gained this way is 36%.",
+      "icon": "UI_Talent_S_Emilie_06"
+    },
+    "p3": {
+      "name": "Headspace Capture",
+      "description": "When the Lumidouce Case created by Emilie is on the field, all party members gain 85% <color=#FF9999FF>Pyro RES</color> against Burning DMG.",
+      "icon": "UI_Talent_S_Emilie_07"
+    },
+    "p4": ""
+  },
+  "constellations": {
+    "const1": {
+      "name": "Light Fragrance Leaching",
+      "description": "Increases the DMG dealt by <color=#FFD780FF>Fragrance Extraction</color> and her Ascension Talent's Cleardew Cologne \"Lingering Fragrance\" by 20%. The latter requires unlocking said Ascension Talent first.\\nAdditionally, when nearby party members trigger the Burning reaction on opponents or deal <color=#99FF88FF>Dendro DMG</color> to Burning opponents, they will generate an additional <color=#FFD780FF>Scent</color>. This effect can be triggered once every 2.9s.",
+      "icon": "UI_Talent_S_Emilie_01"
+    },
+    "const2": {
+      "name": "Lakelight Top Note",
+      "description": "When <color=#FFD780FF>Fragrance Extraction</color>, <color=#FFD780FF>Aromatic Explication</color>, or Cleardew Cologne produced by the Ascension Talent \"Lingering Fragrance\" (the last of which requires Ascension Talent activation) hits opponents, those opponents' <color=#99FF88FF>Dendro RES</color> is decreased by 30% for 10s.",
+      "icon": "UI_Talent_S_Emilie_02"
+    },
+    "const3": {
+      "name": "Exquisite Essence",
+      "description": "Increases the Level of <color=#FFD780FF>Fragrance Extraction</color> by 3.\\nMaximum upgrade level is 15.",
+      "icon": "UI_Talent_U_Emilie_01"
+    },
+    "const4": {
+      "name": "Lumidouce Heart Note",
+      "description": "<color=#FFD780FF>Aromatic Explication</color>'s duration is increased by 2s. The interval between opponents being selected as the target for Scented Dew is decreased by 0.3s.",
+      "icon": "UI_Talent_S_Emilie_03"
+    },
+    "const5": {
+      "name": "Puredew Aroma",
+      "description": "Increases the Level of <color=#FFD780FF>Aromatic Explication</color> by 3.\\nMaximum upgrade level is 15.",
+      "icon": "UI_Talent_U_Emilie_02"
+    },
+    "const6": {
+      "name": "Marcotte Sillage",
+      "description": "When using <color=#FFD780FF>Fragrance Extraction</color> or <color=#FFD780FF>Aromatic Explication</color>, Emilie will gain Abiding Fragrance for 5s.\\nWhile this is active, after Emilie uses Normal or Charged Attacks, she will generate 1 Scent, and her Normal and Charged Attack DMG will be converted into <color=#99FF88FF>Dendro DMG</color> that cannot be overridden, and the DMG dealt will be increased by 300% of Emilie's ATK.\\n\\nThe Abiding Fragrance effect will be removed after 4 Scents are created this way or after its duration expires. Abiding Fragrance can be triggered once every 12s.",
+      "icon": "UI_Talent_S_Emilie_04"
+    }
+  },
+  "hyperlinks": [],
+  "stories": {
+    "x99200": {
+      "storyTitle": "Character Details",
+      "storyText": "There is much that may be said when discussing a bottle of perfume.\\nWe might speak of its fragrance: How it first bewitches with its top notes, before gradually melding with its wearer, and finally taking a subdued bow amidst the lingering aroma.\\nWe could speak of the concept underlying its design: Is it meant to enliven the spirit, or to lend an aura of alluring mystique?\\nWe might even debate the most appropriate occasion for its use: Would one be willing to attend a social ball clad in this aroma, or would it be better suited to suffusing the atmosphere of a private date?\\nEmilie finds these matters to be most worthy of discussion, as they are intimately related to how one selects a perfume. Compared to such considerations, the precise identity of the perfumer who prepared the scent is not a factor that needs to be contemplated when making one's choice.\\nAlas, neither customers' views nor popular trends are easily shifted. A herd mentality that craves security often leads people to prefer purchasing from well-known brands or designers, for one rarely goes wrong that way.\\nFame, therefore, is a double-edged sword. The more famous one is, the greater the odds of receiving negative feedback, and many are exhausted by treading upon such thin ice.\\nBut Emilie, famous though she is within Fontaine's perfume industry, seems untroubled by such.\\nHer products are free-form, spontaneous — indeed, she worries not at all about designing perfume, for her true profession lies elsewhere.",
+      "unlockConds": []
+    },
+    "x99201": {
+      "storyTitle": "Character Story 1",
+      "storyText": "Having handed her signed and stamped power of attorney documentation and confidentiality agreement to the Maison Gardiennage officer for perusal, Emile steps over the cordon and onto the scene.\\nShe has already been apprised of all case-critical information: the number of deceased, the state of the corpses, and the parameters of the cleanup required. As to other case details, she is neither curious nor inclined to ask further questions.\\nThe bodies, as well as severely damaged objects, have already been removed. And so she inspects the area meticulously, making mental notes of things that might be easily missed or difficult-to-clean areas that require extra attention.\\nShe has encountered many such crime scenes, and with time, has been able to piece together in broad strokes the sequence of events — through the directions of blood spatter, the traces left by the residue of human tissues, and how objects fell.\\nStill, this is not her professional duty. In the most infrequent of circumstances, of course, she will be invited to use this experience to aid the Maison in recreating crime scenes. But this is not one of those special cases. This case is already closed, and as a \"forensic cleaner,\" she needs only draw a line under it.\\nAnd so she silently dons her protective clothing and goggles, and gets to work. All goes well. Chemicals dissolve and wash away the rust and dark-brown, even black-colored stains, while sticky tissues and sharp fragments are cleaned separately. The harrowing scene and horrid smells are wiped away, erased like erroneous brushstrokes from a canvas.\\nFinally, she invites the Garde, who has been waiting all this time outside, back in. They convey their thanks and bid her farewell, before manually removing the cordon.\\nEmilie remains silent as she changes back into her previous outfit. She cannot help but think that though the deceased should already have been buried as those dear to them watched, parts of them have only just now been put to rest.\\nShe adjusts her hat, nodding her head slightly toward the clean room, bidding a final farewell to persons completely unknown to her, as if she too were taking some small part in their funerals.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 2
+      }
+    },
+    "x99202": {
+      "storyTitle": "Character Story 2",
+      "storyText": "According to certain psychological theories, creative types are even less concerned with the placement or organization of their belongings than most. Short passages containing such personality analyses are often found in the corners of Fontainian magazines and tabloids, and they even rerun every few days, as if the editors think people cobble their self-understanding together from such fragmentary pieces — not to mention possess deficient memories.\\nSuch ideas are clearly stereotypes, for none would claim that Emilie wants for creativity, while her home is perfectly spick and span. To claim that a perfumer so famous lacks imagination, her modestness or otherwise notwithstanding, would be to categorically deny the Fontainian perfuming profession in its totality.\\nBut Emilie's home is, if anything, overly clean. Few furnishings stand atop the visible flooring, and most items have been carefully packed into hermetic compartments. Indeed, one can barely tell that anyone lives there. Even friends who occasionally visit, such as Chiori, bluntly ask if this is a manifestation of some kind of obsessive-compulsive disorder.\\nEmilie simply laughs, saying: \"It has to be this way, that's all.\"\\nHer dwelling is not large, but it has two workshops, one for perfuming, and the other for mixing the chemicals needed for her work. Neither allows for flasks or other items to be placed haphazardly, and so, while she has no love of daily drudgeries or household chores, Emilie has had to slowly learn the strict art of organized stowage and storage, habitually drawing clear lines between the different aspects of her life.\\nThis terrifying discipline is something she has mastered with some ease — just as one separates dangerous reagents into separate vials, so too does she create freely in one bottle, while accumulating the experience that crystallizes out of solutions in another.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 3
+      }
+    },
+    "x99203": {
+      "storyTitle": "Character Story 3",
+      "storyText": "When she is free, Emilie often goes to have dinner with her parents at their place.\\nHer father is an officer of the Marechaussee Phantom, while her mother works in forensic medicine, and they often invite over human and Melusine colleagues alike as guests. One can only imagine just how many unusual conversations this rather ordinary-looking dining room has hosted.\\nOf the many topics discussed, Emilie's trajectory through life is one of the more normal ones.\\nWhen children her age were still reading comics, Emilie was reading her mother's work texts. She was fascinated by the mystery of chemical reactions, and began to formally study related disciplines. Such skills should surely prove useful, but just what kind of work should she pursue? Work in a crime lab, perhaps — so her father suggested.\\nThough, such work always came with an element of danger, so it was best to learn a little self-defense from him first if she wanted to join — so he quickly added.\\nFor a long time afterward, Emilie would work toward this goal.\\nBut one day, her parents opened a bottle of red wine before the meal, as they lamented what had happened that day—\\nThe Marechaussee Phantom's duties were to pursue the truth, but once that was done, any remaining fallout was left in the hands of the heartbroken bereaved. When some family's child commits suicide, soaking the rug with their blood, and the Gardes sent to investigate merely rule it a suicide and leave... Just how will the parents feel, left to pick up the pieces and clean up what remains of their child?\\nAgnostic to purpose and intent, the nature of chemical reactions was the same, just like human emotions.\\nPerhaps... Perhaps she could help.\\nHaving had the thought, she later put it into action. She named her profession that of a \"forensic cleaner,\" making modifications to the chemicals she originally intended for use in tests, such that they became cleaning agents that could wipe away all that remained on any given scene.\\nOf course, though the environment itself might be cleansed anew, the pain could not be so purged. Still, Emilie can share some small part of the burden, that those left behind will not have to shoulder it alone.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 4
+      }
+    },
+    "x99204": {
+      "storyTitle": "Character Story 4",
+      "storyText": "Life is unfair, and not all have the luxury of enjoying their hobbies. Thus, Emilie truly treasures such opportunities.\\nCollecting perfumes was once her mother's hobby, but due to her work, she was able to apply them less than frequently, and so those top-shelf fragrances would eventually become Emilie's treasures. She loved the shiny bottles and the clear fluids within, basking in the mysterious reactions produced by interwoven aromas.\\nIt was due to her hobby of perfumery that she later became quite taken with traveling to gather materials.\\nShe has scaled snowy mountains few have traversed, and squeezed her way through the packed markets of other lands. Fragrances are shapeless, and are thus easily overlooked, but they are a necessary component of any person's living environment. Most people have somewhat unvaried preferences in this regard, but Emilie accepts all comers. Good, bad, simple, complex, Emilie carefully categorizes them all in her heart, and they form for her a bridge to understanding this world.\\nFrom such a perspective, fragrances are no luxury, but rather, a thing that people can naturally enjoy... and thus, perfumes should be no different.\\nOf course, this is very much against market trends. It is practically taken as a given that those crystalline, gem-like products should be placed under the searing spotlight and sold at extravagant prices.\\nAnd Emilie remains but a hobbyist, and as such, cannot change this state of affairs by herself. Thus, many of her works have never reached the shelves of any shop. As one who works outdoors herself, she has designed insect-repelling, anti-perspiration perfume, though such a notion doesn't even sound remotely romantic. She also developed a fragrance specifically for Melusines to enjoy, but humans seemed unwilling to buy them.\\nNot that she was disappointed, of course. That she could get these products into the hands of those who needed them was satisfaction enough.\\nOf course, she does have some real regrets. For example, the risk of small animals knocking over or inadvertently ingesting chemicals keeps her from having a psychological support pet, which limits her to playing with other people's puppies in the park.\\nNaturally, she also has to avoid wearing perfume when going to meet them. Animals have sensitive noses, after all, and she would very much like to be their friend.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 5
+      }
+    },
+    "x99205": {
+      "storyTitle": "Character Story 5",
+      "storyText": "People often propose rules for groups in an attempt to explain certain phenomena.\\nIn her work as a forensic cleaner, Emile encounters large quantities of human tissue, some Fontainian, and others not. Being meticulous in her preparation of the relevant cleaning agents, she gradually discovered that Fontainian human tissue structures seemed to have minuscule differences from those of other nations.\\nDiscreetly investigating, she discovered something strange that very, very few had ever noticed. Even those who had some awareness would simply attribute it to Fontaine's special natural environment. After all, people in some places experienced greater hair loss, while people in others had naturally slim fingers... All a matter of their living in the same environment giving rise to those traits.\\nEmilie sensed that the truth might not be so simple, but she tentatively accepted that explanation.\\nAt least, she did until after the \"prophecy\" had already come to pass and she received some new cleaning commissions. She found that those minute differences between Fontainians and humans from other nations had silently slipped away, like so much water flowing between one's fingers. Indeed, it was like they had never existed.\\nAfter giving it much thought, Emilie decided that she would seek the answer for herself.\\nShe paid Iudex Neuvillette — who had allegedly once given a full account of the origin of Fontainians at the Opera Epiclese — a visit, and related her doubts to him.\\nHe considered this for a moment, before informing her: \"Fontainians are now true humans.\"\\n\"Are now,\" he had said. Some change in Fontainians, then, must have indeed occurred in the fulfillment of the prophecy.\\nThat was enough for her. She needed no further details, having only desired confirmation. Indeed, she could already perceive that the details constituted a threshold ordinary humans should not trespass, let alone seek to. In her work with the Maison Gardiennage, she had already signed many confidentiality agreements, both great and small, but no document was needed to tell that silence was the best course here.\\nPerhaps this was even, in truth, no big deal. Her life had not changed, and in fact, things were simpler now that her concoctions needed to make no distinction based on national differences.\\nAnd so, she would keep this secret in the same place where she held all those joys and sorrows, reunions and partings — locked deep in her heart.",
+      "unlockConds": [
+        {
+          "type": "FETTER_COND_FETTER_LEVEL",
+          "value": 6
+        },
+        {
+          "type": "FETTER_COND_FINISH_PARENT_QUEST",
+          "value": 4025
+        }
+      ]
+    },
+    "x99206": {
+      "storyTitle": "\"Constructed From Real Events\"",
+      "storyText": "Chevreuse, Captain of the Special Security and Surveillance Patrol, once gave this assessment of Emilie: not a romantic person.\\nEmilie has responded to these stereotypical expectations people have of perfumers with a serious explanation: Once a perfume is out on the market, the right to analyze it passes from the perfumer to the purchaser. She herself might detect a whiff of her childhood in the scent of Marcotte, but others might sense love, invigoration, and perhaps even regret. A person responds to things based on their experiences, and in such matters, one cannot generalize. If the perfumer does not take the fragrance development process seriously, but instead pursues the romantic color of some specific place and emotion, they will likely wind up with an undesirable result.\\n\"And is that why you keep newspaper clippings? To collect the experiences of people?\" Chevreuse asked.\\n\"Sort of,\" Emilie thought to herself. She had not taken those clippings specially for that purpose, of course. It was just part of her reading habits, being more interested as she was in real-life happenings than in the constructed narratives of novels.\\nOf those various excerpts, the vast majority were serious reporting, while another small part could be compiled into a list of \"The Decade's Top Ten Incredulous Situations.\" These hilarious newspieces were fuel for casual conversation between Emilie and her friends.\\nAs for Chevreuse, she preferred novels.\\nBy this logic, it seemed that of the two of them, the Special Patrol Captain was the romantic. But though Chevreuse's great love was crime fiction, she was quite perplexed by the emotional entanglements of the characters therein, instead enjoying expounding at length upon how responsibility should be apportioned among the various parties.\\nSo, not the most romantic, either.\\nAnd so, while their interests might differ, how they think actually has some similarities — a fact that goes some way to explaining why they became friends.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 4
+      }
+    },
+    "x99207": {
+      "storyTitle": "Vision",
+      "storyText": "Emilie often receives cleanup commissions after cases have been concluded, and by the time she arrives, none are left at the scene but an officially posted guard keeping watch, allowing her to conduct her work in peace.\\nBut sometimes, the scene is not so silent.\\nEmilie reached the scene of the incident to see the dazed kin of the victim pacing around the perimeter of the cordon. It was a young lady, her eyes dead husks, knowing not where to go or what to do — only that she couldn't bear to leave. This, in truth, was no obstacle to Emilie's work. She could have simply shown her papers, accessed the site, and completed her cleanup. That was all her duty demanded — it was just her job, business as usual.\\nStill, she hesitated. Greeting the Garde on duty, she walked toward the lost soul.\\nOver the next few hours, Emilie sat by the woman's side in silence as the latter slowly told her stories of herself and the deceased. Emilie did not reply all that much. She merely held the woman's hand, patiently waiting as the tale stumbled forth, waiting until all the anxious thoughts and troubled words had been exhausted, until only quiet sorrow remained.\\nThat pain was unavoidable. This was all she could do.\\nThe delay caused her to finish her work very late, and as she stowed her tools and chemicals away, the last light still peeking through the window was already quite dim — all the better to highlight that glimmering Vision.\\nFrom that day on, she would never again put any time limit on her work, always leaving ample time to spare. If any there should need a listening ear, there she would be to hear them.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 6
+      }
+    }
+  },
+  "quotes": {
+    "x99000": {
+      "quoteTitle": "Hello",
+      "quoteText": "Hello, my name is Emilie. Is your inquiry perfume-related by any chance?\\nIf your inquiry is of a different nature, I suggest we find a quieter place to talk.",
+      "unlockConds": []
+    },
+    "x99001": {
+      "quoteTitle": "Chat: Inspiration",
+      "quoteText": "Ah, now there's an idea... Just a moment, please. I need to jot this down.",
+      "unlockConds": []
+    },
+    "x99002": {
+      "quoteTitle": "Chat: Perfume Fan",
+      "quoteText": "Many ladies in the Court of Fontaine like to spray their perfume onto a delicate lace fan, allowing them to generate a pleasant fragrance with each flick of the wrist. It's quite an ingenious method.",
+      "unlockConds": []
+    },
+    "x99003": {
+      "quoteTitle": "Chat: Newspaper",
+      "quoteText": "Would you mind coming with me to buy a copy of today's newspaper?",
+      "unlockConds": []
+    },
+    "x99004": {
+      "quoteTitle": "When It Rains",
+      "quoteText": "Rain can be quite troublesome sometimes. It washes too many things away...",
+      "unlockConds": []
+    },
+    "x99005": {
+      "quoteTitle": "When Thunder Strikes",
+      "quoteText": "When lightning strikes, it always leaves behind a unique scent in the air.",
+      "unlockConds": []
+    },
+    "x99006": {
+      "quoteTitle": "When It Snows",
+      "quoteText": "What an extraordinary environment. I'd imagine there are many precious materials to be found here.",
+      "unlockConds": []
+    },
+    "x99007": {
+      "quoteTitle": "When the Sun Is Out",
+      "quoteText": "Ah, the sunshine is so nice. The sign of a good day ahead, I hope.",
+      "unlockConds": []
+    },
+    "x99008": {
+      "quoteTitle": "In the Desert",
+      "quoteText": "High-quality ingredients can be found everywhere, even in the barren desert. Wenut fat, for example, can be refined into a very valuable perfume component.",
+      "unlockConds": []
+    },
+    "x99009": {
+      "quoteTitle": "Good Morning",
+      "quoteText": "I like to start off my day by drinking a glass of ice-cold water. It helps me wake up.",
+      "unlockConds": []
+    },
+    "x99010": {
+      "quoteTitle": "Good Afternoon",
+      "quoteText": "A casual stroll after a meal aids digestion and increases blood circulation. So, would you like to join?",
+      "unlockConds": []
+    },
+    "x99011": {
+      "quoteTitle": "Good Evening",
+      "quoteText": "Certain perfume ingredients can only be gathered at specific times of the day. So, sometimes, I need to head out in the middle of the night.",
+      "unlockConds": []
+    },
+    "x99012": {
+      "quoteTitle": "Good Night",
+      "quoteText": "Good night. I could recommend quite a few fragrances to help with sleep, if you want. But, letting your body fall asleep naturally is always best.",
+      "unlockConds": []
+    },
+    "x99013": {
+      "quoteTitle": "About Emilie",
+      "quoteText": "I must admit, I'm not very good at coming up with topics to talk about. Simply put, I'm not the best conversationalist. But, if there's anything you want to share, good or bad, I'm always willing to listen.",
+      "unlockConds": []
+    },
+    "x99014": {
+      "quoteTitle": "About Emilie: Forensic Cleaner",
+      "quoteText": "When the authorities finish investigating a homicide or a fatal accident, there's still a lot of clean up work to be done at the scene. This includes disposing of organic matter, removing blood stains, sanitizing the area... All of which are the responsibility of a Forensic Cleaner. Interestingly enough, I'm not actually affiliated with any organization in the Court of Fontaine. I'm an independent contractor. I do have a long-standing work agreement with the Gardes, but I also accept private commissions.\\nThat's pretty much all there is to say about my line of work, but if you any questions, by all means, ask away.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x99015": {
+      "quoteTitle": "About Us: Recommendations",
+      "quoteText": "What perfume do I usually wear? Ah, sorry to disappoint, but I don't normally wear perfume while I'm working. It can get in the way of other scents when working, you see. But, if you tell me a little bit about your current mood, I can certainly give you a few recommendations.",
+      "unlockConds": []
+    },
+    "x99016": {
+      "quoteTitle": "About Us: Visit",
+      "quoteText": "You'd like to visit my studio? You're more than welcome to. I can teach you a bit about perfumery, and I have quite a sizable collection for you to peruse. My mother was a perfume enthusiast as well. In fact, many of the perfumes in my collection are gifts from her. If there's time, we could even try them all one by one.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 6"
+      ]
+    },
+    "x99017": {
+      "quoteTitle": "About the Vision",
+      "quoteText": "I once tried to use my Vision to create a plant species that could grow without any nourishment. Unfortunately, my attempts were entirely unsuccessful. It just goes to show, even with the power of a Vision, there's still a limit to what is possible. You can't defy the laws of nature.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x99018": {
+      "quoteTitle": "Something to Share",
+      "quoteText": "The five senses aren't completely independent. The color red, for example, might evoke a feeling of warmth, and fragrances can induce specific sensations as well. This property is mainly exploited on the sales front, though. If a customer is feeling down, for example, they can be easily persuaded to choose a perfume with an herbal or sweet scent.",
+      "unlockConds": []
+    },
+    "x99019": {
+      "quoteTitle": "Interesting Things",
+      "quoteText": "#{M#Nothing can be more interesting than encountering new things. You've traveled to so many places, and I'm sure your range of experience is much broader than my own, so I was wondering if I could make a request... Have you ever encountered a flower, or spice maybe, that left a particularly strong impression on you? Could you tell me about it?\\nThe \"Inteyvat\" flower... Huh, can't say I've ever heard of it, but that's certainly a grand-sounding name. Alright, well, I've made a note of it. If I'm lucky enough to ever see it in person, I'll certainly let you know.}{F#May I ask you something? The flower you wear in your hair... I've never seen one like it before. If you saw fit to fashion it into a hair accessory, I imagine it means a great deal to you.\\nThe \"Inteyvat\" flower... Huh, that's certainly a grand-sounding name. I don't know how you came to possess it, but I'm sure it means you are very important to this world.}",
+      "unlockConds": [
+        "Complete \"Requiem of the Echoing Depths\""
+      ]
+    },
+    "x99020": {
+      "quoteTitle": "About Chevreuse",
+      "quoteText": "I'm not sure if she ever mentioned it, but we met each other through work. Although, most of our conversations aren't nearly as serious as our jobs would suggest. One time, she told me she read a novel about a perfumer who makes a scent using human tissue. Fictional, of course, but in the story it turns out to be astonishingly successful — the finest perfume ever made. Based on my own experience, I find it hard to believe the scent would turn out quite so wonderful in real life...\\nChevreuse wasn't too focused on the feasibility, though. She was too busy trying to unravel all the legal liabilities involved in a situation like that.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x99021": {
+      "quoteTitle": "About Chiori",
+      "quoteText": "As a designer, Chiori has a keen eye for trends. Although we deal in completely different products, I still enjoy listening to her talk about the creative thought process behind her designs. Not to mention, she has a pretty good eye when it comes to perfume. Whenever I have her test out my new products, she always manages to pick the one that ends up selling the best.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x99022": {
+      "quoteTitle": "About Charlotte",
+      "quoteText": "Ah, a truly energetic young lady. Being a journalist, I would imagine quite a few people see her as nothing but trouble, but that hasn't been my experience. Even after discovering the true nature of my work, she still chose to keep it to herself. This despite the fact that she had no reason to help me, and it probably wasn't in her professional interests to do so. So, I have quite a high opinion of her. If she ever needed my help, I would certainly not refuse.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x99023": {
+      "quoteTitle": "About Clorinde",
+      "quoteText": "I'm fairly certain everyone in Fontaine knows that name. She's a formidable Champion Duelist, after all. Although, I find her quite easy to get along with. In my experience, the stronger a person is in combat, the more open they are in conversation.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x99024": {
+      "quoteTitle": "About Sigewinne",
+      "quoteText": "If I'm not mistaken, I believe Miss Sigewinne met me when I was very young — too young to remember... Ah, I probably haven't told you, my father works for the Marechaussee Phantom, so we often have Melusines over as guests. Apparently, the Melusines were often the ones looking after me as a baby.\\nBut, Miss Sigewinne has never treated me as her junior. She always speaks highly of my perfumes, so whenever I make a new sample, I usually set aside an extra for her.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x99025": {
+      "quoteTitle": "About Neuvillette",
+      "quoteText": "As a perfumer, if your sense of smell starts to become dull, there's actually quite an easy solution — drinking fresh water. I'm not usually strict about the water I drink, but, out of curiosity, I once attended a water-tasting event organized by Monsieur Neuvillette.\\nHe had such an abstract yet distinctive understanding of the distinguishing features of different types of water. It almost reminded me of the way magazine articles talk about perfume. He took the time to understand my needs, and recommended a few water sources to me with utmost sincerity. He was so considerate, sometimes, I choose to buy the varieties he recommended, even if just out of respect for him.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x99026": {
+      "quoteTitle": "About Wriothesley",
+      "quoteText": "You know Wriothesley? Haha, well aren't you full of surprises. From what I know, the Duke tries to keep a very low profile — most people don't even know he exists. Monsieur Neuvillette once tried to recommend my services to him, but apparently he thought that the Fortress of Meropide would have no occasion for them.\\nI can't know what his reasons were for turning me down, as I've never met him in person. But if I was to speculate... I would say perhaps there are certain things he doesn't want washed away. Perhaps he prefers to leave them there... as a warning.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x99027": {
+      "quoteTitle": "About Tighnari",
+      "quoteText": "I've only met him in person a few times, but we communicate by letter often. He reached out to me first, writing a letter after tracking down my details through some roundabout way. He was extremely polite, and it was incredibly flattering to have such a renowned botanist ask for my flower-related expertise. But, I also saw it as a chance to learn from him. I decided to ask some of my own questions, particularly about perfume ingredients from Sumeru, and he gave me thorough answers to each and every one.\\nNow, our correspondence is much more casual. He even tells me about his companions sometimes. I really am delighted I got this opportunity to make a new friend.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x99028": {
+      "quoteTitle": "More About Emilie: I",
+      "quoteText": "People often romanticize perfume, assigning it all sorts of poetic qualities. But, in reality, perfume-making is much closer to a science. It can be boiled down to a simple chemistry experiment, really. It's up to the perfumer to bridge the gap between the product's artistic and scientific qualities, and doing that with any degree of success takes quite a bit of skill.",
+      "unlockConds": []
+    },
+    "x99029": {
+      "quoteTitle": "More About Emilie: II",
+      "quoteText": "People can describe how a certain scent makes them feel, sure. But, it's very difficult to recreate a scent just based off of a written description, even for me. So, I do apologize, but I don't take custom orders. That said, if you find any of my other perfumes to be to your liking, it would of course be my honor to do business with you.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 3"
+      ]
+    },
+    "x99030": {
+      "quoteTitle": "More About Emilie: III",
+      "quoteText": "A perfume must undergo a series of tests before it's released, including a shelf-life test. This can help answer several questions: How long does the product last? Is it prone to deterioration? Will it become toxic or even dissipate over time?\\nHuh, now that I think about it... Wouldn't it be nice if there were a way of doing a shelf-life test for interpersonal relationships?",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x99031": {
+      "quoteTitle": "More About Emilie: IV",
+      "quoteText": "I don't deliberately hide my real profession, but I do prefer to be discreet whenever possible. Not because I'm worried that it'll turn customers off my perfume, I'm just cognizant of the fact that my work as a forensic cleaner subjects me to a lot of sensitive information, things that can't be disclosed to the public. The people who commission my services place a lot of trust in me. I don't want them to receive any unwanted attention because of me.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 5"
+      ]
+    },
+    "x99032": {
+      "quoteTitle": "More About Emilie: V",
+      "quoteText": "Perfume-making has only ever been a hobby for me. Something I do in my spare time, just like how some people learn to play a musical instrument or make crafts.\\nStill, my goal in life wasn't always to be a forensic cleaner. My mother works as a forensic pathologist, and ever since I was little, I knew I wanted to work in criminal investigations just like her. For a long time, my talent for chemistry inspired me to pursue trace evidence analysis. But as I progressed further in my studies, I started to encounter real-life crime scenes. I'll never forget one scene I saw... A young child had been murdered, there was blood soaked into the carpet and splattered all over the walls... And after the investigators finished their assessment, they just left. I couldn't imagine what those poor parents were going through... it didn't seem right that they had to clean up after their own child's murder, all by themselves.\\nSo, yeah. That's what led me into forensic cleaning.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 6"
+      ]
+    },
+    "x99033": {
+      "quoteTitle": "Emilie's Hobbies",
+      "quoteText": "I like to collect newspaper clippings. Whenever I come across an unbelievable story in the newspaper, I cut out a clipping and add it to my collection. I've filled up several thick binders that way. Flipping through them is almost like reading one of those short story series that Chevreuse is so fond of.",
+      "unlockConds": []
+    },
+    "x99034": {
+      "quoteTitle": "Emilie's Troubles",
+      "quoteText": "All the dogs in the park are so sweet. But if you want to pet them, you have to indulge them with some playtime first. Hehe, I suppose it's a good problem to have.",
+      "unlockConds": []
+    },
+    "x99035": {
+      "quoteTitle": "Favorite Food",
+      "quoteText": "Fresh shrimp sprinkled with sea salt, lightly poached, then dipped in melted butter — simple and delicious. You should try it sometime.",
+      "unlockConds": []
+    },
+    "x99036": {
+      "quoteTitle": "Least Favorite Food",
+      "quoteText": "I don't eat a lot of red meat. Controversial, I know.",
+      "unlockConds": []
+    },
+    "x99037": {
+      "quoteTitle": "Receiving a Gift: I",
+      "quoteText": "Mmm, it tastes just as good as it smells. Thank you for sharing it with me. I enjoyed it very much.",
+      "unlockConds": []
+    },
+    "x99038": {
+      "quoteTitle": "Receiving a Gift: II",
+      "quoteText": "Hm, it looks delightful, and the texture is fairly pleasing as well.",
+      "unlockConds": []
+    },
+    "x99039": {
+      "quoteTitle": "Receiving a Gift: III",
+      "quoteText": "Are there really people who are particularly partial to this kind of flavor...?",
+      "unlockConds": []
+    },
+    "x99040": {
+      "quoteTitle": "Birthday",
+      "quoteText": "Happy birthday! I know perfume preferences are extremely personal, but I took the liberty of choosing one I think you'll like. It's one of my own creations, actually, but it's not available to purchase yet.\\nI tried to combine the floral and fruity notes found in nature around this time of year. I was going for more of a subtle scent. Anyway, I hope it brings you a little peace and comfort whenever you wear it.",
+      "unlockConds": []
+    },
+    "x99041": {
+      "quoteTitle": "Feelings About Ascension: Intro",
+      "quoteText": "Thank you ever so much. Ah, no need to be so modest. Of course you deserve thanks.",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 1"
+      ]
+    },
+    "x99042": {
+      "quoteTitle": "Feelings About Ascension: Building Up",
+      "quoteText": "Thank you for your suggestions. They give me a lot of food for thought.",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 2"
+      ]
+    },
+    "x99043": {
+      "quoteTitle": "Feelings About Ascension: Climax",
+      "quoteText": "Power is only useful when wielded by the right person. I'll do my best to honor your trust in me.",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 4"
+      ]
+    },
+    "x99044": {
+      "quoteTitle": "Feelings About Ascension: Conclusion",
+      "quoteText": "Many things can only be seen clearly when you shine a strong light on them, and now, it's like you've handed that light to me. Are you inviting me to join you on your journey? Then please, lead the way. I'll be right by your side.",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 6"
+      ]
+    },
+    "x99045": {
+      "quoteTitle": "Elemental Skill: I",
+      "quoteText": "Reconstitute.",
+      "unlockConds": []
+    },
+    "x99046": {
+      "quoteTitle": "Elemental Skill: II",
+      "quoteText": "Extract.",
+      "unlockConds": []
+    },
+    "x99047": {
+      "quoteTitle": "Elemental Skill: III",
+      "quoteText": "Neutralize.",
+      "unlockConds": []
+    },
+    "x99048": {
+      "quoteTitle": "Elemental Burst: I",
+      "quoteText": "Fresh and floral.",
+      "unlockConds": []
+    },
+    "x99049": {
+      "quoteTitle": "Elemental Burst: II",
+      "quoteText": "This'll brighten up the place.",
+      "unlockConds": []
+    },
+    "x99050": {
+      "quoteTitle": "Elemental Burst: III",
+      "quoteText": "A little ambience.",
+      "unlockConds": []
+    },
+    "x99051": {
+      "quoteTitle": "Opening Treasure Chest: I",
+      "quoteText": "Hehe, do the spoils live up to your expectations?",
+      "unlockConds": []
+    },
+    "x99052": {
+      "quoteTitle": "Opening Treasure Chest: II",
+      "quoteText": "Shall I help share the load?",
+      "unlockConds": []
+    },
+    "x99053": {
+      "quoteTitle": "Opening Treasure Chest: III",
+      "quoteText": "Huh, not a shred of information about the owner...",
+      "unlockConds": []
+    },
+    "x99054": {
+      "quoteTitle": "Low HP: I",
+      "quoteText": "My sense of smell is fading...",
+      "unlockConds": []
+    },
+    "x99055": {
+      "quoteTitle": "Low HP: II",
+      "quoteText": "That was an adverse reaction...",
+      "unlockConds": []
+    },
+    "x99056": {
+      "quoteTitle": "Low HP: III",
+      "quoteText": "Time to reassess the scene...",
+      "unlockConds": []
+    },
+    "x99057": {
+      "quoteTitle": "Ally at Low HP: I",
+      "quoteText": "Take a moment.",
+      "unlockConds": []
+    },
+    "x99058": {
+      "quoteTitle": "Ally at Low HP: II",
+      "quoteText": "Don't worry, I'm here.",
+      "unlockConds": []
+    },
+    "x99059": {
+      "quoteTitle": "Fallen: I",
+      "quoteText": "I can smell... blood...",
+      "unlockConds": []
+    },
+    "x99060": {
+      "quoteTitle": "Fallen: II",
+      "quoteText": "The lantern is... extinguished...",
+      "unlockConds": []
+    },
+    "x99061": {
+      "quoteTitle": "Fallen: III",
+      "quoteText": "Is it... my time to go?",
+      "unlockConds": []
+    },
+    "x99062": {
+      "quoteTitle": "Light Hit Taken: I",
+      "quoteText": "My weakness.",
+      "unlockConds": []
+    },
+    "x99063": {
+      "quoteTitle": "Heavy Hit Taken: I",
+      "quoteText": "I was poorly prepared...",
+      "unlockConds": []
+    },
+    "x99064": {
+      "quoteTitle": "Heavy Hit Taken: II",
+      "quoteText": "I must be more prudent.",
+      "unlockConds": []
+    },
+    "x99065": {
+      "quoteTitle": "Joining Party: I",
+      "quoteText": "It would be my honor.",
+      "unlockConds": []
+    },
+    "x99066": {
+      "quoteTitle": "Joining Party: II",
+      "quoteText": "The pleasure is all mine.",
+      "unlockConds": []
+    },
+    "x99067": {
+      "quoteTitle": "Joining Party: III",
+      "quoteText": "I'm quite flattered.",
+      "unlockConds": []
+    },
+    "x99068": {
+      "quoteTitle": "About Escoffier",
+      "quoteText": "Miss Escoffier is a diligent and studious chef. Normally, dry lectures about perfumery would put someone to sleep, but not her. On top of that, her mind is so quick — she can recognize subtle links between pieces of information and can instantly put her knowledge into practice. Some people think she was blessed with a natural culinary gift. But, I believe the secret to her success is self-evident.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    }
+  },
+  "energy": [
+    {
+      "source": "Ball",
+      "particles": "1",
+      "chance": "100%",
+      "cd": "Instant"
+    },
+    {
+      "source": "Ball",
+      "particles": "1",
+      "chance": "100%",
+      "cd": "Instant"
+    }
+  ],
+  "attacks": [
+    {
+      "name": "SkillObj_ElementalArt_Ousia_Gadget",
+      "icd_source": "Tag: Elemental_Art (!)",
+      "icd_rule": "Independent",
+      "gauge": "0U",
+      "poise": "LV3/20",
+      "element": "Grass",
+      "attackType": "Default",
+      "strikeType": "-",
+      "damageParam": "Arkhe_Damage"
+    },
+    {
+      "name": "ElementalArt",
+      "icd_source": "Tag: Elemental_Art (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV3/100",
+      "element": "Grass",
+      "attackType": "Range",
+      "strikeType": "-",
+      "damageParam": "Art_Damage"
+    },
+    {
+      "name": "SkillObj_ArtGadget",
+      "icd_source": "Tag: Emilie_PermanentSkill_1 (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV3/50",
+      "element": "Grass",
+      "attackType": "Range",
+      "strikeType": "-",
+      "damageParam": "Damage4"
+    },
+    {
+      "name": "SkillObj_BurstGadget",
+      "icd_source": "Tag: Elemental_Burst (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV3/40",
+      "element": "Grass",
+      "attackType": "Range",
+      "strikeType": "-",
+      "damageParam": "Burst_Damage"
+    },
+    {
+      "name": "SkillObj_BurstGadget",
+      "icd_source": "Tag: Elemental_Burst (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV3/40",
+      "element": "Grass",
+      "attackType": "Range",
+      "strikeType": "-",
+      "damageParam": "Burst_Damage"
+    },
+    {
+      "name": "SkillObj_ArtGadget_Bullet_Material",
+      "icd_source": "Tag: Emilie_ElementalArt_Bullet",
+      "icd_rule": "2 hits / 2s",
+      "gauge": "1U",
+      "poise": "LV1/30",
+      "element": "Grass",
+      "attackType": "Default",
+      "strikeType": "None",
+      "damageParam": "Bullet_Damage1"
+    },
+    {
+      "name": "SkillObj_ArtGadget_Bullet2_Material",
+      "icd_source": "Tag: Emilie_ElementalArt_Bullet",
+      "icd_rule": "2 hits / 2s",
+      "gauge": "1U",
+      "poise": "LV1/30",
+      "element": "Grass",
+      "attackType": "Default",
+      "strikeType": "None",
+      "damageParam": "Bullet_Damage2"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "0U",
+      "poise": "LV2/25",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Slash",
+      "damageParam": "FallingAnthem_Normal_Loop_Damage"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "0U",
+      "poise": "LV4/25",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Slash",
+      "damageParam": "FallingAnthem_Normal_Loop_Damage"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV4/100",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Blunt",
+      "damageParam": "FallingAnthem_Normal_Rank_1_Damage"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV7/150",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Blunt",
+      "damageParam": "FallingAnthem_Normal_Rank_2_Damage"
+    }
+  ],
+  "endure": []
+}

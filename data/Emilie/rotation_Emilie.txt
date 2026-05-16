@@ -1,5 +1,1 @@
-E
-CaseHit
-Q
-BurstHit
-CaseHit
+AUTO
