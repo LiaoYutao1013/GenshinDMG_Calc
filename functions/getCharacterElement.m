@@ -49,6 +49,40 @@ function element = getCharacterElement(name)
             element = "Pyro";
         case 'xianyun'
             element = "Anemo";
+        case 'navia'
+            element = "Geo";
+        case 'gaming'
+            element = "Pyro";
+        case 'chiori'
+            element = "Geo";
+        case 'sigewinne'
+            element = "Hydro";
+        case 'clorinde'
+            element = "Electro";
+        case 'emilie'
+            element = "Dendro";
+        case 'kachina'
+            element = "Geo";
+        case 'kinich'
+            element = "Dendro";
+        case 'sethos'
+            element = "Electro";
+        case 'ororon'
+            element = "Electro";
+        case 'ifa'
+            element = "Anemo";
+        case 'dahlia'
+            element = "Hydro";
+        case 'jahoda'
+            element = "Anemo";
+        case 'aino'
+            element = "Hydro";
+        case 'varka'
+            element = "Anemo";
+        case 'illuga'
+            element = "Geo";
+        case 'lanyan'
+            element = "Anemo";
         otherwise
             element = "Physical";
     end

@@ -59,6 +59,7 @@ function teamContext = buildTeamContext(members, rotationDuration, sharedBuffs, 
     anemoDMGBonus = getFieldOrDefault(sharedBuffs, 'AnemoDMGBonus', 0) + getFieldOrDefault(sharedArtifactBuffs, 'AnemoDMGBonus', 0);
     geoDMGBonus = getFieldOrDefault(sharedBuffs, 'GeoDMGBonus', 0) + getFieldOrDefault(sharedArtifactBuffs, 'GeoDMGBonus', 0);
     dendroDMGBonus = getFieldOrDefault(sharedBuffs, 'DendroDMGBonus', 0) + getFieldOrDefault(sharedArtifactBuffs, 'DendroDMGBonus', 0);
+    shieldBonus = getFieldOrDefault(sharedBuffs, 'ShieldBonus', 0) + getFieldOrDefault(sharedArtifactBuffs, 'ShieldBonus', 0);
 
     hydroResShred = getFieldOrDefault(sharedBuffs, 'HydroResShred', 0) + getFieldOrDefault(sharedArtifactBuffs, 'HydroResShred', 0);
     cryoResShred = getFieldOrDefault(sharedBuffs, 'CryoResShred', 0) + getFieldOrDefault(sharedArtifactBuffs, 'CryoResShred', 0);
@@ -257,6 +258,7 @@ function teamContext = buildTeamContext(members, rotationDuration, sharedBuffs, 
         'AnemoDMGBonus', anemoDMGBonus, ...
         'GeoDMGBonus', geoDMGBonus, ...
         'DendroDMGBonus', dendroDMGBonus, ...
+        'ShieldBonus', shieldBonus, ...
         'FlatATK', flatATK, ...
         'ATKBonus', atkBonus, ...
         'EMBonus', emBonus, ...
@@ -356,6 +358,64 @@ function teamContext = buildTeamContext(members, rotationDuration, sharedBuffs, 
 end
 
 function buffs = localCollectArtifactTeamBuffs(members)
+    buffs = localEmptyArtifactTeamBuffs();
+    setBuckets = struct();
+    for i = 1:numel(members)
+        if ~isfield(members{i}, 'Build')
+            continue;
+        end
+        build = normalizeArtifactBuild(members{i}.Build, members{i}.Name);
+        memberBuffs = getArtifactTeamBuffs(members{i}.Name, build);
+        activeSetId = localGetActiveArtifactFourPieceSet(build);
+        bucketKey = matlab.lang.makeValidName(char(activeSetId));
+        if strlength(activeSetId) == 0
+            bucketKey = sprintf('Member%d', i);
+        end
+        if ~isfield(setBuckets, bucketKey)
+            setBuckets.(bucketKey) = localEmptyArtifactTeamBuffs();
+        end
+        setBuckets.(bucketKey) = localMergeArtifactTeamBuffsMax(setBuckets.(bucketKey), memberBuffs);
+    end
+
+    bucketNames = fieldnames(setBuckets);
+    for i = 1:numel(bucketNames)
+        buffs = localAddArtifactTeamBuffs(buffs, setBuckets.(bucketNames{i}));
+    end
+end
+
+function setId = localGetActiveArtifactFourPieceSet(build)
+    setId = "";
+    if ~logical(getFieldOrDefault(build, 'ArtifactSet4Active', 1))
+        return;
+    end
+
+    slots = {'Flower', 'Feather', 'Sands', 'Goblet', 'Circlet'};
+    setPieces = struct();
+    for i = 1:numel(slots)
+        fieldName = sprintf('Artifact%sSet', slots{i});
+        currentSet = string(getFieldOrDefault(build, fieldName, ""));
+        if strlength(currentSet) == 0 || currentSet == "None"
+            continue;
+        end
+        key = matlab.lang.makeValidName(char(currentSet));
+        if ~isfield(setPieces, key)
+            setPieces.(key) = 0;
+        end
+        setPieces.(key) = setPieces.(key) + 1;
+        if setPieces.(key) >= 4
+            setId = currentSet;
+            return;
+        end
+    end
+
+    legacySet1 = string(getFieldOrDefault(build, 'ArtifactSet1', ""));
+    legacySet1Pieces = getFieldOrDefault(build, 'ArtifactSet1Pieces', 0);
+    if legacySet1 ~= "None" && legacySet1Pieces >= 4
+        setId = legacySet1;
+    end
+end
+
+function buffs = localEmptyArtifactTeamBuffs()
     buffs = struct( ...
         'ATKBonus', 0, ...
         'EMBonus', 0, ...
@@ -367,6 +427,7 @@ function buffs = localCollectArtifactTeamBuffs(members)
         'AnemoDMGBonus', 0, ...
         'GeoDMGBonus', 0, ...
         'DendroDMGBonus', 0, ...
+        'ShieldBonus', 0, ...
         'LunarBloomBonus', 0, ...
         'LunarChargedBonus', 0, ...
         'LunarCrystallizeBonus', 0, ...
@@ -377,32 +438,23 @@ function buffs = localCollectArtifactTeamBuffs(members)
         'CryoResShred', 0, ...
         'ElectroResShred', 0, ...
         'GeoResShred', 0);
-    for i = 1:numel(members)
-        if ~isfield(members{i}, 'Build')
-            continue;
-        end
-        build = normalizeArtifactBuild(members{i}.Build, members{i}.Name);
-        memberBuffs = getArtifactTeamBuffs(members{i}.Name, build);
-        buffs.ATKBonus = buffs.ATKBonus + getFieldOrDefault(memberBuffs, 'ATKBonus', 0);
-        buffs.EMBonus = buffs.EMBonus + getFieldOrDefault(memberBuffs, 'EMBonus', 0);
-        buffs.AllDMGBonus = buffs.AllDMGBonus + getFieldOrDefault(memberBuffs, 'AllDMGBonus', 0);
-        buffs.PyroDMGBonus = buffs.PyroDMGBonus + getFieldOrDefault(memberBuffs, 'PyroDMGBonus', 0);
-        buffs.HydroDMGBonus = buffs.HydroDMGBonus + getFieldOrDefault(memberBuffs, 'HydroDMGBonus', 0);
-        buffs.CryoDMGBonus = buffs.CryoDMGBonus + getFieldOrDefault(memberBuffs, 'CryoDMGBonus', 0);
-        buffs.ElectroDMGBonus = buffs.ElectroDMGBonus + getFieldOrDefault(memberBuffs, 'ElectroDMGBonus', 0);
-        buffs.AnemoDMGBonus = buffs.AnemoDMGBonus + getFieldOrDefault(memberBuffs, 'AnemoDMGBonus', 0);
-        buffs.GeoDMGBonus = buffs.GeoDMGBonus + getFieldOrDefault(memberBuffs, 'GeoDMGBonus', 0);
-        buffs.DendroDMGBonus = buffs.DendroDMGBonus + getFieldOrDefault(memberBuffs, 'DendroDMGBonus', 0);
-        buffs.LunarBloomBonus = buffs.LunarBloomBonus + getFieldOrDefault(memberBuffs, 'LunarBloomBonus', 0);
-        buffs.LunarChargedBonus = buffs.LunarChargedBonus + getFieldOrDefault(memberBuffs, 'LunarChargedBonus', 0);
-        buffs.LunarCrystallizeBonus = buffs.LunarCrystallizeBonus + getFieldOrDefault(memberBuffs, 'LunarCrystallizeBonus', 0);
-        buffs.ReactionCritRate = buffs.ReactionCritRate + getFieldOrDefault(memberBuffs, 'ReactionCritRate', 0);
-        buffs.DendroResShred = buffs.DendroResShred + getFieldOrDefault(memberBuffs, 'DendroResShred', 0);
-        buffs.PyroResShred = buffs.PyroResShred + getFieldOrDefault(memberBuffs, 'PyroResShred', 0);
-        buffs.HydroResShred = buffs.HydroResShred + getFieldOrDefault(memberBuffs, 'HydroResShred', 0);
-        buffs.CryoResShred = buffs.CryoResShred + getFieldOrDefault(memberBuffs, 'CryoResShred', 0);
-        buffs.ElectroResShred = buffs.ElectroResShred + getFieldOrDefault(memberBuffs, 'ElectroResShred', 0);
-        buffs.GeoResShred = buffs.GeoResShred + getFieldOrDefault(memberBuffs, 'GeoResShred', 0);
+end
+
+function merged = localMergeArtifactTeamBuffsMax(baseBuffs, incomingBuffs)
+    merged = baseBuffs;
+    fields = fieldnames(baseBuffs);
+    for i = 1:numel(fields)
+        fieldName = fields{i};
+        merged.(fieldName) = max(getFieldOrDefault(baseBuffs, fieldName, 0), getFieldOrDefault(incomingBuffs, fieldName, 0));
+    end
+end
+
+function merged = localAddArtifactTeamBuffs(baseBuffs, incomingBuffs)
+    merged = baseBuffs;
+    fields = fieldnames(baseBuffs);
+    for i = 1:numel(fields)
+        fieldName = fields{i};
+        merged.(fieldName) = getFieldOrDefault(baseBuffs, fieldName, 0) + getFieldOrDefault(incomingBuffs, fieldName, 0);
     end
 end
 
@@ -764,6 +816,40 @@ function element = localGetElement(name)
         case 'nicole'
             element = "Pyro";
         case 'xianyun'
+            element = "Anemo";
+        case 'navia'
+            element = "Geo";
+        case 'gaming'
+            element = "Pyro";
+        case 'chiori'
+            element = "Geo";
+        case 'sigewinne'
+            element = "Hydro";
+        case 'clorinde'
+            element = "Electro";
+        case 'emilie'
+            element = "Dendro";
+        case 'kachina'
+            element = "Geo";
+        case 'kinich'
+            element = "Dendro";
+        case 'sethos'
+            element = "Electro";
+        case 'ororon'
+            element = "Electro";
+        case 'ifa'
+            element = "Anemo";
+        case 'dahlia'
+            element = "Hydro";
+        case 'jahoda'
+            element = "Anemo";
+        case 'aino'
+            element = "Hydro";
+        case 'varka'
+            element = "Anemo";
+        case 'illuga'
+            element = "Geo";
+        case {'lanyan', 'lanyan '}
             element = "Anemo";
         otherwise
             element = "Physical";

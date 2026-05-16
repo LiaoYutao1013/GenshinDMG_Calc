@@ -1,15 +1,35 @@
 function value = getFieldOrDefault(s, fieldName, defaultValue)
-    % 安全读取结构体中的可选字段。
-    % 当结构体为空、字段不存在，或字段值本身为空时，统一返回
-    % defaultValue，减少上层反复写 isfield / isempty 的样板代码。
+    % Safely read an optional field or table variable.
+    % This helper is used throughout the project to avoid repeating
+    % `isfield`/`isempty` checks, and it also supports single-row tables
+    % returned by `readtable` so CSV-backed metadata can reuse the same API.
     if nargin < 3
         defaultValue = [];
     end
 
-    % 只有在字段存在且字段值非空时才返回原始值。
     if isstruct(s) && isfield(s, fieldName) && ~isempty(s.(fieldName))
         value = s.(fieldName);
-    else
-        value = defaultValue;
+        return;
     end
+
+    if istable(s) && any(strcmp(s.Properties.VariableNames, fieldName)) && height(s) >= 1
+        candidate = s.(fieldName);
+        if iscell(candidate)
+            candidate = candidate{1};
+        elseif isnumeric(candidate) || islogical(candidate) || isstring(candidate) || ischar(candidate)
+            candidate = candidate(1, :);
+            if numel(candidate) == 1
+                candidate = candidate(1);
+            end
+        else
+            candidate = candidate(1, :);
+        end
+
+        if ~isempty(candidate)
+            value = candidate;
+            return;
+        end
+    end
+
+    value = defaultValue;
 end

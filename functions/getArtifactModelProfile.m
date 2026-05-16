@@ -18,9 +18,12 @@ function profile = getArtifactModelProfile(characterName, build)
         'AssumeBondOfLifeStacks', 0, ...
         'AssumeMarechausseeStacks', 0, ...
         'AssumeObsidianActive', false, ...
+        'AssumeNightsoulBlessing', false, ...
         'AssumeCryoAura', false, ...
         'AssumeFrozen', false, ...
-        'AssumeHuskStacks', 0);
+        'AssumeHuskStacks', 0, ...
+        'AssumeMoonPhase', 1, ...
+        'AssumeNymphStacks', 0);
 
     switch lower(char(string(characterName)))
         case 'arlecchino'
@@ -83,6 +86,7 @@ function profile = getArtifactModelProfile(characterName, build)
             profile.CircletMainStat = "CritRate";
             profile.ApplySetBonuses = true;
             profile.AssumeHuskStacks = 4;
+            profile.AssumeNightsoulBlessing = true;
 
         case 'zibai'
             profile.SandsMainStat = "DEFBonus";
@@ -114,6 +118,9 @@ function profile = getArtifactModelProfile(characterName, build)
             profile.SandsMainStat = "AtkBonus";
             profile.GobletMainStat = "AnemoDMGBonus";
             profile.CircletMainStat = "CritRate";
+            profile.ApplySetBonuses = true;
+            profile.AssumeNightsoulBlessing = true;
+            profile.AssumeObsidianActive = true;
 
         case 'chevreuse'
             profile.SandsMainStat = "HPBonus";
@@ -144,11 +151,18 @@ function profile = getArtifactModelProfile(characterName, build)
             profile.SandsMainStat = "HPBonus";
             profile.GobletMainStat = "HydroDMGBonus";
             profile.CircletMainStat = "CritRate";
+            profile.ApplySetBonuses = true;
+            profile.AssumeNightsoulBlessing = true;
+            profile.AssumeObsidianActive = true;
+            profile.AssumeNymphStacks = 3;
 
         case 'varesa'
             profile.SandsMainStat = "AtkBonus";
             profile.GobletMainStat = "ElectroDMGBonus";
             profile.CircletMainStat = "CritRate";
+            profile.ApplySetBonuses = true;
+            profile.AssumeNightsoulBlessing = true;
+            profile.AssumeObsidianActive = true;
 
         case 'durin'
             profile.SandsMainStat = "AtkBonus";
@@ -160,6 +174,57 @@ function profile = getArtifactModelProfile(characterName, build)
             profile.GobletMainStat = "AnemoDMGBonus";
             profile.CircletMainStat = "AtkBonus";
             profile.ApplySetBonuses = true;
+
+        case 'navia'
+            profile.SandsMainStat = "AtkBonus";
+            profile.GobletMainStat = "GeoDMGBonus";
+            profile.CircletMainStat = "CritRate";
+            profile.ApplySetBonuses = true;
+
+        case 'gaming'
+            profile.SandsMainStat = "AtkBonus";
+            profile.GobletMainStat = "PyroDMGBonus";
+            profile.CircletMainStat = "CritRate";
+            profile.ApplySetBonuses = true;
+
+        case 'chiori'
+            profile.SandsMainStat = "DEFBonus";
+            profile.GobletMainStat = "GeoDMGBonus";
+            profile.CircletMainStat = "CritRate";
+            profile.ApplySetBonuses = true;
+            profile.AssumeHuskStacks = 4;
+
+        case 'sigewinne'
+            profile.SandsMainStat = "HPBonus";
+            profile.GobletMainStat = "HydroDMGBonus";
+            profile.CircletMainStat = "CritRate";
+            profile.ApplySetBonuses = true;
+
+        case 'clorinde'
+            profile.SandsMainStat = "AtkBonus";
+            profile.GobletMainStat = "ElectroDMGBonus";
+            profile.CircletMainStat = "CritRate";
+            profile.ApplySetBonuses = true;
+
+        case 'emilie'
+            profile.SandsMainStat = "AtkBonus";
+            profile.GobletMainStat = "DendroDMGBonus";
+            profile.CircletMainStat = "CritRate";
+            profile.ApplySetBonuses = true;
+
+        case 'kachina'
+            profile.SandsMainStat = "DEFBonus";
+            profile.GobletMainStat = "GeoDMGBonus";
+            profile.CircletMainStat = "CritRate";
+            profile.ApplySetBonuses = true;
+
+        case 'kinich'
+            profile.SandsMainStat = "AtkBonus";
+            profile.GobletMainStat = "DendroDMGBonus";
+            profile.CircletMainStat = "CritRate";
+            profile.ApplySetBonuses = true;
+            profile.AssumeNightsoulBlessing = true;
+            profile.AssumeObsidianActive = true;
     end
 
     if getFieldOrDefault(build, 'HealingBonus', 0) >= 0.30 ...

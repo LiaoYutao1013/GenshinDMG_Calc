@@ -23,9 +23,12 @@ function build = normalizeArtifactBuild(build, characterName)
     build = localSetDefault(build, 'ArtifactAssumeBondOfLifeStacks', profile.AssumeBondOfLifeStacks);
     build = localSetDefault(build, 'ArtifactAssumeMarechausseeStacks', profile.AssumeMarechausseeStacks);
     build = localSetDefault(build, 'ArtifactAssumeObsidianActive', double(profile.AssumeObsidianActive));
+    build = localSetDefault(build, 'ArtifactAssumeNightsoulBlessing', double(profile.AssumeNightsoulBlessing));
     build = localSetDefault(build, 'ArtifactAssumeCryoAura', double(profile.AssumeCryoAura));
     build = localSetDefault(build, 'ArtifactAssumeFrozen', double(profile.AssumeFrozen));
     build = localSetDefault(build, 'ArtifactAssumeHuskStacks', profile.AssumeHuskStacks);
+    build = localSetDefault(build, 'ArtifactAssumeMoonPhase', profile.AssumeMoonPhase);
+    build = localSetDefault(build, 'ArtifactAssumeNymphStacks', profile.AssumeNymphStacks);
     build = localSetDefault(build, 'ArtifactCalibrationVersion', 2);
     build = localSetDefault(build, 'ArtifactAutoDistributeResidualSubstats', 1);
 
@@ -87,7 +90,8 @@ function build = localInjectArtifactPieces(build, characterName, profile)
         mainValueField = sprintf('Artifact%sMainValue', slotNames{i});
         substatsField = sprintf('Artifact%sSubstats', slotNames{i});
         suffixes = {'FlatATK', 'FlatHP', 'FlatDEF', 'AtkBonus', 'HPBonus', 'DEFBonus', ...
-            'ER', 'EM', 'CritRate', 'CritDMG', 'HealingBonus', 'PyroDMGBonus', ...
+            'ER', 'EM', 'CritRate', 'CritDMG', 'HealingBonus', 'ReactionDMGBonus', ...
+            'PhysicalDMGBonus', 'ShieldBonus', 'LunarChargedBonus', 'PyroDMGBonus', ...
             'HydroDMGBonus', 'CryoDMGBonus', 'ElectroDMGBonus', 'AnemoDMGBonus', ...
             'GeoDMGBonus', 'DendroDMGBonus', 'NormalDMGBonus', 'ChargeDMGBonus', ...
             'ChargedDMGBonus', 'PlungeDMGBonus', 'SkillDMGBonus', 'BurstDMGBonus', 'ResShred'};

@@ -290,7 +290,7 @@ function dmg = localDirectDamage(maxHP, mv, hydroBonus, build, state, hydroMult)
 end
 
 function bonus = localHydroBonus(build, teamContext, state, extraBonus)
-    baseBonus = 1 + getFieldOrDefault(build, 'HydroDMGBonus', 0) + getFieldOrDefault(teamContext, 'SharedAllDMGBonus', 0) + extraBonus;
+    baseBonus = 1 + getFieldOrDefault(build, 'HydroDMGBonus', 0) + getFieldOrDefault(teamContext, 'AllDMGBonus', 0) + extraBonus;
     if state.Fanfare > 0
         baseBonus = baseBonus + localFanfareDamageBonus(state);
     end
@@ -307,6 +307,8 @@ function bonus = localFanfareDamageBonus(state)
     end
 
     if state.FanfareCap > 300
+        perPoint = 0.0025;
+    else
         perPoint = 0.0025;
     end
     bonus = state.Fanfare * perPoint;

@@ -92,7 +92,7 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateLaumaDPS(build, enem
 
                     if constellation >= 6 && mod(state.SanctuaryHits, 2) == 0
                         extraDMG = calcReactionDamage(900 + 0.40 * em, em, enemy, dendroResShred, ...
-                            1 + getFieldOrDefault(teamContext, 'LunarBloomBonus', 0), reactionCritRate, reactionCritDMG);
+                            1 + getFieldOrDefault(build, 'ReactionDMGBonus', 0) + getFieldOrDefault(teamContext, 'LunarBloomBonus', 0), reactionCritRate, reactionCritDMG);
                         totalDMG = totalDMG + extraDMG;
                         breakdown = [breakdown; {string("C6Bloom"), extraDMG, "Extra Lunar-Bloom pulse"}]; %#ok<AGROW>
                     end
@@ -133,7 +133,7 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateLaumaDPS(build, enem
                     baseReaction = getTalentValue(talent, 'Reaction', 'LunarBloomBase', talentLevel);
                     paleBonus = 1 + state.PaleHymnStacks * getTalentValue(talent, 'Burst', 'PaleHymnBonus', talentLevel);
                     sanctuaryBonus = 1 + 0.12 * double(state.SanctuaryTime > 0);
-                    bonusMultiplier = paleBonus * sanctuaryBonus * (1 + getFieldOrDefault(teamContext, 'LunarBloomBonus', 0));
+                    bonusMultiplier = paleBonus * sanctuaryBonus * (1 + getFieldOrDefault(build, 'ReactionDMGBonus', 0) + getFieldOrDefault(teamContext, 'LunarBloomBonus', 0));
                     if constellation >= 2
                         bonusMultiplier = bonusMultiplier * 1.20;
                     end

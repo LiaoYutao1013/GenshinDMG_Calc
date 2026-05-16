@@ -27,6 +27,7 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateIneffaDPS(build, ene
     critMult = calcExpectedCritMultiplier(getFieldOrDefault(build, 'CritRate', 0), getFieldOrDefault(build, 'CritDMG', 0));
     electroResShred = getFieldOrDefault(build, 'ResShred', 0) + getFieldOrDefault(teamContext, 'ElectroResShred', 0);
     electroMult = calcDamageMultiplier(90, enemy, electroResShred);
+    shieldBonus = getFieldOrDefault(build, 'ShieldBonus', 0) + getFieldOrDefault(teamContext, 'ShieldBonus', 0);
     % teamContext 未给出完整环境时，单人模式也允许宽松启用月感电。
     lunarChargedEnabled = getFieldOrDefault(teamContext, 'LunarChargedEnabled', false);
     if ~lunarChargedEnabled && getFieldOrDefault(teamContext, 'HydroCount', 0) == 0
@@ -61,7 +62,7 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateIneffaDPS(build, ene
                 state.SummonTime = 12.0;
                 state.TickCount = 0;
                 state.TickBonus = 1;
-                state.ShieldStrength = atk * getTalentValue(talent, 'Shield', 'Ratio', talentLevel);
+                state.ShieldStrength = atk * getTalentValue(talent, 'Shield', 'Ratio', talentLevel) * (1 + shieldBonus);
                 note = sprintf('Summon deployed, shield=%.0f', state.ShieldStrength);
 
             case 'Tick'
@@ -75,7 +76,9 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateIneffaDPS(build, ene
                     note = sprintf('Summon strike #%d', state.TickCount);
 
                     if lunarChargedEnabled
-                        reactionBonus = 1 + getFieldOrDefault(teamContext, 'LunarChargedBonus', 0) + 0.08 * double(state.TickBonus > 1);
+                        reactionBonus = 1 + getFieldOrDefault(build, 'ReactionDMGBonus', 0) ...
+                            + getFieldOrDefault(build, 'LunarChargedBonus', 0) ...
+                            + getFieldOrDefault(teamContext, 'LunarChargedBonus', 0) + 0.08 * double(state.TickBonus > 1);
                         if constellation >= 1
                             reactionBonus = reactionBonus + min(0.50, atk / 100 * 0.025);
                         end

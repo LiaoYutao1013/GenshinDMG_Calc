@@ -14,7 +14,7 @@
         setId = string(setNames{i});
         pieces = min(5, setPieces.(setNames{i}));
         if pieces >= 2
-            bonus = localAddStatStruct(bonus, localTwoPieceBonus(setId, characterName));
+            bonus = localAddStatStruct(bonus, localTwoPieceBonus(setId, characterName, build));
         end
         if pieces >= 4 && logical(getFieldOrDefault(build, 'ArtifactSet4Active', 1))
             bonus = localAddStatStruct(bonus, localFourPieceBonus(setId, characterName, build, teamContext));
@@ -58,7 +58,7 @@ function setPieces = localCollectSetPieces(build)
     end
 end
 
-function bonus = localTwoPieceBonus(setId, characterName)
+function bonus = localTwoPieceBonus(setId, characterName, build)
     bonus = localEmptyStatStruct();
     element = getCharacterElement(characterName);
 
@@ -78,14 +78,16 @@ function bonus = localTwoPieceBonus(setId, characterName)
                 'nightoftheskysunveiling', 'aubadeofmorningstarandmoon'}
             bonus.EM = 80;
 
-        case {'er20', 'emblemofseveredfate', 'silkenmoonsserenade', 'celestialgift'}
+        case {'er20', 'emblemofseveredfate', 'silkenmoonsserenade', 'celestialgift', 'theexile', 'scholar'}
             bonus.ER = 0.20;
 
         case {'healing15', 'songofdayspast', 'oceanhuedclam', 'maidenbeloved'}
             bonus.HealingBonus = 0.15;
 
         case 'travelingdoctor'
-            bonus.HealingBonus = 0.20;
+            % Traveling Doctor 2pc increases incoming healing rather than healing output.
+            % The current damage simulator does not consume incoming-healing fields,
+            % so keep this set as a no-op instead of incorrectly inflating healers.
 
         case {'pyro15', 'crimsonwitchofflames'}
             bonus.PyroDMGBonus = 0.15;
@@ -143,7 +145,9 @@ function bonus = localTwoPieceBonus(setId, characterName)
             bonus.ChargedDMGBonus = 0.15;
 
         case 'obsidiancodex'
-            bonus = localAddCommonActionBonus(bonus, 0.15);
+            if localIsNightsoulDamageWindow(build)
+                bonus = localAddCommonActionBonus(bonus, 0.15);
+            end
 
         case 'noblesseoblige'
             bonus.BurstDMGBonus = 0.20;
@@ -281,23 +285,16 @@ function bonus = localFourPieceBonus(setId, characterName, build, teamContext)
             bonus.BurstDMGBonus = bonus.BurstDMGBonus + min(0.75, 0.25 * er);
 
         case 'gildeddreams'
-            sameElementBonus = 0;
-            diffElementEM = 0;
             memberElements = string(getFieldOrDefault(teamContext, 'MemberElements', strings(1, 0)));
             selfElement = getCharacterElement(characterName);
-            for i = 1:numel(memberElements)
-                current = memberElements(i);
-                if strlength(current) == 0
-                    continue;
-                end
-                if strcmpi(char(current), char(selfElement))
-                    sameElementBonus = sameElementBonus + 0.14;
-                else
-                    diffElementEM = diffElementEM + 50;
-                end
-            end
-            bonus.AtkBonus = bonus.AtkBonus + min(0.42, sameElementBonus);
-            bonus.EM = bonus.EM + min(150, diffElementEM);
+            validMask = strlength(memberElements) > 0;
+            memberElements = memberElements(validMask);
+            sameElementCount = sum(strcmpi(cellstr(memberElements.'), char(selfElement)));
+            otherMemberCount = max(0, numel(memberElements) - 1);
+            sameElementOtherCount = max(0, sameElementCount - 1);
+            diffElementCount = max(0, otherMemberCount - sameElementOtherCount);
+            bonus.AtkBonus = bonus.AtkBonus + min(0.42, 0.14 * sameElementOtherCount);
+            bonus.EM = bonus.EM + min(150, 50 * diffElementCount);
 
         case 'crimsonwitchofflames'
             bonus.ReactionDMGBonus = bonus.ReactionDMGBonus + 0.15;
@@ -307,6 +304,17 @@ function bonus = localFourPieceBonus(setId, characterName, build, teamContext)
         case 'thunderingfury'
             bonus.ReactionDMGBonus = bonus.ReactionDMGBonus + 0.40;
             bonus.LunarChargedBonus = bonus.LunarChargedBonus + 0.20;
+
+        case 'flowerofparadiselost'
+            stackCount = min(4, max(0, getFieldOrDefault(build, 'ArtifactAssumeFlowerStacks', 4)));
+            bonus.ReactionDMGBonus = bonus.ReactionDMGBonus + 0.40 + 0.25 * stackCount;
+
+        case 'nymphsdream'
+            stackCount = min(3, max(0, getFieldOrDefault(build, 'ArtifactAssumeNymphStacks', localDefaultNymphStacks(characterName))));
+            atkBonusByStack = [0.00, 0.07, 0.16, 0.25];
+            hydroBonusByStack = [0.00, 0.04, 0.09, 0.15];
+            bonus.AtkBonus = bonus.AtkBonus + atkBonusByStack(stackCount + 1);
+            bonus.HydroDMGBonus = bonus.HydroDMGBonus + hydroBonusByStack(stackCount + 1);
 
         case 'vourukashasglow'
             bonus.SkillDMGBonus = bonus.SkillDMGBonus + 0.10;
@@ -419,6 +427,24 @@ function tf = localUsesBondOfLife(characterName)
     tf = any(strcmpi(char(string(characterName)), {'Arlecchino'}));
 end
 
+function tf = localIsNightsoulDamageWindow(build)
+    tf = logical(getFieldOrDefault(build, 'ArtifactAssumeNightsoulBlessing', false)) ...
+        || logical(getFieldOrDefault(build, 'ArtifactAssumeObsidianActive', false));
+end
+
+function stackCount = localDefaultNymphStacks(characterName)
+    switch lower(char(string(characterName)))
+        case {'columbina', 'mualani', 'neuvillette'}
+            stackCount = 3;
+        otherwise
+            stackCount = 0;
+    end
+end
+
+function tf = localUsesChargedAttacks(characterName)
+    tf = localUsesCatalystOrBow(characterName);
+end
+
 function tf = localIsMostlyOffFieldSkillUser(characterName)
     tf = any(strcmpi(char(string(characterName)), { ...
         'Furina', 'Escoffier', 'Citlali', 'Chevreuse', 'Iansan', ...
@@ -458,6 +484,7 @@ function stats = localEmptyStatStruct()
         'EM', 0, ...
         'CritRate', 0, ...
         'CritDMG', 0, ...
+        'PhysicalDMGBonus', 0, ...
         'PyroDMGBonus', 0, ...
         'HydroDMGBonus', 0, ...
         'CryoDMGBonus', 0, ...
@@ -472,5 +499,8 @@ function stats = localEmptyStatStruct()
         'SkillDMGBonus', 0, ...
         'BurstDMGBonus', 0, ...
         'HealingBonus', 0, ...
+        'ReactionDMGBonus', 0, ...
+        'ShieldBonus', 0, ...
+        'LunarChargedBonus', 0, ...
         'ResShred', 0);
 end

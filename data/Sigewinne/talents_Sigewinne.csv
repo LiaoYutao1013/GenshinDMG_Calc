@@ -1,0 +1,5 @@
+Skill,Param,ScalingType,Level10
+Normal,N1ATK,ATK,0.76
+Skill,BubbleHP,MaxHP,0.182
+Skill,FollowHP,MaxHP,0.126
+Burst,BurstHP,MaxHP,0.486

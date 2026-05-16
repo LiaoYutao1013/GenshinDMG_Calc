@@ -24,6 +24,7 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateCitlaliDPS(build, en
     critMult = calcExpectedCritMultiplier(getFieldOrDefault(build, 'CritRate', 0), getFieldOrDefault(build, 'CritDMG', 0));
     cryoResShred = getFieldOrDefault(build, 'ResShred', 0) + getFieldOrDefault(teamContext, 'CryoResShred', 0);
     cryoMult = calcDamageMultiplier(90, enemy, cryoResShred);
+    shieldBonus = getFieldOrDefault(build, 'ShieldBonus', 0) + getFieldOrDefault(teamContext, 'ShieldBonus', 0);
 
     % state 保存所有与护盾和爆发窗口相关的状态。
     state = struct( ...
@@ -48,7 +49,7 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateCitlaliDPS(build, en
         switch action
             case 'E'
                 % 战技只生成护盾快照，不直接造成伤害。
-                state.ShieldStrength = em * getTalentValue(talent, 'Skill', 'ShieldEM', talentLevel);
+                state.ShieldStrength = em * getTalentValue(talent, 'Skill', 'ShieldEM', talentLevel) * (1 + shieldBonus);
                 state.ShieldTime = 12.0;
                 state.StarCount = 0;
                 note = sprintf('Shield established, value=%.0f', state.ShieldStrength);

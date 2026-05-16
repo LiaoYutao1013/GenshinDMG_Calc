@@ -83,6 +83,30 @@ function cfg = getDefaultCharacterConfig(name, overrides)
         case {'xianyun', 'liuyun'}
             cfg = localBaseConfig('Xianyun', customArtifact_Xianyun(), fullfile(projectRoot, 'data', 'Xianyun', 'rotation_Xianyun.txt'));
 
+        case {'navia'}
+            cfg = localBaseConfig('Navia', customArtifact_Navia(), fullfile(projectRoot, 'data', 'Navia', 'rotation_Navia.txt'));
+
+        case {'gaming'}
+            cfg = localBaseConfig('Gaming', customArtifact_Gaming(), fullfile(projectRoot, 'data', 'Gaming', 'rotation_Gaming.txt'));
+
+        case {'chiori'}
+            cfg = localBaseConfig('Chiori', customArtifact_Chiori(), fullfile(projectRoot, 'data', 'Chiori', 'rotation_Chiori.txt'));
+
+        case {'sigewinne'}
+            cfg = localBaseConfig('Sigewinne', customArtifact_Sigewinne(), fullfile(projectRoot, 'data', 'Sigewinne', 'rotation_Sigewinne.txt'));
+
+        case {'clorinde'}
+            cfg = localBaseConfig('Clorinde', customArtifact_Clorinde(), fullfile(projectRoot, 'data', 'Clorinde', 'rotation_Clorinde.txt'));
+
+        case {'emilie'}
+            cfg = localBaseConfig('Emilie', customArtifact_Emilie(), fullfile(projectRoot, 'data', 'Emilie', 'rotation_Emilie.txt'));
+
+        case {'kachina'}
+            cfg = localBaseConfig('Kachina', customArtifact_Kachina(), fullfile(projectRoot, 'data', 'Kachina', 'rotation_Kachina.txt'));
+
+        case {'kinich'}
+            cfg = localBaseConfig('Kinich', customArtifact_Kinich(), fullfile(projectRoot, 'data', 'Kinich', 'rotation_Kinich.txt'));
+
         otherwise
             error('Unsupported character in unified entry: %s', name);
     end

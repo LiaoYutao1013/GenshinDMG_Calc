@@ -46,7 +46,8 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateNilouDPS(build, enem
         + 0.35 * double(constellation >= 2 && bountifulEnabled);
     dendroResShred = getFieldOrDefault(teamContext, 'DendroResShred', 0) + 0.35 * double(constellation >= 2 && bountifulEnabled);
     hydroMult = calcDamageMultiplier(90, enemy, hydroResShred);
-    bloomBonus = 1 + min(4.0, max(0, maxHP - 30000) / 1000 * getTalentValue(talent, 'Passive', 'AeonsBonus', talentLevel));
+    bloomBonus = 1 + getFieldOrDefault(build, 'ReactionDMGBonus', 0) ...
+        + min(4.0, max(0, maxHP - 30000) / 1000 * getTalentValue(talent, 'Passive', 'AeonsBonus', talentLevel));
     bloomBonus = bloomBonus * (1 + getFieldOrDefault(teamContext, 'NilouBloomBonus', 0));
 
     reactionCritRate = getFieldOrDefault(teamContext, 'ReactionCritRate', []);

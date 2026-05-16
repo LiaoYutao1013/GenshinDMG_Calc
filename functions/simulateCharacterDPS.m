@@ -115,6 +115,38 @@ function result = simulateCharacterDPS(memberCfg, enemy, teamContext)
             [totalDMG, dps, breakdown, rotationTime] = simulateXianyunDPS( ...
                 compiledBuild, enemy, memberCfg.RotationFile, memberCfg.TalentLevel, memberCfg.Constellation, memberTeamContext);
 
+        case 'navia'
+            [totalDMG, dps, breakdown, rotationTime] = simulateNaviaDPS( ...
+                compiledBuild, enemy, memberCfg.RotationFile, memberCfg.TalentLevel, memberCfg.Constellation, memberTeamContext);
+
+        case 'gaming'
+            [totalDMG, dps, breakdown, rotationTime] = simulateGamingDPS( ...
+                compiledBuild, enemy, memberCfg.RotationFile, memberCfg.TalentLevel, memberCfg.Constellation, memberTeamContext);
+
+        case 'chiori'
+            [totalDMG, dps, breakdown, rotationTime] = simulateChioriDPS( ...
+                compiledBuild, enemy, memberCfg.RotationFile, memberCfg.TalentLevel, memberCfg.Constellation, memberTeamContext);
+
+        case 'sigewinne'
+            [totalDMG, dps, breakdown, rotationTime] = simulateSigewinneDPS( ...
+                compiledBuild, enemy, memberCfg.RotationFile, memberCfg.TalentLevel, memberCfg.Constellation, memberTeamContext);
+
+        case 'clorinde'
+            [totalDMG, dps, breakdown, rotationTime] = simulateClorindeDPS( ...
+                compiledBuild, enemy, memberCfg.RotationFile, memberCfg.TalentLevel, memberCfg.Constellation, memberTeamContext);
+
+        case 'emilie'
+            [totalDMG, dps, breakdown, rotationTime] = simulateEmilieDPS( ...
+                compiledBuild, enemy, memberCfg.RotationFile, memberCfg.TalentLevel, memberCfg.Constellation, memberTeamContext);
+
+        case 'kachina'
+            [totalDMG, dps, breakdown, rotationTime] = simulateKachinaDPS( ...
+                compiledBuild, enemy, memberCfg.RotationFile, memberCfg.TalentLevel, memberCfg.Constellation, memberTeamContext);
+
+        case 'kinich'
+            [totalDMG, dps, breakdown, rotationTime] = simulateKinichDPS( ...
+                compiledBuild, enemy, memberCfg.RotationFile, memberCfg.TalentLevel, memberCfg.Constellation, memberTeamContext);
+
         otherwise
             error('No simulator registered for %s', memberCfg.Name);
     end

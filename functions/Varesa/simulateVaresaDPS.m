@@ -110,7 +110,7 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateVaresaDPS(build, ene
 
                     if getFieldOrDefault(teamContext, 'ElectroChargedReady', false)
                         reactionDMG = calcReactionDamage(getTalentValue(talent, 'Reaction', 'ElectroCharged', talentLevel), ...
-                            em, enemy, electroResShred, 1.10, critRate * 0.35, critDMG * 0.45);
+                            em, enemy, electroResShred, 1.10 + getFieldOrDefault(build, 'ReactionDMGBonus', 0), critRate * 0.35, critDMG * 0.45);
                         totalDMG = totalDMG + reactionDMG;
                         breakdown = [breakdown; {string("ElectroCharged"), reactionDMG, "Electro-Charged splash from plunge"}]; %#ok<AGROW>
                     end

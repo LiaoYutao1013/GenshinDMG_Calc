@@ -20,6 +20,7 @@
         'AnemoDMGBonus', 0, ...
         'GeoDMGBonus', 0, ...
         'DendroDMGBonus', 0, ...
+        'ShieldBonus', 0, ...
         'LunarBloomBonus', 0, ...
         'LunarChargedBonus', 0, ...
         'LunarCrystallizeBonus', 0, ...
@@ -53,6 +54,7 @@
 
             case 'tenacityofthemillelith'
                 buffs.ATKBonus = max(buffs.ATKBonus, 0.20);
+                buffs.ShieldBonus = max(buffs.ShieldBonus, 0.30);
 
             case 'instructor'
                 buffs.EMBonus = max(buffs.EMBonus, 120);
@@ -75,7 +77,11 @@
                 buffs = localAddElementTeamBonus(buffs, preferred, 0.35);
 
             case 'songofdayspast'
-                buffs.AllDMGBonus = max(buffs.AllDMGBonus, 0.08);
+                % Song of Days Past records healing and converts it into
+                % a flat additive damage instance with hit-count limits.
+                % The current engine does not track this per-hit flat packet,
+                % so keep the set present in the catalog but do not fake it
+                % as a generic damage multiplier.
 
             case 'silkenmoonsserenade'
                 moonPhase = min(1, max(0, getFieldOrDefault(build, 'ArtifactAssumeMoonPhase', 1)));
