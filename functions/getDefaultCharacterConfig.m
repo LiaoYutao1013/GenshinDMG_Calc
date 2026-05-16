@@ -140,7 +140,7 @@ function cfg = getDefaultCharacterConfig(name, overrides)
         case {'prune'}
             cfg = localBaseConfig('Prune', customArtifact_Prune(), fullfile(projectRoot, 'data', 'Prune', 'rotation_Prune.txt'));
 
-        case {'lanyan', 'lan yan', 'lanyan'}
+        case {'lanyan', 'lan yan'}
             cfg = localBaseConfig('LanYan', customArtifact_LanYan(), fullfile(projectRoot, 'data', 'LanYan', 'rotation_LanYan.txt'));
 
         otherwise
