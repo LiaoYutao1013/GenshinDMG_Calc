@@ -1,0 +1,36 @@
+function [totalDMG, dps, breakdown, rotationTime] = simulateShenheDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
+    % Shenhe simulator for Icy Quills setup and burst field damage.
+    if nargin < 3 || isempty(seqFile)
+        seqFile = fullfile(fileparts(mfilename('fullpath')), '..', '..', 'data', 'Shenhe', 'rotation_Shenhe.txt');
+    end
+    if nargin < 4 || isempty(talentLevel)
+        talentLevel = 10;
+    end
+    if nargin < 5 || isempty(constellation)
+        constellation = 0;
+    end
+    if nargin < 6 || isempty(teamContext)
+        teamContext = buildTeamContext({struct('Name', 'Shenhe', 'Constellation', constellation, 'Build', build)}, 20, struct());
+    end
+
+    actions = struct();
+    actions.EPress = struct('TalentGroup', "Skill", 'Param', "PressSkillDMG", 'DamageField', "SkillDMGBonus", ...
+        'ActionElement', "Cryo", 'BaseMultiplier', 1.00, 'Note', "Icy Quill press");
+    actions.EHold = struct('TalentGroup', "Skill", 'Param', "HoldSkillDMG", 'DamageField', "SkillDMGBonus", ...
+        'ActionElement', "Cryo", 'BaseMultiplier', 1.00, 'Note', "Icy Quill hold");
+    actions.Q = struct('TalentGroup', "Burst", 'Param', "SkillDMG", 'DamageField', "BurstDMGBonus", ...
+        'ActionElement', "Cryo", 'BaseMultiplier', 1.00, 'PostSetBurstActiveTime', 12.0, 'Note', "Divine Maiden's Deliverance");
+    actions.DoT = struct('TalentGroup', "Burst", 'Param', "DoT", 'DamageField', "BurstDMGBonus", ...
+        'ActionElement', "Cryo", 'BaseMultiplier', 1.00, 'HitCount', 6 + double(constellation >= 2), 'Note', "Burst field DoT");
+
+    spec = struct( ...
+        'Element', "Cryo", ...
+        'ScalingMode', "ATK", ...
+        'DefaultActionTime', 0.80, ...
+        'DefaultRotation', {{'EHold', 'Q', 'DoT'}}, ...
+        'ActionTimeMap', struct('EPress', 0.65, 'EHold', 0.85, 'Q', 1.00, 'DoT', 12.00), ...
+        'Actions', actions);
+
+    [totalDMG, dps, breakdown, rotationTime] = simulateSimpleCharacterDPS( ...
+        'Shenhe', build, enemy, seqFile, talentLevel, constellation, teamContext, spec);
+end

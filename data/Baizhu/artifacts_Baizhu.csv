@@ -1,0 +1,2 @@
+Weapon,WeaponATK,WeaponSubStatType,WeaponSubStatValue,WeaponRefinement,HPBonus,FlatHP,AtkBonus,FlatATK,ER,EM,CritRate,CritDMG,DendroDMGBonus,SkillDMGBonus,BurstDMGBonus,HealingBonus,ResShred,ArtifactSet1,ArtifactSet1Pieces,ArtifactSet2,ArtifactSet2Pieces,ArtifactSet4Active
+碧落之珑,608,HP,0.496,1,1.08,4780,0.16,120,1.8,100,0.2,0.6,0.18,0.18,0.18,0.359,0,DeepwoodMemories,4,None,0,1

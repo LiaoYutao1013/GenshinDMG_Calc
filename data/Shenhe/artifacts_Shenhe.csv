@@ -1,0 +1,2 @@
+Weapon,WeaponATK,WeaponSubStatType,WeaponSubStatValue,WeaponRefinement,AtkBonus,FlatATK,ER,CritRate,CritDMG,CryoDMGBonus,SkillDMGBonus,BurstDMGBonus,ResShred,ArtifactSet1,ArtifactSet1Pieces,ArtifactSet2,ArtifactSet2Pieces,ArtifactSet4Active
+CalamityQueller,741,ATK,0.165,1,0.96,220,1.65,0.55,1.35,0.466,0.18,0.2,0,NoblesseOblige,4,None,0,1

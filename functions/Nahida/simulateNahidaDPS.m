@@ -1,0 +1,67 @@
+function [totalDMG, dps, breakdown, rotationTime] = simulateNahidaDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
+    % Nahida simulator focusing on Tri-Karma ticks plus burst-enhanced EM scaling.
+    if nargin < 3 || isempty(seqFile)
+        seqFile = fullfile(fileparts(mfilename('fullpath')), '..', '..', 'data', 'Nahida', 'rotation_Nahida.txt');
+    end
+    if nargin < 4 || isempty(talentLevel)
+        talentLevel = 10;
+    end
+    if nargin < 5 || isempty(constellation)
+        constellation = 0;
+    end
+    if nargin < 6 || isempty(teamContext)
+        teamContext = buildTeamContext({struct('Name', 'Nahida', 'Constellation', constellation, 'Build', build)}, 20, struct());
+    end
+
+    talentPath = fullfile(fileparts(mfilename('fullpath')), '..', '..', 'data', 'Nahida', 'talents_Nahida.csv');
+    talent = readtable(talentPath);
+    skillLevel = talentLevel;
+    burstLevel = talentLevel + 3 * double(constellation >= 5);
+    pyroBonus = getTalentValue(talent, 'Burst', 'PyroDMGBonus', burstLevel) * double(getFieldOrDefault(teamContext, 'PyroCount', 0) >= 1);
+    electroHits = double(getFieldOrDefault(teamContext, 'ElectroCount', 0) >= 1);
+    hydroHits = double(getFieldOrDefault(teamContext, 'HydroCount', 0) >= 1);
+    em = getFieldOrDefault(build, 'EM', 0) + getFieldOrDefault(teamContext, 'EMBonus', 0);
+    triKarmaBonus = 0.001 * max(0, em - 200);
+    triKarmaCritRate = min(0.24, 0.0003 * max(0, em - 200));
+    if constellation >= 2
+        triKarmaBonus = triKarmaBonus + 0.80;
+        triKarmaCritRate = max(triKarmaCritRate, 0.24);
+    end
+    if constellation >= 6
+        triKarmaBonus = triKarmaBonus + 1.00;
+    end
+
+    actions = struct();
+    actions.EPress = struct('TalentGroup', "Skill", 'Param', "PressDMG", 'DamageField', "SkillDMGBonus", ...
+        'ActionElement', "Dendro", 'BaseMultiplier', 1.00, 'PostSetSkillActiveTime', 25.0, 'PostSetMarks', 8, ...
+        'Note', "Seed of Skandha press");
+    actions.EHold = struct('TalentGroup', "Skill", 'Param', "HoldDMG", 'DamageField', "SkillDMGBonus", ...
+        'ActionElement', "Dendro", 'BaseMultiplier', 1.00, 'PostSetSkillActiveTime', 25.0, 'PostSetMarks', 8, ...
+        'Note', "Seed of Skandha hold");
+    actions.TriKarma = struct('TalentGroup', "Skill", 'Param', "TriKarmaPurificationDMG", 'DamageField', "SkillDMGBonus", ...
+        'ActionElement', "Dendro", 'ActionScalingMode', "EM", 'BaseMultiplier', 1.00, ...
+        'HitCount', 6 + double(constellation >= 6), 'CritRateBonus', triKarmaCritRate, ...
+        'FlatDamageBonus', triKarmaBonus + pyroBonus, 'Note', "Tri-Karma Purification");
+    actions.Q = struct('TalentGroup', "Burst", 'Param', "BaseDuration", 'MVOverride', 0, ...
+        'DamageField', "BurstDMGBonus", 'ActionElement', "Dendro", 'BaseMultiplier', 1.00, 'PostSetBurstActiveTime', 15.0, ...
+        'Note', "Illusory Heart");
+    actions.BurstTriKarma = struct('TalentGroup', "Skill", 'Param', "TriKarmaPurificationDMG", 'DamageField', "SkillDMGBonus", ...
+        'ActionElement', "Dendro", 'ActionScalingMode', "EM", 'BaseMultiplier', 1.00, ...
+        'HitCount', 6 + electroHits + hydroHits, 'FlatDamageBonus', triKarmaBonus + 0.20 + pyroBonus, 'CritRateBonus', triKarmaCritRate, ...
+        'Note', "Burst tri-karma");
+
+    defaultRotation = {'EPress', 'TriKarma', 'Q', 'BurstTriKarma'};
+    spec = struct( ...
+        'Element', "Dendro", ...
+        'ScalingMode', "EM", ...
+        'DefaultActionTime', 0.60, ...
+        'DefaultRotation', {defaultRotation}, ...
+        'ActionTimeMap', struct('EPress', 0.65, 'EHold', 0.85, 'TriKarma', 2.50, 'Q', 1.00, 'BurstTriKarma', 2.50), ...
+        'Actions', actions);
+
+    build.EM = em;
+    build.DendroDMGBonus = getFieldOrDefault(build, 'DendroDMGBonus', 0) + 0.15;
+
+    [totalDMG, dps, breakdown, rotationTime] = simulateSimpleCharacterDPS( ...
+        'Nahida', build, enemy, seqFile, talentLevel, constellation, teamContext, spec);
+end

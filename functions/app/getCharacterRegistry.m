@@ -114,10 +114,20 @@ end
 
 function aliasMap = localCharacterAliasMap()
     aliasMap = containers.Map('KeyType', 'char', 'ValueType', 'any');
+    aliasMap('Hutao') = struct('Key', "Hutao", 'DisplayName', "Hu Tao", 'AvatarKey', "Hutao", 'Include', true);
     aliasMap('SkirkNew') = struct('Key', "Skirk", 'DisplayName', "Skirk", 'AvatarKey', "SkirkNew", 'Include', true);
     aliasMap('Liuyun') = struct('Key', "Xianyun", 'DisplayName', "Xianyun", 'AvatarKey', "Liuyun", 'Include', true);
     aliasMap('Lanyan') = struct('Key', "LanYan", 'DisplayName', "Lan Yan", 'AvatarKey', "Lanyan", 'Include', true);
     aliasMap('Olorun') = struct('Key', "Ororon", 'DisplayName', "Ororon", 'AvatarKey', "Olorun", 'Include', true);
+    aliasMap('Liney') = struct('Key', "Lyney", 'DisplayName', "Lyney", 'AvatarKey', "Liney", 'Include', true);
+    aliasMap('Linette') = struct('Key', "Lynette", 'DisplayName', "Lynette", 'AvatarKey', "Linette", 'Include', true);
+    aliasMap('Baizhuer') = struct('Key', "Baizhu", 'DisplayName', "Baizhu", 'AvatarKey', "Baizhuer", 'Include', true);
+    aliasMap('Heizo') = struct('Key', "ShikanoinHeizou", 'DisplayName', "Shikanoin Heizou", 'AvatarKey', "Heizo", 'Include', true);
+    aliasMap('Shinobu') = struct('Key', "KukiShinobu", 'DisplayName', "Kuki Shinobu", 'AvatarKey', "Shinobu", 'Include', true);
+    aliasMap('Ayato') = struct('Key', "KamisatoAyato", 'DisplayName', "Kamisato Ayato", 'AvatarKey', "Ayato", 'Include', true);
+    aliasMap('Yae') = struct('Key', "YaeMiko", 'DisplayName', "Yae Miko", 'AvatarKey', "Yae", 'Include', true);
+    aliasMap('Yunjin') = struct('Key', "YunJin", 'DisplayName', "Yun Jin", 'AvatarKey', "Yunjin", 'Include', true);
+    aliasMap('Itto') = struct('Key', "AratakiItto", 'DisplayName', "Arataki Itto", 'AvatarKey', "Itto", 'Include', true);
 end
 
 function mapping = localResolveCharacterMapping(rawName, aliasMap)

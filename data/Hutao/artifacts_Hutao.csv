@@ -1,0 +1,2 @@
+Weapon,WeaponATK,WeaponSubStatType,WeaponSubStatValue,WeaponRefinement,HPBonus,FlatHP,AtkBonus,FlatATK,EM,ER,CritRate,CritDMG,PyroDMGBonus,ChargedDMGBonus,SkillDMGBonus,BurstDMGBonus,ResShred,ArtifactSet1,ArtifactSet1Pieces,ArtifactSet2,ArtifactSet2Pieces,ArtifactSet4Active
+护摩之杖,608,CD,0.662,1,0.86,4780,0.12,220,220,1.1,0.72,2.2,0.466,0.18,0.2,0.18,0,CrimsonWitchOfFlames,4,None,0,1

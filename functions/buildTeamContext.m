@@ -59,6 +59,7 @@ function teamContext = buildTeamContext(members, rotationDuration, sharedBuffs, 
     anemoDMGBonus = getFieldOrDefault(sharedBuffs, 'AnemoDMGBonus', 0) + getFieldOrDefault(sharedArtifactBuffs, 'AnemoDMGBonus', 0);
     geoDMGBonus = getFieldOrDefault(sharedBuffs, 'GeoDMGBonus', 0) + getFieldOrDefault(sharedArtifactBuffs, 'GeoDMGBonus', 0);
     dendroDMGBonus = getFieldOrDefault(sharedBuffs, 'DendroDMGBonus', 0) + getFieldOrDefault(sharedArtifactBuffs, 'DendroDMGBonus', 0);
+    physicalDMGBonus = getFieldOrDefault(sharedBuffs, 'PhysicalDMGBonus', 0);
     shieldBonus = getFieldOrDefault(sharedBuffs, 'ShieldBonus', 0) + getFieldOrDefault(sharedArtifactBuffs, 'ShieldBonus', 0);
 
     hydroResShred = getFieldOrDefault(sharedBuffs, 'HydroResShred', 0) + getFieldOrDefault(sharedArtifactBuffs, 'HydroResShred', 0);
@@ -67,8 +68,14 @@ function teamContext = buildTeamContext(members, rotationDuration, sharedBuffs, 
     dendroResShred = getFieldOrDefault(sharedBuffs, 'DendroResShred', 0) + getFieldOrDefault(sharedArtifactBuffs, 'DendroResShred', 0);
     electroResShred = getFieldOrDefault(sharedBuffs, 'ElectroResShred', 0) + getFieldOrDefault(sharedArtifactBuffs, 'ElectroResShred', 0);
     geoResShred = getFieldOrDefault(sharedBuffs, 'GeoResShred', 0) + getFieldOrDefault(sharedArtifactBuffs, 'GeoResShred', 0);
+    physicalResShred = getFieldOrDefault(sharedBuffs, 'PhysicalResShred', 0);
+    anemoResShred = getFieldOrDefault(sharedBuffs, 'AnemoResShred', 0) + getFieldOrDefault(sharedArtifactBuffs, 'AnemoResShred', 0);
     cryoCritDMGBonus = getFieldOrDefault(sharedBuffs, 'CryoCritDMGBonus', 0);
+    anemoCritDMGBonus = getFieldOrDefault(sharedBuffs, 'AnemoCritDMGBonus', 0);
     geoCritDMGBonus = getFieldOrDefault(sharedBuffs, 'GeoCritDMGBonus', 0);
+    physicalCritRateBonus = getFieldOrDefault(sharedBuffs, 'PhysicalCritRateBonus', 0);
+    physicalCritDMGBonus = getFieldOrDefault(sharedBuffs, 'PhysicalCritDMGBonus', 0);
+    mikaATKSpeedBonus = 0;
 
     if any(memberNames == "Escoffier")
         resSchedule = [0.00, 0.05, 0.10, 0.15, 0.55];
@@ -103,6 +110,9 @@ function teamContext = buildTeamContext(members, rotationDuration, sharedBuffs, 
     hasXianyun = any(memberNames == "Xianyun");
     hasMizuki = any(memberNames == "Mizuki");
     hasPrune = any(memberNames == "Prune");
+    hasMika = any(memberNames == "Mika");
+    hasFaruzan = any(memberNames == "Faruzan");
+    hasNahida = any(memberNames == "Nahida");
 
     lunarBloomEnabled = hasLauma || hasNefer || (hasColumbina && hydroCount >= 1 && dendroCount >= 1);
     lunarChargedEnabled = (hasIneffa || hasFlins || hasColumbina) && hydroCount >= 1 && electroCount >= 1;
@@ -150,6 +160,34 @@ function teamContext = buildTeamContext(members, rotationDuration, sharedBuffs, 
     if hasCitlali
         pyroResShred = pyroResShred + 0.20;
         hydroResShred = hydroResShred + 0.20;
+    end
+
+    if hasFaruzan
+        faruzanIndex = find(memberNames == "Faruzan", 1, 'first');
+        faruzanConstellation = memberConstellations(faruzanIndex);
+        anemoResShred = anemoResShred + 0.30;
+        faruzanTalentLevel = getFieldOrDefault(members{faruzanIndex}, 'TalentLevel', 10);
+        faruzanBurstLevel = faruzanTalentLevel + 3 * double(faruzanConstellation >= 5);
+        faruzanTalentPath = fullfile(fileparts(mfilename('fullpath')), '..', 'data', 'Faruzan', 'talents_Faruzan.csv');
+        if exist(faruzanTalentPath, 'file') == 2
+            faruzanTalent = readtable(faruzanTalentPath);
+            anemoDMGBonus = anemoDMGBonus + getTalentValue(faruzanTalent, 'Burst', 'AnemoDMGBonus', faruzanBurstLevel);
+        else
+            anemoDMGBonus = anemoDMGBonus + 0.32;
+        end
+        if faruzanConstellation >= 6
+            anemoCritDMGBonus = anemoCritDMGBonus + 0.40;
+        end
+    end
+
+    if hasNahida
+        nahidaIndex = find(memberNames == "Nahida", 1, 'first');
+        nahidaBuild = getFieldOrDefault(members{nahidaIndex}, 'Build', struct());
+        nahidaEM = getFieldOrDefault(nahidaBuild, 'EM', 0);
+        emBonus = getFieldOrDefault(sharedBuffs, 'EMBonus', 0) + getFieldOrDefault(sharedArtifactBuffs, 'EMBonus', 0) ...
+            + min(250, 0.25 * nahidaEM);
+    else
+        emBonus = getFieldOrDefault(sharedBuffs, 'EMBonus', 0) + getFieldOrDefault(sharedArtifactBuffs, 'EMBonus', 0);
     end
 
     if hasXilonen
@@ -216,10 +254,10 @@ function teamContext = buildTeamContext(members, rotationDuration, sharedBuffs, 
     flatATK = getFieldOrDefault(sharedBuffs, 'FlatATK', 0) + nicoleTeamFlatATK;
     atkBonus = getFieldOrDefault(sharedBuffs, 'ATKBonus', 0) + getFieldOrDefault(sharedArtifactBuffs, 'ATKBonus', 0) ...
         + chevreuseATKBonus + iansanBurstATKBonus;
-    emBonus = getFieldOrDefault(sharedBuffs, 'EMBonus', 0) + getFieldOrDefault(sharedArtifactBuffs, 'EMBonus', 0);
     overloadBonus = sharedOverloadBonus + 0.35 * double(chevreuseOverloadReady) + 0.08 * double(hasVaresa && overloadReady);
     plungeDMGBonus = getFieldOrDefault(sharedBuffs, 'PlungeDMGBonus', 0) + xianyunSupport.WeaponPlungeDMGBonus;
     plungeCritRateBonus = getFieldOrDefault(sharedBuffs, 'PlungeCritRateBonus', 0) + xianyunSupport.PlungeCritRateBonus;
+    physicalResShred = physicalResShred + 0.40 * double(cryoCount >= 1 && electroCount >= 1);
 
     if hasMizuki
         mizukiIndex = find(memberNames == "Mizuki", 1, 'first');
@@ -243,6 +281,23 @@ function teamContext = buildTeamContext(members, rotationDuration, sharedBuffs, 
         pruneATK = localApproxMemberATK(members{pruneIndex}, 221);
         pruneSharedBonus = min(0.50, max(0, 0.00025 * max(0, pruneATK - 2000)));
         allDMGBonus = allDMGBonus + pruneSharedBonus;
+    end
+
+    if hasMika
+        mikaIndex = find(memberNames == "Mika", 1, 'first');
+        mikaConstellation = memberConstellations(mikaIndex);
+        mikaTalentLevel = getFieldOrDefault(members{mikaIndex}, 'TalentLevel', 10);
+        skillTalentLevel = mikaTalentLevel + 3 * double(mikaConstellation >= 3);
+        mikaTalentPath = fullfile(fileparts(mfilename('fullpath')), '..', 'data', 'Mika', 'talents_Mika.csv');
+        if exist(mikaTalentPath, 'file') == 2
+            mikaTalent = readtable(mikaTalentPath);
+            mikaATKSpeedBonus = getTalentValue(mikaTalent, 'Skill', 'ATKSPDBonus', skillTalentLevel);
+        else
+            mikaATKSpeedBonus = 0.22;
+        end
+        if mikaConstellation >= 6
+            physicalCritDMGBonus = physicalCritDMGBonus + 0.60;
+        end
     end
 
     hydroBeamBonus = 0.00;
@@ -284,6 +339,7 @@ function teamContext = buildTeamContext(members, rotationDuration, sharedBuffs, 
         'AnemoDMGBonus', anemoDMGBonus, ...
         'GeoDMGBonus', geoDMGBonus, ...
         'DendroDMGBonus', dendroDMGBonus, ...
+        'PhysicalDMGBonus', physicalDMGBonus, ...
         'ShieldBonus', shieldBonus, ...
         'FlatATK', flatATK, ...
         'ATKBonus', atkBonus, ...
@@ -299,8 +355,14 @@ function teamContext = buildTeamContext(members, rotationDuration, sharedBuffs, 
         'DendroResShred', dendroResShred, ...
         'ElectroResShred', electroResShred, ...
         'GeoResShred', geoResShred, ...
+        'PhysicalResShred', physicalResShred, ...
+        'AnemoResShred', anemoResShred, ...
         'CryoCritDMGBonus', cryoCritDMGBonus, ...
+        'AnemoCritDMGBonus', anemoCritDMGBonus, ...
         'GeoCritDMGBonus', geoCritDMGBonus, ...
+        'PhysicalCritRateBonus', physicalCritRateBonus, ...
+        'PhysicalCritDMGBonus', physicalCritDMGBonus, ...
+        'MikaATKSpeedBonus', mikaATKSpeedBonus, ...
         'HydroCryoCount', hydroCryoCount, ...
         'AnemoCount', anemoCount, ...
         'HydroCount', hydroCount, ...
@@ -841,6 +903,46 @@ function element = localGetElement(name)
             element = "Pyro";
         case 'nicole'
             element = "Pyro";
+        case 'hutao'
+            element = "Pyro";
+        case 'charlotte'
+            element = "Cryo";
+        case 'wriothesley'
+            element = "Cryo";
+        case 'freminet'
+            element = "Cryo";
+        case 'lyney'
+            element = "Pyro";
+        case 'lynette'
+            element = "Anemo";
+        case 'baizhu'
+            element = "Dendro";
+        case 'kaveh'
+            element = "Dendro";
+        case 'mika'
+            element = "Cryo";
+        case 'dehya'
+            element = "Pyro";
+        case 'alhaitham'
+            element = "Dendro";
+        case 'yaoyao'
+            element = "Dendro";
+        case 'faruzan'
+            element = "Anemo";
+        case 'wanderer'
+            element = "Anemo";
+        case 'layla'
+            element = "Cryo";
+        case 'nahida'
+            element = "Dendro";
+        case 'candace'
+            element = "Hydro";
+        case 'cyno'
+            element = "Electro";
+        case 'dori'
+            element = "Electro";
+        case 'collei'
+            element = "Dendro";
         case 'xianyun'
             element = "Anemo";
         case 'navia'

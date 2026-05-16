@@ -1,0 +1,2 @@
+Weapon,WeaponATK,HPBonus,FlatHP,ER,CritRate,CritDMG,DendroDMGBonus,SkillDMGBonus,BurstDMGBonus,ResShred,ArtifactSet1,ArtifactSet1Pieces,ArtifactSet2,ArtifactSet2Pieces,ArtifactSet4Active
+FavoniusLance,565,0.96,4780,1.8,0.45,1.1,0.466,0.15,0.15,0,DeepwoodMemories,4,None,0,1

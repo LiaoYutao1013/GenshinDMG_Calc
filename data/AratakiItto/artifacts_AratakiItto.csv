@@ -1,0 +1,2 @@
+Weapon,WeaponATK,WeaponSubStatType,WeaponSubStatValue,WeaponRefinement,DEFBonus,FlatDEF,AtkBonus,ER,CritRate,CritDMG,GeoDMGBonus,NormalDMGBonus,SkillDMGBonus,BurstDMGBonus,ResShred,ArtifactSet1,ArtifactSet1Pieces,ArtifactSet2,ArtifactSet2Pieces,ArtifactSet4Active
+RedhornStonethresher,542,CD,0.882,1,0.58,300,0.2,1.2,0.75,2.4,0.466,0.4,0.3,0.2,0,HuskOfOpulentDreams,4,None,0,1

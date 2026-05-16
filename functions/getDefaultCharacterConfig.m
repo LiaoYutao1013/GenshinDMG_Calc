@@ -80,6 +80,97 @@ function cfg = getDefaultCharacterConfig(name, overrides)
         case {'nicole'}
             cfg = localBaseConfig('Nicole', customArtifact_Nicole(), fullfile(projectRoot, 'data', 'Nicole', 'rotation_Nicole.txt'));
 
+        case {'hutao', 'hu tao'}
+            cfg = localBaseConfig('Hutao', customArtifact_Hutao(), fullfile(projectRoot, 'data', 'Hutao', 'rotation_Hutao.txt'));
+            cfg.DisplayName = "Hu Tao";
+
+        case {'charlotte'}
+            cfg = localBaseConfig('Charlotte', customArtifact_Charlotte(), fullfile(projectRoot, 'data', 'Charlotte', 'rotation_Charlotte.txt'));
+
+        case {'wriothesley'}
+            cfg = localBaseConfig('Wriothesley', customArtifact_Wriothesley(), fullfile(projectRoot, 'data', 'Wriothesley', 'rotation_Wriothesley.txt'));
+
+        case {'freminet'}
+            cfg = localBaseConfig('Freminet', customArtifact_Freminet(), fullfile(projectRoot, 'data', 'Freminet', 'rotation_Freminet.txt'));
+
+        case {'lyney', 'liney'}
+            cfg = localBaseConfig('Lyney', customArtifact_Lyney(), fullfile(projectRoot, 'data', 'Lyney', 'rotation_Lyney.txt'));
+
+        case {'lynette', 'linette'}
+            cfg = localBaseConfig('Lynette', customArtifact_Lynette(), fullfile(projectRoot, 'data', 'Lynette', 'rotation_Lynette.txt'));
+
+        case {'baizhu', 'baizhuer'}
+            cfg = localBaseConfig('Baizhu', customArtifact_Baizhu(), fullfile(projectRoot, 'data', 'Baizhu', 'rotation_Baizhu.txt'));
+
+        case {'kaveh'}
+            cfg = localBaseConfig('Kaveh', customArtifact_Kaveh(), fullfile(projectRoot, 'data', 'Kaveh', 'rotation_Kaveh.txt'));
+
+        case {'mika'}
+            cfg = localBaseConfig('Mika', customArtifact_Mika(), fullfile(projectRoot, 'data', 'Mika', 'rotation_Mika.txt'));
+
+        case {'dehya'}
+            cfg = localBaseConfig('Dehya', customArtifact_Dehya(), fullfile(projectRoot, 'data', 'Dehya', 'rotation_Dehya.txt'));
+
+        case {'alhaitham'}
+            cfg = localBaseConfig('Alhaitham', customArtifact_Alhaitham(), fullfile(projectRoot, 'data', 'Alhaitham', 'rotation_Alhaitham.txt'));
+
+        case {'yaoyao'}
+            cfg = localBaseConfig('Yaoyao', customArtifact_Yaoyao(), fullfile(projectRoot, 'data', 'Yaoyao', 'rotation_Yaoyao.txt'));
+
+        case {'faruzan'}
+            cfg = localBaseConfig('Faruzan', customArtifact_Faruzan(), fullfile(projectRoot, 'data', 'Faruzan', 'rotation_Faruzan.txt'));
+
+        case {'wanderer'}
+            cfg = localBaseConfig('Wanderer', customArtifact_Wanderer(), fullfile(projectRoot, 'data', 'Wanderer', 'rotation_Wanderer.txt'));
+
+        case {'layla'}
+            cfg = localBaseConfig('Layla', customArtifact_Layla(), fullfile(projectRoot, 'data', 'Layla', 'rotation_Layla.txt'));
+
+        case {'nahida'}
+            cfg = localBaseConfig('Nahida', customArtifact_Nahida(), fullfile(projectRoot, 'data', 'Nahida', 'rotation_Nahida.txt'));
+
+        case {'candace'}
+            cfg = localBaseConfig('Candace', customArtifact_Candace(), fullfile(projectRoot, 'data', 'Candace', 'rotation_Candace.txt'));
+
+        case {'cyno'}
+            cfg = localBaseConfig('Cyno', customArtifact_Cyno(), fullfile(projectRoot, 'data', 'Cyno', 'rotation_Cyno.txt'));
+
+        case {'dori'}
+            cfg = localBaseConfig('Dori', customArtifact_Dori(), fullfile(projectRoot, 'data', 'Dori', 'rotation_Dori.txt'));
+
+        case {'collei'}
+            cfg = localBaseConfig('Collei', customArtifact_Collei(), fullfile(projectRoot, 'data', 'Collei', 'rotation_Collei.txt'));
+
+        case {'tighnari'}
+            cfg = localBaseConfig('Tighnari', customArtifact_Tighnari(), fullfile(projectRoot, 'data', 'Tighnari', 'rotation_Tighnari.txt'));
+
+        case {'kamisato ayato', 'ayato', 'kamisatoayato'}
+            cfg = localBaseConfig('KamisatoAyato', customArtifact_KamisatoAyato(), fullfile(projectRoot, 'data', 'KamisatoAyato', 'rotation_KamisatoAyato.txt'));
+
+        case {'kuki shinobu', 'shinobu', 'kukishinobu'}
+            cfg = localBaseConfig('KukiShinobu', customArtifact_KukiShinobu(), fullfile(projectRoot, 'data', 'KukiShinobu', 'rotation_KukiShinobu.txt'));
+
+        case {'yun jin', 'yunjin'}
+            cfg = localBaseConfig('YunJin', customArtifact_YunJin(), fullfile(projectRoot, 'data', 'YunJin', 'rotation_YunJin.txt'));
+
+        case {'shenhe'}
+            cfg = localBaseConfig('Shenhe', customArtifact_Shenhe(), fullfile(projectRoot, 'data', 'Shenhe', 'rotation_Shenhe.txt'));
+
+        case {'yelan'}
+            cfg = localBaseConfig('Yelan', customArtifact_Yelan(), fullfile(projectRoot, 'data', 'Yelan', 'rotation_Yelan.txt'));
+
+        case {'shikanoin heizou', 'heizou', 'shikanoinheizou'}
+            cfg = localBaseConfig('ShikanoinHeizou', customArtifact_ShikanoinHeizou(), fullfile(projectRoot, 'data', 'ShikanoinHeizou', 'rotation_ShikanoinHeizou.txt'));
+
+        case {'yae miko', 'yae', 'yaemiko'}
+            cfg = localBaseConfig('YaeMiko', customArtifact_YaeMiko(), fullfile(projectRoot, 'data', 'YaeMiko', 'rotation_YaeMiko.txt'));
+
+        case {'arataki itto', 'itto', 'aratakiitto'}
+            cfg = localBaseConfig('AratakiItto', customArtifact_AratakiItto(), fullfile(projectRoot, 'data', 'AratakiItto', 'rotation_AratakiItto.txt'));
+
+        case {'gorou'}
+            cfg = localBaseConfig('Gorou', customArtifact_Gorou(), fullfile(projectRoot, 'data', 'Gorou', 'rotation_Gorou.txt'));
+
         case {'xianyun', 'liuyun'}
             cfg = localBaseConfig('Xianyun', customArtifact_Xianyun(), fullfile(projectRoot, 'data', 'Xianyun', 'rotation_Xianyun.txt'));
 

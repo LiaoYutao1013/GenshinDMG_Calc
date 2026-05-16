@@ -1,0 +1,2 @@
+Weapon,WeaponATK,WeaponSubStatType,WeaponSubStatValue,WeaponRefinement,HPBonus,FlatHP,ER,CritRate,CritDMG,HydroDMGBonus,SkillDMGBonus,BurstDMGBonus,ResShred,ArtifactSet1,ArtifactSet1Pieces,ArtifactSet2,ArtifactSet2Pieces,ArtifactSet4Active
+AquaSimulacra,542,CD,0.882,1,0.46,4780,1.55,0.72,2.2,0.466,0.18,0.25,0,EmblemOfSeveredFate,4,None,0,1

@@ -218,6 +218,66 @@ function setId = localRecommendedSet(characterName)
             setId = "HuskOfOpulentDreams";
         case 'nicole'
             setId = "GoldenTroupe";
+        case 'hutao'
+            setId = "CrimsonWitchOfFlames";
+        case 'charlotte'
+            setId = "NoblesseOblige";
+        case 'wriothesley'
+            setId = "MarechausseeHunter";
+        case 'freminet'
+            setId = "PaleFlame";
+        case 'lyney'
+            setId = "MarechausseeHunter";
+        case 'lynette'
+            setId = "ViridescentVenerer";
+        case 'baizhu'
+            setId = "DeepwoodMemories";
+        case 'kaveh'
+            setId = "FlowerOfParadiseLost";
+        case 'mika'
+            setId = "NoblesseOblige";
+        case 'dehya'
+            setId = "VourukashasGlow";
+        case 'alhaitham'
+            setId = "GildedDreams";
+        case 'yaoyao'
+            setId = "DeepwoodMemories";
+        case 'faruzan'
+            setId = "ViridescentVenerer";
+        case 'wanderer'
+            setId = "DesertPavilionChronicle";
+        case 'layla'
+            setId = "TenacityOfTheMillelith";
+        case 'nahida'
+            setId = "DeepwoodMemories";
+        case 'candace'
+            setId = "NoblesseOblige";
+        case 'cyno'
+            setId = "GildedDreams";
+        case 'dori'
+            setId = "NoblesseOblige";
+        case 'collei'
+            setId = "DeepwoodMemories";
+        case 'tighnari'
+            setId = "DeepwoodMemories";
+        case 'kamisatoayato'
+            setId = "HeartOfDepth";
+        case 'kukishinobu'
+            setId = "GildedDreams";
+        case 'yunjin'
+            setId = "HuskOfOpulentDreams";
+        case 'shenhe'
+            setId = "NoblesseOblige";
+        case 'yelan'
+            setId = "EmblemOfSeveredFate";
+        case 'shikanoinheizou'
+            setId = "ViridescentVenerer";
+        case 'yaemiko'
+            setId = "GoldenTroupe";
+        case 'aratakiitto'
+            setId = "HuskOfOpulentDreams";
+        case 'gorou'
+            setId = "NoblesseOblige";
         case 'xianyun'
             setId = "NoblesseOblige";
         otherwise

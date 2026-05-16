@@ -1,0 +1,1948 @@
+{
+  "info": {
+    "name": "Lyney",
+    "description": "A famed Fontainian magician who possesses great stage presence as well as gift of the gab. Audiences are enthralled by his exquisite skills, and they hang on to his every clever word.",
+    "rarity": "QUALITY_ORANGE",
+    "weapon": "WEAPON_BOW",
+    "birthday": "2/2",
+    "element": "Pyro",
+    "title": "Spectacle of Phantasmagoria",
+    "constellation": "Felis Fuscus",
+    "affiliation": "Hotel Bouffes d'ete",
+    "cv": {
+      "EN": "Daman Mills",
+      "CHS": "锦鲤",
+      "JP": "下野紘",
+      "KR": "Park Seong-yeong"
+    },
+    "attributes": [
+      {
+        "level": 1,
+        "ascension": 0,
+        "hp": 858,
+        "atk": 25,
+        "def": 42,
+        "CRITRate_": "0"
+      },
+      {
+        "level": 2,
+        "ascension": 0,
+        "hp": 929,
+        "atk": 27,
+        "def": 45,
+        "CRITRate_": "0"
+      },
+      {
+        "level": 3,
+        "ascension": 0,
+        "hp": 1000,
+        "atk": 29,
+        "def": 49,
+        "CRITRate_": "0"
+      },
+      {
+        "level": 4,
+        "ascension": 0,
+        "hp": 1072,
+        "atk": 31,
+        "def": 52,
+        "CRITRate_": "0"
+      },
+      {
+        "level": 5,
+        "ascension": 0,
+        "hp": 1144,
+        "atk": 33,
+        "def": 56,
+        "CRITRate_": "0"
+      },
+      {
+        "level": 6,
+        "ascension": 0,
+        "hp": 1216,
+        "atk": 35,
+        "def": 59,
+        "CRITRate_": "0"
+      },
+      {
+        "level": 7,
+        "ascension": 0,
+        "hp": 1287,
+        "atk": 37,
+        "def": 63,
+        "CRITRate_": "0"
+      },
+      {
+        "level": 8,
+        "ascension": 0,
+        "hp": 1359,
+        "atk": 39,
+        "def": 66,
+        "CRITRate_": "0"
+      },
+      {
+        "level": 9,
+        "ascension": 0,
+        "hp": 1431,
+        "atk": 41,
+        "def": 70,
+        "CRITRate_": "0"
+      },
+      {
+        "level": 10,
+        "ascension": 0,
+        "hp": 1502,
+        "atk": 43,
+        "def": 73,
+        "CRITRate_": "0"
+      },
+      {
+        "level": 11,
+        "ascension": 0,
+        "hp": 1574,
+        "atk": 45,
+        "def": 77,
+        "CRITRate_": "0"
+      },
+      {
+        "level": 12,
+        "ascension": 0,
+        "hp": 1646,
+        "atk": 48,
+        "def": 80,
+        "CRITRate_": "0"
+      },
+      {
+        "level": 13,
+        "ascension": 0,
+        "hp": 1719,
+        "atk": 50,
+        "def": 84,
+        "CRITRate_": "0"
+      },
+      {
+        "level": 14,
+        "ascension": 0,
+        "hp": 1791,
+        "atk": 52,
+        "def": 87,
+        "CRITRate_": "0"
+      },
+      {
+        "level": 15,
+        "ascension": 0,
+        "hp": 1864,
+        "atk": 54,
+        "def": 91,
+        "CRITRate_": "0"
+      },
+      {
+        "level": 16,
+        "ascension": 0,
+        "hp": 1936,
+        "atk": 56,
+        "def": 94,
+        "CRITRate_": "0"
+      },
+      {
+        "level": 17,
+        "ascension": 0,
+        "hp": 2009,
+        "atk": 58,
+        "def": 98,
+        "CRITRate_": "0"
+      },
+      {
+        "level": 18,
+        "ascension": 0,
+        "hp": 2081,
+        "atk": 60,
+        "def": 102,
+        "CRITRate_": "0"
+      },
+      {
+        "level": 19,
+        "ascension": 0,
+        "hp": 2154,
+        "atk": 62,
+        "def": 105,
+        "CRITRate_": "0"
+      },
+      {
+        "level": 20,
+        "ascension": 0,
+        "hp": 2226,
+        "atk": 64,
+        "def": 109,
+        "CRITRate_": "0"
+      },
+      {
+        "level": 21,
+        "ascension": 1,
+        "hp": 3034,
+        "atk": 88,
+        "def": 148,
+        "CRITRate_": "0"
+      },
+      {
+        "level": 22,
+        "ascension": 1,
+        "hp": 3107,
+        "atk": 90,
+        "def": 152,
+        "CRITRate_": "0"
+      },
+      {
+        "level": 23,
+        "ascension": 1,
+        "hp": 3180,
+        "atk": 92,
+        "def": 155,
+        "CRITRate_": "0"
+      },
+      {
+        "level": 24,
+        "ascension": 1,
+        "hp": 3253,
+        "atk": 94,
+        "def": 159,
+        "CRITRate_": "0"
+      },
+      {
+        "level": 25,
+        "ascension": 1,
+        "hp": 3326,
+        "atk": 96,
+        "def": 162,
+        "CRITRate_": "0"
+      },
+      {
+        "level": 26,
+        "ascension": 1,
+        "hp": 3400,
+        "atk": 98,
+        "def": 166,
+        "CRITRate_": "0"
+      },
+      {
+        "level": 27,
+        "ascension": 1,
+        "hp": 3473,
+        "atk": 100,
+        "def": 170,
+        "CRITRate_": "0"
+      },
+      {
+        "level": 28,
+        "ascension": 1,
+        "hp": 3546,
+        "atk": 102,
+        "def": 173,
+        "CRITRate_": "0"
+      },
+      {
+        "level": 29,
+        "ascension": 1,
+        "hp": 3619,
+        "atk": 104,
+        "def": 177,
+        "CRITRate_": "0"
+      },
+      {
+        "level": 30,
+        "ascension": 1,
+        "hp": 3692,
+        "atk": 107,
+        "def": 180,
+        "CRITRate_": "0"
+      },
+      {
+        "level": 31,
+        "ascension": 1,
+        "hp": 3766,
+        "atk": 109,
+        "def": 184,
+        "CRITRate_": "0"
+      },
+      {
+        "level": 32,
+        "ascension": 1,
+        "hp": 3840,
+        "atk": 111,
+        "def": 187,
+        "CRITRate_": "0"
+      },
+      {
+        "level": 33,
+        "ascension": 1,
+        "hp": 3914,
+        "atk": 113,
+        "def": 191,
+        "CRITRate_": "0"
+      },
+      {
+        "level": 34,
+        "ascension": 1,
+        "hp": 3987,
+        "atk": 115,
+        "def": 195,
+        "CRITRate_": "0"
+      },
+      {
+        "level": 35,
+        "ascension": 1,
+        "hp": 4060,
+        "atk": 117,
+        "def": 198,
+        "CRITRate_": "0"
+      },
+      {
+        "level": 36,
+        "ascension": 1,
+        "hp": 4135,
+        "atk": 119,
+        "def": 202,
+        "CRITRate_": "0"
+      },
+      {
+        "level": 37,
+        "ascension": 1,
+        "hp": 4209,
+        "atk": 121,
+        "def": 205,
+        "CRITRate_": "0"
+      },
+      {
+        "level": 38,
+        "ascension": 1,
+        "hp": 4283,
+        "atk": 124,
+        "def": 209,
+        "CRITRate_": "0"
+      },
+      {
+        "level": 39,
+        "ascension": 1,
+        "hp": 4356,
+        "atk": 126,
+        "def": 213,
+        "CRITRate_": "0"
+      },
+      {
+        "level": 40,
+        "ascension": 1,
+        "hp": 4431,
+        "atk": 128,
+        "def": 216,
+        "CRITRate_": "0"
+      },
+      {
+        "level": 41,
+        "ascension": 2,
+        "hp": 5027,
+        "atk": 145,
+        "def": 245,
+        "CRITRate_": "4.8"
+      },
+      {
+        "level": 42,
+        "ascension": 2,
+        "hp": 5102,
+        "atk": 147,
+        "def": 249,
+        "CRITRate_": "4.8"
+      },
+      {
+        "level": 43,
+        "ascension": 2,
+        "hp": 5177,
+        "atk": 149,
+        "def": 253,
+        "CRITRate_": "4.8"
+      },
+      {
+        "level": 44,
+        "ascension": 2,
+        "hp": 5251,
+        "atk": 152,
+        "def": 256,
+        "CRITRate_": "4.8"
+      },
+      {
+        "level": 45,
+        "ascension": 2,
+        "hp": 5325,
+        "atk": 154,
+        "def": 260,
+        "CRITRate_": "4.8"
+      },
+      {
+        "level": 46,
+        "ascension": 2,
+        "hp": 5400,
+        "atk": 156,
+        "def": 264,
+        "CRITRate_": "4.8"
+      },
+      {
+        "level": 47,
+        "ascension": 2,
+        "hp": 5474,
+        "atk": 158,
+        "def": 267,
+        "CRITRate_": "4.8"
+      },
+      {
+        "level": 48,
+        "ascension": 2,
+        "hp": 5549,
+        "atk": 160,
+        "def": 271,
+        "CRITRate_": "4.8"
+      },
+      {
+        "level": 49,
+        "ascension": 2,
+        "hp": 5625,
+        "atk": 162,
+        "def": 275,
+        "CRITRate_": "4.8"
+      },
+      {
+        "level": 50,
+        "ascension": 2,
+        "hp": 5699,
+        "atk": 164,
+        "def": 278,
+        "CRITRate_": "4.8"
+      },
+      {
+        "level": 51,
+        "ascension": 3,
+        "hp": 6471,
+        "atk": 187,
+        "def": 316,
+        "CRITRate_": "9.6"
+      },
+      {
+        "level": 52,
+        "ascension": 3,
+        "hp": 6546,
+        "atk": 189,
+        "def": 320,
+        "CRITRate_": "9.6"
+      },
+      {
+        "level": 53,
+        "ascension": 3,
+        "hp": 6621,
+        "atk": 191,
+        "def": 323,
+        "CRITRate_": "9.6"
+      },
+      {
+        "level": 54,
+        "ascension": 3,
+        "hp": 6697,
+        "atk": 193,
+        "def": 327,
+        "CRITRate_": "9.6"
+      },
+      {
+        "level": 55,
+        "ascension": 3,
+        "hp": 6772,
+        "atk": 195,
+        "def": 331,
+        "CRITRate_": "9.6"
+      },
+      {
+        "level": 56,
+        "ascension": 3,
+        "hp": 6848,
+        "atk": 198,
+        "def": 334,
+        "CRITRate_": "9.6"
+      },
+      {
+        "level": 57,
+        "ascension": 3,
+        "hp": 6923,
+        "atk": 200,
+        "def": 338,
+        "CRITRate_": "9.6"
+      },
+      {
+        "level": 58,
+        "ascension": 3,
+        "hp": 6999,
+        "atk": 202,
+        "def": 342,
+        "CRITRate_": "9.6"
+      },
+      {
+        "level": 59,
+        "ascension": 3,
+        "hp": 7074,
+        "atk": 204,
+        "def": 345,
+        "CRITRate_": "9.6"
+      },
+      {
+        "level": 60,
+        "ascension": 3,
+        "hp": 7150,
+        "atk": 206,
+        "def": 349,
+        "CRITRate_": "9.6"
+      },
+      {
+        "level": 61,
+        "ascension": 4,
+        "hp": 7748,
+        "atk": 224,
+        "def": 378,
+        "CRITRate_": "9.6"
+      },
+      {
+        "level": 62,
+        "ascension": 4,
+        "hp": 7823,
+        "atk": 226,
+        "def": 382,
+        "CRITRate_": "9.6"
+      },
+      {
+        "level": 63,
+        "ascension": 4,
+        "hp": 7900,
+        "atk": 228,
+        "def": 386,
+        "CRITRate_": "9.6"
+      },
+      {
+        "level": 64,
+        "ascension": 4,
+        "hp": 7975,
+        "atk": 230,
+        "def": 389,
+        "CRITRate_": "9.6"
+      },
+      {
+        "level": 65,
+        "ascension": 4,
+        "hp": 8051,
+        "atk": 232,
+        "def": 393,
+        "CRITRate_": "9.6"
+      },
+      {
+        "level": 66,
+        "ascension": 4,
+        "hp": 8128,
+        "atk": 235,
+        "def": 397,
+        "CRITRate_": "9.6"
+      },
+      {
+        "level": 67,
+        "ascension": 4,
+        "hp": 8203,
+        "atk": 237,
+        "def": 400,
+        "CRITRate_": "9.6"
+      },
+      {
+        "level": 68,
+        "ascension": 4,
+        "hp": 8280,
+        "atk": 239,
+        "def": 404,
+        "CRITRate_": "9.6"
+      },
+      {
+        "level": 69,
+        "ascension": 4,
+        "hp": 8356,
+        "atk": 241,
+        "def": 408,
+        "CRITRate_": "9.6"
+      },
+      {
+        "level": 70,
+        "ascension": 4,
+        "hp": 8432,
+        "atk": 243,
+        "def": 412,
+        "CRITRate_": "9.6"
+      },
+      {
+        "level": 71,
+        "ascension": 5,
+        "hp": 9031,
+        "atk": 261,
+        "def": 441,
+        "CRITRate_": "14.4"
+      },
+      {
+        "level": 72,
+        "ascension": 5,
+        "hp": 9109,
+        "atk": 263,
+        "def": 445,
+        "CRITRate_": "14.4"
+      },
+      {
+        "level": 73,
+        "ascension": 5,
+        "hp": 9185,
+        "atk": 265,
+        "def": 448,
+        "CRITRate_": "14.4"
+      },
+      {
+        "level": 74,
+        "ascension": 5,
+        "hp": 9261,
+        "atk": 267,
+        "def": 452,
+        "CRITRate_": "14.4"
+      },
+      {
+        "level": 75,
+        "ascension": 5,
+        "hp": 9339,
+        "atk": 270,
+        "def": 456,
+        "CRITRate_": "14.4"
+      },
+      {
+        "level": 76,
+        "ascension": 5,
+        "hp": 9415,
+        "atk": 272,
+        "def": 460,
+        "CRITRate_": "14.4"
+      },
+      {
+        "level": 77,
+        "ascension": 5,
+        "hp": 9492,
+        "atk": 274,
+        "def": 463,
+        "CRITRate_": "14.4"
+      },
+      {
+        "level": 78,
+        "ascension": 5,
+        "hp": 9569,
+        "atk": 276,
+        "def": 467,
+        "CRITRate_": "14.4"
+      },
+      {
+        "level": 79,
+        "ascension": 5,
+        "hp": 9647,
+        "atk": 278,
+        "def": 471,
+        "CRITRate_": "14.4"
+      },
+      {
+        "level": 80,
+        "ascension": 5,
+        "hp": 9724,
+        "atk": 281,
+        "def": 475,
+        "CRITRate_": "14.4"
+      },
+      {
+        "level": 81,
+        "ascension": 6,
+        "hp": 10324,
+        "atk": 298,
+        "def": 504,
+        "CRITRate_": "19.2"
+      },
+      {
+        "level": 82,
+        "ascension": 6,
+        "hp": 10401,
+        "atk": 300,
+        "def": 508,
+        "CRITRate_": "19.2"
+      },
+      {
+        "level": 83,
+        "ascension": 6,
+        "hp": 10478,
+        "atk": 302,
+        "def": 511,
+        "CRITRate_": "19.2"
+      },
+      {
+        "level": 84,
+        "ascension": 6,
+        "hp": 10555,
+        "atk": 305,
+        "def": 515,
+        "CRITRate_": "19.2"
+      },
+      {
+        "level": 85,
+        "ascension": 6,
+        "hp": 10633,
+        "atk": 307,
+        "def": 519,
+        "CRITRate_": "19.2"
+      },
+      {
+        "level": 86,
+        "ascension": 6,
+        "hp": 10711,
+        "atk": 309,
+        "def": 523,
+        "CRITRate_": "19.2"
+      },
+      {
+        "level": 87,
+        "ascension": 6,
+        "hp": 10788,
+        "atk": 311,
+        "def": 527,
+        "CRITRate_": "19.2"
+      },
+      {
+        "level": 88,
+        "ascension": 6,
+        "hp": 10866,
+        "atk": 314,
+        "def": 530,
+        "CRITRate_": "19.2"
+      },
+      {
+        "level": 89,
+        "ascension": 6,
+        "hp": 10944,
+        "atk": 316,
+        "def": 534,
+        "CRITRate_": "19.2"
+      },
+      {
+        "level": 90,
+        "ascension": 6,
+        "hp": 11021,
+        "atk": 318,
+        "def": 538,
+        "CRITRate_": "19.2"
+      },
+      {
+        "level": 95,
+        "ascension": 6,
+        "hp": 11413,
+        "atk": 354,
+        "def": 557,
+        "CRITRate_": "19.2"
+      },
+      {
+        "level": 100,
+        "ascension": 6,
+        "hp": 11805,
+        "atk": 390,
+        "def": 576,
+        "CRITRate_": "19.2"
+      }
+    ]
+  },
+  "icons": {
+    "forward": "UI_AvatarIcon_Liney",
+    "coop_img": "UI_CoopImg_Liney"
+  },
+  "ascension": {
+    "x202": 7.0499E+6,
+    "exp": {
+      "x104001": 2,
+      "x104003": 418
+    },
+    "speciality": {
+      "x101236": 168
+    },
+    "elemental": {
+      "x104111": 1,
+      "x104112": 9,
+      "x104113": 9,
+      "x104114": 6
+    },
+    "worldmonster": {
+      "x112032": 18,
+      "x112033": 30,
+      "x112034": 36
+    },
+    "elitemonster": {
+      "x113051": 46
+    }
+  },
+  "skills": {
+    "normalattack": {
+      "name": "Card Force Translocation",
+      "icon": "Skill_A_02",
+      "multipliers": {
+        "x1_HitDMG": [
+          "38.79%",
+          "41.94%",
+          "45.1%",
+          "49.61%",
+          "52.77%",
+          "56.38%",
+          "61.34%",
+          "66.3%",
+          "71.26%",
+          "76.67%",
+          "82.08%",
+          "87.49%",
+          "92.91%",
+          "98.32%",
+          "103.73%"
+        ],
+        "x2_HitDMG": [
+          "38.01%",
+          "41.11%",
+          "44.2%",
+          "48.62%",
+          "51.71%",
+          "55.25%",
+          "60.11%",
+          "64.97%",
+          "69.84%",
+          "75.14%",
+          "80.44%",
+          "85.75%",
+          "91.05%",
+          "96.36%",
+          "101.66%"
+        ],
+        "x3_HitDMG": [
+          "27.26%+27.26%",
+          "29.48%+29.48%",
+          "31.7%+31.7%",
+          "34.87%+34.87%",
+          "37.09%+37.09%",
+          "39.63%+39.63%",
+          "43.11%+43.11%",
+          "46.6%+46.6%",
+          "50.09%+50.09%",
+          "53.89%+53.89%",
+          "57.69%+57.69%",
+          "61.5%+61.5%",
+          "65.3%+65.3%",
+          "69.11%+69.11%",
+          "72.91%+72.91%"
+        ],
+        "x4_HitDMG": [
+          "56.93%",
+          "61.57%",
+          "66.2%",
+          "72.82%",
+          "77.45%",
+          "82.75%",
+          "90.03%",
+          "97.31%",
+          "104.6%",
+          "112.54%",
+          "120.48%",
+          "128.43%",
+          "136.37%",
+          "144.32%",
+          "152.26%"
+        ],
+        "PlungeDMG": [
+          "56.83%",
+          "61.45%",
+          "66.08%",
+          "72.69%",
+          "77.31%",
+          "82.6%",
+          "89.87%",
+          "97.14%",
+          "104.41%",
+          "112.34%",
+          "120.27%",
+          "128.2%",
+          "136.12%",
+          "144.05%",
+          "151.98%"
+        ],
+        "Low_HighPlungeDMG": [
+          "113.63%/141.93%",
+          "122.88%/153.49%",
+          "132.13%/165.04%",
+          "145.35%/181.54%",
+          "154.59%/193.1%",
+          "165.16%/206.3%",
+          "179.7%/224.45%",
+          "194.23%/242.61%",
+          "208.77%/260.76%",
+          "224.62%/280.57%",
+          "240.48%/300.37%",
+          "256.34%/320.18%",
+          "272.19%/339.98%",
+          "288.05%/359.79%",
+          "303.9%/379.59%"
+        ],
+        "AimedShot": [
+          "43.86%",
+          "47.43%",
+          "51%",
+          "56.1%",
+          "59.67%",
+          "63.75%",
+          "69.36%",
+          "74.97%",
+          "80.58%",
+          "86.7%",
+          "92.82%",
+          "98.94%",
+          "105.06%",
+          "111.18%",
+          "117.3%"
+        ],
+        "AimedShotChargeLevel1": [
+          "124%",
+          "133.3%",
+          "142.6%",
+          "155%",
+          "164.3%",
+          "173.6%",
+          "186%",
+          "198.4%",
+          "210.8%",
+          "223.2%",
+          "235.6%",
+          "248%",
+          "263.5%",
+          "279%",
+          "294.5%"
+        ],
+        "PropArrowDMG": [
+          "172.8%",
+          "185.76%",
+          "198.72%",
+          "216%",
+          "228.96%",
+          "241.92%",
+          "259.2%",
+          "276.48%",
+          "293.76%",
+          "311.04%",
+          "328.32%",
+          "345.6%",
+          "367.2%",
+          "388.8%",
+          "410.4%"
+        ],
+        "HPCost": [
+          "20% Max HP",
+          "20% Max HP",
+          "20% Max HP",
+          "20% Max HP",
+          "20% Max HP",
+          "20% Max HP",
+          "20% Max HP",
+          "20% Max HP",
+          "20% Max HP",
+          "20% Max HP",
+          "20% Max HP",
+          "20% Max HP",
+          "20% Max HP",
+          "20% Max HP",
+          "20% Max HP"
+        ],
+        "Grin_MalkinHatInheritedHP": [
+          "64%",
+          "68.8%",
+          "73.6%",
+          "80%",
+          "84.8%",
+          "89.6%",
+          "96%",
+          "102.4%",
+          "108.8%",
+          "115.2%",
+          "121.6%",
+          "128%",
+          "136%",
+          "144%",
+          "152%"
+        ],
+        "Grin_MalkinHatDuration": [
+          "4s",
+          "4s",
+          "4s",
+          "4s",
+          "4s",
+          "4s",
+          "4s",
+          "4s",
+          "4s",
+          "4s",
+          "4s",
+          "4s",
+          "4s",
+          "4s",
+          "4s"
+        ],
+        "PyrotechnicStrikeDMG": [
+          "212%",
+          "227.9%",
+          "243.8%",
+          "265%",
+          "280.9%",
+          "296.8%",
+          "318%",
+          "339.2%",
+          "360.4%",
+          "381.6%",
+          "402.8%",
+          "424%",
+          "450.5%",
+          "477%",
+          "503.5%"
+        ],
+        "SpiritbreathThornDMG": [
+          "27.55%",
+          "29.62%",
+          "31.68%",
+          "34.44%",
+          "36.51%",
+          "38.57%",
+          "41.33%",
+          "44.08%",
+          "46.84%",
+          "49.59%",
+          "52.35%",
+          "55.1%",
+          "58.55%",
+          "61.99%",
+          "65.44%"
+        ],
+        "SpiritbreathThornInterval": [
+          "6s",
+          "6s",
+          "6s",
+          "6s",
+          "6s",
+          "6s",
+          "6s",
+          "6s",
+          "6s",
+          "6s",
+          "6s",
+          "6s",
+          "6s",
+          "6s",
+          "6s"
+        ]
+      },
+      "description": "<color=#FFD780FF>Normal Attack</color>\\nPerforms up to 4 consecutive shots with a bow.\\n\\n<color=#FFD780FF>Plunging Attack</color>\\nFires off a shower of arrows in mid-air before falling and striking the ground, dealing AoE DMG upon impact.\\n\\n<color=#FFD780FF>Charged Attack</color>\\nPerforms a more precise <color=#FFD780FF>Aimed Shot</color> with increased DMG.\\nWhile aiming, flames will run across the arrowhead before being fired. Different effects will occur based on the time spent charging.\\n·Charge Level 1: Fires off a Pyro-infused arrow, dealing <color=#FF9999FF>Pyro DMG</color>.\\n·Charge Level 2: Fires off a Prop Arrow that deals <color=#FF9999FF>Pyro DMG</color>, and upon hit, it will summon a Grin-Malkin Hat.\\nWhen firing the Prop Arrow, and when Lyney has more than 60% HP, he will consume a portion of his HP to obtain 1 Prop Surplus stack. Max 5 stacks. The effect will be removed after the character spends 30s out of combat.\\nThe lowest Lyney can drop to through this method is 60% of his Max HP.\\n\\n<color=#FFD780FF>Grin-Malkin Hat</color>\\n·Can taunt nearby opponents and attract their attacks. Each opponent can only be taunted by the Hat once every 5s.\\n·The Hat will inherit a percentage of Lyney's Max HP.\\n·If destroyed, or if its duration expires, it will fire off a <color=#FFD780FF>Pyrotechnic Strike</color> at 1 nearby opponent, dealing <color=#FF9999FF>Pyro DMG</color>.\\nOnly 1 Hat can exist at any given time.\\n\\n<color=#FFD780FF>Arkhe: Pneuma</color>\\nAt certain intervals, the Prop Arrow will cause a Spiritbreath Thorn to descend upon its hit location, dealing Pneuma-aligned <color=#FF9999FF>Pyro DMG</color>."
+    },
+    "elementalskill": {
+      "name": "Bewildering Lights",
+      "icon": "Skill_S_Liney_01",
+      "multipliers": {
+        "SkillDMG": [
+          "167.2%",
+          "179.74%",
+          "192.28%",
+          "209%",
+          "221.54%",
+          "234.08%",
+          "250.8%",
+          "267.52%",
+          "284.24%",
+          "300.96%",
+          "317.68%",
+          "334.4%",
+          "355.3%",
+          "376.2%",
+          "397.1%"
+        ],
+        "SkillDMGBonus": [
+          "53.2% ATK/Stack",
+          "57.19% ATK/Stack",
+          "61.18% ATK/Stack",
+          "66.5% ATK/Stack",
+          "70.49% ATK/Stack",
+          "74.48% ATK/Stack",
+          "79.8% ATK/Stack",
+          "85.12% ATK/Stack",
+          "90.44% ATK/Stack",
+          "95.76% ATK/Stack",
+          "101.08% ATK/Stack",
+          "106.4% ATK/Stack",
+          "113.05% ATK/Stack",
+          "119.7% ATK/Stack",
+          "126.35% ATK/Stack"
+        ],
+        "HPRegeneration": [
+          "20%/Stack",
+          "20%/Stack",
+          "20%/Stack",
+          "20%/Stack",
+          "20%/Stack",
+          "20%/Stack",
+          "20%/Stack",
+          "20%/Stack",
+          "20%/Stack",
+          "20%/Stack",
+          "20%/Stack",
+          "20%/Stack",
+          "20%/Stack",
+          "20%/Stack",
+          "20%/Stack"
+        ],
+        "CD": [
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s"
+        ]
+      },
+      "description": "Lyney does a flourish with his hat, unleashing a firework surprise!\\nWhen used, he will clear all current Prop Surplus stacks and deal <color=#FF9999FF>AoE Pyro DMG</color> to opponents in front of him. DMG will be increased according to the stacks cleared, and this will also regenerate Lyney's HP based on his Max HP.\\n\\nWhen a Grin-Malkin Hat created by Lyney is on the field, the fireworks will cause it to explode, dealing <color=#FF9999FF>AoE Pyro DMG</color> equal to that of a Pyrotechnic Strike.\\nThe DMG dealt through the Grin-Malkin Hat in this way is considered Charged Attack DMG.\\n\\n<i>\"Everyone knows that magicians will intentionally misdirect the audience... Ah, yes, while you were looking my way, the hat and assistant over there have both disappeared... Fascinating, is it not?\"</i>"
+    },
+    "elementalburst": {
+      "name": "Wondrous Trick: Miracle Parade",
+      "icon": "Skill_E_Liney_01",
+      "multipliers": {
+        "SkillDMG": [
+          "154%",
+          "165.55%",
+          "177.1%",
+          "192.5%",
+          "204.05%",
+          "215.6%",
+          "231%",
+          "246.4%",
+          "261.8%",
+          "277.2%",
+          "292.6%",
+          "308%",
+          "327.25%",
+          "346.5%",
+          "365.75%"
+        ],
+        "ExplosiveFireworkDMG": [
+          "414%",
+          "445.05%",
+          "476.1%",
+          "517.5%",
+          "548.55%",
+          "579.6%",
+          "621%",
+          "662.4%",
+          "703.8%",
+          "745.2%",
+          "786.6%",
+          "828%",
+          "879.75%",
+          "931.5%",
+          "983.25%"
+        ],
+        "Duration": [
+          "3s",
+          "3s",
+          "3s",
+          "3s",
+          "3s",
+          "3s",
+          "3s",
+          "3s",
+          "3s",
+          "3s",
+          "3s",
+          "3s",
+          "3s",
+          "3s",
+          "3s"
+        ],
+        "CD": [
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s"
+        ],
+        "EnergyCost": [
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60"
+        ]
+      },
+      "description": "Unleashing his magic, Lyney turns himself into a Grin-Malkin Cat that can move around quickly. (Not to be mistaken for the Grin-Malkin Hat. They're two different props!)\\nWhen the Grin-Malkin Cat gets close to opponents, it will send flames falling down on them, dealing at most 1 instance of <color=#FF9999FF>Pyro DMG</color> to each opponent. When the duration ends, he will dismiss the Grin-Malkin Cat and ignite fireworks that deal <color=#FF9999FF>AoE Pyro DMG</color>, summon 1 Grin-Malkin Hat, and grant himself 1 Prop Surplus stack.\\n\\nGrin-Malkin Cat can be actively canceled.\\n\\n<i>\"Watch closely now. This is a time for miracles, and it belongs to just the two of us!\"</i>"
+    },
+    "leveling": {
+      "crown": {
+        "x104319": 3
+      },
+      "books": {
+        "x104338": 9,
+        "x104339": 63,
+        "x104340": 114
+      },
+      "worldmonster": {
+        "x112032": 18,
+        "x112033": 66,
+        "x112034": 93
+      },
+      "weekly": {
+        "x113047": 18
+      }
+    }
+  },
+  "passives": {
+    "p1": {
+      "name": "Perilous Performance",
+      "description": "If Lyney consumes HP when firing off a <color=#FFD780FF>Prop Arrow</color>, the Grin-Malkin hat summoned by the arrow will, upon hitting an opponent, restore 3 Energy to Lyney and increase DMG dealt by 80% of his ATK.",
+      "icon": "UI_Talent_S_Liney_05"
+    },
+    "p2": {
+      "name": "Conclusive Ovation",
+      "description": "The DMG Lyney deals to opponents affected by <color=#FF9999FF>Pyro</color> will receive the following buffs:\\n·Increases the DMG dealt by 60%.\\n·Each <color=#FF9999FF>Pyro</color> party member other than Lyney will cause the DMG dealt to increase by an additional 20%.\\nLyney can deal up to 100% increased DMG to opponents affected by <color=#FF9999FF>Pyro</color> in this way.",
+      "icon": "UI_Talent_S_Liney_06"
+    },
+    "p3": {
+      "name": "Trivial Observations",
+      "description": "Displays the location of nearby <color=#FFD780FF>resources unique to Fontaine</color> on the mini-map.",
+      "icon": "UI_Talent_S_Liney_07"
+    },
+    "p4": ""
+  },
+  "constellations": {
+    "const1": {
+      "name": "Whimsical Wonders",
+      "description": "Lyney can have 2 <color=#FFD780FF>Grin-Malkin Hats</color> present at once.\\nAdditionally, Prop Arrows will summon 2 Grin-Malkin Hats and grant Lyney 1 extra stack of Prop Surplus. This effect can occur once every 15s.",
+      "icon": "UI_Talent_S_Liney_01"
+    },
+    "const2": {
+      "name": "Loquacious Cajoling",
+      "description": "When Lyney is on the field, he will gain a stack of Crisp Focus every 2s. Each stack will increase his CRIT DMG by 20%. Max 3 stacks. This effect will be canceled when Lyney leaves the field.",
+      "icon": "UI_Talent_S_Liney_03"
+    },
+    "const3": {
+      "name": "Prestidigitation",
+      "description": "Increases the Level of <color=#FFD780FF>Normal Attack: Card Force Translocation</color> by 3.\\nMaximum upgrade level is 15.",
+      "icon": "UI_Talent_U_Liney_01"
+    },
+    "const4": {
+      "name": "Well-Versed, Well-Rehearsed",
+      "description": "After an opponent is hit by Lyney's <color=#FF9999FF>Pyro</color> Charged Attack, this opponent's <color=#FF9999FF>Pyro RES</color> will be decreased by 20% for 6s.",
+      "icon": "UI_Talent_S_Liney_02"
+    },
+    "const5": {
+      "name": "To Pierce Enigmas",
+      "description": "Increases the Level of <color=#FFD780FF>Wondrous Trick: Miracle Parade</color> by 3.\\nMaximum upgrade level is 15.",
+      "icon": "UI_Talent_U_Liney_02"
+    },
+    "const6": {
+      "name": "Guarded Smile",
+      "description": "When Lyney fires a <color=#FFD780FF>Prop Arrow</color>, he will fire a Pyrotechnic Strike: Reprised that will deal 80% of a Pyrotechnic Strike's DMG. This DMG is considered Charged Attack DMG.",
+      "icon": "UI_Talent_S_Liney_04"
+    }
+  },
+  "hyperlinks": [],
+  "stories": {
+    "x84200": {
+      "storyTitle": "Character Details",
+      "storyText": "The people of Fontaine love their tales of mystery. The intricate case setups and unexpected twists and turns are captivating for all.\\nMagic recreates this experience under the converging spotlights. For the price of a ticket and some of your free time, you can embark on a wondrous journey amidst thunderous applause and astounded cries.\\nIf you were to ask around as to which of Fontaine's \"guides\" is best at setting up such fantastical tours, most fans will tell you that it is Lyney.\\nSuave, romantic, and talented, he performs miracle after miracle with a casual air.\\nIn this industry, one needs only a stable of staple tricks to ensure a renowned reputation and comfortable life.\\nHowever, Lyney's shows always feature some new trick. Some say that he was born into poverty, and the resultant burning hunger for fame and fortune drives his boundless desire to create.\\nIn truth, he simply pursues novelty in his capacity as a performer — indeed, he feels that if he cannot put his whole heart into the show, his deep desire to perform cannot be fully satiated.\\nThis is why, despite the applause rising to a fever pitch and beyond, he will rarely satisfy the crowd's calls for a reprise of his most well-known tricks. Some devoted fans consider this to be a bit of a shame...\\n...And for them, such regret will only continue to increase each time they purchase a ticket and go in to watch his show.",
+      "unlockConds": []
+    },
+    "x84201": {
+      "storyTitle": "Character Story 1",
+      "storyText": "While Lyney first began his journey in magic to fill his stomach, he has continued to perfect his art even after becoming a person of some renown in Fontaine.\\nMagic, after all, has been his benefactor. Not only has it allowed him and his sister to survive, but it has also allowed them to gain the \"acknowledgment\" that most children, growing up in a loving home, would have received from their parents.\\nEven from an early age, performance was something closely tied to Lyney's life. Each time he would go on stage, Lyney would have the audience whooping and clapping. And yet, he did not lose himself in their adulation — if anything, it often troubled him.\\nIf audiences were simply drawn to the spectacle of magic, then who was to say that they wouldn't abandon Lyney's stage as soon as they caught wind of a more enthralling show in town?\\nIn other words, just as an audience would be attracted by petals and cards, they would also be pulled away by grander fireworks and crackling gun salutes. What else did magicians have up their sleeves to capture the hearts of their audience, beyond enticing them with ever more grandiose impressions of shock and awe?\\nIn all of Lyney's performances afterward, audiences would begin to notice a change — Lyney would add many segments between performances in which he would interact with them.\\nIndeed, this magician seemed without any airs, sharing various fascinating anecdotes about his life, not even minding if the audience should try to guess at the secret behind his tricks.\\nOf course, the sharper wits amongst them would notice that Lyney's tales were not truth, but instead a way to build up the atmosphere, a bedding laid for a greater magic trick to land upon.\\nYet no one would quibble about these white lies. After all, truth and falsehoods were already inextricable in many parts of the performance — why, even the magician himself could be said to have become a part of the magic.\\nThus does Lyney sometimes appear near and dear, and other times just out of the reach of his audience, balancing human affinity and magical mystery perfectly in the palm of his hand, his smile leaving the audiences' imaginations free to run wild.\\nNo matter how rich or poor, sad or glad the audience member, imagination is the great equalizer, carrying the charm of magic to all.\\nThus did the mystery and elegance of this magician spread far and wide, with people even opining that his skill at creating an atmosphere is itself as exquisite as magic.\\n\"Is that so? Well, I'm just trying to invite everyone to take a brief break from reality, that's all.\"",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 2
+      }
+    },
+    "x84202": {
+      "storyTitle": "Character Story 2",
+      "storyText": "Lyney's new home was the Hotel Bouffes d'ete, located in a corner of the Court of Fontaine.\\nThe place was home to many orphans who shared similar experiences with him and his sister. The people here helped each other like a family would, greeting the fallout and consequences of those tragic years together.\\nBut the siblings, even with a recommendation from the manager of the Hotel, did not find it all that easy to fit in, nor was it easy for the children there to immediately accept these new \"outsiders.\"\\nAnd in this environment, oppressive in its gloom, the water pumping equipment broke while Lynette was using it, right before everyone's eyes, deepening the distrust to the extreme.\\nLyney could only step up and take responsibility, agreeing to fix the equipment so as not to affect everyone's daily lives.\\nIn truth, he did not know all that much about repair work, but given Lynette's propensity for damaging various small devices, he had long gotten used to following his intuition to do some fixes here and there.\\nUnfortunately, he underestimated the complexity of the pumping equipment and difficulty of fixing it. While he succeeded in restoring it to normal operations, he remained at a complete loss as to whether he had solved the root problem or not, he could not tell.\\nBut just as he was at his wit's end, a seemingly reticent young fellow stepped forth, examined, and restored the facilities, even expressing his apologies.\\nAs it turned out, he was the one in charge of maintenance at the Hotel, and as he saw it, Lynette had been the unfortunate victim of his failure to detect and replace the aging components in the system in a timely manner.\\nLyney, for his part, was far more impressed by the young fellow's skills than any talk of responsibility. He wanted to learn from the youth — if nothing else, this would make helping Lynette all the easier.\\nThe youth was, for his part, no good at refusing, and thus did Lyney become his assistant in the Hotel's small workroom — and over time, he and this Freminet would become friends.\\nLyney would prove unselfish in spending time on other Hotel residents, whether it be Freminet or others, but he would keep them company in comforting silence rather than ask them about their experiences.\\nIn this he was guided by Lynette's succinct life advice: \"No one needs self-satisfied concern.\"\\nIn time, the residents became more willing to share some of their pasts with him, and Lyney would thus become better able to help them with their issues.\\nFreminet was somewhat perplexed by this, believing that Lyney, who was slowly becoming the core around which the Hotel spun, did not need to go this far.\\nLyney joked that he had helped Freminet when they first met because he knew that his sister would cause further machine-related troubles down the line, and he was uncomfortable with that.\\nBut at this point, there was no fooling Freminet with such words. Under his attentive gaze, Lyney could only tell him the truth.\\n\"Because Lynette's my one and only family, I've learned from her how one should treat all members of their family.\"",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 3
+      }
+    },
+    "x84203": {
+      "storyTitle": "Character Story 3",
+      "storyText": "On the Hotel Bouffes d'ete's Founding Day, all the children were abustle, draping festive colors all over the place.\\nTo the residents, outside festivals and events were cold and emotionless things, foreign elements in their lives, and only this dwelling could bring them true warmth.\\nEveryone worked in concert to execute Lyney's plan. Lynette had purchased large amounts of festive ornaments, and together with the other children, she strung up colored streamers and hung handwritten festive greetings.\\nFreminet was ensuring that the magical props would operate properly — Lyney had faith in his craftsmanship, so much so that Freminet was completely entrusted with all the magic props this time.\\nLyney himself was the busiest of all — not only did he have to ascertain everyone's progress, but he was also laying the final groundwork for a grand, unique magic trick in secret.\\nAnd thus was the banquet successfully held with everyone's support. The children danced to the joyous music playing from the grand hall's phonograph and enjoyed delicious food — this was the birthday of no one in particular, but this was the day they all felt they had gained new lives.\\nThe finale, of course, was Lyney, Lynette, and Freminet's Founding Day magic show. The magic box was at the center of the room, and all waited with bated breath.\\nTo preserve the secret behind the magic trick, even Lynette and Freminet knew not what was within. But as the room darkened and all eyes turned to Lyney, standing as he was in front of the box, even the highly-experienced magician showed some rare signs of trepidation.\\n\"Now, you might consider the following words an exaggeration, but the \"present\" I am about to present to you all is, without doubt, the most important one we have received in our lives.\"\\nThe paper firecrackers burst, and the once-empty box suddenly opened by itself. The crowd cheered, amazed — then fell suddenly into stunned silence.\\nWhat stood onstage was no present — nay, this was the Hotel's manager, its owner, and their \"Father.\"\\nHer image was one of unsmiling dignity, and thus, though she did not come by often, no one dared to horse around whenever she was around.\\nSurely, Lyney had gone completely mad to have her make her appearance in such a frivolous way.\\nYet, upon seeing the crowd's reaction, \"Father\" did not snap at anyone, opining merely that Lyney had kept this secret perfectly, just as a magic show should, declaring it worthy of praise.\\nThat night, the children and their \"Father\" delighted in the various desserts together, and she personally sliced a serving of cake for each of them, which she herself enjoyed some of as well.\\nPerhaps the most amazing aspect of Lyney's Founding Day magic show was its ability to have even \"Father\" lay down her heavy burden and enjoy a brief moment of familial love.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 4
+      }
+    },
+    "x84204": {
+      "storyTitle": "Character Story 4",
+      "storyText": "Magic and secrets piled up at Lyney's feet, growing ever taller like a tower. Gazing down from the top at the people as they passed by in the world below, Lyney knew there was no going back.\\nBoth the dazzling sleights of hand and the missions he would come to receive from Hotel Bouffes d'ete had made a habitual liar out of him.\\nAnd while lies could sometimes be useful for seizing an advantage, they were more often employed to keep more people from being dragged into trouble.\\nLyney knew very well that once trust had collapsed, the scales of judgment would no longer remain impartial, and even noble goals would become twisted and thought of as evil.\\nAs such, not revealing more than was absolutely necessary was prudent when working with others. More often than not, this makes things go more smoothly, with everyone getting the results they want.\\nBut lies will not simply scatter on the wind, and Lyney must maintain this illusion with utmost care, all the while keeping his distance from those affected.\\nAs so the tower extended towards the skies, until there would be no one to take his hand if he reached out, and even their visages blurred in his eyes.\\nFalsehood was Lyney's constant and only companion on the path that he walked, and this road was long and lonely — this he was always clear-minded about.\\nEveryone knew the brilliant \"Great Magician Lyney,\" but they loved only the mystery, the romance, the unattainable nature. They knew no love for the heart that lay deeper within.\\nHe felt he had no right to pour out his mind to others, and yet he must carry on with gritted teeth, for the price of a fall from such heights was more than he could bear.\\nHaving played too many parts, even Lyney would sometimes find himself questioning who \"he\" really was.\\nHis dreams often took him back to the tower, where his resting place at the pinnacle vantage would grow smaller and smaller, and with the fog of death they called \"betrayal\" extending all around, there was nowhere for him to go.\\nBut just before he could plummet, a hand grabbed onto him — and from it, he felt a familiar warmth that drew his soul back into his body, steadying \"him\" within himself once more.\\n\"Thank you, Lynette...\"\\nThe awakening youth mumbled to himself.",
+      "unlockConds": [
+        {
+          "type": "FETTER_COND_FETTER_LEVEL",
+          "value": 5
+        },
+        {
+          "type": "FETTER_COND_FINISH_PARENT_QUEST",
+          "value": 4002
+        }
+      ]
+    },
+    "x84205": {
+      "storyTitle": "Character Story 5",
+      "storyText": "While Hotel Bouffes d'ete's operations in Fontaine work toward a just cause, its methods can often be radical. Only the influence of \"Father\" and her control over the inner workings of the Court of Fontaine prevent any serious incidents from occurring.\\nThere was once an official funded by Lyney who served in the Maison Gardiennage. This person provided both intel in support of the Hotel's operations and scrubbed clean the effects of some of the Hotel's clandestine actions.\\nThese were actions that came with no small risk, but the official always performed them well, for he believed that the Fontaine of the present day needed someone like \"Father\" who could bypass the many layers of laws and regulations and take direct action.\\nLyney once joked to him: \"I'll be there if you ever need help, and if you're in danger, I'll come to rescue you... Well, don't expect too much of that last bit. Just stay on guard, alright?\"\\nThe official knew that this was Lyney's way of expressing concern, of course. Yet even words spoken in jest could prove prophetic later, and so they did — this official's deeds were eventually discovered, and on the brink of capture, he used an emergency communication device to send a message to Lyney.\\nUpon discovering the device, the Gardes who arrived at the scene mocked the official's naivete, claiming that the signal sent merely informed his compatriots to save themselves — no one would be stupid enough to try to save him.\\nThe official's reply was also quite simple — even such an ending would have been fine for him, for he did not believe that his prior cooperation was the wrong decision.\\nBut just as the Gardes were about to arrest the official, thick smoke began billowing forth from dispensers pre-planted nearby, and the official caught sight of a brilliant blaze—\\nThe next moment, he was in the drink in the Fleuve Cendre, and was rescued by Freminet.\\nIt was said that the Gardes spent a great deal of time chasing after the skyborne flame-trail, believing that the criminal must have used some flying machine to flee the scene, only to discover later naught but wood dressed in clothes, affixed to a glider.\\nIn truth, Lyney had earlier used this device to draw the Gardes' attention away before getting the official out of his predicament.\\nThe official admitted that he had not had high hopes when pressing the device. Magicians were untrustworthy, after all — but still, he had chosen to gamble on that tiny chance.\\n\"Haha. Well, it is indeed a gamble to place your trust in others.\"\\n\"But don't worry. Magicians might be full of hot air, but we will never betray the expectations of our audience.\"",
+      "unlockConds": [
+        {
+          "type": "FETTER_COND_FETTER_LEVEL",
+          "value": 6
+        },
+        {
+          "type": "FETTER_COND_FINISH_PARENT_QUEST",
+          "value": 4002
+        }
+      ]
+    },
+    "x84206": {
+      "storyTitle": "Rosseland",
+      "storyText": "There is a special entity amongst the cats adopted by Lyney and Lynette, and its name is \"Rosseland.\"\\nEvery cat in the Hotel has its own territory, but Rosseland has a special affinity for Lyney's hat.\\nA hat is a magician's most important prop, and each time Lyney must use it, he must first chase Rosseland out — a difficult affair when its displeased meows in response are so heartrending, especially to siblings like Lyney and Lynette, who themselves once struggled to find a home.\\nThus the siblings began their search for a replacement, only to be met by refusal each time, no matter how lovely the new home — indeed, Rosseland would not even give them a second glance.\\nLyney even specially commissioned an identical hat, thinking that this might put an end to the cat's choosiness, only for Rosseland to lay claim that new hat also, becoming aggrieved no matter which was whisked away.\\nBut this was no feline tyranny. Indeed, Rosseland's requests were not terribly excessive. After much thought, Lyney eventually came up with a solution — to incorporate the cat into his magic shows.\\nHe and Lynette constructed a little puppet inside the hat that would normally serve as Rosseland's cushion. During performances, Rosseland would burrow inside the puppet, causing it to jink this way and that in a mischievous and adorable manner.\\nAnd as it turned out, Rosseland was not at all shy — indeed, it greatly enjoyed its new job. Perhaps the spotlight brought it much enjoyment indeed, for it would never prove quite so predisposed to exclusive ownership again, even when it had to temporarily leave its nest when off-stage.\\nDuring one of his shows, Lyney once made a rare error, having left a card he needed to produce on-stage backstage.\\nWith all eyes on him, he had mere seconds to think of a way to save the situation while maintaining his easy-going demeanor.\\nBut to his surprise, there was an unexpected weight in his hovering hat — it should have been empty, but Rosseland had somehow found its way inside.\\nOut came the puppet, and out with it came the card Lyney had needed, to the instantaneous applause of all. Lyney heaved a sigh of relief, but he was also quite shocked, in truth.\\nSome thought was put into this matter — but Lyney could only conclude that Rosseland had, influenced by the twins as it was, also mastered the art of the magical performance somehow.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 4
+      }
+    },
+    "x84207": {
+      "storyTitle": "Vision",
+      "storyText": "After Lynette gained the favor of the gods, the missions she had to undertake grew more dangerous and difficult.\\nOnly Vision-wielders like Lynette could fulfill the most dangerous missions while remaining completely anonymous, and the twins began to operate separately more often as a result.\\nLyney found himself unable to adapt to this. Not only had the siblings been together since childhood, but he knew that he was not the only one who felt disturbed by this split.\\nHe still desired to be beside her, lending her all the help he could — this was his non-negotiable desire.\\nKnowing his desire for power was no longer pure, Lyney concluded that he had become undeserving of divine favor. Yet he still desired a means to bridge the vast gulf in strength between him and his sister, which he did not possess. Unless...\\nTo this end, he solemnly sought out \"Father,\" expressing his belief that he needed the mysterious and perilous might of a Delusion to operate alongside his sister.\\n\"Father\" was silent for a long while, till at last two slanted crosses pinned him in place with a wrath rarely shown to the children of the Hotel, her gaze seeming to pierce his very soul.\\n\"And would Lynette want you to do this?\"\\nHer simple yet powerful question cut through the strings that bound his heart, and in a daze, his sister's words once more reverberated in his ears.\\n\"No one needs self-satisfied concern.\"\\nLyney did not need to ask his sister to know that she would never accept his desire to stay by her side with the use of a Delusion. It was only then that he realized the absurdity of his wish.\\n\"Father\" stood up and left, but not before reminding him that this was not the first time he had lacked power, but that he had found an answer before.\\nLyney would lock himself in his room, trying to digest the reasoning behind the words \"Father\" had left him with. When he and his sister had been out on the streets, the answer he had found then had been \"magic.\" What, then, would the answer be now?\\nLyney found the dossiers for all the missions Lynette had taken up during this period, carefully analyzing the process of each one and modeling his sister's every action.\\nWas it really necessary to pass through this dangerous valley to get close to a target?\\nWas it really a must to leap into such a swift river to flee the scene?\\nNo, this was just the Vision's light covering her.\\nThus did Lyney start to make comprehensive plans for his sister's missions, using his understanding of her to design the most suitable routes, make the most practical tools, and choose the best rendezvous points.\\nThe trust between them did not change. The look in Lynette's eyes when she left was no longer so strained, and they often embraced heartily and happily when meeting at the rendezvous point.\\nThe pure desire to protect one's family would not be moved, gods' favor or no.\\nBut even the best laid plans of mice and men may go awry. After conducting dozens of successful missions, the children of the Hotel were caught up in a betrayal, and as a result, Lynette's movements were exposed.\\nBefore the siblings was a towering cliff, just like the night when Lynette had gained her Vision — but this time, it was Lyney's turn to reverse their fortunes in a moment of crisis.\\nHe opened his emergency paraglider, and grabbing her, threw himself off the edge. But their pursuers followed, raining gunfire down on them.\\nLyney twisted this way and that, avoiding many a shot, but still the glider was punctured in several spots. Unable to maintain balance, they began to plummet downward towards the embrace of the ground below.\\nStill, Lyney grit his teeth and refused to despair — should fate itself conspire to refute the answer he had come up with to protect his family, he would defy it to the end.\\nTheir pursuers began to snicker, knowing that a fall at such speeds would be fatal — only to have a flame light up the skies, pushing the stricken glider toward a fast-flowing river nearby.\\nThe power of Pyro changed the direction of their fall, while Anemo defended them from harm — and thus did the twin lights intertwine and spread under the moonlight, fading slowly like the applause that fills the stage during a curtain call.\\nLyney did not guess at the meaning of the shining Vision he saw in his hand. The answer was, after all, no longer important.",
+      "unlockConds": [
+        {
+          "type": "FETTER_COND_FETTER_LEVEL",
+          "value": 6
+        },
+        {
+          "type": "FETTER_COND_FINISH_PARENT_QUEST",
+          "value": 4002
+        }
+      ]
+    }
+  },
+  "quotes": {
+    "x84000": {
+      "quoteTitle": "Hello",
+      "quoteText": "This is no mere illusion, tis I, Lyney! The greatest magician in all Teyvat! How are we feeling today? Excited? Surprised? Oh, you're curious how I appeared in front of you like this? Well... Hmm, your eyes are like topaz, precious, pure, and lovely. I like them! I've decided — I'm going to put on a show just for you. Watch carefully now. Blink, and you might miss it!",
+      "unlockConds": []
+    },
+    "x84001": {
+      "quoteTitle": "Chat: Distraction",
+      "quoteText": "This is no time for distractions! Seriously, you have a great magician standing right here... You don't want to miss the best part, do you!?",
+      "unlockConds": []
+    },
+    "x84002": {
+      "quoteTitle": "Chat: Sister",
+      "quoteText": "I wonder what my dear sister Lynette is doing right now? Missing me to death, I'm sure!",
+      "unlockConds": []
+    },
+    "x84003": {
+      "quoteTitle": "Chat: Seeing is Believing",
+      "quoteText": "So long as the audience thinks that \"seeing is believing,\" there's no limit to the number of tricks I can pull off!",
+      "unlockConds": []
+    },
+    "x84004": {
+      "quoteTitle": "When It Rains",
+      "quoteText": "There's no way we'll be able to see the stars tonight in this weather. Unless... I try making the stars appear anyway!",
+      "unlockConds": []
+    },
+    "x84005": {
+      "quoteTitle": "After the Rain",
+      "quoteText": "Great, the weather's clearing up! I wonder if there's someone up there performing magic too...",
+      "unlockConds": []
+    },
+    "x84006": {
+      "quoteTitle": "When It Snows",
+      "quoteText": "Achoo! Phew... I've heard some say that when you sneeze, it means that someone's thinking about you. Is it Lynette, I wonder? Or... is it you?",
+      "unlockConds": []
+    },
+    "x84007": {
+      "quoteTitle": "When It's Windy",
+      "quoteText": "Whoa, that was close! If this wind blows my hat off, all the props I keep inside it would come tumbling down onto my head.",
+      "unlockConds": []
+    },
+    "x84008": {
+      "quoteTitle": "When the Wind Is Blowing",
+      "quoteText": "The wind is really picking up... Ah, all my magic cards! Wait! No, no, not that way, come back! Come to Lyney!!!",
+      "unlockConds": []
+    },
+    "x84009": {
+      "quoteTitle": "Good Morning",
+      "quoteText": "...C'mon, just five more minutes... Huh? Oh! It's you! I thought it was the radiance of the sunlight on my skin that I felt — turns out it was your radiance all along!",
+      "unlockConds": []
+    },
+    "x84010": {
+      "quoteTitle": "Good Afternoon",
+      "quoteText": "I'm going to check out some products used for magic tricks later this afternoon. Perhaps they'll spark some inspiration for some new tricks. Want to come along? Come on, don't be shy, you know you want to! You can feed some of my animal assistants I use in my shows — I'm sure you'll get along great!",
+      "unlockConds": []
+    },
+    "x84011": {
+      "quoteTitle": "Good Evening",
+      "quoteText": "Good evening. The Great Magician Lyney will be performing later tonight... but I'm sure you didn't need me to tell you that!",
+      "unlockConds": []
+    },
+    "x84012": {
+      "quoteTitle": "Good Night",
+      "quoteText": "Good night. If you have trouble falling asleep, I have a few little props used for hypnosis that might help... Or maybe not. Either way, sweet dreams!",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x84013": {
+      "quoteTitle": "About Lyney: Sweet Talker",
+      "quoteText": "I should probably emphasize again that I'm rarely so open with anyone — I guess it's because you're not just anyone.",
+      "unlockConds": []
+    },
+    "x84014": {
+      "quoteTitle": "About Lyney: Partnership",
+      "quoteText": "*sigh* I'm afraid I'd find myself going into standby mode without Lynette by my side. I mean, I can handle my own business just fine, but it takes some getting used to. I'm sure you can understand. You also have... I mean... always have Paimon with you, after all.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x84015": {
+      "quoteTitle": "About Us: Withholding the Truth",
+      "quoteText": "Wow, you're not beating around the bush! ...Let me put it this way — delicious berries must often grow in areas thick with thorns, otherwise they would be devoured by greedy foxes. This is what we call self-defense! I mean, sure, I don't mind telling some small lies to others at times, but between the two of us, I've never done anything worse than omitting a minor detail here and there, right?",
+      "unlockConds": []
+    },
+    "x84016": {
+      "quoteTitle": "About Us: Principles",
+      "quoteText": "Magicians generally do not reveal the core secrets behind their tricks, but if you don't mind becoming my apprentice and calling me \"Master Lyney,\" then that would be different. I'm curious how much of it you'd understand, and how long you'd last, hehe.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 6"
+      ]
+    },
+    "x84017": {
+      "quoteTitle": "About the Vision",
+      "quoteText": "If a magician were to go onstage with their Vision in hand, people might suspect the authenticity of their tricks, so I habitually take it off before performing. But since you're interested, why don't you help me hold on to it while I perform? Just be sure to keep an eye on it, though — or it might just sneak its way back to me!",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x84018": {
+      "quoteTitle": "Something to Share",
+      "quoteText": "Magic isn't just a performance art, it's also a way of thinking. Many things in this world seem simple at first glance but play host to all sorts of secrets if you look deeper.",
+      "unlockConds": []
+    },
+    "x84019": {
+      "quoteTitle": "Interesting Things",
+      "quoteText": "Cats can use their ears to express their feelings. If they flatten them backwards, it indicates fear or caution, and if their ears are perked up and occasionally face forward, that usually means they're happy. Constant swiveling indicates that they are vigilantly assessing their surroundings... How do I know this? Experience and observation!",
+      "unlockConds": []
+    },
+    "x84020": {
+      "quoteTitle": "About \"Father\": Family",
+      "quoteText": "\"Father\" gave us a family, raised us, and told each of us what we should work towards. In turn, what I can do is very simple... Remain loyal, and protect our home.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x84021": {
+      "quoteTitle": "About \"Father\": King",
+      "quoteText": "Ours is a kingdom consisting only of children, and \"Father\" is our king. No king rules forever, of course, and I know that one day I will be chosen as \"Father's\" successor... But that also terrifies me... Please don't mention this to anyone, especially my sister and Freminet.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 6",
+        "Complete \"As Light Rain Falls Without Reason\""
+      ]
+    },
+    "x84022": {
+      "quoteTitle": "About Lynette: Modes",
+      "quoteText": "You think my sister doesn't talk much? Oh, she's probably just not in the right mode. Next time, start by saying \"Activate Chat Mode\" to her. If you're lucky, she might have a great deal of things to say to you. Hmm, and if you're not lucky...? Well, she'll just stare for a while, but hey, at least you'll get to see a different side of her!",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x84023": {
+      "quoteTitle": "About Lynette: Twins",
+      "quoteText": "My sister and I have always been inseparable. There's no hardship we can't overcome as long as we're together, and similarly, we share all our joys with each other. There's nothing in the world I treasure more than my family, so I know what it must be like for you... And if I find out anything at all that might help you, I'll be sure to let you know.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x84024": {
+      "quoteTitle": "About Freminet",
+      "quoteText": "My naive little brother still believes in fairy tales. I envy him, really. Uh, just to be clear though, he didn't actually tell me that. I just happened to see what he keeps in his secret drawer once... Really, it was an accident! So please don't tell him, or he'll get mad at me for sure.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x84025": {
+      "quoteTitle": "About Neuvillette",
+      "quoteText": "Monsieur Neuvillette rarely appears in public, almost as if he's intentionally trying to put some distance between himself and the people. At first, I thought it might be just me, but my ever-observant sister noticed it too, so I suppose that must really be the case.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x84026": {
+      "quoteTitle": "About Furina",
+      "quoteText": "The Hydro Archon, Lady Furina, is very unpredictable, and her manner of speech can be quite provocative, almost as if she sees talking itself like some sort of performance. The people of Fontaine have a particular soft spot for excitement and drama, which is why many hold her in high esteem.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x84027": {
+      "quoteTitle": "About Chiori",
+      "quoteText": "Flattery won't get you anywhere with her. She'll only give those who can truly appreciate her art a second look. How does she see me, you ask? Come on now, that hurts! Not only am I a connoisseur of the arts, but honest about it too, as I am in all my dealings!",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x84028": {
+      "quoteTitle": "About Navia",
+      "quoteText": "I didn't think that she'd be willing to help strangers like us. If it hadn't been for all of you, Lynette and I wouldn't have been acquitted... Thank you so much. I'll have to wait for a lovely, sunny day to invite everyone to Café Lutece for the most wonderful afternoon tea!",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4",
+        "Complete \"As Light Rain Falls Without Reason\""
+      ]
+    },
+    "x84029": {
+      "quoteTitle": "About Charlotte",
+      "quoteText": "Charlotte has been trying to get me to agree to an interview ever since we met... Ugh, it feels like she's already asked twenty times now. She has a good nose for finding news, and she's the persistent type, too. But to be honest, I have no desire to find myself in the spotlight of one of her breaking news stories, and so I've found all sorts of reasons to decline each time.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4",
+        "Complete \"As Light Rain Falls Without Reason\""
+      ]
+    },
+    "x84030": {
+      "quoteTitle": "About Clorinde",
+      "quoteText": "Clorinde's quite famous as a Champion Duelist. But from what I've read in the papers, she seems to have gotten into a bit of a pickle. The media's been all over her story, and she's... Well, she's the type that definitely doesn't enjoy that kind of attention.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x84031": {
+      "quoteTitle": "About Emilie",
+      "quoteText": "Have you ever gotten a whiff of the perfumes she makes? I quite liked them and was thinking to buy myself a bottle... But Lynette's tail indicated that she didn't share my opinion, so that was the end of that!",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x84032": {
+      "quoteTitle": "More About Lyney: I",
+      "quoteText": "It seems we're both keenly interested in each other. Well, know that the honor is mine! Haha, relax. I couldn't ever tell lies to your mesmerizing eyes — not even if I tried!",
+      "unlockConds": []
+    },
+    "x84033": {
+      "quoteTitle": "More About Lyney: II",
+      "quoteText": "Of course, there's no way to ensure that you'll never slip up when performing magic tricks. The way I see it, the point is not to perform perfectly, but to stay calm at all times and adapt as needed. Even if some small flaws occur, you just need to make the audience believe that it's all part of the show, and you'll still deliver an entertaining and unforgettable performance!",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 3"
+      ]
+    },
+    "x84034": {
+      "quoteTitle": "More About Lyney: III",
+      "quoteText": "As orphans without parents to shelter us, Lynette and I were forced to roam the streets since childhood, so we've been through a lot. But those experiences have also made us who we are today. We're doing alright these days. I have a hat full of hopes and dreams... Heh, and a family, and audience, hoping that I don't let them down!",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x84035": {
+      "quoteTitle": "More About Lyney: IV",
+      "quoteText": "Haha, so even now you still don't completely trust me, huh? You're a vigilant one — not that that's a bad thing. I'll never need to worry about you getting duped by someone else. But on the other hand, since you've taken it upon yourself to watch my every move, you'd better be careful when you blink... Who knows, I might just tell a huge, terrible lie while you're not paying attention! You'd be in a real pickle then, wouldn't you?",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 5"
+      ]
+    },
+    "x84036": {
+      "quoteTitle": "More About Lyney: V",
+      "quoteText": "Actually, the real me is nowhere near as outgoing or chatty as I appear. More often than not, I only work my verbal \"magic\" as a means of getting closer to people. Sometimes I think people would feel sorry for the real me. Do you? *sigh* Or do you find my little games absurd?",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 6"
+      ]
+    },
+    "x84037": {
+      "quoteTitle": "Lyney's Hobbies",
+      "quoteText": "Hey, what do we have here? Ah, a cute, little white rabbit — you like it? Curious about when it got here? You should be! Hehe, the look of amazement on our audience's face is what we magicians love the most.",
+      "unlockConds": []
+    },
+    "x84038": {
+      "quoteTitle": "Lyney's Troubles: It's All a Disguise",
+      "quoteText": "Ah, what to do, what to do? The thing that troubles me is... the fact that you can even think of troubling things when you have such a great magician like myself standing right in front of you.",
+      "unlockConds": []
+    },
+    "x84039": {
+      "quoteTitle": "Lyney's Troubles: Doves",
+      "quoteText": "In the past, I would let the doves I raised fly freely, and they would always return to me. But there was once when a few didn't return, and by the time we tracked them down, they'd been turned into dove pie. Even now I still don't know how to give them both freedom and safety.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x84040": {
+      "quoteTitle": "Favorite Food",
+      "quoteText": "See this fishbowl? Come, put your hand inside it. Filled with just ordinary water, right? Are you sure? Then let's begin! See this cloth? I'm going to cover the bowl with it and... Well, what do you know? There's a fish in there now! How was that? Maybe this fun little performance could earn me one of your very own fish dishes?",
+      "unlockConds": []
+    },
+    "x84041": {
+      "quoteTitle": "Least Favorite Food",
+      "quoteText": "Our performances require that Lynette and I have matching physiques, so we have to avoid eating any oily food. Now, that's not a huge problem for me, but it can be tough for my sister — the fried fish they sell on the streets smells amazing, after all...",
+      "unlockConds": []
+    },
+    "x84042": {
+      "quoteTitle": "Receiving a Gift: I",
+      "quoteText": "It's quite an honor to enjoy such wonderful food made by you.",
+      "unlockConds": []
+    },
+    "x84043": {
+      "quoteTitle": "Receiving a Gift: II",
+      "quoteText": "My, this is delicious! You're quite the cook. Thanks for the treat.",
+      "unlockConds": []
+    },
+    "x84044": {
+      "quoteTitle": "Receiving a Gift: III",
+      "quoteText": "Would you like to see a magic trick? Now, let me place this ordinary cloth on top of the dish. Count down with me — three, two, one! Tada! Where'd the food go?",
+      "unlockConds": []
+    },
+    "x84045": {
+      "quoteTitle": "Birthday",
+      "quoteText": "I have a feather here, just an ordinary feather... Go ahead, you can hold it and see for yourself. Ready? And... boom! It was a party popper all along. Happy Birthday! See this? I caught one of the paper streamers floating down. Now, make a wish and picture a birthday gift in your mind's eye as I light it. Three... two... one... Great! Verrry good, I know exactly what you were thinking now. The last step, put your hand inside my hat... Well? Is it the gift you wanted?",
+      "unlockConds": []
+    },
+    "x84046": {
+      "quoteTitle": "Feelings About Ascension: Intro",
+      "quoteText": "Oho, and here I thought you'd ask me to perform some magic with these materials!",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 1"
+      ]
+    },
+    "x84047": {
+      "quoteTitle": "Feelings About Ascension: Building Up",
+      "quoteText": "Would you be more shocked if nothing changed about me at all?",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 2"
+      ]
+    },
+    "x84048": {
+      "quoteTitle": "Feelings About Ascension: Climax",
+      "quoteText": "Nothing could make me happier than having your trust.",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 4"
+      ]
+    },
+    "x84049": {
+      "quoteTitle": "Feelings About Ascension: Conclusion",
+      "quoteText": "Doing all this for me... Are you trying to steal this magician's heart, by any chance? Well, in that case, congratulations, my dear apprentice — or should I say, \"companion.\" For you have succeeded!",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 6"
+      ]
+    },
+    "x84050": {
+      "quoteTitle": "Elemental Skill: I",
+      "quoteText": "Step right up!",
+      "unlockConds": []
+    },
+    "x84051": {
+      "quoteTitle": "Elemental Skill: II",
+      "quoteText": "And... voila!",
+      "unlockConds": []
+    },
+    "x84052": {
+      "quoteTitle": "Elemental Skill: III",
+      "quoteText": "Now, disappear!",
+      "unlockConds": []
+    },
+    "x84053": {
+      "quoteTitle": "Elemental Burst: I",
+      "quoteText": "Here comes the finale!",
+      "unlockConds": []
+    },
+    "x84054": {
+      "quoteTitle": "Elemental Burst: II",
+      "quoteText": "Let's get this show on the road!",
+      "unlockConds": []
+    },
+    "x84055": {
+      "quoteTitle": "Elemental Burst: III",
+      "quoteText": "A round of applause!",
+      "unlockConds": []
+    },
+    "x84056": {
+      "quoteTitle": "Opening Treasure Chest: I",
+      "quoteText": "And now I'll make it all disappear... Hehe, just kidding~",
+      "unlockConds": []
+    },
+    "x84057": {
+      "quoteTitle": "Opening Treasure Chest: II",
+      "quoteText": "Guess this'll go into my magic pocket!",
+      "unlockConds": []
+    },
+    "x84058": {
+      "quoteTitle": "Opening Treasure Chest: III",
+      "quoteText": "I wonder if this chest is some kind of trick...",
+      "unlockConds": []
+    },
+    "x84059": {
+      "quoteTitle": "Low HP: I",
+      "quoteText": "Magic can't cheat death, you know!",
+      "unlockConds": []
+    },
+    "x84060": {
+      "quoteTitle": "Low HP: II",
+      "quoteText": "Clever trick...",
+      "unlockConds": []
+    },
+    "x84061": {
+      "quoteTitle": "Low HP: III",
+      "quoteText": "It'll be alright.",
+      "unlockConds": []
+    },
+    "x84062": {
+      "quoteTitle": "Ally at Low HP: I",
+      "quoteText": "Why don't you let me take the stage!",
+      "unlockConds": []
+    },
+    "x84063": {
+      "quoteTitle": "Ally at Low HP: II",
+      "quoteText": "Your timing's off!",
+      "unlockConds": []
+    },
+    "x84064": {
+      "quoteTitle": "Fallen: I",
+      "quoteText": "Lynette...",
+      "unlockConds": []
+    },
+    "x84065": {
+      "quoteTitle": "Fallen: II",
+      "quoteText": "My show... mustn't fail...",
+      "unlockConds": []
+    },
+    "x84066": {
+      "quoteTitle": "Fallen: III",
+      "quoteText": "Quick... drop the curtains...",
+      "unlockConds": []
+    },
+    "x84067": {
+      "quoteTitle": "Light Hit Taken: I",
+      "quoteText": "I'm fine.",
+      "unlockConds": []
+    },
+    "x84068": {
+      "quoteTitle": "Heavy Hit Taken: I",
+      "quoteText": "Stay calm, stay calm...",
+      "unlockConds": []
+    },
+    "x84069": {
+      "quoteTitle": "Joining Party: I",
+      "quoteText": "Ah, we'll be a traveling magic troupe.",
+      "unlockConds": []
+    },
+    "x84070": {
+      "quoteTitle": "Joining Party: II",
+      "quoteText": "Prepare to be amazed.",
+      "unlockConds": []
+    },
+    "x84071": {
+      "quoteTitle": "Joining Party: III",
+      "quoteText": "It's an honor to be here.",
+      "unlockConds": []
+    }
+  },
+  "energy": {
+    "source": "DropBall_Base",
+    "particles": "5",
+    "chance": "100%",
+    "cd": "0.3s"
+  },
+  "attacks": [
+    {
+      "name": "ShootArrow_Enchanted_WithoutFire",
+      "icd_source": "Tag: ExtraAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "4U",
+      "poise": "LV2/10",
+      "element": "-",
+      "attackType": "Default",
+      "strikeType": "Pierce",
+      "damageParam": "DamageWithoutFire"
+    },
+    {
+      "name": "Bullet_ShootArrow_WithFire",
+      "icd_source": "Tag: ExtraAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV2/20",
+      "element": "Fire",
+      "attackType": "Default",
+      "strikeType": "Pierce",
+      "damageParam": "DamageWithFire"
+    },
+    {
+      "name": "Bullet_ShootArrow_WithFire_BeforeFission",
+      "icd_source": "Tag: ExtraAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV2/30",
+      "element": "Fire",
+      "attackType": "Default",
+      "strikeType": "Pierce",
+      "damageParam": "DamageWithFire_BeforeFission"
+    },
+    {
+      "name": "Bullet_ShootArrow_WithFire_BeforeFission",
+      "icd_source": "Tag: ExtraAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV2/30",
+      "element": "Fire",
+      "attackType": "Default",
+      "strikeType": "Pierce",
+      "damageParam": "DamageWithFire_BeforeFission"
+    },
+    {
+      "name": "SkillObj_ShootArrow_OusiaAgent",
+      "icd_source": "Tag: ExtraAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "0U",
+      "poise": "LV2/20",
+      "element": "Fire",
+      "attackType": "Default",
+      "strikeType": "Pierce",
+      "damageParam": "DamageWithFire_Ousia"
+    },
+    {
+      "name": "Bullet_FissionAgent_EndBoom",
+      "icd_source": "Grp: Avatar_Liney_ExtraAttack (Tag Miss)",
+      "icd_rule": "6 hits / 1s",
+      "gauge": "1U",
+      "poise": "LV2/30",
+      "element": "Fire",
+      "attackType": "Default",
+      "strikeType": "-",
+      "damageParam": "DamageWithFire_AfterFission|AfterFission_PermanentSkill_1_HurtUp|ADD"
+    },
+    {
+      "name": "Bullet_FissionAgent_EndBoom_Constellation_6",
+      "icd_source": "Grp: Avatar_Liney_ExtraAttack (Tag Miss)",
+      "icd_rule": "6 hits / 1s",
+      "gauge": "1U",
+      "poise": "LV2/30",
+      "element": "Fire",
+      "attackType": "Default",
+      "strikeType": "-",
+      "damageParam": "DamageWithFire_AfterFission|EndBoom_Constellation_6_DMGRatio|MUL"
+    },
+    {
+      "name": "SkillObj_FissionAgent_EndBoom_Enhanced",
+      "icd_source": "Grp: Avatar_Liney_ExtraAttack (Tag Miss)",
+      "icd_rule": "6 hits / 1s",
+      "gauge": "1U",
+      "poise": "LV2/90",
+      "element": "Fire",
+      "attackType": "Default",
+      "strikeType": "Blunt",
+      "damageParam": "DamageWithFire_AfterFission_Enhanced|AfterFission_PermanentSkill_1_HurtUp|ADD"
+    },
+    {
+      "name": "ElementalArt",
+      "icd_source": "Tag: Elemental_Art (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV4/60",
+      "element": "Fire",
+      "attackType": "Default",
+      "strikeType": "-",
+      "damageParam": "ElementalArt|LoseHp_Count|LoseHp_ElementalArtDamage_CountRatio|MUL|ADD"
+    },
+    {
+      "name": "ElementalBurst",
+      "icd_source": "Tag: Elemental_Burst (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV2/40",
+      "element": "Fire",
+      "attackType": "Default",
+      "strikeType": "-",
+      "damageParam": "MagicMove_Attack"
+    },
+    {
+      "name": "ElementalBurst",
+      "icd_source": "Tag: Elemental_Burst (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV7/120",
+      "element": "Fire",
+      "attackType": "Default",
+      "strikeType": "-",
+      "damageParam": "MagicMove_EndAttack"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "0U",
+      "poise": "LV2/10",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Pierce",
+      "damageParam": "FallingAnthem_Normal_Loop_Damage"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV2/50",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Pierce",
+      "damageParam": "FallingAnthem_Normal_Rank_1_Damage"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV3/100",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Pierce",
+      "damageParam": "FallingAnthem_Normal_Rank_2_Damage"
+    }
+  ],
+  "endure": {
+    "ability": "ElementalBurst",
+    "handler": "UNIQUE_ElementalBurst_MagicMove_Handler",
+    "Actor_EndureDelta": 0
+  }
+}

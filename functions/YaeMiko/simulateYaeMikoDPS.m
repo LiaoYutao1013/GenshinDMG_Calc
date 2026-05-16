@@ -1,0 +1,36 @@
+function [totalDMG, dps, breakdown, rotationTime] = simulateYaeMikoDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
+    % Yae Miko simulator for Sesshou Sakura ticks and burst thunderbolts.
+    if nargin < 3 || isempty(seqFile)
+        seqFile = fullfile(fileparts(mfilename('fullpath')), '..', '..', 'data', 'YaeMiko', 'rotation_YaeMiko.txt');
+    end
+    if nargin < 4 || isempty(talentLevel)
+        talentLevel = 10;
+    end
+    if nargin < 5 || isempty(constellation)
+        constellation = 0;
+    end
+    if nargin < 6 || isempty(teamContext)
+        teamContext = buildTeamContext({struct('Name', 'YaeMiko', 'Constellation', constellation, 'Build', build)}, 20, struct());
+    end
+
+    actions = struct();
+    actions.E = struct('TalentGroup', "Skill", 'Param', "SesshouSakuraDMGLevel3", 'DamageField', "SkillDMGBonus", ...
+        'ActionElement', "Electro", 'BaseMultiplier', 1.00, 'AllowCatalyze', 1, 'HitCount', 3, 'Note', "Sesshou Sakura placement");
+    actions.Tick = struct('TalentGroup', "Skill", 'Param', "SesshouSakuraDMGLevel3", 'DamageField', "SkillDMGBonus", ...
+        'ActionElement', "Electro", 'BaseMultiplier', 1.00, 'AllowCatalyze', 1, 'HitCount', 6 + 2 * double(constellation >= 2), 'Note', "Sesshou Sakura tick");
+    actions.Q = struct('TalentGroup', "Burst", 'Param', "SkillDMG", 'DamageField', "BurstDMGBonus", ...
+        'ActionElement', "Electro", 'BaseMultiplier', 1.00, 'AllowCatalyze', 1, 'Note', "Great Secret Art");
+    actions.Thunder = struct('TalentGroup', "Burst", 'Param', "TenkoThunderboltDMG", 'DamageField', "BurstDMGBonus", ...
+        'ActionElement', "Electro", 'BaseMultiplier', 1.00, 'AllowCatalyze', 1, 'HitCount', 3 + double(constellation >= 1), 'Note', "Tenko thunderbolt");
+
+    spec = struct( ...
+        'Element', "Electro", ...
+        'ScalingMode', "ATK", ...
+        'DefaultActionTime', 0.70, ...
+        'DefaultRotation', {{'E', 'Tick', 'Q', 'Thunder'}}, ...
+        'ActionTimeMap', struct('E', 0.90, 'Tick', 12.00, 'Q', 1.20, 'Thunder', 0.30), ...
+        'Actions', actions);
+
+    [totalDMG, dps, breakdown, rotationTime] = simulateSimpleCharacterDPS( ...
+        'YaeMiko', build, enemy, seqFile, talentLevel, constellation, teamContext, spec);
+end

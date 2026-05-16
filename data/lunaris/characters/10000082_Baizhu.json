@@ -1,0 +1,1807 @@
+{
+  "info": {
+    "name": "Baizhu",
+    "description": "The owner of Bubu Pharmacy, who is rarely seen without the white snake named Changsheng. His medicinal knowledge is encyclopedic, and his personal intrigues subtle.",
+    "rarity": "QUALITY_ORANGE",
+    "weapon": "WEAPON_CATALYST",
+    "birthday": "25/4",
+    "element": "Dendro",
+    "title": "Beyond Mortality",
+    "constellation": "Lagenaria",
+    "affiliation": "Bubu Pharmacy",
+    "cv": {
+      "EN": "Sean Durrie & Xanthe Huynh",
+      "CHS": "秦且歌 & 王晓彤",
+      "JP": "遊佐浩二 & 庄子裕衣",
+      "KR": "Yi Ho-san & Jang Mi"
+    },
+    "attributes": [
+      {
+        "level": 1,
+        "ascension": 0,
+        "hp": 1039,
+        "atk": 15,
+        "def": 39,
+        "HP_": "0"
+      },
+      {
+        "level": 2,
+        "ascension": 0,
+        "hp": 1125,
+        "atk": 16,
+        "def": 42,
+        "HP_": "0"
+      },
+      {
+        "level": 3,
+        "ascension": 0,
+        "hp": 1212,
+        "atk": 17,
+        "def": 45,
+        "HP_": "0"
+      },
+      {
+        "level": 4,
+        "ascension": 0,
+        "hp": 1299,
+        "atk": 19,
+        "def": 49,
+        "HP_": "0"
+      },
+      {
+        "level": 5,
+        "ascension": 0,
+        "hp": 1385,
+        "atk": 20,
+        "def": 52,
+        "HP_": "0"
+      },
+      {
+        "level": 6,
+        "ascension": 0,
+        "hp": 1472,
+        "atk": 21,
+        "def": 55,
+        "HP_": "0"
+      },
+      {
+        "level": 7,
+        "ascension": 0,
+        "hp": 1559,
+        "atk": 22,
+        "def": 58,
+        "HP_": "0"
+      },
+      {
+        "level": 8,
+        "ascension": 0,
+        "hp": 1646,
+        "atk": 24,
+        "def": 62,
+        "HP_": "0"
+      },
+      {
+        "level": 9,
+        "ascension": 0,
+        "hp": 1733,
+        "atk": 25,
+        "def": 65,
+        "HP_": "0"
+      },
+      {
+        "level": 10,
+        "ascension": 0,
+        "hp": 1819,
+        "atk": 26,
+        "def": 68,
+        "HP_": "0"
+      },
+      {
+        "level": 11,
+        "ascension": 0,
+        "hp": 1907,
+        "atk": 28,
+        "def": 71,
+        "HP_": "0"
+      },
+      {
+        "level": 12,
+        "ascension": 0,
+        "hp": 1994,
+        "atk": 29,
+        "def": 75,
+        "HP_": "0"
+      },
+      {
+        "level": 13,
+        "ascension": 0,
+        "hp": 2081,
+        "atk": 30,
+        "def": 78,
+        "HP_": "0"
+      },
+      {
+        "level": 14,
+        "ascension": 0,
+        "hp": 2170,
+        "atk": 31,
+        "def": 81,
+        "HP_": "0"
+      },
+      {
+        "level": 15,
+        "ascension": 0,
+        "hp": 2257,
+        "atk": 33,
+        "def": 84,
+        "HP_": "0"
+      },
+      {
+        "level": 16,
+        "ascension": 0,
+        "hp": 2344,
+        "atk": 34,
+        "def": 88,
+        "HP_": "0"
+      },
+      {
+        "level": 17,
+        "ascension": 0,
+        "hp": 2433,
+        "atk": 35,
+        "def": 91,
+        "HP_": "0"
+      },
+      {
+        "level": 18,
+        "ascension": 0,
+        "hp": 2520,
+        "atk": 36,
+        "def": 94,
+        "HP_": "0"
+      },
+      {
+        "level": 19,
+        "ascension": 0,
+        "hp": 2608,
+        "atk": 38,
+        "def": 98,
+        "HP_": "0"
+      },
+      {
+        "level": 20,
+        "ascension": 0,
+        "hp": 2695,
+        "atk": 39,
+        "def": 101,
+        "HP_": "0"
+      },
+      {
+        "level": 21,
+        "ascension": 1,
+        "hp": 3675,
+        "atk": 53,
+        "def": 138,
+        "HP_": "0"
+      },
+      {
+        "level": 22,
+        "ascension": 1,
+        "hp": 3763,
+        "atk": 54,
+        "def": 141,
+        "HP_": "0"
+      },
+      {
+        "level": 23,
+        "ascension": 1,
+        "hp": 3851,
+        "atk": 56,
+        "def": 144,
+        "HP_": "0"
+      },
+      {
+        "level": 24,
+        "ascension": 1,
+        "hp": 3940,
+        "atk": 57,
+        "def": 147,
+        "HP_": "0"
+      },
+      {
+        "level": 25,
+        "ascension": 1,
+        "hp": 4028,
+        "atk": 58,
+        "def": 151,
+        "HP_": "0"
+      },
+      {
+        "level": 26,
+        "ascension": 1,
+        "hp": 4117,
+        "atk": 59,
+        "def": 154,
+        "HP_": "0"
+      },
+      {
+        "level": 27,
+        "ascension": 1,
+        "hp": 4206,
+        "atk": 61,
+        "def": 157,
+        "HP_": "0"
+      },
+      {
+        "level": 28,
+        "ascension": 1,
+        "hp": 4294,
+        "atk": 62,
+        "def": 161,
+        "HP_": "0"
+      },
+      {
+        "level": 29,
+        "ascension": 1,
+        "hp": 4383,
+        "atk": 63,
+        "def": 164,
+        "HP_": "0"
+      },
+      {
+        "level": 30,
+        "ascension": 1,
+        "hp": 4472,
+        "atk": 65,
+        "def": 167,
+        "HP_": "0"
+      },
+      {
+        "level": 31,
+        "ascension": 1,
+        "hp": 4561,
+        "atk": 66,
+        "def": 171,
+        "HP_": "0"
+      },
+      {
+        "level": 32,
+        "ascension": 1,
+        "hp": 4650,
+        "atk": 67,
+        "def": 174,
+        "HP_": "0"
+      },
+      {
+        "level": 33,
+        "ascension": 1,
+        "hp": 4740,
+        "atk": 68,
+        "def": 177,
+        "HP_": "0"
+      },
+      {
+        "level": 34,
+        "ascension": 1,
+        "hp": 4828,
+        "atk": 70,
+        "def": 181,
+        "HP_": "0"
+      },
+      {
+        "level": 35,
+        "ascension": 1,
+        "hp": 4918,
+        "atk": 71,
+        "def": 184,
+        "HP_": "0"
+      },
+      {
+        "level": 36,
+        "ascension": 1,
+        "hp": 5008,
+        "atk": 72,
+        "def": 187,
+        "HP_": "0"
+      },
+      {
+        "level": 37,
+        "ascension": 1,
+        "hp": 5097,
+        "atk": 74,
+        "def": 191,
+        "HP_": "0"
+      },
+      {
+        "level": 38,
+        "ascension": 1,
+        "hp": 5187,
+        "atk": 75,
+        "def": 194,
+        "HP_": "0"
+      },
+      {
+        "level": 39,
+        "ascension": 1,
+        "hp": 5276,
+        "atk": 76,
+        "def": 197,
+        "HP_": "0"
+      },
+      {
+        "level": 40,
+        "ascension": 1,
+        "hp": 5366,
+        "atk": 77,
+        "def": 201,
+        "HP_": "0"
+      },
+      {
+        "level": 41,
+        "ascension": 2,
+        "hp": 6089,
+        "atk": 88,
+        "def": 228,
+        "HP_": "7.2"
+      },
+      {
+        "level": 42,
+        "ascension": 2,
+        "hp": 6179,
+        "atk": 89,
+        "def": 231,
+        "HP_": "7.2"
+      },
+      {
+        "level": 43,
+        "ascension": 2,
+        "hp": 6270,
+        "atk": 90,
+        "def": 235,
+        "HP_": "7.2"
+      },
+      {
+        "level": 44,
+        "ascension": 2,
+        "hp": 6359,
+        "atk": 92,
+        "def": 238,
+        "HP_": "7.2"
+      },
+      {
+        "level": 45,
+        "ascension": 2,
+        "hp": 6449,
+        "atk": 93,
+        "def": 241,
+        "HP_": "7.2"
+      },
+      {
+        "level": 46,
+        "ascension": 2,
+        "hp": 6540,
+        "atk": 94,
+        "def": 245,
+        "HP_": "7.2"
+      },
+      {
+        "level": 47,
+        "ascension": 2,
+        "hp": 6630,
+        "atk": 96,
+        "def": 248,
+        "HP_": "7.2"
+      },
+      {
+        "level": 48,
+        "ascension": 2,
+        "hp": 6721,
+        "atk": 97,
+        "def": 252,
+        "HP_": "7.2"
+      },
+      {
+        "level": 49,
+        "ascension": 2,
+        "hp": 6812,
+        "atk": 98,
+        "def": 255,
+        "HP_": "7.2"
+      },
+      {
+        "level": 50,
+        "ascension": 2,
+        "hp": 6902,
+        "atk": 100,
+        "def": 258,
+        "HP_": "7.2"
+      },
+      {
+        "level": 51,
+        "ascension": 3,
+        "hp": 7837,
+        "atk": 113,
+        "def": 293,
+        "HP_": "14.4"
+      },
+      {
+        "level": 52,
+        "ascension": 3,
+        "hp": 7928,
+        "atk": 114,
+        "def": 297,
+        "HP_": "14.4"
+      },
+      {
+        "level": 53,
+        "ascension": 3,
+        "hp": 8019,
+        "atk": 116,
+        "def": 300,
+        "HP_": "14.4"
+      },
+      {
+        "level": 54,
+        "ascension": 3,
+        "hp": 8110,
+        "atk": 117,
+        "def": 304,
+        "HP_": "14.4"
+      },
+      {
+        "level": 55,
+        "ascension": 3,
+        "hp": 8202,
+        "atk": 118,
+        "def": 307,
+        "HP_": "14.4"
+      },
+      {
+        "level": 56,
+        "ascension": 3,
+        "hp": 8293,
+        "atk": 120,
+        "def": 310,
+        "HP_": "14.4"
+      },
+      {
+        "level": 57,
+        "ascension": 3,
+        "hp": 8385,
+        "atk": 121,
+        "def": 314,
+        "HP_": "14.4"
+      },
+      {
+        "level": 58,
+        "ascension": 3,
+        "hp": 8476,
+        "atk": 122,
+        "def": 317,
+        "HP_": "14.4"
+      },
+      {
+        "level": 59,
+        "ascension": 3,
+        "hp": 8567,
+        "atk": 124,
+        "def": 321,
+        "HP_": "14.4"
+      },
+      {
+        "level": 60,
+        "ascension": 3,
+        "hp": 8659,
+        "atk": 125,
+        "def": 324,
+        "HP_": "14.4"
+      },
+      {
+        "level": 61,
+        "ascension": 4,
+        "hp": 9383,
+        "atk": 135,
+        "def": 351,
+        "HP_": "14.4"
+      },
+      {
+        "level": 62,
+        "ascension": 4,
+        "hp": 9475,
+        "atk": 137,
+        "def": 355,
+        "HP_": "14.4"
+      },
+      {
+        "level": 63,
+        "ascension": 4,
+        "hp": 9567,
+        "atk": 138,
+        "def": 358,
+        "HP_": "14.4"
+      },
+      {
+        "level": 64,
+        "ascension": 4,
+        "hp": 9659,
+        "atk": 139,
+        "def": 361,
+        "HP_": "14.4"
+      },
+      {
+        "level": 65,
+        "ascension": 4,
+        "hp": 9751,
+        "atk": 141,
+        "def": 365,
+        "HP_": "14.4"
+      },
+      {
+        "level": 66,
+        "ascension": 4,
+        "hp": 9844,
+        "atk": 142,
+        "def": 368,
+        "HP_": "14.4"
+      },
+      {
+        "level": 67,
+        "ascension": 4,
+        "hp": 9935,
+        "atk": 143,
+        "def": 372,
+        "HP_": "14.4"
+      },
+      {
+        "level": 68,
+        "ascension": 4,
+        "hp": 10028,
+        "atk": 145,
+        "def": 375,
+        "HP_": "14.4"
+      },
+      {
+        "level": 69,
+        "ascension": 4,
+        "hp": 10120,
+        "atk": 146,
+        "def": 379,
+        "HP_": "14.4"
+      },
+      {
+        "level": 70,
+        "ascension": 4,
+        "hp": 10213,
+        "atk": 147,
+        "def": 382,
+        "HP_": "14.4"
+      },
+      {
+        "level": 71,
+        "ascension": 5,
+        "hp": 10938,
+        "atk": 158,
+        "def": 409,
+        "HP_": "21.6"
+      },
+      {
+        "level": 72,
+        "ascension": 5,
+        "hp": 11032,
+        "atk": 159,
+        "def": 413,
+        "HP_": "21.6"
+      },
+      {
+        "level": 73,
+        "ascension": 5,
+        "hp": 11124,
+        "atk": 160,
+        "def": 416,
+        "HP_": "21.6"
+      },
+      {
+        "level": 74,
+        "ascension": 5,
+        "hp": 11217,
+        "atk": 162,
+        "def": 420,
+        "HP_": "21.6"
+      },
+      {
+        "level": 75,
+        "ascension": 5,
+        "hp": 11310,
+        "atk": 163,
+        "def": 423,
+        "HP_": "21.6"
+      },
+      {
+        "level": 76,
+        "ascension": 5,
+        "hp": 11403,
+        "atk": 164,
+        "def": 427,
+        "HP_": "21.6"
+      },
+      {
+        "level": 77,
+        "ascension": 5,
+        "hp": 11496,
+        "atk": 166,
+        "def": 430,
+        "HP_": "21.6"
+      },
+      {
+        "level": 78,
+        "ascension": 5,
+        "hp": 11590,
+        "atk": 167,
+        "def": 434,
+        "HP_": "21.6"
+      },
+      {
+        "level": 79,
+        "ascension": 5,
+        "hp": 11683,
+        "atk": 169,
+        "def": 437,
+        "HP_": "21.6"
+      },
+      {
+        "level": 80,
+        "ascension": 5,
+        "hp": 11777,
+        "atk": 170,
+        "def": 441,
+        "HP_": "21.6"
+      },
+      {
+        "level": 81,
+        "ascension": 6,
+        "hp": 12503,
+        "atk": 180,
+        "def": 468,
+        "HP_": "28.8"
+      },
+      {
+        "level": 82,
+        "ascension": 6,
+        "hp": 12597,
+        "atk": 182,
+        "def": 471,
+        "HP_": "28.8"
+      },
+      {
+        "level": 83,
+        "ascension": 6,
+        "hp": 12690,
+        "atk": 183,
+        "def": 475,
+        "HP_": "28.8"
+      },
+      {
+        "level": 84,
+        "ascension": 6,
+        "hp": 12784,
+        "atk": 184,
+        "def": 478,
+        "HP_": "28.8"
+      },
+      {
+        "level": 85,
+        "ascension": 6,
+        "hp": 12877,
+        "atk": 186,
+        "def": 482,
+        "HP_": "28.8"
+      },
+      {
+        "level": 86,
+        "ascension": 6,
+        "hp": 12972,
+        "atk": 187,
+        "def": 485,
+        "HP_": "28.8"
+      },
+      {
+        "level": 87,
+        "ascension": 6,
+        "hp": 13065,
+        "atk": 188,
+        "def": 489,
+        "HP_": "28.8"
+      },
+      {
+        "level": 88,
+        "ascension": 6,
+        "hp": 13160,
+        "atk": 190,
+        "def": 493,
+        "HP_": "28.8"
+      },
+      {
+        "level": 89,
+        "ascension": 6,
+        "hp": 13255,
+        "atk": 191,
+        "def": 496,
+        "HP_": "28.8"
+      },
+      {
+        "level": 90,
+        "ascension": 6,
+        "hp": 13348,
+        "atk": 193,
+        "def": 500,
+        "HP_": "28.8"
+      },
+      {
+        "level": 95,
+        "ascension": 6,
+        "hp": 13822,
+        "atk": 214,
+        "def": 517,
+        "HP_": "28.8"
+      },
+      {
+        "level": 100,
+        "ascension": 6,
+        "hp": 14297,
+        "atk": 236,
+        "def": 535,
+        "HP_": "28.8"
+      }
+    ]
+  },
+  "icons": {
+    "forward": "UI_AvatarIcon_Baizhuer",
+    "coop_img": "UI_CoopImg_Baizhuer"
+  },
+  "ascension": {
+    "x202": 7.0499E+6,
+    "exp": {
+      "x104001": 2,
+      "x104003": 418
+    },
+    "speciality": {
+      "x100034": 168
+    },
+    "elemental": {
+      "x104131": 1,
+      "x104132": 9,
+      "x104133": 9,
+      "x104134": 6
+    },
+    "worldmonster": {
+      "x112059": 18,
+      "x112060": 30,
+      "x112061": 36
+    },
+    "elitemonster": {
+      "x113045": 46
+    }
+  },
+  "skills": {
+    "normalattack": {
+      "name": "The Classics of Acupuncture",
+      "icon": "Skill_A_Catalyst_MD",
+      "multipliers": {
+        "x1_HitDMG": [
+          "37.37%",
+          "40.17%",
+          "42.98%",
+          "46.71%",
+          "49.52%",
+          "52.32%",
+          "56.06%",
+          "59.79%",
+          "63.53%",
+          "67.27%",
+          "71%",
+          "74.74%",
+          "79.41%",
+          "84.08%",
+          "88.75%"
+        ],
+        "x2_HitDMG": [
+          "36.42%",
+          "39.16%",
+          "41.89%",
+          "45.53%",
+          "48.26%",
+          "50.99%",
+          "54.64%",
+          "58.28%",
+          "61.92%",
+          "65.56%",
+          "69.21%",
+          "72.85%",
+          "77.4%",
+          "81.96%",
+          "86.51%"
+        ],
+        "x3_HitDMG": [
+          "22.54%×2",
+          "24.23%×2",
+          "25.92%×2",
+          "28.18%×2",
+          "29.87%×2",
+          "31.56%×2",
+          "33.81%×2",
+          "36.07%×2",
+          "38.32%×2",
+          "40.57%×2",
+          "42.83%×2",
+          "45.08%×2",
+          "47.9%×2",
+          "50.72%×2",
+          "53.54%×2"
+        ],
+        "x4_HitDMG": [
+          "54.14%",
+          "58.2%",
+          "62.26%",
+          "67.67%",
+          "71.73%",
+          "75.79%",
+          "81.21%",
+          "86.62%",
+          "92.03%",
+          "97.45%",
+          "102.86%",
+          "108.28%",
+          "115.04%",
+          "121.81%",
+          "128.58%"
+        ],
+        "ChargedAttackDMG": [
+          "121.04%",
+          "130.12%",
+          "139.2%",
+          "151.3%",
+          "160.38%",
+          "169.46%",
+          "181.56%",
+          "193.66%",
+          "205.77%",
+          "217.87%",
+          "229.98%",
+          "242.08%",
+          "257.21%",
+          "272.34%",
+          "287.47%"
+        ],
+        "ChargedAttackStaminaCost": [
+          "50",
+          "50",
+          "50",
+          "50",
+          "50",
+          "50",
+          "50",
+          "50",
+          "50",
+          "50",
+          "50",
+          "50",
+          "50",
+          "50",
+          "50"
+        ],
+        "PlungeDMG": [
+          "56.83%",
+          "61.45%",
+          "66.08%",
+          "72.69%",
+          "77.31%",
+          "82.6%",
+          "89.87%",
+          "97.14%",
+          "104.41%",
+          "112.34%",
+          "120.27%",
+          "128.2%",
+          "136.12%",
+          "144.05%",
+          "151.98%"
+        ],
+        "Low_HighPlungeDMG": [
+          "113.63%/141.93%",
+          "122.88%/153.49%",
+          "132.13%/165.04%",
+          "145.35%/181.54%",
+          "154.59%/193.1%",
+          "165.16%/206.3%",
+          "179.7%/224.45%",
+          "194.23%/242.61%",
+          "208.77%/260.76%",
+          "224.62%/280.57%",
+          "240.48%/300.37%",
+          "256.34%/320.18%",
+          "272.19%/339.98%",
+          "288.05%/359.79%",
+          "303.9%/379.59%"
+        ]
+      },
+      "description": "<color=#FFD780FF>Normal Attack</color>\\nPerforms up to 4 attacks that deal <color=#99FF88FF>Dendro DMG</color> to opponents in front of him.\\n\\n<color=#FFD780FF>Charged Attack</color>\\nConsumes a certain amount of Stamina to deal <color=#99FF88FF>AoE Dendro DMG</color> to opponents in front of him after a short casting time.\\n\\n<color=#FFD780FF>Plunging Attack</color>\\nCalling upon the might of Dendro, Baizhu plunges towards the ground from mid-air, damaging all opponents in his path. Deals <color=#99FF88FF>AoE Dendro DMG</color> upon impact with the ground."
+    },
+    "elementalskill": {
+      "name": "Universal Diagnosis",
+      "icon": "Skill_S_Baizhuer_01",
+      "multipliers": {
+        "SkillDMG": [
+          "79.2%",
+          "85.14%",
+          "91.08%",
+          "99%",
+          "104.94%",
+          "110.88%",
+          "118.8%",
+          "126.72%",
+          "134.64%",
+          "142.56%",
+          "150.48%",
+          "158.4%",
+          "168.3%",
+          "178.2%",
+          "188.1%"
+        ],
+        "Healing": [
+          "8% Max HP+770",
+          "8.6% Max HP+847",
+          "9.2% Max HP+931",
+          "10% Max HP+1021",
+          "10.6% Max HP+1117",
+          "11.2% Max HP+1220",
+          "12% Max HP+1329",
+          "12.8% Max HP+1445",
+          "13.6% Max HP+1567",
+          "14.4% Max HP+1695",
+          "15.2% Max HP+1830",
+          "16% Max HP+1971",
+          "17% Max HP+2119",
+          "18% Max HP+2273",
+          "19% Max HP+2433"
+        ],
+        "CD": [
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s"
+        ]
+      },
+      "description": "Controls a Gossamer Sprite that cruises and attacks nearby opponents, dealing <color=#99FF88FF>Dendro DMG</color>.\\nAfter it performs 3 attacks or if there are no opponents nearby, the Sprite will return, healing all nearby party members based on Baizhu's Max HP.\\n\\n<i>Those in the medical field who can read true signs of illness from false ones may even cure people before any symptoms can show.</i>"
+    },
+    "elementalburst": {
+      "name": "Holistic Revivification",
+      "icon": "Skill_E_Baizhuer_01",
+      "multipliers": {
+        "SeamlessShieldDMGAbsorption": [
+          "0.8% Max HP+77",
+          "0.86% Max HP+85",
+          "0.92% Max HP+93",
+          "1% Max HP+102",
+          "1.06% Max HP+112",
+          "1.12% Max HP+122",
+          "1.2% Max HP+133",
+          "1.28% Max HP+144",
+          "1.36% Max HP+157",
+          "1.44% Max HP+169",
+          "1.52% Max HP+183",
+          "1.6% Max HP+197",
+          "1.7% Max HP+212",
+          "1.8% Max HP+227",
+          "1.9% Max HP+243"
+        ],
+        "SeamlessShieldDuration": [
+          "2.5s",
+          "2.5s",
+          "2.5s",
+          "2.5s",
+          "2.5s",
+          "2.5s",
+          "2.5s",
+          "2.5s",
+          "2.5s",
+          "2.5s",
+          "2.5s",
+          "2.5s",
+          "2.5s",
+          "2.5s",
+          "2.5s"
+        ],
+        "SeamlessShieldHealing": [
+          "5.2% Max HP+501",
+          "5.59% Max HP+551",
+          "5.98% Max HP+605",
+          "6.5% Max HP+664",
+          "6.89% Max HP+726",
+          "7.28% Max HP+793",
+          "7.8% Max HP+864",
+          "8.32% Max HP+939",
+          "8.84% Max HP+1018",
+          "9.36% Max HP+1102",
+          "9.88% Max HP+1189",
+          "10.4% Max HP+1281",
+          "11.05% Max HP+1377",
+          "11.7% Max HP+1477",
+          "12.35% Max HP+1582"
+        ],
+        "SpiritveinDMG": [
+          "97.06%",
+          "104.34%",
+          "111.62%",
+          "121.33%",
+          "128.61%",
+          "135.89%",
+          "145.6%",
+          "155.3%",
+          "165.01%",
+          "174.72%",
+          "184.42%",
+          "194.13%",
+          "206.26%",
+          "218.39%",
+          "230.53%"
+        ],
+        "PulsingClarityDuration": [
+          "14s",
+          "14s",
+          "14s",
+          "14s",
+          "14s",
+          "14s",
+          "14s",
+          "14s",
+          "14s",
+          "14s",
+          "14s",
+          "14s",
+          "14s",
+          "14s",
+          "14s"
+        ],
+        "CD": [
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s"
+        ],
+        "EnergyCost": [
+          "80",
+          "80",
+          "80",
+          "80",
+          "80",
+          "80",
+          "80",
+          "80",
+          "80",
+          "80",
+          "80",
+          "80",
+          "80",
+          "80",
+          "80"
+        ]
+      },
+      "description": "Enters the Pulsing Clarity state, creating a Seamless Shield that absorbs <color=#99FF88FF>Dendro DMG</color> with 250% effectiveness.\\nWhile in this state, Baizhu will generate a new Seamless Shield every 2.5s.\\n\\nThe Seamless Shield will heal your own active character based on Baizhu's Max HP and attack opponents by unleashing Spiritveins, dealing <color=#99FF88FF>Dendro DMG</color> under the following circumstances:\\n·When a character is under the protection of a Seamless Shield and a new Seamless Shield is generated.\\n·When the Seamless Shield's effects expire, or when it is shattered.\\n\\n<i>If you can perceive the heavens and the earth, defend against malignant auras with the flow of qi, and keep your mind clear, surely nothing can hinder you.</i>"
+    },
+    "leveling": {
+      "books": {
+        "x104316": 9,
+        "x104317": 63,
+        "x104318": 114
+      },
+      "crown": {
+        "x104319": 3
+      },
+      "worldmonster": {
+        "x112059": 18,
+        "x112060": 66,
+        "x112061": 93
+      },
+      "weekly": {
+        "x113046": 18
+      }
+    }
+  },
+  "passives": {
+    "p1": {
+      "name": "Five Fortunes Forever",
+      "description": "Baizhu gains different effects according to the current HP of your current active character:\\n·When their HP is less than 50%, Baizhu gains 20% Healing Bonus.\\n·When their HP is equal to or more than 50%, Baizhu gains 25% <color=#99FF88FF>Dendro DMG Bonus</color>.",
+      "icon": "UI_Talent_S_Baizhuer_05"
+    },
+    "p2": {
+      "name": "All Things Are of the Earth",
+      "description": "Characters who are healed by <color=#FFD780FF>Seamless Shields</color> will gain the Year of Verdant Favor effect: Each 1,000 Max HP that Baizhu possesses that does not exceed 50,000 will increase the Burning, Bloom, Hyperbloom, and Burgeon reaction DMG dealt by these characters by 2%, their Lunar-Bloom DMG by 0.7%, and the DMG Bonus provided by Aggravate and Spread by 0.8%. This effect lasts 6s.",
+      "icon": "UI_Talent_S_Baizhuer_06"
+    },
+    "p3": {
+      "name": "Herbal Nourishment",
+      "description": "When Baizhu is in the party, interacting with certain harvestable items will heal your current active character for 2.5% of Baizhu's Max HP.",
+      "icon": "UI_Talent_S_Baizhuer_07"
+    },
+    "p4": ""
+  },
+  "constellations": {
+    "const1": {
+      "name": "Attentive Observation",
+      "description": "<color=#FFD780FF>Universal Diagnosis</color> gains 1 additional charge.",
+      "icon": "UI_Talent_S_Baizhuer_01"
+    },
+    "const2": {
+      "name": "Incisive Discernment",
+      "description": "When your own active character hits a nearby opponent with their attacks, Baizhu will unleash a Gossamer Sprite: Splice.\\nGossamer Sprite: Splice will initiate 1 attack before returning, dealing 250% of Baizhu's ATK as <color=#99FF88FF>Dendro DMG</color> and healing for 20% of <color=#FFD780FF>Universal Diagnosis</color>'s Gossamer Sprite's normal healing.\\nDMG dealt this way is considered Elemental Skill DMG.\\nThis effect can be triggered once every 5s.",
+      "icon": "UI_Talent_S_Baizhuer_02"
+    },
+    "const3": {
+      "name": "All Aspects Stabilized",
+      "description": "Increases the Level of <color=#FFD780FF>Holistic Revivification</color> by 3.\\nMaximum upgrade level is 15.",
+      "icon": "UI_Talent_U_Baizhuer_01"
+    },
+    "const4": {
+      "name": "Ancient Art of Perception",
+      "description": "For 15s after <color=#FFD780FF>Holistic Revivification</color> is used, Baizhu will increase all nearby party members' Elemental Mastery by 80.",
+      "icon": "UI_Talent_S_Baizhuer_03"
+    },
+    "const5": {
+      "name": "The Hidden Ebb and Flow",
+      "description": "Increases the Level of <color=#FFD780FF>Universal Diagnosis</color> by 3.\\nMaximum upgrade level is 15.",
+      "icon": "UI_Talent_U_Baizhuer_02"
+    },
+    "const6": {
+      "name": "Elimination of Malicious Qi",
+      "description": "Increases the DMG dealt by <color=#FFD780FF>Holistic Revivification</color>'s Spiritveins by 8% of Baizhu's Max HP.\\nAdditionally, when a <color=#FFD780FF>Gossamer Sprite</color> or Gossamer Sprite: Splice hits opponents, there is a 100% chance of generating one of <color=#FFD780FF>Holistic Revivification</color>'s Seamless Shields. This effect can only be triggered once by each Gossamer Sprite or Gossamer Sprite: Splice.",
+      "icon": "UI_Talent_S_Baizhuer_04"
+    }
+  },
+  "hyperlinks": [],
+  "stories": {
+    "x82200": {
+      "storyTitle": "Character Details",
+      "storyText": "Baizhu, the owner of \"Bubu Pharmacy,\" is a master of the medicinal arts. He is benevolent and kind, yet also shrouded in mystery and other contradictions.\\nDespite having countless admiring physicians begging for his attention, he has insisted on choosing a zombie who can barely sort medicinal ingredients to be his apprentice.\\nAnd though only a mortal, a talking snake with powerful spiritual energy is always wrapped around his shoulders.\\nMaladies major and minor may all be mitigated with his medicine, but the physician seems unable to cure himself.\\nSuch a person does not go unnoticed in Liyue, for the greater a person's capabilities, the greater the calamity they could cause should their heart harbor any evil intent.\\nYet both public observation and private investigation have not only found no trace of any hidden wickedness, but have seemed to confirm time and time again that his unimpeachable reputation as a benevolent doctor was, in fact, the unvarnished truth.\\nAs for all those inscrutable secrets, Baizhu simply smiles and laughs:\\n\"Good medicine is so bitter, so it shouldn't be a problem to let a good doctor keep a few secrets, no?\"",
+      "unlockConds": []
+    },
+    "x82201": {
+      "storyTitle": "Character Story 1",
+      "storyText": "Though he was widely known by the moniker \"Mr. Bai,\" Baizhu's last name isn't \"Bai.\" The origins of this misnomer can be traced back to his apprentice at Bubu Pharmacy, Qiqi, and her sieve-like memory. \\nWhen she first arrived at Bubu, her memory was even worse than it is now, and she would even forget to return to the Pharmacy at night after going out to gather herbs and ingredients during the day.\\nFortunately, Baizhu is always patient when dealing with patients, and doubly so when dealing with Qiqi. At first, he attempted to have her stay at the Pharmacy and rest, but Qiqi was always resolute and could not be dissuaded from harvesting materials, saying: \"My responsibility.\" Helpless to stop her, Baizhu would personally go out to find her each and every time, and remind her of the fact she lived with him at Bubu Pharmacy over and over and over and...\\nWith a memory like what Qiqi sported then, remembering anyone's full name was beyond the realm of possibility. So for a long time, the names \"Baizhu\" and \"Changsheng\" were simply replaced with \"that person\" and \"that snake.\"\\nEver one to prescribe just the right medicine for the disease, Baizhu prepared a notebook for Qiqi to write in and review whenever she had time. Finally, there came a morning when Qiqi saw Baizhu and did not cock her head and ask who he was, but said:\\n\"Good, morning. Bai... Bai...\" \\nChangsheng was ecstatic, and immediately extended her body outward, even more excited than Baizhu: \"Yes, yes, Bai-what now? And how about me? Don't forget about me—\"\\n\"Mr. Bai.\" Qiqi answered earnestly. \"And, long... long, snake.\"\\n\"—Outrageous! My name isn't 'long snake'—\"\\n\"Remembering things is like curing an illness. One cannot be too greedy for progress, but be satisfied with gradual improvement.\" Baizhu smiled slightly and nodded, as though having accepted the name \"Mr. Bai.\"\\nIn the days that followed, the phrases \"Mr. Bai said\" and \"Mr. Bai won't allow it\" were never far from her lips, and the endless stream of customers asking after medicine soon brought the name \"Mr. Bai\" out of Bubu Pharmacy to every corner of Liyue Harbor.\\nQiqi's notebook has been filled to bursting and then some, and today she no longer needs to consult it before recalling Baizhu and Changsheng's names. \\nBut \"Mr. Bai\" had already found its home in the hearts of some, and it was too late to change it.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 2
+      }
+    },
+    "x82202": {
+      "storyTitle": "Character Story 2",
+      "storyText": "Baizhu is not only a brilliant physician, but possesses considerable business acumen.\\nThis should not come as a surprise — it would be impossible to operate a such a large pharmacy on the strength of one's medical skills alone.\\nThe prices at Bubu Pharmacy are generally fair, and the pricing strategy for most products is one of high sales with low margins on each transaction. But there is some merchandise priced at a curious premium — such as the \"Everlasting Incense,\" which was 2,990,000 Mora even after a discount.\\nUsually, the customers for goods like these aren't picky about price, and only care about the quality and effectiveness.\\nSo why head to the market to haggle and search, when you can get everything you need at Bubu Pharmacy? Even if it's a bit more expensive, the peace of mind provided by Mr. Bai's reputation is worth it.\\nNaturally, price is not Bubu Pharmacy's only competitive advantage. Many of the customers are businesspeople who have become \"partners,\" bringing Baizhu rare herbs from across the land and exporting the medicines he develops to every corner of the world. As the pockets of Bubu's business partners began to bulge, so too did the Pharmacy's ledgers.\\nBut the objectives of Baizhu's plans do not seem to revolve solely around Mora itself. If they did, why would Bubu Pharmacy take care of someone with no positive impact on income flow like Qiqi? It makes no sense from a business perspective.\\nWhen encountering unusual or novel diseases, Baizhu often accepts only a token fee, saying \"It is difficult to assess a fee for such a rare ailment.\"\\nAs this practice has persisted, clients from far beyond Liyue have come to seek treatment at Bubu Pharmacy. Baizhu never refuses a patient, and is very willing to treat people from all walks of life, regardless of the disease that afflicts them. Thus has the good doctor cultivated a reputation as a selfless and benevolent healer who makes money elsewhere, presumably so that he can continue to perform acts of kindness far into the future.\\nBut only Baizhu himself understands the truth: Bubu Pharmacy never engages in unprofitable transactions.\\nSome goals are impossible to even think about without massive financial backing and a reliable network supplying resources from across the world. Even with sufficient wealth, those goals would have little chance of success without the right opportunities and a bit of luck.\\nAs for the chance to research the secret arts of the adepti and strange diseases... these are opportunities no amount of Mora could ever buy.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 3
+      }
+    },
+    "x82203": {
+      "storyTitle": "Character Story 3",
+      "storyText": "Baizhu habitually has a pot of water before boiling a pot of tea after waking up early in the morning. There is never a shortage of pastries at the Pharmacy, both sweet and salty, delivered from nearby shops and from around the neighborhood. This routine has never ceased, and is unchanged through all four seasons.\\nThe snacks are divided into three portions, two large and one small. The large plates are for Baizhu and Herbalist Gui, and the small plate is for Qiqi and Changsheng. Whichever of them so desires can take a bite, and this counts as having had breakfast with everyone.\\nIn addition, the doors of the Pharmacy are always lined with fresh supplies when it opens in the morning: vegetables, rice, fresh fish, melons and fruits... there is always an abundance of food at Bubu Pharmacy.\\nBaizhu has repeatedly attempted to persuade the community not to give him such gifts, as he does not like to take things from others for free. But the public knows that Dr. Baizhu doesn't always charge for his consultations, and offers steep discounts upon already reduced prices to the people. The child of this family, the grandfather of that household... The number of people who have benefited from his care is beyond count. Of course, since cheaper healthcare means more Mora in the pocket, using the savings to give gifts by way of thanks is a perfectly sensible thing to do. Baizhu's attempts to dissuade his well-wishers were defeated by this logic, and his only remaining response was to ask Herbalist Gui to bring all the gifts from the door into the shop.\\nAfter breakfast, the clinic opens for consultations. Baizhu remains in the shop to see patients, and Herbalist Gui delivers medicines wrapped and prepared the previous night to elderly patients who have difficulty walking. Each package comes with a detailed note explaining clearly both the frequency and quantity of medicine to be taken for the convenience of the patient.\\nWhen patients begin arriving at the clinic, Changsheng takes leave of her perch on Baizhu's body and wanders about the clinic. If she catches Qiqi performing her calisthenics in the courtyard, she will wind about Qiqi's shoulders and help her keep time with a \"one two three one two three,\" and so on. If she runs into Herbalist Gui delivering medicine in the corridor, she will rest on his arm and ask after the latest neighborhood gossip.\\nAfter the talking is done, the medicine weighted and packaged, and the tea has cooled, it is time for lunch. At this time, Baizhu is at leisure to personally prepare a nutritious meal and sweet soup that are both healthy and tasty for all who come to call.\\nAfternoons in Liyue Harbor are a leisurely affair, with studying children, tottering old grandparents, Millelith carrying spears... An endless patter of footfalls. Changsheng and Qiqi lie by the pharmacy door, basking in the sun and watching the flow of people. They idly observe that the one on the left has let their hair grow too long and needs a haircut, while that one on the right has a rash on their face, and might be suffering from an internal imbalance. The sound of their chatter reaches Herbalist Gui's ears, and fearing disturbing others, he brings over a bench and moves Changsheng and Qiqi back inside the pharmacy.\\nThe commotion reaches Baizhu's clinic, and he listens to their exchange as he writes a prescription. Time is like boiling water in a copper kettle: at once both a turbulent tumult but also sitting quietly beside you.\\nAs night falls, Bubu Pharmacy closes for the day. Herbalist Gui sometimes stays for dinner, and sometimes goes home to eat with his family. Then only Baizhu, Qiqi, and Changsheng remain, and the two people and one snake may eat and drink to their hearts' content, returning to their rooms to rest by the light of the moon.\\nOne cannot call such a day anything out of the ordinary. It is simply a day at Bubu Pharmacy. Though, if Herbalist Gui suddenly had the thought to come back and take a peek before going to bed, more likely than not he would happen upon Baizhu teaching Qiqi new exercises in the courtyard to keep her limber.\\nOne-two-three, one-two-three... Morning, noon, and night, spring, summer, and fall — oh, and also winter... Calisthenics and life both have their rhythm.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 4
+      }
+    },
+    "x82204": {
+      "storyTitle": "Character Story 4",
+      "storyText": "The storyteller rapped the wooden table, opened his mouth, and began to tell a tale of ghosts and demons. Though the public loves to hear these stories, they get old after too many tellings, and so people asked, \"is there anything else? You've told the one about the jewel-seller and the one about the thief, what else is there?\"\\nAt that moment, Baizhu came down the stairs, and the audience saw him and thought to themselves: Dr. Baizhu has many stories, surely, but putting them into a book might be far too difficult. Other than discussing his exemplary behavior and medical ethics, if one wishes to say a few words about him over tea or after dinner, the most that can be talked about is the Doctor's private pursuit of the adeptal arts and the like, a matter that Baizhu has never intended to conceal.\\nThere are a multitude of visitors to Bubu Pharmacy, and those with sharp eyes cannot avoid noticing the books Baizhu reads in his spare time. In addition to medical treatises are ancient tomes which record the ways in which the adepti may be sought out. In addition, the medicine chests at Bubu Pharmacy contain a multitude of rare herbs and ingredients which are of no use in treating common illnesses, but are constantly used and replenished in an endless cycle. Though the average patient may not understand the arcane implications, those from families which practice alchemy or thaumaturgical arts can instantly recognize that all of these are ingredients used to refine various \"Elixirs of Immortality\" spoken of in legend.\\nFor most ordinary people, \"immortality\" is simply too strange a concept. But there are people whose curiosity will be aroused, and who will seek to know just how Baizhu wishes to attain immortality and how far along the road he has come... But this has proved akin to walking on a tightrope at night — it is difficult to take even a single step.\\nEventually, news of Baizhu's quest spread. Once the news was leaked, people formed an opinion. Some coveted his knowledge, some opposed this pursuit, and others didn't particularly care about his goal of immortality, but were concerned about the trouble his methods might cause.\\nBaizhu himself was in his clinic, but his fingers were on the pulse of the street, and he had anticipated this would happen. In the vast land of Liyue, the concerns of the third group of people would be the most difficult to assuage. He had initially planned to quietly dispel any doubts, but the name \"Baizhu\" had already appeared on the Ministry of Civil Affairs' persons of special interest list. Fortunately, Baizhu always conducted himself impeccably in his daily life, and is amiable and willing to chat with his patients during their consultations. From these visits, he learned that the Ministry of Civil Affairs was keeping a close eye on him. He saw through their methods, and turned the ears and mouths of the people to his own ends, letting them spread the word on his behalf that his research and approach had no ill intent and would cause no trouble.\\nRumors spread more quickly than the most infectious pathogen, and soon the fact his quest was benign had spread to every corner. This push and pull between Baizhu and Ministry continued for some time, but eventually he was able to avoid unwanted attention and his name avoided appearing in the top secret intelligence reports of the owner of Yanshang Teahouse, Yelan.\\nAs for the aforementioned second group of people, their beliefs are already a known quantity, and set in stone. Many are the descendants of a clan that believes firmly in the principle that some things are divinely ordained, and that the impermanence of life and permanence of death are among those immutable truths. It must be pure coincidence that the representative of this second group lives but a street away at Wangsheng Funeral Parlor.\\nAs the saying goes, neighbors are like relatives and friends, and Bubu Pharmacy and Wangsheng Funeral Parlor have had many interactions over the years, and both parties greet each other with a smile when their paths cross in the street. As for those questions of life and death, death and life, the opinion of the 77th Director of the Wangsheng Funeral Parlor Hu Tao is as follows: If the matter cannot be explained or settled in a couple words, it's better to have Baizhu over for dinner! And as for a sensible person like Baizhu? Of course one should attend the banquet! Season after season, year after year, without going into too much detail, the two households with very different views have spent many a day together, and could be considered close friends, albeit with each keeping their secrets.\\nWhen two parties do not align closely, they merely speak of etiquette. But when they align, one may speak of duty. For Bubu Pharmacy is in the business of healing the sick, and in the course of business it is inevitable that there will be those beyond saving or at the end of their lives. Those with good fortune are cared for by their family, but those less lucky will breathe their last in Bubu Pharmacy. When this happens, Bubu Pharmacy and Wangsheng Funeral Parlor will jointly ensure their final rest is peaceful.\\nThe last rites and journey of the deceased is of great importance, and Director Hu Tao entrusts this to her most dependable consultant, Zhongli. For Bubu Pharmacy, Baizhu cares greatly for those patients who pass away under his care, and personally sees to their arrangements. The two parties hold a ceremony in a secluded thatched cottage in the dead of night. Baizhu sends the deceased there, and the Wangsheng Funeral Parlor consultant holds the ceremony and performs the final rites, carrying out each step in an orderly manner. Even if it is simply going through the motions, the departed may rest in peace.\\nIt is a pity that though the soul has passed on, no living soul will ever thank Bubu Pharmacy or Wangsheng Funeral Parlor on the deceased's behalf. But the heavens wheel ever onward, and so too does the cycle of life and death continue unceasingly. Doctor and Funeral Director and consultant are neighbors by coincidence, friends over the dinner table, but only truly meet heart-to-heart when conducting the solemn duty of seeing off the souls of the deceased. Once they walk out of that thatched cottage, they return to their former selves.\\nAs for the aforementioned first type of people, those who covet the secret of immortality, though they are many in number, their methods are crude, and they are easy to deal with.\\nBandits are common in the wilderness and in the mountains, and a few particularly stupid and shortsighted ones once ran into Baizhu alone on a mountain road. Baizhu was refining medicine, and the bandits, having heard rumors of Baizhu's quest, came to the conclusion that he had made something of value here in this remote location. They struck, expecting to plunder the secret medicine Baizhu had created. A few hours later, the Millelith arrived at the scene of the crime, having received a report. It was difficult to tell who was the real victim, with the ruffians laid out upon the ground and Baizhu standing beside them with a smile.\\n\"The facts of the case come first, so forgive me for asking,\" the Millelith soldier began hesitantly, \"but did you really come to a place this remote just to make cold medicine?\"\\n\"If I was refining some special medicine...\" Baizhu laughed and shook his head. \"Would they ever have found me?\"\\nThese stories traveled round and round, eventually returning to the ears of the storyteller. He thought for a moment, then shook his head and sighed: \"Forget it. At the end of the day, Dr. Baizhu is just a doctor. What fascinating tales could there be?\"",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 5
+      }
+    },
+    "x82205": {
+      "storyTitle": "Character Story 5",
+      "storyText": "Every time the weather turns cold, the threshold of Bubu Pharmacy is crowded with patients seeking a consultation. But today, Baizhu's silhouette was nowhere to be seen. Only his assistant Herbalist Gui was at the counter, prescribing medicine and dispensing medicine. Those with recurring illnesses who visited frequently knew what this meant. It was \"one of those days\" again, and so they took the medicine carefully wrapped by Herbalist Gui. They offered their best wishes, such as \"Please tell Dr. Baizhu to care of himself,\" and shuffled out the door.\\nAt that moment, Qiqi came in from the doorway and bumped into an old man's calf. Holding her hat tight, she nodded and hurried to the back room with her stiff steps as quickly as she could.\\n\"It's one of those days\" isn't a particular time or place, but rather is shorthand for an oft-used statement: The Doctor is ill, and cannot see patients today, so we are sorry you came all the way here for nothing, please come back some other time.\\nIt is hard for physicians to cure themselves, and this is true for Baizhu as well. Baizhu claims that it is simply a chill, but he knows that he has a weak constitution, and all of his internal organs are diseased. Though his life is not in imminent danger, nine out of ten doctors would be dumbstruck, only able to gape in wonder at the nature of this rare and incurable disease. Therefore, whenever his symptoms flare up, all Herbalist Gui and Qiqi can do is bring him hot water, cloth towels, and plates of fruit to show their concern. Baizhu does not wish others to worry on his behalf, and insists on being alone in his room with only Changsheng for company.\\nWith the curtains pulled over the tightly closed windows, the room was dark and gloomy. Baizhu lay down, tormented by the chills and following hot flashes, occasional breathing problems, and intermittent yet intense full-body pains that often came whenever his symptoms flared up. After a bout of agony, he joked to Changsheng, \"If I don't make it one of these days, it'll be a giant hassle, won't it?\"\\nChangsheng slithered up the head of the bed and looked down at Baizhu's sweat-soaked visage with human-like pupils. \"Oh you, oh you, you may lie, but you may not die. Who is it that wishes to live forever? You are not yet old, and haven't yet experienced a full life.\"\\nA man and a snake, the snake with human eyes and the man with snake eyes. A strange phenomenon indeed. Few know the truth behind such an enigmatic anomaly. In fact, the pupils in their eyes are proof of their greatest secret — the contract between them. The result of this contract is the Baizhu of today — practicing medicine to save lives and alleviate the pains and aches of humanity, but also embedding illness deep into his own bones, where they reside forever with no hope of relief.\\nAnd in the land of Rex Lapis, God of Contracts, the law is supreme and contracts must be abided by. Liyue is an ancient country with a multitude of spiritual beings and magic, and the contents and types of contracts are equally varied. But Baizhu and Changsheng never discuss the contents of their own contract, and always share the same response: Contract? It's just an agreement, you could say it's just a secret technique with a couple of restrictions on how it can be passed down. Those too old or young, those who are insincere of heart, the inhuman, all of these cannot inherit this technique... What else is there? Oh, yes. \"Those not fated to cannot inherit it!\"\\nQiqi put down the tea tray and hot water, closing the door behind her as she left. Baizhu watched her leave before let out a long sigh, as though he had a thousand worries caught in his throat, but was unable to give voice to a single one. All he could do was shift the conversation to a distant rumor—\\nIn ancient times, there was once a Mt. Yaojun, and the master of the mountain and their tea-loving friend once made a pact to wait until the tea trees on the mountain had grown, then hold a tea banquet, inviting all the adepti to partake of their tea. What a beautiful thing that might have been! But alas, of the two Adepti who made the agreement, one sank into the water like the residual remnants of tea leaves, and the other lost all ten of their fingers for picking tea, and even their memories of the past faded and were forgotten.\\nChangsheng hissed an impatient reply: \"What's so strange about that? The adepti are gone, but don't their tea trees remain? The tree and tea leaves will remember their ancient agreement in their stead. You should worry more about yourself, for if you and I leave, only Herbalist Gui, Qiqi, and the wood of the house and bricks on the floor will remember the two of us.\"\\nThe name of the contract with Changsheng is known as \"Way of the Dragon-Dragging Jade Snake.\" Only the name of contract is known, and not even Changsheng can explain the details, only that she learned it long ago. If you ask who she learned it from, she cannot recall even a bit of tangential information. Talking about the distant past with Changsheng is often like this. Baizhu is used to listening to her advice, though, and understands she has good intentions. Thus did he vomit up the blood stuck in his throat before sitting up straight against the head of the bed.\\nChangsheng glanced over: \"What're you looking at me for? I don't have hands to support you with.\"\\nCradling the soup made for him by Herbalist Gui and Qiqi, Baizhu slowly drank it. He got through it one spoonful at a time, his eyes never leaving the soup for a moment, as though there was an entrancing scene of spring flowers and autumn leaves at the bottom of the bowl.\\nThe small things, one at a time. The basic essentials of daily life. Life is like soup, boiling and cooking.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 6
+      }
+    },
+    "x82206": {
+      "storyTitle": "Bubu",
+      "storyText": "In Liyue, a form of divination is often used to predict fortune and peril or ask the gods for guidance. The people of Liyue call their particular art \"Zhanbu.\"\\nIt is said that in ancient times, medicine and \"Zhanbu\" were tightly linked and often confused. With no scientific understanding of birth, old age, sickness, or death, the ancestors could do naught but pray to the gods for wellness and take medicinal herbs for comfort.\\nOver time, countless generations experiencing sickness and recovering upon taking different herbs were able to distill their knowledge into a set of rules, making breakthroughs in their understanding of medicine. Thus was medicine born, with trained physicians curing the sick.\\nAfter becoming an heir to this medical tradition, Baizhu brought Changsheng to Liyue Harbor to open a pharmacy and practice medicine in the bustling port city. At that time, the following story took place:\\nAccording to the traditions of Liyue, new businesses must divine an auspicious time for their grand opening using the art of \"Zhanbu.\" By sticking to the preordained opening day, the business will prosper and enjoy fame and fortune.\\nBut Baizhu did not wait until the day of good fortune. One night, a mother brought her fever-stricken daughter to the door of the pharmacy, frantically pounding on the door.\\n...\\nEarly the next morning, the neighbors were shocked to discover that the pharmacy had opened several days early, with no fanfare or celebration.\\n\"Aren't you afraid of going bankrupt and losing everything?\" Changsheng's voice was full of regret. \"All you did was treat an emergency case last night, why would you need to open up shop early?\"\\nBaizhu replied as he wrote a prescription: \"Every day delayed is another day the patients must wait for their consultation. Besides, what pharmacy wants business to boom? We aren't hoping for more people to get sick, are we?\"\\n\"That doesn't mean you should just throw open the doors without even thinking of a name for our shop! And what about a celebratory message for the grand opening?\"\\n\"A name and a message... Then let us send the message that no matter the fortunes of this shop, or the diseases afflicting our patients...\" Baizhu picked up the prescription note and faced the rising sun framed through the door. \"...Or our fates, we don't need to ask the gods or use divination any longer.\"\\nIn the language of Liyue, \"Zhanbu\" is divination, but \"bu\" can also be the word for a refusal or negation. Thus, he chose a name that enshrined his beliefs.\\nThe rays of sunlight were shining through the door and the thin paper in his hand, with the words written by his hand clear and confident—\\n\"Bubu Pharmacy, Baizhu.\"",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 4
+      }
+    },
+    "x82207": {
+      "storyTitle": "Vision",
+      "storyText": "When Baizhu was young, his hometown was struck by a horrific plague.\\nFortunately, his master was practicing medicine there, and was able to contain the spread.\\nBut no miracle could bring back the lives that had already been lost. Having lost both his parents, Baizhu began to follow in the footsteps of his master, learning the physician's art.\\nThe world is full of strange and complicated diseases, but Baizhu's master was always able to provide treatment. Studying with his master, Baizhu learned a simple truth: Disease is dangerous, but it can ultimately be overcome with human intellect.\\n...Until the day finally came that Baizhu's master was completely exhausted by the maladies brought on by a contract, and could hold on no longer.\\nThough Baizhu had learned much in those years, he was still unable to do anything in the face of such a complicated and serious affliction.\\nThat most intractable disease in the world, the one with no cure or answer — death — had finally come for his master.\\nWas there really no escape from sickness and death for mortals?\\nThe memories of his parents coughing blood from his youth had grown hazier over the years, but the scene of the cold tombstone of his master was crystal clear before his eyes.\\nStanding before his master's grave, Changsheng's normally playful words were tinged with an imperceptible sense of melancholy.\\n\"Who knows how many more people will take on this contract...\"\\nBaizhu did not want to see yet another precious life slip away before his eyes.\\n\"No. This contract will end with me.\"\\nWhen he next opened his eyes, they shone with a golden light, as though they were unquenchable candles.\\nThe first thing reflected in his now vertical pupils was a Vision, appearing briefly like a firefly on his master's tombstone.\\nThe Vision was like the gaze of a god who had witness to everything, but it was also like those of his master, gentle and full of expectation.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 6
+      }
+    }
+  },
+  "quotes": {
+    "x82000": {
+      "quoteTitle": "Hello",
+      "quoteText": "Hello. I am Baizhu, a practitioner of medicine at Bubu Pharmacy. So, are you experiencing any discomfort? If so, where? And how many days have the symptoms persisted? Hmm? You don't require medical attention? Oh, so you came to see me... Ah, then I'm sorry, I'm afraid I must ask you to wait. I'd like to see the other patients first before discussing things any further.",
+      "unlockConds": []
+    },
+    "x82001": {
+      "quoteTitle": "Chat: Let's Slow Down",
+      "quoteText": "<color=#37FFFF>Baizhu:</color> *huffing* When on the road, one should take ample time to pause and appreciate the wondrous scenery along the way.\\n<color=#37FFFF>Changsheng:</color> You're about to collapse, aren't you?",
+      "unlockConds": []
+    },
+    "x82002": {
+      "quoteTitle": "Chat: Natural Laws",
+      "quoteText": "Life, death... and the world around us all follow a set of laws... Hehe, but if you never test the limits, how can anyone know where the boundaries of these laws are?",
+      "unlockConds": []
+    },
+    "x82003": {
+      "quoteTitle": "Chat: Physical Condition",
+      "quoteText": "*coughing violently* Ah, it's just some chronic problem I have flaring up again, nothing to worry about.",
+      "unlockConds": []
+    },
+    "x82004": {
+      "quoteTitle": "When It Rains",
+      "quoteText": "The weather is damp and chilly. I suggest getting indoors to avoid these conditions, if possible.",
+      "unlockConds": []
+    },
+    "x82005": {
+      "quoteTitle": "When Thunder Strikes",
+      "quoteText": "Don't worry. As long as we watch the road ahead, and avoid walking under the trees, then the lightning should not pose any problems for us.",
+      "unlockConds": []
+    },
+    "x82006": {
+      "quoteTitle": "When It Snows",
+      "quoteText": "<color=#37FFFF>Changsheng:</color> S—So c—cold, s—so s—sleepy...\\n<color=#37FFFF>Baizhu:</color> Changsheng? Changsheng? Heh, out like a light...",
+      "unlockConds": []
+    },
+    "x82007": {
+      "quoteTitle": "When the Sun Is Out",
+      "quoteText": "<color=#37FFFF>Baizhu:</color> What lovely weather. Which reminds me, we just received a batch of herbs...\\n<color=#37FFFF>Changsheng:</color> Don't worry, even if Qiqi forgot to dry out the herbs, Herbalist Gui will certainly remember to put them out in the sun.\\n<color=#37FFFF>Baizhu:</color> Hehe. Yes, you're right.",
+      "unlockConds": []
+    },
+    "x82008": {
+      "quoteTitle": "When the Wind Is Blowing",
+      "quoteText": "I would advise you to stay out of such windy conditions... *sigh* Don't forget to always consider your health first.",
+      "unlockConds": []
+    },
+    "x82009": {
+      "quoteTitle": "Good Morning",
+      "quoteText": "Good morning. I'm in the habit of enjoying a cup of tea before breakfast. Shall I pour some for you?",
+      "unlockConds": []
+    },
+    "x82010": {
+      "quoteTitle": "Good Afternoon",
+      "quoteText": "You mustn't sit for extended periods of time after eating lunch. Instead, I recommend going for a walk, it's good for digestion.",
+      "unlockConds": []
+    },
+    "x82011": {
+      "quoteTitle": "Good Evening",
+      "quoteText": "Good evening. If you're here for treatment, then I'm afraid that Bubu Pharmacy's clinic has already closed for the day. However, if you are experiencing a medical emergency, then I'll see what I can do for you, of course. If you happen to be here just to see me, then you're right on time! I'm off duty now.",
+      "unlockConds": []
+    },
+    "x82012": {
+      "quoteTitle": "Good Night",
+      "quoteText": "Ah, you're still awake. Haha, is that a yawn I see?",
+      "unlockConds": []
+    },
+    "x82013": {
+      "quoteTitle": "About Baizhu: Modern vs. Ancient Medicine",
+      "quoteText": "Yes, my master did entrust to me many medical formulas from the ancient era. However, although the ancient prescriptions were compiled by our ancestors and have stood the test of time, we mustn't also forget to look forward. Times have changed, and so have our surroundings and customs. Treatments that were effective in the bygone times may not prove to be as effective now. Clinging to the classic prescriptions of the past may not ultimately serve the best interest of the patients nowadays.",
+      "unlockConds": []
+    },
+    "x82014": {
+      "quoteTitle": "About Baizhu: Bolstering Hope",
+      "quoteText": "People who suffer from chronic illnesses are often mentally exhausted, and if their condition becomes critical, they may find themselves clinging to life with only a final, thin thread of hope. At such a moment, healing their body is not the priority; the doctor should focus on bolstering their faith in themselves. After all, if the patient believes they aren't going to make it and gives up on themselves, then no medical treatment will be able to help them, no matter how sophisticated the treatment may be.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x82015": {
+      "quoteTitle": "About Us: Doctor-Patient Relationship",
+      "quoteText": "I tend to anyone who comes to Bubu Pharmacy seeking medical attention, regardless of their wealth or status. I treat everyone fairly, and I do my best to heal them. You are no exception, either.",
+      "unlockConds": []
+    },
+    "x82016": {
+      "quoteTitle": "About Us: Medicine Testing",
+      "quoteText": "A poison to one may be a boon to another. What may be considered to be a universally harmful substance to one group of people may prove to be the perfect medicine needed to save another room of patients. The mechanism behind this is easily understood by those well-versed in pharmacology. It's just that I can't ever tell my patients these kinds of details. If they were to find out that I gave them a poisonous substance as a prescription, it might scare them away for good.\\nHehe, you're the first person who's never flinched at hearing this. You are the wise Traveler after all — I'm sure you've seen a lot on your adventures. So, ahem, I suppose you'll be fine with more... potent prescriptions in the future, then? I've been worried about finding people to test my medicine on, hehe.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 6"
+      ]
+    },
+    "x82017": {
+      "quoteTitle": "About the Vision",
+      "quoteText": "Hehe, the gods have somehow allowed a delusional person such as myself to explore the nature of life and death. This Vision was just the thing I need, and I'm most thankful.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x82018": {
+      "quoteTitle": "Something to Share: Candied Fruit",
+      "quoteText": "It might sound ironic, but even I don't like taking bitter medicine. You're aware of my weak physical condition... I've been routinely taking medicine for some years now. All I can really do is eat some candied fruit afterward to get rid of the bitter aftertaste.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x82019": {
+      "quoteTitle": "Something to Share: Secret Medication",
+      "quoteText": "I've met some people who jump to conclusions and believe they've contracted some deadly disease the moment they experience even the slightest discomfort. Reasoning with them is useless. Eventually, I came up with some tasteless pills made of Sweet Flower and Qingxin, and prescribed them to these patients. After they calmed down and their \"symptoms\" subsided, they praised the effectiveness of my secret medication. But I suppose I can't fault them for prioritizing their health.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x82020": {
+      "quoteTitle": "Interesting Things",
+      "quoteText": "It's said that there are a wide variety of mushroom species native to Sumeru's rainforests, and that some species can even cause hallucinatory effects, which may have medicinal value. However, I've never had the opportunity to study these mushrooms in detail. I'm thinking to go and have a look for myself the next time I'm on vacation.",
+      "unlockConds": []
+    },
+    "x82021": {
+      "quoteTitle": "About Qiqi",
+      "quoteText": "Yes, you've guessed correctly. The preservation of a thread of Qiqi's consciousness was in fact the work of the adepti. It's also thanks to Qiqi that I managed to come up with a way to save someone on the brink of death. Since the adepti took pity on this child and even used their arts to keep her on this side of existence, I thought I'd take the opportunity to keep her around the pharmacy. There's no harm in that, is there?",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x82022": {
+      "quoteTitle": "About Hu Tao: Different Approach",
+      "quoteText": "We have some differences in ideology, that's all. I don't harbor any ill-will toward Director Hu. If anything, I think she's more wary of me.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x82023": {
+      "quoteTitle": "About Hu Tao: Exhausting Encounters",
+      "quoteText": "<color=#37FFFF>Baizhu:</color> If possible, I sincerely wish that Director Hu would be more sensible about her business practices.\\n<color=#37FFFF>Changsheng:</color> Oh, so you haven't forgotten about the time when she was disseminating flyers right outside of Bubu Pharmacy.\\n<color=#37FFFF>Baizhu:</color> *sigh* I just wish that she wouldn't be so concerned about Qiqi whenever she has nothing better to do.\\n<color=#37FFFF>Changsheng:</color> Sounds like you have something against her...\\n<color=#37FFFF>Baizhu:</color> It's not that I take issue with Director Hu... It's just that every time she kidnaps Qiqi, I have to go all the way to the Ministry of Civil Affairs to get someone to sort it all out. It's... quite exhausting.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 6"
+      ]
+    },
+    "x82024": {
+      "quoteTitle": "About Ganyu",
+      "quoteText": "Those with the blood of the adepti have strong constitutions. Even when she is ill or injured, she does not require any medicine to recover. She isn't like your average mortal, who would be left with long-term residual issues if they did not receive medical treatment after a serious injury.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x82025": {
+      "quoteTitle": "About Keqing",
+      "quoteText": "If I were to hazard a guess about her health from a face reading, I would presume the Yuheng's frequent looks of exhaustion are due to her long-time habits of burning the midnight oil and never giving her mind a rest. If she wishes to maintain her health, she should stop working and relax from time to time. Unfortunately, she is overly ambitious, and seems to be completely willing to trade her health for her career. Even if I were to tell her this myself, I'm afraid she would not listen to me.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x82026": {
+      "quoteTitle": "About Yaoyao",
+      "quoteText": "Every time she comes to play with Qiqi, she complains about the taste of medicine and asks me if I have anything that isn't bitter. If the medicine will save someone's life, who cares how bitter it tastes, hmm?",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x82027": {
+      "quoteTitle": "About Zhongli",
+      "quoteText": "Ah, Zhongli... Yes, I can tell he is very knowledgeable. He can carry a conversation even when discussing niche topics like ancient medicine. He must also have some habits and practices for himself when it comes to healthy living. The common headache or fever should pose no problem for him, so he doesn't need a prescription from me.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x82028": {
+      "quoteTitle": "About Xiao",
+      "quoteText": "<color=#37FFFF>Baizhu:</color> Only the most magnanimous soul could labor to preserve life by slaying evil spirits. I was once fortunate enough to see the Conqueror of Demons with my own eyes. We even brought him back to the pharmacy to take care of him for a day. Unfortunately, I did not know his true identity at the time, and didn't even have a chance to speak with him before he left on his own.\\n<color=#37FFFF>Changsheng:</color> But you've seen him since then, haven't you? There's no reason to be upset.\\n<color=#37FFFF>Baizhu:</color> Yes, you're right.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4",
+        "Complete \"The Heart of Healing\""
+      ]
+    },
+    "x82029": {
+      "quoteTitle": "About Tighnari",
+      "quoteText": "Ah, so you have an acquaintance from the Sumeru Akademiya? In that case, could I trouble you to introduce me to this Tighnari? I have many questions about herbal medicine that I would like to ask him.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x82030": {
+      "quoteTitle": "More About Baizhu: I",
+      "quoteText": "I am merely a mortal doctor, so I'm afraid I don't have many interesting stories to share. If you're looking for legends, then you should go to the Heyu Tea House and listen to the storytellers there.",
+      "unlockConds": []
+    },
+    "x82031": {
+      "quoteTitle": "More About Baizhu: II",
+      "quoteText": "If you're looking for some kind of thrilling story, I'm afraid I don't have one. Even when I was studying medicine under my late Master, I didn't experience any particularly dire situations. My master saw that I had a good head on my shoulders, had me swear a simple oath, and took me in... That's all there was to it.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 3",
+        "Complete \"The Heart of Healing\""
+      ]
+    },
+    "x82032": {
+      "quoteTitle": "More About Baizhu: III",
+      "quoteText": "The oath wasn't complicated. I still remember some of it:\\n\"...When a person comes seeking medical attention, I will not consider his status, nor will I be suspicious of or worry about any subsequent consequences. I shall strive to witness the patient's distress and feel it as if were my own, for this is the hallmark of a great physician.\"",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4",
+        "Complete \"The Heart of Healing\""
+      ]
+    },
+    "x82033": {
+      "quoteTitle": "More About Baizhu: IV",
+      "quoteText": "I understand my master's intentions. He hoped that I would be able to put myself more in the patients' shoes, and not ever be swayed by external factors. *sigh* He really did have a compassionate heart, and was always ready to sacrifice himself for others. It's unfortunate that he passed so early and never had the chance to live his years to their fullest.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 5",
+        "Complete \"The Heart of Healing\""
+      ]
+    },
+    "x82034": {
+      "quoteTitle": "More About Baizhu: V",
+      "quoteText": "While it is a doctor's duty to save others, the doctor is also themselves a person who deserves to be saved. If we wish to preserve lives, we should strive for an outcome where everyone will live to see another day. Those who willingly give themselves up for others are worthy of our respect, but we should not accept their sacrifice as predestined or an inevitable part of life.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 6",
+        "Complete \"The Heart of Healing\""
+      ]
+    },
+    "x82035": {
+      "quoteTitle": "Baizhu's Hobbies",
+      "quoteText": "I enjoy sorting medicinal ingredients and using each ingredient's unique properties to produce pills or ointments. I know this process like the back of my hand. People think that the process of making medicine is difficult and complicated, but to me, it brings endless enjoyment. Amazing, isn't it? That we can condense the bounties of heaven and earth into a tiny, unremarkable pill, and use it to bring people back from the verge of death.",
+      "unlockConds": []
+    },
+    "x82036": {
+      "quoteTitle": "Baizhu's Troubles",
+      "quoteText": "The most difficult part of seeing patients isn't prescribing medication, but identifying the cause of the disease. *sigh* There could be a million reasons why someone may feel unwell. Maybe they were having a friendly Jueyun Chili-eating contest with someone, and ended up damaging their stomach without realizing it. Or maybe, circumstances led them to drink too much water, which caused them to start feeling nauseous. I just wish people would take better care of themselves, and find something better to do than repeatedly put their bodies through so much distress.",
+      "unlockConds": []
+    },
+    "x82037": {
+      "quoteTitle": "Favorite Food",
+      "quoteText": "You shouldn't be a picky eater. Meat, eggs, milk, vegetables, fruit... they all have nutritional value and should be a regular part of your diet, but you should also avoid eating too much. Eating or drinking excessively can also be detrimental to your health. Take it from me. As a doctor, I know all too well that many health crises find their way into the body from the mouth.",
+      "unlockConds": []
+    },
+    "x82038": {
+      "quoteTitle": "Least Favorite Food",
+      "quoteText": "Why would you ever purchase so much candy? *sigh* Just be sure not to eat it too quickly, and remember that too much candy can give you cavities. Me? I seldom indulge in sweets, and I don't often eat spicy food, either. After all, if I don't watch what I eat, then how can I expect that of my patients?",
+      "unlockConds": []
+    },
+    "x82039": {
+      "quoteTitle": "Receiving a Gift: I",
+      "quoteText": "<color=#37FFFF>Changsheng:</color> Superb! More please!\\n<color=#37FFFF>Baizhu:</color> It is good, isn't it?",
+      "unlockConds": []
+    },
+    "x82040": {
+      "quoteTitle": "Receiving a Gift: II",
+      "quoteText": "Well done. Your culinary skills have improved.",
+      "unlockConds": []
+    },
+    "x82041": {
+      "quoteTitle": "Receiving a Gift: III",
+      "quoteText": "Well, at least it still tastes better than medicine.",
+      "unlockConds": []
+    },
+    "x82042": {
+      "quoteTitle": "Birthday",
+      "quoteText": "<color=#37FFFF>Changsheng:</color> Sss. Refresh my memory, Baizhu. How do we say that again...?\\n<color=#37FFFF>Baizhu:</color> Hehe. You mean how to wish someone a happy birthday?\\n<color=#37FFFF>Changsheng:</color> Yes, precisely!\\n<color=#37FFFF>Baizhu:</color> I hope that this day will be one filled with joy every year, and that you would always keep these times near. Happy Birthday, Traveler!\\n<color=#37FFFF>Changsheng:</color> Hey, so what should I say now? Let me think... Um, uh... *sigh* I can't think of anything. I sincerely wish you a happy birthday, too.\\n<color=#37FFFF>Changsheng:</color> What are you laughing at? People are so bothersome, with more traditions and twists than even a snake.",
+      "unlockConds": []
+    },
+    "x82043": {
+      "quoteTitle": "Feelings About Ascension: Intro",
+      "quoteText": "Everything must take its due course. No need to be impatient.",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 1"
+      ]
+    },
+    "x82044": {
+      "quoteTitle": "Feelings About Ascension: Building Up",
+      "quoteText": "Thanks to your hard work, I think I'm feeling stronger than ever.",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 2"
+      ]
+    },
+    "x82045": {
+      "quoteTitle": "Feelings About Ascension: Climax",
+      "quoteText": "My energy is on the rise... I suppose it is due to the recent improvements in my condition. I don't feel so weary, even after a full day of seeing patients. This is all thanks to your efforts.",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 4"
+      ]
+    },
+    "x82046": {
+      "quoteTitle": "Feelings About Ascension: Conclusion",
+      "quoteText": "You've been working hard day after day. Even though I'm the doctor, I've still had to trouble you with my health. *cough* How shameful... But don't worry. From this day on, I will take care of you.",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 6"
+      ]
+    },
+    "x82047": {
+      "quoteTitle": "Elemental Skill: I",
+      "quoteText": "<color=#37FFFF>Changsheng:</color> The doctor will see you now~",
+      "unlockConds": []
+    },
+    "x82048": {
+      "quoteTitle": "Elemental Skill: II",
+      "quoteText": "A bitter pill to swallow.",
+      "unlockConds": []
+    },
+    "x82049": {
+      "quoteTitle": "Elemental Skill: III",
+      "quoteText": "Mind the side effects.",
+      "unlockConds": []
+    },
+    "x82050": {
+      "quoteTitle": "Elemental Burst: I",
+      "quoteText": "Seems like an emergency.",
+      "unlockConds": []
+    },
+    "x82051": {
+      "quoteTitle": "Elemental Burst: II",
+      "quoteText": "Remember, health comes first.",
+      "unlockConds": []
+    },
+    "x82052": {
+      "quoteTitle": "Elemental Burst: III",
+      "quoteText": "Taking a turn for the better.",
+      "unlockConds": []
+    },
+    "x82053": {
+      "quoteTitle": "Sprint Start: I",
+      "quoteText": "*coughing*",
+      "unlockConds": []
+    },
+    "x82054": {
+      "quoteTitle": "Opening Treasure Chest: I",
+      "quoteText": "<color=#37FFFF>Changsheng:</color> What? So all that running around was for this?\\n<color=#37FFFF>Baizhu:</color> Changsheng, behave...",
+      "unlockConds": []
+    },
+    "x82055": {
+      "quoteTitle": "Opening Treasure Chest: II",
+      "quoteText": "The life of an adventurer certainly isn't easy.",
+      "unlockConds": []
+    },
+    "x82056": {
+      "quoteTitle": "Opening Treasure Chest: III",
+      "quoteText": "Don't forget to wash your hands. Goodness knows where these things have been.",
+      "unlockConds": []
+    },
+    "x82057": {
+      "quoteTitle": "Low HP: I",
+      "quoteText": "...I can still keep going.",
+      "unlockConds": []
+    },
+    "x82058": {
+      "quoteTitle": "Low HP: II",
+      "quoteText": "<color=#37FFFF>Changsheng:</color> A slippery situation!",
+      "unlockConds": []
+    },
+    "x82059": {
+      "quoteTitle": "Low HP: III",
+      "quoteText": "I can't... fall here.",
+      "unlockConds": []
+    },
+    "x82060": {
+      "quoteTitle": "Ally at Low HP: I",
+      "quoteText": "Exercise caution.",
+      "unlockConds": []
+    },
+    "x82061": {
+      "quoteTitle": "Ally at Low HP: II",
+      "quoteText": "Be mindful of your injuries.",
+      "unlockConds": []
+    },
+    "x82062": {
+      "quoteTitle": "Fallen: I",
+      "quoteText": "I shed... this mortal coil...",
+      "unlockConds": []
+    },
+    "x82063": {
+      "quoteTitle": "Fallen: II",
+      "quoteText": "I'm sorry... Changsheng...",
+      "unlockConds": []
+    },
+    "x82064": {
+      "quoteTitle": "Fallen: III",
+      "quoteText": "Some doctor... I am...",
+      "unlockConds": []
+    },
+    "x82065": {
+      "quoteTitle": "Light Hit Taken: I",
+      "quoteText": "Not my glasses...",
+      "unlockConds": []
+    },
+    "x82066": {
+      "quoteTitle": "Heavy Hit Taken: I",
+      "quoteText": "Hmph, this is nothing.",
+      "unlockConds": []
+    },
+    "x82067": {
+      "quoteTitle": "Joining Party: I",
+      "quoteText": "I'll treat your wounds.",
+      "unlockConds": []
+    },
+    "x82068": {
+      "quoteTitle": "Joining Party: II",
+      "quoteText": "Time for a house call.",
+      "unlockConds": []
+    },
+    "x82069": {
+      "quoteTitle": "Joining Party: III",
+      "quoteText": "Hopefully, this won't take long.",
+      "unlockConds": []
+    },
+    "x82070": {
+      "quoteTitle": "About Gaming",
+      "quoteText": "Gaming has quite a lot of scars and old injuries compared to other people his age. And every time he comes to see me, he always seems to have a new bruise here, and a new sprain there... *sigh* No matter how many times I insist that he needs to be more careful, it always goes in one ear and out the other. All I can do is teach him some useful techniques for dressing and treating his wounds. I hope he finds them useful.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    }
+  },
+  "energy": [
+    {
+      "source": "Ball",
+      "particles": "3",
+      "chance": "100%",
+      "cd": "1s"
+    },
+    {
+      "source": "Ball",
+      "particles": "1",
+      "chance": "50%",
+      "cd": "1s"
+    }
+  ],
+  "attacks": [
+    {
+      "name": "ExtraAttack_Gadget",
+      "icd_source": "Tag: ExtraAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV3/80",
+      "element": "Grass",
+      "attackType": "Range",
+      "strikeType": "-",
+      "damageParam": "ExtraAttack_Damage"
+    },
+    {
+      "name": "Attack01",
+      "icd_source": "Tag: NormalAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV1/7",
+      "element": "Grass",
+      "attackType": "Default",
+      "strikeType": "-",
+      "damageParam": "NormalAttack_01_Damage"
+    },
+    {
+      "name": "Attack02",
+      "icd_source": "Tag: NormalAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV1/6",
+      "element": "Grass",
+      "attackType": "Default",
+      "strikeType": "-",
+      "damageParam": "NormalAttack_02_Damage"
+    },
+    {
+      "name": "Attack03",
+      "icd_source": "Tag: NormalAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV1/4",
+      "element": "Grass",
+      "attackType": "Default",
+      "strikeType": "-",
+      "damageParam": "NormalAttack_03_Damage"
+    },
+    {
+      "name": "Attack04",
+      "icd_source": "Tag: NormalAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV3/10",
+      "element": "Grass",
+      "attackType": "Default",
+      "strikeType": "-",
+      "damageParam": "NormalAttack_04_Damage"
+    },
+    {
+      "name": "ElementalArt_Bullet_01_Material",
+      "icd_source": "Grp: Baizhuer_ElementalArt (Tag Miss)",
+      "icd_rule": "11 hits / 2s",
+      "gauge": "1U",
+      "poise": "LV2/30",
+      "element": "Grass",
+      "attackType": "Default",
+      "strikeType": "-",
+      "damageParam": "ElementalArt_Damage"
+    },
+    {
+      "name": "ElementalBurst",
+      "icd_source": "Grp: default",
+      "icd_rule": "Standard (3h/2.5s)",
+      "gauge": "0U",
+      "poise": "LV3/200",
+      "element": "-",
+      "attackType": "Default",
+      "strikeType": "-",
+      "damageParam": "-"
+    },
+    {
+      "name": "ElementalBurst_Bullet_Material",
+      "icd_source": "Tag: Elemental_Burst (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV1/50",
+      "element": "Grass",
+      "attackType": "Default",
+      "strikeType": "-",
+      "damageParam": "Damage"
+    },
+    {
+      "name": "ElementalArt_Bullet_03_Material",
+      "icd_source": "Grp: Baizhuer_Talent (Tag Miss)",
+      "icd_rule": "11 hits / 4s",
+      "gauge": "1U",
+      "poise": "LV2/30",
+      "element": "Grass",
+      "attackType": "Default",
+      "strikeType": "-",
+      "damageParam": "Damage_Ratio"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "0U",
+      "poise": "LV2/5",
+      "element": "Grass",
+      "attackType": "Default",
+      "strikeType": "-",
+      "damageParam": "FallingAnthem_Normal_Loop_Damage"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV3/50",
+      "element": "Grass",
+      "attackType": "Default",
+      "strikeType": "-",
+      "damageParam": "FallingAnthem_Normal_Rank_1_Damage"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV4/100",
+      "element": "Grass",
+      "attackType": "Default",
+      "strikeType": "-",
+      "damageParam": "FallingAnthem_Normal_Rank_2_Damage"
+    }
+  ],
+  "endure": {
+    "ability": "ElementalBurst",
+    "handler": "UNIQUE_ElementalBurst_Shield_Child",
+    "Actor_EndureDelta": 0
+  }
+}

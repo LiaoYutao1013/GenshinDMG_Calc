@@ -106,7 +106,8 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateSimpleCharacterDPS( 
             dynamicMultiplier = localResolveDynamicMultiplier(state, actionSpec, constellation);
             scaleComponent = localResolveScaleComponent( ...
                 actionScalingMode, scaleValue, atkValue, hpValue, defValue, emValue, actionSpec);
-            extraBonus = getFieldOrDefault(build, char(string(getFieldOrDefault(actionSpec, 'DamageField', defaultDamageField))), 0) ...
+            extraBonus = localResolveDamageFieldBonus( ...
+                build, string(getFieldOrDefault(actionSpec, 'DamageField', defaultDamageField))) ...
                 + getFieldOrDefault(actionSpec, 'FlatDamageBonus', 0) ...
                 + localConstellationGate(getFieldOrDefault(actionSpec, 'C1DamageBonus', 0), constellation, 1) ...
                 + localConstellationGate(getFieldOrDefault(actionSpec, 'C2DamageBonus', 0), constellation, 2) ...
@@ -358,13 +359,15 @@ function score = localOverlapScore(a, b)
 end
 
 function damage = localDirectElementDamage(element, scaleValue, mv, build, teamContext, enemy, extraBonus, critRate, critDMG)
+    critRate = critRate + localElementCritRateBonus(element, teamContext);
+    critDMG = critDMG + localElementCritDMGBonus(element, teamContext);
     critMult = calcExpectedCritMultiplier(critRate, critDMG);
-    dmgBonus = 1 + localBuildElementBonus(element, build) + getFieldOrDefault(teamContext, 'AllDMGBonus', 0) + extraBonus;
+    dmgBonus = 1 + localBuildElementBonus(element, build, teamContext) + getFieldOrDefault(teamContext, 'AllDMGBonus', 0) + extraBonus;
     resShred = localElementResShred(element, build, teamContext);
     damage = scaleValue * mv * dmgBonus * critMult * calcDamageMultiplier(90, enemy, resShred);
 end
 
-function bonus = localBuildElementBonus(element, build)
+function bonus = localBuildElementBonus(element, build, teamContext)
     switch lower(char(string(element)))
         case 'pyro'
             bonus = getFieldOrDefault(build, 'PyroDMGBonus', 0);
@@ -380,6 +383,8 @@ function bonus = localBuildElementBonus(element, build)
             bonus = getFieldOrDefault(build, 'GeoDMGBonus', 0);
         case 'dendro'
             bonus = getFieldOrDefault(build, 'DendroDMGBonus', 0);
+        case 'physical'
+            bonus = getFieldOrDefault(build, 'PhysicalDMGBonus', 0) + getFieldOrDefault(teamContext, 'PhysicalDMGBonus', 0);
         otherwise
             bonus = 0;
     end
@@ -396,10 +401,50 @@ function resShred = localElementResShred(element, build, teamContext)
             resShred = resShred + getFieldOrDefault(teamContext, 'CryoResShred', 0);
         case 'electro'
             resShred = resShred + getFieldOrDefault(teamContext, 'ElectroResShred', 0);
+        case 'anemo'
+            resShred = resShred + getFieldOrDefault(teamContext, 'AnemoResShred', 0);
         case 'geo'
             resShred = resShred + getFieldOrDefault(teamContext, 'GeoResShred', 0);
         case 'dendro'
             resShred = resShred + getFieldOrDefault(teamContext, 'DendroResShred', 0);
+        case 'physical'
+            resShred = resShred + getFieldOrDefault(teamContext, 'PhysicalResShred', 0);
+    end
+end
+
+function bonus = localResolveDamageFieldBonus(build, damageField)
+    damageField = string(damageField);
+    bonus = getFieldOrDefault(build, char(damageField), 0);
+
+    switch lower(char(damageField))
+        case 'chargeddmgbonus'
+            bonus = bonus + getFieldOrDefault(build, 'ChargeDMGBonus', 0);
+        case 'chargedmgbonus'
+            bonus = bonus + getFieldOrDefault(build, 'ChargedDMGBonus', 0);
+    end
+end
+
+function bonus = localElementCritRateBonus(element, teamContext)
+    switch lower(char(string(element)))
+        case 'physical'
+            bonus = getFieldOrDefault(teamContext, 'PhysicalCritRateBonus', 0);
+        otherwise
+            bonus = 0;
+    end
+end
+
+function bonus = localElementCritDMGBonus(element, teamContext)
+    switch lower(char(string(element)))
+        case 'anemo'
+            bonus = getFieldOrDefault(teamContext, 'AnemoCritDMGBonus', 0);
+        case 'cryo'
+            bonus = getFieldOrDefault(teamContext, 'CryoCritDMGBonus', 0);
+        case 'geo'
+            bonus = getFieldOrDefault(teamContext, 'GeoCritDMGBonus', 0);
+        case 'physical'
+            bonus = getFieldOrDefault(teamContext, 'PhysicalCritDMGBonus', 0);
+        otherwise
+            bonus = 0;
     end
 end
 

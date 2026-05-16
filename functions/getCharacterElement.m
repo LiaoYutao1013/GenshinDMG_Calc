@@ -47,6 +47,66 @@ function element = getCharacterElement(name)
             element = "Pyro";
         case 'nicole'
             element = "Pyro";
+        case {'hutao', 'hu tao'}
+            element = "Pyro";
+        case 'charlotte'
+            element = "Cryo";
+        case 'wriothesley'
+            element = "Cryo";
+        case 'freminet'
+            element = "Cryo";
+        case {'lyney', 'liney'}
+            element = "Pyro";
+        case {'lynette', 'linette'}
+            element = "Anemo";
+        case {'baizhu', 'baizhuer'}
+            element = "Dendro";
+        case 'kaveh'
+            element = "Dendro";
+        case 'mika'
+            element = "Cryo";
+        case 'dehya'
+            element = "Pyro";
+        case 'alhaitham'
+            element = "Dendro";
+        case 'yaoyao'
+            element = "Dendro";
+        case 'faruzan'
+            element = "Anemo";
+        case 'wanderer'
+            element = "Anemo";
+        case 'layla'
+            element = "Cryo";
+        case 'nahida'
+            element = "Dendro";
+        case 'candace'
+            element = "Hydro";
+        case 'cyno'
+            element = "Electro";
+        case 'dori'
+            element = "Electro";
+        case 'collei'
+            element = "Dendro";
+        case 'tighnari'
+            element = "Dendro";
+        case {'kamisatoayato', 'kamisato ayato', 'ayato'}
+            element = "Hydro";
+        case {'kukishinobu', 'kuki shinobu', 'shinobu'}
+            element = "Electro";
+        case {'yunjin', 'yun jin'}
+            element = "Geo";
+        case 'shenhe'
+            element = "Cryo";
+        case 'yelan'
+            element = "Hydro";
+        case {'shikanoinheizou', 'shikanoin heizou', 'heizou'}
+            element = "Anemo";
+        case {'yaemiko', 'yae miko', 'yae'}
+            element = "Electro";
+        case {'aratakiitto', 'arataki itto', 'itto'}
+            element = "Geo";
+        case 'gorou'
+            element = "Geo";
         case 'xianyun'
             element = "Anemo";
         case 'navia'

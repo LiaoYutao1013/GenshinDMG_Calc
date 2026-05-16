@@ -1,0 +1,2 @@
+Weapon,WeaponATK,WeaponSubStatType,WeaponSubStatValue,WeaponRefinement,AtkBonus,FlatATK,ER,EM,CritRate,CritDMG,CryoDMGBonus,NormalDMGBonus,ChargedDMGBonus,BurstDMGBonus,ResShred,ArtifactSet1,ArtifactSet1Pieces,ArtifactSet2,ArtifactSet2Pieces,ArtifactSet4Active
+金流监督,674,CR,0.221,1,0.92,311,1.15,40,0.72,2.3,0.466,0.2,0.24,0.18,0,MarechausseeHunter,4,None,0,1

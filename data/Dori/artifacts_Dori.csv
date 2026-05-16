@@ -1,0 +1,2 @@
+Weapon,WeaponATK,HPBonus,AtkBonus,FlatATK,ER,CritRate,CritDMG,ElectroDMGBonus,SkillDMGBonus,BurstDMGBonus,ResShred,ArtifactSet1,ArtifactSet1Pieces,ArtifactSet2,ArtifactSet2Pieces,ArtifactSet4Active
+FavoniusGreatsword,454,0.6,0.35,120,1.95,0.4,1,0.466,0.12,0.15,0,NoblesseOblige,4,None,0,1

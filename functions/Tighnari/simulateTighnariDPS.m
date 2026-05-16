@@ -1,0 +1,50 @@
+function [totalDMG, dps, breakdown, rotationTime] = simulateTighnariDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
+    % Tighnari simulator for aimed shots, Wreath Arrows, and burst volleys.
+    if nargin < 3 || isempty(seqFile)
+        seqFile = fullfile(fileparts(mfilename('fullpath')), '..', '..', 'data', 'Tighnari', 'rotation_Tighnari.txt');
+    end
+    if nargin < 4 || isempty(talentLevel)
+        talentLevel = 10;
+    end
+    if nargin < 5 || isempty(constellation)
+        constellation = 0;
+    end
+    if nargin < 6 || isempty(teamContext)
+        teamContext = buildTeamContext({struct('Name', 'Tighnari', 'Constellation', constellation, 'Build', build)}, 20, struct());
+    end
+
+    talentPath = fullfile(fileparts(mfilename('fullpath')), '..', '..', 'data', 'Tighnari', 'talents_Tighnari.csv');
+    talent = readtable(talentPath);
+    skillLevel = talentLevel + 3 * double(constellation >= 3);
+    burstLevel = talentLevel + 3 * double(constellation >= 5);
+    spreadReady = getFieldOrDefault(teamContext, 'DendroCount', 0) >= 1 && getFieldOrDefault(teamContext, 'ElectroCount', 0) >= 1;
+    spreadBonus = 0.10 * double(spreadReady);
+
+    actions = struct();
+    actions.Charge = struct('TalentGroup', "Normal", 'Param', "Level1AimedShot", 'DamageField', "ChargedDMGBonus", ...
+        'ActionElement', "Dendro", 'BaseMultiplier', 1.00, 'AllowCatalyze', 1, 'Note', "Level 1 aimed shot");
+    actions.Wreath1 = struct('TalentGroup', "Normal", 'Param', "WreathArrowDMG", 'DamageField', "ChargedDMGBonus", ...
+        'ActionElement', "Dendro", 'BaseMultiplier', 1.00, 'AllowCatalyze', 1, 'Note', "Wreath arrow");
+    actions.Cluster1 = struct('TalentGroup', "Normal", 'Param', "ClusterbloomArrowDMG", 'DamageField', "ChargedDMGBonus", ...
+        'ActionElement', "Dendro", 'BaseMultiplier', 1.00, 'AllowCatalyze', 1, 'Note', "Clusterbloom arrow");
+    actions.E = struct('TalentGroup', "Skill", 'Param', "SkillDMG", 'DamageField', "SkillDMGBonus", ...
+        'ActionElement', "Dendro", 'BaseMultiplier', 1.00, 'AllowCatalyze', 1, 'PostSetSkillActiveTime', 8.0, 'Note', "Vijnana-Phala Mine");
+    actions.Q = struct('TalentGroup', "Burst", 'Param', "TanglevineShaftDMG", 'DamageField', "BurstDMGBonus", ...
+        'ActionElement', "Dendro", 'BaseMultiplier', 1.00, 'HitCount', 4 + double(constellation >= 6), 'AllowCatalyze', 1, 'Note', "Tanglevine Shaft");
+    actions.Q2 = struct('TalentGroup', "Burst", 'Param', "SecondaryTanglevineShaftDMG", 'DamageField', "BurstDMGBonus", ...
+        'ActionElement', "Dendro", 'BaseMultiplier', 1.00, 'HitCount', 4, 'AllowCatalyze', 1, 'Note', "Secondary shaft");
+
+    build.EM = getFieldOrDefault(build, 'EM', 0) + 50 * double(constellation >= 1);
+    build.DendroDMGBonus = getFieldOrDefault(build, 'DendroDMGBonus', 0) + 0.15;
+
+    spec = struct( ...
+        'Element', "Dendro", ...
+        'ScalingMode', "ATK", ...
+        'DefaultActionTime', 0.55, ...
+        'DefaultRotation', {{'E', 'Charge', 'Wreath1', 'Cluster1', 'Q', 'Q2'}}, ...
+        'ActionTimeMap', struct('Charge', 0.55, 'Wreath1', 0.10, 'Cluster1', 0.10, 'E', 0.80, 'Q', 1.00, 'Q2', 0.30), ...
+        'Actions', actions);
+
+    [totalDMG, dps, breakdown, rotationTime] = simulateSimpleCharacterDPS( ...
+        'Tighnari', build, enemy, seqFile, talentLevel, constellation, teamContext, spec);
+end
