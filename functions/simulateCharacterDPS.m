@@ -111,6 +111,46 @@ function result = simulateCharacterDPS(memberCfg, enemy, teamContext)
             [totalDMG, dps, breakdown, rotationTime] = simulateNicoleDPS( ...
                 compiledBuild, enemy, memberCfg.RotationFile, memberCfg.TalentLevel, memberCfg.Constellation, memberTeamContext);
 
+        case {'kamisatoayaka', 'ayaka'}
+            [totalDMG, dps, breakdown, rotationTime] = simulateKamisatoAyakaDPS( ...
+                compiledBuild, enemy, memberCfg.RotationFile, memberCfg.TalentLevel, memberCfg.Constellation, memberTeamContext);
+
+        case 'jean'
+            [totalDMG, dps, breakdown, rotationTime] = simulateJeanDPS( ...
+                compiledBuild, enemy, memberCfg.RotationFile, memberCfg.TalentLevel, memberCfg.Constellation, memberTeamContext);
+
+        case 'lisa'
+            [totalDMG, dps, breakdown, rotationTime] = simulateLisaDPS( ...
+                compiledBuild, enemy, memberCfg.RotationFile, memberCfg.TalentLevel, memberCfg.Constellation, memberTeamContext);
+
+        case 'barbara'
+            [totalDMG, dps, breakdown, rotationTime] = simulateBarbaraDPS( ...
+                compiledBuild, enemy, memberCfg.RotationFile, memberCfg.TalentLevel, memberCfg.Constellation, memberTeamContext);
+
+        case 'kaeya'
+            [totalDMG, dps, breakdown, rotationTime] = simulateKaeyaDPS( ...
+                compiledBuild, enemy, memberCfg.RotationFile, memberCfg.TalentLevel, memberCfg.Constellation, memberTeamContext);
+
+        case 'diluc'
+            [totalDMG, dps, breakdown, rotationTime] = simulateDilucDPS( ...
+                compiledBuild, enemy, memberCfg.RotationFile, memberCfg.TalentLevel, memberCfg.Constellation, memberTeamContext);
+
+        case 'razor'
+            [totalDMG, dps, breakdown, rotationTime] = simulateRazorDPS( ...
+                compiledBuild, enemy, memberCfg.RotationFile, memberCfg.TalentLevel, memberCfg.Constellation, memberTeamContext);
+
+        case 'amber'
+            [totalDMG, dps, breakdown, rotationTime] = simulateAmberDPS( ...
+                compiledBuild, enemy, memberCfg.RotationFile, memberCfg.TalentLevel, memberCfg.Constellation, memberTeamContext);
+
+        case 'venti'
+            [totalDMG, dps, breakdown, rotationTime] = simulateVentiDPS( ...
+                compiledBuild, enemy, memberCfg.RotationFile, memberCfg.TalentLevel, memberCfg.Constellation, memberTeamContext);
+
+        case 'xiangling'
+            [totalDMG, dps, breakdown, rotationTime] = simulateXianglingDPS( ...
+                compiledBuild, enemy, memberCfg.RotationFile, memberCfg.TalentLevel, memberCfg.Constellation, memberTeamContext);
+
         case 'hutao'
             [totalDMG, dps, breakdown, rotationTime] = simulateHutaoDPS( ...
                 compiledBuild, enemy, memberCfg.RotationFile, memberCfg.TalentLevel, memberCfg.Constellation, memberTeamContext);

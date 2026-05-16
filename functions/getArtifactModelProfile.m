@@ -109,6 +109,69 @@ function profile = getArtifactModelProfile(characterName, build)
             profile.ApplySetBonuses = true;
             profile.AssumeOffFieldSkill = true;
 
+        case 'kamisatoayaka'
+            profile.SandsMainStat = "AtkBonus";
+            profile.GobletMainStat = "CryoDMGBonus";
+            profile.CircletMainStat = "CritDMG";
+            profile.ApplySetBonuses = true;
+            profile.AssumeCryoAura = true;
+            profile.AssumeFrozen = true;
+
+        case 'jean'
+            profile.SandsMainStat = "AtkBonus";
+            profile.GobletMainStat = "AnemoDMGBonus";
+            profile.CircletMainStat = "HealingBonus";
+            profile.ApplySetBonuses = true;
+
+        case 'lisa'
+            profile.SandsMainStat = "AtkBonus";
+            profile.GobletMainStat = "ElectroDMGBonus";
+            profile.CircletMainStat = "CritRate";
+            profile.ApplySetBonuses = true;
+
+        case 'barbara'
+            profile.SandsMainStat = "HPBonus";
+            profile.GobletMainStat = "HPBonus";
+            profile.CircletMainStat = "HealingBonus";
+            profile.ApplySetBonuses = true;
+
+        case 'kaeya'
+            profile.SandsMainStat = "AtkBonus";
+            profile.GobletMainStat = "CryoDMGBonus";
+            profile.CircletMainStat = "CritRate";
+            profile.ApplySetBonuses = true;
+            profile.AssumeCryoAura = true;
+
+        case 'diluc'
+            profile.SandsMainStat = "AtkBonus";
+            profile.GobletMainStat = "PyroDMGBonus";
+            profile.CircletMainStat = "CritRate";
+            profile.ApplySetBonuses = true;
+
+        case 'razor'
+            profile.SandsMainStat = "AtkBonus";
+            profile.GobletMainStat = "PhysicalDMGBonus";
+            profile.CircletMainStat = "CritRate";
+            profile.ApplySetBonuses = true;
+
+        case 'amber'
+            profile.SandsMainStat = "AtkBonus";
+            profile.GobletMainStat = "PyroDMGBonus";
+            profile.CircletMainStat = "CritRate";
+            profile.ApplySetBonuses = true;
+
+        case 'venti'
+            profile.SandsMainStat = "EM";
+            profile.GobletMainStat = "AnemoDMGBonus";
+            profile.CircletMainStat = "EM";
+            profile.ApplySetBonuses = true;
+
+        case 'xiangling'
+            profile.SandsMainStat = "ER";
+            profile.GobletMainStat = "PyroDMGBonus";
+            profile.CircletMainStat = "CritRate";
+            profile.ApplySetBonuses = true;
+
         case 'nilou'
             profile.SandsMainStat = "HPBonus";
             profile.GobletMainStat = "HydroDMGBonus";

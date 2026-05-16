@@ -1,0 +1,2 @@
+Weapon,WeaponATK,WeaponSubStatType,WeaponSubStatValue,WeaponRefinement,AtkBonus,FlatATK,ER,EM,CritRate,CritDMG,PyroDMGBonus,SkillDMGBonus,BurstDMGBonus,ArtifactSet1,ArtifactSet1Pieces,ArtifactSet2,ArtifactSet2Pieces,ArtifactSet4Active
+EngulfingLightning,608,ER,0.551,1,0.62,220,1.95,180,0.66,1.55,0.466,0,0,EmblemOfSeveredFate,4,None,0,1

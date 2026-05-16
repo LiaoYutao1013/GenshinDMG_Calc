@@ -1,0 +1,2 @@
+Weapon,WeaponATK,WeaponSubStatType,WeaponSubStatValue,WeaponRefinement,AtkBonus,FlatATK,ER,CritRate,CritDMG,CryoDMGBonus,NormalDMGBonus,BurstDMGBonus,ArtifactSet1,ArtifactSet1Pieces,ArtifactSet2,ArtifactSet2Pieces,ArtifactSet4Active
+MistsplitterReforged,674,CD,0.441,1,0.92,311,1.2,0.45,2.35,0.466,0,0,BlizzardStrayer,4,None,0,1

@@ -47,6 +47,26 @@ function element = getCharacterElement(name)
             element = "Pyro";
         case 'nicole'
             element = "Pyro";
+        case {'kamisatoayaka', 'kamisato ayaka', 'ayaka'}
+            element = "Cryo";
+        case 'jean'
+            element = "Anemo";
+        case 'lisa'
+            element = "Electro";
+        case 'barbara'
+            element = "Hydro";
+        case 'kaeya'
+            element = "Cryo";
+        case 'diluc'
+            element = "Pyro";
+        case 'razor'
+            element = "Electro";
+        case 'amber'
+            element = "Pyro";
+        case 'venti'
+            element = "Anemo";
+        case 'xiangling'
+            element = "Pyro";
         case {'hutao', 'hu tao'}
             element = "Pyro";
         case 'charlotte'

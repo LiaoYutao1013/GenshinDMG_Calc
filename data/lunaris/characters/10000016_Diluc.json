@@ -1,0 +1,1794 @@
+{
+  "info": {
+    "name": "Diluc",
+    "description": "The tycoon of a winery empire in Mondstadt, unmatched in every possible way.",
+    "rarity": "QUALITY_ORANGE",
+    "weapon": "WEAPON_CLAYMORE",
+    "birthday": "30/4",
+    "element": "Pyro",
+    "title": "Dark Side of Dawn",
+    "constellation": "Noctua",
+    "affiliation": "Dawn Winery",
+    "cv": {
+      "EN": "Sean Chiplock",
+      "CHS": "马洋",
+      "JP": "小野賢章",
+      "KR": "Choi Seung-hoon"
+    },
+    "attributes": [
+      {
+        "level": 1,
+        "ascension": 0,
+        "hp": 1011,
+        "atk": 26,
+        "def": 61,
+        "CRITRate_": "0"
+      },
+      {
+        "level": 2,
+        "ascension": 0,
+        "hp": 1094,
+        "atk": 28,
+        "def": 66,
+        "CRITRate_": "0"
+      },
+      {
+        "level": 3,
+        "ascension": 0,
+        "hp": 1178,
+        "atk": 30,
+        "def": 71,
+        "CRITRate_": "0"
+      },
+      {
+        "level": 4,
+        "ascension": 0,
+        "hp": 1263,
+        "atk": 33,
+        "def": 76,
+        "CRITRate_": "0"
+      },
+      {
+        "level": 5,
+        "ascension": 0,
+        "hp": 1347,
+        "atk": 35,
+        "def": 81,
+        "CRITRate_": "0"
+      },
+      {
+        "level": 6,
+        "ascension": 0,
+        "hp": 1432,
+        "atk": 37,
+        "def": 86,
+        "CRITRate_": "0"
+      },
+      {
+        "level": 7,
+        "ascension": 0,
+        "hp": 1516,
+        "atk": 39,
+        "def": 92,
+        "CRITRate_": "0"
+      },
+      {
+        "level": 8,
+        "ascension": 0,
+        "hp": 1601,
+        "atk": 41,
+        "def": 97,
+        "CRITRate_": "0"
+      },
+      {
+        "level": 9,
+        "ascension": 0,
+        "hp": 1686,
+        "atk": 43,
+        "def": 102,
+        "CRITRate_": "0"
+      },
+      {
+        "level": 10,
+        "ascension": 0,
+        "hp": 1769,
+        "atk": 46,
+        "def": 107,
+        "CRITRate_": "0"
+      },
+      {
+        "level": 11,
+        "ascension": 0,
+        "hp": 1854,
+        "atk": 48,
+        "def": 112,
+        "CRITRate_": "0"
+      },
+      {
+        "level": 12,
+        "ascension": 0,
+        "hp": 1939,
+        "atk": 50,
+        "def": 117,
+        "CRITRate_": "0"
+      },
+      {
+        "level": 13,
+        "ascension": 0,
+        "hp": 2024,
+        "atk": 52,
+        "def": 122,
+        "CRITRate_": "0"
+      },
+      {
+        "level": 14,
+        "ascension": 0,
+        "hp": 2110,
+        "atk": 54,
+        "def": 127,
+        "CRITRate_": "0"
+      },
+      {
+        "level": 15,
+        "ascension": 0,
+        "hp": 2195,
+        "atk": 57,
+        "def": 133,
+        "CRITRate_": "0"
+      },
+      {
+        "level": 16,
+        "ascension": 0,
+        "hp": 2280,
+        "atk": 59,
+        "def": 138,
+        "CRITRate_": "0"
+      },
+      {
+        "level": 17,
+        "ascension": 0,
+        "hp": 2366,
+        "atk": 61,
+        "def": 143,
+        "CRITRate_": "0"
+      },
+      {
+        "level": 18,
+        "ascension": 0,
+        "hp": 2451,
+        "atk": 63,
+        "def": 148,
+        "CRITRate_": "0"
+      },
+      {
+        "level": 19,
+        "ascension": 0,
+        "hp": 2536,
+        "atk": 65,
+        "def": 153,
+        "CRITRate_": "0"
+      },
+      {
+        "level": 20,
+        "ascension": 0,
+        "hp": 2621,
+        "atk": 68,
+        "def": 158,
+        "CRITRate_": "0"
+      },
+      {
+        "level": 21,
+        "ascension": 1,
+        "hp": 3574,
+        "atk": 92,
+        "def": 216,
+        "CRITRate_": "0"
+      },
+      {
+        "level": 22,
+        "ascension": 1,
+        "hp": 3660,
+        "atk": 94,
+        "def": 221,
+        "CRITRate_": "0"
+      },
+      {
+        "level": 23,
+        "ascension": 1,
+        "hp": 3745,
+        "atk": 97,
+        "def": 226,
+        "CRITRate_": "0"
+      },
+      {
+        "level": 24,
+        "ascension": 1,
+        "hp": 3831,
+        "atk": 99,
+        "def": 231,
+        "CRITRate_": "0"
+      },
+      {
+        "level": 25,
+        "ascension": 1,
+        "hp": 3917,
+        "atk": 101,
+        "def": 237,
+        "CRITRate_": "0"
+      },
+      {
+        "level": 26,
+        "ascension": 1,
+        "hp": 4004,
+        "atk": 103,
+        "def": 242,
+        "CRITRate_": "0"
+      },
+      {
+        "level": 27,
+        "ascension": 1,
+        "hp": 4090,
+        "atk": 106,
+        "def": 247,
+        "CRITRate_": "0"
+      },
+      {
+        "level": 28,
+        "ascension": 1,
+        "hp": 4176,
+        "atk": 108,
+        "def": 252,
+        "CRITRate_": "0"
+      },
+      {
+        "level": 29,
+        "ascension": 1,
+        "hp": 4263,
+        "atk": 110,
+        "def": 257,
+        "CRITRate_": "0"
+      },
+      {
+        "level": 30,
+        "ascension": 1,
+        "hp": 4349,
+        "atk": 112,
+        "def": 263,
+        "CRITRate_": "0"
+      },
+      {
+        "level": 31,
+        "ascension": 1,
+        "hp": 4436,
+        "atk": 114,
+        "def": 268,
+        "CRITRate_": "0"
+      },
+      {
+        "level": 32,
+        "ascension": 1,
+        "hp": 4522,
+        "atk": 117,
+        "def": 273,
+        "CRITRate_": "0"
+      },
+      {
+        "level": 33,
+        "ascension": 1,
+        "hp": 4609,
+        "atk": 119,
+        "def": 278,
+        "CRITRate_": "0"
+      },
+      {
+        "level": 34,
+        "ascension": 1,
+        "hp": 4695,
+        "atk": 121,
+        "def": 284,
+        "CRITRate_": "0"
+      },
+      {
+        "level": 35,
+        "ascension": 1,
+        "hp": 4782,
+        "atk": 123,
+        "def": 289,
+        "CRITRate_": "0"
+      },
+      {
+        "level": 36,
+        "ascension": 1,
+        "hp": 4870,
+        "atk": 126,
+        "def": 294,
+        "CRITRate_": "0"
+      },
+      {
+        "level": 37,
+        "ascension": 1,
+        "hp": 4957,
+        "atk": 128,
+        "def": 299,
+        "CRITRate_": "0"
+      },
+      {
+        "level": 38,
+        "ascension": 1,
+        "hp": 5044,
+        "atk": 130,
+        "def": 305,
+        "CRITRate_": "0"
+      },
+      {
+        "level": 39,
+        "ascension": 1,
+        "hp": 5131,
+        "atk": 132,
+        "def": 310,
+        "CRITRate_": "0"
+      },
+      {
+        "level": 40,
+        "ascension": 1,
+        "hp": 5219,
+        "atk": 135,
+        "def": 315,
+        "CRITRate_": "0"
+      },
+      {
+        "level": 41,
+        "ascension": 2,
+        "hp": 5921,
+        "atk": 153,
+        "def": 358,
+        "CRITRate_": "4.8"
+      },
+      {
+        "level": 42,
+        "ascension": 2,
+        "hp": 6009,
+        "atk": 155,
+        "def": 363,
+        "CRITRate_": "4.8"
+      },
+      {
+        "level": 43,
+        "ascension": 2,
+        "hp": 6097,
+        "atk": 157,
+        "def": 368,
+        "CRITRate_": "4.8"
+      },
+      {
+        "level": 44,
+        "ascension": 2,
+        "hp": 6184,
+        "atk": 160,
+        "def": 373,
+        "CRITRate_": "4.8"
+      },
+      {
+        "level": 45,
+        "ascension": 2,
+        "hp": 6272,
+        "atk": 162,
+        "def": 379,
+        "CRITRate_": "4.8"
+      },
+      {
+        "level": 46,
+        "ascension": 2,
+        "hp": 6360,
+        "atk": 164,
+        "def": 384,
+        "CRITRate_": "4.8"
+      },
+      {
+        "level": 47,
+        "ascension": 2,
+        "hp": 6448,
+        "atk": 166,
+        "def": 389,
+        "CRITRate_": "4.8"
+      },
+      {
+        "level": 48,
+        "ascension": 2,
+        "hp": 6536,
+        "atk": 169,
+        "def": 395,
+        "CRITRate_": "4.8"
+      },
+      {
+        "level": 49,
+        "ascension": 2,
+        "hp": 6625,
+        "atk": 171,
+        "def": 400,
+        "CRITRate_": "4.8"
+      },
+      {
+        "level": 50,
+        "ascension": 2,
+        "hp": 6712,
+        "atk": 173,
+        "def": 405,
+        "CRITRate_": "4.8"
+      },
+      {
+        "level": 51,
+        "ascension": 3,
+        "hp": 7621,
+        "atk": 197,
+        "def": 460,
+        "CRITRate_": "9.6"
+      },
+      {
+        "level": 52,
+        "ascension": 3,
+        "hp": 7710,
+        "atk": 199,
+        "def": 466,
+        "CRITRate_": "9.6"
+      },
+      {
+        "level": 53,
+        "ascension": 3,
+        "hp": 7798,
+        "atk": 201,
+        "def": 471,
+        "CRITRate_": "9.6"
+      },
+      {
+        "level": 54,
+        "ascension": 3,
+        "hp": 7887,
+        "atk": 203,
+        "def": 476,
+        "CRITRate_": "9.6"
+      },
+      {
+        "level": 55,
+        "ascension": 3,
+        "hp": 7976,
+        "atk": 206,
+        "def": 482,
+        "CRITRate_": "9.6"
+      },
+      {
+        "level": 56,
+        "ascension": 3,
+        "hp": 8065,
+        "atk": 208,
+        "def": 487,
+        "CRITRate_": "9.6"
+      },
+      {
+        "level": 57,
+        "ascension": 3,
+        "hp": 8154,
+        "atk": 210,
+        "def": 492,
+        "CRITRate_": "9.6"
+      },
+      {
+        "level": 58,
+        "ascension": 3,
+        "hp": 8243,
+        "atk": 213,
+        "def": 498,
+        "CRITRate_": "9.6"
+      },
+      {
+        "level": 59,
+        "ascension": 3,
+        "hp": 8332,
+        "atk": 215,
+        "def": 503,
+        "CRITRate_": "9.6"
+      },
+      {
+        "level": 60,
+        "ascension": 3,
+        "hp": 8421,
+        "atk": 217,
+        "def": 509,
+        "CRITRate_": "9.6"
+      },
+      {
+        "level": 61,
+        "ascension": 4,
+        "hp": 9125,
+        "atk": 235,
+        "def": 551,
+        "CRITRate_": "9.6"
+      },
+      {
+        "level": 62,
+        "ascension": 4,
+        "hp": 9214,
+        "atk": 238,
+        "def": 556,
+        "CRITRate_": "9.6"
+      },
+      {
+        "level": 63,
+        "ascension": 4,
+        "hp": 9304,
+        "atk": 240,
+        "def": 562,
+        "CRITRate_": "9.6"
+      },
+      {
+        "level": 64,
+        "ascension": 4,
+        "hp": 9393,
+        "atk": 242,
+        "def": 567,
+        "CRITRate_": "9.6"
+      },
+      {
+        "level": 65,
+        "ascension": 4,
+        "hp": 9483,
+        "atk": 245,
+        "def": 573,
+        "CRITRate_": "9.6"
+      },
+      {
+        "level": 66,
+        "ascension": 4,
+        "hp": 9573,
+        "atk": 247,
+        "def": 578,
+        "CRITRate_": "9.6"
+      },
+      {
+        "level": 67,
+        "ascension": 4,
+        "hp": 9662,
+        "atk": 249,
+        "def": 583,
+        "CRITRate_": "9.6"
+      },
+      {
+        "level": 68,
+        "ascension": 4,
+        "hp": 9752,
+        "atk": 252,
+        "def": 589,
+        "CRITRate_": "9.6"
+      },
+      {
+        "level": 69,
+        "ascension": 4,
+        "hp": 9842,
+        "atk": 254,
+        "def": 594,
+        "CRITRate_": "9.6"
+      },
+      {
+        "level": 70,
+        "ascension": 4,
+        "hp": 9932,
+        "atk": 256,
+        "def": 600,
+        "CRITRate_": "9.6"
+      },
+      {
+        "level": 71,
+        "ascension": 5,
+        "hp": 10637,
+        "atk": 274,
+        "def": 642,
+        "CRITRate_": "14.4"
+      },
+      {
+        "level": 72,
+        "ascension": 5,
+        "hp": 10728,
+        "atk": 277,
+        "def": 648,
+        "CRITRate_": "14.4"
+      },
+      {
+        "level": 73,
+        "ascension": 5,
+        "hp": 10818,
+        "atk": 279,
+        "def": 653,
+        "CRITRate_": "14.4"
+      },
+      {
+        "level": 74,
+        "ascension": 5,
+        "hp": 10908,
+        "atk": 281,
+        "def": 659,
+        "CRITRate_": "14.4"
+      },
+      {
+        "level": 75,
+        "ascension": 5,
+        "hp": 10999,
+        "atk": 284,
+        "def": 664,
+        "CRITRate_": "14.4"
+      },
+      {
+        "level": 76,
+        "ascension": 5,
+        "hp": 11089,
+        "atk": 286,
+        "def": 670,
+        "CRITRate_": "14.4"
+      },
+      {
+        "level": 77,
+        "ascension": 5,
+        "hp": 11180,
+        "atk": 288,
+        "def": 675,
+        "CRITRate_": "14.4"
+      },
+      {
+        "level": 78,
+        "ascension": 5,
+        "hp": 11271,
+        "atk": 291,
+        "def": 681,
+        "CRITRate_": "14.4"
+      },
+      {
+        "level": 79,
+        "ascension": 5,
+        "hp": 11362,
+        "atk": 293,
+        "def": 686,
+        "CRITRate_": "14.4"
+      },
+      {
+        "level": 80,
+        "ascension": 5,
+        "hp": 11453,
+        "atk": 295,
+        "def": 692,
+        "CRITRate_": "14.4"
+      },
+      {
+        "level": 81,
+        "ascension": 6,
+        "hp": 12159,
+        "atk": 314,
+        "def": 734,
+        "CRITRate_": "19.2"
+      },
+      {
+        "level": 82,
+        "ascension": 6,
+        "hp": 12250,
+        "atk": 316,
+        "def": 740,
+        "CRITRate_": "19.2"
+      },
+      {
+        "level": 83,
+        "ascension": 6,
+        "hp": 12341,
+        "atk": 318,
+        "def": 745,
+        "CRITRate_": "19.2"
+      },
+      {
+        "level": 84,
+        "ascension": 6,
+        "hp": 12432,
+        "atk": 321,
+        "def": 751,
+        "CRITRate_": "19.2"
+      },
+      {
+        "level": 85,
+        "ascension": 6,
+        "hp": 12523,
+        "atk": 323,
+        "def": 756,
+        "CRITRate_": "19.2"
+      },
+      {
+        "level": 86,
+        "ascension": 6,
+        "hp": 12615,
+        "atk": 325,
+        "def": 762,
+        "CRITRate_": "19.2"
+      },
+      {
+        "level": 87,
+        "ascension": 6,
+        "hp": 12706,
+        "atk": 328,
+        "def": 767,
+        "CRITRate_": "19.2"
+      },
+      {
+        "level": 88,
+        "ascension": 6,
+        "hp": 12798,
+        "atk": 330,
+        "def": 773,
+        "CRITRate_": "19.2"
+      },
+      {
+        "level": 89,
+        "ascension": 6,
+        "hp": 12890,
+        "atk": 333,
+        "def": 778,
+        "CRITRate_": "19.2"
+      },
+      {
+        "level": 90,
+        "ascension": 6,
+        "hp": 12981,
+        "atk": 335,
+        "def": 784,
+        "CRITRate_": "19.2"
+      },
+      {
+        "level": 95,
+        "ascension": 6,
+        "hp": 13441,
+        "atk": 373,
+        "def": 812,
+        "CRITRate_": "19.2"
+      },
+      {
+        "level": 100,
+        "ascension": 6,
+        "hp": 13903,
+        "atk": 410,
+        "def": 840,
+        "CRITRate_": "19.2"
+      }
+    ]
+  },
+  "icons": {
+    "forward": "UI_AvatarIcon_Diluc",
+    "coop_img": "UI_CoopImg_Diluc"
+  },
+  "ascension": {
+    "x202": 7.0499E+6,
+    "exp": {
+      "x104001": 2,
+      "x104003": 418
+    },
+    "speciality": {
+      "x100055": 168
+    },
+    "elemental": {
+      "x104111": 1,
+      "x104112": 9,
+      "x104113": 9,
+      "x104114": 6
+    },
+    "worldmonster": {
+      "x112032": 18,
+      "x112033": 30,
+      "x112034": 36
+    },
+    "elitemonster": {
+      "x113011": 46
+    }
+  },
+  "skills": {
+    "normalattack": {
+      "name": "Tempered Sword",
+      "icon": "Skill_A_04",
+      "multipliers": {
+        "x1_HitDMG": [
+          "89.7%",
+          "97%",
+          "104.3%",
+          "114.73%",
+          "122.03%",
+          "130.38%",
+          "141.85%",
+          "153.32%",
+          "164.79%",
+          "177.31%",
+          "191.65%",
+          "208.52%",
+          "225.38%",
+          "242.25%",
+          "260.65%"
+        ],
+        "x2_HitDMG": [
+          "87.63%",
+          "94.77%",
+          "101.9%",
+          "112.09%",
+          "119.22%",
+          "127.37%",
+          "138.58%",
+          "149.79%",
+          "161%",
+          "173.23%",
+          "187.24%",
+          "203.72%",
+          "220.2%",
+          "236.67%",
+          "254.65%"
+        ],
+        "x3_HitDMG": [
+          "98.81%",
+          "106.86%",
+          "114.9%",
+          "126.39%",
+          "134.43%",
+          "143.62%",
+          "156.26%",
+          "168.9%",
+          "181.54%",
+          "195.33%",
+          "211.13%",
+          "229.71%",
+          "248.29%",
+          "266.87%",
+          "287.14%"
+        ],
+        "x4_HitDMG": [
+          "133.99%",
+          "144.89%",
+          "155.8%",
+          "171.38%",
+          "182.29%",
+          "194.75%",
+          "211.89%",
+          "229.03%",
+          "246.16%",
+          "264.86%",
+          "286.28%",
+          "311.48%",
+          "336.67%",
+          "361.86%",
+          "389.34%"
+        ],
+        "ChargedAttackCyclicDMG": [
+          "68.8%",
+          "74.4%",
+          "80%",
+          "88%",
+          "93.6%",
+          "100%",
+          "108.8%",
+          "117.6%",
+          "126.4%",
+          "136%",
+          "147%",
+          "159.94%",
+          "172.87%",
+          "185.81%",
+          "199.92%"
+        ],
+        "ChargedAttackFinalDMG": [
+          "124.7%",
+          "134.85%",
+          "145%",
+          "159.5%",
+          "169.65%",
+          "181.25%",
+          "197.2%",
+          "213.15%",
+          "229.1%",
+          "246.5%",
+          "266.44%",
+          "289.88%",
+          "313.33%",
+          "336.78%",
+          "362.35%"
+        ],
+        "ChargedAttackStaminaCost": [
+          "40/s",
+          "40/s",
+          "40/s",
+          "40/s",
+          "40/s",
+          "40/s",
+          "40/s",
+          "40/s",
+          "40/s",
+          "40/s",
+          "40/s",
+          "40/s",
+          "40/s",
+          "40/s",
+          "40/s"
+        ],
+        "MaxDuration": [
+          "5s",
+          "5s",
+          "5s",
+          "5s",
+          "5s",
+          "5s",
+          "5s",
+          "5s",
+          "5s",
+          "5s",
+          "5s",
+          "5s",
+          "5s",
+          "5s",
+          "5s"
+        ],
+        "PlungeDMG": [
+          "89.51%",
+          "96.79%",
+          "104.08%",
+          "114.48%",
+          "121.77%",
+          "130.1%",
+          "141.54%",
+          "152.99%",
+          "164.44%",
+          "176.93%",
+          "189.42%",
+          "201.91%",
+          "214.4%",
+          "226.89%",
+          "239.37%"
+        ],
+        "Low_HighPlungeDMG": [
+          "178.97%/223.55%",
+          "193.54%/241.74%",
+          "208.11%/259.94%",
+          "228.92%/285.93%",
+          "243.49%/304.13%",
+          "260.13%/324.92%",
+          "283.03%/353.52%",
+          "305.92%/382.11%",
+          "328.81%/410.7%",
+          "353.78%/441.89%",
+          "378.76%/473.09%",
+          "403.73%/504.28%",
+          "428.7%/535.47%",
+          "453.68%/566.66%",
+          "478.65%/597.86%"
+        ]
+      },
+      "description": "<color=#FFD780FF>Normal Attack</color>\\nPerforms up to 4 consecutive strikes.\\n\\n<color=#FFD780FF>Charged Attack</color>\\nDrains Stamina over time to perform continuous slashes.\\nAt the end of the sequence, performs a more powerful slash.\\n\\n<color=#FFD780FF>Plunging Attack</color>\\nPlunges from mid-air to strike the ground, damaging opponents along the path and dealing AoE DMG upon impact."
+    },
+    "elementalskill": {
+      "name": "Searing Onslaught",
+      "icon": "Skill_S_Diluc_01_01",
+      "multipliers": {
+        "x1_HitDMG": [
+          "94.4%",
+          "101.48%",
+          "108.56%",
+          "118%",
+          "125.08%",
+          "132.16%",
+          "141.6%",
+          "151.04%",
+          "160.48%",
+          "169.92%",
+          "179.36%",
+          "188.8%",
+          "200.6%",
+          "212.4%",
+          "224.2%"
+        ],
+        "x2_HitDMG": [
+          "97.6%",
+          "104.92%",
+          "112.24%",
+          "122%",
+          "129.32%",
+          "136.64%",
+          "146.4%",
+          "156.16%",
+          "165.92%",
+          "175.68%",
+          "185.44%",
+          "195.2%",
+          "207.4%",
+          "219.6%",
+          "231.8%"
+        ],
+        "x3_HitDMG": [
+          "128.8%",
+          "138.46%",
+          "148.12%",
+          "161%",
+          "170.66%",
+          "180.32%",
+          "193.2%",
+          "206.08%",
+          "218.96%",
+          "231.84%",
+          "244.72%",
+          "257.6%",
+          "273.7%",
+          "289.8%",
+          "305.9%"
+        ],
+        "CD": [
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s"
+        ]
+      },
+      "description": "Performs a forward slash that deals <color=#FF9999FF>Pyro DMG</color>.\\n\\nThis skill can be consecutively used 3 times.\\nEnters CD if not cast again within a short period.\\n\\n<i>The slashes represent the values that Diluc holds dear: one for justice, one for courage, and one for duty.</i>"
+    },
+    "elementalburst": {
+      "name": "Dawn",
+      "icon": "Skill_E_Diluc_01",
+      "multipliers": {
+        "SlashingDMG": [
+          "204%",
+          "219.3%",
+          "234.6%",
+          "255%",
+          "270.3%",
+          "285.6%",
+          "306%",
+          "326.4%",
+          "346.8%",
+          "367.2%",
+          "387.6%",
+          "408%",
+          "433.5%",
+          "459%",
+          "484.5%"
+        ],
+        "DoT": [
+          "60%",
+          "64.5%",
+          "69%",
+          "75%",
+          "79.5%",
+          "84%",
+          "90%",
+          "96%",
+          "102%",
+          "108%",
+          "114%",
+          "120%",
+          "127.5%",
+          "135%",
+          "142.5%"
+        ],
+        "ExplosionDMG": [
+          "204%",
+          "219.3%",
+          "234.6%",
+          "255%",
+          "270.3%",
+          "285.6%",
+          "306%",
+          "326.4%",
+          "346.8%",
+          "367.2%",
+          "387.6%",
+          "408%",
+          "433.5%",
+          "459%",
+          "484.5%"
+        ],
+        "CD": [
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s"
+        ],
+        "InfusionDuration": [
+          "8s",
+          "8s",
+          "8s",
+          "8s",
+          "8s",
+          "8s",
+          "8s",
+          "8s",
+          "8s",
+          "8s",
+          "8s",
+          "8s",
+          "8s",
+          "8s",
+          "8s"
+        ],
+        "EnergyCost": [
+          "40",
+          "40",
+          "40",
+          "40",
+          "40",
+          "40",
+          "40",
+          "40",
+          "40",
+          "40",
+          "40",
+          "40",
+          "40",
+          "40",
+          "40"
+        ]
+      },
+      "description": "Releases intense flames to knock back nearby opponents, dealing <color=#FF9999FF>Pyro DMG</color>. The flames then converge into the weapon, summoning a Phoenix that flies forward and deals massive <color=#FF9999FF>Pyro DMG</color> to all opponents in its path. The Phoenix explodes upon reaching its destination, causing a large amount of <color=#FF9999FF>AoE Pyro DMG</color>.\\nThe searing flames that run down his blade cause it to be infused with <color=#FF9999FF>Pyro</color>.\\n\\n<i>The only reason to walk in the darkness is to light it up. Behold, that fleeing light in the dead of night is the herald of the coming dawn.</i>"
+    },
+    "leveling": {
+      "books": {
+        "x104304": 9,
+        "x104305": 63,
+        "x104306": 114
+      },
+      "crown": {
+        "x104319": 3
+      },
+      "worldmonster": {
+        "x112032": 18,
+        "x112033": 66,
+        "x112034": 93
+      },
+      "weekly": {
+        "x113003": 18
+      }
+    }
+  },
+  "passives": {
+    "p1": {
+      "name": "Relentless",
+      "description": "Diluc's Charged Attack Stamina Cost is decreased by 50%, and its duration is increased by 3s.",
+      "icon": "UI_Talent_S_Diluc_05"
+    },
+    "p2": {
+      "name": "Blessing of Phoenix",
+      "description": "The <color=#FF9999FF>Pyro Infusion</color> provided by <color=#FFD780FF>Dawn</color> lasts for 4s longer. Additionally, Diluc gains 20% <color=#FF9999FF>Pyro DMG Bonus</color> during the duration of this effect.",
+      "icon": "UI_Talent_S_Diluc_06"
+    },
+    "p3": {
+      "name": "Tradition of the Dawn Knight",
+      "description": "Refunds 15% of the ore used when crafting Claymore-type weapons.",
+      "icon": "UI_Talent_Forge_Claymore"
+    },
+    "p4": ""
+  },
+  "constellations": {
+    "const1": {
+      "name": "Conviction",
+      "description": "Diluc deals 15% more DMG to opponents whose HP is above 50%.",
+      "icon": "UI_Talent_S_Diluc_01"
+    },
+    "const2": {
+      "name": "Searing Ember",
+      "description": "When Diluc takes DMG, his ATK increases by 10% and his ATK SPD increases by 5%. Lasts for 10s.\\nThis effect can stack up to 3 times and can only occur once every 1.5s.",
+      "icon": "UI_Talent_S_Diluc_02"
+    },
+    "const3": {
+      "name": "Fire and Steel",
+      "description": "Increases the Level of <color=#FFD780FF>Searing Onslaught</color> by 3.\\nMaximum upgrade level is 15.",
+      "icon": "UI_Talent_U_Diluc_01"
+    },
+    "const4": {
+      "name": "Flowing Flame",
+      "description": "Casting <color=#FFD780FF>Searing Onslaught</color> in rhythm greatly increases damage dealt.\\n2s after casting <color=#FFD780FF>Searing Onslaught</color>, casting the next Searing Onslaught in the combo deals 40% additional DMG. This effect lasts for 2s.",
+      "icon": "UI_Talent_S_Diluc_03"
+    },
+    "const5": {
+      "name": "Phoenix, Harbinger of Dawn",
+      "description": "Increases the Level of <color=#FFD780FF>Dawn</color> by 3.\\nMaximum upgrade level is 15.",
+      "icon": "UI_Talent_U_Diluc_02"
+    },
+    "const6": {
+      "name": "Flaming Sword, Nemesis of the Dark",
+      "description": "After casting <color=#FFD780FF>Searing Onslaught</color>, the next 2 Normal Attacks within the next 6s will have their DMG and ATK SPD increased by 30%.\\nAdditionally, Searing Onslaught will not interrupt the Normal Attack combo.",
+      "icon": "UI_Talent_S_Diluc_04"
+    }
+  },
+  "hyperlinks": [],
+  "stories": {
+    "x8201": {
+      "storyTitle": "Character Details",
+      "storyText": "As the city of ballads and wines, Mondstadt's alcohol industry is renowned all over Teyvat.\\nAs owner of the Dawn Winery, Diluc is essentially in charge of half the industry. This means he has a huge stream of revenue and an entire network of information, in the form of tavern patrons' gossip, right at his fingertips.\\nIn a way, he is the uncrowned king of Mondstadt.",
+      "unlockConds": []
+    },
+    "x8202": {
+      "storyTitle": "Character Story 1",
+      "storyText": "The scent of wine always lingers in the air in Mondstadt.\\nIf one were to follow the scent to its source, one would invariably arrive at Diluc's Dawn Winery.\\nA wooden plaque proudly announces the winery's name, and beneath it is written the winery's motto:\\n\"Shine True.\"\\nMost interpret this to mean that the wines are brewed for consistency of taste, with time-honored techniques and that same healthy dose of sunny optimism that the dawn brings.\\nMeanwhile, the more pragmatic Knights of Favonius are reminded of the long history of mutual support between the winery and the city.\\nThe winery holds festivities from time to time. These events are routinely attended by enthusiastic fathers, eager to introduce their wonderful daughters to the young and single winery master.\\nThis is all highly entertaining to the other guests, who watch on and comment, mockingly:\\n\"We'd much rather Master Diluc stays married to the winery, given how good this wine is!\"\\nDiluc deals impeccably with all situations, no matter who or what comes his way.\\nDiluc is a fine young gentleman in every conceivable respect.\\n",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 2
+      }
+    },
+    "x8203": {
+      "storyTitle": "Character Story 2",
+      "storyText": "Diluc avoids talking about the past.\\n\"If only Diluc were still a member of the Knights...\"\\nAfter a few drinks, senior knights will say words to this effect with a sigh.\\nThey refer to events from a long time ago, back when Diluc's father, Master Crepus, was still the owner of the winery. Master Crepus' wish was for his son to become the most esteemed knight of all and safeguard Mondstadt, the City of Freedom.\\nAs per his father's wishes, Diluc trained rigorously to make himself worthy of the Ragnvindr name. Sure enough, he passed the Knights of Favonius' trials, swore the oath of protection to Mondstadt, and entered their ranks. Before long, he received an early promotion which saw him become the youngest-ever Cavalry Captain.\\nOver the course of his missions and patrols, the denizens of Mondstadt gradually came to know this young and passionate Cavalry Captain.\\nNo matter what the missions demanded from him, he always maintained his composure and his passion. No matter how big the challenge before him, his boundless courage always led him to the front line. The praise he received from his comrades and citizens spurred him on.\\nBut the words of praise he valued most of all were:\\n\"Good job. Now, that's my son.\"\\nHis father's words fueled the fire inside his heart and served as his greatest motivation.\\nHis faith was an unquenchable fire that burned strong and bright inside him.\\nDiluc was so young back then.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 3
+      }
+    },
+    "x8204": {
+      "storyTitle": "Character Story 3",
+      "storyText": "\"Sometimes, life can change in an instant.\"\\nThe day that Crepus spoke these words to Diluc would turn out to be the latter's last as a Knight of Favonius.\\nFor on that day, a horrific monster attacked the transport fleet he and his father were traveling with.\\nThere was no time for Diluc to send for help. The monster was stronger than any foe the young Cavalry Captain had ever encountered, and overpowered him.\\nDiluc could never have anticipated the way this battle would end: His father, who had been denied admittance into the Knights and who was shunned by the gods, defeated the monster with an unknown evil power — before that same power backfired, mortally wounding Crepus himself. Crepus died shortly after in his son's arms.\\nWith a heavy heart, Diluc returned to the Knights' headquarters, only to receive an unthinkable order from Inspector Eroch: \"Conceal the truth.\"\\nEroch insisted that the incident must be portrayed as an unfortunate accident in order to maintain the reputation of the Knights of Favonius in the eyes of the public.\\nSuch was the sheer outrageousness of this request that Diluc did not think it was even worth trying to argue.\\nDiluc's father had once said to him that the world would never turn its back on the faithful.\\nBut now, the Knights of Favonius trampled on his faith like it was nothing. He couldn't help but wonder: What was his father's view on faith in his final moments?\\nDiluc resigned from the Knights that day and left everything behind, including his Vision.\\nHe swore to avenge his father's death, and to find the source of that occult power which had caused his father's demise.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 4
+      }
+    },
+    "x8205": {
+      "storyTitle": "Character Story 4",
+      "storyText": "After Diluc resigned and discarded his Vision, he handed the running of the Dawn Winery over to the head housemaid and left Mondstadt altogether.\\nDiluc traveled all across the seven nations of Teyvat in search of the truth.\\nAll clues pointed toward a behemoth of an organization: The Fatui. He learned that they made counterfeit Visions in secret, calling them \"Delusions.\" A Delusion could amplify the power of its bearer to its extreme, but also carried the risk of backfiring. That was what had caused his father's death.\\nWas it possible that his father could have obtained such a sacrilegious item in order to do good?\\nDiluc knew he may never know the full truth, but that could never stop him from pursuing it.\\nLike an eagle scouring the wilderness, he set off on his hunt for the truth. Determination burned like fire in his heart, unfathomable enigmas and unending battles could not sway him from his course. He pressed on relentlessly, scarred but undeterred, like a fiery tornado burning through the dense fog of mystery.\\nThe Fatui's rulers, the Harbingers, monitored Diluc's progress from the shadows. The prowess with which he laid waste to numerous Fatui strongholds caught their attention and forced them to take action.\\nDiluc narrowly escaped death at the hands of the Harbingers thanks to a third-party observer from the north, who was part of a vast underground intelligence network. The observer claimed to have been watching Diluc for some time, and approved of his methods.\\nAfter his close encounter with death, Diluc took a long hard look at his past and the anger he had harbored for so long. Acknowledging his shortcomings, he decided to join the underground intelligence network.\\nJust like when he first joined the Knights of Favonius, Diluc committed himself fully to his work. His talents and skills saw him rise steadily through the ranks into the upper echelons of the network.\\nThe network was made up of volunteers, and many of its members had willingly given up their prior positions and reputations to join. Some had even abandoned their names.\\nCould working with these new comrades finally restore the faith he once clung to? The faith that had been all but destroyed in the events surrounding his father's death?",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 5
+      }
+    },
+    "x8206": {
+      "storyTitle": "Character Story 5",
+      "storyText": "\"Shine True.\" The background to this motto is hotly contested, but to Diluc it has one simple, clear meaning.\\n\"Evil cannot go unpunished.\\nNever settle for mediocrity. Never forget that the dawn will one day come.\"\\nDiluc's solitary sojourn lasted for three years.\\nFour years on, Diluc had returned to Mondstadt and taken over as head of the family winery, now a young man.\\nIn the space of these four years, Eroch had been purged from the Knights of Favonius after being shown to be a traitor, while Grand Master Varka had left on an expedition, leaving Master Jean to assume the role of Acting Grand Master.\\nThe return of the Dawn Winery's master should have been a momentous occasion for Mondstadt, but strangely it went completely unnoticed.\\nThe reason? Mondstadt's citizens were far too busy pondering the mysterious case of an unknown \"Guardian of Mondstadt.\"\\nAll that was known about the anonymous guardian was that the smell of burning would follow in his wake, and that a flash of red flames would reveal his silhouette for but a moment in the darkness of the night, before he disappeared in an instant.\\nThe bodies of monsters that had plagued Mondstadt for an age now lay dead in the wilderness... Mondstadt's most wanted thieves suddenly appeared bound and gagged, hanging from their feet in the statue plaza... All the Knights of Favonius were dispatched to reckon, once and for all, with the Abyss Mage behind countless crimes in the city, but they arrived only to discover that he had long since been killed...\\nAided by wine-fueled conversations, word of the mysterious guardian spread swiftly, and he came to be known as the \"Darknight Hero.\"\\nIn public, Diluc appeared to hold this hero in contempt, his face curling up in disgust every time the name was uttered.\\nElzer of the Mondstadt Wine Guild was one of the select few who was in the know, and once queried Diluc about this: Was his disapproval of the Darknight Hero just an act, intended to throw the knights off his trail and protect his anonymity?\\nBut Diluc simply frowned once more, and curtly replied: \"It's just a stupid name.\"",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 6
+      }
+    },
+    "x8207": {
+      "storyTitle": "Dawn Winery's Apple Cider",
+      "storyText": "Diluc may hold the whole wine industry in the palm of his hand, but he himself is not fond of wine.\\nAt Diluc's request, the Dawn Winery developed several alcohol-free beverages, a decision which was met with resounding approval from those in Mondstadt who could not drink alcohol but still wanted to partake in the drinking culture.\\nOne of those alcohol-free beverages is Mondstadt's Apple Cider, the success of which is on a par with Dandelion Wine in terms of monthly sales volumes.\\nSome think that Diluc must have such high standards when it comes to wine that he is never seen drinking the mediocre-quality beverages that are available to the public.\\nOthers think that drinking wine must surely remind him of his father, and that that is why he does not touch it.\\nWhen pressed about his drinking habits, he responds by saying that alcohol clouds his thoughts, and consuming it would impact his day-to-day work.\\nBut the thing that people don't understand is: What kind of day-to-day work does a winery master do, if it requires him to never touch a drop of alcohol?",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 4
+      }
+    },
+    "x8208": {
+      "storyTitle": "Vision",
+      "storyText": "Crepus had two regrets in life. One was never becoming a knight, and the other was never obtaining a Vision.\\nFor this reason, in the moment that Diluc received his Vision, he took it as a recognition by the gods of his and his father's shared ambition — finally, he could make his father proud.\\nJust a few years later, his father died on a dark and gloomy day. The hopes and dreams that burned bright in Diluc's Vision were extinguished in the torrential rain that fell on that night.\\nNo matter how upright and good-hearted a person may be, death will still come to them without warning.\\nIs this where the tale of justice ends? Just like that?\\nIt seemed to him that his Vision and his status as a knight were both equally ineffectual at enabling him to protect the things that he treasured most. It was time to discard them both, he decided.\\nWhen he recognized his own powerlessness, his Vision became but a burden, of no greater service than a Delusion.\\nEmpty titles were of no interest to him. He sought after ardent flames that would burn brighter than any other, and an unshakable resolve. Only a firm resolve can drive the truth-seeker forward, and only ardent flames can vanquish the ice that freezes the hand of justice.\\nOn the day that Diluc returned to Mondstadt, he took up his Vision once more. The events of his years away had purged him of his childish immaturity, and turned him into a hero ready to shoulder his father's will once more. Each night, from the shadows, he fought for Mondstadt.\\nHe did not discuss the past. But he did not deny the past, either.\\nTo the lost, perhaps a Vision is a beacon of light given by the gods to help them find the path forward.\\nBut to those with conviction, a Vision is simply an extension of their strength, a medium for channeling their willpower, a tribute to the experiences that have shaped them, and a testament to the story of their life so far.",
+      "unlockConds": [
+        {
+          "type": "FETTER_COND_FETTER_LEVEL",
+          "value": 6
+        },
+        {
+          "type": "FETTER_COND_FINISH_QUEST",
+          "value": 46618
+        }
+      ]
+    }
+  },
+  "quotes": {
+    "x8100": {
+      "quoteTitle": "Hello",
+      "quoteText": "Diluc, of Mondstadt. Not interested in idle chit-chat. If you have things you want to get done, let me know.",
+      "unlockConds": []
+    },
+    "x8101": {
+      "quoteTitle": "Chat: Relax",
+      "quoteText": "Guess we can rest a bit.",
+      "unlockConds": []
+    },
+    "x8102": {
+      "quoteTitle": "Chat: Knights of Favonius",
+      "quoteText": "You should really bring the Knights of Favonius with you next time.",
+      "unlockConds": []
+    },
+    "x8103": {
+      "quoteTitle": "Chat: Wine Guild",
+      "quoteText": "I still have a lot to do at the Guild. How about you take a rest while I go back?",
+      "unlockConds": []
+    },
+    "x8104": {
+      "quoteTitle": "When It Rains: Umbrella",
+      "quoteText": "I don't need an umbrella, but you can use one if you need.",
+      "unlockConds": []
+    },
+    "x8105": {
+      "quoteTitle": "When It Rains: Cleansing",
+      "quoteText": "Rain... If only it could cleanse the corrupt souls of this world.",
+      "unlockConds": []
+    },
+    "x8106": {
+      "quoteTitle": "When the Sun Is Out",
+      "quoteText": "Listen, as long as you stick to your own path, it doesn't matter what Mother Nature throws at you.",
+      "unlockConds": []
+    },
+    "x8107": {
+      "quoteTitle": "When the Wind Is Blowing",
+      "quoteText": "Some use the wind's whistling to drown out the sound of their crimes.",
+      "unlockConds": []
+    },
+    "x8108": {
+      "quoteTitle": "Good Morning",
+      "quoteText": "No need for small talk. All that matters is that you were safe last night.",
+      "unlockConds": []
+    },
+    "x8109": {
+      "quoteTitle": "Good Afternoon",
+      "quoteText": "Would you like to try the secret menu?",
+      "unlockConds": []
+    },
+    "x8110": {
+      "quoteTitle": "Good Evening",
+      "quoteText": "Night has fallen.",
+      "unlockConds": []
+    },
+    "x8111": {
+      "quoteTitle": "Good Night",
+      "quoteText": "Alright, see you next time. I'll make sure you leave safely.",
+      "unlockConds": []
+    },
+    "x8112": {
+      "quoteTitle": "About Diluc",
+      "quoteText": "The legend of the \"Darknight Hero\"? An interesting rumor.",
+      "unlockConds": []
+    },
+    "x8113": {
+      "quoteTitle": "About Us: Needs",
+      "quoteText": "Just say the word if you need anything. For reimbursements, ask Elzer.",
+      "unlockConds": []
+    },
+    "x8114": {
+      "quoteTitle": "About Us: Proof",
+      "quoteText": "You have already proven your determination. Well then, it is now time for you to witness my resolve.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 6"
+      ]
+    },
+    "x8115": {
+      "quoteTitle": "About the Vision",
+      "quoteText": "Visions are a light in the sea of darkness that surrounds those who have lost their way. But for those who have faith, they are little more than badges of conviction.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x8116": {
+      "quoteTitle": "Something to Share",
+      "quoteText": "Occasionally I'll work the bar at Angel's Share. The tavern is known for being the center of information in Mondstadt.",
+      "unlockConds": []
+    },
+    "x8117": {
+      "quoteTitle": "Interesting Things",
+      "quoteText": "What? Why do you ask? ...It's an owl, quietly watching its prey from the darkness, waiting for the perfect moment to strike... Flawless.",
+      "unlockConds": []
+    },
+    "x8118": {
+      "quoteTitle": "About Kaeya",
+      "quoteText": "Kaeya? You can only trust half of what he says... at best.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x8119": {
+      "quoteTitle": "About Lisa",
+      "quoteText": "I believe Lisa has the potential to become the most reliable of the knights. If she's willing.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x8120": {
+      "quoteTitle": "About Jean: Enemies",
+      "quoteText": "Trifling matters can become Jean's greatest enemy.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x8121": {
+      "quoteTitle": "About Jean: Responsibilities",
+      "quoteText": "Her unparalleled sense of responsibility is the sole reason why she still hasn't found her true calling.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x8122": {
+      "quoteTitle": "About Mona",
+      "quoteText": "The land of Mondstadt, by the Anemo Archon's grace, is bountiful. I see no need for the harvest forecasts of astrologers.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x8123": {
+      "quoteTitle": "About Diona",
+      "quoteText": "Diona's attitude towards me is... how should I put it? Rather rigid. I've yet to find the opportunity to speak with her properly. I'm not sure if it's an issue with my family line or— Oh? It's not? She simply despises alcohol? Huh... I never thought I'd come across another bartender like myself in Mondstadt.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x8124": {
+      "quoteTitle": "About Varka",
+      "quoteText": "Grand Master Varka... While I understand his disposition, I can make no sense of his actions. ...I—I've said too much already. I've long since left the Knights of Favonius. Forget I said anything.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x8125": {
+      "quoteTitle": "About Eula",
+      "quoteText": "Ah, yes... I've heard about her. She has her own convictions. Her determination to liberate herself from the shackles of her clan is praiseworthy. But, she's... joined the Knights of Favonius.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x8126": {
+      "quoteTitle": "More About Diluc: I",
+      "quoteText": "You have business to attend to?",
+      "unlockConds": []
+    },
+    "x8127": {
+      "quoteTitle": "More About Diluc: II",
+      "quoteText": "Huh? Knights of Favonius? ...I have nothing to say about them. We have different views is all.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 3"
+      ]
+    },
+    "x8128": {
+      "quoteTitle": "More About Diluc: III",
+      "quoteText": "It's been a long while since I played chess with anyone but my butler. I just so happen to have a moment. Care to play a round?",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x8129": {
+      "quoteTitle": "More About Diluc: IV",
+      "quoteText": "Checkmate! ...Still, it's been a while since someone tested me this much.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 5"
+      ]
+    },
+    "x8130": {
+      "quoteTitle": "More About Diluc: V",
+      "quoteText": "Not bad. Be it chess or combat, you always seem to surprise me. Hm, working with you is quite the novelty. So... I look forward to continuing to work with you, partner.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 6"
+      ]
+    },
+    "x8131": {
+      "quoteTitle": "Diluc's Hobbies",
+      "quoteText": "The artwork in the manor? It's not mine. It's a collection that belonged to my late father.",
+      "unlockConds": []
+    },
+    "x8132": {
+      "quoteTitle": "Diluc's Troubles",
+      "quoteText": "The darkness that seethes with evil, full of demons that must be vanquished, will take more than a blade to be torn asunder.",
+      "unlockConds": []
+    },
+    "x8133": {
+      "quoteTitle": "Favorite Food",
+      "quoteText": "You want to know what's in my glass? It's... grape juice. My drink of choice.",
+      "unlockConds": []
+    },
+    "x8134": {
+      "quoteTitle": "Least Favorite Food",
+      "quoteText": "I don't like alcohol. It's just... I don't like how it feels in my mouth...",
+      "unlockConds": []
+    },
+    "x8135": {
+      "quoteTitle": "Birthday",
+      "quoteText": "Happy birthday. This is an important day for you. So tell me, what is it you wish for? If it is within my power to bestow it upon you, I will give it my consideration.",
+      "unlockConds": []
+    },
+    "x8136": {
+      "quoteTitle": "Feelings About Ascension: Intro",
+      "quoteText": "Power is necessary if we are to meet our objectives.",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 1"
+      ]
+    },
+    "x8137": {
+      "quoteTitle": "Feelings About Ascension: Building Up",
+      "quoteText": "What lies in wait for us? I rarely stop to think about it.\\nNo matter what dares to stand in my way, I must press forward.",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 2"
+      ]
+    },
+    "x8138": {
+      "quoteTitle": "Feelings About Ascension: Climax",
+      "quoteText": "I've become stronger... Though it is still not enough, I will always face the darkness.\\nFor dawn to come, there must be those who dare to pierce the darkness with their light.",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 4"
+      ]
+    },
+    "x8139": {
+      "quoteTitle": "Feelings About Ascension: Conclusion",
+      "quoteText": "I used to believe... if I was to stamp out evil, I would have to walk alone in darkness. However, seeing your perseverance, I know I was wrong. Friend... I owe you my thanks.",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 6"
+      ]
+    },
+    "x8140": {
+      "quoteTitle": "Elemental Skill: I",
+      "quoteText": "Hmph.",
+      "unlockConds": []
+    },
+    "x8141": {
+      "quoteTitle": "Elemental Skill: II",
+      "quoteText": "Hah!",
+      "unlockConds": []
+    },
+    "x8142": {
+      "quoteTitle": "Elemental Skill: III",
+      "quoteText": "Haah!——",
+      "unlockConds": []
+    },
+    "x8143": {
+      "quoteTitle": "Elemental Burst: I",
+      "quoteText": "Your verdict is...!",
+      "unlockConds": []
+    },
+    "x8144": {
+      "quoteTitle": "Elemental Burst: II",
+      "quoteText": "Burn!",
+      "unlockConds": []
+    },
+    "x8145": {
+      "quoteTitle": "Elemental Burst: III",
+      "quoteText": "Time for — retribution!",
+      "unlockConds": []
+    },
+    "x8146": {
+      "quoteTitle": "Opening Treasure Chest: I",
+      "quoteText": "Hmph, better than nothing.",
+      "unlockConds": []
+    },
+    "x8147": {
+      "quoteTitle": "Opening Treasure Chest: II",
+      "quoteText": "I suppose this will do.",
+      "unlockConds": []
+    },
+    "x8148": {
+      "quoteTitle": "Opening Treasure Chest: III",
+      "quoteText": "We'll need more where that came from.",
+      "unlockConds": []
+    },
+    "x8149": {
+      "quoteTitle": "Low HP: I",
+      "quoteText": "Is that all you've got?",
+      "unlockConds": []
+    },
+    "x8150": {
+      "quoteTitle": "Low HP: II",
+      "quoteText": "Darn you!",
+      "unlockConds": []
+    },
+    "x8151": {
+      "quoteTitle": "Low HP: III",
+      "quoteText": "You will pay for that!",
+      "unlockConds": []
+    },
+    "x8152": {
+      "quoteTitle": "Ally at Low HP: I",
+      "quoteText": "Careful!",
+      "unlockConds": []
+    },
+    "x8153": {
+      "quoteTitle": "Ally at Low HP: II",
+      "quoteText": "Don't burn yourself out! Retreat!",
+      "unlockConds": []
+    },
+    "x8154": {
+      "quoteTitle": "Fallen: I",
+      "quoteText": "Where did I go wrong...",
+      "unlockConds": []
+    },
+    "x8155": {
+      "quoteTitle": "Fallen: II",
+      "quoteText": "There can be no excuse... for defeat...",
+      "unlockConds": []
+    },
+    "x8156": {
+      "quoteTitle": "Fallen: III",
+      "quoteText": "My flame... has been... extinguished...",
+      "unlockConds": []
+    },
+    "x8157": {
+      "quoteTitle": "Heavy Hit Taken: I",
+      "quoteText": "Urgh!",
+      "unlockConds": []
+    },
+    "x8158": {
+      "quoteTitle": "Joining Party: I",
+      "quoteText": "Let's go.",
+      "unlockConds": []
+    },
+    "x8159": {
+      "quoteTitle": "Joining Party: II",
+      "quoteText": "What's our objective?",
+      "unlockConds": []
+    },
+    "x8160": {
+      "quoteTitle": "Joining Party: III",
+      "quoteText": "Let's finish this, swiftly.",
+      "unlockConds": []
+    },
+    "x8161": {
+      "quoteTitle": "Chat: Preparation",
+      "quoteText": "We should prepare while we can, then make a preemptive strike against the enemy.",
+      "unlockConds": []
+    },
+    "x8162": {
+      "quoteTitle": "Chat: Planning",
+      "quoteText": "Let's take a moment to rest and plan our next move.",
+      "unlockConds": []
+    },
+    "x8163": {
+      "quoteTitle": "Chat: Warning",
+      "quoteText": "Every course of action has its risks. Be careful.",
+      "unlockConds": []
+    },
+    "x8164": {
+      "quoteTitle": "Elemental Skill: I",
+      "quoteText": "Huh!",
+      "unlockConds": []
+    },
+    "x8165": {
+      "quoteTitle": "Elemental Skill: II",
+      "quoteText": "Hyah!",
+      "unlockConds": []
+    },
+    "x8166": {
+      "quoteTitle": "Elemental Skill: III",
+      "quoteText": "Haah!—",
+      "unlockConds": []
+    },
+    "x8167": {
+      "quoteTitle": "Elemental Burst: I",
+      "quoteText": "Flames, purge!",
+      "unlockConds": []
+    },
+    "x8168": {
+      "quoteTitle": "Elemental Burst: II",
+      "quoteText": "Lay waste to the wicked!",
+      "unlockConds": []
+    },
+    "x8169": {
+      "quoteTitle": "Elemental Burst: III",
+      "quoteText": "Dawn, break forth!",
+      "unlockConds": []
+    },
+    "x8170": {
+      "quoteTitle": "Receiving a Gift: I",
+      "quoteText": "Exquisite. Unforgettable flavors.",
+      "unlockConds": []
+    },
+    "x8171": {
+      "quoteTitle": "Receiving a Gift: II",
+      "quoteText": "I can see the chef put their heart into this one. A fine dish.",
+      "unlockConds": []
+    },
+    "x8172": {
+      "quoteTitle": "Receiving a Gift: III",
+      "quoteText": "...Umm, thanks.",
+      "unlockConds": []
+    }
+  },
+  "energy": [
+    {
+      "source": "Ball",
+      "particles": "1",
+      "chance": "100%",
+      "cd": "0.3s"
+    },
+    {
+      "source": "Ball_Extra",
+      "particles": "1",
+      "chance": "33%",
+      "cd": "0.3s"
+    }
+  ],
+  "attacks": [
+    {
+      "name": "FireCross_Push1",
+      "icd_source": "Grp: default",
+      "icd_rule": "Standard (3h/2.5s)",
+      "gauge": "0.0U",
+      "poise": "LV3/400",
+      "element": "-",
+      "attackType": "-",
+      "strikeType": "None",
+      "damageParam": "-"
+    },
+    {
+      "name": "FireCross_Strike",
+      "icd_source": "Grp: Diluc (Tag Miss)",
+      "icd_rule": "5 hits / 5s",
+      "gauge": "2U",
+      "poise": "LV4/100",
+      "element": "Fire",
+      "attackType": "Melee",
+      "strikeType": "Blunt",
+      "damageParam": "Damage"
+    },
+    {
+      "name": "FireCross_Strike",
+      "icd_source": "Tag: Elemental_Burst (!)",
+      "icd_rule": "Independent",
+      "gauge": "0.0U",
+      "poise": "LV5/100",
+      "element": "-",
+      "attackType": "-",
+      "strikeType": "None",
+      "damageParam": "-"
+    },
+    {
+      "name": "FireCross_Material",
+      "icd_source": "Grp: Diluc (Tag Miss)",
+      "icd_rule": "5 hits / 5s",
+      "gauge": "2U",
+      "poise": "LV4/100",
+      "element": "Fire",
+      "attackType": "Range",
+      "strikeType": "-",
+      "damageParam": "Damage|TalentRate|MUL"
+    },
+    {
+      "name": "FireCross_Explode",
+      "icd_source": "Grp: Diluc (Tag Miss)",
+      "icd_rule": "5 hits / 5s",
+      "gauge": "2U",
+      "poise": "LV8/100",
+      "element": "Fire",
+      "attackType": "Range",
+      "strikeType": "-",
+      "damageParam": "Damage|TalentRate|MUL"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "0U",
+      "poise": "LV2/35",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Slash",
+      "damageParam": "FallingAnthem_Normal_Loop_Damage"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV4/150",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Blunt",
+      "damageParam": "FallingAnthem_Normal_Rank_1_Damage"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV7/200",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Blunt",
+      "damageParam": "FallingAnthem_Normal_Rank_2_Damage"
+    }
+  ],
+  "endure": []
+}

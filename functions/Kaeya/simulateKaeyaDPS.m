@@ -1,0 +1,49 @@
+function [totalDMG, dps, breakdown, rotationTime] = simulateKaeyaDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
+    % 凯亚高精度近似模拟。
+    % 建模要点：
+    % 1. E 与 Q 分离建模，Q 按持续冰棱段数与 C6 额外冰棱计算；
+    % 2. C1 对受冰附着目标的普重击暴击率单独处理；
+    % 3. 默认按速切挂冰轴近似，不虚构击杀延长的 C2；
+    % 4. C6 以额外冰棱与回能价值中的伤害部分显式体现。
+    if nargin < 3 || isempty(seqFile)
+        seqFile = fullfile(fileparts(mfilename('fullpath')), '..', '..', 'data', 'Kaeya', 'rotation_Kaeya.txt');
+    end
+    if nargin < 4 || isempty(talentLevel)
+        talentLevel = 10;
+    end
+    if nargin < 5 || isempty(constellation)
+        constellation = 0;
+    end
+    if nargin < 6 || isempty(teamContext)
+        teamContext = buildTeamContext({struct('Name', 'Kaeya', 'Constellation', constellation, 'Build', build)}, 20, struct());
+    end
+
+    burstTicks = 8 + double(constellation >= 6);
+    cryoAuraBonus = 0.15 * double(constellation >= 1);
+    meltReady = getFieldOrDefault(teamContext, 'PyroCount', 0) >= 1;
+
+    actions = struct();
+    actions.E = struct('TalentGroup', "Skill", 'Param', "SkillDMG", 'DamageField', "SkillDMGBonus", ...
+        'ActionElement', "Cryo", 'BaseMultiplier', 1.00, 'AllowAmplify', double(meltReady), 'Note', "Frostgnaw");
+    actions.Q = struct('TalentGroup', "Burst", 'Param', "SkillDMG", 'DamageField', "BurstDMGBonus", ...
+        'ActionElement', "Cryo", 'BaseMultiplier', 1.00, 'HitCount', burstTicks, 'AllowAmplify', double(meltReady), 'Note', "Glacial Waltz");
+    actions.N1 = struct('TalentGroup', "Normal", 'Param', "x1HitDMG", 'DamageField', "NormalDMGBonus", ...
+        'ActionElement', "Physical", 'BaseMultiplier', 1.00, 'CritRateBonus', cryoAuraBonus, 'Note', "Normal 1");
+    actions.N2 = struct('TalentGroup', "Normal", 'Param', "x2HitDMG", 'DamageField', "NormalDMGBonus", ...
+        'ActionElement', "Physical", 'BaseMultiplier', 1.00, 'CritRateBonus', cryoAuraBonus, 'Note', "Normal 2");
+    actions.N3 = struct('TalentGroup', "Normal", 'Param', "x3HitDMG", 'DamageField', "NormalDMGBonus", ...
+        'ActionElement', "Physical", 'BaseMultiplier', 1.00, 'CritRateBonus', cryoAuraBonus, 'Note', "Normal 3");
+    actions.CA = struct('TalentGroup', "Normal", 'Param', "ChargedAttackDMG", 'DamageField', "ChargedDMGBonus", ...
+        'ActionElement', "Physical", 'BaseMultiplier', 1.00, 'HitCount', 2, 'CritRateBonus', cryoAuraBonus, 'Note', "Charged attack");
+
+    spec = struct( ...
+        'Element', "Cryo", ...
+        'ScalingMode', "ATK", ...
+        'DefaultActionTime', 0.70, ...
+        'DefaultRotation', {{'E', 'Q', 'N1', 'N2', 'N3', 'CA'}}, ...
+        'ActionTimeMap', struct('E', 0.60, 'Q', 1.00, 'N1', 0.35, 'N2', 0.40, 'N3', 0.48, 'CA', 0.72), ...
+        'Actions', actions);
+
+    [totalDMG, dps, breakdown, rotationTime] = simulateSimpleCharacterDPS( ...
+        'Kaeya', build, enemy, seqFile, talentLevel, constellation, teamContext, spec);
+end

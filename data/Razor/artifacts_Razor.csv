@@ -1,0 +1,2 @@
+Weapon,WeaponATK,WeaponSubStatType,WeaponSubStatValue,WeaponRefinement,AtkBonus,FlatATK,ER,CritRate,CritDMG,PhysicalDMGBonus,ElectroDMGBonus,NormalDMGBonus,BurstDMGBonus,ArtifactSet1,ArtifactSet1Pieces,ArtifactSet2,ArtifactSet2Pieces,ArtifactSet4Active
+SerpentSpine,510,CR,0.276,1,0.78,311,1.2,0.75,1.75,0.583,0.15,0.18,0.18,PaleFlame,4,None,0,1

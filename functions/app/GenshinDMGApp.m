@@ -858,7 +858,7 @@ classdef GenshinDMGApp < handle
             % 将内部状态同步到左侧队伍槽控件。
             slot = obj.Slots(slotIndex);
 
-            obj.SlotCharacterDropdowns{slotIndex}.Value = char(slot.CharacterKey);
+            obj.updateCharacterDropdown(slotIndex);
             obj.updatePresetDropdown(slotIndex);
             obj.updateWeaponDropdown(slotIndex);
             obj.updateArtifactDropdown(slotIndex);
@@ -921,9 +921,9 @@ classdef GenshinDMGApp < handle
                 obj.SelectedArtifactBadge.ImageSource = char(slot.ArtifactBadgePath);
             end
 
-            obj.ArtifactSetDropdown.Value = char(slot.ArtifactSet1);
-            obj.ArtifactSet2Dropdown.Value = char(slot.ArtifactSet2);
-            obj.ArtifactModeDropdown.Value = obj.resolveArtifactMode(slot);
+            obj.assignDropdownItems(obj.ArtifactSetDropdown, obj.ArtifactSetDropdown.Items, obj.ArtifactSetDropdown.ItemsData, char(slot.ArtifactSet1));
+            obj.assignDropdownItems(obj.ArtifactSet2Dropdown, obj.ArtifactSet2Dropdown.Items, obj.ArtifactSet2Dropdown.ItemsData, char(slot.ArtifactSet2));
+            obj.assignDropdownItems(obj.ArtifactModeDropdown, obj.ArtifactModeDropdown.Items, obj.ArtifactModeDropdown.ItemsData, obj.resolveArtifactMode(slot));
             obj.SelectedConstellationSpinner.Value = slot.Constellation;
             obj.SelectedTalentSpinner.Value = slot.TalentLevel;
             obj.SelectedRefinementSpinner.Value = slot.WeaponRefinement;
@@ -1040,6 +1040,28 @@ classdef GenshinDMGApp < handle
             dropdown.Value = currentValue;
         end
 
+        function updateCharacterDropdown(obj, slotIndex)
+            dropdown = obj.SlotCharacterDropdowns{slotIndex};
+            slot = obj.Slots(slotIndex);
+            labels = obj.getCharacterDropdownLabels();
+            itemData = cellstr(string({obj.Registry.Key}));
+            currentValue = char(slot.CharacterKey);
+
+            if isempty(itemData)
+                itemData = {currentValue};
+                labels = {currentValue};
+            else
+                itemData = itemData(:);
+                labels = labels(:);
+                if ~isempty(currentValue) && ~any(strcmp(itemData, currentValue))
+                    itemData = [{currentValue}; itemData];
+                    labels = [{currentValue}; labels];
+                end
+            end
+
+            obj.assignDropdownItems(dropdown, labels, itemData, currentValue);
+        end
+
         function updateWeaponDropdown(obj, slotIndex)
             % 刷新武器下拉框，并确保当前 build 中的武器仍可选。
             slot = obj.Slots(slotIndex);
@@ -1058,13 +1080,7 @@ classdef GenshinDMGApp < handle
                 itemData = {''};
             end
 
-            dropdown.Items = itemData;
-            dropdown.ItemsData = itemData;
-            dropdown.Value = itemData{1};
-
-            if ~isempty(currentWeapon) && any(strcmp(itemData, currentWeapon))
-                dropdown.Value = currentWeapon;
-            end
+            obj.assignDropdownItems(dropdown, itemData, itemData, currentWeapon);
         end
 
         function updateSelectedWeaponDropdown(obj)
@@ -1087,26 +1103,40 @@ classdef GenshinDMGApp < handle
                 itemData = {''};
             end
 
-            obj.SelectedWeaponDropdown.Items = itemData;
-            obj.SelectedWeaponDropdown.ItemsData = itemData;
-            if ~isempty(currentWeapon) && any(strcmp(itemData, currentWeapon))
-                obj.SelectedWeaponDropdown.Value = currentWeapon;
-            else
-                obj.SelectedWeaponDropdown.Value = itemData{1};
-            end
+            obj.assignDropdownItems(obj.SelectedWeaponDropdown, itemData, itemData, currentWeapon);
         end
 
         function updateArtifactDropdown(obj, slotIndex)
             % 刷新圣遗物套装下拉框。
             [labels, ids] = getArtifactSetChoices();
             dropdown = obj.SlotArtifactDropdowns{slotIndex};
-            dropdown.Items = labels;
-            dropdown.ItemsData = ids;
             currentValue = char(obj.Slots(slotIndex).ArtifactSet1);
             if ~any(strcmp(ids, currentValue))
                 currentValue = 'None';
             end
-            dropdown.Value = currentValue;
+            obj.assignDropdownItems(dropdown, labels, ids, currentValue);
+        end
+
+        function assignDropdownItems(obj, dropdown, labels, itemData, currentValue) %#ok<INUSL>
+            if isempty(labels)
+                labels = {''};
+            end
+            if isempty(itemData)
+                itemData = {''};
+            end
+
+            labels = labels(:);
+            itemData = itemData(:);
+            dropdown.Items = labels;
+            dropdown.ItemsData = itemData;
+
+            if nargin < 5 || isempty(currentValue)
+                dropdown.Value = itemData{1};
+            elseif any(strcmp(itemData, currentValue))
+                dropdown.Value = currentValue;
+            else
+                dropdown.Value = itemData{1};
+            end
         end
 
         function build = applyWeaponStatsToBuild(obj, build, weaponList, weaponName, refinement) %#ok<INUSD>

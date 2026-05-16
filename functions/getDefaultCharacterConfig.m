@@ -80,6 +80,36 @@ function cfg = getDefaultCharacterConfig(name, overrides)
         case {'nicole'}
             cfg = localBaseConfig('Nicole', customArtifact_Nicole(), fullfile(projectRoot, 'data', 'Nicole', 'rotation_Nicole.txt'));
 
+        case {'kamisato ayaka', 'ayaka', 'kamisatoayaka'}
+            cfg = localBaseConfig('KamisatoAyaka', customArtifact_KamisatoAyaka(), fullfile(projectRoot, 'data', 'KamisatoAyaka', 'rotation_KamisatoAyaka.txt'));
+
+        case {'jean'}
+            cfg = localBaseConfig('Jean', customArtifact_Jean(), fullfile(projectRoot, 'data', 'Jean', 'rotation_Jean.txt'));
+
+        case {'lisa'}
+            cfg = localBaseConfig('Lisa', customArtifact_Lisa(), fullfile(projectRoot, 'data', 'Lisa', 'rotation_Lisa.txt'));
+
+        case {'barbara'}
+            cfg = localBaseConfig('Barbara', customArtifact_Barbara(), fullfile(projectRoot, 'data', 'Barbara', 'rotation_Barbara.txt'));
+
+        case {'kaeya'}
+            cfg = localBaseConfig('Kaeya', customArtifact_Kaeya(), fullfile(projectRoot, 'data', 'Kaeya', 'rotation_Kaeya.txt'));
+
+        case {'diluc'}
+            cfg = localBaseConfig('Diluc', customArtifact_Diluc(), fullfile(projectRoot, 'data', 'Diluc', 'rotation_Diluc.txt'));
+
+        case {'razor'}
+            cfg = localBaseConfig('Razor', customArtifact_Razor(), fullfile(projectRoot, 'data', 'Razor', 'rotation_Razor.txt'));
+
+        case {'amber'}
+            cfg = localBaseConfig('Amber', customArtifact_Amber(), fullfile(projectRoot, 'data', 'Amber', 'rotation_Amber.txt'));
+
+        case {'venti'}
+            cfg = localBaseConfig('Venti', customArtifact_Venti(), fullfile(projectRoot, 'data', 'Venti', 'rotation_Venti.txt'));
+
+        case {'xiangling'}
+            cfg = localBaseConfig('Xiangling', customArtifact_Xiangling(), fullfile(projectRoot, 'data', 'Xiangling', 'rotation_Xiangling.txt'));
+
         case {'hutao', 'hu tao'}
             cfg = localBaseConfig('Hutao', customArtifact_Hutao(), fullfile(projectRoot, 'data', 'Hutao', 'rotation_Hutao.txt'));
             cfg.DisplayName = "Hu Tao";

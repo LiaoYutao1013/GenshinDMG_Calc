@@ -1,0 +1,2 @@
+Weapon,WeaponATK,WeaponSubStatType,WeaponSubStatValue,WeaponRefinement,AtkBonus,FlatATK,ER,CritRate,CritDMG,AnemoDMGBonus,SkillDMGBonus,BurstDMGBonus,HealingBonus,ArtifactSet1,ArtifactSet1Pieces,ArtifactSet2,ArtifactSet2Pieces,ArtifactSet4Active
+AquilaFavonia,674,Phys,0.413,1,0.72,311,1.35,0.6,1.45,0.466,0.2,0.2,0.359,ViridescentVenerer,4,None,0,1

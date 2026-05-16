@@ -1,8 +1,7 @@
 function registry = getCharacterRegistry()
     % Unified character registry for GUI and asset loading.
-    % The source of truth is data/AvatarExcelConfigData.js, with a small
-    % alias layer for characters whose internal keys differ from the
-    % user-facing roster key used by the simulator.
+    % Prefer locally implemented character folders so GUI startup does not
+    % depend on the external avatar database being perfectly parseable.
     persistent cachedRegistry
     if ~isempty(cachedRegistry)
         registry = cachedRegistry;
@@ -11,18 +10,72 @@ function registry = getCharacterRegistry()
 
     initProjectPaths();
     projectRoot = fileparts(fileparts(fileparts(mfilename('fullpath'))));
-    avatarDbPath = fullfile(projectRoot, 'data', 'AvatarExcelConfigData.js');
-    avatarEntries = localReadAvatarEntries(avatarDbPath);
     aliasMap = localCharacterAliasMap();
 
-    registry = repmat(struct( ...
-        'Key', "", ...
-        'DisplayName', "", ...
-        'WeaponType', "", ...
-        'Element', "", ...
-        'AvatarKey', "", ...
-        'Implemented', false), 1, 0);
+    registry = localReadImplementedCharacters(projectRoot, aliasMap);
+    registry = localMergeAvatarMetadata(registry, projectRoot, aliasMap);
+    registry = localSortRegistry(registry);
+    cachedRegistry = registry;
+end
 
+function registry = localReadImplementedCharacters(projectRoot, aliasMap)
+    dataDir = fullfile(projectRoot, 'data');
+    entries = dir(dataDir);
+    registry = repmat(localEmptyRegistryItem(), 1, 0);
+
+    for i = 1:numel(entries)
+        if ~entries(i).isdir
+            continue;
+        end
+
+        folderName = string(entries(i).name);
+        if startsWith(folderName, ".")
+            continue;
+        end
+        if any(folderName == ["lunaris", "presets"])
+            continue;
+        end
+
+        folderPath = fullfile(entries(i).folder, entries(i).name);
+        files = dir(fullfile(folderPath, 'characters_*.csv'));
+        if isempty(files)
+            continue;
+        end
+
+        csvPath = fullfile(files(1).folder, files(1).name);
+        try
+            tbl = readtable(csvPath, 'TextType', 'string');
+        catch
+            continue;
+        end
+        if isempty(tbl)
+            continue;
+        end
+
+        key = localNormalizeCharacterKey(folderName);
+        displayName = localResolveDisplayName(key, tbl, aliasMap);
+        weaponType = localNormalizeWeaponType(localTableString(tbl, 'Weapon', 1));
+        element = localNormalizeElement(localTableString(tbl, 'Element', 1));
+        avatarKey = localResolveAvatarKeyFromLocalData(key, aliasMap);
+
+        registry(end + 1) = struct( ... %#ok<AGROW>
+            'Key', key, ...
+            'DisplayName', displayName, ...
+            'WeaponType', weaponType, ...
+            'Element', element, ...
+            'AvatarKey', avatarKey, ...
+            'Implemented', true);
+    end
+end
+
+function registry = localMergeAvatarMetadata(registry, projectRoot, aliasMap)
+    avatarDbPath = fullfile(projectRoot, 'data', 'AvatarExcelConfigData.js');
+    avatarEntries = localReadAvatarEntries(avatarDbPath);
+    if isempty(avatarEntries)
+        return;
+    end
+
+    existingKeys = string({registry.Key});
     for i = 1:numel(avatarEntries)
         rawName = string(getFieldOrDefault(avatarEntries(i), '_name', ""));
         if strlength(rawName) == 0 || startsWith(rawName, "Player", 'IgnoreCase', true)
@@ -42,27 +95,43 @@ function registry = getCharacterRegistry()
         [weaponType, element, implemented] = localOverrideWithCharacterCsv( ...
             projectRoot, mapping.Key, weaponType, element);
 
-        registry(end + 1) = struct( ... %#ok<AGROW>
-            'Key', mapping.Key, ...
-            'DisplayName', displayName, ...
-            'WeaponType', weaponType, ...
-            'Element', element, ...
-            'AvatarKey', avatarKey, ...
-            'Implemented', implemented);
-    end
+        idx = find(existingKeys == mapping.Key, 1, 'first');
+        if isempty(idx)
+            registry(end + 1) = struct( ... %#ok<AGROW>
+                'Key', mapping.Key, ...
+                'DisplayName', displayName, ...
+                'WeaponType', weaponType, ...
+                'Element', element, ...
+                'AvatarKey', avatarKey, ...
+                'Implemented', implemented);
+            existingKeys(end + 1) = mapping.Key; %#ok<AGROW>
+            continue;
+        end
 
-    registry = localSortRegistry(registry);
-    cachedRegistry = registry;
+        if strlength(string(registry(idx).DisplayName)) == 0
+            registry(idx).DisplayName = displayName;
+        end
+        if strlength(string(registry(idx).WeaponType)) == 0
+            registry(idx).WeaponType = weaponType;
+        end
+        if strlength(string(registry(idx).Element)) == 0
+            registry(idx).Element = element;
+        end
+        if strlength(string(registry(idx).AvatarKey)) == 0
+            registry(idx).AvatarKey = avatarKey;
+        end
+        registry(idx).Implemented = registry(idx).Implemented || implemented;
+    end
 end
 
 function entries = localReadAvatarEntries(filePath)
+    entries = repmat(struct(), 1, 0);
     if exist(filePath, 'file') ~= 2
-        error('Avatar database not found: %s', filePath);
+        return;
     end
 
     rawText = fileread(filePath);
     chunks = localExtractTopLevelObjects(rawText);
-    entries = repmat(struct(), 1, 0);
     for i = 1:numel(chunks)
         try
             item = jsondecode(chunks{i});
@@ -82,7 +151,7 @@ function chunks = localExtractTopLevelObjects(rawText)
     depth = 0;
     startIndex = 0;
 
-    for i = 1:strlength(string(rawText))
+    for i = 1:numel(rawText)
         ch = rawText(i);
         if inString
             if escaped
@@ -125,9 +194,11 @@ function aliasMap = localCharacterAliasMap()
     aliasMap('Heizo') = struct('Key', "ShikanoinHeizou", 'DisplayName', "Shikanoin Heizou", 'AvatarKey', "Heizo", 'Include', true);
     aliasMap('Shinobu') = struct('Key', "KukiShinobu", 'DisplayName', "Kuki Shinobu", 'AvatarKey', "Shinobu", 'Include', true);
     aliasMap('Ayato') = struct('Key', "KamisatoAyato", 'DisplayName', "Kamisato Ayato", 'AvatarKey', "Ayato", 'Include', true);
+    aliasMap('Ayaka') = struct('Key', "KamisatoAyaka", 'DisplayName', "Kamisato Ayaka", 'AvatarKey', "Ayaka", 'Include', true);
     aliasMap('Yae') = struct('Key', "YaeMiko", 'DisplayName', "Yae Miko", 'AvatarKey', "Yae", 'Include', true);
     aliasMap('Yunjin') = struct('Key', "YunJin", 'DisplayName', "Yun Jin", 'AvatarKey', "Yunjin", 'Include', true);
     aliasMap('Itto') = struct('Key', "AratakiItto", 'DisplayName', "Arataki Itto", 'AvatarKey', "Itto", 'Include', true);
+    aliasMap('Qin') = struct('Key', "Jean", 'DisplayName', "Jean", 'AvatarKey', "Qin", 'Include', true);
 end
 
 function mapping = localResolveCharacterMapping(rawName, aliasMap)
@@ -160,8 +231,8 @@ function [weaponType, element, implemented] = localOverrideWithCharacterCsv(proj
         return;
     end
 
-    csvWeapon = string(tbl.Weapon(1));
-    csvElement = string(tbl.Element(1));
+    csvWeapon = localTableString(tbl, 'Weapon', 1);
+    csvElement = localTableString(tbl, 'Element', 1);
     if strlength(csvWeapon) > 0
         weaponType = localNormalizeWeaponType(csvWeapon);
     end
@@ -180,6 +251,53 @@ function avatarKey = localResolveAvatarKey(iconField, fallbackKey)
         avatarKey = erase(iconField, "UI_AvatarIcon_");
     else
         avatarKey = iconField;
+    end
+end
+
+function key = localNormalizeCharacterKey(folderName)
+    rawKey = string(folderName);
+    if any(rawKey == ["Furina", "Columbina", "Skirk", "Escoffier", "Citlali", "Xianyun"])
+        key = rawKey;
+        return;
+    end
+    key = rawKey;
+end
+
+function displayName = localResolveDisplayName(key, tbl, aliasMap)
+    displayName = string(key);
+    aliasNames = values(aliasMap);
+    for i = 1:numel(aliasNames)
+        alias = aliasNames{i};
+        if string(alias.Key) == key
+            displayName = string(alias.DisplayName);
+            return;
+        end
+    end
+
+    nameValue = localTableString(tbl, 'Name', 1);
+    if strlength(nameValue) > 0 && localLooksLikeAsciiName(nameValue)
+        displayName = nameValue;
+    end
+end
+
+function tf = localLooksLikeAsciiName(value)
+    chars = char(string(value));
+    if isempty(chars)
+        tf = false;
+        return;
+    end
+    tf = all((chars >= 32 & chars <= 126) | chars == 9);
+end
+
+function avatarKey = localResolveAvatarKeyFromLocalData(key, aliasMap)
+    avatarKey = string(key);
+    aliasNames = keys(aliasMap);
+    for i = 1:numel(aliasNames)
+        alias = aliasMap(aliasNames{i});
+        if string(alias.Key) == key
+            avatarKey = string(alias.AvatarKey);
+            return;
+        end
     end
 end
 
@@ -216,11 +334,32 @@ function value = localNormalizeElement(rawValue)
             value = "Anemo";
         case {'rock', 'geo'}
             value = "Geo";
-        case {'grass', 'dendro'}
+        case {'grass', 'dendro', 'dendro_'}
             value = "Dendro";
         otherwise
             value = string(rawValue);
     end
+end
+
+function value = localTableString(tbl, fieldName, rowIndex)
+    value = "";
+    if nargin < 3
+        rowIndex = 1;
+    end
+    if isempty(tbl) || ~ismember(fieldName, tbl.Properties.VariableNames) || rowIndex > height(tbl)
+        return;
+    end
+    value = string(tbl.(fieldName)(rowIndex));
+end
+
+function item = localEmptyRegistryItem()
+    item = struct( ...
+        'Key', "", ...
+        'DisplayName', "", ...
+        'WeaponType', "", ...
+        'Element', "", ...
+        'AvatarKey', "", ...
+        'Implemented', false);
 end
 
 function registry = localSortRegistry(registry)
