@@ -1,0 +1,31 @@
+﻿{
+    "Id":  15044,
+    "SetId":  15044,
+    "EnName":  "A Day Carved From Rising Winds",
+    "QualityType":  "QUALITY_ORANGE",
+    "SetIcon":  "UI_RelicIcon_15044_4",
+    "Effect2Pc":  "ATK +18%.",
+    "Effect4Pc":  "After a Normal Attack, Charged Attack, Elemental Skill, or Elemental Burst hits an opponent, gain the Blessing of Pastoral Winds effect for 6s: ATK is increased by 25%. If the equipping character has completed Witch\u0027s Homework, Blessing of Pastoral Winds will be upgraded to Resolve of Pastoral Winds, which additionally increases the CRIT Rate of the equipping character by 20%. This effect can be triggered even when the character is off-field.",
+    "Pieces":  {
+                   "circlet":  {
+                                   "icon":  "UI_RelicIcon_15044_3",
+                                   "name":  "Minnesang of Love and Lament"
+                               },
+                   "flower":  {
+                                  "icon":  "UI_RelicIcon_15044_4",
+                                  "name":  "Windborne Flower\u0027s Spruchdichtung"
+                              },
+                   "goblet":  {
+                                  "icon":  "UI_RelicIcon_15044_1",
+                                  "name":  "Heldenepos\u0027s Unspoken Tale"
+                              },
+                   "plume":  {
+                                 "icon":  "UI_RelicIcon_15044_2",
+                                 "name":  "Dawn\u0027s Brilliant Oath"
+                             },
+                   "sands":  {
+                                 "icon":  "UI_RelicIcon_15044_5",
+                                 "name":  "A Note in Spring\u0027s Leich"
+                             }
+               }
+}

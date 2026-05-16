@@ -1,0 +1,31 @@
+﻿{
+    "Id":  10012,
+    "SetId":  10012,
+    "EnName":  "Scholar",
+    "QualityType":  "QUALITY_PURPLE",
+    "SetIcon":  "UI_RelicIcon_10012_4",
+    "Effect2Pc":  "Energy Recharge +20%",
+    "Effect4Pc":  "Gaining Elemental Particles or Orbs gives 3 Energy to all party members who have a bow or a catalyst equipped. Can only occur once every 3s.",
+    "Pieces":  {
+                   "circlet":  {
+                                   "icon":  "UI_RelicIcon_10012_3",
+                                   "name":  "Scholar\u0027s Lens"
+                               },
+                   "flower":  {
+                                  "icon":  "UI_RelicIcon_10012_4",
+                                  "name":  "Scholar\u0027s Bookmark"
+                              },
+                   "goblet":  {
+                                  "icon":  "UI_RelicIcon_10012_1",
+                                  "name":  "Scholar\u0027s Ink Cup"
+                              },
+                   "plume":  {
+                                 "icon":  "UI_RelicIcon_10012_2",
+                                 "name":  "Scholar\u0027s Quill Pen"
+                             },
+                   "sands":  {
+                                 "icon":  "UI_RelicIcon_10012_5",
+                                 "name":  "Scholar\u0027s Clock"
+                             }
+               }
+}

@@ -1,0 +1,31 @@
+﻿{
+    "Id":  10010,
+    "SetId":  10010,
+    "EnName":  "Adventurer",
+    "QualityType":  "QUALITY_BLUE",
+    "SetIcon":  "UI_RelicIcon_10010_4",
+    "Effect2Pc":  "Max HP increased by 1,000.",
+    "Effect4Pc":  "Opening a chest regenerates 30% Max HP over 5s.",
+    "Pieces":  {
+                   "circlet":  {
+                                   "icon":  "UI_RelicIcon_10010_3",
+                                   "name":  "Adventurer\u0027s Bandana"
+                               },
+                   "flower":  {
+                                  "icon":  "UI_RelicIcon_10010_4",
+                                  "name":  "Adventurer\u0027s Flower"
+                              },
+                   "goblet":  {
+                                  "icon":  "UI_RelicIcon_10010_1",
+                                  "name":  "Adventurer\u0027s Golden Goblet"
+                              },
+                   "plume":  {
+                                 "icon":  "UI_RelicIcon_10010_2",
+                                 "name":  "Adventurer\u0027s Tail Feather"
+                             },
+                   "sands":  {
+                                 "icon":  "UI_RelicIcon_10010_5",
+                                 "name":  "Adventurer\u0027s Pocket Watch"
+                             }
+               }
+}

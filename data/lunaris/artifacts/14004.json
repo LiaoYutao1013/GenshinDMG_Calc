@@ -1,0 +1,31 @@
+﻿{
+    "Id":  14004,
+    "SetId":  14004,
+    "EnName":  "Maiden Beloved",
+    "QualityType":  "QUALITY_ORANGE",
+    "SetIcon":  "UI_RelicIcon_14004_4",
+    "Effect2Pc":  "Character Healing Effectiveness +15%",
+    "Effect4Pc":  "Using an Elemental Skill or Burst increases healing received by all party members by 20% for 10s.",
+    "Pieces":  {
+                   "circlet":  {
+                                   "icon":  "UI_RelicIcon_14004_3",
+                                   "name":  "Maiden\u0027s Fading Beauty"
+                               },
+                   "flower":  {
+                                  "icon":  "UI_RelicIcon_14004_4",
+                                  "name":  "Maiden\u0027s Distant Love"
+                              },
+                   "goblet":  {
+                                  "icon":  "UI_RelicIcon_14004_1",
+                                  "name":  "Maiden\u0027s Fleeting Leisure"
+                              },
+                   "plume":  {
+                                 "icon":  "UI_RelicIcon_14004_2",
+                                 "name":  "Maiden\u0027s Heart-Stricken Infatuation"
+                             },
+                   "sands":  {
+                                 "icon":  "UI_RelicIcon_14004_5",
+                                 "name":  "Maiden\u0027s Passing Youth"
+                             }
+               }
+}

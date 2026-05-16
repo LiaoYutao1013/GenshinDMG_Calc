@@ -1,0 +1,2325 @@
+﻿{
+    "10000002": {
+        "CardImg": "UI_Gacha_AvatarIcon_Ayaka",
+        "GachaImg": "UI_Gacha_AvatarImg_Ayaka",
+        "ascensionStats": {
+            "CRIT DMG%": 38.4,
+            "atk": 342,
+            "def": 784,
+            "hp": 12858
+        },
+        "chsName": "ç¥éç»«å",
+        "element": "Cryo",
+        "enName": "Kamisato Ayaka",
+        "ptName": "Kamisato Ayaka",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558790,
+        "ruName": "ÐÑÐºÐ°",
+        "weaponType": "WEAPON_SWORD_ONE_HAND"
+    },
+    "10000003": {
+        "CardImg": "UI_Gacha_AvatarIcon_Qin",
+        "GachaImg": "UI_Gacha_AvatarImg_Qin",
+        "ascensionStats": {
+            "Healing Bonus%": 22.1,
+            "atk": 239,
+            "def": 769,
+            "hp": 14695
+        },
+        "chsName": "ç´",
+        "element": "Anemo",
+        "enName": "Jean",
+        "ptName": "Jean",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558790,
+        "ruName": "ÐÐ¶Ð¸Ð½Ð½",
+        "weaponType": "WEAPON_SWORD_ONE_HAND"
+    },
+    "10000005_ANEMO": {
+        "CardImg": "UI_Gacha_AvatarIcon_PlayerBoy",
+        "GachaImg": "UI_Gacha_AvatarImg_PlayerBoy",
+        "ascensionStats": {
+            "ATK%": 24.0,
+            "atk": 219,
+            "def": 705,
+            "hp": 11231
+        },
+        "chsName": "æè¡è",
+        "element": "Anemo",
+        "enName": "Traveler",
+        "ptName": "Viajante",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558790,
+        "ruName": "ÐÑÑÐµÑÐµÑÑÐ²ÐµÐ½Ð½Ð¸Ðº",
+        "weaponType": "WEAPON_SWORD_ONE_HAND"
+    },
+    "10000005_DENDRO": {
+        "CardImg": "UI_Gacha_AvatarIcon_PlayerBoy",
+        "GachaImg": "UI_Gacha_AvatarImg_PlayerBoy",
+        "ascensionStats": {
+            "ATK%": 24.0,
+            "atk": 219,
+            "def": 705,
+            "hp": 11231
+        },
+        "chsName": "æè¡è",
+        "element": "Dendro",
+        "enName": "Traveler",
+        "ptName": "Viajante",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558790,
+        "ruName": "ÐÑÑÐµÑÐµÑÑÐ²ÐµÐ½Ð½Ð¸Ðº",
+        "weaponType": "WEAPON_SWORD_ONE_HAND"
+    },
+    "10000005_ELECTRO": {
+        "CardImg": "UI_Gacha_AvatarIcon_PlayerBoy",
+        "GachaImg": "UI_Gacha_AvatarImg_PlayerBoy",
+        "ascensionStats": {
+            "ATK%": 24.0,
+            "atk": 219,
+            "def": 705,
+            "hp": 11231
+        },
+        "chsName": "æè¡è",
+        "element": "Electro",
+        "enName": "Traveler",
+        "ptName": "Viajante",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558790,
+        "ruName": "ÐÑÑÐµÑÐµÑÑÐ²ÐµÐ½Ð½Ð¸Ðº",
+        "weaponType": "WEAPON_SWORD_ONE_HAND"
+    },
+    "10000005_GEO": {
+        "CardImg": "UI_Gacha_AvatarIcon_PlayerBoy",
+        "GachaImg": "UI_Gacha_AvatarImg_PlayerBoy",
+        "ascensionStats": {
+            "ATK%": 24.0,
+            "atk": 219,
+            "def": 705,
+            "hp": 11231
+        },
+        "chsName": "æè¡è",
+        "element": "Geo",
+        "enName": "Traveler",
+        "ptName": "Viajante",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558790,
+        "ruName": "ÐÑÑÐµÑÐµÑÑÐ²ÐµÐ½Ð½Ð¸Ðº",
+        "weaponType": "WEAPON_SWORD_ONE_HAND"
+    },
+    "10000005_HYDRO": {
+        "CardImg": "UI_Gacha_AvatarIcon_PlayerBoy",
+        "GachaImg": "UI_Gacha_AvatarImg_PlayerBoy",
+        "ascensionStats": {
+            "ATK%": 24.0,
+            "atk": 219,
+            "def": 705,
+            "hp": 11231
+        },
+        "chsName": "æè¡è",
+        "element": "Hydro",
+        "enName": "Traveler",
+        "ptName": "Viajante",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558790,
+        "ruName": "ÐÑÑÐµÑÐµÑÑÐ²ÐµÐ½Ð½Ð¸Ðº",
+        "weaponType": "WEAPON_SWORD_ONE_HAND"
+    },
+    "10000005_PYRO": {
+        "CardImg": "UI_Gacha_AvatarIcon_PlayerBoy",
+        "GachaImg": "UI_Gacha_AvatarImg_PlayerBoy",
+        "ascensionStats": {
+            "ATK%": 24.0,
+            "atk": 219,
+            "def": 705,
+            "hp": 11231
+        },
+        "chsName": "æè¡è",
+        "element": "Pyro",
+        "enName": "Traveler",
+        "ptName": "Viajante",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558790,
+        "ruName": "ÐÑÑÐµÑÐµÑÑÐ²ÐµÐ½Ð½Ð¸Ðº",
+        "weaponType": "WEAPON_SWORD_ONE_HAND"
+    },
+    "10000006": {
+        "CardImg": "UI_Gacha_AvatarIcon_Lisa",
+        "GachaImg": "UI_Gacha_AvatarImg_Lisa",
+        "ascensionStats": {
+            "Elemental Mastery": 96.0,
+            "atk": 232,
+            "def": 573,
+            "hp": 9570
+        },
+        "chsName": "ä¸½è",
+        "element": "Electro",
+        "enName": "Lisa",
+        "ptName": "Lisa",
+        "qualityType": "QUALITY_PURPLE",
+        "releaseDate": 1777558790,
+        "ruName": "ÐÐ¸Ð·Ð°",
+        "weaponType": "WEAPON_CATALYST"
+    },
+    "10000007_ANEMO": {
+        "CardImg": "UI_Gacha_AvatarIcon_PlayerGirl",
+        "GachaImg": "UI_Gacha_AvatarImg_PlayerGirl",
+        "ascensionStats": {
+            "ATK%": 24.0,
+            "atk": 219,
+            "def": 705,
+            "hp": 11231
+        },
+        "chsName": "æè¡è",
+        "element": "Anemo",
+        "enName": "Traveler",
+        "ptName": "Viajante",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558790,
+        "ruName": "ÐÑÑÐµÑÐµÑÑÐ²ÐµÐ½Ð½Ð¸ÑÐ°",
+        "weaponType": "WEAPON_SWORD_ONE_HAND"
+    },
+    "10000007_DENDRO": {
+        "CardImg": "UI_Gacha_AvatarIcon_PlayerGirl",
+        "GachaImg": "UI_Gacha_AvatarImg_PlayerGirl",
+        "ascensionStats": {
+            "ATK%": 24.0,
+            "atk": 219,
+            "def": 705,
+            "hp": 11231
+        },
+        "chsName": "æè¡è",
+        "element": "Dendro",
+        "enName": "Traveler",
+        "ptName": "Viajante",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558790,
+        "ruName": "ÐÑÑÐµÑÐµÑÑÐ²ÐµÐ½Ð½Ð¸ÑÐ°",
+        "weaponType": "WEAPON_SWORD_ONE_HAND"
+    },
+    "10000007_ELECTRO": {
+        "CardImg": "UI_Gacha_AvatarIcon_PlayerGirl",
+        "GachaImg": "UI_Gacha_AvatarImg_PlayerGirl",
+        "ascensionStats": {
+            "ATK%": 24.0,
+            "atk": 219,
+            "def": 705,
+            "hp": 11231
+        },
+        "chsName": "æè¡è",
+        "element": "Electro",
+        "enName": "Traveler",
+        "ptName": "Viajante",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558790,
+        "ruName": "ÐÑÑÐµÑÐµÑÑÐ²ÐµÐ½Ð½Ð¸ÑÐ°",
+        "weaponType": "WEAPON_SWORD_ONE_HAND"
+    },
+    "10000007_GEO": {
+        "CardImg": "UI_Gacha_AvatarIcon_PlayerGirl",
+        "GachaImg": "UI_Gacha_AvatarImg_PlayerGirl",
+        "ascensionStats": {
+            "ATK%": 24.0,
+            "atk": 219,
+            "def": 705,
+            "hp": 11231
+        },
+        "chsName": "æè¡è",
+        "element": "Geo",
+        "enName": "Traveler",
+        "ptName": "Viajante",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558790,
+        "ruName": "ÐÑÑÐµÑÐµÑÑÐ²ÐµÐ½Ð½Ð¸ÑÐ°",
+        "weaponType": "WEAPON_SWORD_ONE_HAND"
+    },
+    "10000007_HYDRO": {
+        "CardImg": "UI_Gacha_AvatarIcon_PlayerGirl",
+        "GachaImg": "UI_Gacha_AvatarImg_PlayerGirl",
+        "ascensionStats": {
+            "ATK%": 24.0,
+            "atk": 219,
+            "def": 705,
+            "hp": 11231
+        },
+        "chsName": "æè¡è",
+        "element": "Hydro",
+        "enName": "Traveler",
+        "ptName": "Viajante",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558790,
+        "ruName": "ÐÑÑÐµÑÐµÑÑÐ²ÐµÐ½Ð½Ð¸ÑÐ°",
+        "weaponType": "WEAPON_SWORD_ONE_HAND"
+    },
+    "10000007_PYRO": {
+        "CardImg": "UI_Gacha_AvatarIcon_PlayerGirl",
+        "GachaImg": "UI_Gacha_AvatarImg_PlayerGirl",
+        "ascensionStats": {
+            "ATK%": 24.0,
+            "atk": 219,
+            "def": 705,
+            "hp": 11231
+        },
+        "chsName": "æè¡è",
+        "element": "Pyro",
+        "enName": "Traveler",
+        "ptName": "Viajante",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558790,
+        "ruName": "ÐÑÑÐµÑÐµÑÑÐ²ÐµÐ½Ð½Ð¸ÑÐ°",
+        "weaponType": "WEAPON_SWORD_ONE_HAND"
+    },
+    "10000014": {
+        "CardImg": "UI_Gacha_AvatarIcon_Barbara",
+        "GachaImg": "UI_Gacha_AvatarImg_Barbara",
+        "ascensionStats": {
+            "HP%": 24.0,
+            "atk": 159,
+            "def": 669,
+            "hp": 9787
+        },
+        "chsName": "è­è­æ",
+        "element": "Hydro",
+        "enName": "Barbara",
+        "ptName": "Barbara",
+        "qualityType": "QUALITY_PURPLE",
+        "releaseDate": 1777558790,
+        "ruName": "ÐÐ°ÑÐ±Ð°ÑÐ°",
+        "weaponType": "WEAPON_CATALYST"
+    },
+    "10000015": {
+        "CardImg": "UI_Gacha_AvatarIcon_Kaeya",
+        "GachaImg": "UI_Gacha_AvatarImg_Kaeya",
+        "ascensionStats": {
+            "Energy Recharge%": 26.7,
+            "atk": 223,
+            "def": 792,
+            "hp": 11636
+        },
+        "chsName": "å¯äº",
+        "element": "Cryo",
+        "enName": "Kaeya",
+        "ptName": "Kaeya",
+        "qualityType": "QUALITY_PURPLE",
+        "releaseDate": 1777558790,
+        "ruName": "ÐÑÐ¹Ð°",
+        "weaponType": "WEAPON_SWORD_ONE_HAND"
+    },
+    "10000016": {
+        "CardImg": "UI_Gacha_AvatarIcon_Diluc",
+        "GachaImg": "UI_Gacha_AvatarImg_Diluc",
+        "ascensionStats": {
+            "CRIT Rate%": 19.2,
+            "atk": 335,
+            "def": 784,
+            "hp": 12981
+        },
+        "chsName": "è¿ªå¢å",
+        "element": "Pyro",
+        "enName": "Diluc",
+        "ptName": "Diluc",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558790,
+        "ruName": "ÐÐ¸Ð»ÑÐº",
+        "weaponType": "WEAPON_CLAYMORE"
+    },
+    "10000020": {
+        "CardImg": "UI_Gacha_AvatarIcon_Razor",
+        "GachaImg": "UI_Gacha_AvatarImg_Razor",
+        "ascensionStats": {
+            "Physical DMG Bonus%": 30.0,
+            "atk": 234,
+            "def": 751,
+            "hp": 11962
+        },
+        "chsName": "é·æ³½",
+        "element": "Electro",
+        "enName": "Razor",
+        "ptName": "Razor",
+        "qualityType": "QUALITY_PURPLE",
+        "releaseDate": 1777558790,
+        "ruName": "Ð ÑÐ¹Ð·Ð¾Ñ",
+        "weaponType": "WEAPON_CLAYMORE"
+    },
+    "10000021": {
+        "CardImg": "UI_Gacha_AvatarIcon_Ambor",
+        "GachaImg": "UI_Gacha_AvatarImg_Ambor",
+        "ascensionStats": {
+            "ATK%": 24.0,
+            "atk": 223,
+            "def": 601,
+            "hp": 9461
+        },
+        "chsName": "å®æ",
+        "element": "Pyro",
+        "enName": "Amber",
+        "ptName": "Amber",
+        "qualityType": "QUALITY_PURPLE",
+        "releaseDate": 1777558790,
+        "ruName": "Ð­Ð¼Ð±ÐµÑ",
+        "weaponType": "WEAPON_BOW"
+    },
+    "10000022": {
+        "CardImg": "UI_Gacha_AvatarIcon_Venti",
+        "GachaImg": "UI_Gacha_AvatarImg_Venti",
+        "ascensionStats": {
+            "Energy Recharge%": 32.0,
+            "atk": 263,
+            "def": 669,
+            "hp": 10531
+        },
+        "chsName": "æ¸©è¿ª",
+        "element": "Anemo",
+        "enName": "Venti",
+        "ptName": "Venti",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558790,
+        "ruName": "ÐÐµÐ½ÑÐ¸",
+        "weaponType": "WEAPON_BOW"
+    },
+    "10000023": {
+        "CardImg": "UI_Gacha_AvatarIcon_Xiangling",
+        "GachaImg": "UI_Gacha_AvatarImg_Xiangling",
+        "ascensionStats": {
+            "Elemental Mastery": 96.0,
+            "atk": 225,
+            "def": 669,
+            "hp": 10875
+        },
+        "chsName": "é¦è±",
+        "element": "Pyro",
+        "enName": "Xiangling",
+        "ptName": "Xiangling",
+        "qualityType": "QUALITY_PURPLE",
+        "releaseDate": 1777558790,
+        "ruName": "Ð¡ÑÐ½ ÐÐ¸Ð½",
+        "weaponType": "WEAPON_POLE"
+    },
+    "10000024": {
+        "CardImg": "UI_Gacha_AvatarIcon_Beidou",
+        "GachaImg": "UI_Gacha_AvatarImg_Beidou",
+        "ascensionStats": {
+            "Electro DMG Bonus%": 24.0,
+            "atk": 225,
+            "def": 648,
+            "hp": 13050
+        },
+        "chsName": "åæ",
+        "element": "Electro",
+        "enName": "Beidou",
+        "ptName": "Beidou",
+        "qualityType": "QUALITY_PURPLE",
+        "releaseDate": 1777558790,
+        "ruName": "ÐÑÐ¹ ÐÐ¾Ñ",
+        "weaponType": "WEAPON_CLAYMORE"
+    },
+    "10000025": {
+        "CardImg": "UI_Gacha_AvatarIcon_Xingqiu",
+        "GachaImg": "UI_Gacha_AvatarImg_Xingqiu",
+        "ascensionStats": {
+            "ATK%": 24.0,
+            "atk": 202,
+            "def": 758,
+            "hp": 10222
+        },
+        "chsName": "è¡ç§",
+        "element": "Hydro",
+        "enName": "Xingqiu",
+        "ptName": "Xingqiu",
+        "qualityType": "QUALITY_PURPLE",
+        "releaseDate": 1777558790,
+        "ruName": "Ð¡Ð¸Ð½ Ð¦Ñ",
+        "weaponType": "WEAPON_SWORD_ONE_HAND"
+    },
+    "10000026": {
+        "CardImg": "UI_Gacha_AvatarIcon_Xiao",
+        "GachaImg": "UI_Gacha_AvatarImg_Xiao",
+        "ascensionStats": {
+            "CRIT Rate%": 19.2,
+            "atk": 349,
+            "def": 799,
+            "hp": 12736
+        },
+        "chsName": "é­",
+        "element": "Anemo",
+        "enName": "Xiao",
+        "ptName": "Xiao",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558790,
+        "ruName": "Ð¡ÑÐ¾",
+        "weaponType": "WEAPON_POLE"
+    },
+    "10000027": {
+        "CardImg": "UI_Gacha_AvatarIcon_Ningguang",
+        "GachaImg": "UI_Gacha_AvatarImg_Ningguang",
+        "ascensionStats": {
+            "Geo DMG Bonus%": 24.0,
+            "atk": 212,
+            "def": 573,
+            "hp": 9787
+        },
+        "chsName": "åå",
+        "element": "Geo",
+        "enName": "Ningguang",
+        "ptName": "Ningguang",
+        "qualityType": "QUALITY_PURPLE",
+        "releaseDate": 1777558790,
+        "ruName": "ÐÐ¸Ð½ ÐÑÐ°Ð½",
+        "weaponType": "WEAPON_CATALYST"
+    },
+    "10000029": {
+        "CardImg": "UI_Gacha_AvatarIcon_Klee",
+        "GachaImg": "UI_Gacha_AvatarImg_Klee",
+        "ascensionStats": {
+            "Pyro DMG Bonus%": 28.8,
+            "atk": 311,
+            "def": 615,
+            "hp": 10287
+        },
+        "chsName": "å¯è",
+        "element": "Pyro",
+        "enName": "Klee",
+        "ptName": "Klee",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558790,
+        "ruName": "ÐÐ»Ð¸",
+        "weaponType": "WEAPON_CATALYST"
+    },
+    "10000030": {
+        "CardImg": "UI_Gacha_AvatarIcon_Zhongli",
+        "GachaImg": "UI_Gacha_AvatarImg_Zhongli",
+        "ascensionStats": {
+            "Geo DMG Bonus%": 28.8,
+            "atk": 251,
+            "def": 738,
+            "hp": 14695
+        },
+        "chsName": "éç¦»",
+        "element": "Geo",
+        "enName": "Zhongli",
+        "ptName": "Zhongli",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558790,
+        "ruName": "Ð§Ð¶ÑÐ½ ÐÐ¸",
+        "weaponType": "WEAPON_POLE"
+    },
+    "10000031": {
+        "CardImg": "UI_Gacha_AvatarIcon_Fischl",
+        "GachaImg": "UI_Gacha_AvatarImg_Fischl",
+        "ascensionStats": {
+            "ATK%": 24.0,
+            "atk": 244,
+            "def": 594,
+            "hp": 9189
+        },
+        "chsName": "è²è°¢å°",
+        "element": "Electro",
+        "enName": "Fischl",
+        "ptName": "Fischl",
+        "qualityType": "QUALITY_PURPLE",
+        "releaseDate": 1777558790,
+        "ruName": "Ð¤Ð¸ÑÐ»Ñ",
+        "weaponType": "WEAPON_BOW"
+    },
+    "10000032": {
+        "CardImg": "UI_Gacha_AvatarIcon_Bennett",
+        "GachaImg": "UI_Gacha_AvatarImg_Bennett",
+        "ascensionStats": {
+            "Energy Recharge%": 26.7,
+            "atk": 191,
+            "def": 771,
+            "hp": 12397
+        },
+        "chsName": "ç­å°¼ç¹",
+        "element": "Pyro",
+        "enName": "Bennett",
+        "ptName": "Bennett",
+        "qualityType": "QUALITY_PURPLE",
+        "releaseDate": 1777558790,
+        "ruName": "ÐÐµÐ½Ð½ÐµÑ",
+        "weaponType": "WEAPON_SWORD_ONE_HAND"
+    },
+    "10000033": {
+        "CardImg": "UI_Gacha_AvatarIcon_Tartaglia",
+        "GachaImg": "UI_Gacha_AvatarImg_Tartaglia",
+        "ascensionStats": {
+            "Hydro DMG Bonus%": 28.8,
+            "atk": 301,
+            "def": 815,
+            "hp": 13103
+        },
+        "chsName": "è¾¾è¾¾å©äº",
+        "element": "Hydro",
+        "enName": "Tartaglia",
+        "ptName": "Tartaglia",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558790,
+        "ruName": "Ð¢Ð°ÑÑÐ°Ð»ÑÑ",
+        "weaponType": "WEAPON_BOW"
+    },
+    "10000034": {
+        "CardImg": "UI_Gacha_AvatarIcon_Noel",
+        "GachaImg": "UI_Gacha_AvatarImg_Noel",
+        "ascensionStats": {
+            "DEF%": 30.0,
+            "atk": 191,
+            "def": 799,
+            "hp": 12071
+        },
+        "chsName": "è¯ºè¾å°",
+        "element": "Geo",
+        "enName": "Noelle",
+        "ptName": "Noelle",
+        "qualityType": "QUALITY_PURPLE",
+        "releaseDate": 1777558790,
+        "ruName": "ÐÐ¾ÑÐ»Ð»Ñ",
+        "weaponType": "WEAPON_CLAYMORE"
+    },
+    "10000035": {
+        "CardImg": "UI_Gacha_AvatarIcon_Qiqi",
+        "GachaImg": "UI_Gacha_AvatarImg_Qiqi",
+        "ascensionStats": {
+            "Healing Bonus%": 22.1,
+            "atk": 287,
+            "def": 922,
+            "hp": 12368
+        },
+        "chsName": "ä¸ä¸",
+        "element": "Cryo",
+        "enName": "Qiqi",
+        "ptName": "Qiqi",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558790,
+        "ruName": "Ð¦Ð¸ Ð¦Ð¸",
+        "weaponType": "WEAPON_SWORD_ONE_HAND"
+    },
+    "10000036": {
+        "CardImg": "UI_Gacha_AvatarIcon_Chongyun",
+        "GachaImg": "UI_Gacha_AvatarImg_Chongyun",
+        "ascensionStats": {
+            "ATK%": 24.0,
+            "atk": 223,
+            "def": 648,
+            "hp": 10984
+        },
+        "chsName": "éäº",
+        "element": "Cryo",
+        "enName": "Chongyun",
+        "ptName": "Chongyun",
+        "qualityType": "QUALITY_PURPLE",
+        "releaseDate": 1777558790,
+        "ruName": "Ð§ÑÐ½ Ð®Ð½Ñ",
+        "weaponType": "WEAPON_CLAYMORE"
+    },
+    "10000037": {
+        "CardImg": "UI_Gacha_AvatarIcon_Ganyu",
+        "GachaImg": "UI_Gacha_AvatarImg_Ganyu",
+        "ascensionStats": {
+            "CRIT DMG%": 38.4,
+            "atk": 335,
+            "def": 630,
+            "hp": 9797
+        },
+        "chsName": "çé¨",
+        "element": "Cryo",
+        "enName": "Ganyu",
+        "ptName": "Ganyu",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558790,
+        "ruName": "ÐÐ°Ð½Ñ Ð®Ð¹",
+        "weaponType": "WEAPON_BOW"
+    },
+    "10000038": {
+        "CardImg": "UI_Gacha_AvatarIcon_Albedo",
+        "GachaImg": "UI_Gacha_AvatarImg_Albedo",
+        "ascensionStats": {
+            "Geo DMG Bonus%": 28.8,
+            "atk": 251,
+            "def": 876,
+            "hp": 13226
+        },
+        "chsName": "é¿è´å¤",
+        "element": "Geo",
+        "enName": "Albedo",
+        "ptName": "Albedo",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558790,
+        "ruName": "ÐÐ»ÑÐ±ÐµÐ´Ð¾",
+        "weaponType": "WEAPON_SWORD_ONE_HAND"
+    },
+    "10000039": {
+        "CardImg": "UI_Gacha_AvatarIcon_Diona",
+        "GachaImg": "UI_Gacha_AvatarImg_Diona",
+        "ascensionStats": {
+            "Cryo DMG Bonus%": 24.0,
+            "atk": 212,
+            "def": 601,
+            "hp": 9570
+        },
+        "chsName": "è¿ªå¥¥å¨",
+        "element": "Cryo",
+        "enName": "Diona",
+        "ptName": "Diona",
+        "qualityType": "QUALITY_PURPLE",
+        "releaseDate": 1777558790,
+        "ruName": "ÐÐ¸Ð¾Ð½Ð°",
+        "weaponType": "WEAPON_BOW"
+    },
+    "10000041": {
+        "CardImg": "UI_Gacha_AvatarIcon_Mona",
+        "GachaImg": "UI_Gacha_AvatarImg_Mona",
+        "ascensionStats": {
+            "Energy Recharge%": 32.0,
+            "atk": 287,
+            "def": 653,
+            "hp": 10409
+        },
+        "chsName": "è«å¨",
+        "element": "Hydro",
+        "enName": "Mona",
+        "ptName": "Mona",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558790,
+        "ruName": "ÐÐ¾Ð½Ð°",
+        "weaponType": "WEAPON_CATALYST"
+    },
+    "10000042": {
+        "CardImg": "UI_Gacha_AvatarIcon_Keqing",
+        "GachaImg": "UI_Gacha_AvatarImg_Keqing",
+        "ascensionStats": {
+            "CRIT DMG%": 38.4,
+            "atk": 323,
+            "def": 799,
+            "hp": 13103
+        },
+        "chsName": "å»æ´",
+        "element": "Electro",
+        "enName": "Keqing",
+        "ptName": "Keqing",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558790,
+        "ruName": "ÐÑ Ð¦Ð¸Ð½",
+        "weaponType": "WEAPON_SWORD_ONE_HAND"
+    },
+    "10000043": {
+        "CardImg": "UI_Gacha_AvatarIcon_Sucrose",
+        "GachaImg": "UI_Gacha_AvatarImg_Sucrose",
+        "ascensionStats": {
+            "Anemo DMG Bonus%": 24.0,
+            "atk": 170,
+            "def": 703,
+            "hp": 9244
+        },
+        "chsName": "ç ç³",
+        "element": "Anemo",
+        "enName": "Sucrose",
+        "ptName": "Sucrose",
+        "qualityType": "QUALITY_PURPLE",
+        "releaseDate": 1777558790,
+        "ruName": "Ð¡Ð°ÑÐ°ÑÐ¾Ð·Ð°",
+        "weaponType": "WEAPON_CATALYST"
+    },
+    "10000044": {
+        "CardImg": "UI_Gacha_AvatarIcon_Xinyan",
+        "GachaImg": "UI_Gacha_AvatarImg_Xinyan",
+        "ascensionStats": {
+            "ATK%": 24.0,
+            "atk": 249,
+            "def": 799,
+            "hp": 11201
+        },
+        "chsName": "è¾ç±",
+        "element": "Pyro",
+        "enName": "Xinyan",
+        "ptName": "Xinyan",
+        "qualityType": "QUALITY_PURPLE",
+        "releaseDate": 1777558790,
+        "ruName": "Ð¡Ð¸Ð½Ñ Ð¯Ð½Ñ",
+        "weaponType": "WEAPON_CLAYMORE"
+    },
+    "10000045": {
+        "CardImg": "UI_Gacha_AvatarIcon_Rosaria",
+        "GachaImg": "UI_Gacha_AvatarImg_Rosaria",
+        "ascensionStats": {
+            "ATK%": 24.0,
+            "atk": 240,
+            "def": 710,
+            "hp": 12289
+        },
+        "chsName": "ç½èèäº",
+        "element": "Cryo",
+        "enName": "Rosaria",
+        "ptName": "Rosaria",
+        "qualityType": "QUALITY_PURPLE",
+        "releaseDate": 1777558790,
+        "ruName": "Ð Ð¾Ð·Ð°ÑÐ¸Ñ",
+        "weaponType": "WEAPON_POLE"
+    },
+    "10000046": {
+        "CardImg": "UI_Gacha_AvatarIcon_Hutao",
+        "GachaImg": "UI_Gacha_AvatarImg_Hutao",
+        "ascensionStats": {
+            "CRIT DMG%": 38.4,
+            "atk": 106,
+            "def": 876,
+            "hp": 15552
+        },
+        "chsName": "è¡æ¡",
+        "element": "Pyro",
+        "enName": "Hu Tao",
+        "ptName": "Hutao",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558790,
+        "ruName": "Ð¥Ñ Ð¢Ð°Ð¾",
+        "weaponType": "WEAPON_POLE"
+    },
+    "10000047": {
+        "CardImg": "UI_Gacha_AvatarIcon_Kazuha",
+        "GachaImg": "UI_Gacha_AvatarImg_Kazuha",
+        "ascensionStats": {
+            "Elemental Mastery": 115.0,
+            "atk": 297,
+            "def": 807,
+            "hp": 13348
+        },
+        "chsName": "æ«åä¸å¶",
+        "element": "Anemo",
+        "enName": "Kaedehara Kazuha",
+        "ptName": "Kaedehara Kazuha",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558790,
+        "ruName": "ÐÐ°Ð´Ð·ÑÑÐ°",
+        "weaponType": "WEAPON_SWORD_ONE_HAND"
+    },
+    "10000048": {
+        "CardImg": "UI_Gacha_AvatarIcon_Feiyan",
+        "GachaImg": "UI_Gacha_AvatarImg_Feiyan",
+        "ascensionStats": {
+            "Pyro DMG Bonus%": 24.0,
+            "atk": 240,
+            "def": 587,
+            "hp": 9352
+        },
+        "chsName": "çç»¯",
+        "element": "Pyro",
+        "enName": "Yanfei",
+        "ptName": "Yanfei",
+        "qualityType": "QUALITY_PURPLE",
+        "releaseDate": 1777558790,
+        "ruName": "Ð¯Ð½Ñ Ð¤ÑÐ¹",
+        "weaponType": "WEAPON_CATALYST"
+    },
+    "10000049": {
+        "CardImg": "UI_Gacha_AvatarIcon_Yoimiya",
+        "GachaImg": "UI_Gacha_AvatarImg_Yoimiya",
+        "ascensionStats": {
+            "CRIT Rate%": 19.2,
+            "atk": 323,
+            "def": 615,
+            "hp": 10164
+        },
+        "chsName": "å®µå®«",
+        "element": "Pyro",
+        "enName": "Yoimiya",
+        "ptName": "Yoimiya",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558790,
+        "ruName": "ÐÐ¸Ð¼Ð¸Ñ",
+        "weaponType": "WEAPON_BOW"
+    },
+    "10000050": {
+        "CardImg": "UI_Gacha_AvatarIcon_Tohma",
+        "GachaImg": "UI_Gacha_AvatarImg_Tohma",
+        "ascensionStats": {
+            "ATK%": 24.0,
+            "atk": 202,
+            "def": 751,
+            "hp": 10331
+        },
+        "chsName": "æé©¬",
+        "element": "Pyro",
+        "enName": "Thoma",
+        "ptName": "Thoma",
+        "qualityType": "QUALITY_PURPLE",
+        "releaseDate": 1777558790,
+        "ruName": "Ð¢Ð¾Ð¼Ð°",
+        "weaponType": "WEAPON_POLE"
+    },
+    "10000051": {
+        "CardImg": "UI_Gacha_AvatarIcon_Eula",
+        "GachaImg": "UI_Gacha_AvatarImg_Eula",
+        "ascensionStats": {
+            "CRIT DMG%": 38.4,
+            "atk": 342,
+            "def": 751,
+            "hp": 13226
+        },
+        "chsName": "ä¼è",
+        "element": "Cryo",
+        "enName": "Eula",
+        "ptName": "Eula",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558790,
+        "ruName": "Ð­Ð¾Ð»Ð°",
+        "weaponType": "WEAPON_CLAYMORE"
+    },
+    "10000052": {
+        "CardImg": "UI_Gacha_AvatarIcon_Shougun",
+        "GachaImg": "UI_Gacha_AvatarImg_Shougun",
+        "ascensionStats": {
+            "Energy Recharge%": 32.0,
+            "atk": 337,
+            "def": 789,
+            "hp": 12907
+        },
+        "chsName": "é·çµå°å",
+        "element": "Electro",
+        "enName": "Raiden Shogun",
+        "ptName": "Shogun Raiden",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558790,
+        "ruName": "Ð Ð°Ð¹Ð´ÑÐ½",
+        "weaponType": "WEAPON_POLE"
+    },
+    "10000053": {
+        "CardImg": "UI_Gacha_AvatarIcon_Sayu",
+        "GachaImg": "UI_Gacha_AvatarImg_Sayu",
+        "ascensionStats": {
+            "Elemental Mastery": 96.0,
+            "atk": 244,
+            "def": 745,
+            "hp": 11854
+        },
+        "chsName": "æ©æ",
+        "element": "Anemo",
+        "enName": "Sayu",
+        "ptName": "Sayu",
+        "qualityType": "QUALITY_PURPLE",
+        "releaseDate": 1777558790,
+        "ruName": "Ð¡Ð°Ñ",
+        "weaponType": "WEAPON_CLAYMORE"
+    },
+    "10000054": {
+        "CardImg": "UI_Gacha_AvatarIcon_Kokomi",
+        "GachaImg": "UI_Gacha_AvatarImg_Kokomi",
+        "ascensionStats": {
+            "Hydro DMG Bonus%": 28.8,
+            "atk": 234,
+            "def": 657,
+            "hp": 13471
+        },
+        "chsName": "ççå®«å¿æµ·",
+        "element": "Hydro",
+        "enName": "Sangonomiya Kokomi",
+        "ptName": "Sangonomiya Kokomi",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558790,
+        "ruName": "ÐÐ¾ÐºÐ¾Ð¼Ð¸",
+        "weaponType": "WEAPON_CATALYST"
+    },
+    "10000055": {
+        "CardImg": "UI_Gacha_AvatarIcon_Gorou",
+        "GachaImg": "UI_Gacha_AvatarImg_Gorou",
+        "ascensionStats": {
+            "Geo DMG Bonus%": 24.0,
+            "atk": 183,
+            "def": 648,
+            "hp": 9570
+        },
+        "chsName": "äºé",
+        "element": "Geo",
+        "enName": "Gorou",
+        "ptName": "Gorou",
+        "qualityType": "QUALITY_PURPLE",
+        "releaseDate": 1777558790,
+        "ruName": "ÐÐ¾ÑÐ¾",
+        "weaponType": "WEAPON_BOW"
+    },
+    "10000056": {
+        "CardImg": "UI_Gacha_AvatarIcon_Sara",
+        "GachaImg": "UI_Gacha_AvatarImg_Sara",
+        "ascensionStats": {
+            "ATK%": 24.0,
+            "atk": 195,
+            "def": 628,
+            "hp": 9570
+        },
+        "chsName": "ä¹æ¡è£ç½",
+        "element": "Electro",
+        "enName": "Kujou Sara",
+        "ptName": "Kujou Sara",
+        "qualityType": "QUALITY_PURPLE",
+        "releaseDate": 1777558790,
+        "ruName": "Ð¡Ð°ÑÐ°",
+        "weaponType": "WEAPON_BOW"
+    },
+    "10000057": {
+        "CardImg": "UI_Gacha_AvatarIcon_Itto",
+        "GachaImg": "UI_Gacha_AvatarImg_Itto",
+        "ascensionStats": {
+            "CRIT Rate%": 19.2,
+            "atk": 227,
+            "def": 959,
+            "hp": 12858
+        },
+        "chsName": "èæ³·ä¸æ",
+        "element": "Geo",
+        "enName": "Arataki Itto",
+        "ptName": "Arataki Itto",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558790,
+        "ruName": "ÐÑÑÐ¾",
+        "weaponType": "WEAPON_CLAYMORE"
+    },
+    "10000058": {
+        "CardImg": "UI_Gacha_AvatarIcon_Yae",
+        "GachaImg": "UI_Gacha_AvatarImg_Yae",
+        "ascensionStats": {
+            "CRIT Rate%": 19.2,
+            "atk": 340,
+            "def": 569,
+            "hp": 10372
+        },
+        "chsName": "å«éç¥å­",
+        "element": "Electro",
+        "enName": "Yae Miko",
+        "ptName": "Yae Miko",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558790,
+        "ruName": "Ð¯Ñ ÐÐ¸ÐºÐ¾",
+        "weaponType": "WEAPON_CATALYST"
+    },
+    "10000059": {
+        "CardImg": "UI_Gacha_AvatarIcon_Heizo",
+        "GachaImg": "UI_Gacha_AvatarImg_Heizo",
+        "ascensionStats": {
+            "Anemo DMG Bonus%": 24.0,
+            "atk": 225,
+            "def": 684,
+            "hp": 10657
+        },
+        "chsName": "é¹¿éé¢å¹³è",
+        "element": "Anemo",
+        "enName": "Shikanoin Heizou",
+        "ptName": "Shikanoin Heizou",
+        "qualityType": "QUALITY_PURPLE",
+        "releaseDate": 1777558790,
+        "ruName": "Ð¥ÑÐ¹Ð´Ð·Ð¾",
+        "weaponType": "WEAPON_CATALYST"
+    },
+    "10000060": {
+        "CardImg": "UI_Gacha_AvatarIcon_Yelan",
+        "GachaImg": "UI_Gacha_AvatarImg_Yelan",
+        "ascensionStats": {
+            "CRIT Rate%": 19.2,
+            "atk": 244,
+            "def": 548,
+            "hp": 14450
+        },
+        "chsName": "å¤å°",
+        "element": "Hydro",
+        "enName": "Yelan",
+        "ptName": "Yelan",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558790,
+        "ruName": "Ð ÐÐ°Ð½Ñ",
+        "weaponType": "WEAPON_BOW"
+    },
+    "10000061": {
+        "CardImg": "UI_Gacha_AvatarIcon_Momoka",
+        "GachaImg": "UI_Gacha_AvatarImg_Momoka",
+        "ascensionStats": {
+            "HP%": 24.0,
+            "atk": 223,
+            "def": 546,
+            "hp": 12180
+        },
+        "chsName": "ç»®è¯è¯",
+        "element": "Dendro",
+        "enName": "Kirara",
+        "ptName": "Kirara",
+        "qualityType": "QUALITY_PURPLE",
+        "releaseDate": 1777558790,
+        "ruName": "ÐÐ¸ÑÐ°ÑÐ°",
+        "weaponType": "WEAPON_SWORD_ONE_HAND"
+    },
+    "10000062": {
+        "CardImg": "UI_Gacha_AvatarIcon_Aloy",
+        "GachaImg": "UI_Gacha_AvatarImg_Aloy",
+        "ascensionStats": {
+            "Cryo DMG Bonus%": 28.8,
+            "atk": 227,
+            "def": 656,
+            "hp": 10568
+        },
+        "chsName": "åæ´ä¼",
+        "element": "Cryo",
+        "enName": "Aloy",
+        "ptName": "Aloy",
+        "qualityType": "QUALITY_ORANGE_SP",
+        "releaseDate": 1777558790,
+        "ruName": "Ð­Ð»Ð¾Ð¹",
+        "weaponType": "WEAPON_BOW"
+    },
+    "10000063": {
+        "CardImg": "UI_Gacha_AvatarIcon_Shenhe",
+        "GachaImg": "UI_Gacha_AvatarImg_Shenhe",
+        "ascensionStats": {
+            "ATK%": 28.8,
+            "atk": 304,
+            "def": 830,
+            "hp": 12993
+        },
+        "chsName": "ç³é¹¤",
+        "element": "Cryo",
+        "enName": "Shenhe",
+        "ptName": "Shenhe",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558790,
+        "ruName": "Ð¨ÑÐ½Ñ Ð¥Ñ",
+        "weaponType": "WEAPON_POLE"
+    },
+    "10000064": {
+        "CardImg": "UI_Gacha_AvatarIcon_Yunjin",
+        "GachaImg": "UI_Gacha_AvatarImg_Yunjin",
+        "ascensionStats": {
+            "Energy Recharge%": 26.7,
+            "atk": 191,
+            "def": 734,
+            "hp": 10657
+        },
+        "chsName": "äºå ",
+        "element": "Geo",
+        "enName": "Yun Jin",
+        "ptName": "Yunjin",
+        "qualityType": "QUALITY_PURPLE",
+        "releaseDate": 1777558790,
+        "ruName": "Ð®Ð½Ñ Ð¦Ð·Ð¸Ð½Ñ",
+        "weaponType": "WEAPON_POLE"
+    },
+    "10000065": {
+        "CardImg": "UI_Gacha_AvatarIcon_Shinobu",
+        "GachaImg": "UI_Gacha_AvatarImg_Shinobu",
+        "ascensionStats": {
+            "HP%": 24.0,
+            "atk": 212,
+            "def": 751,
+            "hp": 12289
+        },
+        "chsName": "ä¹å²å¿",
+        "element": "Electro",
+        "enName": "Kuki Shinobu",
+        "ptName": "Kuki Shinobu",
+        "qualityType": "QUALITY_PURPLE",
+        "releaseDate": 1777558790,
+        "ruName": "Ð¡Ð¸Ð½Ð¾Ð±Ñ",
+        "weaponType": "WEAPON_SWORD_ONE_HAND"
+    },
+    "10000066": {
+        "CardImg": "UI_Gacha_AvatarIcon_Ayato",
+        "GachaImg": "UI_Gacha_AvatarImg_Ayato",
+        "ascensionStats": {
+            "CRIT DMG%": 38.4,
+            "atk": 299,
+            "def": 769,
+            "hp": 13715
+        },
+        "chsName": "ç¥éç»«äºº",
+        "element": "Hydro",
+        "enName": "Kamisato Ayato",
+        "ptName": "Kamisato Ayato",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558790,
+        "ruName": "ÐÑÑÐ¾",
+        "weaponType": "WEAPON_SWORD_ONE_HAND"
+    },
+    "10000067": {
+        "CardImg": "UI_Gacha_AvatarIcon_Collei",
+        "GachaImg": "UI_Gacha_AvatarImg_Collei",
+        "ascensionStats": {
+            "ATK%": 24.0,
+            "atk": 200,
+            "def": 601,
+            "hp": 9787
+        },
+        "chsName": "æ¯è±",
+        "element": "Dendro",
+        "enName": "Collei",
+        "ptName": "Collei",
+        "qualityType": "QUALITY_PURPLE",
+        "releaseDate": 1777558790,
+        "ruName": "ÐÐ¾Ð»Ð»ÐµÐ¸",
+        "weaponType": "WEAPON_BOW"
+    },
+    "10000068": {
+        "CardImg": "UI_Gacha_AvatarIcon_Dori",
+        "GachaImg": "UI_Gacha_AvatarImg_Dori",
+        "ascensionStats": {
+            "HP%": 24.0,
+            "atk": 223,
+            "def": 723,
+            "hp": 12397
+        },
+        "chsName": "å¤è",
+        "element": "Electro",
+        "enName": "Dori",
+        "ptName": "Dori",
+        "qualityType": "QUALITY_PURPLE",
+        "releaseDate": 1777558790,
+        "ruName": "ÐÐ¾ÑÐ¸",
+        "weaponType": "WEAPON_CLAYMORE"
+    },
+    "10000069": {
+        "CardImg": "UI_Gacha_AvatarIcon_Tighnari",
+        "GachaImg": "UI_Gacha_AvatarImg_Tighnari",
+        "ascensionStats": {
+            "Dendro DMG Bonus%": 28.8,
+            "atk": 268,
+            "def": 630,
+            "hp": 10850
+        },
+        "chsName": "æçº³é",
+        "element": "Dendro",
+        "enName": "Tighnari",
+        "ptName": "Tighnari",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558790,
+        "ruName": "Ð¢Ð¸Ð³Ð½Ð°ÑÐ¸",
+        "weaponType": "WEAPON_BOW"
+    },
+    "10000070": {
+        "CardImg": "UI_Gacha_AvatarIcon_Nilou",
+        "GachaImg": "UI_Gacha_AvatarImg_Nilou",
+        "ascensionStats": {
+            "HP%": 28.8,
+            "atk": 230,
+            "def": 729,
+            "hp": 15185
+        },
+        "chsName": "å¦®é²",
+        "element": "Hydro",
+        "enName": "Nilou",
+        "ptName": "Nilou",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558790,
+        "ruName": "ÐÐ¸Ð»Ñ",
+        "weaponType": "WEAPON_SWORD_ONE_HAND"
+    },
+    "10000071": {
+        "CardImg": "UI_Gacha_AvatarIcon_Cyno",
+        "GachaImg": "UI_Gacha_AvatarImg_Cyno",
+        "ascensionStats": {
+            "CRIT DMG%": 38.4,
+            "atk": 318,
+            "def": 859,
+            "hp": 12491
+        },
+        "chsName": "èµè¯º",
+        "element": "Electro",
+        "enName": "Cyno",
+        "ptName": "Cyno",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558790,
+        "ruName": "Ð¡Ð°Ð¹Ð½Ð¾",
+        "weaponType": "WEAPON_POLE"
+    },
+    "10000072": {
+        "CardImg": "UI_Gacha_AvatarIcon_Candace",
+        "GachaImg": "UI_Gacha_AvatarImg_Candace",
+        "ascensionStats": {
+            "HP%": 24.0,
+            "atk": 212,
+            "def": 683,
+            "hp": 10875
+        },
+        "chsName": "åèä¸",
+        "element": "Hydro",
+        "enName": "Candace",
+        "ptName": "Candace",
+        "qualityType": "QUALITY_PURPLE",
+        "releaseDate": 1777558790,
+        "ruName": "ÐÐ°Ð½Ð´Ð°ÐºÐ¸Ñ",
+        "weaponType": "WEAPON_POLE"
+    },
+    "10000073": {
+        "CardImg": "UI_Gacha_AvatarIcon_Nahida",
+        "GachaImg": "UI_Gacha_AvatarImg_Nahida",
+        "ascensionStats": {
+            "Elemental Mastery": 115.0,
+            "atk": 299,
+            "def": 630,
+            "hp": 10360
+        },
+        "chsName": "çº³è¥¿å¦²",
+        "element": "Dendro",
+        "enName": "Nahida",
+        "ptName": "Nahida",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558790,
+        "ruName": "ÐÐ°ÑÐ¸Ð´Ð°",
+        "weaponType": "WEAPON_CATALYST"
+    },
+    "10000074": {
+        "CardImg": "UI_Gacha_AvatarIcon_Layla",
+        "GachaImg": "UI_Gacha_AvatarImg_Layla",
+        "ascensionStats": {
+            "HP%": 24.0,
+            "atk": 217,
+            "def": 655,
+            "hp": 11092
+        },
+        "chsName": "è±ä¾æ",
+        "element": "Cryo",
+        "enName": "Layla",
+        "ptName": "Layla",
+        "qualityType": "QUALITY_PURPLE",
+        "releaseDate": 1777558790,
+        "ruName": "ÐÐ°Ð¹Ð»Ð°",
+        "weaponType": "WEAPON_SWORD_ONE_HAND"
+    },
+    "10000075": {
+        "CardImg": "UI_Gacha_AvatarIcon_Wanderer",
+        "GachaImg": "UI_Gacha_AvatarImg_Wanderer",
+        "ascensionStats": {
+            "CRIT Rate%": 19.2,
+            "atk": 328,
+            "def": 607,
+            "hp": 10164
+        },
+        "chsName": "æµæµªè",
+        "element": "Anemo",
+        "enName": "Wanderer",
+        "ptName": "Andarilho",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558790,
+        "ruName": "Ð¡ÑÑÐ°Ð½Ð½Ð¸Ðº",
+        "weaponType": "WEAPON_CATALYST"
+    },
+    "10000076": {
+        "CardImg": "UI_Gacha_AvatarIcon_Faruzan",
+        "GachaImg": "UI_Gacha_AvatarImg_Faruzan",
+        "ascensionStats": {
+            "ATK%": 24.0,
+            "atk": 196,
+            "def": 628,
+            "hp": 9570
+        },
+        "chsName": "çé²ç",
+        "element": "Anemo",
+        "enName": "Faruzan",
+        "ptName": "Faruzan",
+        "qualityType": "QUALITY_PURPLE",
+        "releaseDate": 1777558790,
+        "ruName": "Ð¤Ð°ÑÑÐ·Ð°Ð½",
+        "weaponType": "WEAPON_BOW"
+    },
+    "10000077": {
+        "CardImg": "UI_Gacha_AvatarIcon_Yaoyao",
+        "GachaImg": "UI_Gacha_AvatarImg_Yaoyao",
+        "ascensionStats": {
+            "HP%": 24.0,
+            "atk": 212,
+            "def": 751,
+            "hp": 12289
+        },
+        "chsName": "ç¶ç¶",
+        "element": "Dendro",
+        "enName": "Yaoyao",
+        "ptName": "Yaoyao",
+        "qualityType": "QUALITY_PURPLE",
+        "releaseDate": 1777558790,
+        "ruName": "Ð¯Ð¾ Ð¯Ð¾",
+        "weaponType": "WEAPON_POLE"
+    },
+    "10000078": {
+        "CardImg": "UI_Gacha_AvatarIcon_Alhatham",
+        "GachaImg": "UI_Gacha_AvatarImg_Alhatham",
+        "ascensionStats": {
+            "Dendro DMG Bonus%": 28.8,
+            "atk": 313,
+            "def": 782,
+            "hp": 13348
+        },
+        "chsName": "è¾å°æµ·æ£®",
+        "element": "Dendro",
+        "enName": "Alhaitham",
+        "ptName": "Alhaitham",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558790,
+        "ruName": "ÐÐ»Ñ-Ð¥Ð°Ð¹ÑÐ°Ð¼",
+        "weaponType": "WEAPON_SWORD_ONE_HAND"
+    },
+    "10000079": {
+        "CardImg": "UI_Gacha_AvatarIcon_Dehya",
+        "GachaImg": "UI_Gacha_AvatarImg_Dehya",
+        "ascensionStats": {
+            "HP%": 28.8,
+            "atk": 265,
+            "def": 628,
+            "hp": 15675
+        },
+        "chsName": "è¿ªå¸é",
+        "element": "Pyro",
+        "enName": "Dehya",
+        "ptName": "Dehya",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558790,
+        "ruName": "ÐÑÑÑÑ",
+        "weaponType": "WEAPON_CLAYMORE"
+    },
+    "10000080": {
+        "CardImg": "UI_Gacha_AvatarIcon_Mika",
+        "GachaImg": "UI_Gacha_AvatarImg_Mika",
+        "ascensionStats": {
+            "HP%": 24.0,
+            "atk": 223,
+            "def": 713,
+            "hp": 12506
+        },
+        "chsName": "ç±³å¡",
+        "element": "Cryo",
+        "enName": "Mika",
+        "ptName": "Mika",
+        "qualityType": "QUALITY_PURPLE",
+        "releaseDate": 1777558790,
+        "ruName": "ÐÐ¸ÐºÐ°",
+        "weaponType": "WEAPON_POLE"
+    },
+    "10000081": {
+        "CardImg": "UI_Gacha_AvatarIcon_Kaveh",
+        "GachaImg": "UI_Gacha_AvatarImg_Kaveh",
+        "ascensionStats": {
+            "Elemental Mastery": 96.0,
+            "atk": 234,
+            "def": 751,
+            "hp": 11962
+        },
+        "chsName": "å¡ç»´",
+        "element": "Dendro",
+        "enName": "Kaveh",
+        "ptName": "Kaveh",
+        "qualityType": "QUALITY_PURPLE",
+        "releaseDate": 1777558790,
+        "ruName": "ÐÐ°Ð²ÐµÑ",
+        "weaponType": "WEAPON_CLAYMORE"
+    },
+    "10000082": {
+        "CardImg": "UI_Gacha_AvatarIcon_Baizhuer",
+        "GachaImg": "UI_Gacha_AvatarImg_Baizhuer",
+        "ascensionStats": {
+            "HP%": 28.8,
+            "atk": 193,
+            "def": 500,
+            "hp": 13348
+        },
+        "chsName": "ç½æ¯",
+        "element": "Dendro",
+        "enName": "Baizhu",
+        "ptName": "Baizhu",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558790,
+        "ruName": "ÐÐ°Ð¹ Ð§Ð¶Ñ",
+        "weaponType": "WEAPON_CATALYST"
+    },
+    "10000083": {
+        "CardImg": "UI_Gacha_AvatarIcon_Linette",
+        "GachaImg": "UI_Gacha_AvatarImg_Linette",
+        "ascensionStats": {
+            "Anemo DMG Bonus%": 24.0,
+            "atk": 232,
+            "def": 712,
+            "hp": 12397
+        },
+        "chsName": "ç³å¦®ç¹",
+        "element": "Anemo",
+        "enName": "Lynette",
+        "ptName": "Lynette",
+        "qualityType": "QUALITY_PURPLE",
+        "releaseDate": 1777558790,
+        "ruName": "ÐÐ¸Ð½ÐµÑÑ",
+        "weaponType": "WEAPON_SWORD_ONE_HAND"
+    },
+    "10000084": {
+        "CardImg": "UI_Gacha_AvatarIcon_Liney",
+        "GachaImg": "UI_Gacha_AvatarImg_Liney",
+        "ascensionStats": {
+            "CRIT Rate%": 19.2,
+            "atk": 318,
+            "def": 538,
+            "hp": 11021
+        },
+        "chsName": "æå°¼",
+        "element": "Pyro",
+        "enName": "Lyney",
+        "ptName": "Lyney",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558790,
+        "ruName": "ÐÐ¸Ð½Ð¸",
+        "weaponType": "WEAPON_BOW"
+    },
+    "10000085": {
+        "CardImg": "UI_Gacha_AvatarIcon_Freminet",
+        "GachaImg": "UI_Gacha_AvatarImg_Freminet",
+        "ascensionStats": {
+            "ATK%": 24.0,
+            "atk": 255,
+            "def": 708,
+            "hp": 12071
+        },
+        "chsName": "è²ç±³å°¼",
+        "element": "Cryo",
+        "enName": "Freminet",
+        "ptName": "Freminet",
+        "qualityType": "QUALITY_PURPLE",
+        "releaseDate": 1777558790,
+        "ruName": "Ð¤ÑÐµÐ¼Ð¸Ð½Ðµ",
+        "weaponType": "WEAPON_CLAYMORE"
+    },
+    "10000086": {
+        "CardImg": "UI_Gacha_AvatarIcon_Wriothesley",
+        "GachaImg": "UI_Gacha_AvatarImg_Wriothesley",
+        "ascensionStats": {
+            "CRIT DMG%": 38.4,
+            "atk": 311,
+            "def": 763,
+            "hp": 13593
+        },
+        "chsName": "è±æ¬§æ¯å©",
+        "element": "Cryo",
+        "enName": "Wriothesley",
+        "ptName": "Wriothesley",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558790,
+        "ruName": "Ð Ð¸Ð·Ð»Ð¸",
+        "weaponType": "WEAPON_CATALYST"
+    },
+    "10000087": {
+        "CardImg": "UI_Gacha_AvatarIcon_Neuvillette",
+        "GachaImg": "UI_Gacha_AvatarImg_Neuvillette",
+        "ascensionStats": {
+            "CRIT DMG%": 38.4,
+            "atk": 208,
+            "def": 576,
+            "hp": 14695
+        },
+        "chsName": "é£ç»´è±ç¹",
+        "element": "Hydro",
+        "enName": "Neuvillette",
+        "ptName": "Neuvillette",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558790,
+        "ruName": "ÐÑÐ²Ð¸Ð»Ð»ÐµÑ",
+        "weaponType": "WEAPON_CATALYST"
+    },
+    "10000088": {
+        "CardImg": "UI_Gacha_AvatarIcon_Charlotte",
+        "GachaImg": "UI_Gacha_AvatarImg_Charlotte",
+        "ascensionStats": {
+            "ATK%": 24.0,
+            "atk": 173,
+            "def": 546,
+            "hp": 10766
+        },
+        "chsName": "å¤æ´è",
+        "element": "Cryo",
+        "enName": "Charlotte",
+        "ptName": "Charlotte",
+        "qualityType": "QUALITY_PURPLE",
+        "releaseDate": 1777558790,
+        "ruName": "Ð¨Ð°ÑÐ»Ð¾ÑÑÐ°",
+        "weaponType": "WEAPON_CATALYST"
+    },
+    "10000089": {
+        "CardImg": "UI_Gacha_AvatarIcon_Furina",
+        "GachaImg": "UI_Gacha_AvatarImg_Furina",
+        "ascensionStats": {
+            "CRIT Rate%": 19.2,
+            "atk": 244,
+            "def": 696,
+            "hp": 15307
+        },
+        "chsName": "èå®å¨",
+        "element": "Hydro",
+        "enName": "Furina",
+        "ptName": "Furina",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558790,
+        "ruName": "Ð¤ÑÑÐ¸Ð½Ð°",
+        "weaponType": "WEAPON_SWORD_ONE_HAND"
+    },
+    "10000090": {
+        "CardImg": "UI_Gacha_AvatarIcon_Chevreuse",
+        "GachaImg": "UI_Gacha_AvatarImg_Chevreuse",
+        "ascensionStats": {
+            "HP%": 24.0,
+            "atk": 193,
+            "def": 605,
+            "hp": 11962
+        },
+        "chsName": "å¤æ²è¾",
+        "element": "Pyro",
+        "enName": "Chevreuse",
+        "ptName": "Chevreuse",
+        "qualityType": "QUALITY_PURPLE",
+        "releaseDate": 1777558790,
+        "ruName": "Ð¨ÐµÐ²ÑÑÐ·",
+        "weaponType": "WEAPON_POLE"
+    },
+    "10000091": {
+        "CardImg": "UI_Gacha_AvatarIcon_Navia",
+        "GachaImg": "UI_Gacha_AvatarImg_Navia",
+        "ascensionStats": {
+            "CRIT DMG%": 38.4,
+            "atk": 352,
+            "def": 793,
+            "hp": 12650
+        },
+        "chsName": "å¨ç»´å¨",
+        "element": "Geo",
+        "enName": "Navia",
+        "ptName": "Navia",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558790,
+        "ruName": "ÐÐ°Ð²Ð¸Ñ",
+        "weaponType": "WEAPON_CLAYMORE"
+    },
+    "10000092": {
+        "CardImg": "UI_Gacha_AvatarIcon_Gaming",
+        "GachaImg": "UI_Gacha_AvatarImg_Gaming",
+        "ascensionStats": {
+            "ATK%": 24.0,
+            "atk": 302,
+            "def": 703,
+            "hp": 11419
+        },
+        "chsName": "åæ",
+        "element": "Pyro",
+        "enName": "Gaming",
+        "ptName": "Gaming",
+        "qualityType": "QUALITY_PURPLE",
+        "releaseDate": 1777558790,
+        "ruName": "ÐÐ° ÐÐ¸Ð½",
+        "weaponType": "WEAPON_CLAYMORE"
+    },
+    "10000093": {
+        "CardImg": "UI_Gacha_AvatarIcon_Liuyun",
+        "GachaImg": "UI_Gacha_AvatarImg_Liuyun",
+        "ascensionStats": {
+            "ATK%": 28.8,
+            "atk": 335,
+            "def": 573,
+            "hp": 10409
+        },
+        "chsName": "é²äº",
+        "element": "Anemo",
+        "enName": "Xianyun",
+        "ptName": "Xianyun",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558790,
+        "ruName": "Ð¡ÑÐ½Ñ Ð®Ð½Ñ",
+        "weaponType": "WEAPON_CATALYST"
+    },
+    "10000094": {
+        "CardImg": "UI_Gacha_AvatarIcon_Chiori",
+        "GachaImg": "UI_Gacha_AvatarImg_Chiori",
+        "ascensionStats": {
+            "CRIT Rate%": 19.2,
+            "atk": 323,
+            "def": 953,
+            "hp": 11438
+        },
+        "chsName": "åç»",
+        "element": "Geo",
+        "enName": "Chiori",
+        "ptName": "Chiori",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558790,
+        "ruName": "Ð¢Ð¸Ð¾ÑÐ¸",
+        "weaponType": "WEAPON_SWORD_ONE_HAND"
+    },
+    "10000095": {
+        "CardImg": "UI_Gacha_AvatarIcon_Sigewinne",
+        "GachaImg": "UI_Gacha_AvatarImg_Sigewinne",
+        "ascensionStats": {
+            "HP%": 28.8,
+            "atk": 193,
+            "def": 500,
+            "hp": 13348
+        },
+        "chsName": "å¸æ ¼é¯",
+        "element": "Hydro",
+        "enName": "Sigewinne",
+        "ptName": "Sigewinne",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558790,
+        "ruName": "Ð¡Ð¸Ð´Ð¶Ð²Ð¸Ð½",
+        "weaponType": "WEAPON_BOW"
+    },
+    "10000096": {
+        "CardImg": "UI_Gacha_AvatarIcon_Arlecchino",
+        "GachaImg": "UI_Gacha_AvatarImg_Arlecchino",
+        "ascensionStats": {
+            "CRIT DMG%": 38.4,
+            "atk": 342,
+            "def": 765,
+            "hp": 13103
+        },
+        "chsName": "é¿è¾å¥è¯º",
+        "element": "Pyro",
+        "enName": "Arlecchino",
+        "ptName": "Arlecchino",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558790,
+        "ruName": "ÐÑÐ»ÐµÐºÐ¸Ð½Ð¾",
+        "weaponType": "WEAPON_POLE"
+    },
+    "10000097": {
+        "CardImg": "UI_Gacha_AvatarIcon_Sethos",
+        "GachaImg": "UI_Gacha_AvatarImg_Sethos",
+        "ascensionStats": {
+            "Elemental Mastery": 96.0,
+            "atk": 227,
+            "def": 560,
+            "hp": 9787
+        },
+        "chsName": "èµç´¢æ¯",
+        "element": "Electro",
+        "enName": "Sethos",
+        "ptName": "Sethos",
+        "qualityType": "QUALITY_PURPLE",
+        "releaseDate": 1777558790,
+        "ruName": "Ð¡ÐµÑÐ¾Ñ",
+        "weaponType": "WEAPON_BOW"
+    },
+    "10000098": {
+        "CardImg": "UI_Gacha_AvatarIcon_Clorinde",
+        "GachaImg": "UI_Gacha_AvatarImg_Clorinde",
+        "ascensionStats": {
+            "CRIT Rate%": 19.2,
+            "atk": 337,
+            "def": 784,
+            "hp": 12956
+        },
+        "chsName": "åæ´ç³å¾·",
+        "element": "Electro",
+        "enName": "Clorinde",
+        "ptName": "Clorinde",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558790,
+        "ruName": "ÐÐ»Ð¾ÑÐ¸Ð½Ð´Ð°",
+        "weaponType": "WEAPON_SWORD_ONE_HAND"
+    },
+    "10000099": {
+        "CardImg": "UI_Gacha_AvatarIcon_Emilie",
+        "GachaImg": "UI_Gacha_AvatarImg_Emilie",
+        "ascensionStats": {
+            "CRIT DMG%": 38.4,
+            "atk": 335,
+            "def": 730,
+            "hp": 13568
+        },
+        "chsName": "è¾æ¢èå",
+        "element": "Dendro",
+        "enName": "Emilie",
+        "ptName": "Emilie",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558790,
+        "ruName": "Ð­Ð¼Ð¸Ð»Ð¸Ñ",
+        "weaponType": "WEAPON_POLE"
+    },
+    "10000100": {
+        "CardImg": "UI_Gacha_AvatarIcon_Kachina",
+        "GachaImg": "UI_Gacha_AvatarImg_Kachina",
+        "ascensionStats": {
+            "Geo DMG Bonus%": 24.0,
+            "atk": 217,
+            "def": 792,
+            "hp": 11799
+        },
+        "chsName": "å¡é½å¨",
+        "element": "Geo",
+        "enName": "Kachina",
+        "ptName": "Kachina",
+        "qualityType": "QUALITY_PURPLE",
+        "releaseDate": 1777558790,
+        "ruName": "ÐÐ°ÑÐ¸Ð½Ð°",
+        "weaponType": "WEAPON_POLE"
+    },
+    "10000101": {
+        "CardImg": "UI_Gacha_AvatarIcon_Kinich",
+        "GachaImg": "UI_Gacha_AvatarImg_Kinich",
+        "ascensionStats": {
+            "CRIT DMG%": 38.4,
+            "atk": 332,
+            "def": 802,
+            "hp": 12858
+        },
+        "chsName": "åºå°¼å¥",
+        "element": "Dendro",
+        "enName": "Kinich",
+        "ptName": "Kinich",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558790,
+        "ruName": "ÐÐ¸Ð½Ð¸Ñ",
+        "weaponType": "WEAPON_CLAYMORE"
+    },
+    "10000102": {
+        "CardImg": "UI_Gacha_AvatarIcon_Mualani",
+        "GachaImg": "UI_Gacha_AvatarImg_Mualani",
+        "ascensionStats": {
+            "CRIT Rate%": 19.2,
+            "atk": 182,
+            "def": 570,
+            "hp": 15185
+        },
+        "chsName": "çæå¦®",
+        "element": "Hydro",
+        "enName": "Mualani",
+        "ptName": "Mualani",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558790,
+        "ruName": "ÐÑÐ°Ð»Ð°Ð½Ð¸",
+        "weaponType": "WEAPON_CATALYST"
+    },
+    "10000103": {
+        "CardImg": "UI_Gacha_AvatarIcon_Xilonen",
+        "GachaImg": "UI_Gacha_AvatarImg_Xilonen",
+        "ascensionStats": {
+            "DEF%": 36.0,
+            "atk": 275,
+            "def": 930,
+            "hp": 12405
+        },
+        "chsName": "å¸è¯ºå®",
+        "element": "Geo",
+        "enName": "Xilonen",
+        "ptName": "Xilonen",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558790,
+        "ruName": "Ð¨Ð¸Ð»Ð¾Ð½ÐµÐ½",
+        "weaponType": "WEAPON_SWORD_ONE_HAND"
+    },
+    "10000104": {
+        "CardImg": "UI_Gacha_AvatarIcon_Chasca",
+        "GachaImg": "UI_Gacha_AvatarImg_Chasca",
+        "ascensionStats": {
+            "CRIT Rate%": 19.2,
+            "atk": 347,
+            "def": 615,
+            "hp": 9797
+        },
+        "chsName": "æ°æ¯å¡",
+        "element": "Anemo",
+        "enName": "Chasca",
+        "ptName": "Chasca",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558790,
+        "ruName": "Ð§Ð°ÑÐºÐ°",
+        "weaponType": "WEAPON_BOW"
+    },
+    "10000105": {
+        "CardImg": "UI_Gacha_AvatarIcon_Olorun",
+        "GachaImg": "UI_Gacha_AvatarImg_Olorun",
+        "ascensionStats": {
+            "ATK%": 24.0,
+            "atk": 244,
+            "def": 587,
+            "hp": 9244
+        },
+        "chsName": "æ¬§æ´ä¼¦",
+        "element": "Electro",
+        "enName": "Ororon",
+        "ptName": "Ororon",
+        "qualityType": "QUALITY_PURPLE",
+        "releaseDate": 1777558790,
+        "ruName": "ÐÑÐ¾ÑÐ¾Ð½",
+        "weaponType": "WEAPON_BOW"
+    },
+    "10000106": {
+        "CardImg": "UI_Gacha_AvatarIcon_Mavuika",
+        "GachaImg": "UI_Gacha_AvatarImg_Mavuika",
+        "ascensionStats": {
+            "CRIT DMG%": 38.4,
+            "atk": 359,
+            "def": 792,
+            "hp": 12552
+        },
+        "chsName": "çèå¡",
+        "element": "Pyro",
+        "enName": "Mavuika",
+        "ptName": "Mavuika",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558790,
+        "ruName": "ÐÐ°Ð²ÑÐ¸ÐºÐ°",
+        "weaponType": "WEAPON_CLAYMORE"
+    },
+    "10000107": {
+        "CardImg": "UI_Gacha_AvatarIcon_Citlali",
+        "GachaImg": "UI_Gacha_AvatarImg_Citlali",
+        "ascensionStats": {
+            "Elemental Mastery": 115.0,
+            "atk": 127,
+            "def": 763,
+            "hp": 11634
+        },
+        "chsName": "èç¹èè",
+        "element": "Cryo",
+        "enName": "Citlali",
+        "ptName": "Citlali",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558790,
+        "ruName": "Ð¡Ð¸ÑÐ»Ð°Ð»Ð¸",
+        "weaponType": "WEAPON_CATALYST"
+    },
+    "10000108": {
+        "CardImg": "UI_Gacha_AvatarIcon_Lanyan",
+        "GachaImg": "UI_Gacha_AvatarImg_Lanyan",
+        "ascensionStats": {
+            "ATK%": 24.0,
+            "atk": 251,
+            "def": 580,
+            "hp": 9244
+        },
+        "chsName": "èç ",
+        "element": "Anemo",
+        "enName": "Lan Yan",
+        "ptName": "Lan Yan",
+        "qualityType": "QUALITY_PURPLE",
+        "releaseDate": 1777558790,
+        "ruName": "ÐÐ°Ð½Ñ Ð¯Ð½Ñ",
+        "weaponType": "WEAPON_CATALYST"
+    },
+    "10000109": {
+        "CardImg": "UI_Gacha_AvatarIcon_Mizuki",
+        "GachaImg": "UI_Gacha_AvatarImg_Mizuki",
+        "ascensionStats": {
+            "Elemental Mastery": 115.0,
+            "atk": 215,
+            "def": 757,
+            "hp": 12736
+        },
+        "chsName": "æ¢¦è§æçå¸",
+        "element": "Anemo",
+        "enName": "Yumemizuki Mizuki",
+        "ptName": "Yumemizuki Mizuki",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558790,
+        "ruName": "ÐÐ¸Ð´Ð·ÑÐºÐ¸",
+        "weaponType": "WEAPON_CATALYST"
+    },
+    "10000110": {
+        "CardImg": "UI_Gacha_AvatarIcon_Iansan",
+        "GachaImg": "UI_Gacha_AvatarImg_Iansan",
+        "ascensionStats": {
+            "ATK%": 24.0,
+            "atk": 257,
+            "def": 638,
+            "hp": 10657
+        },
+        "chsName": "ä¼å®ç",
+        "element": "Electro",
+        "enName": "Iansan",
+        "ptName": "Iansan",
+        "qualityType": "QUALITY_PURPLE",
+        "releaseDate": 1777558790,
+        "ruName": "ÐÐ°Ð½ÑÐ°Ð½",
+        "weaponType": "WEAPON_POLE"
+    },
+    "10000111": {
+        "CardImg": "UI_Gacha_AvatarIcon_Varesa",
+        "GachaImg": "UI_Gacha_AvatarImg_Varesa",
+        "ascensionStats": {
+            "CRIT Rate%": 19.2,
+            "atk": 356,
+            "def": 782,
+            "hp": 12699
+        },
+        "chsName": "ç¦é·è",
+        "element": "Electro",
+        "enName": "Varesa",
+        "ptName": "Varesa",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558790,
+        "ruName": "ÐÐ°ÑÐµÑÐ°",
+        "weaponType": "WEAPON_CATALYST"
+    },
+    "10000112": {
+        "CardImg": "UI_Gacha_AvatarIcon_Escoffier",
+        "GachaImg": "UI_Gacha_AvatarImg_Escoffier",
+        "ascensionStats": {
+            "CRIT Rate%": 19.2,
+            "atk": 347,
+            "def": 732,
+            "hp": 13348
+        },
+        "chsName": "ç±å¯è²",
+        "element": "Cryo",
+        "enName": "Escoffier",
+        "ptName": "Escoffier",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558790,
+        "ruName": "Ð­ÑÐºÐ¾ÑÑÐµ",
+        "weaponType": "WEAPON_POLE"
+    },
+    "10000113": {
+        "CardImg": "UI_Gacha_AvatarIcon_Ifa",
+        "GachaImg": "UI_Gacha_AvatarImg_Ifa",
+        "ascensionStats": {
+            "Elemental Mastery": 96.0,
+            "atk": 178,
+            "def": 605,
+            "hp": 10081
+        },
+        "chsName": "ä¼æ³",
+        "element": "Anemo",
+        "enName": "Ifa",
+        "ptName": "Ifa",
+        "qualityType": "QUALITY_PURPLE",
+        "releaseDate": 1777558790,
+        "ruName": "ÐÑÐ°",
+        "weaponType": "WEAPON_CATALYST"
+    },
+    "10000114": {
+        "CardImg": "UI_Gacha_AvatarIcon_SkirkNew",
+        "GachaImg": "UI_Gacha_AvatarImg_SkirkNew",
+        "ascensionStats": {
+            "CRIT DMG%": 38.4,
+            "atk": 359,
+            "def": 806,
+            "hp": 12417
+        },
+        "chsName": "ä¸æ¯å",
+        "element": "Cryo",
+        "enName": "Skirk",
+        "ptName": "Skirk",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558790,
+        "ruName": "Ð¡ÐºÐ¸ÑÐº",
+        "weaponType": "WEAPON_SWORD_ONE_HAND"
+    },
+    "10000115": {
+        "CardImg": "UI_Gacha_AvatarIcon_Dahlia",
+        "GachaImg": "UI_Gacha_AvatarImg_Dahlia",
+        "ascensionStats": {
+            "HP%": 24.0,
+            "atk": 189,
+            "def": 560,
+            "hp": 12506
+        },
+        "chsName": "å¡å©é",
+        "element": "Hydro",
+        "enName": "Dahlia",
+        "ptName": "Dahlia",
+        "qualityType": "QUALITY_PURPLE",
+        "releaseDate": 1777558790,
+        "ruName": "ÐÐ°Ð»Ð¸Ñ",
+        "weaponType": "WEAPON_SWORD_ONE_HAND"
+    },
+    "10000116": {
+        "CardImg": "UI_Gacha_AvatarIcon_Ineffa",
+        "GachaImg": "UI_Gacha_AvatarImg_Ineffa",
+        "ascensionStats": {
+            "CRIT Rate%": 19.2,
+            "atk": 330,
+            "def": 828,
+            "hp": 12613
+        },
+        "chsName": "ä¼æ¶è",
+        "element": "Electro",
+        "enName": "Ineffa",
+        "ptName": "Ineffa",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558790,
+        "ruName": "ÐÐ½ÐµÑÑÐ°",
+        "weaponType": "WEAPON_POLE"
+    },
+    "10000117": {
+        "CardImg": "UI_Gacha_AvatarIcon_MannequinBoy",
+        "GachaImg": "UI_Gacha_AvatarImg_MannequinBoy",
+        "ascensionStats": {
+            "ATK%": 24.0,
+            "atk": 212,
+            "def": 683,
+            "hp": 10875
+        },
+        "chsName": "å¥å¶Â·ç·æ§",
+        "element": "Unknown",
+        "enName": "Manekin",
+        "ptName": "Manequim",
+        "qualityType": "QUALITY_ORANGE_SP",
+        "releaseDate": 1777558790,
+        "ruName": "ÐÐ°Ð½ÐµÐºÐµÐ½ (Ð¼)",
+        "weaponType": "WEAPON_SWORD_ONE_HAND"
+    },
+    "10000118": {
+        "CardImg": "UI_Gacha_AvatarIcon_MannequinGirl",
+        "GachaImg": "UI_Gacha_AvatarImg_MannequinGirl",
+        "ascensionStats": {
+            "ATK%": 24.0,
+            "atk": 212,
+            "def": 683,
+            "hp": 10875
+        },
+        "chsName": "å¥å¶Â·å¥³æ§",
+        "element": "Unknown",
+        "enName": "Manekina",
+        "ptName": "Manequina",
+        "qualityType": "QUALITY_ORANGE_SP",
+        "releaseDate": 1777558790,
+        "ruName": "ÐÐ°Ð½ÐµÐºÐµÐ½ (Ð¶)",
+        "weaponType": "WEAPON_SWORD_ONE_HAND"
+    },
+    "10000119": {
+        "CardImg": "UI_Gacha_AvatarIcon_Lauma",
+        "GachaImg": "UI_Gacha_AvatarImg_Lauma",
+        "ascensionStats": {
+            "Elemental Mastery": "315",
+            "atk": 255,
+            "def": 669,
+            "hp": 10654
+        },
+        "chsName": "èä¹ç",
+        "element": "Dendro",
+        "enName": "Lauma",
+        "ptName": "Lauma",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558790,
+        "ruName": "ÐÐ°ÑÐ¼Ð°",
+        "weaponType": "WEAPON_CATALYST"
+    },
+    "10000120": {
+        "CardImg": "UI_Gacha_AvatarIcon_Flins",
+        "GachaImg": "UI_Gacha_AvatarImg_Flins",
+        "ascensionStats": {
+            "CRIT DMG%": 38.4,
+            "atk": 352,
+            "def": 809,
+            "hp": 12491
+        },
+        "chsName": "è²ææ¯",
+        "element": "Electro",
+        "enName": "Flins",
+        "ptName": "Flins",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558790,
+        "ruName": "Ð¤Ð»Ð¸Ð½Ñ",
+        "weaponType": "WEAPON_POLE"
+    },
+    "10000121": {
+        "CardImg": "UI_Gacha_AvatarIcon_Aino",
+        "GachaImg": "UI_Gacha_AvatarImg_Aino",
+        "ascensionStats": {
+            "Elemental Mastery": 96.0,
+            "atk": 242,
+            "def": 607,
+            "hp": 11201
+        },
+        "chsName": "ç±è¯º",
+        "element": "Hydro",
+        "enName": "Aino",
+        "ptName": "Aino",
+        "qualityType": "QUALITY_PURPLE",
+        "releaseDate": 1777558790,
+        "ruName": "ÐÐ¹Ð½Ð¾",
+        "weaponType": "WEAPON_CLAYMORE"
+    },
+    "10000122": {
+        "CardImg": "UI_Gacha_AvatarIcon_Nefer",
+        "GachaImg": "UI_Gacha_AvatarImg_Nefer",
+        "ascensionStats": {
+            "CRIT DMG%": 38.4,
+            "Elemental Mastery": "100",
+            "atk": 344,
+            "def": 799,
+            "hp": 12704
+        },
+        "chsName": "å¥èå°",
+        "element": "Dendro",
+        "enName": "Nefer",
+        "ptName": "Nefer",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558790,
+        "ruName": "ÐÐµÑÐµÑ",
+        "weaponType": "WEAPON_CATALYST"
+    },
+    "10000123": {
+        "CardImg": "UI_Gacha_AvatarIcon_Durin",
+        "GachaImg": "UI_Gacha_AvatarImg_Durin",
+        "ascensionStats": {
+            "CRIT DMG%": 38.4,
+            "atk": 347,
+            "def": 822,
+            "hp": 12430
+        },
+        "chsName": "ææ",
+        "element": "Pyro",
+        "enName": "Durin",
+        "ptName": "Durin",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558790,
+        "ruName": "ÐÑÑÐ¸Ð½",
+        "weaponType": "WEAPON_SWORD_ONE_HAND"
+    },
+    "10000124": {
+        "CardImg": "UI_Gacha_AvatarIcon_Jahoda",
+        "GachaImg": "UI_Gacha_AvatarImg_Jahoda",
+        "ascensionStats": {
+            "Healing Bonus%": 18.5,
+            "atk": 223,
+            "def": 580,
+            "hp": 9646
+        },
+        "chsName": "éçè¾¾",
+        "element": "Anemo",
+        "enName": "Jahoda",
+        "ptName": "Jahoda",
+        "qualityType": "QUALITY_PURPLE",
+        "releaseDate": 1777558790,
+        "ruName": "Ð¯Ð³Ð¾Ð´Ð°",
+        "weaponType": "WEAPON_BOW"
+    },
+    "10000125": {
+        "CardImg": "UI_Gacha_AvatarIcon_Columbina",
+        "GachaImg": "UI_Gacha_AvatarImg_Columbina",
+        "ascensionStats": {
+            "CRIT Rate%": 19.2,
+            "atk": 96,
+            "def": 515,
+            "hp": 14695
+        },
+        "chsName": "å¥ä¼¦æ¯å¨",
+        "element": "Hydro",
+        "enName": "Columbina",
+        "ptName": "Columbina",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558790,
+        "ruName": "ÐÐ¾Ð»Ð¾Ð¼Ð±Ð¸Ð½Ð°",
+        "weaponType": "WEAPON_CATALYST"
+    },
+    "10000126": {
+        "CardImg": "UI_Gacha_AvatarIcon_Zibai",
+        "GachaImg": "UI_Gacha_AvatarImg_Zibai",
+        "ascensionStats": {
+            "CRIT DMG%": 38.4,
+            "atk": 225,
+            "def": 957,
+            "hp": 12919
+        },
+        "chsName": "å¹ç½",
+        "element": "Geo",
+        "enName": "Zibai",
+        "ptName": "Zibai",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558790,
+        "ruName": "Ð¦Ð·Ñ ÐÐ°Ð¹",
+        "weaponType": "WEAPON_SWORD_ONE_HAND"
+    },
+    "10000127": {
+        "CardImg": "UI_Gacha_AvatarIcon_Illuga",
+        "GachaImg": "UI_Gacha_AvatarImg_Illuga",
+        "ascensionStats": {
+            "Elemental Mastery": 96.0,
+            "atk": 191,
+            "def": 814,
+            "hp": 11962
+        },
+        "chsName": "å¶æ´äº",
+        "element": "Geo",
+        "enName": "Illuga",
+        "ptName": "Illuga",
+        "qualityType": "QUALITY_PURPLE",
+        "releaseDate": 1777558790,
+        "ruName": "ÐÐ»Ð»ÑÐ³Ð¸",
+        "weaponType": "WEAPON_POLE"
+    },
+    "10000128": {
+        "CardImg": "UI_Gacha_AvatarIcon_Varka",
+        "GachaImg": "UI_Gacha_AvatarImg_Varka",
+        "ascensionStats": {
+            "CRIT DMG%": 38.4,
+            "atk": 353,
+            "def": 795,
+            "hp": 12613
+        },
+        "chsName": "æ³å°ä¼½",
+        "element": "Anemo",
+        "enName": "Varka",
+        "ptName": "Varka",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558790,
+        "ruName": "ÐÐ°ÑÐºÐ°",
+        "weaponType": "WEAPON_CLAYMORE"
+    },
+    "10000129": {
+        "CardImg": "UI_Gacha_AvatarIcon_Lohen",
+        "GachaImg": "UI_Gacha_AvatarImg_Lohen",
+        "ascensionStats": {
+            "CRIT DMG%": 38.4,
+            "atk": 344,
+            "def": 784,
+            "hp": 12858
+        },
+        "chsName": "æ´æ©",
+        "element": "Cryo",
+        "enName": "Lohen",
+        "ptName": "Lohen",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558790,
+        "ruName": "ÐÐ¾ÑÐ½",
+        "weaponType": "WEAPON_POLE"
+    },
+    "10000130": {
+        "CardImg": "UI_Gacha_AvatarIcon_Linnea",
+        "GachaImg": "UI_Gacha_AvatarImg_Linnea",
+        "ascensionStats": {
+            "CRIT Rate%": 19.2,
+            "atk": 144,
+            "def": 907,
+            "hp": 9895
+        },
+        "chsName": "èå¥å¨",
+        "element": "Geo",
+        "enName": "Linnea",
+        "ptName": "Linnea",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558790,
+        "ruName": "ÐÐ¸Ð½Ð½ÐµÑ",
+        "weaponType": "WEAPON_BOW"
+    },
+    "10000131": {
+        "CardImg": "UI_Gacha_AvatarIcon_Nicole",
+        "GachaImg": "UI_Gacha_AvatarImg_Nicole",
+        "ascensionStats": {
+            "ATK%": 28.8,
+            "atk": 342,
+            "def": 563,
+            "hp": 10409
+        },
+        "chsName": "å°¼å¯",
+        "element": "Pyro",
+        "enName": "Nicole",
+        "ptName": "Nicole",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558790,
+        "ruName": "ÐÐ¸ÐºÐ¾Ð»Ñ",
+        "weaponType": "WEAPON_CATALYST"
+    },
+    "10000132": {
+        "CardImg": "UI_Gacha_AvatarIcon_Prune",
+        "GachaImg": "UI_Gacha_AvatarImg_Prune",
+        "ascensionStats": {
+            "ATK%": 24.0,
+            "atk": 221,
+            "def": 580,
+            "hp": 9679
+        },
+        "chsName": "å¸ä¼¦å¦®",
+        "element": "Anemo",
+        "enName": "Prune",
+        "ptName": "Prune",
+        "qualityType": "QUALITY_PURPLE",
+        "releaseDate": 1777558790,
+        "ruName": "ÐÑÑÐ½",
+        "weaponType": "WEAPON_CATALYST"
+    }
+}

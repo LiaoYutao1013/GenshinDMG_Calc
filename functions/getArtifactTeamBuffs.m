@@ -1,9 +1,9 @@
-function buffs = getArtifactTeamBuffs(characterName, build)
+﻿function buffs = getArtifactTeamBuffs(characterName, build)
     % 返回会影响队伍共享状态或敌人抗性的圣遗物套装效果。
-    % 这里不重复处理角色自己的直伤增益，只处理：
-    % 1. 全队攻击力等共享增益；
+    % 这里只处理：
+    % 1. 全队攻击力、元素精通、元素增伤等共享增益；
     % 2. 敌人元素抗性削减；
-    % 3. 当前工程里已明确建模的套装团队效果。
+    % 3. 当前工程中显式建模的月感反应加成。
     if nargin < 1
         characterName = "";
     end
@@ -12,11 +12,24 @@ function buffs = getArtifactTeamBuffs(characterName, build)
     buffs = struct( ...
         'ATKBonus', 0, ...
         'EMBonus', 0, ...
+        'AllDMGBonus', 0, ...
+        'PyroDMGBonus', 0, ...
+        'HydroDMGBonus', 0, ...
+        'CryoDMGBonus', 0, ...
+        'ElectroDMGBonus', 0, ...
+        'AnemoDMGBonus', 0, ...
+        'GeoDMGBonus', 0, ...
+        'DendroDMGBonus', 0, ...
+        'LunarBloomBonus', 0, ...
+        'LunarChargedBonus', 0, ...
+        'LunarCrystallizeBonus', 0, ...
+        'ReactionCritRate', 0, ...
         'DendroResShred', 0, ...
         'PyroResShred', 0, ...
         'HydroResShred', 0, ...
         'CryoResShred', 0, ...
-        'ElectroResShred', 0);
+        'ElectroResShred', 0, ...
+        'GeoResShred', 0);
 
     if ~logical(getFieldOrDefault(build, 'ArtifactApplySetBonuses', 0))
         return;
@@ -45,18 +58,62 @@ function buffs = getArtifactTeamBuffs(characterName, build)
                 buffs.EMBonus = max(buffs.EMBonus, 120);
 
             case 'viridescentvenerer'
-                if localLikelySwirlSupport(characterName)
-                    element = getCharacterElement(characterName);
-                    switch lower(char(element))
-                        case 'pyro'
-                            buffs.PyroResShred = max(buffs.PyroResShred, 0.40);
-                        case 'hydro'
-                            buffs.HydroResShred = max(buffs.HydroResShred, 0.40);
-                        case 'cryo'
-                            buffs.CryoResShred = max(buffs.CryoResShred, 0.40);
-                        case 'electro'
-                            buffs.ElectroResShred = max(buffs.ElectroResShred, 0.40);
-                    end
+                element = getCharacterElement(characterName);
+                switch lower(char(element))
+                    case 'pyro'
+                        buffs.PyroResShred = max(buffs.PyroResShred, 0.40);
+                    case 'hydro'
+                        buffs.HydroResShred = max(buffs.HydroResShred, 0.40);
+                    case 'cryo'
+                        buffs.CryoResShred = max(buffs.CryoResShred, 0.40);
+                    case 'electro'
+                        buffs.ElectroResShred = max(buffs.ElectroResShred, 0.40);
+                end
+
+            case 'archaicpetra'
+                preferred = string(getFieldOrDefault(build, 'ArtifactAssumePetraElement', getCharacterElement(characterName)));
+                buffs = localAddElementTeamBonus(buffs, preferred, 0.35);
+
+            case 'songofdayspast'
+                buffs.AllDMGBonus = max(buffs.AllDMGBonus, 0.08);
+
+            case 'silkenmoonsserenade'
+                moonPhase = min(1, max(0, getFieldOrDefault(build, 'ArtifactAssumeMoonPhase', 1)));
+                buffs.EMBonus = max(buffs.EMBonus, 60 + 60 * double(moonPhase >= 1));
+                buffs.LunarBloomBonus = max(buffs.LunarBloomBonus, 0.10);
+                buffs.LunarChargedBonus = max(buffs.LunarChargedBonus, 0.10);
+                buffs.LunarCrystallizeBonus = max(buffs.LunarCrystallizeBonus, 0.10);
+
+            case 'nightoftheskysunveiling'
+                moonPhase = min(1, max(0, getFieldOrDefault(build, 'ArtifactAssumeMoonPhase', 1)));
+                buffs.ReactionCritRate = max(buffs.ReactionCritRate, 0.15 + 0.15 * double(moonPhase >= 1));
+                buffs.LunarBloomBonus = max(buffs.LunarBloomBonus, 0.10);
+                buffs.LunarChargedBonus = max(buffs.LunarChargedBonus, 0.10);
+                buffs.LunarCrystallizeBonus = max(buffs.LunarCrystallizeBonus, 0.10);
+
+            case 'aubadeofmorningstarandmoon'
+                moonPhase = min(1, max(0, getFieldOrDefault(build, 'ArtifactAssumeMoonPhase', 1)));
+                buffs.LunarBloomBonus = max(buffs.LunarBloomBonus, 0.20 + 0.40 * double(moonPhase >= 1));
+                buffs.LunarChargedBonus = max(buffs.LunarChargedBonus, 0.20 + 0.40 * double(moonPhase >= 1));
+                buffs.LunarCrystallizeBonus = max(buffs.LunarCrystallizeBonus, 0.20 + 0.40 * double(moonPhase >= 1));
+
+            case 'scrolloftheheroofcindercity'
+                nightsoulBoost = 0.12 + 0.28 * double(logical(getFieldOrDefault(build, 'ArtifactAssumeNightsoulBlessing', true)));
+                preferredElements = localResolveReactionElements(characterName, build);
+                for k = 1:numel(preferredElements)
+                    buffs = localAddElementTeamBonus(buffs, preferredElements(k), nightsoulBoost);
+                end
+
+            case 'celestialgift'
+                bonusValue = 0.20;
+                if logical(getFieldOrDefault(build, 'ArtifactAssumeMortalHymn', false))
+                    bonusValue = 0.40;
+                end
+                ownerElement = getCharacterElement(characterName);
+                buffs = localAddElementTeamBonus(buffs, ownerElement, bonusValue);
+                activeElement = string(getFieldOrDefault(build, 'ArtifactAssumeActiveElement', ""));
+                if strlength(activeElement) > 0
+                    buffs = localAddElementTeamBonus(buffs, activeElement, bonusValue);
                 end
         end
     end
@@ -98,6 +155,48 @@ function setPieces = localCollectSetPieces(build)
     end
 end
 
-function tf = localLikelySwirlSupport(characterName)
-    tf = any(strcmpi(char(string(characterName)), {'Xianyun', 'Chasca'}));
+function buffs = localAddElementTeamBonus(buffs, element, value)
+    switch lower(char(string(element)))
+        case 'pyro'
+            buffs.PyroDMGBonus = max(getFieldOrDefault(buffs, 'PyroDMGBonus', 0), value);
+        case 'hydro'
+            buffs.HydroDMGBonus = max(getFieldOrDefault(buffs, 'HydroDMGBonus', 0), value);
+        case 'cryo'
+            buffs.CryoDMGBonus = max(getFieldOrDefault(buffs, 'CryoDMGBonus', 0), value);
+        case 'electro'
+            buffs.ElectroDMGBonus = max(getFieldOrDefault(buffs, 'ElectroDMGBonus', 0), value);
+        case 'anemo'
+            buffs.AnemoDMGBonus = max(getFieldOrDefault(buffs, 'AnemoDMGBonus', 0), value);
+        case 'geo'
+            buffs.GeoDMGBonus = max(getFieldOrDefault(buffs, 'GeoDMGBonus', 0), value);
+        case 'dendro'
+            buffs.DendroDMGBonus = max(getFieldOrDefault(buffs, 'DendroDMGBonus', 0), value);
+    end
+end
+
+function elements = localResolveReactionElements(characterName, build)
+    override = string(getFieldOrDefault(build, 'ArtifactAssumeReactionElements', ""));
+    if strlength(override) > 0
+        parts = split(override, ',');
+        elements = strip(parts(parts ~= ""));
+        return;
+    end
+
+    selfElement = string(getCharacterElement(characterName));
+    switch lower(char(selfElement))
+        case 'pyro'
+            elements = ["Pyro", "Electro", "Hydro", "Dendro"];
+        case 'hydro'
+            elements = ["Hydro", "Cryo", "Electro", "Dendro"];
+        case 'cryo'
+            elements = ["Cryo", "Hydro", "Pyro"];
+        case 'electro'
+            elements = ["Electro", "Hydro", "Dendro", "Pyro"];
+        case 'dendro'
+            elements = ["Dendro", "Hydro", "Electro", "Pyro"];
+        case 'geo'
+            elements = ["Geo", "Pyro", "Hydro", "Cryo", "Electro"];
+        otherwise
+            elements = selfElement;
+    end
 end

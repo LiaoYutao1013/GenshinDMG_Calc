@@ -1,0 +1,31 @@
+﻿{
+    "Id":  15035,
+    "SetId":  15035,
+    "EnName":  "Fragment of Harmonic Whimsy",
+    "QualityType":  "QUALITY_ORANGE",
+    "SetIcon":  "UI_RelicIcon_15035_4",
+    "Effect2Pc":  "ATK +18%.",
+    "Effect4Pc":  "When the value of a Bond of Life increases or decreases, this character deals 18% increased DMG for 6s. Max 3 stacks.",
+    "Pieces":  {
+                   "circlet":  {
+                                   "icon":  "UI_RelicIcon_15035_3",
+                                   "name":  "Whimsical Dance of the Withered"
+                               },
+                   "flower":  {
+                                  "icon":  "UI_RelicIcon_15035_4",
+                                  "name":  "Harmonious Symphony Prelude"
+                              },
+                   "goblet":  {
+                                  "icon":  "UI_RelicIcon_15035_1",
+                                  "name":  "Ichor Shower Rhapsody"
+                              },
+                   "plume":  {
+                                 "icon":  "UI_RelicIcon_15035_2",
+                                 "name":  "Ancient Sea\u0027s Nocturnal Musing"
+                             },
+                   "sands":  {
+                                 "icon":  "UI_RelicIcon_15035_5",
+                                 "name":  "The Grand Jape of the Turning of Fate"
+                             }
+               }
+}

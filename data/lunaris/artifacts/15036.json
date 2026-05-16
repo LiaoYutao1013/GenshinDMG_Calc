@@ -1,0 +1,31 @@
+﻿{
+    "Id":  15036,
+    "SetId":  15036,
+    "EnName":  "Unfinished Reverie",
+    "QualityType":  "QUALITY_ORANGE",
+    "SetIcon":  "UI_RelicIcon_15036_4",
+    "Effect2Pc":  "ATK +18%.",
+    "Effect4Pc":  "After leaving combat for 3s, DMG dealt increased by 50%. In combat, if no Burning opponents are nearby for more than 6s, this DMG Bonus will decrease by 10% per second until it reaches 0%. When a Burning opponent exists, it will increase by 10% instead until it reaches 50%. This effect still triggers if the equipping character is off-field.",
+    "Pieces":  {
+                   "circlet":  {
+                                   "icon":  "UI_RelicIcon_15036_3",
+                                   "name":  "Crownless Crown"
+                               },
+                   "flower":  {
+                                  "icon":  "UI_RelicIcon_15036_4",
+                                  "name":  "Dark Fruit of Bright Flowers"
+                              },
+                   "goblet":  {
+                                  "icon":  "UI_RelicIcon_15036_1",
+                                  "name":  "The Wine-Flask Over Which the Plan Was Hatched"
+                              },
+                   "plume":  {
+                                 "icon":  "UI_RelicIcon_15036_2",
+                                 "name":  "Faded Emerald Tail"
+                             },
+                   "sands":  {
+                                 "icon":  "UI_RelicIcon_15036_5",
+                                 "name":  "Moment of Attainment"
+                             }
+               }
+}

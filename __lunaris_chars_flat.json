@@ -1,0 +1,905 @@
+[
+    {
+        "Id":  "10000132",
+        "EnName":  "Prune",
+        "Weapon":  "WEAPON_CATALYST",
+        "Element":  "Anemo",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000131",
+        "EnName":  "Nicole",
+        "Weapon":  "WEAPON_CATALYST",
+        "Element":  "Pyro",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000130",
+        "EnName":  "Linnea",
+        "Weapon":  "WEAPON_BOW",
+        "Element":  "Geo",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000129",
+        "EnName":  "Lohen",
+        "Weapon":  "WEAPON_POLE",
+        "Element":  "Cryo",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000128",
+        "EnName":  "Varka",
+        "Weapon":  "WEAPON_CLAYMORE",
+        "Element":  "Anemo",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000127",
+        "EnName":  "Illuga",
+        "Weapon":  "WEAPON_POLE",
+        "Element":  "Geo",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000126",
+        "EnName":  "Zibai",
+        "Weapon":  "WEAPON_SWORD_ONE_HAND",
+        "Element":  "Geo",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000125",
+        "EnName":  "Columbina",
+        "Weapon":  "WEAPON_CATALYST",
+        "Element":  "Hydro",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000124",
+        "EnName":  "Jahoda",
+        "Weapon":  "WEAPON_BOW",
+        "Element":  "Anemo",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000123",
+        "EnName":  "Durin",
+        "Weapon":  "WEAPON_SWORD_ONE_HAND",
+        "Element":  "Pyro",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000122",
+        "EnName":  "Nefer",
+        "Weapon":  "WEAPON_CATALYST",
+        "Element":  "Dendro",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000121",
+        "EnName":  "Aino",
+        "Weapon":  "WEAPON_CLAYMORE",
+        "Element":  "Hydro",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000120",
+        "EnName":  "Flins",
+        "Weapon":  "WEAPON_POLE",
+        "Element":  "Electro",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000119",
+        "EnName":  "Lauma",
+        "Weapon":  "WEAPON_CATALYST",
+        "Element":  "Dendro",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000118",
+        "EnName":  "Manekina",
+        "Weapon":  "WEAPON_SWORD_ONE_HAND",
+        "Element":  "Unknown",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000117",
+        "EnName":  "Manekin",
+        "Weapon":  "WEAPON_SWORD_ONE_HAND",
+        "Element":  "Unknown",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000116",
+        "EnName":  "Ineffa",
+        "Weapon":  "WEAPON_POLE",
+        "Element":  "Electro",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000115",
+        "EnName":  "Dahlia",
+        "Weapon":  "WEAPON_SWORD_ONE_HAND",
+        "Element":  "Hydro",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000114",
+        "EnName":  "Skirk",
+        "Weapon":  "WEAPON_SWORD_ONE_HAND",
+        "Element":  "Cryo",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000113",
+        "EnName":  "Ifa",
+        "Weapon":  "WEAPON_CATALYST",
+        "Element":  "Anemo",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000112",
+        "EnName":  "Escoffier",
+        "Weapon":  "WEAPON_POLE",
+        "Element":  "Cryo",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000111",
+        "EnName":  "Varesa",
+        "Weapon":  "WEAPON_CATALYST",
+        "Element":  "Electro",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000110",
+        "EnName":  "Iansan",
+        "Weapon":  "WEAPON_POLE",
+        "Element":  "Electro",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000109",
+        "EnName":  "Yumemizuki Mizuki",
+        "Weapon":  "WEAPON_CATALYST",
+        "Element":  "Anemo",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000108",
+        "EnName":  "Lan Yan",
+        "Weapon":  "WEAPON_CATALYST",
+        "Element":  "Anemo",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000107",
+        "EnName":  "Citlali",
+        "Weapon":  "WEAPON_CATALYST",
+        "Element":  "Cryo",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000106",
+        "EnName":  "Mavuika",
+        "Weapon":  "WEAPON_CLAYMORE",
+        "Element":  "Pyro",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000105",
+        "EnName":  "Ororon",
+        "Weapon":  "WEAPON_BOW",
+        "Element":  "Electro",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000104",
+        "EnName":  "Chasca",
+        "Weapon":  "WEAPON_BOW",
+        "Element":  "Anemo",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000103",
+        "EnName":  "Xilonen",
+        "Weapon":  "WEAPON_SWORD_ONE_HAND",
+        "Element":  "Geo",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000102",
+        "EnName":  "Mualani",
+        "Weapon":  "WEAPON_CATALYST",
+        "Element":  "Hydro",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000101",
+        "EnName":  "Kinich",
+        "Weapon":  "WEAPON_CLAYMORE",
+        "Element":  "Dendro",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000100",
+        "EnName":  "Kachina",
+        "Weapon":  "WEAPON_POLE",
+        "Element":  "Geo",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000099",
+        "EnName":  "Emilie",
+        "Weapon":  "WEAPON_POLE",
+        "Element":  "Dendro",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000098",
+        "EnName":  "Clorinde",
+        "Weapon":  "WEAPON_SWORD_ONE_HAND",
+        "Element":  "Electro",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000097",
+        "EnName":  "Sethos",
+        "Weapon":  "WEAPON_BOW",
+        "Element":  "Electro",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000096",
+        "EnName":  "Arlecchino",
+        "Weapon":  "WEAPON_POLE",
+        "Element":  "Pyro",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000095",
+        "EnName":  "Sigewinne",
+        "Weapon":  "WEAPON_BOW",
+        "Element":  "Hydro",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000094",
+        "EnName":  "Chiori",
+        "Weapon":  "WEAPON_SWORD_ONE_HAND",
+        "Element":  "Geo",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000093",
+        "EnName":  "Xianyun",
+        "Weapon":  "WEAPON_CATALYST",
+        "Element":  "Anemo",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000092",
+        "EnName":  "Gaming",
+        "Weapon":  "WEAPON_CLAYMORE",
+        "Element":  "Pyro",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000091",
+        "EnName":  "Navia",
+        "Weapon":  "WEAPON_CLAYMORE",
+        "Element":  "Geo",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000090",
+        "EnName":  "Chevreuse",
+        "Weapon":  "WEAPON_POLE",
+        "Element":  "Pyro",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000089",
+        "EnName":  "Furina",
+        "Weapon":  "WEAPON_SWORD_ONE_HAND",
+        "Element":  "Hydro",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000088",
+        "EnName":  "Charlotte",
+        "Weapon":  "WEAPON_CATALYST",
+        "Element":  "Cryo",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000087",
+        "EnName":  "Neuvillette",
+        "Weapon":  "WEAPON_CATALYST",
+        "Element":  "Hydro",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000086",
+        "EnName":  "Wriothesley",
+        "Weapon":  "WEAPON_CATALYST",
+        "Element":  "Cryo",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000085",
+        "EnName":  "Freminet",
+        "Weapon":  "WEAPON_CLAYMORE",
+        "Element":  "Cryo",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000084",
+        "EnName":  "Lyney",
+        "Weapon":  "WEAPON_BOW",
+        "Element":  "Pyro",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000083",
+        "EnName":  "Lynette",
+        "Weapon":  "WEAPON_SWORD_ONE_HAND",
+        "Element":  "Anemo",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000082",
+        "EnName":  "Baizhu",
+        "Weapon":  "WEAPON_CATALYST",
+        "Element":  "Dendro",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000081",
+        "EnName":  "Kaveh",
+        "Weapon":  "WEAPON_CLAYMORE",
+        "Element":  "Dendro",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000080",
+        "EnName":  "Mika",
+        "Weapon":  "WEAPON_POLE",
+        "Element":  "Cryo",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000079",
+        "EnName":  "Dehya",
+        "Weapon":  "WEAPON_CLAYMORE",
+        "Element":  "Pyro",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000078",
+        "EnName":  "Alhaitham",
+        "Weapon":  "WEAPON_SWORD_ONE_HAND",
+        "Element":  "Dendro",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000077",
+        "EnName":  "Yaoyao",
+        "Weapon":  "WEAPON_POLE",
+        "Element":  "Dendro",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000076",
+        "EnName":  "Faruzan",
+        "Weapon":  "WEAPON_BOW",
+        "Element":  "Anemo",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000075",
+        "EnName":  "Wanderer",
+        "Weapon":  "WEAPON_CATALYST",
+        "Element":  "Anemo",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000074",
+        "EnName":  "Layla",
+        "Weapon":  "WEAPON_SWORD_ONE_HAND",
+        "Element":  "Cryo",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000073",
+        "EnName":  "Nahida",
+        "Weapon":  "WEAPON_CATALYST",
+        "Element":  "Dendro",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000072",
+        "EnName":  "Candace",
+        "Weapon":  "WEAPON_POLE",
+        "Element":  "Hydro",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000071",
+        "EnName":  "Cyno",
+        "Weapon":  "WEAPON_POLE",
+        "Element":  "Electro",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000070",
+        "EnName":  "Nilou",
+        "Weapon":  "WEAPON_SWORD_ONE_HAND",
+        "Element":  "Hydro",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000069",
+        "EnName":  "Tighnari",
+        "Weapon":  "WEAPON_BOW",
+        "Element":  "Dendro",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000068",
+        "EnName":  "Dori",
+        "Weapon":  "WEAPON_CLAYMORE",
+        "Element":  "Electro",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000067",
+        "EnName":  "Collei",
+        "Weapon":  "WEAPON_BOW",
+        "Element":  "Dendro",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000066",
+        "EnName":  "Kamisato Ayato",
+        "Weapon":  "WEAPON_SWORD_ONE_HAND",
+        "Element":  "Hydro",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000065",
+        "EnName":  "Kuki Shinobu",
+        "Weapon":  "WEAPON_SWORD_ONE_HAND",
+        "Element":  "Electro",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000064",
+        "EnName":  "Yun Jin",
+        "Weapon":  "WEAPON_POLE",
+        "Element":  "Geo",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000063",
+        "EnName":  "Shenhe",
+        "Weapon":  "WEAPON_POLE",
+        "Element":  "Cryo",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000062",
+        "EnName":  "Aloy",
+        "Weapon":  "WEAPON_BOW",
+        "Element":  "Cryo",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000061",
+        "EnName":  "Kirara",
+        "Weapon":  "WEAPON_SWORD_ONE_HAND",
+        "Element":  "Dendro",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000060",
+        "EnName":  "Yelan",
+        "Weapon":  "WEAPON_BOW",
+        "Element":  "Hydro",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000059",
+        "EnName":  "Shikanoin Heizou",
+        "Weapon":  "WEAPON_CATALYST",
+        "Element":  "Anemo",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000058",
+        "EnName":  "Yae Miko",
+        "Weapon":  "WEAPON_CATALYST",
+        "Element":  "Electro",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000057",
+        "EnName":  "Arataki Itto",
+        "Weapon":  "WEAPON_CLAYMORE",
+        "Element":  "Geo",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000056",
+        "EnName":  "Kujou Sara",
+        "Weapon":  "WEAPON_BOW",
+        "Element":  "Electro",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000055",
+        "EnName":  "Gorou",
+        "Weapon":  "WEAPON_BOW",
+        "Element":  "Geo",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000054",
+        "EnName":  "Sangonomiya Kokomi",
+        "Weapon":  "WEAPON_CATALYST",
+        "Element":  "Hydro",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000053",
+        "EnName":  "Sayu",
+        "Weapon":  "WEAPON_CLAYMORE",
+        "Element":  "Anemo",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000052",
+        "EnName":  "Raiden Shogun",
+        "Weapon":  "WEAPON_POLE",
+        "Element":  "Electro",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000051",
+        "EnName":  "Eula",
+        "Weapon":  "WEAPON_CLAYMORE",
+        "Element":  "Cryo",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000050",
+        "EnName":  "Thoma",
+        "Weapon":  "WEAPON_POLE",
+        "Element":  "Pyro",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000049",
+        "EnName":  "Yoimiya",
+        "Weapon":  "WEAPON_BOW",
+        "Element":  "Pyro",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000048",
+        "EnName":  "Yanfei",
+        "Weapon":  "WEAPON_CATALYST",
+        "Element":  "Pyro",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000047",
+        "EnName":  "Kaedehara Kazuha",
+        "Weapon":  "WEAPON_SWORD_ONE_HAND",
+        "Element":  "Anemo",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000046",
+        "EnName":  "Hu Tao",
+        "Weapon":  "WEAPON_POLE",
+        "Element":  "Pyro",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000045",
+        "EnName":  "Rosaria",
+        "Weapon":  "WEAPON_POLE",
+        "Element":  "Cryo",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000044",
+        "EnName":  "Xinyan",
+        "Weapon":  "WEAPON_CLAYMORE",
+        "Element":  "Pyro",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000043",
+        "EnName":  "Sucrose",
+        "Weapon":  "WEAPON_CATALYST",
+        "Element":  "Anemo",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000042",
+        "EnName":  "Keqing",
+        "Weapon":  "WEAPON_SWORD_ONE_HAND",
+        "Element":  "Electro",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000041",
+        "EnName":  "Mona",
+        "Weapon":  "WEAPON_CATALYST",
+        "Element":  "Hydro",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000039",
+        "EnName":  "Diona",
+        "Weapon":  "WEAPON_BOW",
+        "Element":  "Cryo",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000038",
+        "EnName":  "Albedo",
+        "Weapon":  "WEAPON_SWORD_ONE_HAND",
+        "Element":  "Geo",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000037",
+        "EnName":  "Ganyu",
+        "Weapon":  "WEAPON_BOW",
+        "Element":  "Cryo",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000036",
+        "EnName":  "Chongyun",
+        "Weapon":  "WEAPON_CLAYMORE",
+        "Element":  "Cryo",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000035",
+        "EnName":  "Qiqi",
+        "Weapon":  "WEAPON_SWORD_ONE_HAND",
+        "Element":  "Cryo",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000034",
+        "EnName":  "Noelle",
+        "Weapon":  "WEAPON_CLAYMORE",
+        "Element":  "Geo",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000033",
+        "EnName":  "Tartaglia",
+        "Weapon":  "WEAPON_BOW",
+        "Element":  "Hydro",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000032",
+        "EnName":  "Bennett",
+        "Weapon":  "WEAPON_SWORD_ONE_HAND",
+        "Element":  "Pyro",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000031",
+        "EnName":  "Fischl",
+        "Weapon":  "WEAPON_BOW",
+        "Element":  "Electro",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000030",
+        "EnName":  "Zhongli",
+        "Weapon":  "WEAPON_POLE",
+        "Element":  "Geo",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000029",
+        "EnName":  "Klee",
+        "Weapon":  "WEAPON_CATALYST",
+        "Element":  "Pyro",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000027",
+        "EnName":  "Ningguang",
+        "Weapon":  "WEAPON_CATALYST",
+        "Element":  "Geo",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000026",
+        "EnName":  "Xiao",
+        "Weapon":  "WEAPON_POLE",
+        "Element":  "Anemo",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000025",
+        "EnName":  "Xingqiu",
+        "Weapon":  "WEAPON_SWORD_ONE_HAND",
+        "Element":  "Hydro",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000024",
+        "EnName":  "Beidou",
+        "Weapon":  "WEAPON_CLAYMORE",
+        "Element":  "Electro",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000023",
+        "EnName":  "Xiangling",
+        "Weapon":  "WEAPON_POLE",
+        "Element":  "Pyro",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000022",
+        "EnName":  "Venti",
+        "Weapon":  "WEAPON_BOW",
+        "Element":  "Anemo",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000021",
+        "EnName":  "Amber",
+        "Weapon":  "WEAPON_BOW",
+        "Element":  "Pyro",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000020",
+        "EnName":  "Razor",
+        "Weapon":  "WEAPON_CLAYMORE",
+        "Element":  "Electro",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000016",
+        "EnName":  "Diluc",
+        "Weapon":  "WEAPON_CLAYMORE",
+        "Element":  "Pyro",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000015",
+        "EnName":  "Kaeya",
+        "Weapon":  "WEAPON_SWORD_ONE_HAND",
+        "Element":  "Cryo",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000014",
+        "EnName":  "Barbara",
+        "Weapon":  "WEAPON_CATALYST",
+        "Element":  "Hydro",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000007_ELECTRO",
+        "EnName":  "Traveler",
+        "Weapon":  "WEAPON_SWORD_ONE_HAND",
+        "Element":  "Electro",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000007_DENDRO",
+        "EnName":  "Traveler",
+        "Weapon":  "WEAPON_SWORD_ONE_HAND",
+        "Element":  "Dendro",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000007_ANEMO",
+        "EnName":  "Traveler",
+        "Weapon":  "WEAPON_SWORD_ONE_HAND",
+        "Element":  "Anemo",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000007_PYRO",
+        "EnName":  "Traveler",
+        "Weapon":  "WEAPON_SWORD_ONE_HAND",
+        "Element":  "Pyro",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000007_HYDRO",
+        "EnName":  "Traveler",
+        "Weapon":  "WEAPON_SWORD_ONE_HAND",
+        "Element":  "Hydro",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000007_GEO",
+        "EnName":  "Traveler",
+        "Weapon":  "WEAPON_SWORD_ONE_HAND",
+        "Element":  "Geo",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000006",
+        "EnName":  "Lisa",
+        "Weapon":  "WEAPON_CATALYST",
+        "Element":  "Electro",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000005_ELECTRO",
+        "EnName":  "Traveler",
+        "Weapon":  "WEAPON_SWORD_ONE_HAND",
+        "Element":  "Electro",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000005_DENDRO",
+        "EnName":  "Traveler",
+        "Weapon":  "WEAPON_SWORD_ONE_HAND",
+        "Element":  "Dendro",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000005_ANEMO",
+        "EnName":  "Traveler",
+        "Weapon":  "WEAPON_SWORD_ONE_HAND",
+        "Element":  "Anemo",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000005_PYRO",
+        "EnName":  "Traveler",
+        "Weapon":  "WEAPON_SWORD_ONE_HAND",
+        "Element":  "Pyro",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000005_HYDRO",
+        "EnName":  "Traveler",
+        "Weapon":  "WEAPON_SWORD_ONE_HAND",
+        "Element":  "Hydro",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000005_GEO",
+        "EnName":  "Traveler",
+        "Weapon":  "WEAPON_SWORD_ONE_HAND",
+        "Element":  "Geo",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000003",
+        "EnName":  "Jean",
+        "Weapon":  "WEAPON_SWORD_ONE_HAND",
+        "Element":  "Anemo",
+        "Release":  1777558790
+    },
+    {
+        "Id":  "10000002",
+        "EnName":  "Kamisato Ayaka",
+        "Weapon":  "WEAPON_SWORD_ONE_HAND",
+        "Element":  "Cryo",
+        "Release":  1777558790
+    }
+]

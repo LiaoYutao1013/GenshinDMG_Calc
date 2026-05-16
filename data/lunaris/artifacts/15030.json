@@ -1,0 +1,31 @@
+﻿{
+    "Id":  15030,
+    "SetId":  15030,
+    "EnName":  "Vourukasha\u0027s Glow",
+    "QualityType":  "QUALITY_ORANGE",
+    "SetIcon":  "UI_RelicIcon_15030_4",
+    "Effect2Pc":  "HP +20%",
+    "Effect4Pc":  "Elemental Skill and Elemental Burst DMG will be increased by 10%. After the equipping character takes DMG, the aforementioned DMG Bonus is increased by 80% for 5s. This effect increase can have 5 stacks. The duration of each stack is counted independently. These effects can be triggered even when the equipping character is not on the field.",
+    "Pieces":  {
+                   "circlet":  {
+                                   "icon":  "UI_RelicIcon_15030_3",
+                                   "name":  "Heart of Khvarena\u0027s Brilliance"
+                               },
+                   "flower":  {
+                                  "icon":  "UI_RelicIcon_15030_4",
+                                  "name":  "Stamen of Khvarena\u0027s Origin"
+                              },
+                   "goblet":  {
+                                  "icon":  "UI_RelicIcon_15030_1",
+                                  "name":  "Feast of Boundless Joy"
+                              },
+                   "plume":  {
+                                 "icon":  "UI_RelicIcon_15030_2",
+                                 "name":  "Vibrant Pinion"
+                             },
+                   "sands":  {
+                                 "icon":  "UI_RelicIcon_15030_5",
+                                 "name":  "Ancient Abscission"
+                             }
+               }
+}

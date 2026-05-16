@@ -1,6 +1,6 @@
-function bonus = getArtifactSetBonusContribution(characterName, build, teamContext)
+﻿function bonus = getArtifactSetBonusContribution(characterName, build, teamContext)
     % 根据角色当前穿戴的圣遗物套装，返回会直接写回面板的套装增益。
-    % 这里只处理“角色自身可直接消费”的数值加成；
+    % 这里仅处理“角色自身可直接消费”的数值收益；
     % 需要写入队伍共享上下文或敌人抗性的效果，由 getArtifactTeamBuffs 处理。
     if nargin < 3 || isempty(teamContext)
         teamContext = struct();
@@ -63,20 +63,29 @@ function bonus = localTwoPieceBonus(setId, characterName)
     element = getCharacterElement(characterName);
 
     switch lower(char(setId))
-        case {'atk18', 'fragmentofharmonicwhimsy', 'gladiatorsfinale', 'shimenawasreminiscence', 'nighttimewhispersintheechoingwoods'}
+        case {'atk18', 'fragmentofharmonicwhimsy', 'gladiatorsfinale', 'shimenawasreminiscence', ...
+                'resolutionofsojourner', 'braveheart', 'nighttimewhispersintheechoingwoods', 'unfinishedreverie', 'adaycarvedfromrisingwinds', ...
+                'disenchantmentindeepshadow'}
             bonus.AtkBonus = 0.18;
 
         case {'hp20', 'tenacityofthemillelith', 'vourukashasglow'}
             bonus.HPBonus = 0.20;
 
-        case {'em80', 'wandererstroupe', 'gildeddreams', 'instructor', 'flowerofparadiselost'}
+        case 'defenderswill'
+            bonus.DEFBonus = 0.30;
+
+        case {'em80', 'wandererstroupe', 'gildeddreams', 'instructor', 'flowerofparadiselost', ...
+                'nightoftheskysunveiling', 'aubadeofmorningstarandmoon'}
             bonus.EM = 80;
 
-        case {'er20', 'emblemofseveredfate'}
+        case {'er20', 'emblemofseveredfate', 'silkenmoonsserenade', 'celestialgift'}
             bonus.ER = 0.20;
 
-        case {'healing15', 'songofdayspast', 'oceanhuedclam'}
+        case {'healing15', 'songofdayspast', 'oceanhuedclam', 'maidenbeloved'}
             bonus.HealingBonus = 0.15;
+
+        case 'travelingdoctor'
+            bonus.HealingBonus = 0.20;
 
         case {'pyro15', 'crimsonwitchofflames'}
             bonus.PyroDMGBonus = 0.15;
@@ -84,7 +93,7 @@ function bonus = localTwoPieceBonus(setId, characterName)
         case {'hydro15', 'heartofdepth', 'nymphsdream'}
             bonus.HydroDMGBonus = 0.15;
 
-        case {'cryo15', 'blizzardstrayer'}
+        case {'cryo15', 'blizzardstrayer', 'glacierandsnowfield', 'finaleofthedeepgalleries'}
             bonus.CryoDMGBonus = 0.15;
 
         case {'electro15', 'thunderingfury'}
@@ -98,6 +107,32 @@ function bonus = localTwoPieceBonus(setId, characterName)
 
         case {'dendro15', 'deepwoodmemories'}
             bonus.DendroDMGBonus = 0.15;
+
+        case 'berserker'
+            bonus.CritRate = 0.12;
+
+        case 'martialartist'
+            bonus.NormalDMGBonus = 0.15;
+            bonus.ChargeDMGBonus = 0.15;
+            bonus.ChargedDMGBonus = 0.15;
+
+        case 'gambler'
+            bonus.SkillDMGBonus = 0.20;
+
+        case 'adventurer'
+            bonus.FlatHP = 1000;
+
+        case 'luckydog'
+            bonus.FlatDEF = 100;
+
+        case 'bloodstainedchivalry'
+            bonus.PhysicalDMGBonus = 0.25;
+
+        case 'retracingbolide'
+            bonus.ShieldBonus = 0.35;
+
+        case 'paleflame'
+            bonus.PhysicalDMGBonus = 0.25;
 
         case 'goldentroupe'
             bonus.SkillDMGBonus = 0.20;
@@ -116,6 +151,9 @@ function bonus = localTwoPieceBonus(setId, characterName)
         case 'huskofopulentdreams'
             bonus.DEFBonus = 0.30;
 
+        case 'longnightsoath'
+            bonus.PlungeDMGBonus = 0.25;
+
         otherwise
             bonus = localAddElementBonus(bonus, element, 0);
     end
@@ -129,6 +167,26 @@ function bonus = localFourPieceBonus(setId, characterName, build, teamContext)
             bonus.SkillDMGBonus = 0.25;
             if logical(getFieldOrDefault(build, 'ArtifactAssumeOffFieldSkill', localIsMostlyOffFieldSkillUser(characterName)))
                 bonus.SkillDMGBonus = bonus.SkillDMGBonus + 0.25;
+            end
+
+        case 'resolutionofsojourner'
+            bonus.CritRate = bonus.CritRate + 0.30 * double(localUsesChargedAttacks(characterName));
+
+        case 'braveheart'
+            if logical(getFieldOrDefault(build, 'ArtifactAssumeTargetHighHP', true))
+                bonus = localAddCommonActionBonus(bonus, 0.30);
+            end
+
+        case 'berserker'
+            if logical(getFieldOrDefault(build, 'ArtifactAssumeLowHP', true))
+                bonus.CritRate = bonus.CritRate + 0.24;
+            end
+
+        case 'martialartist'
+            if logical(getFieldOrDefault(build, 'ArtifactAssumeSkillCastRecently', true))
+                bonus.NormalDMGBonus = bonus.NormalDMGBonus + 0.25;
+                bonus.ChargeDMGBonus = bonus.ChargeDMGBonus + 0.25;
+                bonus.ChargedDMGBonus = bonus.ChargedDMGBonus + 0.25;
             end
 
         case 'marechausseehunter'
@@ -156,6 +214,16 @@ function bonus = localFourPieceBonus(setId, characterName, build, teamContext)
                 bonus.CritRate = bonus.CritRate + 0.20;
             end
 
+        case 'thundersoother'
+            if logical(getFieldOrDefault(build, 'ArtifactAssumeElectroAura', true))
+                bonus = localAddCommonActionBonus(bonus, 0.35);
+            end
+
+        case 'lavawalker'
+            if logical(getFieldOrDefault(build, 'ArtifactAssumePyroAura', true))
+                bonus = localAddCommonActionBonus(bonus, 0.35);
+            end
+
         case 'heartofdepth'
             bonus.NormalDMGBonus = 0.30;
             bonus.ChargeDMGBonus = 0.30;
@@ -175,6 +243,134 @@ function bonus = localFourPieceBonus(setId, characterName, build, teamContext)
         case 'gladiatorsfinale'
             if localUsesMeleeWeapon(characterName)
                 bonus.NormalDMGBonus = 0.35;
+            end
+
+        case 'glacierandsnowfield'
+            bonus.CryoDMGBonus = bonus.CryoDMGBonus + 0.30;
+
+        case 'bloodstainedchivalry'
+            if logical(getFieldOrDefault(build, 'ArtifactAssumeDefeatTriggered', false))
+                bonus.ChargeDMGBonus = bonus.ChargeDMGBonus + 0.50;
+                bonus.ChargedDMGBonus = bonus.ChargedDMGBonus + 0.50;
+            end
+
+        case 'retracingbolide'
+            if logical(getFieldOrDefault(build, 'ArtifactAssumeShielded', true))
+                bonus.NormalDMGBonus = bonus.NormalDMGBonus + 0.40;
+                bonus.ChargeDMGBonus = bonus.ChargeDMGBonus + 0.40;
+                bonus.ChargedDMGBonus = bonus.ChargedDMGBonus + 0.40;
+            end
+
+        case 'paleflame'
+            stackCount = min(2, max(0, getFieldOrDefault(build, 'ArtifactAssumePaleFlameStacks', 2)));
+            bonus.AtkBonus = bonus.AtkBonus + 0.09 * stackCount;
+            if stackCount >= 2
+                bonus.PhysicalDMGBonus = bonus.PhysicalDMGBonus + 0.25;
+            end
+
+        case 'shimenawasreminiscence'
+            if logical(getFieldOrDefault(build, 'ArtifactAssumeShimenawaActive', true))
+                bonus.NormalDMGBonus = bonus.NormalDMGBonus + 0.50;
+                bonus.ChargeDMGBonus = bonus.ChargeDMGBonus + 0.50;
+                bonus.ChargedDMGBonus = bonus.ChargedDMGBonus + 0.50;
+                bonus.PlungeDMGBonus = bonus.PlungeDMGBonus + 0.50;
+            end
+
+        case 'emblemofseveredfate'
+            er = getFieldOrDefault(build, 'ER', 1.0);
+            bonus.BurstDMGBonus = bonus.BurstDMGBonus + min(0.75, 0.25 * er);
+
+        case 'gildeddreams'
+            sameElementBonus = 0;
+            diffElementEM = 0;
+            memberElements = string(getFieldOrDefault(teamContext, 'MemberElements', strings(1, 0)));
+            selfElement = getCharacterElement(characterName);
+            for i = 1:numel(memberElements)
+                current = memberElements(i);
+                if strlength(current) == 0
+                    continue;
+                end
+                if strcmpi(char(current), char(selfElement))
+                    sameElementBonus = sameElementBonus + 0.14;
+                else
+                    diffElementEM = diffElementEM + 50;
+                end
+            end
+            bonus.AtkBonus = bonus.AtkBonus + min(0.42, sameElementBonus);
+            bonus.EM = bonus.EM + min(150, diffElementEM);
+
+        case 'crimsonwitchofflames'
+            bonus.ReactionDMGBonus = bonus.ReactionDMGBonus + 0.15;
+            stackCount = min(3, max(0, getFieldOrDefault(build, 'ArtifactAssumeCrimsonWitchStacks', 1)));
+            bonus.PyroDMGBonus = bonus.PyroDMGBonus + 0.075 * stackCount;
+
+        case 'thunderingfury'
+            bonus.ReactionDMGBonus = bonus.ReactionDMGBonus + 0.40;
+            bonus.LunarChargedBonus = bonus.LunarChargedBonus + 0.20;
+
+        case 'vourukashasglow'
+            bonus.SkillDMGBonus = bonus.SkillDMGBonus + 0.10;
+            bonus.BurstDMGBonus = bonus.BurstDMGBonus + 0.10;
+            stackCount = min(5, max(0, getFieldOrDefault(build, 'ArtifactAssumeVourukashaStacks', 0)));
+            amp = 0.08 * stackCount;
+            bonus.SkillDMGBonus = bonus.SkillDMGBonus + amp;
+            bonus.BurstDMGBonus = bonus.BurstDMGBonus + amp;
+
+        case 'vermillionhereafter'
+            hpDropStacks = min(4, max(0, getFieldOrDefault(build, 'ArtifactAssumeVermillionHPDropStacks', 4)));
+            bonus.AtkBonus = bonus.AtkBonus + 0.08 + 0.10 * hpDropStacks;
+
+        case 'echoesofanoffering'
+            procRate = max(0, min(1, getFieldOrDefault(build, 'ArtifactAssumeEchoesProcRate', 0.36)));
+            bonus.NormalDMGBonus = bonus.NormalDMGBonus + 0.70 * procRate;
+
+        case 'desertpavilionchronicle'
+            if logical(getFieldOrDefault(build, 'ArtifactAssumeDesertPavilionActive', true))
+                bonus.NormalDMGBonus = bonus.NormalDMGBonus + 0.40;
+                bonus.ChargeDMGBonus = bonus.ChargeDMGBonus + 0.40;
+                bonus.ChargedDMGBonus = bonus.ChargedDMGBonus + 0.40;
+                bonus.PlungeDMGBonus = bonus.PlungeDMGBonus + 0.40;
+            end
+
+        case 'nighttimewhispersintheechoingwoods'
+            if logical(getFieldOrDefault(build, 'ArtifactAssumeCrystallizeShield', true)) ...
+                    || logical(getFieldOrDefault(teamContext, 'GeoReactionReady', false)) ...
+                    || logical(getFieldOrDefault(teamContext, 'LunarCrystallizeEnabled', false))
+                bonus.GeoDMGBonus = bonus.GeoDMGBonus + 0.50;
+            else
+                bonus.GeoDMGBonus = bonus.GeoDMGBonus + 0.20;
+            end
+
+        case 'unfinishedreverie'
+            if logical(getFieldOrDefault(build, 'ArtifactAssumeBurningNearby', false)) ...
+                    || (getFieldOrDefault(teamContext, 'PyroCount', 0) >= 1 && getFieldOrDefault(teamContext, 'DendroCount', 0) >= 1)
+                bonus = localAddCommonActionBonus(bonus, 0.50);
+            end
+
+        case 'longnightsoath'
+            stackCount = min(5, max(0, getFieldOrDefault(build, 'ArtifactAssumeLongNightStacks', 5)));
+            bonus.PlungeDMGBonus = bonus.PlungeDMGBonus + 0.15 * stackCount;
+
+        case 'finaleofthedeepgalleries'
+            zeroEnergy = logical(getFieldOrDefault(build, 'ArtifactAssumeZeroEnergy', true));
+            burstMode = logical(getFieldOrDefault(build, 'ArtifactAssumeDeepGalleryBurstMode', false));
+            if zeroEnergy
+                if burstMode
+                    bonus.BurstDMGBonus = bonus.BurstDMGBonus + 0.60;
+                else
+                    bonus.NormalDMGBonus = bonus.NormalDMGBonus + 0.60;
+                end
+            end
+
+        case 'adaycarvedfromrisingwinds'
+            bonus.AtkBonus = bonus.AtkBonus + 0.25;
+            if logical(getFieldOrDefault(build, 'ArtifactAssumeWitchHomeworkComplete', false))
+                bonus.CritRate = bonus.CritRate + 0.20;
+            end
+
+        case 'disenchantmentindeepshadow'
+            if logical(getFieldOrDefault(build, 'ArtifactAssumeTargetSuperconducted', false))
+                bonus.CritRate = bonus.CritRate + 0.16;
             end
 
         otherwise

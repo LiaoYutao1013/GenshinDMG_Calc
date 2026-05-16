@@ -1,0 +1,31 @@
+﻿{
+    "Id":  15037,
+    "SetId":  15037,
+    "EnName":  "Scroll of the Hero of Cinder City",
+    "QualityType":  "QUALITY_ORANGE",
+    "SetIcon":  "UI_RelicIcon_15037_4",
+    "Effect2Pc":  "When a nearby party member triggers a Nightsoul Burst, the equipping character regenerates 6 Elemental Energy.",
+    "Effect4Pc":  "After the equipping character triggers a reaction related to their Elemental Type, all nearby party members gain a 12% Elemental DMG Bonus for the Elemental Types involved in the elemental reaction for 15s. If the equipping character is in the Nightsoul\u0027s Blessing state when triggering this effect, all nearby party members gain an additional 28% Elemental DMG Bonus for the Elemental Types involved in the elemental reaction for 20s. The equipping character can trigger this effect while off-field, and the DMG bonus from Artifact Sets with the same name do not stack.",
+    "Pieces":  {
+                   "circlet":  {
+                                   "icon":  "UI_RelicIcon_15037_3",
+                                   "name":  "Demon-Warrior\u0027s Feather Mask"
+                               },
+                   "flower":  {
+                                  "icon":  "UI_RelicIcon_15037_4",
+                                  "name":  "Beast Tamer\u0027s Talisman"
+                              },
+                   "goblet":  {
+                                  "icon":  "UI_RelicIcon_15037_1",
+                                  "name":  "Wandering Scholar\u0027s Claw Cup"
+                              },
+                   "plume":  {
+                                 "icon":  "UI_RelicIcon_15037_2",
+                                 "name":  "Mountain Ranger\u0027s Marker"
+                             },
+                   "sands":  {
+                                 "icon":  "UI_RelicIcon_15037_5",
+                                 "name":  "Mystic\u0027s Gold Dial"
+                             }
+               }
+}

@@ -1,0 +1,31 @@
+﻿{
+    "Id":  15018,
+    "SetId":  15018,
+    "EnName":  "Pale Flame",
+    "QualityType":  "QUALITY_ORANGE",
+    "SetIcon":  "UI_RelicIcon_15018_4",
+    "Effect2Pc":  "Physical DMG is increased by 25%.",
+    "Effect4Pc":  "When an Elemental Skill hits an opponent, ATK is increased by 9% for 7s. This effect stacks up to 2 times and can be triggered once every 0.3s. Once 2 stacks are reached, the 2-set effect is increased by 100%.",
+    "Pieces":  {
+                   "circlet":  {
+                                   "icon":  "UI_RelicIcon_15018_3",
+                                   "name":  "Mocking Mask"
+                               },
+                   "flower":  {
+                                  "icon":  "UI_RelicIcon_15018_4",
+                                  "name":  "Stainless Bloom"
+                              },
+                   "goblet":  {
+                                  "icon":  "UI_RelicIcon_15018_1",
+                                  "name":  "Surpassing Cup"
+                              },
+                   "plume":  {
+                                 "icon":  "UI_RelicIcon_15018_2",
+                                 "name":  "Wise Doctor\u0027s Pinion"
+                             },
+                   "sands":  {
+                                 "icon":  "UI_RelicIcon_15018_5",
+                                 "name":  "Moment of Cessation"
+                             }
+               }
+}

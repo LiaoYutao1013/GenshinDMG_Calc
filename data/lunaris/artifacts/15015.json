@@ -1,0 +1,31 @@
+﻿{
+    "Id":  15015,
+    "SetId":  15015,
+    "EnName":  "Retracing Bolide",
+    "QualityType":  "QUALITY_ORANGE",
+    "SetIcon":  "UI_RelicIcon_15015_4",
+    "Effect2Pc":  "Increases Shield Strength by 35%.",
+    "Effect4Pc":  "While protected by a shield, gain an additional 40% Normal and Charged Attack DMG.",
+    "Pieces":  {
+                   "circlet":  {
+                                   "icon":  "UI_RelicIcon_15015_3",
+                                   "name":  "Summer Night\u0027s Mask"
+                               },
+                   "flower":  {
+                                  "icon":  "UI_RelicIcon_15015_4",
+                                  "name":  "Summer Night\u0027s Bloom"
+                              },
+                   "goblet":  {
+                                  "icon":  "UI_RelicIcon_15015_1",
+                                  "name":  "Summer Night\u0027s Waterballoon"
+                              },
+                   "plume":  {
+                                 "icon":  "UI_RelicIcon_15015_2",
+                                 "name":  "Summer Night\u0027s Finale"
+                             },
+                   "sands":  {
+                                 "icon":  "UI_RelicIcon_15015_5",
+                                 "name":  "Summer Night\u0027s Moment"
+                             }
+               }
+}

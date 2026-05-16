@@ -1,0 +1,31 @@
+﻿{
+    "Id":  10003,
+    "SetId":  10003,
+    "EnName":  "Defender\u0027s Will",
+    "QualityType":  "QUALITY_PURPLE",
+    "SetIcon":  "UI_RelicIcon_10003_4",
+    "Effect2Pc":  "DEF +30%",
+    "Effect4Pc":  "For each different element present in your own party, the wearer\u0027s Elemental RES to that corresponding element is increased by 30%.",
+    "Pieces":  {
+                   "circlet":  {
+                                   "icon":  "UI_RelicIcon_10003_3",
+                                   "name":  "Guardian\u0027s Band"
+                               },
+                   "flower":  {
+                                  "icon":  "UI_RelicIcon_10003_4",
+                                  "name":  "Guardian\u0027s Flower"
+                              },
+                   "goblet":  {
+                                  "icon":  "UI_RelicIcon_10003_1",
+                                  "name":  "Guardian\u0027s Vessel"
+                              },
+                   "plume":  {
+                                 "icon":  "UI_RelicIcon_10003_2",
+                                 "name":  "Guardian\u0027s Sigil"
+                             },
+                   "sands":  {
+                                 "icon":  "UI_RelicIcon_10003_5",
+                                 "name":  "Guardian\u0027s Clock"
+                             }
+               }
+}

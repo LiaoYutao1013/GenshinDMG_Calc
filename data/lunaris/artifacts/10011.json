@@ -1,0 +1,31 @@
+﻿{
+    "Id":  10011,
+    "SetId":  10011,
+    "EnName":  "Lucky Dog",
+    "QualityType":  "QUALITY_BLUE",
+    "SetIcon":  "UI_RelicIcon_10011_4",
+    "Effect2Pc":  "DEF increased by 100.",
+    "Effect4Pc":  "Picking up Mora restores 300 HP.",
+    "Pieces":  {
+                   "circlet":  {
+                                   "icon":  "UI_RelicIcon_10011_3",
+                                   "name":  "Lucky Dog\u0027s Silver Circlet"
+                               },
+                   "flower":  {
+                                  "icon":  "UI_RelicIcon_10011_4",
+                                  "name":  "Lucky Dog\u0027s Clover"
+                              },
+                   "goblet":  {
+                                  "icon":  "UI_RelicIcon_10011_1",
+                                  "name":  "Lucky Dog\u0027s Goblet"
+                              },
+                   "plume":  {
+                                 "icon":  "UI_RelicIcon_10011_2",
+                                 "name":  "Lucky Dog\u0027s Eagle Feather"
+                             },
+                   "sands":  {
+                                 "icon":  "UI_RelicIcon_10011_5",
+                                 "name":  "Lucky Dog\u0027s Hourglass"
+                             }
+               }
+}

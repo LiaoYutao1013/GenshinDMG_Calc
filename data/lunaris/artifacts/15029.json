@@ -1,0 +1,31 @@
+﻿{
+    "Id":  15029,
+    "SetId":  15029,
+    "EnName":  "Nymph\u0027s Dream",
+    "QualityType":  "QUALITY_ORANGE",
+    "SetIcon":  "UI_RelicIcon_15029_4",
+    "Effect2Pc":  "Hydro DMG Bonus +15%",
+    "Effect4Pc":  "After Normal, Charged, and Plunging Attacks, Elemental Skills, and Elemental Bursts hit opponents, 1 stack of Mirrored Nymph will be triggered, lasting 8s. When under the effect of 1, 2, or 3 or more Mirrored Nymph stacks, ATK will be increased by 7%/16%/25%, and Hydro DMG Bonus will be increased by 4%/9%/15%. Mirrored Nymph stacks created by Normal, Charged, and Plunging Attacks, Elemental Skills, and Elemental Bursts exist independently.",
+    "Pieces":  {
+                   "circlet":  {
+                                   "icon":  "UI_RelicIcon_15029_3",
+                                   "name":  "Fell Dragon\u0027s Monocle"
+                               },
+                   "flower":  {
+                                  "icon":  "UI_RelicIcon_15029_4",
+                                  "name":  "Odyssean Flower"
+                              },
+                   "goblet":  {
+                                  "icon":  "UI_RelicIcon_15029_1",
+                                  "name":  "Heroes\u0027 Tea Party"
+                              },
+                   "plume":  {
+                                 "icon":  "UI_RelicIcon_15029_2",
+                                 "name":  "Wicked Mage\u0027s Plumule"
+                             },
+                   "sands":  {
+                                 "icon":  "UI_RelicIcon_15029_5",
+                                 "name":  "Nymph\u0027s Constancy"
+                             }
+               }
+}

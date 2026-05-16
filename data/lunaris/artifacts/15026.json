@@ -1,0 +1,31 @@
+﻿{
+    "Id":  15026,
+    "SetId":  15026,
+    "EnName":  "Gilded Dreams",
+    "QualityType":  "QUALITY_ORANGE",
+    "SetIcon":  "UI_RelicIcon_15026_4",
+    "Effect2Pc":  "Increases Elemental Mastery by 80.",
+    "Effect4Pc":  "Within 8s of triggering an Elemental Reaction, the character equipping this will obtain buffs based on the Elemental Type of the other party members. ATK is increased by 14% for each party member whose Elemental Type is the same as the equipping character, and Elemental Mastery is increased by 50 for every party member with a different Elemental Type. Each of the aforementioned buffs will count up to 3 characters. This effect can be triggered once every 8s. The character who equips this can still trigger its effects when not on the field.",
+    "Pieces":  {
+                   "circlet":  {
+                                   "icon":  "UI_RelicIcon_15026_3",
+                                   "name":  "Shadow of the Sand King"
+                               },
+                   "flower":  {
+                                  "icon":  "UI_RelicIcon_15026_4",
+                                  "name":  "Dreaming Steelbloom"
+                              },
+                   "goblet":  {
+                                  "icon":  "UI_RelicIcon_15026_1",
+                                  "name":  "Honeyed Final Feast"
+                              },
+                   "plume":  {
+                                 "icon":  "UI_RelicIcon_15026_2",
+                                 "name":  "Feather of Judgment"
+                             },
+                   "sands":  {
+                                 "icon":  "UI_RelicIcon_15026_5",
+                                 "name":  "The Sunken Years"
+                             }
+               }
+}

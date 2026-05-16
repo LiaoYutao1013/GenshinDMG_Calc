@@ -51,14 +51,21 @@ function teamContext = buildTeamContext(members, rotationDuration, sharedBuffs, 
             furinaApproxBonus = 0;
         end
     end
-    allDMGBonus = sharedAllDMGBonus + furinaApproxBonus;
+    allDMGBonus = sharedAllDMGBonus + furinaApproxBonus + getFieldOrDefault(sharedArtifactBuffs, 'AllDMGBonus', 0);
+    pyroDMGBonus = getFieldOrDefault(sharedBuffs, 'PyroDMGBonus', 0) + getFieldOrDefault(sharedArtifactBuffs, 'PyroDMGBonus', 0);
+    hydroDMGBonus = getFieldOrDefault(sharedBuffs, 'HydroDMGBonus', 0) + getFieldOrDefault(sharedArtifactBuffs, 'HydroDMGBonus', 0);
+    cryoDMGBonus = getFieldOrDefault(sharedBuffs, 'CryoDMGBonus', 0) + getFieldOrDefault(sharedArtifactBuffs, 'CryoDMGBonus', 0);
+    electroDMGBonus = getFieldOrDefault(sharedBuffs, 'ElectroDMGBonus', 0) + getFieldOrDefault(sharedArtifactBuffs, 'ElectroDMGBonus', 0);
+    anemoDMGBonus = getFieldOrDefault(sharedBuffs, 'AnemoDMGBonus', 0) + getFieldOrDefault(sharedArtifactBuffs, 'AnemoDMGBonus', 0);
+    geoDMGBonus = getFieldOrDefault(sharedBuffs, 'GeoDMGBonus', 0) + getFieldOrDefault(sharedArtifactBuffs, 'GeoDMGBonus', 0);
+    dendroDMGBonus = getFieldOrDefault(sharedBuffs, 'DendroDMGBonus', 0) + getFieldOrDefault(sharedArtifactBuffs, 'DendroDMGBonus', 0);
 
     hydroResShred = getFieldOrDefault(sharedBuffs, 'HydroResShred', 0) + getFieldOrDefault(sharedArtifactBuffs, 'HydroResShred', 0);
     cryoResShred = getFieldOrDefault(sharedBuffs, 'CryoResShred', 0) + getFieldOrDefault(sharedArtifactBuffs, 'CryoResShred', 0);
     pyroResShred = getFieldOrDefault(sharedBuffs, 'PyroResShred', 0) + getFieldOrDefault(sharedArtifactBuffs, 'PyroResShred', 0);
     dendroResShred = getFieldOrDefault(sharedBuffs, 'DendroResShred', 0) + getFieldOrDefault(sharedArtifactBuffs, 'DendroResShred', 0);
     electroResShred = getFieldOrDefault(sharedBuffs, 'ElectroResShred', 0) + getFieldOrDefault(sharedArtifactBuffs, 'ElectroResShred', 0);
-    geoResShred = getFieldOrDefault(sharedBuffs, 'GeoResShred', 0);
+    geoResShred = getFieldOrDefault(sharedBuffs, 'GeoResShred', 0) + getFieldOrDefault(sharedArtifactBuffs, 'GeoResShred', 0);
     cryoCritDMGBonus = getFieldOrDefault(sharedBuffs, 'CryoCritDMGBonus', 0);
     geoCritDMGBonus = getFieldOrDefault(sharedBuffs, 'GeoCritDMGBonus', 0);
 
@@ -109,9 +116,9 @@ function teamContext = buildTeamContext(members, rotationDuration, sharedBuffs, 
     durinDarkAmpReady = hydroCount >= 1 || cryoCount >= 1;
     hexereiCount = localCountHexerei(memberNames);
 
-    sharedLunarBloomBonus = getFieldOrDefault(sharedBuffs, 'LunarBloomBonus', 0);
-    sharedLunarChargedBonus = getFieldOrDefault(sharedBuffs, 'LunarChargedBonus', 0);
-    sharedLunarCrystallizeBonus = getFieldOrDefault(sharedBuffs, 'LunarCrystallizeBonus', 0);
+    sharedLunarBloomBonus = getFieldOrDefault(sharedBuffs, 'LunarBloomBonus', 0) + getFieldOrDefault(sharedArtifactBuffs, 'LunarBloomBonus', 0);
+    sharedLunarChargedBonus = getFieldOrDefault(sharedBuffs, 'LunarChargedBonus', 0) + getFieldOrDefault(sharedArtifactBuffs, 'LunarChargedBonus', 0);
+    sharedLunarCrystallizeBonus = getFieldOrDefault(sharedBuffs, 'LunarCrystallizeBonus', 0) + getFieldOrDefault(sharedArtifactBuffs, 'LunarCrystallizeBonus', 0);
     sharedNilouBloomBonus = getFieldOrDefault(sharedBuffs, 'NilouBloomBonus', 0);
     sharedOverloadBonus = getFieldOrDefault(sharedBuffs, 'OverloadBonus', 0);
 
@@ -130,7 +137,7 @@ function teamContext = buildTeamContext(members, rotationDuration, sharedBuffs, 
     lunarCrystallizeBonus = sharedLunarCrystallizeBonus + lunarCrystallizeBaseBonus + columbinaSupportBonus * double(hasColumbina);
     nilouBloomBonus = sharedNilouBloomBonus + 0.20 * double(nilouPureBloomTeam);
 
-    reactionCritRate = getFieldOrDefault(sharedBuffs, 'ReactionCritRate', 0);
+    reactionCritRate = getFieldOrDefault(sharedBuffs, 'ReactionCritRate', 0) + getFieldOrDefault(sharedArtifactBuffs, 'ReactionCritRate', 0);
     reactionCritDMG = getFieldOrDefault(sharedBuffs, 'ReactionCritDMG', 0);
     if lunarBloomEnabled || lunarChargedEnabled || lunarCrystallizeEnabled
         reactionCritRate = max(reactionCritRate, 0.10);
@@ -243,6 +250,13 @@ function teamContext = buildTeamContext(members, rotationDuration, sharedBuffs, 
         'ArtifactTeamBuffs', sharedArtifactBuffs, ...
         'ApproxFurinaBonus', furinaApproxBonus, ...
         'AllDMGBonus', allDMGBonus, ...
+        'PyroDMGBonus', pyroDMGBonus, ...
+        'HydroDMGBonus', hydroDMGBonus, ...
+        'CryoDMGBonus', cryoDMGBonus, ...
+        'ElectroDMGBonus', electroDMGBonus, ...
+        'AnemoDMGBonus', anemoDMGBonus, ...
+        'GeoDMGBonus', geoDMGBonus, ...
+        'DendroDMGBonus', dendroDMGBonus, ...
         'FlatATK', flatATK, ...
         'ATKBonus', atkBonus, ...
         'EMBonus', emBonus, ...
@@ -345,24 +359,50 @@ function buffs = localCollectArtifactTeamBuffs(members)
     buffs = struct( ...
         'ATKBonus', 0, ...
         'EMBonus', 0, ...
+        'AllDMGBonus', 0, ...
+        'PyroDMGBonus', 0, ...
+        'HydroDMGBonus', 0, ...
+        'CryoDMGBonus', 0, ...
+        'ElectroDMGBonus', 0, ...
+        'AnemoDMGBonus', 0, ...
+        'GeoDMGBonus', 0, ...
+        'DendroDMGBonus', 0, ...
+        'LunarBloomBonus', 0, ...
+        'LunarChargedBonus', 0, ...
+        'LunarCrystallizeBonus', 0, ...
+        'ReactionCritRate', 0, ...
         'DendroResShred', 0, ...
         'PyroResShred', 0, ...
         'HydroResShred', 0, ...
         'CryoResShred', 0, ...
-        'ElectroResShred', 0);
+        'ElectroResShred', 0, ...
+        'GeoResShred', 0);
     for i = 1:numel(members)
         if ~isfield(members{i}, 'Build')
             continue;
         end
         build = normalizeArtifactBuild(members{i}.Build, members{i}.Name);
         memberBuffs = getArtifactTeamBuffs(members{i}.Name, build);
-        buffs.ATKBonus = max(buffs.ATKBonus, getFieldOrDefault(memberBuffs, 'ATKBonus', 0));
-        buffs.EMBonus = max(buffs.EMBonus, getFieldOrDefault(memberBuffs, 'EMBonus', 0));
-        buffs.DendroResShred = max(buffs.DendroResShred, getFieldOrDefault(memberBuffs, 'DendroResShred', 0));
-        buffs.PyroResShred = max(buffs.PyroResShred, getFieldOrDefault(memberBuffs, 'PyroResShred', 0));
-        buffs.HydroResShred = max(buffs.HydroResShred, getFieldOrDefault(memberBuffs, 'HydroResShred', 0));
-        buffs.CryoResShred = max(buffs.CryoResShred, getFieldOrDefault(memberBuffs, 'CryoResShred', 0));
-        buffs.ElectroResShred = max(buffs.ElectroResShred, getFieldOrDefault(memberBuffs, 'ElectroResShred', 0));
+        buffs.ATKBonus = buffs.ATKBonus + getFieldOrDefault(memberBuffs, 'ATKBonus', 0);
+        buffs.EMBonus = buffs.EMBonus + getFieldOrDefault(memberBuffs, 'EMBonus', 0);
+        buffs.AllDMGBonus = buffs.AllDMGBonus + getFieldOrDefault(memberBuffs, 'AllDMGBonus', 0);
+        buffs.PyroDMGBonus = buffs.PyroDMGBonus + getFieldOrDefault(memberBuffs, 'PyroDMGBonus', 0);
+        buffs.HydroDMGBonus = buffs.HydroDMGBonus + getFieldOrDefault(memberBuffs, 'HydroDMGBonus', 0);
+        buffs.CryoDMGBonus = buffs.CryoDMGBonus + getFieldOrDefault(memberBuffs, 'CryoDMGBonus', 0);
+        buffs.ElectroDMGBonus = buffs.ElectroDMGBonus + getFieldOrDefault(memberBuffs, 'ElectroDMGBonus', 0);
+        buffs.AnemoDMGBonus = buffs.AnemoDMGBonus + getFieldOrDefault(memberBuffs, 'AnemoDMGBonus', 0);
+        buffs.GeoDMGBonus = buffs.GeoDMGBonus + getFieldOrDefault(memberBuffs, 'GeoDMGBonus', 0);
+        buffs.DendroDMGBonus = buffs.DendroDMGBonus + getFieldOrDefault(memberBuffs, 'DendroDMGBonus', 0);
+        buffs.LunarBloomBonus = buffs.LunarBloomBonus + getFieldOrDefault(memberBuffs, 'LunarBloomBonus', 0);
+        buffs.LunarChargedBonus = buffs.LunarChargedBonus + getFieldOrDefault(memberBuffs, 'LunarChargedBonus', 0);
+        buffs.LunarCrystallizeBonus = buffs.LunarCrystallizeBonus + getFieldOrDefault(memberBuffs, 'LunarCrystallizeBonus', 0);
+        buffs.ReactionCritRate = buffs.ReactionCritRate + getFieldOrDefault(memberBuffs, 'ReactionCritRate', 0);
+        buffs.DendroResShred = buffs.DendroResShred + getFieldOrDefault(memberBuffs, 'DendroResShred', 0);
+        buffs.PyroResShred = buffs.PyroResShred + getFieldOrDefault(memberBuffs, 'PyroResShred', 0);
+        buffs.HydroResShred = buffs.HydroResShred + getFieldOrDefault(memberBuffs, 'HydroResShred', 0);
+        buffs.CryoResShred = buffs.CryoResShred + getFieldOrDefault(memberBuffs, 'CryoResShred', 0);
+        buffs.ElectroResShred = buffs.ElectroResShred + getFieldOrDefault(memberBuffs, 'ElectroResShred', 0);
+        buffs.GeoResShred = buffs.GeoResShred + getFieldOrDefault(memberBuffs, 'GeoResShred', 0);
     end
 end
 

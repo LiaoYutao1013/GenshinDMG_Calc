@@ -90,8 +90,7 @@ function [fileStem, remoteUrl] = localResolveRemoteAsset(kind, key)
     kind = lower(char(string(kind)));
     switch kind
         case 'artifact'
-            fileStem = localSafeFileStem(key);
-            remoteUrl = localResolveArtifactIconUrl(key);
+            [fileStem, remoteUrl] = localResolveArtifactAsset(key);
         case 'weapon'
             iconKey = localLookupWeaponIconKey(key);
             if strlength(iconKey) > 0
@@ -107,7 +106,8 @@ function [fileStem, remoteUrl] = localResolveRemoteAsset(kind, key)
     end
 end
 
-function remoteUrl = localResolveArtifactIconUrl(setId)
+function [fileStem, remoteUrl] = localResolveArtifactAsset(setId)
+    fileStem = localSafeFileStem(setId);
     remoteUrl = "";
     registry = getArtifactSetRegistry();
     idx = find(string({registry.Id}) == string(setId), 1, 'first');
@@ -115,20 +115,12 @@ function remoteUrl = localResolveArtifactIconUrl(setId)
         return;
     end
 
-    slug = string(registry(idx).ApiSlug);
-    if strlength(slug) == 0
+    iconKey = string(getFieldOrDefault(registry(idx), 'IconKey', ""));
+    if strlength(iconKey) == 0
         return;
     end
-
-    try
-        apiUrl = sprintf('https://genshin-db-api.vercel.app/api/v5/artifacts?vh=1&query=%s', char(slug));
-        payload = webread(apiUrl, weboptions('Timeout', 5));
-        if isstruct(payload) && isfield(payload, 'images') && isfield(payload.images, 'flower')
-            remoteUrl = string(payload.images.flower);
-        end
-    catch
-        remoteUrl = "";
-    end
+    fileStem = iconKey;
+    remoteUrl = "https://api.lunaris.moe/data/assets/artifacts/" + iconKey + ".png";
 end
 
 function iconKey = localLookupWeaponIconKey(weaponName)

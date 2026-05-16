@@ -1,0 +1,31 @@
+﻿{
+    "Id":  15002,
+    "SetId":  15002,
+    "EnName":  "Viridescent Venerer",
+    "QualityType":  "QUALITY_ORANGE",
+    "SetIcon":  "UI_RelicIcon_15002_4",
+    "Effect2Pc":  "Anemo DMG Bonus +15%",
+    "Effect4Pc":  "Increases Swirl DMG by 60%. Decreases opponent\u0027s Elemental RES to the element infused in the Swirl by 40% for 10s.",
+    "Pieces":  {
+                   "circlet":  {
+                                   "icon":  "UI_RelicIcon_15002_3",
+                                   "name":  "Viridescent Venerer\u0027s Diadem"
+                               },
+                   "flower":  {
+                                  "icon":  "UI_RelicIcon_15002_4",
+                                  "name":  "In Remembrance of Viridescent Fields"
+                              },
+                   "goblet":  {
+                                  "icon":  "UI_RelicIcon_15002_1",
+                                  "name":  "Viridescent Venerer\u0027s Vessel"
+                              },
+                   "plume":  {
+                                 "icon":  "UI_RelicIcon_15002_2",
+                                 "name":  "Viridescent Arrow Feather"
+                             },
+                   "sands":  {
+                                 "icon":  "UI_RelicIcon_15002_5",
+                                 "name":  "Viridescent Venerer\u0027s Determination"
+                             }
+               }
+}

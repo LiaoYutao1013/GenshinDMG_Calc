@@ -1,0 +1,31 @@
+﻿{
+    "Id":  15042,
+    "SetId":  15042,
+    "EnName":  "Silken Moon\u0027s Serenade",
+    "QualityType":  "QUALITY_ORANGE",
+    "SetIcon":  "UI_RelicIcon_15042_4",
+    "Effect2Pc":  "Energy Recharge +20%.",
+    "Effect4Pc":  "When dealing Elemental DMG, gain the Gleaming Moon: Devotion effect for 8s: Increases all party members\u0027 Elemental Mastery by 60/120 when the party\u0027s Moonsign is Nascent Gleam/Ascendant Gleam. The equipping character can trigger this effect while off-field. All party members\u0027 Lunar Reaction DMG is increased by 10% for each different Gleaming Moon effect that party members have. Effects from Gleaming Moon cannot stack.",
+    "Pieces":  {
+                   "circlet":  {
+                                   "icon":  "UI_RelicIcon_15042_3",
+                                   "name":  "Holy Crown of the Believer"
+                               },
+                   "flower":  {
+                                  "icon":  "UI_RelicIcon_15042_4",
+                                  "name":  "Crystal Tear of the Wanderer"
+                              },
+                   "goblet":  {
+                                  "icon":  "UI_RelicIcon_15042_1",
+                                  "name":  "Joyous Glory of the Pure"
+                              },
+                   "plume":  {
+                                 "icon":  "UI_RelicIcon_15042_2",
+                                 "name":  "Pristine Plume of the Blessed"
+                             },
+                   "sands":  {
+                                 "icon":  "UI_RelicIcon_15042_5",
+                                 "name":  "Frost Devotee\u0027s Delirium"
+                             }
+               }
+}

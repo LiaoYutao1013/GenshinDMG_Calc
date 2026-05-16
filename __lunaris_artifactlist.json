@@ -1,0 +1,642 @@
+{
+    "10001": {
+        "chsName": "®®??®®???1????",
+        "enName": "Resolution of Sojourner",
+        "ptName": "Resolu?°Ï?°Ío de Sojourner",
+        "qualityType": "QUALITY_PURPLE",
+        "releaseDate": 1777558791,
+        "ruName": "D?D¶Ã??D?D?D??????? D2??D¶ÃD?D¶ÃD???D?DoD°„",
+        "setIcon": "UI_RelicIcon_10001_4",
+        "setId": 10001
+    },
+    "10002": {
+        "chsName": "????°Í??1????",
+        "enName": "Brave Heart",
+        "ptName": "Cora?°Ï?°Ío Valente",
+        "qualityType": "QUALITY_PURPLE",
+        "releaseDate": 1777558791,
+        "ruName": "D?????D°„ ????D°„D°¿??D¶Ã??D°„",
+        "setIcon": "UI_RelicIcon_10002_4",
+        "setId": 10002
+    },
+    "10003": {
+        "chsName": "?????°Ë?1????",
+        "enName": "Defender's Will",
+        "ptName": "Guardi?°Ío",
+        "qualityType": "QUALITY_PURPLE",
+        "releaseDate": 1777558791,
+        "ruName": "D?D?D??? D°§D°„??D???D?D?DoD°„",
+        "setIcon": "UI_RelicIcon_10003_4",
+        "setId": 10003
+    },
+    "10004": {
+        "chsName": "?£§?®®?1",
+        "enName": "Tiny Miracle",
+        "ptName": "Pequeno Milagre",
+        "qualityType": "QUALITY_PURPLE",
+        "releaseDate": 1777558791,
+        "ruName": "D?D°„D?D¶ÃD???DoD?D¶Ã ????D°‰D?",
+        "setIcon": "UI_RelicIcon_10004_4",
+        "setId": 10004
+    },
+    "10005": {
+        "chsName": "??????",
+        "enName": "Berserker",
+        "ptName": "Berserker",
+        "qualityType": "QUALITY_PURPLE",
+        "releaseDate": 1777558791,
+        "ruName": "D?D¶Ã????D¶Ã??Do",
+        "setIcon": "UI_RelicIcon_10005_4",
+        "setId": 10005
+    },
+    "10006": {
+        "chsName": "?-|?oo",
+        "enName": "Martial Artist",
+        "ptName": "Artista Marcial",
+        "qualityType": "QUALITY_PURPLE",
+        "releaseDate": 1777558791,
+        "ruName": "D?D?D?D?",
+        "setIcon": "UI_RelicIcon_10006_4",
+        "setId": 10006
+    },
+    "10007": {
+        "chsName": "??????",
+        "enName": "Instructor",
+        "ptName": "Instrutor",
+        "qualityType": "QUALITY_PURPLE",
+        "releaseDate": 1777558791,
+        "ruName": "D?D?????????Do??D???",
+        "setIcon": "UI_RelicIcon_10007_4",
+        "setId": 10007
+    },
+    "10008": {
+        "chsName": "®®¶Ã????",
+        "enName": "Gambler",
+        "ptName": "Apostador",
+        "qualityType": "QUALITY_PURPLE",
+        "releaseDate": 1777558791,
+        "ruName": "D?D°§D°„????D???D1 D?D3??D?Do",
+        "setIcon": "UI_RelicIcon_10008_4",
+        "setId": 10008
+    },
+    "10009": {
+        "chsName": "?¶Ã????®®??",
+        "enName": "The Exile",
+        "ptName": "O Exilado",
+        "qualityType": "QUALITY_PURPLE",
+        "releaseDate": 1777558791,
+        "ruName": "D?D°§D3D?D°„D?D?D?Do",
+        "setIcon": "UI_RelicIcon_10009_4",
+        "setId": 10009
+    },
+    "10010": {
+        "chsName": "???®¶?????",
+        "enName": "Adventurer",
+        "ptName": "Aventureiro",
+        "qualityType": "QUALITY_BLUE",
+        "releaseDate": 1777558791,
+        "ruName": "D???DoD°„??D¶ÃD??? D???D?DoD?????D¶ÃD?D?D1",
+        "setIcon": "UI_RelicIcon_10010_4",
+        "setId": 10010
+    },
+    "10011": {
+        "chsName": "?1?®®?????",
+        "enName": "Lucky Dog",
+        "ptName": "O Sortudo",
+        "qualityType": "QUALITY_BLUE",
+        "releaseDate": 1777558791,
+        "ruName": "D?D¶ÃD°§??D???D?Do",
+        "setIcon": "UI_RelicIcon_10011_4",
+        "setId": 10011
+    },
+    "10012": {
+        "chsName": "?-|?°Í?",
+        "enName": "Scholar",
+        "ptName": "O Estudioso",
+        "qualityType": "QUALITY_PURPLE",
+        "releaseDate": 1777558791,
+        "ruName": "D°Í????D???D1",
+        "setIcon": "UI_RelicIcon_10012_4",
+        "setId": 10012
+    },
+    "10013": {
+        "chsName": "??????",
+        "enName": "Traveling Doctor",
+        "ptName": "O Doutor viajante",
+        "qualityType": "QUALITY_BLUE",
+        "releaseDate": 1777558791,
+        "ruName": "D|D¶ÃD?D???D¶ÃD???",
+        "setIcon": "UI_RelicIcon_10013_4",
+        "setId": 10013
+    },
+    "14001": {
+        "chsName": "??°„®¶°Í?®®?°§®¶?????????°Í?",
+        "enName": "Blizzard Strayer",
+        "ptName": "Her?3i Invernal",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558791,
+        "ruName": "D?D°„D°¿D???D°‰??D?D1 D2 D?D¶Ã??D¶ÃD?D?",
+        "setIcon": "UI_RelicIcon_14001_4",
+        "setId": 14001
+    },
+    "14002": {
+        "chsName": "?13??°•®¶?°Í®¶?°§????°„?®®??",
+        "enName": "Thundersoother",
+        "ptName": "Lan?°Ïador de Trov?¶Ães",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558791,
+        "ruName": "D°Í??D?D?????????D?D1 D3??D?D?",
+        "setIcon": "UI_RelicIcon_14002_4",
+        "setId": 14002
+    },
+    "14003": {
+        "chsName": "???®®???????????®®°‰°Ë?oo",
+        "enName": "Lavawalker",
+        "ptName": "Atravessador do Fogo",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558791,
+        "ruName": "D?????D?D°„????D?D1 D?D? D?D°„D2D¶Ã",
+        "setIcon": "UI_RelicIcon_14003_4",
+        "setId": 14003
+    },
+    "14004": {
+        "chsName": "®®°È??????°¿????°„??£§3",
+        "enName": "Maiden Beloved",
+        "ptName": "Donzela Amada",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558791,
+        "ruName": "D?D?D°§D???D°¿D?D¶ÃD?D?D°„?? ??D?D°„?? D°‰D¶ÃD2D°„",
+        "setIcon": "UI_RelicIcon_14004_4",
+        "setId": 14004
+    },
+    "15000": {
+        "chsName": "???",
+        "enName": "???",
+        "ptName": "???",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558791,
+        "ruName": "???",
+        "setIcon": "",
+        "setId": 15000
+    },
+    "15001": {
+        "chsName": "®®°Ï?????°Í????????1??°Ë?",
+        "enName": "Gladiator's Finale",
+        "ptName": "??ltimo Juramento do Gladiador",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558791,
+        "ruName": "D?D?D?D¶Ã?? D3D?D°„D°‰D?D°„??D???D°„",
+        "setIcon": "UI_RelicIcon_15001_4",
+        "setId": 15001
+    },
+    "15002": {
+        "chsName": "???????1???°¿",
+        "enName": "Viridescent Venerer",
+        "ptName": "Sombra Verde",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558791,
+        "ruName": "D?D°§??D?????D°‰D?D°„?? ??D¶ÃD???",
+        "setIcon": "UI_RelicIcon_15002_4",
+        "setId": 15002
+    },
+    "15003": {
+        "chsName": "?¶Ã??¶Ãa?°Ë°Ï??°„????1???°È",
+        "enName": "Wanderer's Troupe",
+        "ptName": "Trupe Itinerante",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558791,
+        "ruName": "D?????D°„D?????D2??????D?D1 D°„D???D°„D?D°¿D???",
+        "setIcon": "UI_RelicIcon_15003_4",
+        "setId": 15003
+    },
+    "15004": {
+        "chsName": "??°„?1??°§????®¶?a?1????",
+        "enName": "Glacier and Snowfield",
+        "ptName": "Rios de Gelo e Areia de Neve",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558791,
+        "ruName": "D?D?D¶ÃD3 D? D???D°‰",
+        "setIcon": "UI_RelicIcon_15004_4",
+        "setId": 15004
+    },
+    "15005": {
+        "chsName": "?|?®¶?°§?????????",
+        "enName": "Thundering Fury",
+        "ptName": "Trov?°Ío Furioso",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558791,
+        "ruName": "D???D?D?D?D3D?D°„??D???D1 ????D2 ????D?????D?",
+        "setIcon": "UI_RelicIcon_15005_4",
+        "setId": 15005
+    },
+    "15006": {
+        "chsName": "?????????????1?®¶-??£§3",
+        "enName": "Crimson Witch of Flames",
+        "ptName": "A Bruxa das Chamas Carmesim",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558791,
+        "ruName": "D?D???????D°„?? D°„D?D°„?? D2D¶ÃD°‰??D?D°„",
+        "setIcon": "UI_RelicIcon_15006_4",
+        "setId": 15006
+    },
+    "15007": {
+        "chsName": "?????£§?????°Ë?1???a",
+        "enName": "Noblesse Oblige",
+        "ptName": "Antigo Ritual Real",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558791,
+        "ruName": "D|D¶Ã??D¶ÃD?D?D?D??? D°‰??D¶ÃD2D?D¶ÃD1 D°§D?D°„??D?",
+        "setIcon": "UI_RelicIcon_15007_4",
+        "setId": 15007
+    },
+    "15008": {
+        "chsName": "???®®?????®¶a??°Í?®¶??",
+        "enName": "Bloodstained Chivalry",
+        "ptName": "Cavaleiro Manchado de Sangue",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558791,
+        "ruName": "D?????D°„???? Do??D?D2D?",
+        "setIcon": "UI_RelicIcon_15008_4",
+        "setId": 15008
+    },
+    "15009": {
+        "chsName": "?£§-????1??oo",
+        "enName": "Prayers for Illumination",
+        "ptName": "Xam?°Í do Ritual Pyro",
+        "qualityType": "QUALITY_PURPLE",
+        "releaseDate": 1777558791,
+        "ruName": "D°ßD°„D?D°„D? D?D3D???",
+        "setIcon": "UI_RelicIcon_15009_3",
+        "setId": 15009
+    },
+    "15010": {
+        "chsName": "?£§-?°„°‰?1??oo",
+        "enName": "Prayers for Destiny",
+        "ptName": "Ora?°Ï?¶Ães para o Destino",
+        "qualityType": "QUALITY_PURPLE",
+        "releaseDate": 1777558791,
+        "ruName": "D°ßD°„D?D°„D? D2D?D°‰??",
+        "setIcon": "UI_RelicIcon_15010_3",
+        "setId": 15010
+    },
+    "15011": {
+        "chsName": "?£§-®¶?°§?1??oo",
+        "enName": "Prayers for Wisdom",
+        "ptName": "Xam?°Í do Ritual Electro",
+        "qualityType": "QUALITY_PURPLE",
+        "releaseDate": 1777558791,
+        "ruName": "D°ßD°„D?D°„D? D?D?D?D?D?D?",
+        "setIcon": "UI_RelicIcon_15011_3",
+        "setId": 15011
+    },
+    "15012": {
+        "chsName": "?£§-®¶°Í??1??oo",
+        "enName": "Prayers to the Firmament",
+        "ptName": "Xam?°Í do Ritual Anemo",
+        "qualityType": "QUALITY_PURPLE",
+        "releaseDate": 1777558791,
+        "ruName": "D°ßD°„D?D°„D? D2D¶Ã????D°„",
+        "setIcon": "UI_RelicIcon_15012_3",
+        "setId": 15012
+    },
+    "15013": {
+        "chsName": "?£§-??°„?1??oo",
+        "enName": "Prayers to Springtime",
+        "ptName": "Ora?°Ï?¶Ães para a Primavera",
+        "qualityType": "QUALITY_PURPLE",
+        "releaseDate": 1777558791,
+        "ruName": "D°ßD°„D?D°„D? D???D°‰D°„",
+        "setIcon": "UI_RelicIcon_15013_3",
+        "setId": 15013
+    },
+    "15014": {
+        "chsName": "?????°Ë????°Í??2?",
+        "enName": "Archaic Petra",
+        "ptName": "Pedra Arcaica",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558791,
+        "ruName": "D?????D°„D???D???D1 DoD°„D?D¶ÃD???",
+        "setIcon": "UI_RelicIcon_15014_4",
+        "setId": 15014
+    },
+    "15015": {
+        "chsName": "®¶??®¶°Í?????¶Ã????",
+        "enName": "Retracing Bolide",
+        "ptName": "Meteoro Invertido",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558791,
+        "ruName": "D???????D¶Ã??D?D°„?? DoD?D?D¶Ã??D°„",
+        "setIcon": "UI_RelicIcon_15015_4",
+        "setId": 15015
+    },
+    "15016": {
+        "chsName": "?2??2|?1????",
+        "enName": "Heart of Depth",
+        "ptName": "Profundezas do Cora?°Ï?°Ío",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558791,
+        "ruName": "D?D¶Ã??D°‰??D¶Ã D3D???D°¿D?D?",
+        "setIcon": "UI_RelicIcon_15016_4",
+        "setId": 15016
+    },
+    "15017": {
+        "chsName": "????2???°È??o",
+        "enName": "Tenacity of the Millelith",
+        "ptName": "Millelith Firmes",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558791,
+        "ruName": "D???D?D1DoD??????? D?D?D?D?D¶ÃD?D???D°„",
+        "setIcon": "UI_RelicIcon_15017_4",
+        "setId": 15017
+    },
+    "15018": {
+        "chsName": "®®??????1????",
+        "enName": "Pale Flame",
+        "ptName": "Chama P??lida",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558791,
+        "ruName": "D?D?D¶ÃD°‰D???D1 D?D3D?D???",
+        "setIcon": "UI_RelicIcon_15018_4",
+        "setId": 15018
+    },
+    "15019": {
+        "chsName": "®®??????1??3°ß®®??",
+        "enName": "Shimenawa's Reminiscence",
+        "ptName": "Reminisc?ancia Nost??lgica",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558791,
+        "ruName": "D?D???D?D?D?D?D?D°„D?D??? D?D?D???D?D°„D2??",
+        "setIcon": "UI_RelicIcon_15019_4",
+        "setId": 15019
+    },
+    "15020": {
+        "chsName": "???????1??????°„",
+        "enName": "Emblem of Severed Fate",
+        "ptName": "Selo da Insula?°Ï?°Ío",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558791,
+        "ruName": "D-D?D°¿D?D¶ÃD?D°„ ??D°„????D¶Ã????D?D?D?D1 ????D°‰??D°¿??",
+        "setIcon": "UI_RelicIcon_15020_4",
+        "setId": 15020
+    },
+    "15021": {
+        "chsName": "???®¶|??°È|®¶????°È®¶a?®®?°„",
+        "enName": "Husk of Opulent Dreams",
+        "ptName": "Casca de Sonhos Opulentos",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558791,
+        "ruName": "D?D?DoD?D? ??D?D°„D°‰DoD??? D3????D°§",
+        "setIcon": "UI_RelicIcon_15021_4",
+        "setId": 15021
+    },
+    "15022": {
+        "chsName": "?¶Ã°§???????°Í2",
+        "enName": "Ocean-Hued Clam",
+        "ptName": "Concha Tingida Pelo Mar",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558791,
+        "ruName": "D?D?D?D?????Do D?D?????DoD??? Do??D°„??D?Do",
+        "setIcon": "UI_RelicIcon_15022_4",
+        "setId": 15022
+    },
+    "15023": {
+        "chsName": "®®?°„????????????",
+        "enName": "Vermillion Hereafter",
+        "ptName": "Al??m-vida Cin??brio",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558791,
+        "ruName": "D?D?D?D?D2D°„??D?D?D¶Ã D°§D°„D3??D?D°¿??D¶Ã",
+        "setIcon": "UI_RelicIcon_15023_4",
+        "setId": 15023
+    },
+    "15024": {
+        "chsName": "??£§?-???????",
+        "enName": "Echoes of an Offering",
+        "ptName": "Eco do Sacrif?-cio",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558791,
+        "ruName": "D???D3D?D?D???DoD? D?D?D°‰D?D???D¶ÃD?D???",
+        "setIcon": "UI_RelicIcon_15024_4",
+        "setId": 15024
+    },
+    "15025": {
+        "chsName": "?°§°¿??????®®?°„???",
+        "enName": "Deepwood Memories",
+        "ptName": "Mem?3rias da Floresta",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558791,
+        "ruName": "D?D???D?D?D?D?D?D°„D?D??? D°‰??D¶ÃD?????D¶ÃD3D? D?D¶Ã??D°„",
+        "setIcon": "UI_RelicIcon_15025_4",
+        "setId": 15025
+    },
+    "15026": {
+        "chsName": "®¶£§°„®¶???1??°È|",
+        "enName": "Gilded Dreams",
+        "ptName": "Sonhos Dourados",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558791,
+        "ruName": "D?D?D°§D?D?D???D¶ÃD?D???D¶Ã ??D???",
+        "setIcon": "UI_RelicIcon_15026_4",
+        "setId": 15026
+    },
+    "15027": {
+        "chsName": "?2?????£§?®¶????2®®°•?",
+        "enName": "Desert Pavilion Chronicle",
+        "ptName": "Cr?°‰nicas do Pavilh?°Ío do Deserto",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558791,
+        "ruName": "D£§??D?D?D?DoD? D°ÏD¶Ã????D?D3D?D2 D2 D?????????D?D¶Ã",
+        "setIcon": "UI_RelicIcon_15027_4",
+        "setId": 15027
+    },
+    "15028": {
+        "chsName": "?1???-®¶??®®???1?®®?°¿",
+        "enName": "Flower of Paradise Lost",
+        "ptName": "Flor do Para?-so Perdido",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558791,
+        "ruName": "D|D2D¶Ã??D?Do D?D???D¶Ã????D?D?D?D3D? ??D°„??",
+        "setIcon": "UI_RelicIcon_15028_4",
+        "setId": 15028
+    },
+    "15029": {
+        "chsName": "?°„°‰????1??°È|",
+        "enName": "Nymph's Dream",
+        "ptName": "Sonho da Ninfa",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558791,
+        "ruName": "D?D?D? D?D?D?????",
+        "setIcon": "UI_RelicIcon_15029_4",
+        "setId": 15029
+    },
+    "15030": {
+        "chsName": "®®?°¿?¶Ã°§???®¶?2?1????",
+        "enName": "Vourukasha's Glow",
+        "ptName": "Brilho Vourukasha",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558791,
+        "ruName": "D?D???D?D?D¶Ã D???????DoD°„??D?",
+        "setIcon": "UI_RelicIcon_15030_4",
+        "setId": 15030
+    },
+    "15031": {
+        "chsName": "®¶????°¿????oo",
+        "enName": "Marechaussee Hunter",
+        "ptName": "Ca?°Ïador das Sombras",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558791,
+        "ruName": "D???D???D?D?Do D???D?D¶Ã??D¶Ã??D?D?D3D? D°‰D2D???D°„",
+        "setIcon": "UI_RelicIcon_15031_4",
+        "setId": 15031
+    },
+    "15032": {
+        "chsName": "®¶??®¶????°Ï??°È",
+        "enName": "Golden Troupe",
+        "ptName": "Trupe Dourada",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558791,
+        "ruName": "D?D?D?D???D°„?? ??????D?D?D°„",
+        "setIcon": "UI_RelicIcon_15032_4",
+        "setId": 15032
+    },
+    "15033": {
+        "chsName": "???????1??-?",
+        "enName": "Song of Days Past",
+        "ptName": "Can?°Ï?°Ío do Passado",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558791,
+        "ruName": "D?D¶Ã??D??? D°¿??D????? D2??D¶ÃD???D?",
+        "setIcon": "UI_RelicIcon_15033_4",
+        "setId": 15033
+    },
+    "15034": {
+        "chsName": "????°Í°„?1?????°Ë?®®°•?",
+        "enName": "Nighttime Whispers in the Echoing Woods",
+        "ptName": "Ecos da Floresta Noturna",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558791,
+        "ruName": "D?D???D?D?D1 ????D?D??? D2 D?D¶Ã???? D???DoD?D?DoD°„????D¶ÃD3D????? ????D°„",
+        "setIcon": "UI_RelicIcon_15034_4",
+        "setId": 15034
+    },
+    "15035": {
+        "chsName": "®®°„?????????3??-???",
+        "enName": "Fragment of Harmonic Whimsy",
+        "ptName": "Fragmento da Harmonia Fant??stica",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558791,
+        "ruName": "D°Ë??D°„D3D?D¶ÃD??? D3D°„??D?D?D?D???D¶Ã??DoD?D1 ??D°„D???D°„D°§D?D?",
+        "setIcon": "UI_RelicIcon_15035_4",
+        "setId": 15035
+    },
+    "15036": {
+        "chsName": "??a??????®¶?????",
+        "enName": "Unfinished Reverie",
+        "ptName": "Reminisc?ancia Incompleta",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558791,
+        "ruName": "D?D¶ÃD°§D°„DoD?D???D¶ÃD?D???D¶Ã D3????D°§??",
+        "setIcon": "UI_RelicIcon_15036_4",
+        "setId": 15036
+    },
+    "15037": {
+        "chsName": "?????????®®???????°§",
+        "enName": "Scroll of the Hero of Cinder City",
+        "ptName": "Pergaminho do Her?3i da Cidade Incandescente",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558791,
+        "ruName": "D?D2D???D?Do D3D¶Ã??D??? ??D?D?D???D?D?D?D3D? D3D???D?D°‰D°„",
+        "setIcon": "UI_RelicIcon_15037_4",
+        "setId": 15037
+    },
+    "15038": {
+        "chsName": "®¶??????°Ï????",
+        "enName": "Obsidian Codex",
+        "ptName": "C?3dice de Obsidiana",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558791,
+        "ruName": "D?D°¿??D?D°‰D?D°„D?D?D2??D1 ??D?D?D?D°„D???",
+        "setIcon": "UI_RelicIcon_15038_4",
+        "setId": 15038
+    },
+    "15039": {
+        "chsName": "®¶???°Ë??1?®®a?",
+        "enName": "Long Night's Oath",
+        "ptName": "Juramento da Noite Eterna",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558791,
+        "ruName": "D?D?????D2D°„ D°‰D?D?D3D?D1 D?D???D?",
+        "setIcon": "UI_RelicIcon_15039_4",
+        "setId": 15039
+    },
+    "15040": {
+        "chsName": "?°§°¿????????2",
+        "enName": "Finale of the Deep Galleries",
+        "ptName": "Ep?-logo do Corredor",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558791,
+        "ruName": "D°ËD?D?D°„D? D3D°„D?D¶Ã??D¶ÃD1 D3D???D°¿D?D?",
+        "setIcon": "UI_RelicIcon_15040_4",
+        "setId": 15040
+    },
+    "15041": {
+        "chsName": "??1?°È??°Ëo??°„?1??°Ë?",
+        "enName": "Night of the Sky's Unveiling",
+        "ptName": "Noite da Revela?°Ï?°Ío do C??u",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558791,
+        "ruName": "D?D????? D???Do??????D??? D?D¶ÃD°¿D°„",
+        "setIcon": "UI_RelicIcon_15041_4",
+        "setId": 15041
+    },
+    "15042": {
+        "chsName": "?oo???????°Ë??-?",
+        "enName": "Silken Moon's Serenade",
+        "ptName": "Serenata da Lua de Seda",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558791,
+        "ruName": "D?D¶Ã??D¶ÃD?D°„D°‰D°„ ????D?DoD?D2D?D1 D???D???",
+        "setIcon": "UI_RelicIcon_15042_4",
+        "setId": 15042
+    },
+    "15043": {
+        "chsName": "??°ß????????????????-?",
+        "enName": "Aubade of Morningstar and Moon",
+        "ptName": "Serenata das Estrelas e da Lua",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558791,
+        "ruName": "D?D°„????D2D¶Ã??D?D°„?? D?D¶Ã??D??? D°§D2D¶ÃD°§D°‰?? D? D???D???",
+        "setIcon": "UI_RelicIcon_15043_4",
+        "setId": 15043
+    },
+    "15044": {
+        "chsName": "®¶°Í?®®¶Ã°§?1???£§",
+        "enName": "A Day Carved From Rising Winds",
+        "ptName": "Ascens?°Ío Z??fira",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558791,
+        "ruName": "D?D¶ÃD??? D2D?????D?D°‰????D??? D2D¶Ã????D?D2",
+        "setIcon": "UI_RelicIcon_15044_4",
+        "setId": 15044
+    },
+    "15045": {
+        "chsName": "?°Ë??1????®®¶Ã?",
+        "enName": "Celestial Gift",
+        "ptName": "D??diva Celestial",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558791,
+        "ruName": "D?D°„?? D?D¶ÃD°¿D¶Ã??",
+        "setIcon": "UI_RelicIcon_15045_4",
+        "setId": 15045
+    },
+    "15046": {
+        "chsName": "??°¿??-?2????????1???-",
+        "enName": "Disenchantment in Deep Shadow",
+        "ptName": "Desencantamento na Sombra Profunda",
+        "qualityType": "QUALITY_ORANGE",
+        "releaseDate": 1777558791,
+        "ruName": "D?D°„??????D2??D¶ÃD¶Ã D2 ??D¶ÃD?D? ??D°„D°§D???D°„??D?D2D°„D?D?D¶Ã",
+        "setIcon": "UI_RelicIcon_15046_4",
+        "setId": 15046
+    }
+}

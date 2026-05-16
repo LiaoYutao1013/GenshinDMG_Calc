@@ -1,0 +1,31 @@
+﻿{
+    "Id":  15046,
+    "SetId":  15046,
+    "EnName":  "Disenchantment in Deep Shadow",
+    "QualityType":  "QUALITY_ORANGE",
+    "SetIcon":  "UI_RelicIcon_15046_4",
+    "Effect2Pc":  "ATK +18%.",
+    "Effect4Pc":  "Increases Superconduct Reaction DMG by 80%. When the wielder attacks opponents affected by Superconduct, this attack\u0027s CRIT Rate is increased by 16%. An all-new blessing may be obtained as you make your way toward Snezhnaya...",
+    "Pieces":  {
+                   "circlet":  {
+                                   "icon":  "UI_RelicIcon_15046_3",
+                                   "name":  "Pendulum That Ceased Amidst a Great Fall"
+                               },
+                   "flower":  {
+                                  "icon":  "UI_RelicIcon_15046_4",
+                                  "name":  "Iridescence That Ceased Amidst Glory"
+                              },
+                   "goblet":  {
+                                  "icon":  "UI_RelicIcon_15046_1",
+                                  "name":  "Ovations That Ceased Upon Festivity"
+                              },
+                   "plume":  {
+                                 "icon":  "UI_RelicIcon_15046_2",
+                                 "name":  "Sharpness That Ceased Upon Wondrous Creation"
+                             },
+                   "sands":  {
+                                 "icon":  "UI_RelicIcon_15046_5",
+                                 "name":  "Moment That Ceased Upon Waking From Grand Dreams"
+                             }
+               }
+}

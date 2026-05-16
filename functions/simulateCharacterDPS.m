@@ -15,6 +15,7 @@ function result = simulateCharacterDPS(memberCfg, enemy, teamContext)
         memberCfg.EnemyState = createEnemyState(enemy, teamContext, getCharacterElement(memberCfg.Name));
     end
     memberTeamContext = teamContext;
+    memberTeamContext = localApplyElementSpecificTeamBonuses(memberTeamContext, memberCfg.Name);
     memberTeamContext.EnemyState = memberCfg.EnemyState;
 
     switch name
@@ -125,4 +126,35 @@ function result = simulateCharacterDPS(memberCfg, enemy, teamContext)
         'DPS', dps, ...
         'RotationTime', rotationTime, ...
         'Breakdown', breakdown);
+end
+
+function teamContext = localApplyElementSpecificTeamBonuses(teamContext, characterName)
+    % 大多数角色模拟器当前只读取 teamContext.AllDMGBonus。
+    % 为了让元素专属团队增伤在不重写全部角色公式的前提下立即生效，
+    % 这里按角色元素把对应的共享增伤统一折算进成员视角的 AllDMGBonus。
+    if isempty(teamContext)
+        return;
+    end
+
+    element = lower(char(string(getCharacterElement(characterName))));
+    elementBonus = 0;
+    switch element
+        case 'pyro'
+            elementBonus = getFieldOrDefault(teamContext, 'PyroDMGBonus', 0);
+        case 'hydro'
+            elementBonus = getFieldOrDefault(teamContext, 'HydroDMGBonus', 0);
+        case 'cryo'
+            elementBonus = getFieldOrDefault(teamContext, 'CryoDMGBonus', 0);
+        case 'electro'
+            elementBonus = getFieldOrDefault(teamContext, 'ElectroDMGBonus', 0);
+        case 'anemo'
+            elementBonus = getFieldOrDefault(teamContext, 'AnemoDMGBonus', 0);
+        case 'geo'
+            elementBonus = getFieldOrDefault(teamContext, 'GeoDMGBonus', 0);
+        case 'dendro'
+            elementBonus = getFieldOrDefault(teamContext, 'DendroDMGBonus', 0);
+    end
+
+    teamContext.ElementSpecificDMGBonus = elementBonus;
+    teamContext.AllDMGBonus = getFieldOrDefault(teamContext, 'AllDMGBonus', 0) + elementBonus;
 end

@@ -1,0 +1,31 @@
+﻿{
+    "Id":  10002,
+    "SetId":  10002,
+    "EnName":  "Brave Heart",
+    "QualityType":  "QUALITY_PURPLE",
+    "SetIcon":  "UI_RelicIcon_10002_4",
+    "Effect2Pc":  "ATK +18%.",
+    "Effect4Pc":  "Increases DMG by 30% against opponents with more than 50% HP.",
+    "Pieces":  {
+                   "circlet":  {
+                                   "icon":  "UI_RelicIcon_10002_3",
+                                   "name":  "Crown of the Brave"
+                               },
+                   "flower":  {
+                                  "icon":  "UI_RelicIcon_10002_4",
+                                  "name":  "Medal of the Brave"
+                              },
+                   "goblet":  {
+                                  "icon":  "UI_RelicIcon_10002_1",
+                                  "name":  "Outset of the Brave"
+                              },
+                   "plume":  {
+                                 "icon":  "UI_RelicIcon_10002_2",
+                                 "name":  "Prospect of the Brave"
+                             },
+                   "sands":  {
+                                 "icon":  "UI_RelicIcon_10002_5",
+                                 "name":  "Fortitude of the Brave"
+                             }
+               }
+}

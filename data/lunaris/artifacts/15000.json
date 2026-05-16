@@ -1,0 +1,31 @@
+﻿{
+    "Id":  15000,
+    "SetId":  15000,
+    "EnName":  "???",
+    "QualityType":  "QUALITY_ORANGE",
+    "SetIcon":  "",
+    "Effect2Pc":  null,
+    "Effect4Pc":  null,
+    "Pieces":  {
+                   "circlet":  {
+                                   "icon":  "UI_RelicIcon_15000_3",
+                                   "name":  "Lord of Wind over Firmament\u0027s Crown"
+                               },
+                   "flower":  {
+                                  "icon":  "UI_RelicIcon_15000_4",
+                                  "name":  "Lord of Wind over Firmament\u0027s Flower"
+                              },
+                   "goblet":  {
+                                  "icon":  "UI_RelicIcon_15000_1",
+                                  "name":  "Lord of Wind over Firmament\u0027s Cup"
+                              },
+                   "plume":  {
+                                 "icon":  "UI_RelicIcon_15000_2",
+                                 "name":  "Lord of Wind over Firmament\u0027s Feather"
+                             },
+                   "sands":  {
+                                 "icon":  "UI_RelicIcon_15000_5",
+                                 "name":  "Lord of Wind over Firmament\u0027s Hourglass"
+                             }
+               }
+}

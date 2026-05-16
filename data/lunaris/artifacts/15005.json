@@ -1,0 +1,31 @@
+﻿{
+    "Id":  15005,
+    "SetId":  15005,
+    "EnName":  "Thundering Fury",
+    "QualityType":  "QUALITY_ORANGE",
+    "SetIcon":  "UI_RelicIcon_15005_4",
+    "Effect2Pc":  "Electro DMG Bonus +15%",
+    "Effect4Pc":  "Increases the DMG caused by Overloaded, Electro-Charged, Superconduct, and Hyperbloom by 40%, the DMG Bonus conferred by Aggravate by 20%, and the DMG caused by Lunar-Charged by 20%. When Quicken or the aforementioned Elemental Reactions are triggered, Elemental Skill CD is decreased by 1s. Can only occur once every 0.8s.",
+    "Pieces":  {
+                   "circlet":  {
+                                   "icon":  "UI_RelicIcon_15005_3",
+                                   "name":  "Thunder Summoner\u0027s Crown"
+                               },
+                   "flower":  {
+                                  "icon":  "UI_RelicIcon_15005_4",
+                                  "name":  "Thunderbird\u0027s Mercy"
+                              },
+                   "goblet":  {
+                                  "icon":  "UI_RelicIcon_15005_1",
+                                  "name":  "Omen of Thunderstorm"
+                              },
+                   "plume":  {
+                                 "icon":  "UI_RelicIcon_15005_2",
+                                 "name":  "Survivor of Catastrophe"
+                             },
+                   "sands":  {
+                                 "icon":  "UI_RelicIcon_15005_5",
+                                 "name":  "Hourglass of Thunder"
+                             }
+               }
+}

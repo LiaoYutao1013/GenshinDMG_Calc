@@ -1,0 +1,31 @@
+﻿{
+    "Id":  10008,
+    "SetId":  10008,
+    "EnName":  "Gambler",
+    "QualityType":  "QUALITY_PURPLE",
+    "SetIcon":  "UI_RelicIcon_10008_4",
+    "Effect2Pc":  "Increases Elemental Skill DMG by 20%.",
+    "Effect4Pc":  "Defeating an opponent has a 100% chance to remove Elemental Skill CD. Can only occur once every 15s.",
+    "Pieces":  {
+                   "circlet":  {
+                                   "icon":  "UI_RelicIcon_10008_3",
+                                   "name":  "Gambler\u0027s Earrings"
+                               },
+                   "flower":  {
+                                  "icon":  "UI_RelicIcon_10008_4",
+                                  "name":  "Gambler\u0027s Brooch"
+                              },
+                   "goblet":  {
+                                  "icon":  "UI_RelicIcon_10008_1",
+                                  "name":  "Gambler\u0027s Dice Cup"
+                              },
+                   "plume":  {
+                                 "icon":  "UI_RelicIcon_10008_2",
+                                 "name":  "Gambler\u0027s Feather Accessory"
+                             },
+                   "sands":  {
+                                 "icon":  "UI_RelicIcon_10008_5",
+                                 "name":  "Gambler\u0027s Pocket Watch"
+                             }
+               }
+}

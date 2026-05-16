@@ -1,0 +1,31 @@
+﻿{
+    "Id":  10004,
+    "SetId":  10004,
+    "EnName":  "Tiny Miracle",
+    "QualityType":  "QUALITY_PURPLE",
+    "SetIcon":  "UI_RelicIcon_10004_4",
+    "Effect2Pc":  "All Elemental RES increased by 20%.",
+    "Effect4Pc":  "Incoming elemental DMG increases corresponding Elemental RES by 30% for 10s. Can only occur once every 10s.",
+    "Pieces":  {
+                   "circlet":  {
+                                   "icon":  "UI_RelicIcon_10004_3",
+                                   "name":  "Tiny Miracle\u0027s Earrings"
+                               },
+                   "flower":  {
+                                  "icon":  "UI_RelicIcon_10004_4",
+                                  "name":  "Tiny Miracle\u0027s Flower"
+                              },
+                   "goblet":  {
+                                  "icon":  "UI_RelicIcon_10004_1",
+                                  "name":  "Tiny Miracle\u0027s Goblet"
+                              },
+                   "plume":  {
+                                 "icon":  "UI_RelicIcon_10004_2",
+                                 "name":  "Tiny Miracle\u0027s Feather"
+                             },
+                   "sands":  {
+                                 "icon":  "UI_RelicIcon_10004_5",
+                                 "name":  "Tiny Miracle\u0027s Hourglass"
+                             }
+               }
+}

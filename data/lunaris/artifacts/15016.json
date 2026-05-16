@@ -1,0 +1,31 @@
+﻿{
+    "Id":  15016,
+    "SetId":  15016,
+    "EnName":  "Heart of Depth",
+    "QualityType":  "QUALITY_ORANGE",
+    "SetIcon":  "UI_RelicIcon_15016_4",
+    "Effect2Pc":  "Hydro DMG Bonus +15%",
+    "Effect4Pc":  "After using Elemental Skill, increases Normal Attack and Charged Attack DMG by 30% for 15s.",
+    "Pieces":  {
+                   "circlet":  {
+                                   "icon":  "UI_RelicIcon_15016_3",
+                                   "name":  "Wine-Stained Tricorne"
+                               },
+                   "flower":  {
+                                  "icon":  "UI_RelicIcon_15016_4",
+                                  "name":  "Gilded Corsage"
+                              },
+                   "goblet":  {
+                                  "icon":  "UI_RelicIcon_15016_1",
+                                  "name":  "Goblet of Thundering Deep"
+                              },
+                   "plume":  {
+                                 "icon":  "UI_RelicIcon_15016_2",
+                                 "name":  "Gust of Nostalgia"
+                             },
+                   "sands":  {
+                                 "icon":  "UI_RelicIcon_15016_5",
+                                 "name":  "Copper Compass"
+                             }
+               }
+}

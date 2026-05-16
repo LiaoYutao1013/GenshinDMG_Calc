@@ -1,0 +1,31 @@
+﻿{
+    "Id":  15023,
+    "SetId":  15023,
+    "EnName":  "Vermillion Hereafter",
+    "QualityType":  "QUALITY_ORANGE",
+    "SetIcon":  "UI_RelicIcon_15023_4",
+    "Effect2Pc":  "ATK +18%.",
+    "Effect4Pc":  "After using an Elemental Burst, this character will gain the Nascent Light effect, increasing their ATK by 8% for 16s. When the character\u0027s HP decreases, their ATK will further increase by 10%. This further increase can occur this way a maximum of 4 times. This effect can be triggered once every 0.8s. Nascent Light will be dispelled when the character leaves the field. If an Elemental Burst is used again during the duration of Nascent Light, the original Nascent Light will be dispelled.",
+    "Pieces":  {
+                   "circlet":  {
+                                   "icon":  "UI_RelicIcon_15023_3",
+                                   "name":  "Thundering Poise"
+                               },
+                   "flower":  {
+                                  "icon":  "UI_RelicIcon_15023_4",
+                                  "name":  "Flowering Life"
+                              },
+                   "goblet":  {
+                                  "icon":  "UI_RelicIcon_15023_1",
+                                  "name":  "Moment of the Pact"
+                              },
+                   "plume":  {
+                                 "icon":  "UI_RelicIcon_15023_2",
+                                 "name":  "Feather of Nascent Light"
+                             },
+                   "sands":  {
+                                 "icon":  "UI_RelicIcon_15023_5",
+                                 "name":  "Solar Relic"
+                             }
+               }
+}

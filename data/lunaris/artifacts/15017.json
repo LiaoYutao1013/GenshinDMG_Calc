@@ -1,0 +1,31 @@
+﻿{
+    "Id":  15017,
+    "SetId":  15017,
+    "EnName":  "Tenacity of the Millelith",
+    "QualityType":  "QUALITY_ORANGE",
+    "SetIcon":  "UI_RelicIcon_15017_4",
+    "Effect2Pc":  "HP +20%",
+    "Effect4Pc":  "When an Elemental Skill hits an opponent, the ATK of all nearby party members is increased by 20% and their Shield Strength is increased by 30% for 3s. This effect can be triggered once every 0.5s. This effect can still be triggered even when the character who is using this artifact set is not on the field.",
+    "Pieces":  {
+                   "circlet":  {
+                                   "icon":  "UI_RelicIcon_15017_3",
+                                   "name":  "General\u0027s Ancient Helm"
+                               },
+                   "flower":  {
+                                  "icon":  "UI_RelicIcon_15017_4",
+                                  "name":  "Flower of Accolades"
+                              },
+                   "goblet":  {
+                                  "icon":  "UI_RelicIcon_15017_1",
+                                  "name":  "Noble\u0027s Pledging Vessel"
+                              },
+                   "plume":  {
+                                 "icon":  "UI_RelicIcon_15017_2",
+                                 "name":  "Ceremonial War-Plume"
+                             },
+                   "sands":  {
+                                 "icon":  "UI_RelicIcon_15017_5",
+                                 "name":  "Orichalceous Time-Dial"
+                             }
+               }
+}

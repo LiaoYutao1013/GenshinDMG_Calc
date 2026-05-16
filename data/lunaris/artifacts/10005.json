@@ -1,0 +1,31 @@
+﻿{
+    "Id":  10005,
+    "SetId":  10005,
+    "EnName":  "Berserker",
+    "QualityType":  "QUALITY_PURPLE",
+    "SetIcon":  "UI_RelicIcon_10005_4",
+    "Effect2Pc":  "CRIT Rate +12%",
+    "Effect4Pc":  "When HP is below 70%, CRIT Rate increases by an additional 24%.",
+    "Pieces":  {
+                   "circlet":  {
+                                   "icon":  "UI_RelicIcon_10005_3",
+                                   "name":  "Berserker\u0027s Battle Mask"
+                               },
+                   "flower":  {
+                                  "icon":  "UI_RelicIcon_10005_4",
+                                  "name":  "Berserker\u0027s Rose"
+                              },
+                   "goblet":  {
+                                  "icon":  "UI_RelicIcon_10005_1",
+                                  "name":  "Berserker\u0027s Bone Goblet"
+                              },
+                   "plume":  {
+                                 "icon":  "UI_RelicIcon_10005_2",
+                                 "name":  "Berserker\u0027s Indigo Feather"
+                             },
+                   "sands":  {
+                                 "icon":  "UI_RelicIcon_10005_5",
+                                 "name":  "Berserker\u0027s Timepiece"
+                             }
+               }
+}

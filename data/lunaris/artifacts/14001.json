@@ -1,0 +1,31 @@
+﻿{
+    "Id":  14001,
+    "SetId":  14001,
+    "EnName":  "Blizzard Strayer",
+    "QualityType":  "QUALITY_ORANGE",
+    "SetIcon":  "UI_RelicIcon_14001_4",
+    "Effect2Pc":  "Cryo DMG Bonus +15%",
+    "Effect4Pc":  "When a character attacks an opponent affected by Cryo, their CRIT Rate is increased by 20%. If the opponent is Frozen, CRIT Rate is increased by an additional 20%.",
+    "Pieces":  {
+                   "circlet":  {
+                                   "icon":  "UI_RelicIcon_14001_3",
+                                   "name":  "Broken Rime\u0027s Echo"
+                               },
+                   "flower":  {
+                                  "icon":  "UI_RelicIcon_14001_4",
+                                  "name":  "Snowswept Memory"
+                              },
+                   "goblet":  {
+                                  "icon":  "UI_RelicIcon_14001_1",
+                                  "name":  "Frost-Weaved Dignity"
+                              },
+                   "plume":  {
+                                 "icon":  "UI_RelicIcon_14001_2",
+                                 "name":  "Icebreaker\u0027s Resolve"
+                             },
+                   "sands":  {
+                                 "icon":  "UI_RelicIcon_14001_5",
+                                 "name":  "Frozen Homeland\u0027s Demise"
+                             }
+               }
+}

@@ -1,0 +1,31 @@
+﻿{
+    "Id":  15020,
+    "SetId":  15020,
+    "EnName":  "Emblem of Severed Fate",
+    "QualityType":  "QUALITY_ORANGE",
+    "SetIcon":  "UI_RelicIcon_15020_4",
+    "Effect2Pc":  "Energy Recharge +20%",
+    "Effect4Pc":  "Increases Elemental Burst DMG by 25% of Energy Recharge. A maximum of 75% bonus DMG can be obtained in this way.",
+    "Pieces":  {
+                   "circlet":  {
+                                   "icon":  "UI_RelicIcon_15020_3",
+                                   "name":  "Ornate Kabuto"
+                               },
+                   "flower":  {
+                                  "icon":  "UI_RelicIcon_15020_4",
+                                  "name":  "Magnificent Tsuba"
+                              },
+                   "goblet":  {
+                                  "icon":  "UI_RelicIcon_15020_1",
+                                  "name":  "Scarlet Vessel"
+                              },
+                   "plume":  {
+                                 "icon":  "UI_RelicIcon_15020_2",
+                                 "name":  "Sundered Feather"
+                             },
+                   "sands":  {
+                                 "icon":  "UI_RelicIcon_15020_5",
+                                 "name":  "Storm Cage"
+                             }
+               }
+}

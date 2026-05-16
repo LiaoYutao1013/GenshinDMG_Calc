@@ -1,0 +1,15 @@
+﻿{
+    "Id":  15013,
+    "SetId":  15013,
+    "EnName":  "Prayers to Springtime",
+    "QualityType":  "QUALITY_PURPLE",
+    "SetIcon":  "UI_RelicIcon_15013_3",
+    "Effect2Pc":  null,
+    "Effect4Pc":  null,
+    "Pieces":  {
+                   "circlet":  {
+                                   "icon":  "UI_RelicIcon_15013_3",
+                                   "name":  "Tiara of Frost"
+                               }
+               }
+}

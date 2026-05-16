@@ -1,0 +1,31 @@
+﻿{
+    "Id":  15027,
+    "SetId":  15027,
+    "EnName":  "Desert Pavilion Chronicle",
+    "QualityType":  "QUALITY_ORANGE",
+    "SetIcon":  "UI_RelicIcon_15027_4",
+    "Effect2Pc":  "Anemo DMG Bonus +15%",
+    "Effect4Pc":  "When Charged Attacks hit opponents, the equipping character\u0027s Normal Attack SPD will increase by 10% while Normal, Charged, and Plunging Attack DMG will increase by 40% for 15s.",
+    "Pieces":  {
+                   "circlet":  {
+                                   "icon":  "UI_RelicIcon_15027_3",
+                                   "name":  "Legacy of the Desert High-Born"
+                               },
+                   "flower":  {
+                                  "icon":  "UI_RelicIcon_15027_4",
+                                  "name":  "The First Days of the City of Kings"
+                              },
+                   "goblet":  {
+                                  "icon":  "UI_RelicIcon_15027_1",
+                                  "name":  "Defender of the Enchanting Dream"
+                              },
+                   "plume":  {
+                                 "icon":  "UI_RelicIcon_15027_2",
+                                 "name":  "End of the Golden Realm"
+                             },
+                   "sands":  {
+                                 "icon":  "UI_RelicIcon_15027_5",
+                                 "name":  "Timepiece of the Lost Path"
+                             }
+               }
+}
