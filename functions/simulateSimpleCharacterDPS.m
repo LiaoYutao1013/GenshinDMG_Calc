@@ -120,16 +120,17 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateSimpleCharacterDPS( 
             actionReactionBonus = getFieldOrDefault(actionSpec, 'ReactionBonus', 0);
             extraResShred = localResolveActionExtraResShred(state, actionSpec, constellation);
             localEnemy = localResolveActionEnemy(enemy, state, actionSpec, constellation);
-            hitCount = max(1, round(double(getFieldOrDefault(actionSpec, 'HitCount', 1))));
-            perHitDeltaTime = actionTime / hitCount;
+            [hitTimeline, postActionDeltaTime] = localResolveHitTimeline(actionSpec, actionTime);
+            hitCount = numel(hitTimeline);
             reactionTags = strings(0, 1);
 
-            for hitIndex = 1:hitCount %#ok<NASGU>
+            for hitIndex = 1:hitCount
+                hitDeltaTime = hitTimeline(hitIndex);
                 attackMeta = localResolveLunarisAttackMetadata( ...
                     characterName, actionSpec, actionKey, paramName, actionElement, attackMetadata);
                 applyGauge = localResolveActionApplyGauge(actionSpec, attackMeta);
                 [canApplyAura, icdStates, icdSnapshot] = localResolveActionICDGate( ...
-                    icdStates, actionKey, actionSpec, attackMeta, perHitDeltaTime);
+                    icdStates, actionKey, actionSpec, attackMeta, hitDeltaTime);
                 applyElement = string(getFieldOrDefault(actionSpec, 'ApplyElement', actionElement));
                 canApplyAura = canApplyAura && localIsElementalDamageElement(applyElement) ...
                     && applyGauge > 0;
@@ -167,7 +168,7 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateSimpleCharacterDPS( 
                 reactionResult = resolveReactionForHit( ...
                     enemyState, ...
                     hitDescriptor, ...
-                    build, teamContext, localEnemy, perHitDeltaTime);
+                    build, teamContext, localEnemy, hitDeltaTime);
                 enemyState = reactionResult.EnemyState;
 
                 hitDMG = hitDMG * reactionResult.AmplifyMultiplier;
@@ -182,6 +183,16 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateSimpleCharacterDPS( 
                 end
 
                 dmg = dmg + hitDMG;
+            end
+
+            if postActionDeltaTime > 1e-9
+                [enemyState, timedPackets] = advanceEnemyStateTime( ...
+                    enemyState, postActionDeltaTime, actionElement, teamContext);
+                for packetIndex = 1:numel(timedPackets)
+                    packet = timedPackets(packetIndex);
+                    dmg = dmg + localResolveTimedPacketDamage(packet, build, teamContext, localEnemy, enemyState);
+                    reactionTags = [reactionTags; lower(string(packet.ReactionName))]; %#ok<AGROW>
+                end
             end
 
             reactionTags = unique(reactionTags(strlength(reactionTags) > 0), 'stable');
@@ -383,6 +394,24 @@ function damage = localDirectElementDamage(element, scaleValue, mv, build, teamC
     damage = scaleValue * mv * dmgBonus * critMult * calcDamageMultiplier(90, enemy, resShred);
 end
 
+function damage = localResolveTimedPacketDamage(packet, build, teamContext, enemy, enemyState)
+    reactionName = string(getFieldOrDefault(packet, 'ReactionName', ""));
+    if strlength(reactionName) == 0
+        damage = 0;
+        return;
+    end
+    hitDescriptor = struct( ...
+        'ReactionElement', string(getFieldOrDefault(packet, 'ReactionElement', localReactionElement(reactionName))), ...
+        'ReactionCritRate', getFieldOrDefault(packet, 'CritRate', []), ...
+        'ReactionCritDMG', getFieldOrDefault(packet, 'CritDMG', []), ...
+        'ReactionEMOverride', getFieldOrDefault(packet, 'SourceEM', []), ...
+        'ReactionResShredOverride', getFieldOrDefault(packet, 'SourceResShred', []), ...
+        'UseReactionBonusSnapshot', logical(getFieldOrDefault(packet, 'UseSnapshot', false)));
+    damage = localResolveTransformativeDamage( ...
+        reactionName, build, teamContext, enemy, enemyState, 0, ...
+        getFieldOrDefault(packet, 'ReactionBonus', 0), hitDescriptor);
+end
+
 function bonus = localBuildElementBonus(element, build, teamContext)
     switch lower(char(string(element)))
         case 'pyro'
@@ -473,6 +502,41 @@ function actionTime = localResolveActionTime(action, spec)
         actionSpec = localGetActionSpec(spec, action);
         actionTime = getFieldOrDefault(actionSpec, 'ActionTime', getFieldOrDefault(spec, 'DefaultActionTime', 0.8));
     end
+end
+
+function [hitTimeline, postActionDeltaTime] = localResolveHitTimeline(actionSpec, actionTime)
+    hitCount = max(1, round(double(getFieldOrDefault(actionSpec, 'HitCount', 1))));
+    hitTimeline = zeros(1, hitCount);
+    postActionDeltaTime = 0;
+
+    explicitTimeline = getFieldOrDefault(actionSpec, 'HitTimeline', []);
+    if isnumeric(explicitTimeline) && ~isempty(explicitTimeline)
+        hitTimeline = double(explicitTimeline(:).');
+        hitTimeline = max(0, hitTimeline);
+        if numel(hitTimeline) < hitCount
+            hitTimeline(end + 1:hitCount) = 0; %#ok<AGROW>
+        elseif numel(hitTimeline) > hitCount
+            hitTimeline = hitTimeline(1:hitCount);
+        end
+        postActionDeltaTime = max(0, double(actionTime) - sum(hitTimeline));
+        return;
+    end
+
+    hitIntervals = getFieldOrDefault(actionSpec, 'HitIntervals', []);
+    if isnumeric(hitIntervals) && ~isempty(hitIntervals)
+        hitIntervals = double(hitIntervals(:).');
+        hitIntervals = max(0, hitIntervals);
+        usableCount = min(numel(hitIntervals), hitCount - 1);
+        if usableCount > 0
+            hitTimeline(2:usableCount + 1) = hitIntervals(1:usableCount);
+        end
+        postActionDeltaTime = max(0, double(actionTime) - sum(hitTimeline));
+        return;
+    end
+
+    perHitDeltaTime = double(actionTime) / hitCount;
+    hitTimeline(:) = perHitDeltaTime;
+    postActionDeltaTime = 0;
 end
 
 function key = localResolveActionKey(action, spec)
@@ -901,6 +965,14 @@ function [canApplyAura, icdStates, snapshot] = localResolveActionICDGate(icdStat
 
         state = icdStates.(fieldName);
         state.Elapsed = state.Elapsed + max(0, double(deltaTime));
+        if state.HitsThreshold <= 1 && state.Window > 0
+            canApplyAura = state.Elapsed >= state.Window;
+            if canApplyAura
+                state.Elapsed = 0;
+            end
+            icdStates.(fieldName) = state;
+            return;
+        end
         if state.Window > 0 && state.Elapsed >= state.Window
             state.HitsSinceApply = max(0, state.HitsThreshold - 1);
             state.Elapsed = 0;
@@ -960,6 +1032,14 @@ function [canApplyAura, icdStates, snapshot] = localResolveActionICDGate(icdStat
 
     state = icdStates.(fieldName);
     state.Elapsed = state.Elapsed + max(0, double(deltaTime));
+    if state.HitsThreshold <= 1 && state.Window > 0
+        canApplyAura = state.Elapsed >= state.Window;
+        if canApplyAura
+            state.Elapsed = 0;
+        end
+        icdStates.(fieldName) = state;
+        return;
+    end
     if state.Window > 0 && state.Elapsed >= state.Window
         state.HitsSinceApply = max(0, state.HitsThreshold - 1);
         state.Elapsed = 0;
