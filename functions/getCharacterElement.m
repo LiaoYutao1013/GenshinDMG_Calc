@@ -170,6 +170,12 @@ function element = getCharacterElement(name)
         case {'lanyan', 'lan yan'}
             element = "Anemo";
         otherwise
-            element = "Physical";
+            entry = getCharacterRegistryEntry(name);
+            resolvedElement = string(getFieldOrDefault(entry, 'Element', ""));
+            if strlength(resolvedElement) > 0
+                element = resolvedElement;
+            else
+                element = "Physical";
+            end
     end
 end

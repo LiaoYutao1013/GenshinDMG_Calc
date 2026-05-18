@@ -1,0 +1,1840 @@
+{
+  "info": {
+    "name": "Bennett",
+    "description": "A good-natured adventurer from Mondstadt who's unfortunately extremely unlucky.",
+    "rarity": "QUALITY_PURPLE",
+    "weapon": "WEAPON_SWORD_ONE_HAND",
+    "birthday": "29/2",
+    "element": "Pyro",
+    "title": "Trial by Fire",
+    "constellation": "Rota Calamitas",
+    "affiliation": "Adventurers' Guild",
+    "cv": {
+      "EN": "Cristina Vee Valenzuela",
+      "CHS": "穆雪婷",
+      "JP": "逢坂良太",
+      "KR": "Song Ha-rim"
+    },
+    "attributes": [
+      {
+        "level": 1,
+        "ascension": 0,
+        "hp": 1039,
+        "atk": 16,
+        "def": 65,
+        "ER": "0"
+      },
+      {
+        "level": 2,
+        "ascension": 0,
+        "hp": 1126,
+        "atk": 17,
+        "def": 70,
+        "ER": "0"
+      },
+      {
+        "level": 3,
+        "ascension": 0,
+        "hp": 1211,
+        "atk": 19,
+        "def": 75,
+        "ER": "0"
+      },
+      {
+        "level": 4,
+        "ascension": 0,
+        "hp": 1297,
+        "atk": 20,
+        "def": 81,
+        "ER": "0"
+      },
+      {
+        "level": 5,
+        "ascension": 0,
+        "hp": 1382,
+        "atk": 21,
+        "def": 86,
+        "ER": "0"
+      },
+      {
+        "level": 6,
+        "ascension": 0,
+        "hp": 1469,
+        "atk": 23,
+        "def": 91,
+        "ER": "0"
+      },
+      {
+        "level": 7,
+        "ascension": 0,
+        "hp": 1554,
+        "atk": 24,
+        "def": 97,
+        "ER": "0"
+      },
+      {
+        "level": 8,
+        "ascension": 0,
+        "hp": 1640,
+        "atk": 25,
+        "def": 102,
+        "ER": "0"
+      },
+      {
+        "level": 9,
+        "ascension": 0,
+        "hp": 1727,
+        "atk": 27,
+        "def": 107,
+        "ER": "0"
+      },
+      {
+        "level": 10,
+        "ascension": 0,
+        "hp": 1812,
+        "atk": 28,
+        "def": 113,
+        "ER": "0"
+      },
+      {
+        "level": 11,
+        "ascension": 0,
+        "hp": 1898,
+        "atk": 29,
+        "def": 118,
+        "ER": "0"
+      },
+      {
+        "level": 12,
+        "ascension": 0,
+        "hp": 1983,
+        "atk": 31,
+        "def": 123,
+        "ER": "0"
+      },
+      {
+        "level": 13,
+        "ascension": 0,
+        "hp": 2070,
+        "atk": 32,
+        "def": 129,
+        "ER": "0"
+      },
+      {
+        "level": 14,
+        "ascension": 0,
+        "hp": 2155,
+        "atk": 33,
+        "def": 134,
+        "ER": "0"
+      },
+      {
+        "level": 15,
+        "ascension": 0,
+        "hp": 2241,
+        "atk": 35,
+        "def": 139,
+        "ER": "0"
+      },
+      {
+        "level": 16,
+        "ascension": 0,
+        "hp": 2327,
+        "atk": 36,
+        "def": 145,
+        "ER": "0"
+      },
+      {
+        "level": 17,
+        "ascension": 0,
+        "hp": 2413,
+        "atk": 37,
+        "def": 150,
+        "ER": "0"
+      },
+      {
+        "level": 18,
+        "ascension": 0,
+        "hp": 2499,
+        "atk": 39,
+        "def": 155,
+        "ER": "0"
+      },
+      {
+        "level": 19,
+        "ascension": 0,
+        "hp": 2584,
+        "atk": 40,
+        "def": 161,
+        "ER": "0"
+      },
+      {
+        "level": 20,
+        "ascension": 0,
+        "hp": 2670,
+        "atk": 41,
+        "def": 166,
+        "ER": "0"
+      },
+      {
+        "level": 21,
+        "ascension": 1,
+        "hp": 3532,
+        "atk": 54,
+        "def": 220,
+        "ER": "0"
+      },
+      {
+        "level": 22,
+        "ascension": 1,
+        "hp": 3618,
+        "atk": 56,
+        "def": 225,
+        "ER": "0"
+      },
+      {
+        "level": 23,
+        "ascension": 1,
+        "hp": 3705,
+        "atk": 57,
+        "def": 230,
+        "ER": "0"
+      },
+      {
+        "level": 24,
+        "ascension": 1,
+        "hp": 3790,
+        "atk": 58,
+        "def": 236,
+        "ER": "0"
+      },
+      {
+        "level": 25,
+        "ascension": 1,
+        "hp": 3876,
+        "atk": 60,
+        "def": 241,
+        "ER": "0"
+      },
+      {
+        "level": 26,
+        "ascension": 1,
+        "hp": 3961,
+        "atk": 61,
+        "def": 246,
+        "ER": "0"
+      },
+      {
+        "level": 27,
+        "ascension": 1,
+        "hp": 4048,
+        "atk": 62,
+        "def": 252,
+        "ER": "0"
+      },
+      {
+        "level": 28,
+        "ascension": 1,
+        "hp": 4133,
+        "atk": 64,
+        "def": 257,
+        "ER": "0"
+      },
+      {
+        "level": 29,
+        "ascension": 1,
+        "hp": 4219,
+        "atk": 65,
+        "def": 262,
+        "ER": "0"
+      },
+      {
+        "level": 30,
+        "ascension": 1,
+        "hp": 4304,
+        "atk": 66,
+        "def": 268,
+        "ER": "0"
+      },
+      {
+        "level": 31,
+        "ascension": 1,
+        "hp": 4391,
+        "atk": 68,
+        "def": 273,
+        "ER": "0"
+      },
+      {
+        "level": 32,
+        "ascension": 1,
+        "hp": 4477,
+        "atk": 69,
+        "def": 279,
+        "ER": "0"
+      },
+      {
+        "level": 33,
+        "ascension": 1,
+        "hp": 4562,
+        "atk": 70,
+        "def": 284,
+        "ER": "0"
+      },
+      {
+        "level": 34,
+        "ascension": 1,
+        "hp": 4648,
+        "atk": 72,
+        "def": 289,
+        "ER": "0"
+      },
+      {
+        "level": 35,
+        "ascension": 1,
+        "hp": 4734,
+        "atk": 73,
+        "def": 294,
+        "ER": "0"
+      },
+      {
+        "level": 36,
+        "ascension": 1,
+        "hp": 4820,
+        "atk": 74,
+        "def": 300,
+        "ER": "0"
+      },
+      {
+        "level": 37,
+        "ascension": 1,
+        "hp": 4905,
+        "atk": 76,
+        "def": 305,
+        "ER": "0"
+      },
+      {
+        "level": 38,
+        "ascension": 1,
+        "hp": 4991,
+        "atk": 77,
+        "def": 311,
+        "ER": "0"
+      },
+      {
+        "level": 39,
+        "ascension": 1,
+        "hp": 5078,
+        "atk": 78,
+        "def": 316,
+        "ER": "0"
+      },
+      {
+        "level": 40,
+        "ascension": 1,
+        "hp": 5163,
+        "atk": 80,
+        "def": 321,
+        "ER": "0"
+      },
+      {
+        "level": 41,
+        "ascension": 2,
+        "hp": 5801,
+        "atk": 89,
+        "def": 361,
+        "ER": "6.7"
+      },
+      {
+        "level": 42,
+        "ascension": 2,
+        "hp": 5886,
+        "atk": 91,
+        "def": 366,
+        "ER": "6.7"
+      },
+      {
+        "level": 43,
+        "ascension": 2,
+        "hp": 5972,
+        "atk": 92,
+        "def": 372,
+        "ER": "6.7"
+      },
+      {
+        "level": 44,
+        "ascension": 2,
+        "hp": 6058,
+        "atk": 93,
+        "def": 377,
+        "ER": "6.7"
+      },
+      {
+        "level": 45,
+        "ascension": 2,
+        "hp": 6144,
+        "atk": 95,
+        "def": 382,
+        "ER": "6.7"
+      },
+      {
+        "level": 46,
+        "ascension": 2,
+        "hp": 6230,
+        "atk": 96,
+        "def": 388,
+        "ER": "6.7"
+      },
+      {
+        "level": 47,
+        "ascension": 2,
+        "hp": 6315,
+        "atk": 97,
+        "def": 393,
+        "ER": "6.7"
+      },
+      {
+        "level": 48,
+        "ascension": 2,
+        "hp": 6402,
+        "atk": 99,
+        "def": 398,
+        "ER": "6.7"
+      },
+      {
+        "level": 49,
+        "ascension": 2,
+        "hp": 6487,
+        "atk": 100,
+        "def": 404,
+        "ER": "6.7"
+      },
+      {
+        "level": 50,
+        "ascension": 2,
+        "hp": 6573,
+        "atk": 101,
+        "def": 409,
+        "ER": "6.7"
+      },
+      {
+        "level": 51,
+        "ascension": 3,
+        "hp": 7394,
+        "atk": 114,
+        "def": 460,
+        "ER": "13.3"
+      },
+      {
+        "level": 52,
+        "ascension": 3,
+        "hp": 7480,
+        "atk": 115,
+        "def": 465,
+        "ER": "13.3"
+      },
+      {
+        "level": 53,
+        "ascension": 3,
+        "hp": 7567,
+        "atk": 117,
+        "def": 471,
+        "ER": "13.3"
+      },
+      {
+        "level": 54,
+        "ascension": 3,
+        "hp": 7652,
+        "atk": 118,
+        "def": 476,
+        "ER": "13.3"
+      },
+      {
+        "level": 55,
+        "ascension": 3,
+        "hp": 7738,
+        "atk": 119,
+        "def": 481,
+        "ER": "13.3"
+      },
+      {
+        "level": 56,
+        "ascension": 3,
+        "hp": 7823,
+        "atk": 121,
+        "def": 487,
+        "ER": "13.3"
+      },
+      {
+        "level": 57,
+        "ascension": 3,
+        "hp": 7910,
+        "atk": 122,
+        "def": 492,
+        "ER": "13.3"
+      },
+      {
+        "level": 58,
+        "ascension": 3,
+        "hp": 7995,
+        "atk": 123,
+        "def": 497,
+        "ER": "13.3"
+      },
+      {
+        "level": 59,
+        "ascension": 3,
+        "hp": 8081,
+        "atk": 125,
+        "def": 503,
+        "ER": "13.3"
+      },
+      {
+        "level": 60,
+        "ascension": 3,
+        "hp": 8168,
+        "atk": 126,
+        "def": 508,
+        "ER": "13.3"
+      },
+      {
+        "level": 61,
+        "ascension": 4,
+        "hp": 8804,
+        "atk": 136,
+        "def": 548,
+        "ER": "13.3"
+      },
+      {
+        "level": 62,
+        "ascension": 4,
+        "hp": 8891,
+        "atk": 137,
+        "def": 553,
+        "ER": "13.3"
+      },
+      {
+        "level": 63,
+        "ascension": 4,
+        "hp": 8976,
+        "atk": 138,
+        "def": 558,
+        "ER": "13.3"
+      },
+      {
+        "level": 64,
+        "ascension": 4,
+        "hp": 9062,
+        "atk": 140,
+        "def": 564,
+        "ER": "13.3"
+      },
+      {
+        "level": 65,
+        "ascension": 4,
+        "hp": 9147,
+        "atk": 141,
+        "def": 569,
+        "ER": "13.3"
+      },
+      {
+        "level": 66,
+        "ascension": 4,
+        "hp": 9234,
+        "atk": 142,
+        "def": 574,
+        "ER": "13.3"
+      },
+      {
+        "level": 67,
+        "ascension": 4,
+        "hp": 9320,
+        "atk": 144,
+        "def": 580,
+        "ER": "13.3"
+      },
+      {
+        "level": 68,
+        "ascension": 4,
+        "hp": 9405,
+        "atk": 145,
+        "def": 585,
+        "ER": "13.3"
+      },
+      {
+        "level": 69,
+        "ascension": 4,
+        "hp": 9492,
+        "atk": 146,
+        "def": 590,
+        "ER": "13.3"
+      },
+      {
+        "level": 70,
+        "ascension": 4,
+        "hp": 9577,
+        "atk": 148,
+        "def": 596,
+        "ER": "13.3"
+      },
+      {
+        "level": 71,
+        "ascension": 5,
+        "hp": 10215,
+        "atk": 158,
+        "def": 635,
+        "ER": "20"
+      },
+      {
+        "level": 72,
+        "ascension": 5,
+        "hp": 10300,
+        "atk": 159,
+        "def": 641,
+        "ER": "20"
+      },
+      {
+        "level": 73,
+        "ascension": 5,
+        "hp": 10386,
+        "atk": 160,
+        "def": 646,
+        "ER": "20"
+      },
+      {
+        "level": 74,
+        "ascension": 5,
+        "hp": 10473,
+        "atk": 161,
+        "def": 652,
+        "ER": "20"
+      },
+      {
+        "level": 75,
+        "ascension": 5,
+        "hp": 10558,
+        "atk": 163,
+        "def": 657,
+        "ER": "20"
+      },
+      {
+        "level": 76,
+        "ascension": 5,
+        "hp": 10644,
+        "atk": 164,
+        "def": 662,
+        "ER": "20"
+      },
+      {
+        "level": 77,
+        "ascension": 5,
+        "hp": 10729,
+        "atk": 165,
+        "def": 667,
+        "ER": "20"
+      },
+      {
+        "level": 78,
+        "ascension": 5,
+        "hp": 10816,
+        "atk": 167,
+        "def": 673,
+        "ER": "20"
+      },
+      {
+        "level": 79,
+        "ascension": 5,
+        "hp": 10901,
+        "atk": 168,
+        "def": 678,
+        "ER": "20"
+      },
+      {
+        "level": 80,
+        "ascension": 5,
+        "hp": 10987,
+        "atk": 169,
+        "def": 684,
+        "ER": "20"
+      },
+      {
+        "level": 81,
+        "ascension": 6,
+        "hp": 11625,
+        "atk": 179,
+        "def": 723,
+        "ER": "26.7"
+      },
+      {
+        "level": 82,
+        "ascension": 6,
+        "hp": 11710,
+        "atk": 181,
+        "def": 729,
+        "ER": "26.7"
+      },
+      {
+        "level": 83,
+        "ascension": 6,
+        "hp": 11797,
+        "atk": 182,
+        "def": 734,
+        "ER": "26.7"
+      },
+      {
+        "level": 84,
+        "ascension": 6,
+        "hp": 11882,
+        "atk": 183,
+        "def": 739,
+        "ER": "26.7"
+      },
+      {
+        "level": 85,
+        "ascension": 6,
+        "hp": 11968,
+        "atk": 185,
+        "def": 745,
+        "ER": "26.7"
+      },
+      {
+        "level": 86,
+        "ascension": 6,
+        "hp": 12053,
+        "atk": 186,
+        "def": 750,
+        "ER": "26.7"
+      },
+      {
+        "level": 87,
+        "ascension": 6,
+        "hp": 12140,
+        "atk": 187,
+        "def": 755,
+        "ER": "26.7"
+      },
+      {
+        "level": 88,
+        "ascension": 6,
+        "hp": 12225,
+        "atk": 188,
+        "def": 761,
+        "ER": "26.7"
+      },
+      {
+        "level": 89,
+        "ascension": 6,
+        "hp": 12311,
+        "atk": 190,
+        "def": 766,
+        "ER": "26.7"
+      },
+      {
+        "level": 90,
+        "ascension": 6,
+        "hp": 12397,
+        "atk": 191,
+        "def": 771,
+        "ER": "26.7"
+      },
+      {
+        "level": 95,
+        "ascension": 6,
+        "hp": 12826,
+        "atk": 216,
+        "def": 798,
+        "ER": "26.7"
+      },
+      {
+        "level": 100,
+        "ascension": 6,
+        "hp": 13255,
+        "atk": 240,
+        "def": 825,
+        "ER": "26.7"
+      }
+    ]
+  },
+  "icons": {
+    "forward": "UI_AvatarIcon_Bennett",
+    "coop_img": "UI_CoopImg_Bennett"
+  },
+  "ascension": {
+    "x202": 7.0499E+6,
+    "exp": {
+      "x104001": 2,
+      "x104003": 418
+    },
+    "speciality": {
+      "x100024": 168
+    },
+    "elemental": {
+      "x104111": 1,
+      "x104112": 9,
+      "x104113": 9,
+      "x104114": 6
+    },
+    "worldmonster": {
+      "x112035": 18,
+      "x112036": 30,
+      "x112037": 36
+    },
+    "elitemonster": {
+      "x113011": 46
+    }
+  },
+  "skills": {
+    "normalattack": {
+      "name": "Strike of Fortune",
+      "icon": "Skill_A_01",
+      "multipliers": {
+        "x1_HitDMG": [
+          "44.55%",
+          "48.17%",
+          "51.8%",
+          "56.98%",
+          "60.61%",
+          "64.75%",
+          "70.45%",
+          "76.15%",
+          "81.84%",
+          "88.06%",
+          "94.28%",
+          "100.49%",
+          "106.71%",
+          "112.92%",
+          "119.14%"
+        ],
+        "x2_HitDMG": [
+          "42.74%",
+          "46.22%",
+          "49.7%",
+          "54.67%",
+          "58.15%",
+          "62.12%",
+          "67.59%",
+          "73.06%",
+          "78.53%",
+          "84.49%",
+          "90.45%",
+          "96.42%",
+          "102.38%",
+          "108.35%",
+          "114.31%"
+        ],
+        "x3_HitDMG": [
+          "54.61%",
+          "59.06%",
+          "63.5%",
+          "69.85%",
+          "74.3%",
+          "79.37%",
+          "86.36%",
+          "93.34%",
+          "100.33%",
+          "107.95%",
+          "115.57%",
+          "123.19%",
+          "130.81%",
+          "138.43%",
+          "146.05%"
+        ],
+        "x4_HitDMG": [
+          "59.68%",
+          "64.54%",
+          "69.4%",
+          "76.34%",
+          "81.2%",
+          "86.75%",
+          "94.38%",
+          "102.02%",
+          "109.65%",
+          "117.98%",
+          "126.31%",
+          "134.64%",
+          "142.96%",
+          "151.29%",
+          "159.62%"
+        ],
+        "x5_HitDMG": [
+          "71.9%",
+          "77.75%",
+          "83.6%",
+          "91.96%",
+          "97.81%",
+          "104.5%",
+          "113.7%",
+          "122.89%",
+          "132.09%",
+          "142.12%",
+          "152.15%",
+          "162.18%",
+          "172.22%",
+          "182.25%",
+          "192.28%"
+        ],
+        "ChargedAttackDMG": [
+          "55.9%+60.72%",
+          "60.45%+65.66%",
+          "65%+70.6%",
+          "71.5%+77.66%",
+          "76.05%+82.6%",
+          "81.25%+88.25%",
+          "88.4%+96.02%",
+          "95.55%+103.78%",
+          "102.7%+111.55%",
+          "110.5%+120.02%",
+          "118.3%+128.49%",
+          "126.1%+136.96%",
+          "133.9%+145.44%",
+          "141.7%+153.91%",
+          "149.5%+162.38%"
+        ],
+        "ChargedAttackStaminaCost": [
+          "20",
+          "20",
+          "20",
+          "20",
+          "20",
+          "20",
+          "20",
+          "20",
+          "20",
+          "20",
+          "20",
+          "20",
+          "20",
+          "20",
+          "20"
+        ],
+        "PlungeDMG": [
+          "63.93%",
+          "69.14%",
+          "74.34%",
+          "81.77%",
+          "86.98%",
+          "92.93%",
+          "101.1%",
+          "109.28%",
+          "117.46%",
+          "126.38%",
+          "135.3%",
+          "144.22%",
+          "153.14%",
+          "162.06%",
+          "170.98%"
+        ],
+        "Low_HighPlungeDMG": [
+          "127.84%/159.68%",
+          "138.24%/172.67%",
+          "148.65%/185.67%",
+          "163.51%/204.24%",
+          "173.92%/217.23%",
+          "185.81%/232.09%",
+          "202.16%/252.51%",
+          "218.51%/272.93%",
+          "234.86%/293.36%",
+          "252.7%/315.64%",
+          "270.54%/337.92%",
+          "288.38%/360.2%",
+          "306.22%/382.48%",
+          "324.05%/404.76%",
+          "341.89%/427.04%"
+        ]
+      },
+      "description": "<color=#FFD780FF>Normal Attack</color>\\nPerforms up to 5 rapid strikes.\\n\\n<color=#FFD780FF>Charged Attack</color>\\nConsumes a certain amount of Stamina to unleash 2 rapid sword strikes.\\n\\n<color=#FFD780FF>Plunging Attack</color>\\nPlunges from mid-air to strike the ground below, damaging opponents along the path and dealing AoE DMG upon impact."
+    },
+    "elementalskill": {
+      "name": "Passion Overload",
+      "icon": "Skill_S_Bennett_01",
+      "multipliers": {
+        "PressDMG": [
+          "137.6%",
+          "147.92%",
+          "158.24%",
+          "172%",
+          "182.32%",
+          "192.64%",
+          "206.4%",
+          "220.16%",
+          "233.92%",
+          "247.68%",
+          "261.44%",
+          "275.2%",
+          "292.4%",
+          "309.6%",
+          "326.8%"
+        ],
+        "ChargeLevel1DMG": [
+          "84%+92%",
+          "90.3%+98.9%",
+          "96.6%+105.8%",
+          "105%+115%",
+          "111.3%+121.9%",
+          "117.6%+128.8%",
+          "126%+138%",
+          "134.4%+147.2%",
+          "142.8%+156.4%",
+          "151.2%+165.6%",
+          "159.6%+174.8%",
+          "168%+184%",
+          "178.5%+195.5%",
+          "189%+207%",
+          "199.5%+218.5%"
+        ],
+        "ChargeLevel2DMG": [
+          "88%+96%",
+          "94.6%+103.2%",
+          "101.2%+110.4%",
+          "110%+120%",
+          "116.6%+127.2%",
+          "123.2%+134.4%",
+          "132%+144%",
+          "140.8%+153.6%",
+          "149.6%+163.2%",
+          "158.4%+172.8%",
+          "167.2%+182.4%",
+          "176%+192%",
+          "187%+204%",
+          "198%+216%",
+          "209%+228%"
+        ],
+        "ExplosionDMG": [
+          "132%",
+          "141.9%",
+          "151.8%",
+          "165%",
+          "174.9%",
+          "184.8%",
+          "198%",
+          "211.2%",
+          "224.4%",
+          "237.6%",
+          "250.8%",
+          "264%",
+          "280.5%",
+          "297%",
+          "313.5%"
+        ],
+        "CD": [
+          "5/7.5/10s",
+          "5/7.5/10s",
+          "5/7.5/10s",
+          "5/7.5/10s",
+          "5/7.5/10s",
+          "5/7.5/10s",
+          "5/7.5/10s",
+          "5/7.5/10s",
+          "5/7.5/10s",
+          "5/7.5/10s",
+          "5/7.5/10s",
+          "5/7.5/10s",
+          "5/7.5/10s",
+          "5/7.5/10s",
+          "5/7.5/10s"
+        ]
+      },
+      "description": "#Bennett puts all his fire and passion for adventuring into his sword. Results may vary based on how fired up he is...\\n\\n<color=#FFD780FF>Press</color>\\nA single, swift flame strike that deals <color=#FF9999FF>Pyro DMG</color>.\\n\\n<color=#FFD780FF>Hold (Short)</color>\\nCharges up, resulting in different effects when unleashed based on the Charge Level.\\n·Level 1: Strikes twice, dealing <color=#FF9999FF>Pyro DMG</color> and launching opponents.\\n·Level 2: Unleashes 3 consecutive attacks that deal impressive <color=#FF9999FF>Pyro DMG</color>, but the last attack triggers an explosion that launches both Bennett and the enemy.\\nBennett takes no damage from being launched.\\n\\n<i>An attack that combines Bennett's dreams and passion with Pyro. But passion is sometimes overblown, and Pyro sometimes blows over.</i>"
+    },
+    "elementalburst": {
+      "name": "Fantastic Voyage",
+      "icon": "Skill_E_Bennett_01",
+      "multipliers": {
+        "SkillDMG": [
+          "232.8%",
+          "250.26%",
+          "267.72%",
+          "291%",
+          "308.46%",
+          "325.92%",
+          "349.2%",
+          "372.48%",
+          "395.76%",
+          "419.04%",
+          "442.32%",
+          "465.6%",
+          "494.7%",
+          "523.8%",
+          "552.9%"
+        ],
+        "ContinuousRegenerationPerSec": [
+          "6% Max HP+577",
+          "6.45% Max HP+635",
+          "6.9% Max HP+698",
+          "7.5% Max HP+765",
+          "7.95% Max HP+837",
+          "8.4% Max HP+914",
+          "9% Max HP+996",
+          "9.6% Max HP+1083",
+          "10.2% Max HP+1174",
+          "10.8% Max HP+1270",
+          "11.4% Max HP+1371",
+          "12% Max HP+1477",
+          "12.75% Max HP+1588",
+          "13.5% Max HP+1703",
+          "14.25% Max HP+1824"
+        ],
+        "ATKBonusRatio": [
+          "56%",
+          "60.2%",
+          "64.4%",
+          "70%",
+          "74.2%",
+          "78.4%",
+          "84%",
+          "89.6%",
+          "95.2%",
+          "100.8%",
+          "106.4%",
+          "112%",
+          "119%",
+          "126%",
+          "133%"
+        ],
+        "Duration": [
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s"
+        ],
+        "CD": [
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s"
+        ],
+        "EnergyCost": [
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60"
+        ]
+      },
+      "description": "Bennett performs a jumping attack that deals <color=#FF9999FF>Pyro DMG</color>, creating an Inspiration Field.\\n\\n<color=#FFD780FF>Inspiration Field</color>\\n·If the health of a character within the AoE is equal to or falls below 70%, their health will continuously regenerate. The amount of HP restored scales off Bennett's Max HP.\\n·If the health of a character within the AoE is higher than 70%, they gain an ATK Bonus that is based on Bennett's Base ATK.\\n·Imbues characters within the AoE with <color=#FF9999FF>Pyro</color>.\\n\\n<i>Benny's Adventure Team's adventures are always fraught with unexpected danger. However, Bennett is more inclined to call them \"journeys full of wonder, excitement, and beauty.\"</i>"
+    },
+    "leveling": {
+      "books": {
+        "x104304": 9,
+        "x104305": 63,
+        "x104306": 114
+      },
+      "crown": {
+        "x104319": 3
+      },
+      "worldmonster": {
+        "x112035": 18,
+        "x112036": 66,
+        "x112037": 93
+      },
+      "weekly": {
+        "x113003": 18
+      }
+    }
+  },
+  "passives": {
+    "p1": {
+      "name": "Rekindle",
+      "description": "Decreases <color=#FFD780FF>Passion Overload</color>'s CD by 20%.",
+      "icon": "UI_Talent_S_Bennett_05"
+    },
+    "p2": {
+      "name": "Fearnaught",
+      "description": "Within the area created by <color=#FFD780FF>Fantastic Voyage</color>, <color=#FFD780FF>Passion Overload</color> takes on the following effects:\\n·CD is reduced by 50%.\\n·Bennett will not be launched by the effects of Charge Level 2.",
+      "icon": "UI_Talent_S_Bennett_06"
+    },
+    "p3": {
+      "name": "It Should Be Safe...",
+      "description": "When dispatched on an expedition in Mondstadt, time consumed is reduced by 25%.",
+      "icon": "UI_Talent_Expedition_Mengde"
+    },
+    "p4": ""
+  },
+  "constellations": {
+    "const1": {
+      "name": "Grand Expectation",
+      "description": "<color=#FFD780FF>Fantastic Voyage</color>'s ATK increase no longer has an HP restriction, and gains an additional 20% of Bennett's Base ATK.",
+      "icon": "UI_Talent_S_Bennett_01"
+    },
+    "const2": {
+      "name": "Impasse Conqueror",
+      "description": "When Bennett's HP falls below 70%, his Energy Recharge is increased by 30%.",
+      "icon": "UI_Talent_S_Bennett_02"
+    },
+    "const3": {
+      "name": "Unstoppable Fervor",
+      "description": "Increases the Level of <color=#FFD780FF>Passion Overload</color> by 3.\\nMaximum upgrade level is 15.",
+      "icon": "UI_Talent_U_Bennett_01"
+    },
+    "const4": {
+      "name": "Unexpected Odyssey",
+      "description": "Using a Normal Attack as the second attack of <color=#FFD780FF>Passion Overload</color>'s Charge Level 1 will perform a follow-up attack.\\nThis additional attack does 135% of the second attack's DMG.",
+      "icon": "UI_Talent_S_Bennett_03"
+    },
+    "const5": {
+      "name": "True Explorer",
+      "description": "Increases the Level of <color=#FFD780FF>Fantastic Voyage</color> by 3.\\nMaximum upgrade level is 15.",
+      "icon": "UI_Talent_U_Bennett_02"
+    },
+    "const6": {
+      "name": "Fire Ventures With Me",
+      "description": "Sword, Claymore, or Polearm-wielding characters inside <color=#FFD780FF>Fantastic Voyage</color>'s radius gain a 15% <color=#FF9999FF>Pyro DMG Bonus</color> and their weapons are infused with <color=#FF9999FF>Pyro</color>.",
+      "icon": "UI_Talent_S_Bennett_04"
+    }
+  },
+  "hyperlinks": [],
+  "stories": {
+    "x20201": {
+      "storyTitle": "Character Details",
+      "storyText": "Benny's Adventure Team is an exception to the norm in the Adventurers' Guild, Mondstadt Branch.\\nInitially, the team mechanism requiring at least 3 or 4 regulars in each team was set up to promote mutual support and prevent accidents.\\nAs for Benny's Adventure Team, however, its only regular member has been Bennett himself.\\nThe lack of team members essentially has everything to do with Bennett's infamous bad luck.\\nHowever, being the passionate adventurer he is, Bennett never feels lonely.\\nWell, maybe once or twice, sometimes...",
+      "unlockConds": []
+    },
+    "x20202": {
+      "storyTitle": "Character Story 1",
+      "storyText": "The adventurer Jack was the first victim of Benny's Adventure Team.\\nJust a few feet away from the treasure, an extremely rare Geo Turbulence occurred, tearing the ground apart and opening a bottomless chasm right before everyone's eyes.\\n\"So close, yet so far... like love.\"\\nJack only suffered minor injuries, but he was never the same as an adventurer thereafter. The event seemed to have left him with a broken heart.\\nAnother member, Royce, heard someone shout \"Heyo!\" before losing consciousness in a huge explosion. The culprit, Klee, was sent to the confinement room for seven days for mistaking the cave the adventurers were still exploring in for a giant rabbit hole and blowing it up.\\nHeckler suffered from a severe bout of diarrhea for a week after joining the team. Although it turned out to be food poisoning, he insisted it was because of Bennett's bad luck.\\n\"They'll be back! They're just... on leave. Please don't invalidate my team's registration with the Guild...\"\\nSeeing Bennett beg and plead before her eyes, Katheryne sighed and decided to spare him the truth that his \"teammates\" had long jumped ship.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 2
+      }
+    },
+    "x20203": {
+      "storyTitle": "Character Story 2",
+      "storyText": "There was once a predicament of incomparable despair.\\nA predicament that had all but swallowed an old adventurer.\\nThe scorching flames scalded his skin, the deafening thunder almost ruptured his eardrums, and the hollering winds threatened to rip his soul from him.\\nAt the end of his hellish journey, what awaited him was... a baby.\\nThe old adventurer thought he was the first living thing to pass through this arduous ordeal. But how could he explain that which lay before him?\\nIn that moment, it hit him, and he believed it to be true.\\n\"This baby must be... a child abandoned by the world itself.\"\\nThough there were no mighty artifacts, jewelry, or gold, the old man's face did not seem disappointed in the slightest, for he regarded this baby, whose life hung by a mere thread, to be his treasure.\\n\"This child is what I was meant to find on this journey,\" he thought as he took the baby into his arms.\\nEven if what he was about to do opposed the will of the world itself, he was unafraid.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 3
+      }
+    },
+    "x20204": {
+      "storyTitle": "Character Story 3",
+      "storyText": "The old adventurer died from severe injuries before being able to tell this story, leaving only the child he had saved.\\nOn his deathbed, he only managed four final words: \"will,\" \"adventure,\" and \"final treasure.\"\\nSeveral single, childless, old adventurers in the Adventurers' Guild in Mondstadt raised the child as their own and named him Bennett.\\nBeing raised by the Guild, Bennett referred to everyone as \"Dad.\"\\n\"Dad, your dentures fell into the bowl!\" \"Dad, you should stop wearing that old leather armor. Where are the undergarments I bought you?\" \"Dad, it's raining, better keep your distance from me so you don't get struck by lightning!\"\\nTaking care of all his aging dads who have no family has taken up most of his time outside of adventuring.\\n\"The dads certainly have found a treasure, haha!\"\\nCyrus, the current Guild Master, laughed, giving Bennett a pat on the back.\\nThough he is unlucky himself, he can at least try to bring luck to those he cares about. At least, that's how Bennett feels.\\nBennett the Unlucky still strives to find his own lucky treasure through his series of unfortunate events.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 4
+      }
+    },
+    "x20205": {
+      "storyTitle": "Character Story 4",
+      "storyText": "Oz the Raven, Fischl's familiar, said Bennett is \"the most tenacious young man in the world.\"\\nIndeed, Bennett's share of bad luck throughout his life can be seen from his scars, old and new.\\nAttacked by monsters, buried in collapsed ruins, falling from cliffs... A wealth of \"unfortunate events\" has taught Bennett how to deal with more of them in the future.\\nBarbara, the Deaconess at the Church of Favonius, was once surprised by how skilled Bennett is at treating dislocated joints.\\nAnother gift from his ordeals is his jaw-dropping talent for combat.\\n\"Look at his moves... Doesn't that hurt?\" Grand Master Varka of the Knights was extremely intrigued after seeing Bennett in combat.\\nIt's not that Bennett doesn't feel pain — he has simply gotten used to it. He adapted to the pain as others would to pungent smells or blinding light.\\nTherefore, the way Bennett dives into battles head-on without reservation has become a signature of his.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 5
+      }
+    },
+    "x20206": {
+      "storyTitle": "Character Story 5",
+      "storyText": "What does death mean, exactly? Always walking the thin line between life and death, Bennett can't help but wonder.\\nBennett knows that the old adventurer who saved him has left many praiseworthy stories and legends after his death.\\nHe knows that adventurers will not have weeping at their funerals, only toasts made in their names by old comrades.\\nHe knows, to the adventurers of Mondstadt, a \"good death\" comes at the end of a life given to the pursuit of treasure and the secrets of the world. Once over, their souls are brought back to their homeland by Barbatos.\\nHe once feared death.\\nHowever, after pondering on this matter some more, he now feels death may be something fortunate for an adventurer...\\nNot that fortune has anything to do with him.\\n\"Onto the next treasure!\" And with that, Bennett puts this thinking business behind him.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 6
+      }
+    },
+    "x20207": {
+      "storyTitle": "Adhesive Bandage",
+      "storyText": "Whenever he suffers severe injuries such as fractures or excessive loss of blood, Bennett will go to the Cathedral to seek treatment from Deaconess Barbara.\\n\"Sorry, it's me again...\" Bennett will say, scratching the back of his head.\\nBarbara, however, will just shake her head, and with a \"let's deal with those scratches as well,\" she will toss him some adhesive bandages.\\nSuch displays of concern may be inadvertent, but they have a special place in Bennett's heart. He sticks those bandages on his wounds with the care of one pinning a medal to their chest, before thanking her wholeheartedly.\\nBennett keeps many such bandages in his utility pouch when he goes on adventures. Ones he gets from his dads, from Barbara, from Katheryne... and from adventurers he sometimes meets by chance after getting injured.\\nThese tiny tokens of goodwill form a tangible collection of fair fortune unique to Bennett.\\n\"Well, since everyone's by my side, I guess I'm not that unlucky after all.\"",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 4
+      }
+    },
+    "x20208": {
+      "storyTitle": "Vision",
+      "storyText": "Bennett's passion for adventure is unstoppable.\\nHe wants to constantly explore, challenge, sweat it out, and eventually grow old on the adventurer's path.\\nBut there was once when he met with a true crisis.\\nJust as that old adventurer had so long ago, Bennett was in a predicament that would cause any other person to despair.\\n\"Losing this much blood... Not good.\"\\nBut Bennett did not stop. \"There's no reason to turn back,\" he thought.\\nSomehow, he just knew that all the agonizing misfortune he had suffered up till this point was for the sake of overcoming this precarious position.\\nBut at the end of his hellish journey, what he found at the end was — nothing at all.\\n\"Ha, returning empty-handed is... part of an adventure. I... don't mind...\"\\nAt last, his tightly-wound emotions came loose, allowing his many injuries to rob him of his consciousness, and he collapsed.\\nWhen he reawakened, he found that his wounds had been cauterized by a mysterious flame, stopping both the bleeding and the pain.\\nA jewel pulsed warmly in the palm of his hand, its rhythm in time with the heartbeat in his chest — the beating heart of an adventurer.\\nThis was not the mercy of the world, or that fate took pity on him. Rather, this was his \"final reward,\" one befitting a person with Bennett's burning passion.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 6
+      }
+    }
+  },
+  "quotes": {
+    "x20009": {
+      "quoteTitle": "Hello",
+      "quoteText": "This is your team? Cool... I like the vibe. I'm Bennett, leader of Benny's Adventure Team. Any chance we can team up? Please?",
+      "unlockConds": []
+    },
+    "x20010": {
+      "quoteTitle": "Chat: Treasures",
+      "quoteText": "Let's go find some treasure!",
+      "unlockConds": []
+    },
+    "x20011": {
+      "quoteTitle": "Chat: Adventures",
+      "quoteText": "No one's joined me on an adventure in ages. C'mon, let's go!",
+      "unlockConds": []
+    },
+    "x20012": {
+      "quoteTitle": "Chat: Self-Deprecation",
+      "quoteText": "\"Good things come to those who don't wait around!\" That's what they say, anyway. Knowing my luck, the opposite is probably true for me...",
+      "unlockConds": []
+    },
+    "x20013": {
+      "quoteTitle": "When It Rains",
+      "quoteText": "It always rains when I go on an adventure.",
+      "unlockConds": []
+    },
+    "x20014": {
+      "quoteTitle": "When Thunder Strikes",
+      "quoteText": "Don't stand too close to me, or you might get hit by lightning too.",
+      "unlockConds": []
+    },
+    "x20015": {
+      "quoteTitle": "When the Sun Is Out",
+      "quoteText": "Weather's not bad today... Oh crud, I jinxed it! Now it's bound to rain.",
+      "unlockConds": []
+    },
+    "x20016": {
+      "quoteTitle": "When the Wind Is Blowing",
+      "quoteText": "Careful! In this kind of wind, it's easy to get hit in the head by flying rocks.",
+      "unlockConds": []
+    },
+    "x20017": {
+      "quoteTitle": "Good Morning",
+      "quoteText": "Morning! Where's the adventure at today?",
+      "unlockConds": []
+    },
+    "x20018": {
+      "quoteTitle": "Good Afternoon",
+      "quoteText": "I brought a sandwich. You want some? I'll give you hal- *choking* *spluttering* ...Phew. Sorry, nearly choked to death there!",
+      "unlockConds": []
+    },
+    "x20019": {
+      "quoteTitle": "Good Evening",
+      "quoteText": "Hey, wanna go talk to my dads for a bit? They tell the best adventure stories!",
+      "unlockConds": []
+    },
+    "x20020": {
+      "quoteTitle": "Good Night",
+      "quoteText": "You're headed off? Cool. It was awesome adventuring with you. We should totally do it again!",
+      "unlockConds": []
+    },
+    "x20021": {
+      "quoteTitle": "About Bennett: Adventure Team",
+      "quoteText": "I'm the leader of Benny's Adventure Team — a rising star in the Mondstadt Adventurers' Guild! ...Where are the others? Ah, haha, they're all on leave right now.",
+      "unlockConds": []
+    },
+    "x20022": {
+      "quoteTitle": "About Bennett: Bad Luck",
+      "quoteText": "Eh, it's not as bad as you've heard! Everyone falls into a trapper's pit or gets hit on the head by a falling tree now and then, right?",
+      "unlockConds": []
+    },
+    "x20023": {
+      "quoteTitle": "About Us: Teammates",
+      "quoteText": "Hahaha, you wish! Benny's Adventure Team has had no vacancies in ages... I mean, you must be spoiled for choice, right? Why'd you wanna join the unluckiest adventurer alive, anyway?",
+      "unlockConds": []
+    },
+    "x20024": {
+      "quoteTitle": "About Us: Division of Labor",
+      "quoteText": "From now on, I'll distract the monsters and set off the traps while you grab the treasure. Sound good? ...You don't like it? Oh — don't worry about me getting injured! It's what I'm best at... And for you, it would be my pleasure!",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 6"
+      ]
+    },
+    "x20025": {
+      "quoteTitle": "About Us: Dangerous Places",
+      "quoteText": "I think I get why you teamed up with me now. It's 'cause we're the same, you and I — we both like that adrenaline rush you get from being in dangerous situations. That's what makes adventuring so addictive!",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 6"
+      ]
+    },
+    "x20026": {
+      "quoteTitle": "About the Vision",
+      "quoteText": "Getting recognized by the gods was the last thing I expected, seeing as how I'm so unlucky all the time. But if the gods haven't given up on me, I guess that means I shouldn't give up on me either.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x20027": {
+      "quoteTitle": "Something to Share",
+      "quoteText": "Do you wanna come and see the view of Mondstadt from above some time? It's real pretty at night, when the city's all lit up and you can see the moon reflected on Cider Lake... Huh? From where? Haha, well, there was this one time when I got picked up by a tornado and ended up on this cliff way up high— Not interested? Oh, okay then, never mind.",
+      "unlockConds": []
+    },
+    "x20028": {
+      "quoteTitle": "Interesting Things",
+      "quoteText": "I actually quite like cabbage. It's not much to look at, but you can't imagine a world without it. You can grow it anywhere, it goes with everything, and the flavor never gets in the way. I dunno, there's something... nice about being ordinary.",
+      "unlockConds": []
+    },
+    "x20029": {
+      "quoteTitle": "About Barbara",
+      "quoteText": "She's the best singer and dancer out there! I always go to watch her in concert after an adventure goes south — it really lifts my mood, chanting along with all the other fans, cheering her on. It's really kinda magical! It's no wonder she's so popular... Boy, if I had even half her popularity as leader of my adventure team...",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x20030": {
+      "quoteTitle": "About Klee",
+      "quoteText": "She's a cute kid... but I have to keep my distance. Whenever she plays with me, her bombs always end up going off... It's not so much me I'm worried about, it would just be awful if something happened to Klee. The Knights of Favonius would never forgive me, that's for sure.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x20031": {
+      "quoteTitle": "About Fischl",
+      "quoteText": "Oh yeah, the Prinzessin der Verurteilung from the world beyond! She's amazing. I keep asking her if we can go adventuring in her home world together, but each time I bring it up she sort of avoids the topic... She's probably just worried about my safety. Her home world sounds like a dangerous place, for sure.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x20032": {
+      "quoteTitle": "About Jean",
+      "quoteText": "I keep meaning to ask Master Jean for some help with the Mondstadt Adventurers' Guild, but I don't know how to go about it. The Guild doesn't have as many rules and regulations as the Knights of Favonius, the dads and I are pretty laid back about everything. Pretty sure that attitude wouldn't fly with Jean though... I guess I should read up on the Knights' etiquette or something?",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x20033": {
+      "quoteTitle": "About Varka",
+      "quoteText": "He's my role model! Talk about team leaders — he's the Grand Master! Leads the whole darn Knights of Favonius! How incredible do you have to be to do that!? Recently, though, I've been thinking that having a smaller Adventure Team isn't such a bad thing after all. I mean, if things got too busy in the team, I'd have no time to look after all my dads in the guild, would I? Yeah... Yeah, things are fine the way they are.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x20034": {
+      "quoteTitle": "About Razor",
+      "quoteText": "Wolvendom guy! Looks a little on the feral side... doesn't talk much... but he's alright! We both love eating meat, so we got that in common. I sometimes cook some meat for him, and he teaches me how wolves communicate in return. Haha! You should join us next time!",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x20035": {
+      "quoteTitle": "About Amber",
+      "quoteText": "Oh, I know who you mean. The girl who's always charging around all over the place. She's always off adventuring in the wild, just like me... But if you ever see her near a cooking pot, you'll soon find a cloud of thick black smoke blowing in your direction, followed by the smell of burnt steak... Huh, maybe she was born unlucky too?",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x20036": {
+      "quoteTitle": "About Noelle",
+      "quoteText": "Noelle's someone I've been watching for a while. She's really talented, and extremely hardworking. But somehow she's still a maid — the Knights of Favonius still haven't made her a knight. It's a shame, don't you think? Boy, if she switched to the Adventurers' Guild, she'd easily be one of the best there is.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x20037": {
+      "quoteTitle": "More About Bennett: I",
+      "quoteText": "Oh... you wanna know about me? Haha, I'm just your average adventurer. 'Cept I'm more unlucky than average. Anyway, I'm nothing compared to you — you're the star of all those legendary tales. What do I got to show for myself?",
+      "unlockConds": []
+    },
+    "x20038": {
+      "quoteTitle": "More About Bennett: II",
+      "quoteText": "\"The dads...\" That's how I refer to all the older adventurers in Mondstadt. Apparently, I was an orphan kid that they rescued from the most perilous situation ever. How cool is that? I have such terrible luck all the time, and yet I was rescued against the odds and survived all this time. It's a miracle if you ask me.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 3"
+      ]
+    },
+    "x20039": {
+      "quoteTitle": "More About Bennett: III",
+      "quoteText": "You've, uh, noticed then... Heh. Yeah, Benny's Adventure Team has been me on my own for a long time now. Reason is, I have such bad luck that even the most benign of adventures end up turning into the adventure from hell, and no one wants to come with me... Do you feel the same way?",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x20040": {
+      "quoteTitle": "More About Bennett: IV",
+      "quoteText": "I was born unlucky. That's just the way it is, and I've lived with it so long now that I'm just used to it. But you know what? Maybe it's a good thing. It means I know that whatever luck I do have left is gonna run out sooner rather than later... so I'd better make the most of my life while it lasts. You know, go on plenty of adventures, meet loads of people... I mean, if I didn't live like that, I may never have even met you! Can you imagine? Haha!",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 5"
+      ]
+    },
+    "x20041": {
+      "quoteTitle": "More About Bennett: V",
+      "quoteText": "Time flies! We've been a team for a while now, haven't we? Anyway, I have a dream I wanna tell you about. Once the Mondstadt Adventurers' Guild becomes the biggest branch in Teyvat, I wanna go adventuring all over the whole world! Benny's Adventure Team will be the greatest adventure team there ever was, because you and me are the greatest adventurers! ...\"Since when?\" Uh... I don't remember exactly when you signed onto Benny's Adventure Team. But whatever, it's just details, right?",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 6"
+      ]
+    },
+    "x20042": {
+      "quoteTitle": "Bennett's Hobbies",
+      "quoteText": "I like all kinds of things, but most of all, I like adventures! One day, I'm gonna find the most valuable treasure in the whole world, and then my dads can have a better life... and the Mondstadt Adventurers' Guild will be back in business!",
+      "unlockConds": []
+    },
+    "x20043": {
+      "quoteTitle": "Bennett's Troubles",
+      "quoteText": "Hmm... Well, if you really wanna know... When I have a bad day, I feel a bit glum. Like, it sucks when I come back empty-handed from an adventure, or when one of my dads' old injuries starts acting up. But... they're just small things, really. After a good night's sleep, I forget all about them. New day, new start! Haha!",
+      "unlockConds": []
+    },
+    "x20044": {
+      "quoteTitle": "Favorite Food",
+      "quoteText": "Meat! Meat is the best sustenance there is. Chicken-Mushroom Skewers, Steaks, and Sweet Madames are all my specialties. You won't go hungry if you come adventuring with me, that's for sure!",
+      "unlockConds": []
+    },
+    "x20045": {
+      "quoteTitle": "Least Favorite Food",
+      "quoteText": "You can't really afford to be picky as an adventurer. That said, I can't really handle spicy food. I find it hard to breathe after eating Jueyun Chilis, like the spice went right into my lungs. And there's no avoiding the diarrhea afterward... It's the devil's fruit, I say. Who knows where it came from?",
+      "unlockConds": []
+    },
+    "x20046": {
+      "quoteTitle": "Birthday",
+      "quoteText": "Happy birthday! Best of luck in the year ahead. Don't worry, bad luck isn't contagious! As long as I'm around, it'll be drawn to me and not you, so you're safe.",
+      "unlockConds": []
+    },
+    "x20047": {
+      "quoteTitle": "Feelings About Ascension: Intro",
+      "quoteText": "I feel stronger in every sense! Just as unlucky as ever, though. Hehe.",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 1"
+      ]
+    },
+    "x20048": {
+      "quoteTitle": "Feelings About Ascension: Building Up",
+      "quoteText": "I'm catching up with you, Traveler! One step at a time.",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 2"
+      ]
+    },
+    "x20049": {
+      "quoteTitle": "Feelings About Ascension: Climax",
+      "quoteText": "Wow, check out all this power! How can I repay you, though? Hmm... Oh yeah! I know this Domain where there's a priceless treasure hidden somewhere inside! Let's go hit it up!",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 4"
+      ]
+    },
+    "x20050": {
+      "quoteTitle": "Feelings About Ascension: Conclusion",
+      "quoteText": "Thanks to your help, I should finally be able to keep everyone safe now. Hopefully, people's opinions of me will start to change. Once the unluckiest guy alive, with a million cuts and bruises to show it. Now, a dependable adventurer at long last! ...Heh, well, I—I can hope.",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 6"
+      ]
+    },
+    "x20051": {
+      "quoteTitle": "Elemental Skill: I",
+      "quoteText": "Hah!",
+      "unlockConds": []
+    },
+    "x20052": {
+      "quoteTitle": "Elemental Skill: II",
+      "quoteText": "Let's light it up!",
+      "unlockConds": []
+    },
+    "x20053": {
+      "quoteTitle": "Elemental Skill: III",
+      "quoteText": "Get outta here!",
+      "unlockConds": []
+    },
+    "x20054": {
+      "quoteTitle": "Elemental Skill: IV",
+      "quoteText": "Haah!",
+      "unlockConds": []
+    },
+    "x20055": {
+      "quoteTitle": "Elemental Skill: V",
+      "quoteText": "Take cover!",
+      "unlockConds": []
+    },
+    "x20056": {
+      "quoteTitle": "Elemental Skill: VI",
+      "quoteText": "Outta the way!",
+      "unlockConds": []
+    },
+    "x20057": {
+      "quoteTitle": "Elemental Burst: I",
+      "quoteText": "Everybody stand back!",
+      "unlockConds": []
+    },
+    "x20058": {
+      "quoteTitle": "Elemental Burst: II",
+      "quoteText": "I'm going in!",
+      "unlockConds": []
+    },
+    "x20059": {
+      "quoteTitle": "Elemental Burst: III",
+      "quoteText": "Teamwork is dreamwork!",
+      "unlockConds": []
+    },
+    "x20060": {
+      "quoteTitle": "Sprint Start: I",
+      "quoteText": "Adventure time!",
+      "unlockConds": []
+    },
+    "x20061": {
+      "quoteTitle": "Sprint Start: II",
+      "quoteText": "Off we go!",
+      "unlockConds": []
+    },
+    "x20062": {
+      "quoteTitle": "Opening Treasure Chest: I",
+      "quoteText": "Now that's what I call treasure!",
+      "unlockConds": []
+    },
+    "x20063": {
+      "quoteTitle": "Opening Treasure Chest: II",
+      "quoteText": "Even better than I imagined! It's my lucky day!",
+      "unlockConds": []
+    },
+    "x20064": {
+      "quoteTitle": "Opening Treasure Chest: III",
+      "quoteText": "*chuckle* It's a miracle!",
+      "unlockConds": []
+    },
+    "x20065": {
+      "quoteTitle": "Low HP: I",
+      "quoteText": "Shoot, I can't afford any more bandages...",
+      "unlockConds": []
+    },
+    "x20066": {
+      "quoteTitle": "Low HP: II",
+      "quoteText": "Don't worry. I got this.",
+      "unlockConds": []
+    },
+    "x20067": {
+      "quoteTitle": "Low HP: III",
+      "quoteText": "I always bounce back, just watch me...",
+      "unlockConds": []
+    },
+    "x20068": {
+      "quoteTitle": "Ally at Low HP: I",
+      "quoteText": "You're in over your head! Lemme try!",
+      "unlockConds": []
+    },
+    "x20069": {
+      "quoteTitle": "Ally at Low HP: II",
+      "quoteText": "Hey, pick on someone your own size!",
+      "unlockConds": []
+    },
+    "x20070": {
+      "quoteTitle": "Fallen: I",
+      "quoteText": "Benny's Adventure Team... I have failed you...",
+      "unlockConds": []
+    },
+    "x20071": {
+      "quoteTitle": "Fallen: II",
+      "quoteText": "This is just my luck...",
+      "unlockConds": []
+    },
+    "x20072": {
+      "quoteTitle": "Fallen: III",
+      "quoteText": "Couldn't break... the curse...",
+      "unlockConds": []
+    },
+    "x20073": {
+      "quoteTitle": "Light Hit Taken: I",
+      "quoteText": "Didn't see that coming.",
+      "unlockConds": []
+    },
+    "x20074": {
+      "quoteTitle": "Heavy Hit Taken: I",
+      "quoteText": "That's gonna hurt in the morning...",
+      "unlockConds": []
+    },
+    "x20075": {
+      "quoteTitle": "Heavy Hit Taken: II",
+      "quoteText": "Why do they never miss?",
+      "unlockConds": []
+    },
+    "x20076": {
+      "quoteTitle": "Joining Party: I",
+      "quoteText": "Y—You want me on your team?",
+      "unlockConds": []
+    },
+    "x20077": {
+      "quoteTitle": "Joining Party: II",
+      "quoteText": "I won't hold you back! ...Much.",
+      "unlockConds": []
+    },
+    "x20078": {
+      "quoteTitle": "Joining Party: III",
+      "quoteText": "Gonna be epic!",
+      "unlockConds": []
+    },
+    "x20079": {
+      "quoteTitle": "Receiving a Gift: I",
+      "quoteText": "Whoa, lucky me! Haha... Oh wait! Does that mean I just used all of my good luck for today...?",
+      "unlockConds": []
+    },
+    "x20080": {
+      "quoteTitle": "Receiving a Gift: II",
+      "quoteText": "Literally everything you cook ends up tasting amazing. Hehe, you're awesome!",
+      "unlockConds": []
+    },
+    "x20081": {
+      "quoteTitle": "Receiving a Gift: III",
+      "quoteText": "Oh no... my stomach hurts...",
+      "unlockConds": []
+    }
+  },
+  "energy": [
+    {
+      "source": "Ball1",
+      "particles": "2",
+      "chance": "100%",
+      "cd": "0.3s"
+    },
+    {
+      "source": "Ball1",
+      "particles": "1",
+      "chance": "25%",
+      "cd": "0.3s"
+    },
+    {
+      "source": "Ball2",
+      "particles": "3",
+      "chance": "100%",
+      "cd": "1.5s"
+    }
+  ],
+  "attacks": [
+    {
+      "name": "ElementalArt_Strike01_01",
+      "icd_source": "Tag: Elemental_Art (!)",
+      "icd_rule": "Independent",
+      "gauge": "2U",
+      "poise": "LV4/100",
+      "element": "Fire",
+      "attackType": "Melee",
+      "strikeType": "Slash",
+      "damageParam": "Strike_01"
+    },
+    {
+      "name": "ElementalArt_Strike02_01",
+      "icd_source": "Tag: Elemental_Art (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV3/100",
+      "element": "Fire",
+      "attackType": "Melee",
+      "strikeType": "Slash",
+      "damageParam": "Strike_02_01"
+    },
+    {
+      "name": "ElementalArt_Strike02_02",
+      "icd_source": "Tag: Elemental_Art (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV7/100",
+      "element": "Fire",
+      "attackType": "Melee",
+      "strikeType": "Slash",
+      "damageParam": "Strike_02_02"
+    },
+    {
+      "name": "ElementalArt_Strike02_03",
+      "icd_source": "Tag: Elemental_Art (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV6/100",
+      "element": "Fire",
+      "attackType": "Melee",
+      "strikeType": "Slash",
+      "damageParam": "Strike_02_02|Ratio_Of_Strike02_02|MUL"
+    },
+    {
+      "name": "ElementalArt_Strike03_01",
+      "icd_source": "Tag: Elemental_Art (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV3/100",
+      "element": "Fire",
+      "attackType": "Melee",
+      "strikeType": "Slash",
+      "damageParam": "Strike_03_01"
+    },
+    {
+      "name": "ElementalArt_Strike03_02",
+      "icd_source": "Tag: Elemental_Art (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV6/100",
+      "element": "Fire",
+      "attackType": "Melee",
+      "strikeType": "Slash",
+      "damageParam": "Strike_03_02"
+    },
+    {
+      "name": "ElementalArt_Explode",
+      "icd_source": "Tag: Elemental_Art (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV8/250",
+      "element": "Fire",
+      "attackType": "Melee",
+      "strikeType": "None",
+      "damageParam": "Strike_03_03"
+    },
+    {
+      "name": "ElementalArt_Explode",
+      "icd_source": "Grp: default",
+      "icd_rule": "Standard (3h/2.5s)",
+      "gauge": "4U",
+      "poise": "LV8/250",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "None",
+      "damageParam": "-"
+    },
+    {
+      "name": "ElementalBurst_Strike",
+      "icd_source": "Tag: Elemental_Burst (!)",
+      "icd_rule": "Independent",
+      "gauge": "2U",
+      "poise": "LV4/200",
+      "element": "Fire",
+      "attackType": "Default",
+      "strikeType": "-",
+      "damageParam": "Burst_DMG"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "0U",
+      "poise": "LV2/25",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Slash",
+      "damageParam": "FallingAnthem_Normal_Loop_Damage"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV4/100",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Blunt",
+      "damageParam": "FallingAnthem_Normal_Rank_1_Damage"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV7/150",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Blunt",
+      "damageParam": "FallingAnthem_Normal_Rank_2_Damage"
+    }
+  ],
+  "endure": []
+}

@@ -356,7 +356,8 @@ function result = simulateCharacterDPS(memberCfg, enemy, teamContext)
                 compiledBuild, enemy, memberCfg.RotationFile, memberCfg.TalentLevel, memberCfg.Constellation, memberTeamContext);
 
         otherwise
-            error('No simulator registered for %s', memberCfg.Name);
+            [totalDMG, dps, breakdown, rotationTime] = simulateImportedCharacterDPS( ...
+                memberCfg.Name, compiledBuild, enemy, memberCfg.RotationFile, memberCfg.TalentLevel, memberCfg.Constellation, memberTeamContext);
     end
 
     result = struct( ...

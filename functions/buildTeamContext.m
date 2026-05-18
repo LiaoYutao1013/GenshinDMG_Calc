@@ -986,6 +986,6 @@ function element = localGetElement(name)
         case {'lanyan', 'lanyan '}
             element = "Anemo";
         otherwise
-            element = "Physical";
+            element = getCharacterElement(name);
     end
 end

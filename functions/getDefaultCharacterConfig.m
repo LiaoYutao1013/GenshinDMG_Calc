@@ -265,11 +265,33 @@ function cfg = getDefaultCharacterConfig(name, overrides)
             cfg = localBaseConfig('LanYan', customArtifact_LanYan(), fullfile(projectRoot, 'data', 'LanYan', 'rotation_LanYan.txt'));
 
         otherwise
-            error('Unsupported character in unified entry: %s', name);
+            cfg = localBuildImportedConfig(name, projectRoot);
     end
 
     cfg = localApplyConfigOverrides(cfg, overrides);
     cfg.Build = materializeArtifactPieceModel(cfg.Name, cfg.Build, struct());
+end
+
+function cfg = localBuildImportedConfig(name, projectRoot)
+    entry = getCharacterRegistryEntry(name);
+    key = string(entry.Key);
+    if strlength(key) == 0
+        key = string(regexprep(char(string(name)), '[^A-Za-z0-9]', ''));
+    end
+
+    if strlength(key) == 0
+        error('Unsupported character in unified entry: %s', name);
+    end
+
+    build = buildGenericCharacterArtifact(key);
+    rotationFile = fullfile(projectRoot, 'data', char(key), sprintf('rotation_%s.txt', char(key)));
+    cfg = localBaseConfig(char(key), build, rotationFile);
+    if strlength(string(entry.DisplayName)) > 0
+        cfg.DisplayName = string(entry.DisplayName);
+    end
+    if isfield(entry, 'Element') && strlength(string(entry.Element)) > 0
+        cfg.Element = string(entry.Element);
+    end
 end
 
 function cfg = localBaseConfig(displayName, build, rotationFile)

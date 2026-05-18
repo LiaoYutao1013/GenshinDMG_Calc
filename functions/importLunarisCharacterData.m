@@ -74,8 +74,13 @@ function requests = localNormalizeRequests(characterRequests)
         if isKey(preset, tokenKey)
             requests(i) = preset(tokenKey);
         else
-            requests(i).Key = token;
-            requests(i).DisplayName = token;
+            liveMatch = localLookupCharacterRequest(token);
+            if liveMatch.Found
+                requests(i) = rmfield(liveMatch, 'Found');
+            else
+                requests(i).Key = token;
+                requests(i).DisplayName = token;
+            end
         end
     end
 end
@@ -122,6 +127,345 @@ function preset = localPresetCharacterMap()
             'Id', entries{i, 3}, ...
             'DisplayName', entries{i, 4}, ...
             'AvatarKey', entries{i, 5});
+    end
+end
+
+function match = localLookupCharacterRequest(token)
+    match = struct('Key', "", 'Id', "", 'DisplayName', "", 'AvatarKey', "", 'Found', false);
+    token = string(token);
+
+    aliasMap = localRequestAliasMap();
+    normalizedInput = lower(regexprep(char(token), '[^a-z0-9]', ''));
+    if isKey(aliasMap, normalizedInput)
+        desiredKey = string(aliasMap(normalizedInput));
+    else
+        desiredKey = string(regexprep(char(token), '[^A-Za-z0-9]', ''));
+    end
+
+    liveEntries = localReadLiveCharacterIndex();
+    if isempty(liveEntries)
+        return;
+    end
+
+    target = lower(regexprep(char(desiredKey), '[^a-z0-9]', ''));
+    for i = 1:numel(liveEntries)
+        if strcmp(lower(regexprep(char(liveEntries(i).Key), '[^a-z0-9]', '')), target)
+            match = liveEntries(i);
+            match.Found = true;
+            return;
+        end
+    end
+
+    displayTarget = lower(regexprep(char(token), '[^a-z0-9]', ''));
+    for i = 1:numel(liveEntries)
+        if strcmp(lower(regexprep(char(liveEntries(i).DisplayName), '[^a-z0-9]', '')), displayTarget) ...
+                || strcmp(lower(regexprep(char(liveEntries(i).AvatarKey), '[^a-z0-9]', '')), displayTarget)
+            match = liveEntries(i);
+            match.Found = true;
+            return;
+        end
+    end
+
+    avatarMatch = localLookupCharacterRequestFromAvatarDb(desiredKey, token);
+    if avatarMatch.Found
+        match = avatarMatch;
+    end
+end
+
+function aliasMap = localRequestAliasMap()
+    aliasMap = containers.Map('KeyType', 'char', 'ValueType', 'char');
+    aliasMap('hutao') = 'Hutao';
+    aliasMap('liuyun') = 'Xianyun';
+    aliasMap('liney') = 'Lyney';
+    aliasMap('linette') = 'Lynette';
+    aliasMap('baizhuer') = 'Baizhu';
+    aliasMap('heizo') = 'ShikanoinHeizou';
+    aliasMap('shinobu') = 'KukiShinobu';
+    aliasMap('ayato') = 'KamisatoAyato';
+    aliasMap('ayaka') = 'KamisatoAyaka';
+    aliasMap('yae') = 'YaeMiko';
+    aliasMap('yunjin') = 'YunJin';
+    aliasMap('itto') = 'AratakiItto';
+    aliasMap('qin') = 'Jean';
+    aliasMap('olorun') = 'Ororon';
+    aliasMap('lanyan') = 'LanYan';
+    aliasMap('mizuki') = 'Mizuki';
+    aliasMap('yumemizukimizuki') = 'Mizuki';
+    aliasMap('shougun') = 'RaidenShogun';
+    aliasMap('raidenshogun') = 'RaidenShogun';
+    aliasMap('kokomi') = 'SangonomiyaKokomi';
+    aliasMap('sangonomiyakokomi') = 'SangonomiyaKokomi';
+    aliasMap('sara') = 'KujouSara';
+    aliasMap('kujousara') = 'KujouSara';
+    aliasMap('kazuha') = 'KaedeharaKazuha';
+    aliasMap('kaedeharakazuha') = 'KaedeharaKazuha';
+end
+
+function entries = localReadLiveCharacterIndex()
+    persistent cache
+    if ~isempty(cache)
+        entries = cache;
+        return;
+    end
+
+    funcFolder = fileparts(mfilename('fullpath'));
+    projectRoot = fileparts(funcFolder);
+    rows = repmat(struct('Key', "", 'Id', "", 'DisplayName', "", 'AvatarKey', "", 'Found', false), 1, 0);
+    cacheDir = fullfile(projectRoot, 'data', 'lunaris', 'characters');
+    cacheFiles = dir(fullfile(cacheDir, '*.json'));
+    for i = 1:numel(cacheFiles)
+        [row, ok] = localReadCharacterIndexEntryFromCache(cacheFiles(i));
+        if ok
+            rows(end + 1) = row; %#ok<AGROW>
+        end
+    end
+
+    if isempty(rows)
+        livePath = fullfile(projectRoot, '__lunaris_charlist_live.json');
+        if exist(livePath, 'file') == 2
+            try
+                payload = jsondecode(fileread(livePath));
+                fields = fieldnames(payload);
+                for i = 1:numel(fields)
+                    item = payload.(fields{i});
+                    if ~isstruct(item) || ~isfield(item, 'enName')
+                        continue;
+                    end
+
+                    displayName = string(getFieldOrDefault(item, 'enName', ""));
+                    if strlength(displayName) == 0 || startsWith(displayName, "Traveler", 'IgnoreCase', true) ...
+                            || startsWith(displayName, "Manekin", 'IgnoreCase', true)
+                        continue;
+                    end
+
+                    [key, avatarKey] = localCanonicalCharacterKey(displayName);
+                    rows(end + 1) = struct( ... %#ok<AGROW>
+                        'Key', key, ...
+                        'Id', string(fields{i}), ...
+                        'DisplayName', displayName, ...
+                        'AvatarKey', avatarKey, ...
+                        'Found', false);
+                end
+            catch
+            end
+        end
+    end
+
+    entries = localUniqueCharacterEntries(rows);
+    cache = entries;
+end
+
+function [entry, ok] = localReadCharacterIndexEntryFromCache(fileInfo)
+    entry = struct('Key', "", 'Id', "", 'DisplayName', "", 'AvatarKey', "", 'Found', false);
+    ok = false;
+    filePath = fullfile(fileInfo.folder, fileInfo.name);
+
+    try
+        payload = jsondecode(fileread(filePath));
+    catch
+        return;
+    end
+
+    if ~isstruct(payload) || ~isfield(payload, 'info')
+        return;
+    end
+
+    displayName = string(getFieldOrDefault(payload.info, 'name', ""));
+    if strlength(displayName) == 0 || startsWith(displayName, "Traveler", 'IgnoreCase', true) ...
+            || startsWith(displayName, "Manekin", 'IgnoreCase', true)
+        return;
+    end
+
+    idToken = regexp(fileInfo.name, '^(\d+)_', 'tokens', 'once');
+    if isempty(idToken)
+        return;
+    end
+
+    [key, avatarKey] = localCanonicalCharacterKey(displayName);
+    entry = struct( ...
+        'Key', key, ...
+        'Id', string(idToken{1}), ...
+        'DisplayName', displayName, ...
+        'AvatarKey', avatarKey, ...
+        'Found', false);
+    ok = true;
+end
+
+function entries = localUniqueCharacterEntries(rows)
+    entries = repmat(struct('Key', "", 'Id', "", 'DisplayName', "", 'AvatarKey', "", 'Found', false), 1, 0);
+    if isempty(rows)
+        return;
+    end
+
+    seen = containers.Map('KeyType', 'char', 'ValueType', 'logical');
+    for i = 1:numel(rows)
+        token = lower(regexprep(char(rows(i).Key), '[^a-z0-9]', ''));
+        if isKey(seen, token)
+            continue;
+        end
+        seen(token) = true;
+        entries(end + 1) = rows(i); %#ok<AGROW>
+    end
+end
+
+function match = localLookupCharacterRequestFromAvatarDb(desiredKey, token)
+    match = struct('Key', "", 'Id', "", 'DisplayName', "", 'AvatarKey', "", 'Found', false);
+    funcFolder = fileparts(mfilename('fullpath'));
+    projectRoot = fileparts(funcFolder);
+    avatarDbPath = fullfile(projectRoot, 'data', 'AvatarExcelConfigData.js');
+    if exist(avatarDbPath, 'file') ~= 2
+        return;
+    end
+
+    avatarEntries = localReadAvatarEntries(avatarDbPath);
+    if isempty(avatarEntries)
+        return;
+    end
+
+    aliasMap = localAvatarAliasMap();
+    targetKey = lower(regexprep(char(desiredKey), '[^a-z0-9]', ''));
+    displayTarget = lower(regexprep(char(token), '[^a-z0-9]', ''));
+
+    for i = 1:numel(avatarEntries)
+        rawName = string(getFieldOrDefault(avatarEntries(i), '_name', ""));
+        if strlength(rawName) == 0 || startsWith(rawName, "Player", 'IgnoreCase', true)
+            continue;
+        end
+
+        [key, avatarKey, displayName] = localResolveAvatarCharacterMapping(rawName, aliasMap);
+        keyToken = lower(regexprep(char(key), '[^a-z0-9]', ''));
+        avatarToken = lower(regexprep(char(avatarKey), '[^a-z0-9]', ''));
+        displayToken = lower(regexprep(char(displayName), '[^a-z0-9]', ''));
+        rawToken = lower(regexprep(char(rawName), '[^a-z0-9]', ''));
+
+        if strcmp(keyToken, targetKey) || strcmp(avatarToken, displayTarget) ...
+                || strcmp(displayToken, displayTarget) || strcmp(rawToken, displayTarget)
+            numericId = getFieldOrDefault(avatarEntries(i), '_id', []);
+            if isempty(numericId)
+                return;
+            end
+            fullId = string(sprintf('%08d', 10000000 + double(numericId)));
+            match = struct( ...
+                'Key', key, ...
+                'Id', fullId, ...
+                'DisplayName', displayName, ...
+                'AvatarKey', avatarKey, ...
+                'Found', true);
+            return;
+        end
+    end
+end
+
+function entries = localReadAvatarEntries(filePath)
+    entries = repmat(struct(), 1, 0);
+    rawText = fileread(filePath);
+    chunks = localExtractTopLevelObjects(rawText);
+    for i = 1:numel(chunks)
+        try
+            item = jsondecode(chunks{i});
+        catch
+            continue;
+        end
+        if isstruct(item) && isfield(item, '_name') && isfield(item, '_id')
+            entries(end + 1) = item; %#ok<AGROW>
+        end
+    end
+end
+
+function chunks = localExtractTopLevelObjects(rawText)
+    chunks = {};
+    inString = false;
+    escaped = false;
+    depth = 0;
+    startIndex = 0;
+
+    for i = 1:numel(rawText)
+        ch = rawText(i);
+        if inString
+            if escaped
+                escaped = false;
+            elseif ch == '\'
+                escaped = true;
+            elseif ch == '"'
+                inString = false;
+            end
+            continue;
+        end
+
+        if ch == '"'
+            inString = true;
+        elseif ch == '{'
+            if depth == 0
+                startIndex = i;
+            end
+            depth = depth + 1;
+        elseif ch == '}'
+            depth = max(0, depth - 1);
+            if depth == 0 && startIndex > 0
+                chunks{end + 1} = rawText(startIndex:i); %#ok<AGROW>
+                startIndex = 0;
+            end
+        end
+    end
+end
+
+function aliasMap = localAvatarAliasMap()
+    aliasMap = containers.Map('KeyType', 'char', 'ValueType', 'any');
+    aliasMap('Hutao') = struct('Key', "Hutao", 'DisplayName', "Hu Tao", 'AvatarKey', "Hutao");
+    aliasMap('Liuyun') = struct('Key', "Xianyun", 'DisplayName', "Xianyun", 'AvatarKey', "Liuyun");
+    aliasMap('Lanyan') = struct('Key', "LanYan", 'DisplayName', "Lan Yan", 'AvatarKey', "Lanyan");
+    aliasMap('Olorun') = struct('Key', "Ororon", 'DisplayName', "Ororon", 'AvatarKey', "Olorun");
+    aliasMap('Liney') = struct('Key', "Lyney", 'DisplayName', "Lyney", 'AvatarKey', "Liney");
+    aliasMap('Linette') = struct('Key', "Lynette", 'DisplayName', "Lynette", 'AvatarKey', "Linette");
+    aliasMap('Baizhuer') = struct('Key', "Baizhu", 'DisplayName', "Baizhu", 'AvatarKey', "Baizhuer");
+    aliasMap('Heizo') = struct('Key', "ShikanoinHeizou", 'DisplayName', "Shikanoin Heizou", 'AvatarKey', "Heizo");
+    aliasMap('Shinobu') = struct('Key', "KukiShinobu", 'DisplayName', "Kuki Shinobu", 'AvatarKey', "Shinobu");
+    aliasMap('Ayato') = struct('Key', "KamisatoAyato", 'DisplayName', "Kamisato Ayato", 'AvatarKey', "Ayato");
+    aliasMap('Ayaka') = struct('Key', "KamisatoAyaka", 'DisplayName', "Kamisato Ayaka", 'AvatarKey', "Ayaka");
+    aliasMap('Yae') = struct('Key', "YaeMiko", 'DisplayName', "Yae Miko", 'AvatarKey', "Yae");
+    aliasMap('Yunjin') = struct('Key', "YunJin", 'DisplayName', "Yun Jin", 'AvatarKey', "Yunjin");
+    aliasMap('Itto') = struct('Key', "AratakiItto", 'DisplayName', "Arataki Itto", 'AvatarKey', "Itto");
+    aliasMap('Qin') = struct('Key', "Jean", 'DisplayName', "Jean", 'AvatarKey', "Qin");
+    aliasMap('Shougun') = struct('Key', "RaidenShogun", 'DisplayName', "Raiden Shogun", 'AvatarKey', "Shougun");
+    aliasMap('Kokomi') = struct('Key', "SangonomiyaKokomi", 'DisplayName', "Sangonomiya Kokomi", 'AvatarKey', "Kokomi");
+    aliasMap('Sara') = struct('Key', "KujouSara", 'DisplayName', "Kujou Sara", 'AvatarKey', "Sara");
+    aliasMap('Kazuha') = struct('Key', "KaedeharaKazuha", 'DisplayName', "Kaedehara Kazuha", 'AvatarKey', "Kazuha");
+end
+
+function [key, avatarKey, displayName] = localResolveAvatarCharacterMapping(rawName, aliasMap)
+    key = string(rawName);
+    avatarKey = string(rawName);
+    displayName = string(rawName);
+    mapKey = char(string(rawName));
+    if isKey(aliasMap, mapKey)
+        alias = aliasMap(mapKey);
+        key = string(alias.Key);
+        avatarKey = string(alias.AvatarKey);
+        displayName = string(alias.DisplayName);
+    end
+end
+
+function [key, avatarKey] = localCanonicalCharacterKey(displayName)
+    avatarKey = string(regexprep(char(displayName), '[^A-Za-z0-9]', ''));
+    key = avatarKey;
+    switch lower(char(avatarKey))
+        case 'hutao'
+            key = "Hutao";
+        case 'kaedeharakazuha'
+            key = "KaedeharaKazuha";
+            avatarKey = "Kazuha";
+        case 'kujousara'
+            key = "KujouSara";
+            avatarKey = "Sara";
+        case 'sangonomiyakokomi'
+            key = "SangonomiyaKokomi";
+            avatarKey = "Kokomi";
+        case 'raidenshogun'
+            key = "RaidenShogun";
+            avatarKey = "Shougun";
+        case 'yumemizukimizuki'
+            key = "Mizuki";
+            avatarKey = "Mizuki";
     end
 end
 

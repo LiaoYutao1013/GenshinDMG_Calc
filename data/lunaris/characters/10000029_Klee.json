@@ -1,0 +1,1849 @@
+{
+  "info": {
+    "name": "Klee",
+    "description": "An explosives expert and a regular at the Knights of Favonius's confinement room. Also known as Fleeing Sunlight.",
+    "rarity": "QUALITY_ORANGE",
+    "weapon": "WEAPON_CATALYST",
+    "birthday": "27/7",
+    "element": "Pyro",
+    "title": "Fleeing Sunlight",
+    "constellation": "Trifolium",
+    "affiliation": "Knights of Favonius",
+    "cv": {
+      "EN": "Poonam Basu",
+      "CHS": "花玲",
+      "JP": "久野美咲",
+      "KR": "Bang Yeon-ji"
+    },
+    "attributes": [
+      {
+        "level": 1,
+        "ascension": 0,
+        "hp": 801,
+        "atk": 24,
+        "def": 48,
+        "Pyro_": "0"
+      },
+      {
+        "level": 2,
+        "ascension": 0,
+        "hp": 867,
+        "atk": 26,
+        "def": 52,
+        "Pyro_": "0"
+      },
+      {
+        "level": 3,
+        "ascension": 0,
+        "hp": 934,
+        "atk": 28,
+        "def": 56,
+        "Pyro_": "0"
+      },
+      {
+        "level": 4,
+        "ascension": 0,
+        "hp": 1001,
+        "atk": 30,
+        "def": 60,
+        "Pyro_": "0"
+      },
+      {
+        "level": 5,
+        "ascension": 0,
+        "hp": 1067,
+        "atk": 32,
+        "def": 64,
+        "Pyro_": "0"
+      },
+      {
+        "level": 6,
+        "ascension": 0,
+        "hp": 1135,
+        "atk": 34,
+        "def": 68,
+        "Pyro_": "0"
+      },
+      {
+        "level": 7,
+        "ascension": 0,
+        "hp": 1201,
+        "atk": 36,
+        "def": 72,
+        "Pyro_": "0"
+      },
+      {
+        "level": 8,
+        "ascension": 0,
+        "hp": 1268,
+        "atk": 38,
+        "def": 76,
+        "Pyro_": "0"
+      },
+      {
+        "level": 9,
+        "ascension": 0,
+        "hp": 1336,
+        "atk": 40,
+        "def": 80,
+        "Pyro_": "0"
+      },
+      {
+        "level": 10,
+        "ascension": 0,
+        "hp": 1402,
+        "atk": 42,
+        "def": 84,
+        "Pyro_": "0"
+      },
+      {
+        "level": 11,
+        "ascension": 0,
+        "hp": 1469,
+        "atk": 44,
+        "def": 88,
+        "Pyro_": "0"
+      },
+      {
+        "level": 12,
+        "ascension": 0,
+        "hp": 1537,
+        "atk": 46,
+        "def": 92,
+        "Pyro_": "0"
+      },
+      {
+        "level": 13,
+        "ascension": 0,
+        "hp": 1604,
+        "atk": 48,
+        "def": 96,
+        "Pyro_": "0"
+      },
+      {
+        "level": 14,
+        "ascension": 0,
+        "hp": 1672,
+        "atk": 51,
+        "def": 100,
+        "Pyro_": "0"
+      },
+      {
+        "level": 15,
+        "ascension": 0,
+        "hp": 1739,
+        "atk": 53,
+        "def": 104,
+        "Pyro_": "0"
+      },
+      {
+        "level": 16,
+        "ascension": 0,
+        "hp": 1807,
+        "atk": 55,
+        "def": 108,
+        "Pyro_": "0"
+      },
+      {
+        "level": 17,
+        "ascension": 0,
+        "hp": 1875,
+        "atk": 57,
+        "def": 112,
+        "Pyro_": "0"
+      },
+      {
+        "level": 18,
+        "ascension": 0,
+        "hp": 1942,
+        "atk": 59,
+        "def": 116,
+        "Pyro_": "0"
+      },
+      {
+        "level": 19,
+        "ascension": 0,
+        "hp": 2010,
+        "atk": 61,
+        "def": 120,
+        "Pyro_": "0"
+      },
+      {
+        "level": 20,
+        "ascension": 0,
+        "hp": 2077,
+        "atk": 63,
+        "def": 124,
+        "Pyro_": "0"
+      },
+      {
+        "level": 21,
+        "ascension": 1,
+        "hp": 2832,
+        "atk": 86,
+        "def": 169,
+        "Pyro_": "0"
+      },
+      {
+        "level": 22,
+        "ascension": 1,
+        "hp": 2900,
+        "atk": 88,
+        "def": 173,
+        "Pyro_": "0"
+      },
+      {
+        "level": 23,
+        "ascension": 1,
+        "hp": 2968,
+        "atk": 90,
+        "def": 177,
+        "Pyro_": "0"
+      },
+      {
+        "level": 24,
+        "ascension": 1,
+        "hp": 3036,
+        "atk": 92,
+        "def": 181,
+        "Pyro_": "0"
+      },
+      {
+        "level": 25,
+        "ascension": 1,
+        "hp": 3104,
+        "atk": 94,
+        "def": 186,
+        "Pyro_": "0"
+      },
+      {
+        "level": 26,
+        "ascension": 1,
+        "hp": 3173,
+        "atk": 96,
+        "def": 190,
+        "Pyro_": "0"
+      },
+      {
+        "level": 27,
+        "ascension": 1,
+        "hp": 3241,
+        "atk": 98,
+        "def": 194,
+        "Pyro_": "0"
+      },
+      {
+        "level": 28,
+        "ascension": 1,
+        "hp": 3309,
+        "atk": 100,
+        "def": 198,
+        "Pyro_": "0"
+      },
+      {
+        "level": 29,
+        "ascension": 1,
+        "hp": 3378,
+        "atk": 102,
+        "def": 202,
+        "Pyro_": "0"
+      },
+      {
+        "level": 30,
+        "ascension": 1,
+        "hp": 3446,
+        "atk": 104,
+        "def": 206,
+        "Pyro_": "0"
+      },
+      {
+        "level": 31,
+        "ascension": 1,
+        "hp": 3515,
+        "atk": 106,
+        "def": 210,
+        "Pyro_": "0"
+      },
+      {
+        "level": 32,
+        "ascension": 1,
+        "hp": 3584,
+        "atk": 108,
+        "def": 214,
+        "Pyro_": "0"
+      },
+      {
+        "level": 33,
+        "ascension": 1,
+        "hp": 3653,
+        "atk": 110,
+        "def": 218,
+        "Pyro_": "0"
+      },
+      {
+        "level": 34,
+        "ascension": 1,
+        "hp": 3721,
+        "atk": 112,
+        "def": 222,
+        "Pyro_": "0"
+      },
+      {
+        "level": 35,
+        "ascension": 1,
+        "hp": 3790,
+        "atk": 115,
+        "def": 227,
+        "Pyro_": "0"
+      },
+      {
+        "level": 36,
+        "ascension": 1,
+        "hp": 3859,
+        "atk": 117,
+        "def": 231,
+        "Pyro_": "0"
+      },
+      {
+        "level": 37,
+        "ascension": 1,
+        "hp": 3928,
+        "atk": 119,
+        "def": 235,
+        "Pyro_": "0"
+      },
+      {
+        "level": 38,
+        "ascension": 1,
+        "hp": 3997,
+        "atk": 121,
+        "def": 239,
+        "Pyro_": "0"
+      },
+      {
+        "level": 39,
+        "ascension": 1,
+        "hp": 4066,
+        "atk": 123,
+        "def": 243,
+        "Pyro_": "0"
+      },
+      {
+        "level": 40,
+        "ascension": 1,
+        "hp": 4136,
+        "atk": 125,
+        "def": 247,
+        "Pyro_": "0"
+      },
+      {
+        "level": 41,
+        "ascension": 2,
+        "hp": 4692,
+        "atk": 142,
+        "def": 280,
+        "Pyro_": "7.2"
+      },
+      {
+        "level": 42,
+        "ascension": 2,
+        "hp": 4762,
+        "atk": 144,
+        "def": 285,
+        "Pyro_": "7.2"
+      },
+      {
+        "level": 43,
+        "ascension": 2,
+        "hp": 4832,
+        "atk": 146,
+        "def": 289,
+        "Pyro_": "7.2"
+      },
+      {
+        "level": 44,
+        "ascension": 2,
+        "hp": 4901,
+        "atk": 148,
+        "def": 293,
+        "Pyro_": "7.2"
+      },
+      {
+        "level": 45,
+        "ascension": 2,
+        "hp": 4970,
+        "atk": 150,
+        "def": 297,
+        "Pyro_": "7.2"
+      },
+      {
+        "level": 46,
+        "ascension": 2,
+        "hp": 5040,
+        "atk": 152,
+        "def": 301,
+        "Pyro_": "7.2"
+      },
+      {
+        "level": 47,
+        "ascension": 2,
+        "hp": 5110,
+        "atk": 154,
+        "def": 305,
+        "Pyro_": "7.2"
+      },
+      {
+        "level": 48,
+        "ascension": 2,
+        "hp": 5179,
+        "atk": 157,
+        "def": 310,
+        "Pyro_": "7.2"
+      },
+      {
+        "level": 49,
+        "ascension": 2,
+        "hp": 5250,
+        "atk": 159,
+        "def": 314,
+        "Pyro_": "7.2"
+      },
+      {
+        "level": 50,
+        "ascension": 2,
+        "hp": 5319,
+        "atk": 161,
+        "def": 318,
+        "Pyro_": "7.2"
+      },
+      {
+        "level": 51,
+        "ascension": 3,
+        "hp": 6039,
+        "atk": 183,
+        "def": 361,
+        "Pyro_": "14.4"
+      },
+      {
+        "level": 52,
+        "ascension": 3,
+        "hp": 6110,
+        "atk": 185,
+        "def": 365,
+        "Pyro_": "14.4"
+      },
+      {
+        "level": 53,
+        "ascension": 3,
+        "hp": 6180,
+        "atk": 187,
+        "def": 369,
+        "Pyro_": "14.4"
+      },
+      {
+        "level": 54,
+        "ascension": 3,
+        "hp": 6250,
+        "atk": 189,
+        "def": 374,
+        "Pyro_": "14.4"
+      },
+      {
+        "level": 55,
+        "ascension": 3,
+        "hp": 6321,
+        "atk": 191,
+        "def": 378,
+        "Pyro_": "14.4"
+      },
+      {
+        "level": 56,
+        "ascension": 3,
+        "hp": 6391,
+        "atk": 193,
+        "def": 382,
+        "Pyro_": "14.4"
+      },
+      {
+        "level": 57,
+        "ascension": 3,
+        "hp": 6461,
+        "atk": 195,
+        "def": 386,
+        "Pyro_": "14.4"
+      },
+      {
+        "level": 58,
+        "ascension": 3,
+        "hp": 6532,
+        "atk": 197,
+        "def": 390,
+        "Pyro_": "14.4"
+      },
+      {
+        "level": 59,
+        "ascension": 3,
+        "hp": 6602,
+        "atk": 200,
+        "def": 395,
+        "Pyro_": "14.4"
+      },
+      {
+        "level": 60,
+        "ascension": 3,
+        "hp": 6673,
+        "atk": 202,
+        "def": 399,
+        "Pyro_": "14.4"
+      },
+      {
+        "level": 61,
+        "ascension": 4,
+        "hp": 7231,
+        "atk": 219,
+        "def": 432,
+        "Pyro_": "14.4"
+      },
+      {
+        "level": 62,
+        "ascension": 4,
+        "hp": 7302,
+        "atk": 221,
+        "def": 436,
+        "Pyro_": "14.4"
+      },
+      {
+        "level": 63,
+        "ascension": 4,
+        "hp": 7373,
+        "atk": 223,
+        "def": 441,
+        "Pyro_": "14.4"
+      },
+      {
+        "level": 64,
+        "ascension": 4,
+        "hp": 7443,
+        "atk": 225,
+        "def": 445,
+        "Pyro_": "14.4"
+      },
+      {
+        "level": 65,
+        "ascension": 4,
+        "hp": 7515,
+        "atk": 227,
+        "def": 449,
+        "Pyro_": "14.4"
+      },
+      {
+        "level": 66,
+        "ascension": 4,
+        "hp": 7586,
+        "atk": 229,
+        "def": 453,
+        "Pyro_": "14.4"
+      },
+      {
+        "level": 67,
+        "ascension": 4,
+        "hp": 7656,
+        "atk": 231,
+        "def": 458,
+        "Pyro_": "14.4"
+      },
+      {
+        "level": 68,
+        "ascension": 4,
+        "hp": 7728,
+        "atk": 234,
+        "def": 462,
+        "Pyro_": "14.4"
+      },
+      {
+        "level": 69,
+        "ascension": 4,
+        "hp": 7799,
+        "atk": 236,
+        "def": 466,
+        "Pyro_": "14.4"
+      },
+      {
+        "level": 70,
+        "ascension": 4,
+        "hp": 7870,
+        "atk": 238,
+        "def": 470,
+        "Pyro_": "14.4"
+      },
+      {
+        "level": 71,
+        "ascension": 5,
+        "hp": 8429,
+        "atk": 255,
+        "def": 504,
+        "Pyro_": "21.6"
+      },
+      {
+        "level": 72,
+        "ascension": 5,
+        "hp": 8501,
+        "atk": 257,
+        "def": 508,
+        "Pyro_": "21.6"
+      },
+      {
+        "level": 73,
+        "ascension": 5,
+        "hp": 8573,
+        "atk": 259,
+        "def": 512,
+        "Pyro_": "21.6"
+      },
+      {
+        "level": 74,
+        "ascension": 5,
+        "hp": 8644,
+        "atk": 261,
+        "def": 517,
+        "Pyro_": "21.6"
+      },
+      {
+        "level": 75,
+        "ascension": 5,
+        "hp": 8716,
+        "atk": 263,
+        "def": 521,
+        "Pyro_": "21.6"
+      },
+      {
+        "level": 76,
+        "ascension": 5,
+        "hp": 8787,
+        "atk": 266,
+        "def": 525,
+        "Pyro_": "21.6"
+      },
+      {
+        "level": 77,
+        "ascension": 5,
+        "hp": 8859,
+        "atk": 268,
+        "def": 530,
+        "Pyro_": "21.6"
+      },
+      {
+        "level": 78,
+        "ascension": 5,
+        "hp": 8931,
+        "atk": 270,
+        "def": 534,
+        "Pyro_": "21.6"
+      },
+      {
+        "level": 79,
+        "ascension": 5,
+        "hp": 9004,
+        "atk": 272,
+        "def": 538,
+        "Pyro_": "21.6"
+      },
+      {
+        "level": 80,
+        "ascension": 5,
+        "hp": 9076,
+        "atk": 274,
+        "def": 542,
+        "Pyro_": "21.6"
+      },
+      {
+        "level": 81,
+        "ascension": 6,
+        "hp": 9636,
+        "atk": 291,
+        "def": 576,
+        "Pyro_": "28.8"
+      },
+      {
+        "level": 82,
+        "ascension": 6,
+        "hp": 9708,
+        "atk": 293,
+        "def": 580,
+        "Pyro_": "28.8"
+      },
+      {
+        "level": 83,
+        "ascension": 6,
+        "hp": 9780,
+        "atk": 296,
+        "def": 585,
+        "Pyro_": "28.8"
+      },
+      {
+        "level": 84,
+        "ascension": 6,
+        "hp": 9852,
+        "atk": 298,
+        "def": 589,
+        "Pyro_": "28.8"
+      },
+      {
+        "level": 85,
+        "ascension": 6,
+        "hp": 9924,
+        "atk": 300,
+        "def": 593,
+        "Pyro_": "28.8"
+      },
+      {
+        "level": 86,
+        "ascension": 6,
+        "hp": 9997,
+        "atk": 302,
+        "def": 598,
+        "Pyro_": "28.8"
+      },
+      {
+        "level": 87,
+        "ascension": 6,
+        "hp": 10069,
+        "atk": 304,
+        "def": 602,
+        "Pyro_": "28.8"
+      },
+      {
+        "level": 88,
+        "ascension": 6,
+        "hp": 10142,
+        "atk": 307,
+        "def": 606,
+        "Pyro_": "28.8"
+      },
+      {
+        "level": 89,
+        "ascension": 6,
+        "hp": 10214,
+        "atk": 309,
+        "def": 611,
+        "Pyro_": "28.8"
+      },
+      {
+        "level": 90,
+        "ascension": 6,
+        "hp": 10287,
+        "atk": 311,
+        "def": 615,
+        "Pyro_": "28.8"
+      },
+      {
+        "level": 95,
+        "ascension": 6,
+        "hp": 10652,
+        "atk": 346,
+        "def": 637,
+        "Pyro_": "28.8"
+      },
+      {
+        "level": 100,
+        "ascension": 6,
+        "hp": 11018,
+        "atk": 381,
+        "def": 659,
+        "Pyro_": "28.8"
+      }
+    ]
+  },
+  "icons": {
+    "forward": "UI_AvatarIcon_Klee",
+    "coop_img": "UI_CoopImg_Klee"
+  },
+  "ascension": {
+    "x202": 7.0499E+6,
+    "exp": {
+      "x104001": 2,
+      "x104003": 418
+    },
+    "speciality": {
+      "x100025": 168
+    },
+    "elemental": {
+      "x104111": 1,
+      "x104112": 9,
+      "x104113": 9,
+      "x104114": 6
+    },
+    "worldmonster": {
+      "x112008": 18,
+      "x112009": 30,
+      "x112010": 36
+    },
+    "elitemonster": {
+      "x113011": 46
+    }
+  },
+  "skills": {
+    "normalattack": {
+      "name": "Kaboom!",
+      "icon": "Skill_A_Catalyst_MD",
+      "multipliers": {
+        "x1_HitDMG": [
+          "72.16%",
+          "77.57%",
+          "82.98%",
+          "90.2%",
+          "95.61%",
+          "101.02%",
+          "108.24%",
+          "115.46%",
+          "122.67%",
+          "129.89%",
+          "137.39%",
+          "147.21%",
+          "157.02%",
+          "166.83%",
+          "176.65%"
+        ],
+        "x2_HitDMG": [
+          "62.4%",
+          "67.08%",
+          "71.76%",
+          "78%",
+          "82.68%",
+          "87.36%",
+          "93.6%",
+          "99.84%",
+          "106.08%",
+          "112.32%",
+          "118.81%",
+          "127.3%",
+          "135.78%",
+          "144.27%",
+          "152.76%"
+        ],
+        "x3_HitDMG": [
+          "89.92%",
+          "96.66%",
+          "103.41%",
+          "112.4%",
+          "119.14%",
+          "125.89%",
+          "134.88%",
+          "143.87%",
+          "152.86%",
+          "161.86%",
+          "171.21%",
+          "183.44%",
+          "195.67%",
+          "207.89%",
+          "220.12%"
+        ],
+        "ChargedAttackDMG": [
+          "157.36%",
+          "169.16%",
+          "180.96%",
+          "196.7%",
+          "208.5%",
+          "220.3%",
+          "236.04%",
+          "251.78%",
+          "267.51%",
+          "283.25%",
+          "299.61%",
+          "321.01%",
+          "342.42%",
+          "363.82%",
+          "385.22%"
+        ],
+        "ChargedAttackStaminaCost": [
+          "50",
+          "50",
+          "50",
+          "50",
+          "50",
+          "50",
+          "50",
+          "50",
+          "50",
+          "50",
+          "50",
+          "50",
+          "50",
+          "50",
+          "50"
+        ],
+        "PlungeDMG": [
+          "56.83%",
+          "61.45%",
+          "66.08%",
+          "72.69%",
+          "77.31%",
+          "82.6%",
+          "89.87%",
+          "97.14%",
+          "104.41%",
+          "112.34%",
+          "120.27%",
+          "128.2%",
+          "136.12%",
+          "144.05%",
+          "151.98%"
+        ],
+        "Low_HighPlungeDMG": [
+          "113.63%/141.93%",
+          "122.88%/153.49%",
+          "132.13%/165.04%",
+          "145.35%/181.54%",
+          "154.59%/193.1%",
+          "165.16%/206.3%",
+          "179.7%/224.45%",
+          "194.23%/242.61%",
+          "208.77%/260.76%",
+          "224.62%/280.57%",
+          "240.48%/300.37%",
+          "256.34%/320.18%",
+          "272.19%/339.98%",
+          "288.05%/359.79%",
+          "303.9%/379.59%"
+        ]
+      },
+      "description": "<color=#FFD780FF>Normal Attack</color>\\nThrows things that go boom when they hit things! Performs up to 3 explosive attacks, dealing <color=#FF9999FF>AoE Pyro DMG</color>.\\n\\n<color=#FFD780FF>Charged Attack</color>\\nConsumes a certain amount of Stamina and deals <color=#FF9999FF>AoE Pyro DMG</color> to opponents after a short casting time.\\n\\n<color=#FFD780FF>Plunging Attack</color>\\nGathering the power of Pyro, Klee plunges towards the ground from mid-air, damaging all opponents in her path. Deals <color=#FF9999FF>AoE Pyro DMG</color> upon impact with the ground."
+    },
+    "elementalskill": {
+      "name": "Jumpy Dumpty",
+      "icon": "Skill_S_Klee_01",
+      "multipliers": {
+        "JumpyDumptyDMG": [
+          "95.2%",
+          "102.34%",
+          "109.48%",
+          "119%",
+          "126.14%",
+          "133.28%",
+          "142.8%",
+          "152.32%",
+          "161.84%",
+          "171.36%",
+          "180.88%",
+          "190.4%",
+          "202.3%",
+          "214.2%",
+          "226.1%"
+        ],
+        "MineDMG": [
+          "32.8%",
+          "35.26%",
+          "37.72%",
+          "41%",
+          "43.46%",
+          "45.92%",
+          "49.2%",
+          "52.48%",
+          "55.76%",
+          "59.04%",
+          "62.32%",
+          "65.6%",
+          "69.7%",
+          "73.8%",
+          "77.9%"
+        ],
+        "MineDuration": [
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s"
+        ],
+        "CD": [
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s"
+        ]
+      },
+      "description": "Jumpy Dumpty is tons of boom-bang-fun! \\nWhen thrown, Jumpy Dumpty bounces thrice, igniting and dealing <color=#FF9999FF>AoE Pyro DMG</color> with every bounce.\\n\\nOn the third bounce, the bomb splits into many mines.\\nThe mines will explode upon contact with opponents, or after a short period of time, dealing <color=#FF9999FF>AoE Pyro DMG</color>.\\n\\nStarts with 2 charges.\\n\\n<i>Jumpy Dumpty is Klee's good friend! She can't help but introduce him to everyone.</i>"
+    },
+    "elementalburst": {
+      "name": "Sparks 'n' Splash",
+      "icon": "Skill_E_Klee_01",
+      "multipliers": {
+        "Sparks_n_SplashDMG": [
+          "42.64%",
+          "45.84%",
+          "49.04%",
+          "53.3%",
+          "56.5%",
+          "59.7%",
+          "63.96%",
+          "68.22%",
+          "72.49%",
+          "76.75%",
+          "81.02%",
+          "85.28%",
+          "90.61%",
+          "95.94%",
+          "101.27%"
+        ],
+        "Duration": [
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s"
+        ],
+        "CD": [
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s"
+        ],
+        "EnergyCost": [
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60"
+        ]
+      },
+      "description": "Klee's Blazing Delight! For the duration of this ability, continuously summons Sparks 'n' Splash to attack nearby opponents, dealing <color=#FF9999FF>AoE Pyro DMG</color>.\\n\\n<i>The knights all believe that Klee must have a lucky star watching over her to have never been hurt by any of her own bombs...</i>"
+    },
+    "leveling": {
+      "books": {
+        "x104301": 9,
+        "x104302": 63,
+        "x104303": 114
+      },
+      "crown": {
+        "x104319": 3
+      },
+      "worldmonster": {
+        "x112008": 18,
+        "x112009": 66,
+        "x112010": 93
+      },
+      "weekly": {
+        "x113007": 18
+      }
+    }
+  },
+  "passives": {
+    "p1": {
+      "name": "Pounding Surprise",
+      "description": "When <color=#FFD780FF>Jumpy Dumpty</color> and Normal Attacks deal DMG, Klee has a 50% chance to obtain an Explosive Spark.\\nThis Explosive Spark is consumed by the next Charged Attack, which costs no Stamina and deals 50% increased DMG.",
+      "icon": "UI_Talent_S_Klee_05"
+    },
+    "p2": {
+      "name": "Sparkling Burst",
+      "description": "When Klee's Charged Attack results in a CRIT Hit, all party members gain 2 Elemental Energy.",
+      "icon": "UI_Talent_S_Klee_06"
+    },
+    "p3": {
+      "name": "All Of My Treasures!",
+      "description": "Displays the location of nearby <color=#FFD780FF>resources unique to Mondstadt</color> on the mini-map.",
+      "icon": "UI_Talent_Collect_Local_Mengde"
+    },
+    "p4": {
+      "name": "Witch's Eve Rite: Sparkborne Magic",
+      "description": "After completing <color=#FFD780FF>Witch's Homework: Of Leaves That Spark</color>, Klee will become a <color=#FFD780FF>Hexerei</color> character. When the party includes at least 2 Hexerei characters, you will gain the <color=#FFD780FF>Hexerei: Secret Rite</color> effect, which enhances Hexerei characters.\\n\\n<color=#FFD780FF>Hexerei: Secret Rite</color>\\nWhen Klee deals DMG with Normal Attacks, Elemental Skills, or Elemental Bursts, she gains 1 Boom Badge that lasts 20s. Each type of attack can grant at most 1 Boom Badge this way, and each badge has its own independent timer. While Klee has 1/2/3 Boom Badges, her special Charged Attack Boom-Boom Strike deals 115%/130%/150% of its original DMG.",
+      "icon": "UI_Talent_S_Klee_07"
+    }
+  },
+  "constellations": {
+    "const1": {
+      "name": "Chained Reactions",
+      "description": "Attacks and Skills have a certain chance to summon sparks that bombard opponents, dealing DMG equal to 120% of <color=#FFD780FF>Sparks 'n' Splash</color>'s DMG.\\nFor 12s after triggering the above effect, Klee's ATK is increased by 60%.",
+      "icon": "UI_Talent_S_Klee_01"
+    },
+    "const2": {
+      "name": "Explosive Frags",
+      "description": "When Klee's Elemental Skill hits an opponent, that opponent's DEF will be decreased by 23% for 10s.",
+      "icon": "UI_Talent_S_Klee_02"
+    },
+    "const3": {
+      "name": "Exquisite Compound",
+      "description": "Increases the Level of <color=#FFD780FF>Jumpy Dumpty</color> by 3.\\nMaximum upgrade level is 15.",
+      "icon": "UI_Talent_U_Klee_01"
+    },
+    "const4": {
+      "name": "Sparkly Explosion",
+      "description": "An explosion will be triggered if Klee leaves the field while <color=#FFD780FF>Sparks 'n' Splash</color> is active or when Sparks 'n' Splash ends, dealing 555% of ATK as <color=#FF9999FF>AoE Pyro DMG</color>. If Klee is on-field when the explosion occurs, its DMG will be increased by 100%.",
+      "icon": "UI_Talent_S_Klee_03"
+    },
+    "const5": {
+      "name": "Nova Burst",
+      "description": "Increases the Level of <color=#FFD780FF>Sparks 'n' Splash</color> by 3.\\nMaximum upgrade level is 15.",
+      "icon": "UI_Talent_U_Klee_02"
+    },
+    "const6": {
+      "name": "Blazing Delight",
+      "description": "While under the effects of <color=#FFD780FF>Sparks 'n' Splash</color>, Klee will regenerate 3 Energy for all members of the party (excluding Klee) every 3s.\\nFor 25s after <color=#FFD780FF>Sparks 'n' Splash</color> is used, all other party members will gain a 10% <color=#FF9999FF>Pyro DMG Bonus</color>, and Klee will gain a 50% <color=#FF9999FF>Pyro DMG Bonus</color>.\\n\\n<color=#FFD780FF>Hexerei: Secret Rite</color>\\n· When Klee uses an <color=#FFD780FF>Explosive Spark</color>, there is a 50% chance it will not be consumed. Additionally, while <color=#FFD780FF>Sparks 'n' Splash</color> is active, Klee's Normal Attacks have a 40% chance on the first and second hits to consume an Explosive Spark, dealing an additional attack equivalent to Boom-Boom Strike to her opponent(s).",
+      "icon": "UI_Talent_S_Klee_04"
+    }
+  },
+  "hyperlinks": [],
+  "stories": {
+    "x18201": {
+      "storyTitle": "Character Details",
+      "storyText": "When the patrons of Mondstadt's taverns are asked about the strongest knight of the Knights of Favonius, three names are likely to come up:\\nThe highly reputable Acting Grand Master Jean, Cavalry Captain Kaeya, and the mysterious tycoon, Diluc.\\nHowever, some claim to have witnessed, albeit through bleary, drunken eyes, a knight in red, leveling the entire Stormbearer Mountains.\\nIf one wants to find this mysterious knight, then they need look no further than the solitary confinement cell inside the Knights of Favonius Headquarters.\\nIf the cell is found vacant... then something explosively unfortunate is likely about to take place...\\nKlee is well known for the danger she presents. As an official member of the Knights of Favonius, her strength in combat cannot be underestimated.\\nAs a hyperactive child, meanwhile, her destructive capabilities cannot be overstated.\\nAfter all, while other Mondstadt children her age are still playing with regular toys, Klee's favorite toys are... live explosives.",
+      "unlockConds": []
+    },
+    "x18202": {
+      "storyTitle": "Character Story 1",
+      "storyText": "Three years ago, Klee was entrusted to the Knights of Favonius by her parents, who were famed adventurers.\\nThis was how the fates of Klee and \"that boy in white\" became intertwined with their \"family\" in Mondstadt.\\nKlee is curious about everything in the outside world. She has an innocent passion for explosives, and is incredibly enthusiastic in all that she does.\\nUnder the protection of the Knights of Favonius, she is protected from harm and those of ill intent.\\nThis young girl soon forged an unbreakable bond with everyone in the Knights of Favonius.\\nBeing sent to the solitary confinement room by Jean, helping Amber improving Baron Bunny, as well as developing new bombs...\\nThese parts of Klee's life are all invaluable treasures to her.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 2
+      }
+    },
+    "x18203": {
+      "storyTitle": "Character Story 2",
+      "storyText": "\"The apple doesn't fall far from the tree...\"\\nJean sighs to herself as she sits down at her desk, head in hands, faced once again with a stack of damage reports.\\nCarts blasted beyond repair, storage shacks burnt down, forest fires that the knights barely managed to contain...\\nNot to mention the suspiciously high number of deaths from unnatural causes among the fish of Starfell Lake.\\nThere's only one potential culprit behind all of this, and she just so happens to be one of their own...\\n\"Klee!\"\\nFaced with Jean's stern glare, the harmless-looking Klee surrenders all her concealed explosives.\\nShe is then escorted to solitary confinement, despite her protests amidst floods of tears.\\nThis occurs about once or twice a week at the Knights of Favonius.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 3
+      }
+    },
+    "x18204": {
+      "storyTitle": "Character Story 3",
+      "storyText": "Of course, Klee always tries to help clean up the messes she's made.\\nHowever, sometimes her reckless personality makes things worse still.\\nFor example, she once wanted to apologize to everyone by making some BBQ fish, but ended up blowing the stove sky-high.\\nThen there was the time she got into a fluster and tried to put the fire out... with wind — which obviously resulted in the whole plain going up in flames.\\nKlee is not a bad kid by nature, it's just that her curious and playful nature always results in her failing to think before she acts.\\nAnd every time she gets into trouble, she guiltily tries to make up for it.\\nThough once Jean lets Klee out of solitary confinement, there's usually no more than a day or two before the sound of explosions return to Mondstadt.\\nThe \"Spark Knight\" always manages to live up to her title in a range of unexpected ways.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 4
+      }
+    },
+    "x18205": {
+      "storyTitle": "Character Story 4",
+      "storyText": "Though Klee always ends up causing trouble for the Knights of Favonius and Mondstadt, she isn't just some rookie who drags the team down.\\nOn the contrary, her skills with explosives can be quite handy if applied correctly.\\nOnce, Jean was able to defeat a horde of invading hilichurls utilizing Klee's special talents alone.\\nHowever, Klee also forever changed the face of Stormbearer Mountains in that same operation due to recklessly placing too many charges...\\nNeedless to say, everyone was more than a little shocked, but at least no one from the Knights of Favonius was injured.\\nSince then, the legend of the \"Red Knight of the Stormbearer Mountains\" began to circulate around Mondstadt.\\nRumor has it that she is cloaked in red, and clutches the greatest treasure the Knights of Favonius have.\\nHowever, only Klee knows what this \"treasure\" truly is.",
+      "unlockConds": [
+        {
+          "type": "FETTER_COND_FETTER_LEVEL",
+          "value": 5
+        },
+        {
+          "type": "FETTER_COND_FINISH_QUEST",
+          "value": 1.020204E+6
+        }
+      ]
+    },
+    "x18206": {
+      "storyTitle": "Character Story 5",
+      "storyText": "To Klee, the Knights of Favonius are family, and she can't imagine life without them. Her biggest role model, however, is still her birth mother — the avid adventurer, Alice.\\nA highly renowned adventurer and author of the popular Teyvat Travel Guide, there is nothing this incredible mother cannot do — as far as Klee is concerned, anyway.\\nWhether it's the way she used to guide Klee step-by-step through the techniques for adding gunpowder and selecting fuses, or the encouragement she'd give Klee to express her creativity through ever-bolder and more beautiful fireworks...\\nOr that time she taught her how to identify Starsnatch Cliff's load-bearing points, then place explosive charges accordingly to bring the whole thing down...\\nOr that time they stuck their tongues out at each other awkwardly while being told off by Huffman of the Knights of Favonius...\\nKlee has many treasured memories of her mother.\\nThis was the way things were until her parents left to travel to somewhere dangerous and far away. They entrusted Klee to the care of Albedo and the Knights of Favonius.\\nThough still small, Klee knew she would one day become just like her mother.\\nOne day, her explosives would become something that her mother would be proud of.",
+      "unlockConds": [
+        {
+          "type": "FETTER_COND_FETTER_LEVEL",
+          "value": 6
+        },
+        {
+          "type": "FETTER_COND_FINISH_QUEST",
+          "value": 1.020204E+6
+        }
+      ]
+    },
+    "x18207": {
+      "storyTitle": "\"Dodoco\"",
+      "storyText": "Dodoco is Klee's first friend, and one of her best.\\nA very long time ago, her mother made this doll for her by hand.\\nAlice affixed it to Klee's four-leaf clover, and hung on her big backpack.\\nFrom that day forth, Klee and Dodoco became inseparable.\\nHer mother said that this would ensure that Klee would never be lonely and that she would have a friend to confide in even when she was alone.\\nThey would also protect each other in times of danger, just like Amber and Baron Bunny.\\nThis, however, worried the Knights quite a fair bit — considering the other things Alice and her daughter had invented, perhaps this, too, might explode at any time...\\n\"Dodoco\" is a name Klee picked herself.\\nWhen asked what this name meant, she flushed red for a good long while before replying: \"It means... Klee's best friend!\"",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 4
+      }
+    },
+    "x18208": {
+      "storyTitle": "Vision",
+      "storyText": "Asking Klee how she obtained a Vision will probably get you nowhere — she doesn't know, either.\\nA natural-born pyromaniac, Klee had already been acknowledged by a Vision from a very young age.\\nAccording to Klee herself, she had been creating a bomb that was \"even bigger than super big!\"\\nThis was her very first solo project, but the results were far from expected—\\nWell, she \"only\" blew her small workshop sky high, leaving a mountain of smoking ash.\\nBut rather than being disappointed, Klee was pleasantly surprised to see a flaming Vision emerge from those ashes.\\nHow did Klee receive this divine acknowledgment?\\nWas it her talent and passion for explosives, the individualistic nature she got from her mother, or her shining innocence?\\nRegardless, Klee had already obtained such a coveted item at a tender, carefree age.\\nRegardless of what she faces as she grows up, she will never give this \"present\" up.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 6
+      }
+    }
+  },
+  "quotes": {
+    "x18009": {
+      "quoteTitle": "Hello",
+      "quoteText": "Spark Knight Klee of the Knights of Favonius, reporting for duty! ...There's some more, but uh, I forgot. I'm not so good at remembering...",
+      "unlockConds": []
+    },
+    "x18010": {
+      "quoteTitle": "Chat: Spoils",
+      "quoteText": "Klee was a brave girl today! I found a really weird-looking lizard! Want me to show it to you?",
+      "unlockConds": []
+    },
+    "x18011": {
+      "quoteTitle": "Chat: Adventures",
+      "quoteText": "Do you wanna come fish blasting with me? I'll get grounded for a whole day, but it's way worth it 'cuz the fish taste sooo goood!",
+      "unlockConds": []
+    },
+    "x18012": {
+      "quoteTitle": "Chat: Rules",
+      "quoteText": "\"Explosion inside city wall, grounded be thy woe,\" \"Explosions can hurt people, Jean can be dreadful,\" \"Mondstadt be bombed, Klee be doomed.\" Those're the survival rules that the Knights of Favonius gave me.",
+      "unlockConds": []
+    },
+    "x18013": {
+      "quoteTitle": "When It Rains",
+      "quoteText": "Mwuhahaha, lucky all my new bombs are waterproof!",
+      "unlockConds": []
+    },
+    "x18014": {
+      "quoteTitle": "When Thunder Strikes",
+      "quoteText": "What'd I blow up!? ...Oh wait, it's just thunder and lightning. Phew.",
+      "unlockConds": []
+    },
+    "x18015": {
+      "quoteTitle": "When the Wind Is Blowing",
+      "quoteText": "Dear Anemo God, please make Klee's bombs blow in the right direction and only blow up bad guys. The end.",
+      "unlockConds": []
+    },
+    "x18016": {
+      "quoteTitle": "Good Morning",
+      "quoteText": "Good morning! Can I come play with you today? Pleeeease? I wanna go on an adventure!",
+      "unlockConds": []
+    },
+    "x18017": {
+      "quoteTitle": "Good Afternoon",
+      "quoteText": "Lunchtime! What do you wanna eat today? Let me see if the Teyvat Travel Guide has any suggestions...",
+      "unlockConds": []
+    },
+    "x18018": {
+      "quoteTitle": "Good Evening",
+      "quoteText": "Good evening! Can you please tell Huffman that Klee is not a baby and is definitely allowed out to play at night? Please take me out to play together!",
+      "unlockConds": []
+    },
+    "x18019": {
+      "quoteTitle": "Good Night",
+      "quoteText": "Hey... Um... I know I said I don't wanna go home and all, but now it's nighttime and I can't find my way home in the dark... Can you please take me home on your way back? Pleeeease?",
+      "unlockConds": []
+    },
+    "x18020": {
+      "quoteTitle": "About Klee: Incidents",
+      "quoteText": "Ohhhhh... I broke one of the blades on the windmill— I'm really sorry!",
+      "unlockConds": []
+    },
+    "x18021": {
+      "quoteTitle": "About Klee: Reparations",
+      "quoteText": "I'm really good at fixing things though. I can help! Huh? What do you mean that's child labor? What even is child labor? Does that mean I can't help?",
+      "unlockConds": []
+    },
+    "x18022": {
+      "quoteTitle": "About Us: Knights",
+      "quoteText": "Hee-hee, you're an Honorary Knight but I've been a Spark Knight longer... That means I'm higher up than you, right? So you have to do what I say! So, um... Ca—Can you not say anything about the big disaster I caused? It was an accident...",
+      "unlockConds": [
+        "Complete \"For a Tomorrow Without Tears\""
+      ]
+    },
+    "x18023": {
+      "quoteTitle": "About Us: Playmates",
+      "quoteText": "No! It's only nine o'clock, I'm staying up to watch the circus' special midnight performance! You're supposed to be my best friend! Don't even think about trying to send me home!",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 6"
+      ]
+    },
+    "x18024": {
+      "quoteTitle": "About the Vision",
+      "quoteText": "This little marble is supposed to be a present from Barbatos to say well done? Well done for what though? ...Hmm, he is the god of freedom I guess, maybe that's why he likes me? Alright, from now on I'll say thank you to Barbatos by showing that I have the freedom to blow up as many fish as I want! ...Am I doing it right?",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x18025": {
+      "quoteTitle": "Something to Share",
+      "quoteText": "At the Knights of Favonius building, you're not allowed to blow up the walls. Shame, it would make getting out of solitary confinement way easier... but if I did so much as try to blow up the wall, Jean would make sure Klee never sees the light of day again. That's what Jean said, Kaeya told me.",
+      "unlockConds": []
+    },
+    "x18026": {
+      "quoteTitle": "Interesting Things",
+      "quoteText": "Every lizard has a different pattern on his back, and some of them you can use their dried-out tails to make gunpowder with. I know because Albedo told me so.",
+      "unlockConds": []
+    },
+    "x18027": {
+      "quoteTitle": "About Razor",
+      "quoteText": "Razor's one of my best buddies! Whenever a disaster happens, he always knows the best way to fix it and helps keep Klee safe. Um, but most of the time I'm the one who caused the disaster...",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x18028": {
+      "quoteTitle": "About the Parents",
+      "quoteText": "My mom and dad are the famousest travelers in Teyvat! Mom writes the Teyvat Travel Guide, so all the restaurants and hotels in the whole world care what she thinks about them.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x18029": {
+      "quoteTitle": "About Kaeya",
+      "quoteText": "Kaeya is the best! He wrote the Favonius Survival Rulebook for me and he always helps me cover it up when I make a big disaster.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x18030": {
+      "quoteTitle": "About Amber",
+      "quoteText": "Amber is the best! Baron Bunny is so fluffy and he even explodes! So. Cool.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x18031": {
+      "quoteTitle": "About Jean",
+      "quoteText": "Master Jean is the best! But she's also a little bit scary.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x18032": {
+      "quoteTitle": "About Diluc",
+      "quoteText": "He's one of the weird grown-ups. He's so grumpy all the time... Why does he never smile?",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x18033": {
+      "quoteTitle": "About Lisa",
+      "quoteText": "Lisa is the best! She always sneaks me some treats when I visit her at the workshop. ...Huh, I just remembered I was gonna ask her if I could use the workshop to make some new gunpowder. But I totally forgot...",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x18034": {
+      "quoteTitle": "About Bennett",
+      "quoteText": "Bennett is the best! I always find way more treasure if I go adventuring with Bennett! ...But he never finds any. Why is that, anyway?",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x18035": {
+      "quoteTitle": "About Diona",
+      "quoteText": "Diona is the best! I like listening to her, last time I heard her say, \"I'm gonna destroy the wine industry in this city if it's the last thing I do!\" And I'm gonna help her using my bombs! ...I don't know what a wine industry is though. Is it a monster?",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x18036": {
+      "quoteTitle": "About Albedo",
+      "quoteText": "Me and Albedo have a secret code! Whenever he puts a sign on his workshop door saying \"Experiment in Progress,\" that's code for \"Come Back Later, Klee.\" Albedo's really nice and he's so patient with me, so I don't mind waiting until he's finished with his work.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x18037": {
+      "quoteTitle": "About Mona",
+      "quoteText": "Mona is the best! It's so much fun when she comes to play with me and Albedo. She talks about all these amazing things, and I don't understand most of it but... Ah, I just love it when Mona comes round!",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x18038": {
+      "quoteTitle": "About Sucrose",
+      "quoteText": "Sucrose is the best! This one time she asked me if I wanted a Jumpy Dumpty that can run as well as jump. Tee-hee, well duh! Of course I do, I want hundreds of them! I wanna put them on every street, every staircase, and every square in Mondstadt!",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x18039": {
+      "quoteTitle": "More About Klee: I",
+      "quoteText": "Hello, are you here for playtime with Klee?",
+      "unlockConds": []
+    },
+    "x18040": {
+      "quoteTitle": "More About Klee: II",
+      "quoteText": "Yeah! This is my new and improved bomb! Whaddya think? Great huh? ...Oh, but ahh... If you find it near any fires, it's not mine. Definitely. Not. Mine.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 3"
+      ]
+    },
+    "x18041": {
+      "quoteTitle": "More About Klee: III",
+      "quoteText": "Sure, time in solitary confinement gives lots of time to think about new gunpowder formulas... But it'd still be better to not be in solitary in the first place.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x18042": {
+      "quoteTitle": "More About Klee: IV",
+      "quoteText": "This is Dodoco, my oldest and bestest friend! Okay, now I've introduced you, don't forget her name again alright? No more calling Dodoco \"that silly doll Klee always hangs on her rucksack.\"",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 5"
+      ]
+    },
+    "x18043": {
+      "quoteTitle": "More About Klee: V",
+      "quoteText": "Thanks for helping me out every time I get in trouble! I have a thank-you present for you — barbecued fish, made with my own secret recipe! ...Okay, so the secret recipe is exploding the fish out of the water. Tee-hee, they're fully cooked by the time they land! But it's a secret, right, so you don't get to tell anybody. Just pretend like you don't even know.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 6"
+      ]
+    },
+    "x18044": {
+      "quoteTitle": "Klee's Hobbies",
+      "quoteText": "I like things that are fluffy~! Like Dodoco! And dandelions! And Razor's hair!",
+      "unlockConds": []
+    },
+    "x18045": {
+      "quoteTitle": "Klee's Troubles",
+      "quoteText": "*sigh* You're a good person, but I'm a bad girl. Once I'm out of solitary confinement and am done reflecting on my actions, we can go play together again, okay?",
+      "unlockConds": []
+    },
+    "x18046": {
+      "quoteTitle": "Favorite Food",
+      "quoteText": "Mondstadt's basses are delicious, especially the ones you grab yourself from Cider Lake! I'm not even kidding, even my mom thinks so.",
+      "unlockConds": []
+    },
+    "x18047": {
+      "quoteTitle": "Least Favorite Food",
+      "quoteText": "I hate, hate, hate Mondstadt's crabs! All of them! I wanna go out and play, I don't wanna just sit there tryna de-shell a crab all day...",
+      "unlockConds": []
+    },
+    "x18048": {
+      "quoteTitle": "Birthday",
+      "quoteText": "♪Happy birthday to you, happy birthday to you, happy birthday dear Traveler, happy birthday to you!♪ You're older than me right? That means you've had way more birthdays than me... I'm sooo jealous!",
+      "unlockConds": []
+    },
+    "x18049": {
+      "quoteTitle": "Feelings About Ascension: Intro",
+      "quoteText": "Mm, new-bomb research complete! Now, let's get outta here before Jean finds out...",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 1"
+      ]
+    },
+    "x18050": {
+      "quoteTitle": "Feelings About Ascension: Building Up",
+      "quoteText": "Aw yeah, I improved again! But as Jean says, \"Continuous self-improvement is one's duty.\" She says that means I'm allowed to be a bit happy about it, but not the most happy I've ever been in my whole life about it.",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 2"
+      ]
+    },
+    "x18051": {
+      "quoteTitle": "Feelings About Ascension: Climax",
+      "quoteText": "Thanks for helping me gather so much stuff for my research! If you ever wanna learn how to make a bomb, I can teach you y'know.",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 4"
+      ]
+    },
+    "x18052": {
+      "quoteTitle": "Feelings About Ascension: Conclusion",
+      "quoteText": "I remember the first time I ever heard an explosion... I wasn't scared at all. Later on, I found out that apparently, that's not \"normal,\" and most people would've been scared. But hey, you're not scared of my bombs right? Tee-hee, I knew it! That's why you're my bestest friend ever!",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 6"
+      ]
+    },
+    "x18053": {
+      "quoteTitle": "Elemental Skill: I",
+      "quoteText": "Jumpy Dumpty go!",
+      "unlockConds": []
+    },
+    "x18054": {
+      "quoteTitle": "Elemental Skill: II",
+      "quoteText": "Boing, boing, boom!",
+      "unlockConds": []
+    },
+    "x18055": {
+      "quoteTitle": "Elemental Skill: III",
+      "quoteText": "Pieew.",
+      "unlockConds": []
+    },
+    "x18056": {
+      "quoteTitle": "Elemental Burst: I",
+      "quoteText": "Sparks 'n' Splash!",
+      "unlockConds": []
+    },
+    "x18057": {
+      "quoteTitle": "Elemental Burst: II",
+      "quoteText": "Blazing Delight!",
+      "unlockConds": []
+    },
+    "x18058": {
+      "quoteTitle": "Elemental Burst: III",
+      "quoteText": "Blow them aaaalll up!",
+      "unlockConds": []
+    },
+    "x18059": {
+      "quoteTitle": "Sprint Start: I",
+      "quoteText": "Lalala~",
+      "unlockConds": []
+    },
+    "x18060": {
+      "quoteTitle": "Sprint Start: II",
+      "quoteText": "Da-da-da~",
+      "unlockConds": []
+    },
+    "x18061": {
+      "quoteTitle": "Opening Treasure Chest: I",
+      "quoteText": "More treasure, more treasure! Hee-hee...",
+      "unlockConds": []
+    },
+    "x18062": {
+      "quoteTitle": "Opening Treasure Chest: II",
+      "quoteText": "Yay, shiny!",
+      "unlockConds": []
+    },
+    "x18063": {
+      "quoteTitle": "Opening Treasure Chest: III",
+      "quoteText": "Maybe there's even more buried below...",
+      "unlockConds": []
+    },
+    "x18064": {
+      "quoteTitle": "Low HP: I",
+      "quoteText": "What did you do that for!?",
+      "unlockConds": []
+    },
+    "x18065": {
+      "quoteTitle": "Low HP: II",
+      "quoteText": "Jeeeean... they're picking on me!",
+      "unlockConds": []
+    },
+    "x18066": {
+      "quoteTitle": "Low HP: III",
+      "quoteText": "I feel kinda woozy...",
+      "unlockConds": []
+    },
+    "x18067": {
+      "quoteTitle": "Ally at Low HP: I",
+      "quoteText": "I can make a big bang if you want!",
+      "unlockConds": []
+    },
+    "x18068": {
+      "quoteTitle": "Ally at Low HP: II",
+      "quoteText": "Are you okay?",
+      "unlockConds": []
+    },
+    "x18069": {
+      "quoteTitle": "Fallen: I",
+      "quoteText": "Yay, I did it! Oh wait, no I didn't...",
+      "unlockConds": []
+    },
+    "x18070": {
+      "quoteTitle": "Fallen: II",
+      "quoteText": "I wanna go home now...",
+      "unlockConds": []
+    },
+    "x18071": {
+      "quoteTitle": "Fallen: III",
+      "quoteText": "It was an accident...",
+      "unlockConds": []
+    },
+    "x18072": {
+      "quoteTitle": "Light Hit Taken: I",
+      "quoteText": "No fair!",
+      "unlockConds": []
+    },
+    "x18073": {
+      "quoteTitle": "Heavy Hit Taken: I",
+      "quoteText": "That really hurt!",
+      "unlockConds": []
+    },
+    "x18074": {
+      "quoteTitle": "Joining Party: I",
+      "quoteText": "Klee can help!",
+      "unlockConds": []
+    },
+    "x18075": {
+      "quoteTitle": "Joining Party: II",
+      "quoteText": "Ta-da! Klee is here!",
+      "unlockConds": []
+    },
+    "x18076": {
+      "quoteTitle": "Joining Party: III",
+      "quoteText": "Yea! Let's go on a big adventure!",
+      "unlockConds": []
+    },
+    "x18077": {
+      "quoteTitle": "Receiving a Gift: I",
+      "quoteText": "Yummy, yummy! Oof, I'm so full...",
+      "unlockConds": []
+    },
+    "x18078": {
+      "quoteTitle": "Receiving a Gift: II",
+      "quoteText": "Yay, I got to eat something tasty today. I'm so happy! Thank you!",
+      "unlockConds": []
+    },
+    "x18079": {
+      "quoteTitle": "Receiving a Gift: III",
+      "quoteText": "It looks yummy, but it's kinda hard work to eat... Hee-hee, how about you help me? Pretty please!",
+      "unlockConds": []
+    },
+    "x18080": {
+      "quoteTitle": "About Durin",
+      "quoteText": "Hehe, Durin lives in Mondstadt now — I'm going to play with him every day! I'll take him fish blasting, and he can fly me up high to throw Jumpy Dumpty at the fish!",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x18081": {
+      "quoteTitle": "About Lohen",
+      "quoteText": "Lohen is the best! Last time Klee saw him, he gave me so many yummy treats — and he only wanted a small box of crayons in return! If Lohen has the time, Klee would love to teach him how to draw... Maybe we can invite Uncle Varka, too!",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x18082": {
+      "quoteTitle": "About Prune",
+      "quoteText": "Prune is the best! Mom wrote me a letter saying Prune wants someone to play with, but she's too shy to ask. That's why Klee's decided to take her fish blasting, or on a trip to Dragonspine, or the Golden Apple Archipelago, or, or, or... Simulanka! She's gonna have so much fun!",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    }
+  },
+  "energy": [
+    {
+      "source": "Jumping_Drug_ElementBall",
+      "particles": "4",
+      "chance": "100%",
+      "cd": "Instant"
+    },
+    {
+      "source": "Jumping_Drug_ElementBall",
+      "particles": "4",
+      "chance": "100%",
+      "cd": "Instant"
+    },
+    {
+      "source": "Jumping_Drug_ElementBall",
+      "particles": "4",
+      "chance": "100%",
+      "cd": "Instant"
+    }
+  ],
+  "attacks": [
+    {
+      "name": "ExtraAttack_Clover_Bullet",
+      "icd_source": "Tag: ExtraAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV8/180",
+      "element": "Fire",
+      "attackType": "Default",
+      "strikeType": "Blunt",
+      "damageParam": "ExtraAttack_Damage"
+    },
+    {
+      "name": "ExtraAttack_Clover_Bullet_Auto_01",
+      "icd_source": "Tag: ExtraAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV8/180",
+      "element": "Fire",
+      "attackType": "Default",
+      "strikeType": "Blunt",
+      "damageParam": "ExtraAttack_Damage"
+    },
+    {
+      "name": "NoarmalAttack_01_Damage",
+      "icd_source": "Tag: Klee_Fire_Damage (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV3/65",
+      "element": "Fire",
+      "attackType": "Default",
+      "strikeType": "Blunt",
+      "damageParam": "NormalAttack_01_Damage"
+    },
+    {
+      "name": "NoarmalAttack_02_Damage",
+      "icd_source": "Tag: Klee_Fire_Damage (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV3/65",
+      "element": "Fire",
+      "attackType": "Default",
+      "strikeType": "Blunt",
+      "damageParam": "NormalAttack_02_Damage"
+    },
+    {
+      "name": "NoarmalAttack_03_Damage",
+      "icd_source": "Tag: Klee_Fire_Damage (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV5/130",
+      "element": "Fire",
+      "attackType": "Default",
+      "strikeType": "Blunt",
+      "damageParam": "NormalAttack_03_Damage"
+    },
+    {
+      "name": "Jumping_Drug_Explode",
+      "icd_source": "Tag: Klee_Fire_Damage (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV3/40",
+      "element": "Fire",
+      "attackType": "Default",
+      "strikeType": "Blunt",
+      "damageParam": "ElementalArt_Damage_01"
+    },
+    {
+      "name": "Jumping_Drug_Explode2",
+      "icd_source": "Tag: Klee_Fire_Damage (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV3/40",
+      "element": "Fire",
+      "attackType": "Default",
+      "strikeType": "Blunt",
+      "damageParam": "ElementalArt_Damage_02"
+    },
+    {
+      "name": "Jumping_Drug_Explode3",
+      "icd_source": "Tag: Klee_Fire_Damage (!)",
+      "icd_rule": "Independent",
+      "gauge": "2U",
+      "poise": "LV3/40",
+      "element": "Fire",
+      "attackType": "Default",
+      "strikeType": "Blunt",
+      "damageParam": "ElementalArt_Damage_03"
+    },
+    {
+      "name": "Mine",
+      "icd_source": "Tag: Klee_Fire_Damage (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV3/40",
+      "element": "Fire",
+      "attackType": "Default",
+      "strikeType": "None",
+      "damageParam": "ElementalArt_Mine_Damage"
+    },
+    {
+      "name": "ElementalBurst_CreateFunnel",
+      "icd_source": "Tag: Elemental_Burst (!)",
+      "icd_rule": "Independent",
+      "gauge": "4U",
+      "poise": "LV0/0",
+      "element": "-",
+      "attackType": "Default",
+      "strikeType": "None",
+      "damageParam": "-"
+    },
+    {
+      "name": "Elemental_Burst_Explode",
+      "icd_source": "Tag: Elemental_Burst (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV0/25",
+      "element": "Fire",
+      "attackType": "Default",
+      "strikeType": "None",
+      "damageParam": "ElementalBurst_Damage"
+    },
+    {
+      "name": "Constellation_Explode",
+      "icd_source": "Tag: Elemental_Burst (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV0/25",
+      "element": "Fire",
+      "attackType": "Default",
+      "strikeType": "None",
+      "damageParam": "Constellation_Explode_Damage"
+    },
+    {
+      "name": "Constellation_4",
+      "icd_source": "Grp: default",
+      "icd_rule": "Standard (3h/2.5s)",
+      "gauge": "2U",
+      "poise": "LV5/120",
+      "element": "Fire",
+      "attackType": "Default",
+      "strikeType": "None",
+      "damageParam": "Klee_Constellation_4_Damage"
+    },
+    {
+      "name": "Constellation_4",
+      "icd_source": "Tag: Klee_C4_Damage (!)",
+      "icd_rule": "Independent",
+      "gauge": "2U",
+      "poise": "LV5/120",
+      "element": "Fire",
+      "attackType": "Default",
+      "strikeType": "None",
+      "damageParam": "Klee_Constellation_4_Damage"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "0U",
+      "poise": "LV2/5",
+      "element": "Fire",
+      "attackType": "Default",
+      "strikeType": "-",
+      "damageParam": "FallingAnthem_Normal_Loop_Damage"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV3/50",
+      "element": "Fire",
+      "attackType": "Default",
+      "strikeType": "-",
+      "damageParam": "FallingAnthem_Normal_Rank_1_Damage"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV4/100",
+      "element": "Fire",
+      "attackType": "Default",
+      "strikeType": "-",
+      "damageParam": "FallingAnthem_Normal_Rank_2_Damage"
+    }
+  ],
+  "endure": {
+    "ability": "PermanentSkill_1",
+    "handler": "PermanentSkill_Free_ExtraAttack",
+    "Actor_EndureDelta": 0
+  }
+}

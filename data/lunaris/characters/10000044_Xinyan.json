@@ -1,0 +1,1816 @@
+{
+  "info": {
+    "name": "Xinyan",
+    "description": "Liyue's sole rock 'n' roll musician. She rebels against ossified prejudices using her music and passionate singing.",
+    "rarity": "QUALITY_PURPLE",
+    "weapon": "WEAPON_CLAYMORE",
+    "birthday": "16/10",
+    "element": "Pyro",
+    "title": "Blazing Riff",
+    "constellation": "Fila Ignium",
+    "affiliation": "\"The Red Strings\"",
+    "cv": {
+      "EN": "Laura Stahl",
+      "CHS": "王雅欣",
+      "JP": "たかはし智秋",
+      "KR": "Kim Chae-ha"
+    },
+    "attributes": [
+      {
+        "level": 1,
+        "ascension": 0,
+        "hp": 939,
+        "atk": 21,
+        "def": 67,
+        "ATK_": "0"
+      },
+      {
+        "level": 2,
+        "ascension": 0,
+        "hp": 1017,
+        "atk": 23,
+        "def": 73,
+        "ATK_": "0"
+      },
+      {
+        "level": 3,
+        "ascension": 0,
+        "hp": 1094,
+        "atk": 24,
+        "def": 78,
+        "ATK_": "0"
+      },
+      {
+        "level": 4,
+        "ascension": 0,
+        "hp": 1172,
+        "atk": 26,
+        "def": 84,
+        "ATK_": "0"
+      },
+      {
+        "level": 5,
+        "ascension": 0,
+        "hp": 1249,
+        "atk": 28,
+        "def": 89,
+        "ATK_": "0"
+      },
+      {
+        "level": 6,
+        "ascension": 0,
+        "hp": 1327,
+        "atk": 29,
+        "def": 95,
+        "ATK_": "0"
+      },
+      {
+        "level": 7,
+        "ascension": 0,
+        "hp": 1404,
+        "atk": 31,
+        "def": 100,
+        "ATK_": "0"
+      },
+      {
+        "level": 8,
+        "ascension": 0,
+        "hp": 1482,
+        "atk": 33,
+        "def": 106,
+        "ATK_": "0"
+      },
+      {
+        "level": 9,
+        "ascension": 0,
+        "hp": 1560,
+        "atk": 35,
+        "def": 111,
+        "ATK_": "0"
+      },
+      {
+        "level": 10,
+        "ascension": 0,
+        "hp": 1637,
+        "atk": 36,
+        "def": 117,
+        "ATK_": "0"
+      },
+      {
+        "level": 11,
+        "ascension": 0,
+        "hp": 1715,
+        "atk": 38,
+        "def": 122,
+        "ATK_": "0"
+      },
+      {
+        "level": 12,
+        "ascension": 0,
+        "hp": 1792,
+        "atk": 40,
+        "def": 128,
+        "ATK_": "0"
+      },
+      {
+        "level": 13,
+        "ascension": 0,
+        "hp": 1870,
+        "atk": 41,
+        "def": 133,
+        "ATK_": "0"
+      },
+      {
+        "level": 14,
+        "ascension": 0,
+        "hp": 1947,
+        "atk": 43,
+        "def": 139,
+        "ATK_": "0"
+      },
+      {
+        "level": 15,
+        "ascension": 0,
+        "hp": 2025,
+        "atk": 45,
+        "def": 144,
+        "ATK_": "0"
+      },
+      {
+        "level": 16,
+        "ascension": 0,
+        "hp": 2103,
+        "atk": 47,
+        "def": 150,
+        "ATK_": "0"
+      },
+      {
+        "level": 17,
+        "ascension": 0,
+        "hp": 2180,
+        "atk": 48,
+        "def": 155,
+        "ATK_": "0"
+      },
+      {
+        "level": 18,
+        "ascension": 0,
+        "hp": 2258,
+        "atk": 50,
+        "def": 161,
+        "ATK_": "0"
+      },
+      {
+        "level": 19,
+        "ascension": 0,
+        "hp": 2335,
+        "atk": 52,
+        "def": 166,
+        "ATK_": "0"
+      },
+      {
+        "level": 20,
+        "ascension": 0,
+        "hp": 2413,
+        "atk": 54,
+        "def": 172,
+        "ATK_": "0"
+      },
+      {
+        "level": 21,
+        "ascension": 1,
+        "hp": 3191,
+        "atk": 71,
+        "def": 228,
+        "ATK_": "0"
+      },
+      {
+        "level": 22,
+        "ascension": 1,
+        "hp": 3269,
+        "atk": 73,
+        "def": 233,
+        "ATK_": "0"
+      },
+      {
+        "level": 23,
+        "ascension": 1,
+        "hp": 3347,
+        "atk": 74,
+        "def": 239,
+        "ATK_": "0"
+      },
+      {
+        "level": 24,
+        "ascension": 1,
+        "hp": 3424,
+        "atk": 76,
+        "def": 244,
+        "ATK_": "0"
+      },
+      {
+        "level": 25,
+        "ascension": 1,
+        "hp": 3502,
+        "atk": 78,
+        "def": 250,
+        "ATK_": "0"
+      },
+      {
+        "level": 26,
+        "ascension": 1,
+        "hp": 3579,
+        "atk": 79,
+        "def": 255,
+        "ATK_": "0"
+      },
+      {
+        "level": 27,
+        "ascension": 1,
+        "hp": 3657,
+        "atk": 81,
+        "def": 261,
+        "ATK_": "0"
+      },
+      {
+        "level": 28,
+        "ascension": 1,
+        "hp": 3734,
+        "atk": 83,
+        "def": 266,
+        "ATK_": "0"
+      },
+      {
+        "level": 29,
+        "ascension": 1,
+        "hp": 3812,
+        "atk": 85,
+        "def": 272,
+        "ATK_": "0"
+      },
+      {
+        "level": 30,
+        "ascension": 1,
+        "hp": 3889,
+        "atk": 86,
+        "def": 277,
+        "ATK_": "0"
+      },
+      {
+        "level": 31,
+        "ascension": 1,
+        "hp": 3967,
+        "atk": 88,
+        "def": 283,
+        "ATK_": "0"
+      },
+      {
+        "level": 32,
+        "ascension": 1,
+        "hp": 4045,
+        "atk": 90,
+        "def": 288,
+        "ATK_": "0"
+      },
+      {
+        "level": 33,
+        "ascension": 1,
+        "hp": 4122,
+        "atk": 91,
+        "def": 294,
+        "ATK_": "0"
+      },
+      {
+        "level": 34,
+        "ascension": 1,
+        "hp": 4200,
+        "atk": 93,
+        "def": 299,
+        "ATK_": "0"
+      },
+      {
+        "level": 35,
+        "ascension": 1,
+        "hp": 4277,
+        "atk": 95,
+        "def": 305,
+        "ATK_": "0"
+      },
+      {
+        "level": 36,
+        "ascension": 1,
+        "hp": 4355,
+        "atk": 97,
+        "def": 310,
+        "ATK_": "0"
+      },
+      {
+        "level": 37,
+        "ascension": 1,
+        "hp": 4432,
+        "atk": 98,
+        "def": 316,
+        "ATK_": "0"
+      },
+      {
+        "level": 38,
+        "ascension": 1,
+        "hp": 4510,
+        "atk": 100,
+        "def": 322,
+        "ATK_": "0"
+      },
+      {
+        "level": 39,
+        "ascension": 1,
+        "hp": 4588,
+        "atk": 102,
+        "def": 327,
+        "ATK_": "0"
+      },
+      {
+        "level": 40,
+        "ascension": 1,
+        "hp": 4665,
+        "atk": 103,
+        "def": 333,
+        "ATK_": "0"
+      },
+      {
+        "level": 41,
+        "ascension": 2,
+        "hp": 5241,
+        "atk": 116,
+        "def": 374,
+        "ATK_": "6"
+      },
+      {
+        "level": 42,
+        "ascension": 2,
+        "hp": 5318,
+        "atk": 118,
+        "def": 379,
+        "ATK_": "6"
+      },
+      {
+        "level": 43,
+        "ascension": 2,
+        "hp": 5396,
+        "atk": 120,
+        "def": 385,
+        "ATK_": "6"
+      },
+      {
+        "level": 44,
+        "ascension": 2,
+        "hp": 5473,
+        "atk": 121,
+        "def": 390,
+        "ATK_": "6"
+      },
+      {
+        "level": 45,
+        "ascension": 2,
+        "hp": 5551,
+        "atk": 123,
+        "def": 396,
+        "ATK_": "6"
+      },
+      {
+        "level": 46,
+        "ascension": 2,
+        "hp": 5629,
+        "atk": 125,
+        "def": 401,
+        "ATK_": "6"
+      },
+      {
+        "level": 47,
+        "ascension": 2,
+        "hp": 5706,
+        "atk": 127,
+        "def": 407,
+        "ATK_": "6"
+      },
+      {
+        "level": 48,
+        "ascension": 2,
+        "hp": 5784,
+        "atk": 128,
+        "def": 412,
+        "ATK_": "6"
+      },
+      {
+        "level": 49,
+        "ascension": 2,
+        "hp": 5861,
+        "atk": 130,
+        "def": 418,
+        "ATK_": "6"
+      },
+      {
+        "level": 50,
+        "ascension": 2,
+        "hp": 5939,
+        "atk": 132,
+        "def": 423,
+        "ATK_": "6"
+      },
+      {
+        "level": 51,
+        "ascension": 3,
+        "hp": 6681,
+        "atk": 148,
+        "def": 476,
+        "ATK_": "12"
+      },
+      {
+        "level": 52,
+        "ascension": 3,
+        "hp": 6759,
+        "atk": 150,
+        "def": 482,
+        "ATK_": "12"
+      },
+      {
+        "level": 53,
+        "ascension": 3,
+        "hp": 6837,
+        "atk": 152,
+        "def": 487,
+        "ATK_": "12"
+      },
+      {
+        "level": 54,
+        "ascension": 3,
+        "hp": 6914,
+        "atk": 153,
+        "def": 493,
+        "ATK_": "12"
+      },
+      {
+        "level": 55,
+        "ascension": 3,
+        "hp": 6992,
+        "atk": 155,
+        "def": 498,
+        "ATK_": "12"
+      },
+      {
+        "level": 56,
+        "ascension": 3,
+        "hp": 7069,
+        "atk": 157,
+        "def": 504,
+        "ATK_": "12"
+      },
+      {
+        "level": 57,
+        "ascension": 3,
+        "hp": 7147,
+        "atk": 159,
+        "def": 509,
+        "ATK_": "12"
+      },
+      {
+        "level": 58,
+        "ascension": 3,
+        "hp": 7224,
+        "atk": 160,
+        "def": 515,
+        "ATK_": "12"
+      },
+      {
+        "level": 59,
+        "ascension": 3,
+        "hp": 7301,
+        "atk": 162,
+        "def": 521,
+        "ATK_": "12"
+      },
+      {
+        "level": 60,
+        "ascension": 3,
+        "hp": 7379,
+        "atk": 164,
+        "def": 526,
+        "ATK_": "12"
+      },
+      {
+        "level": 61,
+        "ascension": 4,
+        "hp": 7955,
+        "atk": 176,
+        "def": 567,
+        "ATK_": "12"
+      },
+      {
+        "level": 62,
+        "ascension": 4,
+        "hp": 8033,
+        "atk": 178,
+        "def": 573,
+        "ATK_": "12"
+      },
+      {
+        "level": 63,
+        "ascension": 4,
+        "hp": 8110,
+        "atk": 180,
+        "def": 578,
+        "ATK_": "12"
+      },
+      {
+        "level": 64,
+        "ascension": 4,
+        "hp": 8188,
+        "atk": 182,
+        "def": 584,
+        "ATK_": "12"
+      },
+      {
+        "level": 65,
+        "ascension": 4,
+        "hp": 8265,
+        "atk": 183,
+        "def": 589,
+        "ATK_": "12"
+      },
+      {
+        "level": 66,
+        "ascension": 4,
+        "hp": 8343,
+        "atk": 185,
+        "def": 595,
+        "ATK_": "12"
+      },
+      {
+        "level": 67,
+        "ascension": 4,
+        "hp": 8421,
+        "atk": 187,
+        "def": 600,
+        "ATK_": "12"
+      },
+      {
+        "level": 68,
+        "ascension": 4,
+        "hp": 8498,
+        "atk": 189,
+        "def": 606,
+        "ATK_": "12"
+      },
+      {
+        "level": 69,
+        "ascension": 4,
+        "hp": 8576,
+        "atk": 190,
+        "def": 611,
+        "ATK_": "12"
+      },
+      {
+        "level": 70,
+        "ascension": 4,
+        "hp": 8653,
+        "atk": 192,
+        "def": 617,
+        "ATK_": "12"
+      },
+      {
+        "level": 71,
+        "ascension": 5,
+        "hp": 9229,
+        "atk": 205,
+        "def": 658,
+        "ATK_": "18"
+      },
+      {
+        "level": 72,
+        "ascension": 5,
+        "hp": 9306,
+        "atk": 206,
+        "def": 663,
+        "ATK_": "18"
+      },
+      {
+        "level": 73,
+        "ascension": 5,
+        "hp": 9384,
+        "atk": 208,
+        "def": 669,
+        "ATK_": "18"
+      },
+      {
+        "level": 74,
+        "ascension": 5,
+        "hp": 9462,
+        "atk": 210,
+        "def": 675,
+        "ATK_": "18"
+      },
+      {
+        "level": 75,
+        "ascension": 5,
+        "hp": 9539,
+        "atk": 212,
+        "def": 680,
+        "ATK_": "18"
+      },
+      {
+        "level": 76,
+        "ascension": 5,
+        "hp": 9617,
+        "atk": 213,
+        "def": 686,
+        "ATK_": "18"
+      },
+      {
+        "level": 77,
+        "ascension": 5,
+        "hp": 9694,
+        "atk": 215,
+        "def": 691,
+        "ATK_": "18"
+      },
+      {
+        "level": 78,
+        "ascension": 5,
+        "hp": 9772,
+        "atk": 217,
+        "def": 697,
+        "ATK_": "18"
+      },
+      {
+        "level": 79,
+        "ascension": 5,
+        "hp": 9849,
+        "atk": 219,
+        "def": 702,
+        "ATK_": "18"
+      },
+      {
+        "level": 80,
+        "ascension": 5,
+        "hp": 9927,
+        "atk": 220,
+        "def": 708,
+        "ATK_": "18"
+      },
+      {
+        "level": 81,
+        "ascension": 6,
+        "hp": 10503,
+        "atk": 233,
+        "def": 749,
+        "ATK_": "24"
+      },
+      {
+        "level": 82,
+        "ascension": 6,
+        "hp": 10580,
+        "atk": 235,
+        "def": 754,
+        "ATK_": "24"
+      },
+      {
+        "level": 83,
+        "ascension": 6,
+        "hp": 10658,
+        "atk": 236,
+        "def": 760,
+        "ATK_": "24"
+      },
+      {
+        "level": 84,
+        "ascension": 6,
+        "hp": 10735,
+        "atk": 238,
+        "def": 765,
+        "ATK_": "24"
+      },
+      {
+        "level": 85,
+        "ascension": 6,
+        "hp": 10813,
+        "atk": 240,
+        "def": 771,
+        "ATK_": "24"
+      },
+      {
+        "level": 86,
+        "ascension": 6,
+        "hp": 10890,
+        "atk": 242,
+        "def": 776,
+        "ATK_": "24"
+      },
+      {
+        "level": 87,
+        "ascension": 6,
+        "hp": 10968,
+        "atk": 243,
+        "def": 782,
+        "ATK_": "24"
+      },
+      {
+        "level": 88,
+        "ascension": 6,
+        "hp": 11045,
+        "atk": 245,
+        "def": 787,
+        "ATK_": "24"
+      },
+      {
+        "level": 89,
+        "ascension": 6,
+        "hp": 11123,
+        "atk": 247,
+        "def": 793,
+        "ATK_": "24"
+      },
+      {
+        "level": 90,
+        "ascension": 6,
+        "hp": 11201,
+        "atk": 249,
+        "def": 799,
+        "ATK_": "24"
+      },
+      {
+        "level": 95,
+        "ascension": 6,
+        "hp": 11588,
+        "atk": 280,
+        "def": 826,
+        "ATK_": "24"
+      },
+      {
+        "level": 100,
+        "ascension": 6,
+        "hp": 11976,
+        "atk": 312,
+        "def": 854,
+        "ATK_": "24"
+      }
+    ]
+  },
+  "icons": {
+    "forward": "UI_AvatarIcon_Xinyan",
+    "coop_img": "UI_CoopImg_Xinyan"
+  },
+  "ascension": {
+    "x202": 7.0499E+6,
+    "exp": {
+      "x104001": 2,
+      "x104003": 418
+    },
+    "speciality": {
+      "x100034": 168
+    },
+    "elemental": {
+      "x104111": 1,
+      "x104112": 9,
+      "x104113": 9,
+      "x104114": 6
+    },
+    "worldmonster": {
+      "x112035": 18,
+      "x112036": 30,
+      "x112037": 36
+    },
+    "elitemonster": {
+      "x113011": 46
+    }
+  },
+  "skills": {
+    "normalattack": {
+      "name": "Dance on Fire",
+      "icon": "Skill_A_04",
+      "multipliers": {
+        "x1_HitDMG": [
+          "76.54%",
+          "82.77%",
+          "89%",
+          "97.9%",
+          "104.13%",
+          "111.25%",
+          "121.04%",
+          "130.83%",
+          "140.62%",
+          "151.3%",
+          "161.98%",
+          "172.66%",
+          "183.34%",
+          "194.02%",
+          "204.7%"
+        ],
+        "x2_HitDMG": [
+          "73.96%",
+          "79.98%",
+          "86%",
+          "94.6%",
+          "100.62%",
+          "107.5%",
+          "116.96%",
+          "126.42%",
+          "135.88%",
+          "146.2%",
+          "156.52%",
+          "166.84%",
+          "177.16%",
+          "187.48%",
+          "197.8%"
+        ],
+        "x3_HitDMG": [
+          "95.46%",
+          "103.23%",
+          "111%",
+          "122.1%",
+          "129.87%",
+          "138.75%",
+          "150.96%",
+          "163.17%",
+          "175.38%",
+          "188.7%",
+          "202.02%",
+          "215.34%",
+          "228.66%",
+          "241.98%",
+          "255.3%"
+        ],
+        "x4_HitDMG": [
+          "115.84%",
+          "125.27%",
+          "134.7%",
+          "148.17%",
+          "157.6%",
+          "168.38%",
+          "183.19%",
+          "198.01%",
+          "212.83%",
+          "228.99%",
+          "245.15%",
+          "261.32%",
+          "277.48%",
+          "293.65%",
+          "309.81%"
+        ],
+        "ChargedAttackCyclicDMG": [
+          "62.55%",
+          "67.64%",
+          "72.73%",
+          "80%",
+          "85.09%",
+          "90.91%",
+          "98.91%",
+          "106.91%",
+          "114.91%",
+          "123.64%",
+          "132.36%",
+          "141.09%",
+          "149.82%",
+          "158.55%",
+          "167.27%"
+        ],
+        "ChargedAttackFinalDMG": [
+          "113.09%",
+          "122.29%",
+          "131.5%",
+          "144.65%",
+          "153.86%",
+          "164.37%",
+          "178.84%",
+          "193.31%",
+          "207.77%",
+          "223.55%",
+          "239.33%",
+          "255.11%",
+          "270.89%",
+          "286.67%",
+          "302.45%"
+        ],
+        "ChargedAttackStaminaCost": [
+          "40/s",
+          "40/s",
+          "40/s",
+          "40/s",
+          "40/s",
+          "40/s",
+          "40/s",
+          "40/s",
+          "40/s",
+          "40/s",
+          "40/s",
+          "40/s",
+          "40/s",
+          "40/s",
+          "40/s"
+        ],
+        "MaxDuration": [
+          "5s",
+          "5s",
+          "5s",
+          "5s",
+          "5s",
+          "5s",
+          "5s",
+          "5s",
+          "5s",
+          "5s",
+          "5s",
+          "5s",
+          "5s",
+          "5s",
+          "5s"
+        ],
+        "PlungeDMG": [
+          "74.59%",
+          "80.66%",
+          "86.73%",
+          "95.4%",
+          "101.47%",
+          "108.41%",
+          "117.95%",
+          "127.49%",
+          "137.03%",
+          "147.44%",
+          "157.85%",
+          "168.26%",
+          "178.66%",
+          "189.07%",
+          "199.48%"
+        ],
+        "Low_HighPlungeDMG": [
+          "149.14%/186.29%",
+          "161.28%/201.45%",
+          "173.42%/216.62%",
+          "190.77%/238.28%",
+          "202.91%/253.44%",
+          "216.78%/270.77%",
+          "235.86%/294.6%",
+          "254.93%/318.42%",
+          "274.01%/342.25%",
+          "294.82%/368.25%",
+          "315.63%/394.24%",
+          "336.44%/420.23%",
+          "357.25%/446.23%",
+          "378.06%/472.22%",
+          "398.87%/498.21%"
+        ]
+      },
+      "description": "<color=#FFD780FF>Normal Attack</color>\\nPerforms up to 4 consecutive strikes.\\n\\n<color=#FFD780FF>Charged Attack</color>\\nDrains Stamina over time to perform continuous spinning attacks against all nearby opponents.\\nAt the end of the sequence, performs a more powerful slash. \\n\\n<color=#FFD780FF>Plunging Attack</color>\\nPlunges from mid-air to strike the ground below, damaging opponents along the path and dealing AoE DMG upon impact."
+    },
+    "elementalskill": {
+      "name": "Sweeping Fervor",
+      "icon": "Skill_S_Xinyan_01",
+      "multipliers": {
+        "SwingDMG": [
+          "169.6%",
+          "182.32%",
+          "195.04%",
+          "212%",
+          "224.72%",
+          "237.44%",
+          "254.4%",
+          "271.36%",
+          "288.32%",
+          "305.28%",
+          "322.24%",
+          "339.2%",
+          "360.4%",
+          "381.6%",
+          "402.8%"
+        ],
+        "ShieldLevel1DMGAbsorption": [
+          "104.04% DEF+501",
+          "111.84% DEF+551",
+          "119.65% DEF+605",
+          "130.05% DEF+663",
+          "137.85% DEF+726",
+          "145.66% DEF+793",
+          "156.06% DEF+864",
+          "166.46% DEF+939",
+          "176.87% DEF+1018",
+          "187.27% DEF+1101",
+          "197.68% DEF+1189",
+          "208.08% DEF+1281",
+          "221.09% DEF+1377",
+          "234.09% DEF+1477",
+          "247.09% DEF+1581"
+        ],
+        "ShieldLevel2DMGAbsorption": [
+          "122.4% DEF+589",
+          "131.58% DEF+648",
+          "140.76% DEF+712",
+          "153% DEF+780",
+          "162.18% DEF+854",
+          "171.36% DEF+932",
+          "183.6% DEF+1016",
+          "195.84% DEF+1104",
+          "208.08% DEF+1197",
+          "220.32% DEF+1296",
+          "232.56% DEF+1399",
+          "244.8% DEF+1507",
+          "260.1% DEF+1620",
+          "275.4% DEF+1737",
+          "290.7% DEF+1860"
+        ],
+        "ShieldLevel3DMGAbsorption": [
+          "144% DEF+693",
+          "154.8% DEF+762",
+          "165.6% DEF+837",
+          "180% DEF+918",
+          "190.8% DEF+1005",
+          "201.6% DEF+1097",
+          "216% DEF+1195",
+          "230.4% DEF+1299",
+          "244.8% DEF+1409",
+          "259.2% DEF+1524",
+          "273.6% DEF+1646",
+          "288% DEF+1773",
+          "306% DEF+1905",
+          "324% DEF+2044",
+          "342% DEF+2188"
+        ],
+        "DoT": [
+          "33.6%",
+          "36.12%",
+          "38.64%",
+          "42%",
+          "44.52%",
+          "47.04%",
+          "50.4%",
+          "53.76%",
+          "57.12%",
+          "60.48%",
+          "63.84%",
+          "67.2%",
+          "71.4%",
+          "75.6%",
+          "79.8%"
+        ],
+        "ShieldDuration": [
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s"
+        ],
+        "CD": [
+          "18s",
+          "18s",
+          "18s",
+          "18s",
+          "18s",
+          "18s",
+          "18s",
+          "18s",
+          "18s",
+          "18s",
+          "18s",
+          "18s",
+          "18s",
+          "18s",
+          "18s"
+        ]
+      },
+      "description": "Xinyan brandishes her instrument, dealing <color=#FF9999FF>Pyro DMG</color> on nearby opponents, forming a shield made out of her audience's passion.\\nThe shield's DMG Absorption scales based on Xinyan's DEF and on the number of opponents hit.\\n·Hitting 0–1 opponents grants Shield Level 1: Ad Lib.\\n·Hitting 2 opponents grants Shield Level 2: Lead-In.\\n·Hitting 3 or more opponents grants Shield Level 3: Rave, which will also deal intermittent <color=#FF9999FF>Pyro DMG</color> to nearby opponents.\\n\\nThe shield has the following special properties:\\n·When unleashed, it infuses Xinyan with <color=#FF9999FF>Pyro</color>.\\n·It has 250% DMG Absorption effectiveness against <color=#FF9999FF>Pyro DMG</color>.\\n\\n<i>Xinyan insists that these pyrotechnics are the apex of performative art, and that they are physical phenomena that have nothing to do with her Vision.</i>"
+    },
+    "elementalburst": {
+      "name": "Riff Revolution",
+      "icon": "Skill_E_Xinyan_01",
+      "multipliers": {
+        "SkillDMG": [
+          "340.8%",
+          "366.36%",
+          "391.92%",
+          "426%",
+          "451.56%",
+          "477.12%",
+          "511.2%",
+          "545.28%",
+          "579.36%",
+          "613.44%",
+          "647.52%",
+          "681.6%",
+          "724.2%",
+          "766.8%",
+          "809.4%"
+        ],
+        "PyroDoT": [
+          "40%",
+          "43%",
+          "46%",
+          "50%",
+          "53%",
+          "56%",
+          "60%",
+          "64%",
+          "68%",
+          "72%",
+          "76%",
+          "80%",
+          "85%",
+          "90%",
+          "95%"
+        ],
+        "Duration": [
+          "2s",
+          "2s",
+          "2s",
+          "2s",
+          "2s",
+          "2s",
+          "2s",
+          "2s",
+          "2s",
+          "2s",
+          "2s",
+          "2s",
+          "2s",
+          "2s",
+          "2s"
+        ],
+        "CD": [
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s"
+        ],
+        "EnergyCost": [
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60"
+        ]
+      },
+      "description": "Strumming rapidly, Xinyan launches nearby opponents and deals Physical DMG to them, hyping up the crowd.\\nThe sheer intensity of the atmosphere will cause explosions that deal <color=#FF9999FF>Pyro DMG</color> to nearby opponents.\\n\\n<i>Xinyan used to end all her performances with this move. She didn't stop because it was dangerous, however, but because she didn't have a more epic finale in case someone shouted \"Encore!\"</i>"
+    },
+    "leveling": {
+      "books": {
+        "x104316": 9,
+        "x104317": 63,
+        "x104318": 114
+      },
+      "crown": {
+        "x104319": 3
+      },
+      "worldmonster": {
+        "x112035": 18,
+        "x112036": 66,
+        "x112037": 93
+      },
+      "weekly": {
+        "x113013": 18
+      }
+    }
+  },
+  "passives": {
+    "p1": {
+      "name": "\"The Show Goes On, Even Without an Audience...\"",
+      "description": "Decreases the number of opponents <color=#FFD780FF>Sweeping Fervor</color> must hit to trigger each level of shielding.\\n·Shield Level 2: Lead-In requirement reduced to 1 opponent hit.\\n·Shield Level 3: Rave requirement reduced to 2 opponents hit or more.",
+      "icon": "UI_Talent_S_Xinyan_05"
+    },
+    "p2": {
+      "name": "\"...Now That's Rock 'N' Roll!\"",
+      "description": "Characters shielded by <color=#FFD780FF>Sweeping Fervor</color> deal 15% increased Physical DMG.",
+      "icon": "UI_Talent_S_Xinyan_06"
+    },
+    "p3": {
+      "name": "A Rad Recipe",
+      "description": "When a Perfect Cooking is achieved on a DEF-boosting dish, Xinyan has a 12% chance to obtain double the product.",
+      "icon": "UI_Talent_Cook_Defense"
+    },
+    "p4": ""
+  },
+  "constellations": {
+    "const1": {
+      "name": "Fatal Acceleration",
+      "description": "Upon scoring a CRIT Hit, increases ATK SPD of Xinyan's Normal and Charged Attacks by 12% for 5s.\\nCan only occur once every 5s.",
+      "icon": "UI_Talent_S_Xinyan_01"
+    },
+    "const2": {
+      "name": "Impromptu Opening",
+      "description": "<color=#FFD780FF>Riff Revolution</color>'s Physical DMG has its CRIT Rate increased by 100%, and will form a shield at Shield Level 3: Rave when cast.",
+      "icon": "UI_Talent_S_Xinyan_02"
+    },
+    "const3": {
+      "name": "Double-Stop",
+      "description": "Increases the Level of <color=#FFD780FF>Sweeping Fervor</color> by 3.\\nMaximum upgrade level is 15.",
+      "icon": "UI_Talent_U_Xinyan_01"
+    },
+    "const4": {
+      "name": "Wildfire Rhythm",
+      "description": "<color=#FFD780FF>Sweeping Fervor</color>'s swing DMG decreases opponent's Physical RES by 15% for 12s.",
+      "icon": "UI_Talent_S_Xinyan_03"
+    },
+    "const5": {
+      "name": "Screamin' for an Encore",
+      "description": "Increases the Level of <color=#FFD780FF>Riff Revolution</color> by 3.\\nMaximum upgrade level is 15.",
+      "icon": "UI_Talent_U_Xinyan_02"
+    },
+    "const6": {
+      "name": "Rockin' in a Flaming World",
+      "description": "Decreases the Stamina Consumption of Xinyan's Charged Attacks by 30%. Additionally, Xinyan's Charged Attacks gain an ATK Bonus equal to 50% of her DEF.",
+      "icon": "UI_Talent_S_Xinyan_04"
+    }
+  },
+  "hyperlinks": [],
+  "stories": {
+    "x33201": {
+      "storyTitle": "Character Details",
+      "storyText": "Rock 'n' roll originates in Fontaine and is just starting to find its feet in Liyue Harbor, where Xinyan is pioneering the art.\\nEvery night, she slings on her self-built instrument, steps onto her self-constructed stage, and plays her self-composed songs to a crowd of enthusiastic supporters.\\nHer music reflects her personality: bold and defiant, loud and proud.\\nShe is no virtuoso, but this doesn't bother her dedicated fans one bit as they let loose and enjoy the show, singing their hearts out and shaking off the stress of the day.\\nIn the heat of the moment, the fire that leaps from Xinyan's Vision seems ready to turn night into day.\\n\"She is a rare rock 'n' roll talent and a master performer who really knows how to create an atmosphere,\" said a review of one of her live shows in The Steambird.\\nLiving in Liyue is expensive, especially when you want to enjoy the finer things in life. But as Xinyan would say to those tied down by worldly worries:\\n\"If you know how to rock, then it's easier to roll.\"",
+      "unlockConds": []
+    },
+    "x33202": {
+      "storyTitle": "Character Story 1",
+      "storyText": "Xinyan does not adhere to traditional performance norms at all. Anything can be used as her instrument.\\nThe pillars on-stage, the floorboards, the cheers and yells of the audience, and even the explosions and sparks created by her Vision are valid brushes with which she paints her performance.\\nThe impromptu stage often starts to burn somewhere after the halfway mark of the performance, till all that's left is a smoking pile of charcoal.\\nAfter many warnings, the Millelith were finally forced to tighten their patrols and try to find ways to stop Xinyan from staging her performances.\\nThe subsequent battles of wits tended to turn out in Xinyan's favor — she was often able to find a place to perform, set up a stage with frightening speed, and begin a raucous night with her audience.\\nThe more reliable word on the street is that many patrolling Millelith were themselves infected by the \"spirit of rock 'n' roll,\" becoming her loyal fans in the process.\\nXinyan would get wind of the Millelith's latest patrol plans from these \"friends of rock,\" and was thus able to avoid their eyes with ease.\\nEventually, tiring of the lack of results, and in the absence of any evidence that anyone was harmed during Xinyan's performances, the Millelith came to adopt a \"one eye open, one eye shut\" approach to her actions.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 2
+      }
+    },
+    "x33203": {
+      "storyTitle": "Character Story 2",
+      "storyText": "Xinyan is tall, has a sharp gaze, and always wears her stage costume in public to keep herself in the right mood for her music.\\nIn the eyes of bystanders, this makes her quite the imposing sight as she walks down the street, and many assume she means trouble.\\nWhen she lines up to buy a snack, people in front of her in the queue will panic and move well out of her way.\\nIf she happens to lock eyes with a young child, even for a brief moment, they will run crying to their parents.\\nEven when she has done nothing at all, Xinyan is often suspected of wrongdoing, purely because her fierce appearance makes her look like some sort of heinous villain in the eyes of some people.\\nXinyan didn't care all that much about how other people saw her, but she did think that it wasn't a good thing to scare others and make trouble for them, if she could at all help it. Thus, she constantly looked for ways to make a change.\\nEvery day when she woke up in the morning, she would look at herself in the mirror and massage her face with her fingers to stretch and relax her eyes a little.\\nShe would even practice smiling and study expressions — verbal and facial alike — of great elegance.\\nAfter a significant amount of practice, she once came across a group of children bullying another child, and instinctually she went over to rescue the bullied child.\\nShe gave the kid what she thought was a friendly smile and a gentle pat on the head. To say that the upset child quietened down after this would not be incorrect...\\nHowever, the reality of the matter was that the child was stood there frozen in fear as urine dribbled down their pants.\\nAs for the would-be bullies, they screamed and fled in panic.\\n\"Run! Run! The angry lady's turned into a monster! Sh—She's gonna eat us all!\"\\n\"Hey!!! I ain't gonna eat y'all! ...And I ain't no monster, either!\"\\nBut it was to no avail. The moment she raised her voice, all her hard work was undone.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 3
+      }
+    },
+    "x33204": {
+      "storyTitle": "Character Story 3",
+      "storyText": "Xinyan has one standard by which she judges all things: is it or isn't it \"rock 'n' roll?\"\\nAll that is just and upright — standing up for those who have been wronged, taking on challenges — is \"rock 'n' roll,\" and all that is reprehensible — fearing the wicked, oppressing the kind, dirty tricks, scheming ways — is \"not rock 'n' roll.\"\\nRock is the spirit of rebellion and resistance, yes, but patently immoral acts are nonetheless \"not rock 'n' roll.\"\\nXinyan reserves the right to make these judgments, and whether these judgments are based on results or her mood, the difference between the things covered by these two opposing terms is clear.\\nThe only catch is that these standards sound odd in certain contexts.\\nDue to her fierce appearance, Xinyan nearly has no friends, with Xiangling of Wanmin Restaurant being one of the few exceptions with whom she can speak most freely.\\nXinyan has a special reason for coming to Wanmin Restaurant — for musical inspiration.\\nWhenever Xiangling is researching new recipes, others may run for the hills, but not Xinyan. She intentionally eats all the experimental products, and amid the taste bud explosion that results from the never-before-seen flavors, inspiration flows into her mind.\\n\"Tell you what, Xiangling, that dish rocked!\"\\nThough Xinyan considers this to be the highest praise, Xiangling finds it a little hard to be happy about such ratings.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 4
+      }
+    },
+    "x33205": {
+      "storyTitle": "Character Story 4",
+      "storyText": "The eternal subject of rock 'n' roll is resistance.\\nBut the thing that Xinyan resists is not a concrete thing, but rather, the conceptual shackles of \"prejudice.\"\\nShe was born into a poor family, and her parents placed great stock in her, giving her the best of what little they had in the hopes that she would be able to rise to \"become a phoenix.\"\\nOf course, this \"phoenix\" would have to be something that they would recognize.\\nBut things don't always turn out as planned. Xinyan grew to be taller than most girls, and her looks were far from anything that might be considered \"cute.\" Nor was she any good at any of the feminine arts, whether it was cooking, chores, needlework.\\nSo, since her childhood was so deeply impacted by such \"prejudices,\" Xinyan understands how terrifying they could be.\\nYet becoming a rock 'n' roll star has not caused her to give up on these other arts.\\nThis is not only because she hates losing, but because she feels that \"giving up because you have no talent\" is itself a prejudiced belief.\\nNot long ago, a fan of Xinyan's named Yun Jin was invited to her place as a guest.\\nBut if Xinyan hadn't opened the door herself, Yun Jin would have thought that she had the wrong house.\\nThe house was spick and span, the windows were clean, and the home ornaments were hand-made and immaculately arranged.\\nThe cooktop was still moist, indicating that someone had been cooking not long before, and there was half-sewn cloth by the bedside that looked much like the decorations Xinyan wore during her performances.\\nWhy, this was practically the room of some refined lady of reputable upbringing, with nary any spirit of rock 'n' roll to be found!\\nXinyan was quite worried that this fan of hers would find the difference between their impression of \"rock 'n' roll\" and this reality too jarring.\\nUnexpectedly, Yun Jin's support and fandom would only grow more intense after this.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 5
+      }
+    },
+    "x33206": {
+      "storyTitle": "Character Story 5",
+      "storyText": "The way Xinyan sees it, many adults fail to realize their potential because they are tied down by prejudice, giving in to fear and endless anxiety.\\nThey do not understand what life is about, or where they are going.\\nShe wrote these thoughts into her songs, but invited scorn from the very same adults. \"What does this brat know?\"\\nEven so, Xinyan did not waver. After all, such mockery was born of prejudice towards her age.\\nAnd if prejudice were something so easily overthrown, there would be no value in resisting it, would there?\\nShe believes that rock 'n' roll is like a seed. After every performance, some seeds might sprout within the hearts of those adults who listen.\\nWhen they wake up the next day, perhaps they might receive some inspiration, or perhaps a change of mood will come over them...\\nEven if it only changes their thinking a little bit... Perhaps they might find that the real-life troubles they are facing are nothing but a storm in a teacup.\\nOf course, few people other than her audience and the \"friends of rock\" would credit this to rock 'n' roll.\\nBut people do nonetheless say this around the tables after tea.\\n\"Well, having a girl who plays rock 'n' roll is pretty interesting, no?\"",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 6
+      }
+    },
+    "x33207": {
+      "storyTitle": "Xinyan's Instrument",
+      "storyText": "Xinyan's main instrument is a hand-made guitar of a very unique design. She based it off the rock 'n' roll instruments that were imported from Fontaine before adding additional modifications based on personal understanding.\\nFor example, she mounted a crescent-shaped axe-blade on the tail end of the instrument so it might serve as a weapon in a pinch.\\nShe also connected it to her Vision, allowing it to spew flames and sparks. Its internals can also spew flame, all the better for it to self-destruct if it falls into the wrong hands, preventing its misuse...\\nThe list of modifications goes on, and they are too numerous to count.\\nThis instrument is thus unique, and its sound profile is also special.\\n—Sorry, what? What do you mean, \"these modifications sound like they have nothing to do with music?\"\\nSounds like you, too, need to attend one of her performances. You'll understand then.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 4
+      }
+    },
+    "x33208": {
+      "storyTitle": "Vision",
+      "storyText": "Xinyan was someone who never fit in in Liyue Harbor, and she only found where she belonged when she encountered rock 'n' roll.\\nBut because she lived in a land that had no place for rock 'n' roll yet, she needed to be able to attract enough attention.\\nShe immersed herself in the world of music, looking for a way to move people's hearts. She broke many an instrument and played till calluses formed on both hands, but still, it was unsatisfactory.\\n\"Who'd want to listen to this racket?\"\\nThe rotten-tomato reviews she received were starting to get to her. She wondered if she should quit.\\nSitting on top of Mt. Tianheng, she looked down over Liyue Harbor. But though the lights lit the streets and alleys of the harbor, they could not light the flame of the spirit of rock 'n' roll.\\nShe considered leaving, to go someplace where rock 'n' roll was appreciated. But would this not be running away? Would it not be a betrayal of rock 'n' roll's spirit of resistance?\\nNo, she would not leave. She would become a \"flame\" that could light Liyue Harbor up.\\nShe started experimenting with the use of fire to move people, adding sparks and explosions to her music.\\nBut this was no mean feat for an ordinary person.\\nWho knows how many times she must have burnt her fingers or blown her instrument up. But still, she continued to practice every single day on top of Mt. Tianheng.\\nAnd perhaps it was that the gods themselves had great expectations of this new form of music that would soon grace the seven nations...\\nBut regardless, the boiling-hot Vision would be the final stroke of perfection.\\nXinyan dashed down the mountain and began her very first rock 'n' roll concert in Liyue Harbor.\\nThus did her musical journey begin, with showers of sparks and explosions keeping time.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 6
+      }
+    }
+  },
+  "quotes": {
+    "x33009": {
+      "quoteTitle": "Hello",
+      "quoteText": "Xinyan's the name, an' rock 'n' roll's the game — and I'm the only one who plays it in Liyue Harbor. Been thinking about staging concerts elsewhere lately, but... Hmm... Well, word is that you've been all over the place, Traveler. So, what say you sign me up for your world tour? Anywhere's good!",
+      "unlockConds": []
+    },
+    "x33010": {
+      "quoteTitle": "Chat: Vigor",
+      "quoteText": "If there's fire in your soul, you gotta rock 'n' roll. So c'mon! Let's get movin'!",
+      "unlockConds": []
+    },
+    "x33011": {
+      "quoteTitle": "Chat: New Song",
+      "quoteText": "I just came up with an awesome new riff, wanna hear it?",
+      "unlockConds": []
+    },
+    "x33012": {
+      "quoteTitle": "Chat: Look!",
+      "quoteText": "Whatever's going on over there... Looks pretty rock 'n' roll to me!",
+      "unlockConds": []
+    },
+    "x33013": {
+      "quoteTitle": "When It Rains",
+      "quoteText": "It's really comin' down... Would be all sorts of bad if my guitar got wet.",
+      "unlockConds": []
+    },
+    "x33014": {
+      "quoteTitle": "When Thunder Strikes",
+      "quoteText": "This rain ain't clearin' any time soon... but the show's still on, people!",
+      "unlockConds": []
+    },
+    "x33015": {
+      "quoteTitle": "When It Snows",
+      "quoteText": "Hmm... How do we attract more folks in this weather? Right! How about we stage a rock-till-you-drop snowstorm endurance challenge?",
+      "unlockConds": []
+    },
+    "x33016": {
+      "quoteTitle": "When the Wind Is Blowing",
+      "quoteText": "Ack! Gotta find some cover, quick, or my hairdo's gonna fall apart!",
+      "unlockConds": []
+    },
+    "x33017": {
+      "quoteTitle": "Good Morning",
+      "quoteText": "Mornin'! I was just warmin' my voice up. We're in real good shape today.",
+      "unlockConds": []
+    },
+    "x33018": {
+      "quoteTitle": "Good Afternoon",
+      "quoteText": "Alright, that's a wrap! *yawns* If there's nothin' else, I'll go take a nap somewhere...",
+      "unlockConds": []
+    },
+    "x33019": {
+      "quoteTitle": "Good Evening",
+      "quoteText": "Almost about to go live over here. You comin'?",
+      "unlockConds": []
+    },
+    "x33020": {
+      "quoteTitle": "Good Night",
+      "quoteText": "Me? Oh, I've got a guitar to maintain, tunes to rewrite... I mean, I just got offstage, there's no way I can sleep right now.",
+      "unlockConds": []
+    },
+    "x33021": {
+      "quoteTitle": "About Xinyan: Frightening",
+      "quoteText": "Not afraid of me, are you? Some folks say I've got eyes like knives, that I don't wear my clothes right, that I don't speak right. They give me a pretty wide berth, too. Really, can't a girl sport her own style without bein' looked at like she's some weird creature outta who-knows-where?",
+      "unlockConds": []
+    },
+    "x33022": {
+      "quoteTitle": "About Xinyan: Rock 'N' Roll",
+      "quoteText": "Rock 'n' roll came to Liyue from Fontaine, so I guess you could call it a new thing. But it's not too hot around here. Most think it's an awful racket not fit for human ears. And that's why I appreciate everyone who does come listen, haha!",
+      "unlockConds": []
+    },
+    "x33023": {
+      "quoteTitle": "About Us: The Audience",
+      "quoteText": "You wanna hear me play? Come to the front — it sounds best from there! *clears throat* Alright then, comin' at you from the one and only rock stage in Liyue!",
+      "unlockConds": []
+    },
+    "x33024": {
+      "quoteTitle": "About Us: Kindred Spirits",
+      "quoteText": "And here I was wonderin' why we got on so well! So you're not from this world, and that's why you don't care for its rules. Now that's how life should be like! Lose the red tape, and live free!",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 6"
+      ]
+    },
+    "x33025": {
+      "quoteTitle": "About Us: Invitation",
+      "quoteText": "I'd sure love to add some extra flavor to my rock 'n' roll. Wanna get on the drums next time? You've got a good sense of rhythm. ...You've never played? Don't sweat it, it's a question of soul, not skill! Give it a go, I just know you'll be great!",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 6"
+      ]
+    },
+    "x33026": {
+      "quoteTitle": "About the Vision",
+      "quoteText": "I'm guessin' that I'm the only person in Teyvat who uses the fire from their Vision in rock performances. Some say I should respect that power more... But the way I see it, the gods gave the Vision to me, so they like my style, don'cha think?",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x33027": {
+      "quoteTitle": "Something to Share: Naming",
+      "quoteText": "I made this guitar myself, y'know? Based it off a rock 'n' roll instrument from Fontaine at first, but it stopped looking like the original real fast. I wanted to give it a rad name, like \"The Fyre Lyre,\" or \"The Jadebreaker,\" or \"The Hill Stiller.\" Still, feels like we're missin' something... Any ideas?",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x33028": {
+      "quoteTitle": "Something to Share: Opera",
+      "quoteText": "You ever heard of opera? It's what those rich guys listen to at their banquets. It's all tenor this and falsetto that... Gettin' so uptight about music, ugh — it's just not rock 'n' roll.",
+      "unlockConds": []
+    },
+    "x33029": {
+      "quoteTitle": "Interesting Things",
+      "quoteText": "My favorite stage outfit's one I made by hand outta Silk Flowers. You must've seen those flowers before, haven'tcha? Passion-red, they are — a perfect match for my music!",
+      "unlockConds": []
+    },
+    "x33030": {
+      "quoteTitle": "About Xiangling",
+      "quoteText": "I have dinner at the Wanmin Restaurant often. If Xiangling's got some time on her hands, we'll chat till it's real late. Eh? You wanna know what I order? See... I actually eat everything she makes. It's never the same thing, and the flavor's different each time, too. Ooh, she's the rock star of the culinary world, she is!",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x33031": {
+      "quoteTitle": "About Zhongli",
+      "quoteText": "There was this one fellow who invited me to perform at his place, back when there weren't many who would give my music the time of day. I was touched, let me tell you what. Like, hey, someone gets it! I agreed right away... But when I got there, I found out that he was the consultant at the Wangsheng Funeral Parlor. What a weird guy. I mean, how was that appropriate?",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x33032": {
+      "quoteTitle": "About Ningguang",
+      "quoteText": "Y'know, the Millelith used to get in my way all the time. Can't set up a stage here, can't perform there. Real bother, it was... Ahem. But after I wrote to the Ministry of Civil Affairs, I heard that the Tianquan amended one of Liyue's... Uh, some rule or something. She designated some spots for performances to take place, so long as you apply. *sigh* It's still a load of trouble if you ask me, but it's better than being harangued by those Millelith every time, so...",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x33033": {
+      "quoteTitle": "About Baizhu",
+      "quoteText": "Dr. Baizhu's prescriptions are the tops at preserving my voice. I did an impromptu performance for him as thanks, but... the snake he keeps around his neck fainted away. Haha, now it ducks up Dr. Baizhu's sleeve every time I'm around. I only discovered afterwards that snakes are very sensitive to vibrations.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x33034": {
+      "quoteTitle": "About Beidou",
+      "quoteText": "Her? She speaks her mind and has a big heart, and we get on great. The Crux's adventures are real epic. They've given me tons of inspiration in the past! I even wrote them a song. Nowadays, I just need to sing the first line, and most all the sailors will join in. It's fast becoming a new sea shanty, it is.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x33035": {
+      "quoteTitle": "About Chongyun",
+      "quoteText": "He's one interesting guy. He looks introverted enough, but there was this one time when he came to one of my performances. A friend brought him or something, and he had some words for me, but I couldn't hear 'em over the music. Before I knew it, he was right up there on the stage with me, singing and rockin' his heart out. Guess you really can't judge a book by its cover!",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x33036": {
+      "quoteTitle": "About Hu Tao",
+      "quoteText": "I've no clue what she's thinking, going around looking all happy-clappy like that when she's the head of the Wangsheng Funeral Parlor. Always greets me cheerily too, saying \"I like people who play with fire, they're good for business\" or somethin' like that... She's a bit bizarre, I tell you.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x33037": {
+      "quoteTitle": "About Yun Jin",
+      "quoteText": "Tell you a secret — but you gotta keep it that way, you hear? She's real fond of rock 'n' roll. Comes to watch me at least three times a week no matter how packed her schedule is. You'd think that the head of Heyu Tea House's troupe would be into finer arts and all, eh? But I guess it gets suffocating after a while. Haha.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x33038": {
+      "quoteTitle": "More About Xinyan: I",
+      "quoteText": "You wanna know more about me? Haha! Well, aren't you just odd? Most people would do just the opposite. Well, where should we start? ...Eh, I guess we'll start with rock 'n' roll.",
+      "unlockConds": []
+    },
+    "x33039": {
+      "quoteTitle": "More About Xinyan: II",
+      "quoteText": "Back when I was little, the adults all said I had to be more girly, that I should learn and study all these things. Wasn't ever any good at it, though, and I'd often get roasted bad. Rock 'n' roll's a different story. No one ever taught me, but I can do it just fine. And of course, the adults say \"that's unladylike!\" *sigh* Talk about prejudice.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 3"
+      ]
+    },
+    "x33040": {
+      "quoteTitle": "More About Xinyan: III",
+      "quoteText": "Say, do you notice anything different 'bout me today? I did some facial massages to relax my mouth and eyes, and practiced smiling less broadly in front of a mirror for half an hour. So, how'd it go? Do I look a bit less fierce than usual? ...Even scarier? Huh, okay...",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x33041": {
+      "quoteTitle": "More About Xinyan: IV",
+      "quoteText": "Thanks for staying to jam with me! It's almost time for lunch. I've brought your share as well! We've got tomatoes, sausages, fried eggs... Say what? I don't seem like the type? H—Hey now, don't you look down on me. M—Making a nice-looking meal was no problem at all!",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 5"
+      ]
+    },
+    "x33042": {
+      "quoteTitle": "More About Xinyan: V",
+      "quoteText": "I believe in rock 'n' roll's spirit of resistance, but I don't think it means that I have to go around shoving it in people's faces. I'm perfectly capable of living normally. I can sew, I can grow flowers and keep fish, and make nice-looking meals. I'm allowed to like anything... or anyone I want, right?",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 6"
+      ]
+    },
+    "x33043": {
+      "quoteTitle": "Xinyan's Hobbies",
+      "quoteText": "Hobbies? Rock 'n' roll, of course! You ever have that something you put your all into? When everything you love comes together into one thing, the place and time loses all importance. You just need to enjoy it to the fullest, and express yourself to your heart's content! Haha... Ah, I can never get enough of that feeling.",
+      "unlockConds": []
+    },
+    "x33044": {
+      "quoteTitle": "Xinyan's Troubles",
+      "quoteText": "*sigh* I send children a-crying every time I accidentally lock eyes with them on the road. *sigh* If only there was a way to make me look a little less scary. But I've tried everythin', and nothing sticks...",
+      "unlockConds": []
+    },
+    "x33045": {
+      "quoteTitle": "Favorite Food",
+      "quoteText": "The lunch down at the Liyue dockyards rocks! Ahh, oily, meaty... Bit skimpy on the vegetables, but I could never get tired of it! Far as I'm concerned, a whole day in the dockyards is worth it just for the lunch!",
+      "unlockConds": []
+    },
+    "x33046": {
+      "quoteTitle": "Least Favorite Food",
+      "quoteText": "Not that I'm picky, but I can't stand bland food. If it's supposed to be salty or spicy, make it salty or spicy! You can't have a good time if you don't go all-in on the flavor! Even if all I had on hand were enough ingredients for one serving of Jewelry Soup, I'd make sure I'd do right by them!",
+      "unlockConds": []
+    },
+    "x33047": {
+      "quoteTitle": "Birthday",
+      "quoteText": "Happy birthday! I made some embroidery especially for you. Check it out — I sewed both our images on in the style of Fontaine's dolls. Pretty cute, eh? ...Why are you looking at me like that? Wh—What, it's not that weird that I can do embroidery!",
+      "unlockConds": []
+    },
+    "x33048": {
+      "quoteTitle": "Feelings About Ascension: Intro",
+      "quoteText": "That's the groove, alright! That's what I'm talkin' about!",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 1"
+      ]
+    },
+    "x33049": {
+      "quoteTitle": "Feelings About Ascension: Building Up",
+      "quoteText": "I'm on fire lately. Look out for my next performance!",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 2"
+      ]
+    },
+    "x33050": {
+      "quoteTitle": "Feelings About Ascension: Climax",
+      "quoteText": "With such power, who knows what never-before-seen bangers I'll be able to come up with? Thanks so much! My next work won't disappoint!",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 4"
+      ]
+    },
+    "x33051": {
+      "quoteTitle": "Feelings About Ascension: Conclusion",
+      "quoteText": "I feel your awesome, overflowing passion! Tell you what, I'll write you a rock song. It'll be your song — and I'll play it just for you!",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 6"
+      ]
+    },
+    "x33052": {
+      "quoteTitle": "Elemental Skill: I",
+      "quoteText": "Feel the beat!",
+      "unlockConds": []
+    },
+    "x33053": {
+      "quoteTitle": "Elemental Skill: II",
+      "quoteText": "Power chord!",
+      "unlockConds": []
+    },
+    "x33054": {
+      "quoteTitle": "Elemental Skill: III",
+      "quoteText": "Pyrotechnics!",
+      "unlockConds": []
+    },
+    "x33055": {
+      "quoteTitle": "Elemental Burst: I",
+      "quoteText": "Time to rock!",
+      "unlockConds": []
+    },
+    "x33056": {
+      "quoteTitle": "Elemental Burst: II",
+      "quoteText": "Shred 'til I'm dead!",
+      "unlockConds": []
+    },
+    "x33057": {
+      "quoteTitle": "Elemental Burst: III",
+      "quoteText": "Amp it up!",
+      "unlockConds": []
+    },
+    "x33058": {
+      "quoteTitle": "Opening Treasure Chest: I",
+      "quoteText": "Time to celebrate! Ready? 1, 2, 3, 4...",
+      "unlockConds": []
+    },
+    "x33059": {
+      "quoteTitle": "Opening Treasure Chest: II",
+      "quoteText": "This rocks!",
+      "unlockConds": []
+    },
+    "x33060": {
+      "quoteTitle": "Opening Treasure Chest: III",
+      "quoteText": "Woohoo! Let me hear ya!",
+      "unlockConds": []
+    },
+    "x33061": {
+      "quoteTitle": "Low HP: I",
+      "quoteText": "That was jus' the intro...",
+      "unlockConds": []
+    },
+    "x33062": {
+      "quoteTitle": "Low HP: II",
+      "quoteText": "Alright, that sounded kinda bad.",
+      "unlockConds": []
+    },
+    "x33063": {
+      "quoteTitle": "Low HP: III",
+      "quoteText": "I'm used to this much.",
+      "unlockConds": []
+    },
+    "x33064": {
+      "quoteTitle": "Ally at Low HP: I",
+      "quoteText": "Rockin' to the rescue!",
+      "unlockConds": []
+    },
+    "x33065": {
+      "quoteTitle": "Ally at Low HP: II",
+      "quoteText": "Hey now, don't rock till you drop!",
+      "unlockConds": []
+    },
+    "x33066": {
+      "quoteTitle": "Fallen: I",
+      "quoteText": "The beat's all... messed up.",
+      "unlockConds": []
+    },
+    "x33067": {
+      "quoteTitle": "Fallen: II",
+      "quoteText": "Didn't make it... to the chorus...",
+      "unlockConds": []
+    },
+    "x33068": {
+      "quoteTitle": "Fallen: III",
+      "quoteText": "Went... out of tune...",
+      "unlockConds": []
+    },
+    "x33069": {
+      "quoteTitle": "Light Hit Taken: I",
+      "quoteText": "Tch! Not cool.",
+      "unlockConds": []
+    },
+    "x33070": {
+      "quoteTitle": "Heavy Hit Taken: I",
+      "quoteText": "Hey! Not the guitar!",
+      "unlockConds": []
+    },
+    "x33071": {
+      "quoteTitle": "Joining Party: I",
+      "quoteText": "I'm takin' the stage!",
+      "unlockConds": []
+    },
+    "x33072": {
+      "quoteTitle": "Joining Party: II",
+      "quoteText": "Aw yeah, rock on!",
+      "unlockConds": []
+    },
+    "x33073": {
+      "quoteTitle": "Joining Party: III",
+      "quoteText": "Let's jam!",
+      "unlockConds": []
+    },
+    "x33074": {
+      "quoteTitle": "Receiving a Gift: I",
+      "quoteText": "Wowee, you've rocked my socks off with this one. I am moving to the groove of your awesome food! Mm-mm!",
+      "unlockConds": []
+    },
+    "x33075": {
+      "quoteTitle": "Receiving a Gift: II",
+      "quoteText": "The taste ain't bad, but it's lackin' that special spark... I can help you with the presentation if you want?",
+      "unlockConds": []
+    },
+    "x33076": {
+      "quoteTitle": "Receiving a Gift: III",
+      "quoteText": "Hmm... You don't mind if I add a little something to spice things up, do ya?",
+      "unlockConds": []
+    },
+    "x33077": {
+      "quoteTitle": "About Gaming",
+      "quoteText": "The first time Gaming told me I had a bad case of \"rock 'n' roll fever,\" I checked my forehead to see if he was right. My temperature was fine, so I denied it. But he insisted it was true. We went back and forth arguing about it for hours before I realized it was all just a misunderstanding. Gaming explained that it was just another way to say you're a fan of something. Hahaha, there's never a dull moment when Gaming's around. Anyway, I've definitely come 'round to \"rock 'n' roll fever\" as an expression — I'll have to work it into the lyrics next time I write a song!",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    }
+  },
+  "energy": {
+    "source": "Ball_Base",
+    "particles": "4",
+    "chance": "100%",
+    "cd": "0.2s"
+  },
+  "attacks": [
+    {
+      "name": "ElementalArt_Hit",
+      "icd_source": "Tag: Elemental_Art (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV4/200",
+      "element": "Fire",
+      "attackType": "Melee",
+      "strikeType": "Blunt",
+      "damageParam": "Xinyan_ElementalArt_Damage"
+    },
+    {
+      "name": "ElementalArt_Shield_3",
+      "icd_source": "Tag: Elemental_Art (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV2/50",
+      "element": "Fire",
+      "attackType": "Default",
+      "strikeType": "-",
+      "damageParam": "Xinyan_ElementalArt_Damage_Percentage"
+    },
+    {
+      "name": "ElementalBurst_Hit",
+      "icd_source": "Tag: Elemental_Burst (!)",
+      "icd_rule": "Independent",
+      "gauge": "4U",
+      "poise": "LV3/300",
+      "element": "-",
+      "attackType": "Default",
+      "strikeType": "-",
+      "damageParam": "Xinyan_ElementalBurst_PhysicalDamage"
+    },
+    {
+      "name": "ElementalBurst_Fire",
+      "icd_source": "Tag: Elemental_Burst_Fire (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV5/50",
+      "element": "Fire",
+      "attackType": "Default",
+      "strikeType": "-",
+      "damageParam": "Xinyan_ElementalBurst_FireDamage"
+    },
+    {
+      "name": "ElementalBurst_Fire",
+      "icd_source": "Tag: Elemental_Burst_Fire (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV2/50",
+      "element": "Fire",
+      "attackType": "Default",
+      "strikeType": "-",
+      "damageParam": "Xinyan_ElementalBurst_FireDamage"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "0U",
+      "poise": "LV2/35",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Slash",
+      "damageParam": "FallingAnthem_Normal_Loop_Damage"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV4/150",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Blunt",
+      "damageParam": "FallingAnthem_Normal_Rank_1_Damage"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV7/200",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Blunt",
+      "damageParam": "FallingAnthem_Normal_Rank_2_Damage"
+    }
+  ],
+  "endure": [
+    {
+      "ability": "ElementalArt_Shield_1",
+      "handler": "UNIQUE_Skill_S_Shield_Child",
+      "Actor_EndureDelta": 0
+    },
+    {
+      "ability": "ElementalArt_Shield_2",
+      "handler": "UNIQUE_Skill_S_Shield_Child",
+      "Actor_EndureDelta": 0
+    },
+    {
+      "ability": "ElementalArt_Shield_3",
+      "handler": "UNIQUE_Skill_S_Shield_Child",
+      "Actor_EndureDelta": 0
+    }
+  ]
+}

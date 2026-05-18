@@ -1,0 +1,1743 @@
+{
+  "info": {
+    "name": "Qiqi",
+    "description": "An apprentice and herb gatherer at Bubu Pharmacy. An undead with a bone-white complexion, she seldom has much in the way of words or emotion.",
+    "rarity": "QUALITY_ORANGE",
+    "weapon": "WEAPON_SWORD_ONE_HAND",
+    "birthday": "3/3",
+    "element": "Cryo",
+    "title": "Icy Resurrection",
+    "constellation": "Pristina Nola",
+    "affiliation": "Bubu Pharmacy",
+    "cv": {
+      "EN": "Christie Cate",
+      "CHS": "宴宁",
+      "JP": "田村ゆかり",
+      "KR": "Lee Seul"
+    },
+    "attributes": [
+      {
+        "level": 1,
+        "ascension": 0,
+        "hp": 963,
+        "atk": 22,
+        "def": 72,
+        "Healing_": "0"
+      },
+      {
+        "level": 2,
+        "ascension": 0,
+        "hp": 1043,
+        "atk": 24,
+        "def": 78,
+        "Healing_": "0"
+      },
+      {
+        "level": 3,
+        "ascension": 0,
+        "hp": 1123,
+        "atk": 26,
+        "def": 84,
+        "Healing_": "0"
+      },
+      {
+        "level": 4,
+        "ascension": 0,
+        "hp": 1204,
+        "atk": 28,
+        "def": 90,
+        "Healing_": "0"
+      },
+      {
+        "level": 5,
+        "ascension": 0,
+        "hp": 1283,
+        "atk": 30,
+        "def": 96,
+        "Healing_": "0"
+      },
+      {
+        "level": 6,
+        "ascension": 0,
+        "hp": 1364,
+        "atk": 32,
+        "def": 102,
+        "Healing_": "0"
+      },
+      {
+        "level": 7,
+        "ascension": 0,
+        "hp": 1444,
+        "atk": 34,
+        "def": 108,
+        "Healing_": "0"
+      },
+      {
+        "level": 8,
+        "ascension": 0,
+        "hp": 1525,
+        "atk": 35,
+        "def": 114,
+        "Healing_": "0"
+      },
+      {
+        "level": 9,
+        "ascension": 0,
+        "hp": 1606,
+        "atk": 37,
+        "def": 120,
+        "Healing_": "0"
+      },
+      {
+        "level": 10,
+        "ascension": 0,
+        "hp": 1686,
+        "atk": 39,
+        "def": 126,
+        "Healing_": "0"
+      },
+      {
+        "level": 11,
+        "ascension": 0,
+        "hp": 1767,
+        "atk": 41,
+        "def": 132,
+        "Healing_": "0"
+      },
+      {
+        "level": 12,
+        "ascension": 0,
+        "hp": 1848,
+        "atk": 43,
+        "def": 138,
+        "Healing_": "0"
+      },
+      {
+        "level": 13,
+        "ascension": 0,
+        "hp": 1929,
+        "atk": 45,
+        "def": 144,
+        "Healing_": "0"
+      },
+      {
+        "level": 14,
+        "ascension": 0,
+        "hp": 2010,
+        "atk": 47,
+        "def": 150,
+        "Healing_": "0"
+      },
+      {
+        "level": 15,
+        "ascension": 0,
+        "hp": 2091,
+        "atk": 49,
+        "def": 156,
+        "Healing_": "0"
+      },
+      {
+        "level": 16,
+        "ascension": 0,
+        "hp": 2172,
+        "atk": 50,
+        "def": 162,
+        "Healing_": "0"
+      },
+      {
+        "level": 17,
+        "ascension": 0,
+        "hp": 2254,
+        "atk": 52,
+        "def": 168,
+        "Healing_": "0"
+      },
+      {
+        "level": 18,
+        "ascension": 0,
+        "hp": 2335,
+        "atk": 54,
+        "def": 174,
+        "Healing_": "0"
+      },
+      {
+        "level": 19,
+        "ascension": 0,
+        "hp": 2417,
+        "atk": 56,
+        "def": 180,
+        "Healing_": "0"
+      },
+      {
+        "level": 20,
+        "ascension": 0,
+        "hp": 2498,
+        "atk": 58,
+        "def": 186,
+        "Healing_": "0"
+      },
+      {
+        "level": 21,
+        "ascension": 1,
+        "hp": 3405,
+        "atk": 79,
+        "def": 254,
+        "Healing_": "0"
+      },
+      {
+        "level": 22,
+        "ascension": 1,
+        "hp": 3487,
+        "atk": 81,
+        "def": 260,
+        "Healing_": "0"
+      },
+      {
+        "level": 23,
+        "ascension": 1,
+        "hp": 3569,
+        "atk": 83,
+        "def": 266,
+        "Healing_": "0"
+      },
+      {
+        "level": 24,
+        "ascension": 1,
+        "hp": 3651,
+        "atk": 85,
+        "def": 272,
+        "Healing_": "0"
+      },
+      {
+        "level": 25,
+        "ascension": 1,
+        "hp": 3732,
+        "atk": 87,
+        "def": 278,
+        "Healing_": "0"
+      },
+      {
+        "level": 26,
+        "ascension": 1,
+        "hp": 3815,
+        "atk": 89,
+        "def": 284,
+        "Healing_": "0"
+      },
+      {
+        "level": 27,
+        "ascension": 1,
+        "hp": 3897,
+        "atk": 90,
+        "def": 291,
+        "Healing_": "0"
+      },
+      {
+        "level": 28,
+        "ascension": 1,
+        "hp": 3979,
+        "atk": 92,
+        "def": 297,
+        "Healing_": "0"
+      },
+      {
+        "level": 29,
+        "ascension": 1,
+        "hp": 4062,
+        "atk": 94,
+        "def": 303,
+        "Healing_": "0"
+      },
+      {
+        "level": 30,
+        "ascension": 1,
+        "hp": 4144,
+        "atk": 96,
+        "def": 309,
+        "Healing_": "0"
+      },
+      {
+        "level": 31,
+        "ascension": 1,
+        "hp": 4226,
+        "atk": 98,
+        "def": 315,
+        "Healing_": "0"
+      },
+      {
+        "level": 32,
+        "ascension": 1,
+        "hp": 4309,
+        "atk": 100,
+        "def": 321,
+        "Healing_": "0"
+      },
+      {
+        "level": 33,
+        "ascension": 1,
+        "hp": 4392,
+        "atk": 102,
+        "def": 327,
+        "Healing_": "0"
+      },
+      {
+        "level": 34,
+        "ascension": 1,
+        "hp": 4474,
+        "atk": 104,
+        "def": 334,
+        "Healing_": "0"
+      },
+      {
+        "level": 35,
+        "ascension": 1,
+        "hp": 4557,
+        "atk": 106,
+        "def": 340,
+        "Healing_": "0"
+      },
+      {
+        "level": 36,
+        "ascension": 1,
+        "hp": 4640,
+        "atk": 108,
+        "def": 346,
+        "Healing_": "0"
+      },
+      {
+        "level": 37,
+        "ascension": 1,
+        "hp": 4723,
+        "atk": 110,
+        "def": 352,
+        "Healing_": "0"
+      },
+      {
+        "level": 38,
+        "ascension": 1,
+        "hp": 4806,
+        "atk": 112,
+        "def": 358,
+        "Healing_": "0"
+      },
+      {
+        "level": 39,
+        "ascension": 1,
+        "hp": 4889,
+        "atk": 113,
+        "def": 365,
+        "Healing_": "0"
+      },
+      {
+        "level": 40,
+        "ascension": 1,
+        "hp": 4973,
+        "atk": 115,
+        "def": 371,
+        "Healing_": "0"
+      },
+      {
+        "level": 41,
+        "ascension": 2,
+        "hp": 5642,
+        "atk": 131,
+        "def": 421,
+        "Healing_": "5.5"
+      },
+      {
+        "level": 42,
+        "ascension": 2,
+        "hp": 5726,
+        "atk": 133,
+        "def": 427,
+        "Healing_": "5.5"
+      },
+      {
+        "level": 43,
+        "ascension": 2,
+        "hp": 5809,
+        "atk": 135,
+        "def": 433,
+        "Healing_": "5.5"
+      },
+      {
+        "level": 44,
+        "ascension": 2,
+        "hp": 5892,
+        "atk": 137,
+        "def": 439,
+        "Healing_": "5.5"
+      },
+      {
+        "level": 45,
+        "ascension": 2,
+        "hp": 5976,
+        "atk": 139,
+        "def": 446,
+        "Healing_": "5.5"
+      },
+      {
+        "level": 46,
+        "ascension": 2,
+        "hp": 6060,
+        "atk": 141,
+        "def": 452,
+        "Healing_": "5.5"
+      },
+      {
+        "level": 47,
+        "ascension": 2,
+        "hp": 6144,
+        "atk": 143,
+        "def": 458,
+        "Healing_": "5.5"
+      },
+      {
+        "level": 48,
+        "ascension": 2,
+        "hp": 6227,
+        "atk": 145,
+        "def": 464,
+        "Healing_": "5.5"
+      },
+      {
+        "level": 49,
+        "ascension": 2,
+        "hp": 6312,
+        "atk": 146,
+        "def": 471,
+        "Healing_": "5.5"
+      },
+      {
+        "level": 50,
+        "ascension": 2,
+        "hp": 6396,
+        "atk": 148,
+        "def": 477,
+        "Healing_": "5.5"
+      },
+      {
+        "level": 51,
+        "ascension": 3,
+        "hp": 7262,
+        "atk": 169,
+        "def": 541,
+        "Healing_": "11.1"
+      },
+      {
+        "level": 52,
+        "ascension": 3,
+        "hp": 7346,
+        "atk": 170,
+        "def": 548,
+        "Healing_": "11.1"
+      },
+      {
+        "level": 53,
+        "ascension": 3,
+        "hp": 7430,
+        "atk": 172,
+        "def": 554,
+        "Healing_": "11.1"
+      },
+      {
+        "level": 54,
+        "ascension": 3,
+        "hp": 7515,
+        "atk": 174,
+        "def": 560,
+        "Healing_": "11.1"
+      },
+      {
+        "level": 55,
+        "ascension": 3,
+        "hp": 7600,
+        "atk": 176,
+        "def": 567,
+        "Healing_": "11.1"
+      },
+      {
+        "level": 56,
+        "ascension": 3,
+        "hp": 7684,
+        "atk": 178,
+        "def": 573,
+        "Healing_": "11.1"
+      },
+      {
+        "level": 57,
+        "ascension": 3,
+        "hp": 7769,
+        "atk": 180,
+        "def": 579,
+        "Healing_": "11.1"
+      },
+      {
+        "level": 58,
+        "ascension": 3,
+        "hp": 7854,
+        "atk": 182,
+        "def": 586,
+        "Healing_": "11.1"
+      },
+      {
+        "level": 59,
+        "ascension": 3,
+        "hp": 7939,
+        "atk": 184,
+        "def": 592,
+        "Healing_": "11.1"
+      },
+      {
+        "level": 60,
+        "ascension": 3,
+        "hp": 8023,
+        "atk": 186,
+        "def": 598,
+        "Healing_": "11.1"
+      },
+      {
+        "level": 61,
+        "ascension": 4,
+        "hp": 8695,
+        "atk": 202,
+        "def": 648,
+        "Healing_": "11.1"
+      },
+      {
+        "level": 62,
+        "ascension": 4,
+        "hp": 8779,
+        "atk": 204,
+        "def": 655,
+        "Healing_": "11.1"
+      },
+      {
+        "level": 63,
+        "ascension": 4,
+        "hp": 8865,
+        "atk": 206,
+        "def": 661,
+        "Healing_": "11.1"
+      },
+      {
+        "level": 64,
+        "ascension": 4,
+        "hp": 8950,
+        "atk": 208,
+        "def": 667,
+        "Healing_": "11.1"
+      },
+      {
+        "level": 65,
+        "ascension": 4,
+        "hp": 9036,
+        "atk": 210,
+        "def": 674,
+        "Healing_": "11.1"
+      },
+      {
+        "level": 66,
+        "ascension": 4,
+        "hp": 9121,
+        "atk": 212,
+        "def": 680,
+        "Healing_": "11.1"
+      },
+      {
+        "level": 67,
+        "ascension": 4,
+        "hp": 9206,
+        "atk": 214,
+        "def": 686,
+        "Healing_": "11.1"
+      },
+      {
+        "level": 68,
+        "ascension": 4,
+        "hp": 9292,
+        "atk": 216,
+        "def": 693,
+        "Healing_": "11.1"
+      },
+      {
+        "level": 69,
+        "ascension": 4,
+        "hp": 9377,
+        "atk": 218,
+        "def": 699,
+        "Healing_": "11.1"
+      },
+      {
+        "level": 70,
+        "ascension": 4,
+        "hp": 9463,
+        "atk": 220,
+        "def": 706,
+        "Healing_": "11.1"
+      },
+      {
+        "level": 71,
+        "ascension": 5,
+        "hp": 10135,
+        "atk": 235,
+        "def": 756,
+        "Healing_": "16.6"
+      },
+      {
+        "level": 72,
+        "ascension": 5,
+        "hp": 10222,
+        "atk": 237,
+        "def": 762,
+        "Healing_": "16.6"
+      },
+      {
+        "level": 73,
+        "ascension": 5,
+        "hp": 10308,
+        "atk": 239,
+        "def": 769,
+        "Healing_": "16.6"
+      },
+      {
+        "level": 74,
+        "ascension": 5,
+        "hp": 10393,
+        "atk": 241,
+        "def": 775,
+        "Healing_": "16.6"
+      },
+      {
+        "level": 75,
+        "ascension": 5,
+        "hp": 10480,
+        "atk": 243,
+        "def": 781,
+        "Healing_": "16.6"
+      },
+      {
+        "level": 76,
+        "ascension": 5,
+        "hp": 10566,
+        "atk": 245,
+        "def": 788,
+        "Healing_": "16.6"
+      },
+      {
+        "level": 77,
+        "ascension": 5,
+        "hp": 10652,
+        "atk": 247,
+        "def": 794,
+        "Healing_": "16.6"
+      },
+      {
+        "level": 78,
+        "ascension": 5,
+        "hp": 10739,
+        "atk": 249,
+        "def": 801,
+        "Healing_": "16.6"
+      },
+      {
+        "level": 79,
+        "ascension": 5,
+        "hp": 10826,
+        "atk": 251,
+        "def": 807,
+        "Healing_": "16.6"
+      },
+      {
+        "level": 80,
+        "ascension": 5,
+        "hp": 10912,
+        "atk": 253,
+        "def": 814,
+        "Healing_": "16.6"
+      },
+      {
+        "level": 81,
+        "ascension": 6,
+        "hp": 11586,
+        "atk": 269,
+        "def": 864,
+        "Healing_": "22.1"
+      },
+      {
+        "level": 82,
+        "ascension": 6,
+        "hp": 11672,
+        "atk": 271,
+        "def": 870,
+        "Healing_": "22.1"
+      },
+      {
+        "level": 83,
+        "ascension": 6,
+        "hp": 11759,
+        "atk": 273,
+        "def": 877,
+        "Healing_": "22.1"
+      },
+      {
+        "level": 84,
+        "ascension": 6,
+        "hp": 11846,
+        "atk": 275,
+        "def": 883,
+        "Healing_": "22.1"
+      },
+      {
+        "level": 85,
+        "ascension": 6,
+        "hp": 11932,
+        "atk": 277,
+        "def": 890,
+        "Healing_": "22.1"
+      },
+      {
+        "level": 86,
+        "ascension": 6,
+        "hp": 12020,
+        "atk": 279,
+        "def": 896,
+        "Healing_": "22.1"
+      },
+      {
+        "level": 87,
+        "ascension": 6,
+        "hp": 12106,
+        "atk": 281,
+        "def": 903,
+        "Healing_": "22.1"
+      },
+      {
+        "level": 88,
+        "ascension": 6,
+        "hp": 12194,
+        "atk": 283,
+        "def": 909,
+        "Healing_": "22.1"
+      },
+      {
+        "level": 89,
+        "ascension": 6,
+        "hp": 12282,
+        "atk": 285,
+        "def": 916,
+        "Healing_": "22.1"
+      },
+      {
+        "level": 90,
+        "ascension": 6,
+        "hp": 12368,
+        "atk": 287,
+        "def": 922,
+        "Healing_": "22.1"
+      },
+      {
+        "level": 95,
+        "ascension": 6,
+        "hp": 12807,
+        "atk": 319,
+        "def": 955,
+        "Healing_": "22.1"
+      },
+      {
+        "level": 100,
+        "ascension": 6,
+        "hp": 13247,
+        "atk": 352,
+        "def": 988,
+        "Healing_": "22.1"
+      }
+    ]
+  },
+  "icons": {
+    "forward": "UI_AvatarIcon_Qiqi",
+    "coop_img": "UI_CoopImg_Qiqi"
+  },
+  "ascension": {
+    "x202": 7.0499E+6,
+    "exp": {
+      "x104001": 2,
+      "x104003": 418
+    },
+    "speciality": {
+      "x100034": 168
+    },
+    "elemental": {
+      "x104161": 1,
+      "x104162": 9,
+      "x104163": 9,
+      "x104164": 6
+    },
+    "worldmonster": {
+      "x112008": 18,
+      "x112009": 30,
+      "x112010": 36
+    },
+    "elitemonster": {
+      "x113010": 46
+    }
+  },
+  "skills": {
+    "normalattack": {
+      "name": "Ancient Sword Art",
+      "icon": "Skill_A_01",
+      "multipliers": {
+        "x1_HitDMG": [
+          "37.75%",
+          "40.83%",
+          "43.9%",
+          "48.29%",
+          "51.36%",
+          "54.87%",
+          "59.7%",
+          "64.53%",
+          "69.36%",
+          "74.63%",
+          "79.9%",
+          "85.17%",
+          "90.43%",
+          "95.7%",
+          "100.97%"
+        ],
+        "x2_HitDMG": [
+          "38.87%",
+          "42.04%",
+          "45.2%",
+          "49.72%",
+          "52.88%",
+          "56.5%",
+          "61.47%",
+          "66.44%",
+          "71.42%",
+          "76.84%",
+          "82.26%",
+          "87.69%",
+          "93.11%",
+          "98.54%",
+          "103.96%"
+        ],
+        "x3_HitDMG": [
+          "24.17%+24.17%",
+          "26.13%+26.13%",
+          "28.1%+28.1%",
+          "30.91%+30.91%",
+          "32.88%+32.88%",
+          "35.12%+35.12%",
+          "38.22%+38.22%",
+          "41.31%+41.31%",
+          "44.4%+44.4%",
+          "47.77%+47.77%",
+          "51.14%+51.14%",
+          "54.51%+54.51%",
+          "57.89%+57.89%",
+          "61.26%+61.26%",
+          "64.63%+64.63%"
+        ],
+        "x4_HitDMG": [
+          "24.68%+24.68%",
+          "26.69%+26.69%",
+          "28.7%+28.7%",
+          "31.57%+31.57%",
+          "33.58%+33.58%",
+          "35.87%+35.87%",
+          "39.03%+39.03%",
+          "42.19%+42.19%",
+          "45.35%+45.35%",
+          "48.79%+48.79%",
+          "52.23%+52.23%",
+          "55.68%+55.68%",
+          "59.12%+59.12%",
+          "62.57%+62.57%",
+          "66.01%+66.01%"
+        ],
+        "x5_HitDMG": [
+          "63.04%",
+          "68.17%",
+          "73.3%",
+          "80.63%",
+          "85.76%",
+          "91.62%",
+          "99.69%",
+          "107.75%",
+          "115.81%",
+          "124.61%",
+          "133.41%",
+          "142.2%",
+          "151%",
+          "159.79%",
+          "168.59%"
+        ],
+        "ChargedAttackDMG": [
+          "64.33%+64.33%",
+          "69.56%+69.56%",
+          "74.8%+74.8%",
+          "82.28%+82.28%",
+          "87.52%+87.52%",
+          "93.5%+93.5%",
+          "101.73%+101.73%",
+          "109.96%+109.96%",
+          "118.18%+118.18%",
+          "127.16%+127.16%",
+          "136.14%+136.14%",
+          "145.11%+145.11%",
+          "154.09%+154.09%",
+          "163.06%+163.06%",
+          "172.04%+172.04%"
+        ],
+        "ChargedAttackStaminaCost": [
+          "20",
+          "20",
+          "20",
+          "20",
+          "20",
+          "20",
+          "20",
+          "20",
+          "20",
+          "20",
+          "20",
+          "20",
+          "20",
+          "20",
+          "20"
+        ],
+        "PlungeDMG": [
+          "63.93%",
+          "69.14%",
+          "74.34%",
+          "81.77%",
+          "86.98%",
+          "92.93%",
+          "101.1%",
+          "109.28%",
+          "117.46%",
+          "126.38%",
+          "135.3%",
+          "144.22%",
+          "153.14%",
+          "162.06%",
+          "170.98%"
+        ],
+        "Low_HighPlungeDMG": [
+          "127.84%/159.68%",
+          "138.24%/172.67%",
+          "148.65%/185.67%",
+          "163.51%/204.24%",
+          "173.92%/217.23%",
+          "185.81%/232.09%",
+          "202.16%/252.51%",
+          "218.51%/272.93%",
+          "234.86%/293.36%",
+          "252.7%/315.64%",
+          "270.54%/337.92%",
+          "288.38%/360.2%",
+          "306.22%/382.48%",
+          "324.05%/404.76%",
+          "341.89%/427.04%"
+        ]
+      },
+      "description": "<color=#FFD780FF>Normal Attack</color>\\nPerforms up to 5 rapid strikes.\\n\\n<color=#FFD780FF>Charged Attack</color>\\nConsumes a certain amount of Stamina to unleash 2 rapid sword strikes.\\n\\n<color=#FFD780FF>Plunging Attack</color>\\nPlunges from mid-air to strike the ground below, damaging opponents along the path and dealing AoE DMG upon impact."
+    },
+    "elementalskill": {
+      "name": "Adeptus Art: Herald of Frost",
+      "icon": "Skill_S_Qiqi_01",
+      "multipliers": {
+        "SkillDMG": [
+          "96%",
+          "103.2%",
+          "110.4%",
+          "120%",
+          "127.2%",
+          "134.4%",
+          "144%",
+          "153.6%",
+          "163.2%",
+          "172.8%",
+          "182.4%",
+          "192%",
+          "204%",
+          "216%",
+          "228%"
+        ],
+        "RegenerationOnHit": [
+          "10.56% ATK+67",
+          "11.35% ATK+74",
+          "12.14% ATK+81",
+          "13.2% ATK+89",
+          "13.99% ATK+98",
+          "14.78% ATK+107",
+          "15.84% ATK+116",
+          "16.9% ATK+126",
+          "17.95% ATK+137",
+          "19.01% ATK+148",
+          "20.06% ATK+160",
+          "21.12% ATK+172",
+          "22.44% ATK+185",
+          "23.76% ATK+199",
+          "25.08% ATK+213"
+        ],
+        "ContinuousRegeneration": [
+          "69.6% ATK+451",
+          "74.82% ATK+496",
+          "80.04% ATK+544",
+          "87% ATK+597",
+          "92.22% ATK+653",
+          "97.44% ATK+713",
+          "104.4% ATK+777",
+          "111.36% ATK+845",
+          "118.32% ATK+916",
+          "125.28% ATK+991",
+          "132.24% ATK+1070",
+          "139.2% ATK+1153",
+          "147.9% ATK+1239",
+          "156.6% ATK+1329",
+          "165.3% ATK+1423"
+        ],
+        "HeraldOfFrostDMG": [
+          "36%",
+          "38.7%",
+          "41.4%",
+          "45%",
+          "47.7%",
+          "50.4%",
+          "54%",
+          "57.6%",
+          "61.2%",
+          "64.8%",
+          "68.4%",
+          "72%",
+          "76.5%",
+          "81%",
+          "85.5%"
+        ],
+        "Duration": [
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s"
+        ],
+        "CD": [
+          "30s",
+          "30s",
+          "30s",
+          "30s",
+          "30s",
+          "30s",
+          "30s",
+          "30s",
+          "30s",
+          "30s",
+          "30s",
+          "30s",
+          "30s",
+          "30s",
+          "30s"
+        ]
+      },
+      "description": "Using the Icevein Talisman, Qiqi brings forth the Herald of Frost, dealing <color=#99FFFFFF>Cryo DMG</color> to surrounding opponents.\\n\\n<color=#FFD780FF>Herald of Frost</color>\\n·On hit, Qiqi's Normal and Charged Attacks regenerate HP for your own party members and nearby teammates. Healing scales based on Qiqi's ATK.\\n·Periodically regenerates your active character's HP.\\n·Follows the character around, dealing <color=#99FFFFFF>Cryo DMG</color> to opponents in their path.\\n\\n<i>I use this to prevent warming and rot... of Dr. Bai's precious ingredients. Yes.</i>"
+    },
+    "elementalburst": {
+      "name": "Adeptus Art: Preserver of Fortune",
+      "icon": "Skill_E_Qiqi_01",
+      "multipliers": {
+        "SkillDMG": [
+          "284.8%",
+          "306.16%",
+          "327.52%",
+          "356%",
+          "377.36%",
+          "398.72%",
+          "427.2%",
+          "455.68%",
+          "484.16%",
+          "512.64%",
+          "541.12%",
+          "569.6%",
+          "605.2%",
+          "640.8%",
+          "676.4%"
+        ],
+        "Healing": [
+          "90% ATK+577",
+          "96.75% ATK+635",
+          "103.5% ATK+698",
+          "112.5% ATK+765",
+          "119.25% ATK+837",
+          "126% ATK+914",
+          "135% ATK+996",
+          "144% ATK+1083",
+          "153% ATK+1174",
+          "162% ATK+1270",
+          "171% ATK+1371",
+          "180% ATK+1477",
+          "191.25% ATK+1588",
+          "202.5% ATK+1703",
+          "213.75% ATK+1824"
+        ],
+        "Duration": [
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s"
+        ],
+        "CD": [
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s"
+        ],
+        "EnergyCost": [
+          "80",
+          "80",
+          "80",
+          "80",
+          "80",
+          "80",
+          "80",
+          "80",
+          "80",
+          "80",
+          "80",
+          "80",
+          "80",
+          "80",
+          "80"
+        ]
+      },
+      "description": "Qiqi releases the adeptus power sealed within her body, marking nearby opponents with a Fortune-Preserving Talisman that deals <color=#99FFFFFF>Cryo DMG</color>.\\n\\n<color=#FFD780FF>Fortune-Preserving Talisman</color>\\nWhen opponents affected by this Talisman take DMG, the character that dealt this DMG regenerates HP.\\n\\n<i>\"I am the Fortune Preserver, the Maiden of Resurrection.\"</i>\\n<i>— Qiqi does not remember these words.</i>"
+    },
+    "leveling": {
+      "books": {
+        "x104310": 9,
+        "x104311": 63,
+        "x104312": 114
+      },
+      "crown": {
+        "x104319": 3
+      },
+      "worldmonster": {
+        "x112008": 18,
+        "x112009": 66,
+        "x112010": 93
+      },
+      "weekly": {
+        "x113006": 18
+      }
+    }
+  },
+  "passives": {
+    "p1": {
+      "name": "Life-Prolonging Methods",
+      "description": "When a character under the effects of <color=#FFD780FF>Adeptus Art: Herald of Frost</color> triggers an Elemental Reaction, their Incoming Healing Bonus is increased by 20% for 8s.",
+      "icon": "UI_Talent_S_Qiqi_05"
+    },
+    "p2": {
+      "name": "A Glimpse Into Arcanum",
+      "description": "When Qiqi hits opponents with her Normal and Charged Attacks, she has a 50% chance to apply a Fortune-Preserving Talisman to them for 6s. This effect can only occur once every 30s.",
+      "icon": "UI_Talent_S_Qiqi_06"
+    },
+    "p3": {
+      "name": "Former Life Memories",
+      "description": "Displays the location of nearby <color=#FFD780FF>resources unique to Liyue</color> on the mini-map.",
+      "icon": "UI_Talent_Collect_Local_Liyue"
+    },
+    "p4": ""
+  },
+  "constellations": {
+    "const1": {
+      "name": "Ascetics of Frost",
+      "description": "When the Herald of Frost hits an opponent marked by a Fortune-Preserving Talisman, Qiqi regenerates 2 Energy.",
+      "icon": "UI_Talent_S_Qiqi_01"
+    },
+    "const2": {
+      "name": "Frozen to the Bone",
+      "description": "Qiqi's Normal and Charged Attack DMG against opponents affected by <color=#99FFFFFF>Cryo</color> is increased by 15%.",
+      "icon": "UI_Talent_S_Qiqi_02"
+    },
+    "const3": {
+      "name": "Ascendant Praise",
+      "description": "Increases the Level of <color=#FFD780FF>Adeptus Art: Preserver of Fortune</color> by 3.\\nMaximum upgrade level is 15.",
+      "icon": "UI_Talent_U_Qiqi_01"
+    },
+    "const4": {
+      "name": "Divine Suppression",
+      "description": "Targets marked by the Fortune-Preserving Talisman have their ATK decreased by 20%.",
+      "icon": "UI_Talent_S_Qiqi_03"
+    },
+    "const5": {
+      "name": "Crimson Lotus Bloom",
+      "description": "Increases the Level of <color=#FFD780FF>Adeptus Art: Herald of Frost</color> by 3.\\nMaximum upgrade level is 15.",
+      "icon": "UI_Talent_U_Qiqi_02"
+    },
+    "const6": {
+      "name": "Rite of Resurrection",
+      "description": "Using <color=#FFD780FF>Adeptus Art: Preserver of Fortune</color> revives all fallen party members nearby and regenerates 50% of their HP.\\nThis effect can only occur once every 15 mins.",
+      "icon": "UI_Talent_S_Qiqi_04"
+    }
+  },
+  "hyperlinks": [],
+  "stories": {
+    "x24201": {
+      "storyTitle": "Character Details",
+      "storyText": "Due to being a zombie, Qiqi lacks facial expression. She hopes that's okay.\\nShe may look like a zombie, but she's surprisingly limber due to a strict calisthenics regimen.\\nHer memory is poor. She forgets easily, and that is partly why she can seem cold to others.\\nHer appearance is forever frozen at the point of her passing, so estimates of her age are unreliable.\\nZombies require orders to act, but due to some reason or another, Qiqi is presently giving herself orders.",
+      "unlockConds": []
+    },
+    "x24202": {
+      "storyTitle": "Character Story 1",
+      "storyText": "Usually, zombies are cold and stiff, which forces them to locomote by hopping about.\\nAs such, Qiqi keeps up a calisthenics regimen to retain a human-like form.\\nThe 77th-generation Director of the Wangsheng Funeral Parlor, Hu Tao, doesn't see the point of all this. Whenever she meets Qiqi, she will say: \"It would be easier if you just let me bury you.\"\\nQiqi, of course, has no wish to be buried, and so conducts her exercises at night when no one's about.\\nQiqi's memory falls far behind those of non-undead disposition.\\nIf she does not continue to reinforce her impressions of someone, she will completely forget them in three days tops.\\nBut who knows, this might be a good thing — for a person with painful memories, forgetting may, in fact, be a form of release.\\nThe person Qiqi must remember most... not only does this person have a very punch-able face, but she also shows up every single day.\\nAs such, Qiqi isn't too concerned about her poor memory.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 2
+      }
+    },
+    "x24203": {
+      "storyTitle": "Character Story 2",
+      "storyText": "Qiqi is very petite indeed, but is in fact a very powerful zombie. Her short stature is hardly any impediment, but is instead good for high-speed movement.\\nIn combat, Qiqi will unleash the self-control that she usually maintains, allowing her body to return to an undead state, increasing her strength and speed.\\n\"You're dead.\"\\nOnce she has stoically defeated her enemies, Qiqi will once again get her muscles under control, returning to her normal state.\\nShe has been threatened in the past by Treasure Hoarders while picking herbs by herself.\\nNow, a little girl, all by herself, seems like an easy target, no?\\nWho would have thought that this girl could send a whole crew flying?\\nThis is why we should always remember never to judge a person based on appearances. Or a zombie, for that matter.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 3
+      }
+    },
+    "x24204": {
+      "storyTitle": "Character Story 3",
+      "storyText": "Zombies mostly require orders from the person who awakens them to move. But strictly speaking, Qiqi has never been awakened.\\nAs such, she counts as a very rare case of a zombie that gives itself orders.\\nIf these orders are simple ones like \"defeat the enemy,\" Qiqi has no problem fulfilling them.\\nBut when faced with complex instructions such as \"go to Jueyun Karst, climb the sheer rock faces and pick herbs,\" Qiqi sometimes winds up stuck below the cliffs, unable to give up no matter how many times she tries and fails to scale the cliff.\\nThe method to cancel her orders is very simple — hug Qiqi from behind, tell her something like \"I love you the most,\" and the orders will dissipate, just like that.\\nUnfortunately, there's just no element of sincerity when Baizhu does it, leading to greatly reduced results.\\nPerhaps someday, someone will come along who understands that such words cannot be spoken lightly, and who slowly but carefully releases the hold that Qiqi's orders have over her...\\nWhat will Qiqi's response be then?",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 4
+      }
+    },
+    "x24205": {
+      "storyTitle": "Character Story 4",
+      "storyText": "This ancient story has long been forgotten by mortals.\\nAn ordinary herb-picking lass named Qiqi lost her way and trespassed the realm of the adepti. Injuring her right leg in a fall, she hurriedly hid in a cavern to rest.\\nEven occupied as she was in bandaging her wound, she could hear sounds that did not belong to the mortal plane. But she could have never expected that with a huge crash, she would forever be trapped between life and death.\\nWhether adepti or demons, just or wicked, all understood that she was an innocent mortal caught in the crossfire.\\nOr perhaps it was by the will of heaven that she received a Vision in her dying moments, and so ended this contention between adepti and demon.\\nThe adepti could not bear to let her die, and each imparted to her a portion of their strength, meaning to breathe life back into her body.\\nQiqi did indeed awaken and live again, but went into a berserk state, unable to control the adepti energy raging through her.\\nSeeking to end the disturbance, Mountain Shaper had no choice but to seal the hapless maiden in amber.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 5
+      }
+    },
+    "x24206": {
+      "storyTitle": "Character Story 5",
+      "storyText": "After hundreds of years, Qiqi was discovered by humans, still trapped in the amber, and was brought to Wangsheng Funeral Parlor for burial.\\nThe mountain roads were treacherous, however, and the amber was bumped about. Coupled with the passing of many years, the seal on Qiqi was all but spent.\\nShe awakened in the middle of the night, broke the amber in secret, and fled.\\nFollowing the herb-picking habits of her previous life, Qiqi headed right for the hills.\\nBy chance, she met Baizhu, the boss of Bubu Pharmacy, on the way, and he took her in.\\nNow, Baizhu was a doctor of great skill, but he was hardly a man of high caliber or great courage.\\nEven so, he took her in, never mind that her memory was so poor that she could not even sort herbs out.\\nIt does seem that his acceptance of Qiqi has something to do with his own personal pursuits.\\nQiqi is stiff, but not slow, and has long realized this. However, she does not take it to heart.\\nPerhaps she has seen too much, or been alone for too long... But what remains true is that she treasures his concern, even if there is some other motive behind it.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 6
+      }
+    },
+    "x24207": {
+      "storyTitle": "A Home-and-Away Handbook of Practical Wisdom for the Undead",
+      "storyText": "Qiqi carries something with her that looks like a notebook.\\nQiqi's memory is very poor, so it is an object of irreplaceable importance if she is to smoothly go about her daily life.\\nThe words within are written in a centuries-old style, and are very elegant indeed.\\nThe first page is an instructional on calisthenics.\\nMoving past that, one finds the descriptions of various herbs and some \"orders.\"\\nQiqi needs to give herself orders, so she has very precise instructions to ensure smooth transition.\\nShe has also dutifully written down all the things she needs to do in a day.\\nRecently, she has also added a section on \"brain training\" and \"mnemonic methods.\"\\nAt this point, it has become a true \"dummy's guide\" on just about anything.\\nBut if the day ever comes when Qiqi also forgets to look at her notebook... there would truly be nothing for it then.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 4
+      }
+    },
+    "x24208": {
+      "storyTitle": "Vision",
+      "storyText": "Qiqi's Vision was given to her in the last moment of her life.\\nShe wanted to stop the clock from turning. She wanted to live happily again.\\nShe feared death. She wanted to live. She missed her family... These feelings coalesced at last into \"ice.\"\\n\"If only I could freeze time... How wonderful would that be?\"\\nAs she thought thus, tears fell from the moribund girl's eyes upon the Vision that had appeared before her.\\nThe mighty and illuminated adepti all acknowledged this as a legitimate form of \"illumination\" — the yearning of humanity for bygone days is, after all, a desire to protect that past.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 6
+      }
+    }
+  },
+  "quotes": {
+    "x24009": {
+      "quoteTitle": "Hello",
+      "quoteText": "I am Qiqi. I am a zombie. And I... forgot what comes next.",
+      "unlockConds": []
+    },
+    "x24010": {
+      "quoteTitle": "Chat: Talking to Herself",
+      "quoteText": "Hey, do you know what? Uhh... neither do I. I... already forgot.",
+      "unlockConds": []
+    },
+    "x24011": {
+      "quoteTitle": "Chat: Afraid of Heat",
+      "quoteText": "Let's go somewhere cooler.",
+      "unlockConds": []
+    },
+    "x24012": {
+      "quoteTitle": "Chat: Training",
+      "quoteText": "One, two, three, four. Two, two, three, four...",
+      "unlockConds": []
+    },
+    "x24013": {
+      "quoteTitle": "When It Rains",
+      "quoteText": "I forgot my umbrella again.",
+      "unlockConds": []
+    },
+    "x24014": {
+      "quoteTitle": "When It Snows",
+      "quoteText": "I want to build a snowman. Will you help?",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 6"
+      ]
+    },
+    "x24015": {
+      "quoteTitle": "When the Sun Is Out",
+      "quoteText": "I should have stayed indoors today.",
+      "unlockConds": []
+    },
+    "x24016": {
+      "quoteTitle": "When It's Windy",
+      "quoteText": "The wind is... frigid. I like it.",
+      "unlockConds": []
+    },
+    "x24017": {
+      "quoteTitle": "When the Wind Is Blowing",
+      "quoteText": "Hold my hand please. This wind could blow me away.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 6"
+      ]
+    },
+    "x24018": {
+      "quoteTitle": "Good Morning",
+      "quoteText": "Morning means it's time to check my diary. Because my diary reminds me what I'm supposed to do in the morning.",
+      "unlockConds": []
+    },
+    "x24019": {
+      "quoteTitle": "Good Afternoon",
+      "quoteText": "I just remembered something. I forgot to help Dr. Baizhu prepare medications.",
+      "unlockConds": []
+    },
+    "x24020": {
+      "quoteTitle": "Good Evening",
+      "quoteText": "Good evening. How was your day? My day was... fine, I think. But I can't remember.",
+      "unlockConds": []
+    },
+    "x24021": {
+      "quoteTitle": "Good Night",
+      "quoteText": "It's time for you to sleep now. I will do my stretches. ...Do not watch me, please.",
+      "unlockConds": []
+    },
+    "x24022": {
+      "quoteTitle": "About Qiqi",
+      "quoteText": "Did you ask me something? Sorry... I forgot.",
+      "unlockConds": []
+    },
+    "x24023": {
+      "quoteTitle": "About Us: Memory",
+      "quoteText": "I have a poor memory for most things. But as far as I know, that doesn't matter.",
+      "unlockConds": []
+    },
+    "x24024": {
+      "quoteTitle": "About Us: Memory Training",
+      "quoteText": "I started memory training exercises recently. So don't worry, I won't forget who you are.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 6"
+      ]
+    },
+    "x24025": {
+      "quoteTitle": "About the Vision",
+      "quoteText": "My Vision can't turn back time. But at least it gives me the power to protect the people that matter most.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x24026": {
+      "quoteTitle": "Something to Share",
+      "quoteText": "I may be a corpse, but I am in a much better physical condition than Dr. Baizhu.",
+      "unlockConds": []
+    },
+    "x24027": {
+      "quoteTitle": "Interesting Things",
+      "quoteText": "Sometimes I see finches near the pharmacy. A nice little group of finches.",
+      "unlockConds": []
+    },
+    "x24028": {
+      "quoteTitle": "About Baizhu",
+      "quoteText": "I can never remember Dr. Baizhu's face. But I don't mind.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x24029": {
+      "quoteTitle": "About Hu Tao",
+      "quoteText": "Warm. Fake smile. Death. I despise Hu Tao.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x24030": {
+      "quoteTitle": "About Xiao: Name",
+      "quoteText": "Sounds like a historical artifact to me.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x24031": {
+      "quoteTitle": "About Xiao: Memory",
+      "quoteText": "Remind me, have I met him before?",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x24032": {
+      "quoteTitle": "About Xinyan",
+      "quoteText": "...Who?",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x24033": {
+      "quoteTitle": "About Yaoyao",
+      "quoteText": "Cute. Like a nice little finch.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x24034": {
+      "quoteTitle": "About Dusky Ming",
+      "quoteText": "On some nights, I almost feel like someone is doing stretches together with me. But maybe I just have an overactive imagination.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x24035": {
+      "quoteTitle": "More About Qiqi: I",
+      "quoteText": "What's going on?",
+      "unlockConds": []
+    },
+    "x24036": {
+      "quoteTitle": "More About Qiqi: II",
+      "quoteText": "I perform stretches regularly to help me maintain the same range of movement as a normal human being. But as soon as I stop doing them, the rigor mortis starts to set in again.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 3"
+      ]
+    },
+    "x24037": {
+      "quoteTitle": "More About Qiqi: III",
+      "quoteText": "Some people want to take advantage of me. Others are terrified of me. But you... You are not like any of those people.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x24038": {
+      "quoteTitle": "More About Qiqi: IV",
+      "quoteText": "Since we first met, I have had a warm feeling inside. Not the kind of warmth that makes me feel rotten. The other kind of warm. The one that happens inside my heart. Thank you. I am happy. Sadly I only recognize the current you. If I forget you... No. I will order myself to remember you.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 5"
+      ]
+    },
+    "x24039": {
+      "quoteTitle": "More About Qiqi: V",
+      "quoteText": "In the past, my only thought was: I must stay alive. Even though I didn't know what to live for. But now, I think I know. I want to live with you. I want to ask, can we always stay together, for the rest of life, until death? Yes or no? Yes? Is that your real answer? Good, excellent. I promise to always protect you.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 6"
+      ]
+    },
+    "x24040": {
+      "quoteTitle": "Qiqi's Hobbies",
+      "quoteText": "I want to have a pet. For example, a nice little finch.",
+      "unlockConds": []
+    },
+    "x24041": {
+      "quoteTitle": "Qiqi's Troubles",
+      "quoteText": "I don't know why, but high temperatures make me feel... disgusting.",
+      "unlockConds": []
+    },
+    "x24042": {
+      "quoteTitle": "Favorite Food",
+      "quoteText": "I like coconut milk... But, I don't know what it tastes like.",
+      "unlockConds": []
+    },
+    "x24043": {
+      "quoteTitle": "Least Favorite Food",
+      "quoteText": "Sorry, I have no idea.",
+      "unlockConds": []
+    },
+    "x24044": {
+      "quoteTitle": "Birthday",
+      "quoteText": "Many happy returns. Here is a bag of herbal medicine for you. You must be very surprised that I remembered? Let me explain. Last time you told me, I wrote your birthday down on a piece of paper. If I look at something once a day, it eventually goes into my long-term memory, and it will stay there forever.",
+      "unlockConds": []
+    },
+    "x24045": {
+      "quoteTitle": "Feelings About Ascension: Intro",
+      "quoteText": "Now, I have more power. But... what does that mean? Please explain. Thank you.",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 1"
+      ]
+    },
+    "x24046": {
+      "quoteTitle": "Feelings About Ascension: Building Up",
+      "quoteText": "Ah, I understand. When I get stronger, I need to put more effort into controlling my strength.",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 2"
+      ]
+    },
+    "x24047": {
+      "quoteTitle": "Feelings About Ascension: Climax",
+      "quoteText": "In the past, I did not understand the idea of being stronger than I already was. Now that I understand it well, I wish I was just a little stronger still.",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 4"
+      ]
+    },
+    "x24048": {
+      "quoteTitle": "Feelings About Ascension: Conclusion",
+      "quoteText": "All of this is because of you. Thank you very much. Can you make me a promise? From now on, please, let me protect you. Do you accept? Yes or no?",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 6"
+      ]
+    },
+    "x24049": {
+      "quoteTitle": "Elemental Skill: I",
+      "quoteText": "Wheel of life.",
+      "unlockConds": []
+    },
+    "x24050": {
+      "quoteTitle": "Elemental Skill: II",
+      "quoteText": "Life goes on.",
+      "unlockConds": []
+    },
+    "x24051": {
+      "quoteTitle": "Elemental Skill: III",
+      "quoteText": "Go.",
+      "unlockConds": []
+    },
+    "x24052": {
+      "quoteTitle": "Elemental Skill: IV",
+      "quoteText": "Rise.",
+      "unlockConds": []
+    },
+    "x24053": {
+      "quoteTitle": "Elemental Burst: I",
+      "quoteText": "Orders given. Orders received.",
+      "unlockConds": []
+    },
+    "x24054": {
+      "quoteTitle": "Elemental Burst: II",
+      "quoteText": "Sacred name: Fortune Preserver.",
+      "unlockConds": []
+    },
+    "x24055": {
+      "quoteTitle": "Elemental Burst: III",
+      "quoteText": "Opening box of Adepti tricks.",
+      "unlockConds": []
+    },
+    "x24056": {
+      "quoteTitle": "Sprint Start: I",
+      "quoteText": "Faster? Okay, faster.",
+      "unlockConds": []
+    },
+    "x24057": {
+      "quoteTitle": "Deploying Wind Glider: I",
+      "quoteText": "Uh... Huh...",
+      "unlockConds": []
+    },
+    "x24059": {
+      "quoteTitle": "Opening Treasure Chest: I",
+      "quoteText": "Ooh, pretty.",
+      "unlockConds": []
+    },
+    "x24060": {
+      "quoteTitle": "Opening Treasure Chest: II",
+      "quoteText": "Treasure chests... hmm... do we like treasure chests?",
+      "unlockConds": []
+    },
+    "x24061": {
+      "quoteTitle": "Opening Treasure Chest: III",
+      "quoteText": "Wasn't there something in here a second ago...?",
+      "unlockConds": []
+    },
+    "x24062": {
+      "quoteTitle": "Low HP: I",
+      "quoteText": "Ow.",
+      "unlockConds": []
+    },
+    "x24063": {
+      "quoteTitle": "Low HP: II",
+      "quoteText": "Oh no...",
+      "unlockConds": []
+    },
+    "x24064": {
+      "quoteTitle": "Low HP: III",
+      "quoteText": "I must live on...",
+      "unlockConds": []
+    },
+    "x24065": {
+      "quoteTitle": "Ally at Low HP: I",
+      "quoteText": "Danger.",
+      "unlockConds": []
+    },
+    "x24066": {
+      "quoteTitle": "Ally at Low HP: II",
+      "quoteText": "Stop. Let me do it.",
+      "unlockConds": []
+    },
+    "x24067": {
+      "quoteTitle": "Fallen: I",
+      "quoteText": "Don't want... to be sealed... back up...",
+      "unlockConds": []
+    },
+    "x24068": {
+      "quoteTitle": "Fallen: II",
+      "quoteText": "Cold... So cold...",
+      "unlockConds": []
+    },
+    "x24069": {
+      "quoteTitle": "Fallen: III",
+      "quoteText": "No...",
+      "unlockConds": []
+    },
+    "x24070": {
+      "quoteTitle": "Light Hit Taken: I",
+      "quoteText": "I didn't feel that.",
+      "unlockConds": []
+    },
+    "x24071": {
+      "quoteTitle": "Heavy Hit Taken: I",
+      "quoteText": "Wow.",
+      "unlockConds": []
+    },
+    "x24072": {
+      "quoteTitle": "Heavy Hit Taken: II",
+      "quoteText": "Oh...",
+      "unlockConds": []
+    },
+    "x24073": {
+      "quoteTitle": "Joining Party: I",
+      "quoteText": "I'm here.",
+      "unlockConds": []
+    },
+    "x24074": {
+      "quoteTitle": "Joining Party: II",
+      "quoteText": "What's happening?",
+      "unlockConds": []
+    },
+    "x24075": {
+      "quoteTitle": "Joining Party: III",
+      "quoteText": "I will... bring my notebook.",
+      "unlockConds": []
+    },
+    "x24076": {
+      "quoteTitle": "Receiving a Gift: I",
+      "quoteText": "Cold. I like it. But, no flavor...",
+      "unlockConds": []
+    },
+    "x24077": {
+      "quoteTitle": "Receiving a Gift: II",
+      "quoteText": "Huh...",
+      "unlockConds": []
+    },
+    "x24078": {
+      "quoteTitle": "Receiving a Gift: III",
+      "quoteText": "It's burning my tongue...",
+      "unlockConds": []
+    },
+    "x24079": {
+      "quoteTitle": "About Prune",
+      "quoteText": "She looks tough on the outside... but her palms are nice and soft. I like her.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4",
+        "Complete \"The Magic That Never Fails\""
+      ]
+    }
+  },
+  "energy": [],
+  "attacks": [
+    {
+      "name": "ElementalArt_Bullet",
+      "icd_source": "Tag: Elemental_Art (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV3/40",
+      "element": "Ice",
+      "attackType": "Default",
+      "strikeType": "-",
+      "damageParam": "Elemental_Art_Damage"
+    },
+    {
+      "name": "ElementalBurst_ApplyModifier",
+      "icd_source": "Grp: default",
+      "icd_rule": "Standard (3h/2.5s)",
+      "gauge": "0U",
+      "poise": "LV3/0",
+      "element": "Ice",
+      "attackType": "Melee",
+      "strikeType": "Slash",
+      "damageParam": "-"
+    },
+    {
+      "name": "ElementalBurst_TriggerAttack",
+      "icd_source": "Tag: Elemental_Burst (!)",
+      "icd_rule": "Independent",
+      "gauge": "2U",
+      "poise": "LV4/200",
+      "element": "Ice",
+      "attackType": "Default",
+      "strikeType": "-",
+      "damageParam": "ElementalBurst_Damage"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "0U",
+      "poise": "LV2/25",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Slash",
+      "damageParam": "FallingAnthem_Normal_Loop_Damage"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV4/100",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Blunt",
+      "damageParam": "FallingAnthem_Normal_Rank_1_Damage"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV7/150",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Blunt",
+      "damageParam": "FallingAnthem_Normal_Rank_2_Damage"
+    }
+  ],
+  "endure": []
+}

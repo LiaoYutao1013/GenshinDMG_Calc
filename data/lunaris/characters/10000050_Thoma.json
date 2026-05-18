@@ -1,0 +1,1814 @@
+{
+  "info": {
+    "name": "Thoma",
+    "description": "The Kamisato Clan's housekeeper. A well-known \"fixer\" in Inazuma.",
+    "rarity": "QUALITY_PURPLE",
+    "weapon": "WEAPON_POLE",
+    "birthday": "9/1",
+    "element": "Pyro",
+    "title": "Protector From Afar",
+    "constellation": "Rubeum Scutum",
+    "affiliation": "Yashiro Commission",
+    "cv": {
+      "EN": "Christian Banas",
+      "CHS": "张沛",
+      "JP": "森田成一",
+      "KR": "Ryu Seung-kon"
+    },
+    "attributes": [
+      {
+        "level": 1,
+        "ascension": 0,
+        "hp": 866,
+        "atk": 17,
+        "def": 63,
+        "ATK_": "0"
+      },
+      {
+        "level": 2,
+        "ascension": 0,
+        "hp": 938,
+        "atk": 18,
+        "def": 68,
+        "ATK_": "0"
+      },
+      {
+        "level": 3,
+        "ascension": 0,
+        "hp": 1009,
+        "atk": 20,
+        "def": 73,
+        "ATK_": "0"
+      },
+      {
+        "level": 4,
+        "ascension": 0,
+        "hp": 1081,
+        "atk": 21,
+        "def": 79,
+        "ATK_": "0"
+      },
+      {
+        "level": 5,
+        "ascension": 0,
+        "hp": 1152,
+        "atk": 23,
+        "def": 84,
+        "ATK_": "0"
+      },
+      {
+        "level": 6,
+        "ascension": 0,
+        "hp": 1224,
+        "atk": 24,
+        "def": 89,
+        "ATK_": "0"
+      },
+      {
+        "level": 7,
+        "ascension": 0,
+        "hp": 1295,
+        "atk": 25,
+        "def": 94,
+        "ATK_": "0"
+      },
+      {
+        "level": 8,
+        "ascension": 0,
+        "hp": 1367,
+        "atk": 27,
+        "def": 99,
+        "ATK_": "0"
+      },
+      {
+        "level": 9,
+        "ascension": 0,
+        "hp": 1439,
+        "atk": 28,
+        "def": 105,
+        "ATK_": "0"
+      },
+      {
+        "level": 10,
+        "ascension": 0,
+        "hp": 1510,
+        "atk": 29,
+        "def": 110,
+        "ATK_": "0"
+      },
+      {
+        "level": 11,
+        "ascension": 0,
+        "hp": 1582,
+        "atk": 31,
+        "def": 115,
+        "ATK_": "0"
+      },
+      {
+        "level": 12,
+        "ascension": 0,
+        "hp": 1653,
+        "atk": 32,
+        "def": 120,
+        "ATK_": "0"
+      },
+      {
+        "level": 13,
+        "ascension": 0,
+        "hp": 1725,
+        "atk": 34,
+        "def": 125,
+        "ATK_": "0"
+      },
+      {
+        "level": 14,
+        "ascension": 0,
+        "hp": 1796,
+        "atk": 35,
+        "def": 130,
+        "ATK_": "0"
+      },
+      {
+        "level": 15,
+        "ascension": 0,
+        "hp": 1868,
+        "atk": 36,
+        "def": 136,
+        "ATK_": "0"
+      },
+      {
+        "level": 16,
+        "ascension": 0,
+        "hp": 1939,
+        "atk": 38,
+        "def": 141,
+        "ATK_": "0"
+      },
+      {
+        "level": 17,
+        "ascension": 0,
+        "hp": 2010,
+        "atk": 39,
+        "def": 146,
+        "ATK_": "0"
+      },
+      {
+        "level": 18,
+        "ascension": 0,
+        "hp": 2082,
+        "atk": 41,
+        "def": 151,
+        "ATK_": "0"
+      },
+      {
+        "level": 19,
+        "ascension": 0,
+        "hp": 2153,
+        "atk": 42,
+        "def": 156,
+        "ATK_": "0"
+      },
+      {
+        "level": 20,
+        "ascension": 0,
+        "hp": 2225,
+        "atk": 43,
+        "def": 162,
+        "ATK_": "0"
+      },
+      {
+        "level": 21,
+        "ascension": 1,
+        "hp": 2943,
+        "atk": 57,
+        "def": 214,
+        "ATK_": "0"
+      },
+      {
+        "level": 22,
+        "ascension": 1,
+        "hp": 3015,
+        "atk": 59,
+        "def": 219,
+        "ATK_": "0"
+      },
+      {
+        "level": 23,
+        "ascension": 1,
+        "hp": 3087,
+        "atk": 60,
+        "def": 224,
+        "ATK_": "0"
+      },
+      {
+        "level": 24,
+        "ascension": 1,
+        "hp": 3158,
+        "atk": 62,
+        "def": 230,
+        "ATK_": "0"
+      },
+      {
+        "level": 25,
+        "ascension": 1,
+        "hp": 3230,
+        "atk": 63,
+        "def": 235,
+        "ATK_": "0"
+      },
+      {
+        "level": 26,
+        "ascension": 1,
+        "hp": 3301,
+        "atk": 64,
+        "def": 240,
+        "ATK_": "0"
+      },
+      {
+        "level": 27,
+        "ascension": 1,
+        "hp": 3373,
+        "atk": 66,
+        "def": 245,
+        "ATK_": "0"
+      },
+      {
+        "level": 28,
+        "ascension": 1,
+        "hp": 3444,
+        "atk": 67,
+        "def": 250,
+        "ATK_": "0"
+      },
+      {
+        "level": 29,
+        "ascension": 1,
+        "hp": 3516,
+        "atk": 69,
+        "def": 256,
+        "ATK_": "0"
+      },
+      {
+        "level": 30,
+        "ascension": 1,
+        "hp": 3587,
+        "atk": 70,
+        "def": 261,
+        "ATK_": "0"
+      },
+      {
+        "level": 31,
+        "ascension": 1,
+        "hp": 3659,
+        "atk": 71,
+        "def": 266,
+        "ATK_": "0"
+      },
+      {
+        "level": 32,
+        "ascension": 1,
+        "hp": 3731,
+        "atk": 73,
+        "def": 271,
+        "ATK_": "0"
+      },
+      {
+        "level": 33,
+        "ascension": 1,
+        "hp": 3802,
+        "atk": 74,
+        "def": 276,
+        "ATK_": "0"
+      },
+      {
+        "level": 34,
+        "ascension": 1,
+        "hp": 3874,
+        "atk": 76,
+        "def": 282,
+        "ATK_": "0"
+      },
+      {
+        "level": 35,
+        "ascension": 1,
+        "hp": 3945,
+        "atk": 77,
+        "def": 287,
+        "ATK_": "0"
+      },
+      {
+        "level": 36,
+        "ascension": 1,
+        "hp": 4017,
+        "atk": 78,
+        "def": 292,
+        "ATK_": "0"
+      },
+      {
+        "level": 37,
+        "ascension": 1,
+        "hp": 4088,
+        "atk": 80,
+        "def": 297,
+        "ATK_": "0"
+      },
+      {
+        "level": 38,
+        "ascension": 1,
+        "hp": 4160,
+        "atk": 81,
+        "def": 302,
+        "ATK_": "0"
+      },
+      {
+        "level": 39,
+        "ascension": 1,
+        "hp": 4231,
+        "atk": 83,
+        "def": 308,
+        "ATK_": "0"
+      },
+      {
+        "level": 40,
+        "ascension": 1,
+        "hp": 4302,
+        "atk": 84,
+        "def": 313,
+        "ATK_": "0"
+      },
+      {
+        "level": 41,
+        "ascension": 2,
+        "hp": 4834,
+        "atk": 94,
+        "def": 351,
+        "ATK_": "6"
+      },
+      {
+        "level": 42,
+        "ascension": 2,
+        "hp": 4905,
+        "atk": 96,
+        "def": 356,
+        "ATK_": "6"
+      },
+      {
+        "level": 43,
+        "ascension": 2,
+        "hp": 4977,
+        "atk": 97,
+        "def": 362,
+        "ATK_": "6"
+      },
+      {
+        "level": 44,
+        "ascension": 2,
+        "hp": 5048,
+        "atk": 99,
+        "def": 367,
+        "ATK_": "6"
+      },
+      {
+        "level": 45,
+        "ascension": 2,
+        "hp": 5120,
+        "atk": 100,
+        "def": 372,
+        "ATK_": "6"
+      },
+      {
+        "level": 46,
+        "ascension": 2,
+        "hp": 5192,
+        "atk": 101,
+        "def": 377,
+        "ATK_": "6"
+      },
+      {
+        "level": 47,
+        "ascension": 2,
+        "hp": 5263,
+        "atk": 103,
+        "def": 382,
+        "ATK_": "6"
+      },
+      {
+        "level": 48,
+        "ascension": 2,
+        "hp": 5335,
+        "atk": 104,
+        "def": 388,
+        "ATK_": "6"
+      },
+      {
+        "level": 49,
+        "ascension": 2,
+        "hp": 5406,
+        "atk": 106,
+        "def": 393,
+        "ATK_": "6"
+      },
+      {
+        "level": 50,
+        "ascension": 2,
+        "hp": 5478,
+        "atk": 107,
+        "def": 398,
+        "ATK_": "6"
+      },
+      {
+        "level": 51,
+        "ascension": 3,
+        "hp": 6162,
+        "atk": 120,
+        "def": 448,
+        "ATK_": "12"
+      },
+      {
+        "level": 52,
+        "ascension": 3,
+        "hp": 6234,
+        "atk": 122,
+        "def": 453,
+        "ATK_": "12"
+      },
+      {
+        "level": 53,
+        "ascension": 3,
+        "hp": 6306,
+        "atk": 123,
+        "def": 458,
+        "ATK_": "12"
+      },
+      {
+        "level": 54,
+        "ascension": 3,
+        "hp": 6377,
+        "atk": 125,
+        "def": 463,
+        "ATK_": "12"
+      },
+      {
+        "level": 55,
+        "ascension": 3,
+        "hp": 6449,
+        "atk": 126,
+        "def": 469,
+        "ATK_": "12"
+      },
+      {
+        "level": 56,
+        "ascension": 3,
+        "hp": 6520,
+        "atk": 127,
+        "def": 474,
+        "ATK_": "12"
+      },
+      {
+        "level": 57,
+        "ascension": 3,
+        "hp": 6591,
+        "atk": 129,
+        "def": 479,
+        "ATK_": "12"
+      },
+      {
+        "level": 58,
+        "ascension": 3,
+        "hp": 6662,
+        "atk": 130,
+        "def": 484,
+        "ATK_": "12"
+      },
+      {
+        "level": 59,
+        "ascension": 3,
+        "hp": 6734,
+        "atk": 132,
+        "def": 489,
+        "ATK_": "12"
+      },
+      {
+        "level": 60,
+        "ascension": 3,
+        "hp": 6806,
+        "atk": 133,
+        "def": 495,
+        "ATK_": "12"
+      },
+      {
+        "level": 61,
+        "ascension": 4,
+        "hp": 7337,
+        "atk": 143,
+        "def": 533,
+        "ATK_": "12"
+      },
+      {
+        "level": 62,
+        "ascension": 4,
+        "hp": 7409,
+        "atk": 145,
+        "def": 538,
+        "ATK_": "12"
+      },
+      {
+        "level": 63,
+        "ascension": 4,
+        "hp": 7480,
+        "atk": 146,
+        "def": 544,
+        "ATK_": "12"
+      },
+      {
+        "level": 64,
+        "ascension": 4,
+        "hp": 7552,
+        "atk": 147,
+        "def": 549,
+        "ATK_": "12"
+      },
+      {
+        "level": 65,
+        "ascension": 4,
+        "hp": 7623,
+        "atk": 149,
+        "def": 554,
+        "ATK_": "12"
+      },
+      {
+        "level": 66,
+        "ascension": 4,
+        "hp": 7695,
+        "atk": 150,
+        "def": 559,
+        "ATK_": "12"
+      },
+      {
+        "level": 67,
+        "ascension": 4,
+        "hp": 7767,
+        "atk": 152,
+        "def": 564,
+        "ATK_": "12"
+      },
+      {
+        "level": 68,
+        "ascension": 4,
+        "hp": 7838,
+        "atk": 153,
+        "def": 570,
+        "ATK_": "12"
+      },
+      {
+        "level": 69,
+        "ascension": 4,
+        "hp": 7910,
+        "atk": 154,
+        "def": 575,
+        "ATK_": "12"
+      },
+      {
+        "level": 70,
+        "ascension": 4,
+        "hp": 7981,
+        "atk": 156,
+        "def": 580,
+        "ATK_": "12"
+      },
+      {
+        "level": 71,
+        "ascension": 5,
+        "hp": 8512,
+        "atk": 166,
+        "def": 619,
+        "ATK_": "18"
+      },
+      {
+        "level": 72,
+        "ascension": 5,
+        "hp": 8583,
+        "atk": 168,
+        "def": 624,
+        "ATK_": "18"
+      },
+      {
+        "level": 73,
+        "ascension": 5,
+        "hp": 8655,
+        "atk": 169,
+        "def": 629,
+        "ATK_": "18"
+      },
+      {
+        "level": 74,
+        "ascension": 5,
+        "hp": 8727,
+        "atk": 170,
+        "def": 634,
+        "ATK_": "18"
+      },
+      {
+        "level": 75,
+        "ascension": 5,
+        "hp": 8798,
+        "atk": 172,
+        "def": 639,
+        "ATK_": "18"
+      },
+      {
+        "level": 76,
+        "ascension": 5,
+        "hp": 8870,
+        "atk": 173,
+        "def": 645,
+        "ATK_": "18"
+      },
+      {
+        "level": 77,
+        "ascension": 5,
+        "hp": 8941,
+        "atk": 175,
+        "def": 650,
+        "ATK_": "18"
+      },
+      {
+        "level": 78,
+        "ascension": 5,
+        "hp": 9013,
+        "atk": 176,
+        "def": 655,
+        "ATK_": "18"
+      },
+      {
+        "level": 79,
+        "ascension": 5,
+        "hp": 9084,
+        "atk": 177,
+        "def": 660,
+        "ATK_": "18"
+      },
+      {
+        "level": 80,
+        "ascension": 5,
+        "hp": 9156,
+        "atk": 179,
+        "def": 665,
+        "ATK_": "18"
+      },
+      {
+        "level": 81,
+        "ascension": 6,
+        "hp": 9688,
+        "atk": 189,
+        "def": 704,
+        "ATK_": "24"
+      },
+      {
+        "level": 82,
+        "ascension": 6,
+        "hp": 9759,
+        "atk": 191,
+        "def": 709,
+        "ATK_": "24"
+      },
+      {
+        "level": 83,
+        "ascension": 6,
+        "hp": 9831,
+        "atk": 192,
+        "def": 714,
+        "ATK_": "24"
+      },
+      {
+        "level": 84,
+        "ascension": 6,
+        "hp": 9902,
+        "atk": 193,
+        "def": 720,
+        "ATK_": "24"
+      },
+      {
+        "level": 85,
+        "ascension": 6,
+        "hp": 9973,
+        "atk": 195,
+        "def": 725,
+        "ATK_": "24"
+      },
+      {
+        "level": 86,
+        "ascension": 6,
+        "hp": 10044,
+        "atk": 196,
+        "def": 730,
+        "ATK_": "24"
+      },
+      {
+        "level": 87,
+        "ascension": 6,
+        "hp": 10116,
+        "atk": 198,
+        "def": 735,
+        "ATK_": "24"
+      },
+      {
+        "level": 88,
+        "ascension": 6,
+        "hp": 10187,
+        "atk": 199,
+        "def": 740,
+        "ATK_": "24"
+      },
+      {
+        "level": 89,
+        "ascension": 6,
+        "hp": 10259,
+        "atk": 200,
+        "def": 746,
+        "ATK_": "24"
+      },
+      {
+        "level": 90,
+        "ascension": 6,
+        "hp": 10331,
+        "atk": 202,
+        "def": 751,
+        "ATK_": "24"
+      },
+      {
+        "level": 95,
+        "ascension": 6,
+        "hp": 10688,
+        "atk": 228,
+        "def": 777,
+        "ATK_": "24"
+      },
+      {
+        "level": 100,
+        "ascension": 6,
+        "hp": 11046,
+        "atk": 253,
+        "def": 803,
+        "ATK_": "24"
+      }
+    ]
+  },
+  "icons": {
+    "forward": "UI_AvatarIcon_Tohma",
+    "coop_img": "UI_CoopImg_Tohma"
+  },
+  "ascension": {
+    "x202": 7.0499E+6,
+    "exp": {
+      "x104001": 2,
+      "x104003": 418
+    },
+    "speciality": {
+      "x101209": 168
+    },
+    "elemental": {
+      "x104111": 1,
+      "x104112": 9,
+      "x104113": 9,
+      "x104114": 6
+    },
+    "worldmonster": {
+      "x112035": 18,
+      "x112036": 30,
+      "x112037": 36
+    },
+    "elitemonster": {
+      "x113024": 46
+    }
+  },
+  "skills": {
+    "normalattack": {
+      "name": "Swiftshatter Spear",
+      "icon": "Skill_A_03",
+      "multipliers": {
+        "x1_HitDMG": [
+          "44.39%",
+          "48.01%",
+          "51.62%",
+          "56.78%",
+          "60.4%",
+          "64.53%",
+          "70.2%",
+          "75.88%",
+          "81.56%",
+          "87.75%",
+          "93.95%",
+          "100.14%",
+          "106.34%",
+          "112.53%",
+          "118.73%"
+        ],
+        "x2_HitDMG": [
+          "43.63%",
+          "47.18%",
+          "50.73%",
+          "55.8%",
+          "59.35%",
+          "63.41%",
+          "68.99%",
+          "74.57%",
+          "80.15%",
+          "86.24%",
+          "92.33%",
+          "98.42%",
+          "104.5%",
+          "110.59%",
+          "116.68%"
+        ],
+        "x3_HitDMG": [
+          "26.79%×2",
+          "28.97%×2",
+          "31.15%×2",
+          "34.26%×2",
+          "36.45%×2",
+          "38.94%×2",
+          "42.36%×2",
+          "45.79%×2",
+          "49.22%×2",
+          "52.96%×2",
+          "56.69%×2",
+          "60.43%×2",
+          "64.17%×2",
+          "67.91%×2",
+          "71.64%×2"
+        ],
+        "x4_HitDMG": [
+          "67.36%",
+          "72.84%",
+          "78.32%",
+          "86.15%",
+          "91.63%",
+          "97.9%",
+          "106.52%",
+          "115.13%",
+          "123.75%",
+          "133.14%",
+          "142.54%",
+          "151.94%",
+          "161.34%",
+          "170.74%",
+          "180.14%"
+        ],
+        "ChargedAttackDMG": [
+          "112.75%",
+          "121.92%",
+          "131.1%",
+          "144.21%",
+          "153.39%",
+          "163.87%",
+          "178.3%",
+          "192.72%",
+          "207.14%",
+          "222.87%",
+          "238.6%",
+          "254.33%",
+          "270.07%",
+          "285.8%",
+          "301.53%"
+        ],
+        "ChargedAttackStaminaCost": [
+          "25",
+          "25",
+          "25",
+          "25",
+          "25",
+          "25",
+          "25",
+          "25",
+          "25",
+          "25",
+          "25",
+          "25",
+          "25",
+          "25",
+          "25"
+        ],
+        "PlungeDMG": [
+          "63.93%",
+          "69.14%",
+          "74.34%",
+          "81.77%",
+          "86.98%",
+          "92.93%",
+          "101.1%",
+          "109.28%",
+          "117.46%",
+          "126.38%",
+          "135.3%",
+          "144.22%",
+          "153.14%",
+          "162.06%",
+          "170.98%"
+        ],
+        "Low_HighPlungeDMG": [
+          "127.84%/159.68%",
+          "138.24%/172.67%",
+          "148.65%/185.67%",
+          "163.51%/204.24%",
+          "173.92%/217.23%",
+          "185.81%/232.09%",
+          "202.16%/252.51%",
+          "218.51%/272.93%",
+          "234.86%/293.36%",
+          "252.7%/315.64%",
+          "270.54%/337.92%",
+          "288.38%/360.2%",
+          "306.22%/382.48%",
+          "324.05%/404.76%",
+          "341.89%/427.04%"
+        ]
+      },
+      "description": "<color=#FFD780FF>Normal Attack</color>\\nPerforms up to 4 consecutive spear strikes.\\n\\n<color=#FFD780FF>Charged Attack</color>\\nConsumes a certain amount of Stamina to lunge forward, dealing damage to opponents along the way.\\n\\n<color=#FFD780FF>Plunging Attack</color>\\nPlunges from mid-air to strike the ground below, damaging opponents along the path and dealing AoE DMG upon impact."
+    },
+    "elementalskill": {
+      "name": "Blazing Blessing",
+      "icon": "Skill_S_Tohma_01",
+      "multipliers": {
+        "SkillDMG": [
+          "146.4%",
+          "157.38%",
+          "168.36%",
+          "183%",
+          "193.98%",
+          "204.96%",
+          "219.6%",
+          "234.24%",
+          "248.88%",
+          "263.52%",
+          "278.16%",
+          "292.8%",
+          "311.1%",
+          "329.4%",
+          "347.7%"
+        ],
+        "ShieldDMGAbsorption": [
+          "7.2% Max HP+693",
+          "7.74% Max HP+763",
+          "8.28% Max HP+838",
+          "9% Max HP+919",
+          "9.54% Max HP+1005",
+          "10.08% Max HP+1098",
+          "10.8% Max HP+1196",
+          "11.52% Max HP+1300",
+          "12.24% Max HP+1410",
+          "12.96% Max HP+1525",
+          "13.68% Max HP+1647",
+          "14.4% Max HP+1774",
+          "15.3% Max HP+1907",
+          "16.2% Max HP+2046",
+          "17.1% Max HP+2190"
+        ],
+        "ShieldDuration": [
+          "8s",
+          "8s",
+          "8s",
+          "8s",
+          "8s",
+          "8s",
+          "8s",
+          "8s",
+          "8s",
+          "8s",
+          "8s",
+          "8s",
+          "8s",
+          "8s",
+          "8s"
+        ],
+        "MaxShieldDMGAbsorption": [
+          "19.6% Max HP+1887",
+          "21.07% Max HP+2076",
+          "22.54% Max HP+2281",
+          "24.5% Max HP+2501",
+          "25.97% Max HP+2737",
+          "27.44% Max HP+2989",
+          "29.4% Max HP+3256",
+          "31.36% Max HP+3539",
+          "33.32% Max HP+3838",
+          "35.28% Max HP+4153",
+          "37.24% Max HP+4483",
+          "39.2% Max HP+4829",
+          "41.65% Max HP+5191",
+          "44.1% Max HP+5568",
+          "46.55% Max HP+5962"
+        ],
+        "CD": [
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s"
+        ]
+      },
+      "description": "Thoma vaults forward with his polearm and delivers a flame-filled flying kick that deals <color=#FF9999FF>AoE Pyro DMG</color>, while also summoning a defensive Blazing Barrier. At the moment of casting, Thoma's Elemental Skill applies <color=#FF9999FF>Pyro</color> to himself.\\nThe DMG Absorption of the Blazing Barrier scales off Thoma's Max HP.\\nThe Blazing Barrier has the following traits:\\n·Absorbs <color=#FF9999FF>Pyro DMG</color> 250% more effectively.\\n·When a new Blazing Barrier is obtained, the remaining DMG Absorption of an existing Blazing Barrier will stack and its duration will be refreshed.\\n\\nThe maximum DMG Absorption of the Blazing Barrier will not exceed a certain percentage of Thoma's Max HP.\\n\\n<i>As a guest from afar, only the most burning passion would allow one to master the pure and precise spear arts of Inazuma. Thoma's mastery, indeed, is not limited to being the \"swiftest-studying student\" or \"a master of the spear,\" but he has imbued his will to protect others and fend off foes into his art as well.</i>"
+    },
+    "elementalburst": {
+      "name": "Crimson Ooyoroi",
+      "icon": "Skill_E_Tohma_01",
+      "multipliers": {
+        "SkillDMG": [
+          "88%",
+          "94.6%",
+          "101.2%",
+          "110%",
+          "116.6%",
+          "123.2%",
+          "132%",
+          "140.8%",
+          "149.6%",
+          "158.4%",
+          "167.2%",
+          "176%",
+          "187%",
+          "198%",
+          "209%"
+        ],
+        "FieryCollapseDMG": [
+          "58%",
+          "62.35%",
+          "66.7%",
+          "72.5%",
+          "76.85%",
+          "81.2%",
+          "87%",
+          "92.8%",
+          "98.6%",
+          "104.4%",
+          "110.2%",
+          "116%",
+          "123.25%",
+          "130.5%",
+          "137.75%"
+        ],
+        "ShieldDMGAbsorption": [
+          "1.14% Max HP+110",
+          "1.23% Max HP+121",
+          "1.32% Max HP+133",
+          "1.43% Max HP+146",
+          "1.52% Max HP+160",
+          "1.6% Max HP+174",
+          "1.72% Max HP+190",
+          "1.83% Max HP+206",
+          "1.94% Max HP+224",
+          "2.06% Max HP+242",
+          "2.17% Max HP+261",
+          "2.29% Max HP+282",
+          "2.43% Max HP+303",
+          "2.57% Max HP+325",
+          "2.72% Max HP+348"
+        ],
+        "ShieldDuration": [
+          "8s",
+          "8s",
+          "8s",
+          "8s",
+          "8s",
+          "8s",
+          "8s",
+          "8s",
+          "8s",
+          "8s",
+          "8s",
+          "8s",
+          "8s",
+          "8s",
+          "8s"
+        ],
+        "ScorchingOoyoroiDuration": [
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s"
+        ],
+        "CD": [
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s"
+        ],
+        "EnergyCost": [
+          "80",
+          "80",
+          "80",
+          "80",
+          "80",
+          "80",
+          "80",
+          "80",
+          "80",
+          "80",
+          "80",
+          "80",
+          "80",
+          "80",
+          "80"
+        ]
+      },
+      "description": "Thoma spins his polearm, slicing at his foes with roaring flames that deal <color=#FF9999FF>AoE Pyro DMG</color> and weave themselves into a Scorching Ooyoroi.\\n\\n<color=#FFD780FF>Scorching Ooyoroi</color>\\nWhile Scorching Ooyoroi is in effect, the active character's Normal Attacks will trigger Fiery Collapse, dealing <color=#FF9999FF>AoE Pyro DMG</color> and summoning a Blazing Barrier.\\nFiery Collapse can be triggered once every 1s.\\n\\nExcept for the amount of DMG they can absorb, the Blazing Barriers created in this way are identical to those created by Thoma's Elemental Skill, Blazing Blessing:\\n·Absorbs <color=#FF9999FF>Pyro DMG</color> 250% more effectively.\\n·When a new Blazing Barrier is obtained, the remaining DMG Absorption of an existing Blazing Barrier will stack and its duration will be refreshed.\\n\\nThe maximum DMG Absorption of the Blazing Barrier will not exceed a certain percentage of Thoma's Max HP.\\n\\nIf Thoma falls, the effects of Scorching Ooyoroi will be cleared.\\n\\n<i>\"I will not forget my initial promise. Let this burning flame protect those I cherish, and may it never be extinguished.\"</i>"
+    },
+    "leveling": {
+      "crown": {
+        "x104319": 3
+      },
+      "books": {
+        "x104320": 9,
+        "x104321": 63,
+        "x104322": 114
+      },
+      "worldmonster": {
+        "x112035": 18,
+        "x112036": 66,
+        "x112037": 93
+      },
+      "weekly": {
+        "x113026": 18
+      }
+    }
+  },
+  "passives": {
+    "p1": {
+      "name": "Imbricated Armor",
+      "description": "When your current active character obtains or refreshes a <color=#FFD780FF>Blazing Barrier</color>, this character's Shield Strength will increase by 5% for 6s.\\nThis effect can be triggered once every 0.3s seconds. Max 5 stacks.",
+      "icon": "UI_Talent_S_Tohma_05"
+    },
+    "p2": {
+      "name": "Flaming Assault",
+      "description": "DMG dealt by <color=#FFD780FF>Crimson Ooyoroi</color>'s Fiery Collapse is increased by 2.2% of Thoma's Max HP.",
+      "icon": "UI_Talent_S_Tohma_06"
+    },
+    "p3": {
+      "name": "Snap and Swing",
+      "description": "When you <color=#FFD780FF>fish</color> successfully in Inazuma, Thoma's help grants a 20% chance of scoring a double catch.",
+      "icon": "UI_Talent_S_Tohma_07"
+    },
+    "p4": ""
+  },
+  "constellations": {
+    "const1": {
+      "name": "A Comrade's Duty",
+      "description": "When a character protected by Thoma's own <color=#FFD780FF>Blazing Barrier</color> (Thoma excluded) is attacked, Thoma's own <color=#FFD780FF>Blazing Blessing</color> CD is decreased by 3s, while his own <color=#FFD780FF>Crimson Ooyoroi</color>'s CD is decreased by 3s.\\nThis effect can be triggered once every 20s.",
+      "icon": "UI_Talent_S_Tohma_01"
+    },
+    "const2": {
+      "name": "A Subordinate's Skills",
+      "description": "<color=#FFD780FF>Crimson Ooyoroi</color>'s duration is increased by 3s.",
+      "icon": "UI_Talent_S_Tohma_02"
+    },
+    "const3": {
+      "name": "Fortified Resolve",
+      "description": "Increases the Level of <color=#FFD780FF>Blazing Blessing</color> by 3.\\nMaximum upgrade level is 15.",
+      "icon": "UI_Talent_U_Tohma_01"
+    },
+    "const4": {
+      "name": "Long-Term Planning",
+      "description": "After using <color=#FFD780FF>Crimson Ooyoroi</color>, 15 Energy will be restored to Thoma.",
+      "icon": "UI_Talent_S_Tohma_03"
+    },
+    "const5": {
+      "name": "Raging Wildfire",
+      "description": "Increases the Level of <color=#FFD780FF>Crimson Ooyoroi</color> by 3.\\nMaximum upgrade level is 15.",
+      "icon": "UI_Talent_U_Tohma_02"
+    },
+    "const6": {
+      "name": "Burning Heart",
+      "description": "When a <color=#FFD780FF>Blazing Barrier</color> is obtained or refreshed, the DMG dealt by all party members' Normal, Charged, and Plunging Attacks is increased by 15% for 6s.",
+      "icon": "UI_Talent_S_Tohma_04"
+    }
+  },
+  "hyperlinks": [],
+  "stories": {
+    "x50200": {
+      "storyTitle": "Character Details",
+      "storyText": "Thoma's official title in the Kamisato Clan is that of a \"housekeeper,\" and as such, he is responsible for matters such as cleaning and cooking.\\nWhenever he appears at the Yashiro Commission, Thoma is almost always busy with such work. He is able to get everything done well, and even Furuta, the butler of the Kamisato Clan, is full of praise for his housekeeping skills.\\nHowever, most of the time, Thoma does not stay in the Yashiro Commission, but goes elsewhere to deal with some special matters discreetly.\\nFor example: solving the problems encountered by the Yashiro Commission, asking for information for the head of the Kamisato Clan, fulfilling Ayaka's wishes, etc.\\nIn those unknown corners, Thoma has always used his own way to develop the influence of the Yashiro Commission.",
+      "unlockConds": []
+    },
+    "x50201": {
+      "storyTitle": "Character Story 1",
+      "storyText": "Thoma seems to have been born with a good temper.\\nRegardless of whether he's dealing with a dignitary or a street vendor, Thoma can easily find an opening to join the conversation and have a good time with them.\\nThoma, who is good at socializing, has a wide range of contacts in Inazuma. When he first arrived in Inazuma, he relied on his insight and communication skills to make friends with people in various industries. Later, many people would take the initiative to get to know Thoma.\\nThe more people you know, the more resources you can get. Thoma would learn a lot of first-hand information from them, or quietly strike \"deals\" that are beneficial to the Yashiro Commission.\\nHowever, although Thoma has a vast network of contacts, he has never used it for personal gain, nor has he ever forced others to do things in the name of the Yashiro Commission.\\nSociability, precise judgment, and just the right amount of tact. Perhaps this is the reason why Thoma can thrive as a \"fixer\" in Inazuma.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 2
+      }
+    },
+    "x50202": {
+      "storyTitle": "Character Story 2",
+      "storyText": "Surprisingly, the handsome and cheerful Thoma has no resistance when it comes to cute animals.\\nWhen Thoma's out, he always carries some small snacks for animals, and feeds stray cats and dogs when he sees them.\\nIt never fails to make him smile seeing animals scarf food down.\\nTo Thoma, these animals, like himself, are part of what makes up the world.\\nEven if they don't seem to be eye-catching, they are still trying to live.\\nAs long as you live, good things will always happen... This is what Thoma has always believed in.\\nEven if these animals had not encountered good things before, he hoped that at least his presence would be a good thing worth celebrating for.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 3
+      }
+    },
+    "x50203": {
+      "storyTitle": "Character Story 3",
+      "storyText": "As the housekeeper of the Kamisato Clan, Thoma is an \"all-rounder\" when it comes to housekeeping.\\nWhether it's cleaning, cooking, sewing, gardening, caregiving, or socializing, he can handle it all with ease.\\nFor Thoma, housekeeping is not only a job and duty, but also his hobby.\\nHe would clean the house like new, making sure that there was not a single grain of dust left on the railings. He would be in a very happy mood when faced with a clean and tidy Yashiro Commission.\\nPerhaps it's the sense of accomplishment that comes with cleaning. Whenever he has the chance, Thoma will pick up a broom or duster and sweep away any unsightly stains.\\nIn addition, he also takes special care of the daily lives of his colleagues around him.\\nThere was a winter when Inazuma's temperature suddenly dipped, and a guard of the Yashiro Commission accidentally caught a cold while out on patrol. A few days later, he unexpectedly received a sweater hand-knitted by Thoma.\\nThe sweater that was just the right size made the guard think back to the clothes he received from his mother every winter. Now that his mother was old, she hadn't sent him clothes for many years.\\nWith this in mind, the guard took a long leave of absence to visit his family. The day he came back, he brought Thoma a special souvenir from his hometown, and they became good friends.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 4
+      }
+    },
+    "x50204": {
+      "storyTitle": "Character Story 4",
+      "storyText": "Thoma's father is an Inazuman and his mother is a Mondstadter.\\nThoma grew up in Mondstadt and has been accustomed to its carefree and happy atmosphere since he was young. Influenced by this, he can easily mingle with anyone.\\nHowever, he has also been taught by his father since he was a child and places great importance on the word \"loyalty\".\\nAfter Thoma's father returned to Inazuma, he was worried that his old man would not be able to drink Mondstadt's wine there, so he sailed to Inazuma alone in a boat carrying Dandelion Wine.\\nOn the way, a huge wave overturned the boat and Thoma fell into the water. Fortunately, he just drifted unconscious down the water until he got washed ashore on a beach in Inazuma.\\nAt that time, Thoma had nothing and no family with him, but still started his life in Inazuma with optimism.\\nHowever, despite his best efforts, he was unable to find his father, who was supposed to be in Inazuma.\\nBut at his most difficult moment, Thoma met someone in Inazuma who was worthy of his \"loyalty\" to the end.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 5
+      }
+    },
+    "x50205": {
+      "storyTitle": "Character Story 5",
+      "storyText": "Due to his hailing from Mondstadt, Thoma is often regarded as an \"outsider\" by the local residents of Inazuma.\\nDespite the strange looks and gossip directed towards him, Thoma never showed any dissatisfaction, and always smiled at all doubts.\\nThoma is recognized as the most amiable person in the Yashiro Commission, but to outsiders, it is another story.\\n\"Don't offend Thoma! Otherwise, things will be difficult to handle.\"\\nNo one is sure when it started, but this saying has gone around so much that many people are convinced of this when they hear it.\\nAs for those who have had unpleasant run-ins with Thoma, the mention of him still instills fear:\\n\"Don't be fooled by that guy! He's always smiling kindly, but all I did was cheat the Yashiro Commission out of a small sum of money, and he...\"\\nThat's right, if anyone dares to harm the interests of the Yashiro Commission or disrespect the Kamisato siblings, Thoma will make them pay.\\nHe sees this as his duty and does his best, but does not like to boast about his achievements. Even if he is criticized for this, he will not defend himself too much.\\n\"Gee, who cares about such trivialities? And it doesn't matter what kind of person I am, as long as those who should know know it.\"",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 6
+      }
+    },
+    "x50206": {
+      "storyTitle": "Old Duster",
+      "storyText": "Thoma's favorite duster has been with him in many \"conquests\".\\nAs it has been used for too long, no matter how Thoma cleans and takes care of it now, it still looks old and gray. Despite this, Thoma is still reluctant to discard it.\\nThis duster was given to Thoma when he was first assigned cleaning duties at Yashiro Commission. As soon as he sees it, he recalls those hard but happy times.\\nAt that time, Thoma had yet to comprehend various cleaning techniques. Due to his lack of experience, he was often busy doing all kinds of cleaning and tidying work until late at night.\\nAccompanying him were the moonlight above his head, the chirping of insects in the summer night, and the sound of a duster tapping on the beams.\\nThere are many different kinds of cleaning. From a simple cleaning to an all-out deep cleaning, Thoma has experienced it all.\\nAt first, he found the work boring, but after he got used to it, he found that he could think more quietly when cleaning.\\nSo to this day, Thoma often uses this duster to perform his work.\\nWhile brushing away the dust in front of him, he also brushed away the fog in his head in a quiet and steady state of mind.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 4
+      }
+    },
+    "x50207": {
+      "storyTitle": "Vision",
+      "storyText": "In his early years living in Mondstadt, Thoma did not have particularly strong aspirations.\\nEach day, he was awakened by the early morning sun and the fresh fragrance of flowers. After breakfast, he could choose to take a relaxing stroll through the city or explore the wilderness freely.\\nAt that time, Thoma thought that people should have the happiness of living a leisurely life. Perhaps it would have been better to live a peaceful life.\\nThis calm mood disappeared the moment when he was swept into a strange country by the waves, across the ocean in a small boat.\\nHere, he had to receive a favor to survive, and thus the thought of \"repayment\" arose.\\nTen years ago, when the Yashiro Commission's Kamisato Clan was losing its power.\\nKamisato Ayato, who was embroiled in the dispute over the succession rights of the clan due to the death of both parents, told Thoma:\\n\"Now that the situation in Inazuma is unclear, the trouble the Kamisato Clan faces will only increase. You are someone who can see what's at stake, so if you don't want to get involved, leave early.\"\\nCould Thoma, who had received so many favors from the Kamisato Clan, just leave like that? Choosing to leave would mean that he would have to return to his ordinary, stable life with regrets and guilt.\\nThe storm was imminent, and Thoma was like a leaf drifting in the sea.\\nBut after much deliberation, Thoma's answer was:\\n\"If I leave at this time, I will lose my loyalty and righteousness. Father has always taught me to be a loyal and righteous man... I would like to do my best to do my part for the young master and the young lady. You will certainly need me as a helper in the path you embark on in the future.\"\\nThe will to burn for loyalty and righteousness forged a strong desire that drew the attention of the gods.\\nAs if to respond to Thoma's choice — on this night of divergent destinies, a Vision, bright red like a blaze, appeared beside him.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 6
+      }
+    }
+  },
+  "quotes": {
+    "x50008": {
+      "quoteTitle": "Hello",
+      "quoteText": "It's good to meet you at last, Traveler. I've been hearing about you for a long time now. I'm your new buddy, Thoma — as long as that's okay with you, of course!",
+      "unlockConds": []
+    },
+    "x50009": {
+      "quoteTitle": "Chat: Thoma's Treat",
+      "quoteText": "Hey... how about we go for a nice meal some time? My treat, of course.",
+      "unlockConds": []
+    },
+    "x50010": {
+      "quoteTitle": "Chat: Concern",
+      "quoteText": "I feel like there's something I forgot to do... hmm, I tidied the courtyard, put the tea on... Eh, it's probably just my mind playing tricks on me.",
+      "unlockConds": []
+    },
+    "x50011": {
+      "quoteTitle": "Chat: Mora",
+      "quoteText": "I really did spend a lot recently, only 10 Mora left... Still, 10 Mora's better than no Mora!",
+      "unlockConds": []
+    },
+    "x50012": {
+      "quoteTitle": "When It Rains",
+      "quoteText": "Where'd this rain come from? Are you gonna be okay? Here, I'll lend you my coat...",
+      "unlockConds": []
+    },
+    "x50013": {
+      "quoteTitle": "When Thunder Strikes",
+      "quoteText": "You don't wanna be out in open country in this kind of weather. You'll get struck by lightning for sure.",
+      "unlockConds": []
+    },
+    "x50014": {
+      "quoteTitle": "When It Snows",
+      "quoteText": "Don't run on the ice... 'cause if you fall down, I won't help you up, you gotta learn somehow.",
+      "unlockConds": []
+    },
+    "x50015": {
+      "quoteTitle": "When the Sun Is Out",
+      "quoteText": "Lovely weather we're having! Will you join me for a walk?",
+      "unlockConds": []
+    },
+    "x50016": {
+      "quoteTitle": "Good Morning",
+      "quoteText": "Morning! If you're free, why not come with me to the market? The vegetables are freshest earlier in the day.",
+      "unlockConds": []
+    },
+    "x50017": {
+      "quoteTitle": "Good Afternoon",
+      "quoteText": "On the lunch menu today, we have Sakura Tempura and Tricolor Dango! Here, there's some for you, some for Paimon, and I also put some aside for milady and the man of the clan himself. Ah, wait, I forgot someone... There's none for me...",
+      "unlockConds": []
+    },
+    "x50018": {
+      "quoteTitle": "Good Evening",
+      "quoteText": "Come quick, we gotta get down to the market — they slash the prices on fish around this time of day. Oh, and if you find something that you just can't do without, I'll help you haggle the price down.",
+      "unlockConds": []
+    },
+    "x50019": {
+      "quoteTitle": "Good Night",
+      "quoteText": "Okay, good night. You had a busy day today, you should get some rest, too. Don't stay up too late.",
+      "unlockConds": []
+    },
+    "x50020": {
+      "quoteTitle": "About Thoma: Housekeeper",
+      "quoteText": "It was never Ayaka or Ayato's intention to make me the housekeeper, I volunteered. I like this kind of work. Putting everything in order gives me a great sense of achievement, and based on everyone's reactions... Yeah, I think I do a pretty good job.",
+      "unlockConds": []
+    },
+    "x50021": {
+      "quoteTitle": "About Thoma: Meaning",
+      "quoteText": "For me, housework is about keeping a space clean and tidy, so that everyone who lives there has a smile on their face. And now... it looks like I'm responsible for another smile. I'll do my best to deliver!",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x50022": {
+      "quoteTitle": "About Us: Eating Alone",
+      "quoteText": "Hey, how come you're eating here all alone? ...Uh, is it okay if I join you? Or did you just want some space?",
+      "unlockConds": []
+    },
+    "x50023": {
+      "quoteTitle": "About Us: Oath",
+      "quoteText": "If you hadn't put yourself out there during the Vision Hunt Ceremony and taken on the Raiden Shogun all by yourself, I would've lost my Vision, and with it all my aspirations. I've been thinking about this a lot, and it seems like there's only one way I could ever properly repay you... \\nI, Thoma, give to you my weapon and my loyalty, and I promise to fight for you, no matter what.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 6",
+        "Complete \"Stillness, the Sublimation of Shadow\""
+      ]
+    },
+    "x50024": {
+      "quoteTitle": "About the Vision",
+      "quoteText": "Those that receive Visions should look after them. I certainly don't plan on losing mine.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x50025": {
+      "quoteTitle": "Something to Share",
+      "quoteText": "I've gotten to know all kinds of people over the years, and I'd say that Inazumans are more particular about etiquette than Mondstadters. If you make sure you're always polite to people, it's much easier to get things done.",
+      "unlockConds": []
+    },
+    "x50026": {
+      "quoteTitle": "Interesting Things: Tanuki",
+      "quoteText": "I've always wanted to see a tanuki shapeshifting. They say it can change into all kinds of things, and that it likes to play pranks on passersby. It's a creature with a sense of humor, that's for sure.",
+      "unlockConds": []
+    },
+    "x50027": {
+      "quoteTitle": "Interesting Things: Animals",
+      "quoteText": "Are you an animal person, too? If you are, let me take you to the outskirts some time, it's great. I just need to give a whistle, and all these puppies and kittens will come out of nowhere and start strutting around your ankles, clamoring for your affection. Haha, just imagining it is already brightening my day.",
+      "unlockConds": []
+    },
+    "x50028": {
+      "quoteTitle": "About Yae Miko",
+      "quoteText": "Lady Miko? Wh—What about her? *sigh* Every time Miss Kamisato sends me out to deliver messages, my least-favorite destination is the Grand Narukami Shrine... Oh! N—Not because Lady Miko scares the bejeebers out of me, it's, uh... respect. Yes! She strikes respect deep into my heart, ahahahaha...",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x50029": {
+      "quoteTitle": "About the Raiden Shogun: Comparison",
+      "quoteText": "In my homeland of Mondstadt, almost everyone has great reverence for the Anemo Archon, Barbatos. But people in Inazuma feel a little differently toward the Shogun. How can I put this... They feel love, respect, gratitude... but also fear.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x50030": {
+      "quoteTitle": "About the Raiden Shogun: The Unknown",
+      "quoteText": "Honestly, I don't harbor any resentment toward the Shogun. Yes, she almost took my Vision away, but ultimately that's just because of her unique perspective. Everyone has their own perspective, there's nothing strange about that.\\nThe only thing I don't understand is her goal in doing so. What does she imagine eternity really looks like for Inazuma? And why is sacrificing her people's aspirations so necessary to achieve it? I can neither understand nor agree with her approach.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4",
+        "Complete \"Stillness, the Sublimation of Shadow\""
+      ]
+    },
+    "x50031": {
+      "quoteTitle": "About Beidou",
+      "quoteText": "The captain of The Crux — a formidable woman indeed. She once promised to take me out onto the open ocean to get a look at the thunderstorm that seals off Inazuma from the outside world. It's a shame that to this day, I've never had the chance to take her up on the offer...",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4",
+        "Complete \"Stillness, the Sublimation of Shadow\""
+      ]
+    },
+    "x50032": {
+      "quoteTitle": "About Kamisato Ayato",
+      "quoteText": "As head of the Kamisato Clan, he's in a tough position. With all the political upheaval, he has to contend with public disquiet on one hand and a bunch of self-serving, degenerate public officials on the other. It's best not to dwell on it. All I can do is make sure to look out for him when he's at home.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x50033": {
+      "quoteTitle": "About Kamisato Ayaka",
+      "quoteText": "Milady is in all respects a well-rounded person: erudite, compassionate, well-mannered, and elegant... The one thing she could do better is to speak her mind more. In fact, watch out for this the next time you're talking to her — sometimes, she looks like she's about to say something, but then she holds back. If that happens, keep asking her opinion, see if you can encourage her to open up a little.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4",
+        "Complete \"Stillness, the Sublimation of Shadow\""
+      ]
+    },
+    "x50034": {
+      "quoteTitle": "About Yoimiya",
+      "quoteText": "Of Naganohara Fireworks fame? She's so easy to get along with. Super straightforward, just says whatever she thinks. Oh, and Naganohara fireworks are just incredible, you should take every chance you get to see them in action. Ah, on that note — here, have a coupon!",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x50035": {
+      "quoteTitle": "About Sayu",
+      "quoteText": "Ah Sayu, stubborn Sayu. I've asked her countless times to teach me ninjutsu, but she always refuses. She even goes out of her way to avoid me now... I'm just a student looking for a teacher, am I really that out of line?",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x50036": {
+      "quoteTitle": "About Kujou Sara",
+      "quoteText": "The Tenryou Commission General... Mm... Make sure to be extra careful if you have any dealings with her. She has a lot of power in her hands, and she's not very open to persuasion. Smiling and batting your eyelids certainly won't get you anywhere with her.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x50037": {
+      "quoteTitle": "About Arataki Itto",
+      "quoteText": "Hmm... Word on the street is that he's quite a character — apparently, he even has youkai heritage. Have you met him? If you two are close, maybe you could introduce me sometime. It's good to make friends from all walks of life... youkai included!",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x50038": {
+      "quoteTitle": "About Shikanoin Heizou",
+      "quoteText": "Ho, that guy is a detective for the Tenryou Commission. He seems to have his own way of doing things — not the easiest person to get along with. Also... Any situation that involves a detective is probably not one that's going to end well. I think I'll keep on giving him a wide berth.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x50039": {
+      "quoteTitle": "About Jean",
+      "quoteText": "Oh, so Jean from the Gunnhildr Clan is the Master of the Knights of Favonius now? She definitely deserves it, she's known all over for her impeccable conduct... Oh, just the \"Acting\" Grand Master? Haha, well, someone of her standing won't care about titles.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x50040": {
+      "quoteTitle": "About Eula",
+      "quoteText": "You've had a run-in with Eula Lawrence before, huh? All I know is that their whole family are about the worst-tempered people you could ever meet. You're better off steering clear of them if you can help it. Ah, now I'm in a Mondstadt mood again... The memories.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x50041": {
+      "quoteTitle": "More About Thoma: I",
+      "quoteText": "Anything I can lend a hand with? If something needs doing around the house or you're having some interpersonal strife, just say the word. Hmm? A conversation... I see, I see. That's a little different from what I'm used to, but I'm all for it.",
+      "unlockConds": []
+    },
+    "x50042": {
+      "quoteTitle": "More About Thoma: II",
+      "quoteText": "I'm not from Inazuma originally — I think I've told you that before, right? I took a boat all the way here from Mondstadt, found I liked the place, and was also lucky enough to meet the wonderful Kamisato siblings, so I just ended up staying.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 3"
+      ]
+    },
+    "x50043": {
+      "quoteTitle": "More About Thoma: III",
+      "quoteText": "I get homesick once in a while, too, so I completely relate to all the international merchants on Ritou. I try to look out for them as much as I can. The difference between us is that they see themselves as just passing by, and have no intention of trying to integrate here. And because that's how they think, it becomes their reality. The majority of Inazumans will never see them as anything more than outsiders.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x50044": {
+      "quoteTitle": "More About Thoma: IV",
+      "quoteText": "For some of the more conservatively minded people in Inazuma, the idea of an outlander working as a retainer for one of the Commissions is unthinkable. So there was a time when I was not that welcome here. I'm pretty sure I'd have been deported a long time ago without a couple of Kamisatos fighting my corner. I couldn't let the clan down after they'd been so kind to me, so I put in a lot of honest work, and eventually, everyone was finally able to accept me.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 5"
+      ]
+    },
+    "x50045": {
+      "quoteTitle": "More About Thoma: V",
+      "quoteText": "I'm not sure if I should get into this, but... Ah, hopefully you won't mind. I went through a period where I really just wanted to go home — Mondstadt is my homeland, after all. But I was torn... It wouldn't be easy to leave Inazuma behind, either. I mean, just look how good the people here have been to me. The Kamisato Clan always has a room for me, and there are people I've met here that are like family. So, I went back and forth over it, and ultimately decided I'd stay in Inazuma. When I'm missing Mondstadt... I can just chat with you. You don't mind my rambling, do you?",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 6"
+      ]
+    },
+    "x50046": {
+      "quoteTitle": "Thoma's Hobbies",
+      "quoteText": "I've been really getting into stories about the unnatural recently. Especially ones about shapeshifting youkai — they're so fascinating. Before that, I was really into ninjutsu for a while, and before that... Hmm? You think I'm not dedicated enough? N—No! It's not like that, you got me all wrong!",
+      "unlockConds": []
+    },
+    "x50047": {
+      "quoteTitle": "Thoma's Troubles",
+      "quoteText": "I'm in a real pickle here. The chief is hosting a banquet for his friends tonight, and he says he wants me to splurge a little by cooking some Butter Crab. The only problem is that for the last two days, I haven't been able to buy crab anywhere! So, what, am I gonna have to dive into the ocean and grab them myself?",
+      "unlockConds": []
+    },
+    "x50048": {
+      "quoteTitle": "Favorite Food",
+      "quoteText": "Without a doubt, my favorite food is Rice Cake Soup. I like cooking up a big, delicious potful for everyone to share. It's a recipe for a good time.",
+      "unlockConds": []
+    },
+    "x50049": {
+      "quoteTitle": "Least Favorite Food",
+      "quoteText": "As far as food is concerned, I'm fine with anything. If we're counting beverages, though... I'm not very good with alcohol. Don't laugh, and before you say it — yes, I've wondered what this says about my identity as a Mondstadter. But, y'know... too much alcohol is bad for you, anyway. So not drinking is a good thing.",
+      "unlockConds": []
+    },
+    "x50050": {
+      "quoteTitle": "Birthday",
+      "quoteText": "Quick, come with me! I remembered it's your birthday, obviously, so I thought I'd throw you a proper party. There's food, there's drinks, and I invited a whole bunch of your friends, too. Hey, this is your birthday we're talking about! I wasn't about to let you spend it all alone!",
+      "unlockConds": []
+    },
+    "x50051": {
+      "quoteTitle": "Feelings About Ascension: Intro",
+      "quoteText": "Really? This'll make me stronger? You'd better not be kidding, I have stacks of laundry to do.",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 1"
+      ]
+    },
+    "x50052": {
+      "quoteTitle": "Feelings About Ascension: Building Up",
+      "quoteText": "It feels like... a fire inside of me has just begun to burn.",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 2"
+      ]
+    },
+    "x50053": {
+      "quoteTitle": "Feelings About Ascension: Climax",
+      "quoteText": "I have all of this power, but how should I use it? I need to give this one some serious thought.",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 4"
+      ]
+    },
+    "x50054": {
+      "quoteTitle": "Feelings About Ascension: Conclusion",
+      "quoteText": "Thank you for placing your trust in me. Your kindness warms my heart more than the brightest flame ever could. But not to worry, I've figured out what I want to do now. My strength is your shield, and I will always be here to protect you.",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 6"
+      ]
+    },
+    "x50055": {
+      "quoteTitle": "Elemental Skill: I",
+      "quoteText": "Fire it up!",
+      "unlockConds": []
+    },
+    "x50056": {
+      "quoteTitle": "Elemental Skill: II",
+      "quoteText": "Check this out~",
+      "unlockConds": []
+    },
+    "x50057": {
+      "quoteTitle": "Elemental Skill: III",
+      "quoteText": "Don't get too close!",
+      "unlockConds": []
+    },
+    "x50058": {
+      "quoteTitle": "Elemental Burst: I",
+      "quoteText": "Here's backup.",
+      "unlockConds": []
+    },
+    "x50059": {
+      "quoteTitle": "Elemental Burst: II",
+      "quoteText": "Supporting fire!",
+      "unlockConds": []
+    },
+    "x50060": {
+      "quoteTitle": "Elemental Burst: III",
+      "quoteText": "I got you covered.",
+      "unlockConds": []
+    },
+    "x50061": {
+      "quoteTitle": "Opening Treasure Chest: I",
+      "quoteText": "Ooh, what's in here?",
+      "unlockConds": []
+    },
+    "x50062": {
+      "quoteTitle": "Opening Treasure Chest: II",
+      "quoteText": "Mm! The fortune slip was right...",
+      "unlockConds": []
+    },
+    "x50063": {
+      "quoteTitle": "Opening Treasure Chest: III",
+      "quoteText": "Hehe, finders keepers.",
+      "unlockConds": []
+    },
+    "x50064": {
+      "quoteTitle": "Low HP: I",
+      "quoteText": "Hey! What was that for?",
+      "unlockConds": []
+    },
+    "x50065": {
+      "quoteTitle": "Low HP: II",
+      "quoteText": "I'm done for...",
+      "unlockConds": []
+    },
+    "x50066": {
+      "quoteTitle": "Low HP: III",
+      "quoteText": "*grimace* Right where it hurts...",
+      "unlockConds": []
+    },
+    "x50067": {
+      "quoteTitle": "Ally at Low HP: I",
+      "quoteText": "Don't despair, I'm here to help.",
+      "unlockConds": []
+    },
+    "x50068": {
+      "quoteTitle": "Ally at Low HP: II",
+      "quoteText": "What a mess... go on, take a rest.",
+      "unlockConds": []
+    },
+    "x50069": {
+      "quoteTitle": "Fallen: I",
+      "quoteText": "Time to go home...",
+      "unlockConds": []
+    },
+    "x50070": {
+      "quoteTitle": "Fallen: II",
+      "quoteText": "Take care, everyone...",
+      "unlockConds": []
+    },
+    "x50071": {
+      "quoteTitle": "Fallen: III",
+      "quoteText": "I couldn't save everybody...",
+      "unlockConds": []
+    },
+    "x50072": {
+      "quoteTitle": "Heavy Hit Taken: I",
+      "quoteText": "Ow ow ow...",
+      "unlockConds": []
+    },
+    "x50073": {
+      "quoteTitle": "Heavy Hit Taken: II",
+      "quoteText": "Stop it!",
+      "unlockConds": []
+    },
+    "x50074": {
+      "quoteTitle": "Joining Party: I",
+      "quoteText": "I guess the housework can wait.",
+      "unlockConds": []
+    },
+    "x50075": {
+      "quoteTitle": "Joining Party: II",
+      "quoteText": "Let's get out there and make some friends.",
+      "unlockConds": []
+    },
+    "x50076": {
+      "quoteTitle": "Joining Party: III",
+      "quoteText": "Where are we headed this time?",
+      "unlockConds": []
+    },
+    "x50077": {
+      "quoteTitle": "Receiving a Gift: I",
+      "quoteText": "Delicious! Could I get another bowl of rice?",
+      "unlockConds": []
+    },
+    "x50078": {
+      "quoteTitle": "Receiving a Gift: II",
+      "quoteText": "Um, are you free right now? Would you mind sharing some of your cooking tips with me?",
+      "unlockConds": []
+    },
+    "x50079": {
+      "quoteTitle": "Receiving a Gift: III",
+      "quoteText": "I don't think I've ever tasted anything like this... Oh, it's not too bad, though.",
+      "unlockConds": []
+    }
+  },
+  "energy": [
+    {
+      "source": "Ball",
+      "particles": "3",
+      "chance": "100%",
+      "cd": "0.3s"
+    },
+    {
+      "source": "Ball_Extra",
+      "particles": "1",
+      "chance": "50%",
+      "cd": "0.3s"
+    }
+  ],
+  "attacks": [
+    {
+      "name": "ExtraAttack_Bullet",
+      "icd_source": "Grp: Avatar_Pole_ExtraAttack (Tag Miss)",
+      "icd_rule": "24 hits / 0.5s",
+      "gauge": "1U",
+      "poise": "LV5/120",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Spear",
+      "damageParam": "ExtraAttack"
+    },
+    {
+      "name": "ExtraAttack_Bullet",
+      "icd_source": "Grp: Avatar_Pole_ExtraAttack (Tag Miss)",
+      "icd_rule": "24 hits / 0.5s",
+      "gauge": "1U",
+      "poise": "LV5/120",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Spear",
+      "damageParam": "ExtraAttack"
+    },
+    {
+      "name": "ElementalArt_Strike",
+      "icd_source": "Tag: Elemental_Art (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV3/150",
+      "element": "Fire",
+      "attackType": "Melee",
+      "strikeType": "Slash",
+      "damageParam": "ElementalArt_Damage"
+    },
+    {
+      "name": "ElementalBurst_Start",
+      "icd_source": "Tag: Elemental_Burst (!)",
+      "icd_rule": "Independent",
+      "gauge": "2U",
+      "poise": "LV3/200",
+      "element": "Fire",
+      "attackType": "Default",
+      "strikeType": "None",
+      "damageParam": "ElementalBurst_Damage"
+    },
+    {
+      "name": "ElementalBurst_TriggerAttack",
+      "icd_source": "Tag: Elemental_Burst (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV2/35",
+      "element": "Fire",
+      "attackType": "Default",
+      "strikeType": "None",
+      "damageParam": "ElementalBurst_TriggerDamage"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "0U",
+      "poise": "LV2/25",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Slash",
+      "damageParam": "FallingAnthem_Normal_Loop_Damage"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "0U",
+      "poise": "LV2/25",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Spear",
+      "damageParam": "FallingAnthem_Normal_Loop_Damage"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV4/100",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Blunt",
+      "damageParam": "FallingAnthem_Normal_Rank_1_Damage"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV7/150",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Blunt",
+      "damageParam": "FallingAnthem_Normal_Rank_2_Damage"
+    }
+  ],
+  "endure": {
+    "ability": "ElementalArt_Handler",
+    "handler": "UNIQUE_ElementalArt_FireShield_Child",
+    "Actor_EndureDelta": 0
+  }
+}
