@@ -26,6 +26,7 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateCandaceDPS(build, en
     if allowVape
         preferredAura = "Pyro";
     end
+    hydroReady = getFieldOrDefault(teamContext, 'HydroCount', 0) >= 1;
 
     actions = struct();
     actions.EHold = struct('TalentGroup', "Skill", 'Param', "ChargedUpDMG", 'DamageField', "SkillDMGBonus", ...
@@ -58,6 +59,10 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateCandaceDPS(build, en
         'DefaultRotation', {{'EHold', 'Q', 'Wave', 'N1', 'N2', 'N3', 'N4', 'Wave', 'N1', 'N2', 'N3', 'N4'}}, ...
         'ActionTimeMap', struct('EHold', 0.85, 'Q', 1.00, 'Wave', 2.30, 'N1', 0.30, 'N2', 0.32, 'N3', 0.38, 'N4', 0.45), ...
         'Actions', actions);
+
+    if hydroReady
+        spec.DefaultRotation = {{'EHold', 'Q', 'Wave', 'N1', 'N2', 'N3', 'N4', 'Wave', 'N1', 'N2', 'N3', 'N4'}};
+    end
 
     [totalDMG, dps, breakdown, rotationTime] = simulateSimpleCharacterDPS( ...
         'Candace', build, enemy, seqFile, talentLevel, constellation, teamContext, spec);

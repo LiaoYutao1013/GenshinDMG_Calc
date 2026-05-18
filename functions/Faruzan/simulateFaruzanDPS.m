@@ -22,7 +22,7 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateFaruzanDPS(build, en
         'ActionElement', "Anemo", 'BaseMultiplier', 1.00, 'Note', "Pressurized Collapse");
     actions.C6Collapse = struct('TalentGroup', "Skill", 'Param', "PressurizedCollapseVortexDMG", 'DamageField', "SkillDMGBonus", ...
         'ActionElement', "Anemo", 'BaseMultiplier', 1.00, 'HitCount', 2, ...
-        'CritDMGBonus', 0.40 * double(constellation >= 6), 'Note', "C6 collapse procs");
+        'CritDMGBonus', 0.40 * double(constellation >= 6), 'PostSetSkillActiveTime', 18.0, 'Note', "C6 collapse procs");
 
     defaultRotation = {'Q', 'E', 'Collapse'};
     if constellation >= 6

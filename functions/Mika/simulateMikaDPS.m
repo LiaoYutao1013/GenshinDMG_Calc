@@ -13,13 +13,15 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateMikaDPS(build, enemy
         teamContext = buildTeamContext({struct('Name', 'Mika', 'Constellation', constellation, 'Build', build)}, 20, struct());
     end
 
+    meltReady = getFieldOrDefault(teamContext, 'PyroCount', 0) >= 1;
     actions = struct();
     actions.EArrow = struct('TalentGroup', "Skill", 'Param', "FlowfrostArrowDMG", 'DamageField', "SkillDMGBonus", ...
-        'ActionElement', "Cryo", 'BaseMultiplier', 1.00, 'Note', "Flowfrost Arrow");
+        'ActionElement', "Cryo", 'BaseMultiplier', 1.00, 'AllowAmplify', double(meltReady), 'Note', "Flowfrost Arrow");
     actions.Flare = struct('TalentGroup', "Skill", 'Param', "RimestarFlareDMG", 'DamageField', "SkillDMGBonus", ...
-        'ActionElement', "Cryo", 'BaseMultiplier', 1.00, 'Note', "Rimestar Flare");
+        'ActionElement', "Cryo", 'BaseMultiplier', 1.00, 'AllowAmplify', double(meltReady), 'Note', "Rimestar Flare");
     actions.Shard = struct('TalentGroup', "Skill", 'Param', "RimestarShardDMG", 'DamageField', "SkillDMGBonus", ...
-        'ActionElement', "Cryo", 'BaseMultiplier', 1.00, 'HitCount', 1 + double(constellation >= 2), 'Note', "Rimestar Shard");
+        'ActionElement', "Cryo", 'BaseMultiplier', 1.00, 'HitCount', 1 + double(constellation >= 2), ...
+        'AllowAmplify', double(meltReady), 'Note', "Rimestar Shard");
     actions.Q = struct('TalentGroup', "Burst", 'Param', "CastHealing", 'MVOverride', 0, ...
         'DamageField', "BurstDMGBonus", 'PostSetBurstActiveTime', 15.0, 'Note', "Skyfeather Song");
 

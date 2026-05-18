@@ -1,1 +1,6 @@
-AUTO
+Swirl1
+Swirl2
+Swirl3
+EFull
+Q
+Iris

@@ -1,1 +1,10 @@
-AUTO
+E1
+E2
+E3
+Tick
+Q
+Thunder
+ResetE1
+ResetE2
+ResetE3
+Tick

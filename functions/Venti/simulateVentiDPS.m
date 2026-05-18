@@ -18,7 +18,8 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateVentiDPS(build, enem
         teamContext = buildTeamContext({struct('Name', 'Venti', 'Constellation', constellation, 'Build', build)}, 20, struct());
     end
 
-    absorbedElement = localResolveAbsorbedElement(teamContext);
+    absorbedElement = localResolveAbsorbedElement(teamContext, enemy);
+    absorbedMultiplier = double(strlength(absorbedElement) > 0);
     c2AnemoResShred = 0.24 * double(constellation >= 2);
     c4AnemoBonus = 0.25 * double(constellation >= 4);
     c6CritDamageBonus = 1.00 * double(constellation >= 6);
@@ -35,8 +36,8 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateVentiDPS(build, enem
         'ActionElement', "Anemo", 'BaseMultiplier', 1.00, 'HitCount', 20, 'BaseActionDamageBonus', c4AnemoBonus, ...
         'ExtraResShred', 0.20 * double(constellation >= 6), 'C6CritDMGBonus', c6CritDamageBonus, 'Note', "Wind's Grand Ode");
     actions.QInfuse = struct('TalentGroup', "Burst", 'Param', "AdditionalElementalDMG", 'DamageField', "BurstDMGBonus", ...
-        'ActionElement', absorbedElement, 'BaseMultiplier', 1.00, 'HitCount', 16, ...
-        'ExtraResShred', absorbedResShred, 'Note', "Absorbed element");
+        'ActionElement', absorbedElement, 'BaseMultiplier', absorbedMultiplier, 'HitCount', 16, ...
+        'AllowAmplify', absorbedMultiplier, 'ExtraResShred', absorbedResShred, 'Note', "Absorbed element");
 
     spec = struct( ...
         'Element', "Anemo", ...
@@ -50,7 +51,15 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateVentiDPS(build, enem
         'Venti', build, enemy, seqFile, talentLevel, constellation, teamContext, spec);
 end
 
-function element = localResolveAbsorbedElement(teamContext)
+function element = localResolveAbsorbedElement(teamContext, enemy)
+    if nargin >= 2 && isstruct(enemy)
+        initialAura = string(getFieldOrDefault(enemy, 'InitialAuraElement', ""));
+        if any(strcmpi(initialAura, ["Pyro", "Hydro", "Electro", "Cryo"]))
+            element = initialAura;
+            return;
+        end
+    end
+
     priority = ["Pyro", "Hydro", "Electro", "Cryo"];
     for i = 1:numel(priority)
         fieldName = char(priority(i) + "Count");
@@ -59,5 +68,5 @@ function element = localResolveAbsorbedElement(teamContext)
             return;
         end
     end
-    element = "Hydro";
+    element = "";
 end

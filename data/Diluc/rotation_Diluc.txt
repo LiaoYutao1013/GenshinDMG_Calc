@@ -3,8 +3,8 @@ QPhoenix
 Q2
 E1
 N1
-E2
+E2Rhythm
 N2
-E3
+E3Rhythm
 N3
 N4

@@ -36,7 +36,7 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateWandererDPS(build, e
         'ActionElement', "Anemo", 'BaseMultiplier', 0.40, 'HitCount', 4, 'C1DamageBonus', 0.25, 'Note', "Descent effect arrows");
     actions.Q = struct('TalentGroup', "Burst", 'Param', "SkillDMG", 'DamageField', "BurstDMGBonus", ...
         'ActionElement', "Anemo", 'BaseMultiplier', 1.00, 'HitCount', 1 + double(constellation >= 6), ...
-        'CritDMGBonus', 0.70 * double(constellation >= 6), 'Note', "Kyougen: Five Ceremonial Plays");
+        'CritDMGBonus', 0.70 * double(constellation >= 6), 'PostSetBurstActiveTime', 1.0, 'Note', "Kyougen: Five Ceremonial Plays");
 
     defaultRotation = {'E', 'N1', 'N1', 'CA', 'Descent', 'N1', 'N1', 'CA', 'Descent', 'Q'};
     if getFieldOrDefault(teamContext, 'HydroCount', 0) >= 1

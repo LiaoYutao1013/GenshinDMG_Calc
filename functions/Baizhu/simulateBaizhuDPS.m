@@ -17,20 +17,30 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateBaizhuDPS(build, ene
     talent = readtable(talentPath);
     burstLevel = talentLevel + 3 * double(constellation >= 5);
     spiritMV = getTalentValue(talent, 'Burst', 'SpiritveinDMG', burstLevel);
+    skillLevel = talentLevel + 3 * double(constellation >= 3);
+    aggravateReady = getFieldOrDefault(teamContext, 'ElectroCount', 0) >= 1;
     spiritHPWeight = 0;
     if constellation >= 6 && spiritMV > 0
         spiritHPWeight = 0.08 / spiritMV;
     end
+    skillMV = getTalentValue(talent, 'Skill', 'SkillDMG', skillLevel);
+    skillHPWeight = 0;
+    if skillMV > 0
+        skillHPWeight = 0.008 * double(constellation >= 6) / skillMV;
+    end
 
     actions = struct();
     actions.E = struct('TalentGroup', "Skill", 'Param', "SkillDMG", 'DamageField', "SkillDMGBonus", ...
-        'ActionElement', "Dendro", 'BaseMultiplier', 1.00, 'Note', "Universal Diagnosis");
+        'ActionElement', "Dendro", 'BaseMultiplier', 1.00, 'HPWeight', skillHPWeight, ...
+        'AllowCatalyze', double(aggravateReady), 'Note', "Universal Diagnosis");
     actions.Q = struct('TalentGroup', "Burst", 'Param', "SpiritveinDMG", 'MVOverride', 0, ...
         'DamageField', "BurstDMGBonus", 'PostSetBurstActiveTime', 14.0, 'Note', "Holistic Revivification");
     actions.Spirit = struct('TalentGroup', "Burst", 'Param', "SpiritveinDMG", 'DamageField', "BurstDMGBonus", ...
-        'ActionElement', "Dendro", 'BaseMultiplier', 1.00, 'HPWeight', spiritHPWeight, 'HitCount', 6, 'Note', "Spiritvein");
+        'ActionElement', "Dendro", 'BaseMultiplier', 1.00, 'HPWeight', spiritHPWeight, 'HitCount', 6, ...
+        'AllowCatalyze', double(aggravateReady), 'Note', "Spiritvein");
     actions.Splice = struct('TalentGroup', "Skill", 'Param', "SkillDMG", 'MVOverride', 2.50, ...
-        'DamageField', "SkillDMGBonus", 'ActionElement', "Dendro", 'HitCount', 3, 'Note', "C2 Gossamer Sprite: Splice");
+        'DamageField', "SkillDMGBonus", 'ActionElement', "Dendro", 'HitCount', 3, ...
+        'AllowCatalyze', double(aggravateReady), 'Note', "C2 Gossamer Sprite: Splice");
 
     defaultRotation = {'E', 'Q', 'Spirit'};
     if constellation >= 2

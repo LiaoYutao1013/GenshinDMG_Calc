@@ -18,7 +18,9 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateFreminetDPS(build, e
         workBuild.CritDMG = getFieldOrDefault(workBuild, 'CritDMG', 0) + 0.36;
     end
 
-    shatterBonus = 0.40 * double(getFieldOrDefault(teamContext, 'HydroCount', 0) >= 1);
+    superconductReady = getFieldOrDefault(teamContext, 'ElectroCount', 0) >= 1;
+    shatterReady = getFieldOrDefault(teamContext, 'HydroCount', 0) >= 1;
+    shatterBonus = 0.40 * double(shatterReady);
     speedFactor = 1 / (1 + getFieldOrDefault(teamContext, 'MikaATKSpeedBonus', 0));
     actions = struct();
     actions.E = struct('TalentGroup', "Skill", 'Param', "UpwardThrustDMG", 'DamageField', "SkillDMGBonus", ...
@@ -29,6 +31,7 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateFreminetDPS(build, e
         'ActionElement', "Cryo", 'BaseMultiplier', 2.00, 'Note', "Burst-enhanced frost wave");
     actions.P4 = struct('TalentGroup', "Skill", 'Param', "Level4ShatteringPressureDMG", 'DamageField', "SkillDMGBonus", ...
         'ActionElement', "Physical", 'BaseMultiplier', 1.00, 'FlatDamageBonus', shatterBonus, ...
+        'ExtraResShred', 0.40 * double(superconductReady), ...
         'CritRateBonus', 0.15 * double(constellation >= 1), 'Note', "Level 4 Shattering Pressure");
     actions.Q = struct('TalentGroup', "Burst", 'Param', "SkillDMG", 'DamageField', "BurstDMGBonus", ...
         'ActionElement', "Cryo", 'BaseMultiplier', 1.00, 'PostSetBurstActiveTime', 10.0, 'Note', "Shadowhunter's Ambush");

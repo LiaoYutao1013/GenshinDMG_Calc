@@ -1,1 +1,3 @@
-AUTO
+EHold
+Q
+DoT

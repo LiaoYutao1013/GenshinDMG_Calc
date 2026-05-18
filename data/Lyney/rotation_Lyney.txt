@@ -1,1 +1,9 @@
-AUTO
+Aimed1
+Strike
+Aimed2
+Strike
+Aimed3
+Strike
+E
+Q
+Firework

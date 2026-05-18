@@ -1,1 +1,4 @@
-AUTO
+E
+Radish
+Q
+BurstRadish

@@ -1,1 +1,12 @@
-AUTO
+Q
+N1
+N2
+Core
+N3
+Core
+E
+Core
+N4
+Core
+Core
+Core

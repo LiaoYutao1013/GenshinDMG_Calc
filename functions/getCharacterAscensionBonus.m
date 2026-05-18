@@ -27,6 +27,7 @@ function bonus = getCharacterAscensionBonus(characterName)
     row = tbl(1, :);
     typeCode = localResolveAscensionType(row);
     value = localResolveNumericField(row, 'AscensionValue', 0);
+    value = localNormalizeAscensionValue(typeCode, value);
 
     switch upper(char(typeCode))
         case {'CR', 'CRITRATE'}
@@ -112,6 +113,38 @@ function value = localResolveNumericField(row, fieldName, defaultValue)
         end
     end
     value = defaultValue;
+end
+
+function value = localNormalizeAscensionValue(typeCode, value)
+    % 角色突破词条在 CSV 中通常按“百分数面板值”存储，例如：
+    % 19.2 => 19.2% 暴击率，24 => 24% 元素伤害加成。
+    % build 口径统一使用小数，因此这里需要做一次归一化。
+    typeCode = upper(char(string(typeCode)));
+    if ~isfinite(value)
+        value = 0;
+        return;
+    end
+
+    switch typeCode
+        case {'CR', 'CRITRATE', 'CD', 'CRITDMG', ...
+                'ATK', 'ATKPCT', 'ATKBONUS', ...
+                'HP', 'HPPCT', 'HPBONUS', ...
+                'DEF', 'DEFPCT', 'DEFBONUS', ...
+                'ER', 'ENERGYRECHARGE', ...
+                'HEAL', 'HEALINGBONUS', 'HB', ...
+                'PYRO', 'PYRODMG', 'PYRODMGBONUS', ...
+                'HYDRO', 'HYDRODMG', 'HYDRODMGBONUS', ...
+                'CRYO', 'CRYODMG', 'CRYODMGBONUS', ...
+                'ELECTRO', 'ELECTRODMG', 'ELECTRODMGBONUS', ...
+                'ANEMO', 'ANEMODMG', 'ANEMODMGBONUS', ...
+                'GEO', 'GEODMG', 'GEODMGBONUS', ...
+                'DENDRO', 'DENDRODMG', 'DENDRODMGBONUS'}
+            if abs(value) > 1
+                value = value / 100;
+            end
+        otherwise
+            % 元素精通等非百分比词条保持原值。
+    end
 end
 
 function stats = localEmptyStatStruct()

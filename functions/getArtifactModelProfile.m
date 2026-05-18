@@ -401,6 +401,7 @@ function profile = getArtifactModelProfile(characterName, build)
             profile.GobletMainStat = "ElectroDMGBonus";
             profile.CircletMainStat = "CritRate";
             profile.ApplySetBonuses = true;
+            profile.AssumeOffFieldSkill = true;
 
         case 'aratakiitto'
             profile.SandsMainStat = "DEFBonus";

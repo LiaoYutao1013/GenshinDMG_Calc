@@ -14,6 +14,7 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateLynetteDPS(build, en
     end
 
     convertedElement = localResolveLynetteAbsorbElement(teamContext);
+    convertedMultiplier = double(convertedElement ~= "Anemo");
     actions = struct();
     actions.E = struct('TalentGroup', "Skill", 'Param', "EnigmaThrustDMG", 'DamageField', "SkillDMGBonus", ...
         'ActionElement', "Anemo", 'BaseMultiplier', 1.00, 'Note', "Enigma Thrust");
@@ -24,7 +25,7 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateLynetteDPS(build, en
     actions.Box = struct('TalentGroup', "Burst", 'Param', "BogglecatBoxDMG", 'DamageField', "BurstDMGBonus", ...
         'ActionElement', "Anemo", 'BaseMultiplier', 1.00, 'HitCount', 3, 'Note', "Bogglecat box");
     actions.Vivid = struct('TalentGroup', "Burst", 'Param', "VividShotDMG", 'DamageField', "BurstDMGBonus", ...
-        'ActionElement', convertedElement, 'BaseMultiplier', 1.00, 'HitCount', 3 + double(constellation >= 2), 'Note', "Infused vivid shot");
+        'ActionElement', convertedElement, 'BaseMultiplier', convertedMultiplier, 'HitCount', 3 + double(constellation >= 2), 'Note', "Infused vivid shot");
 
     spec = struct( ...
         'Element', "Anemo", ...

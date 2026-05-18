@@ -1,1 +1,12 @@
-AUTO
+EHold
+Q
+Wave
+N1
+N2
+N3
+N4
+Wave
+N1
+N2
+N3
+N4
