@@ -1,252 +1,311 @@
-# 元素反应引擎设计与落地说明
+# 元素反应引擎设计与维护说明
 
-## 1. 文档目的
+## 1. 文档目标
 
-本文档说明当前工程中统一元素反应结算层的设计目标、数据结构、计算流程和维护方式。
+本文档说明当前工程中统一元素反应结算层的设计目标、数据结构、计算流程、已落地范围与后续扩展方向。
 
-本次重构的核心目标是把过去分散在：
+本次重构的核心目标是把过去分散在以下位置的反应逻辑统一起来：
 
-- `simulateSimpleCharacterDPS.m`
-- `applyElementalHitToEnemy.m`
-- 各角色自定义脚本
+- `functions/simulateSimpleCharacterDPS.m`
+- `functions/applyElementalHitToEnemy.m`
+- 各角色的自定义模拟脚本
 
-中的反应判定逻辑，整理成统一的“命中描述 -> 怪物附着状态 -> 反应判定 -> 伤害结算 -> 状态回写”链路。
+统一成一条明确链路：
 
----
-
-## 2. 现状问题
-
-重构前，工程中已经有轻量敌人附着状态，但存在几个明显问题：
-
-1. 增幅、激化、剧变反应分别走不同逻辑分支，不是统一入口。
-2. 激化更多依赖“队伍里有没有草/雷”这类静态条件，而不是怪物当前附着状态。
-3. 扩散、超载、感电、燃烧、结晶等反应没有统一使用当前怪物附着来决定。
-4. 剧变/绽放类反应伤害此前复用了直伤乘区口径，误吃了防御乘区，不够准确。
-5. 角色脚本只能通过 `AllowAmplify / AllowCatalyze / AllowTransformative` 这类松散开关表达意图，信息量不够。
+`命中描述 -> 怪物元素状态 -> 反应判定 -> 反应伤害结算 -> 状态回写`
 
 ---
 
-## 3. 方案总览
+## 2. 为什么需要统一入口
 
-当前版本采用两层设计：
+重构前存在几个明显问题：
+
+1. 增幅、激化、剧变分别走不同分支，不是统一入口。
+2. 激化更多依赖“队伍里是否有草/雷”这种静态条件，而不是敌人当前实际的激化底状态。
+3. 扩散、超载、感电、燃烧、结晶、绽放没有统一按敌人当前附着来判定。
+4. 剧变/绽放类伤害错误复用了直伤乘区，误吃防御区。
+5. 角色脚本只能靠 `AllowAmplify / AllowCatalyze / AllowTransformative` 这类松散开关表达意图，信息不够完整。
+
+---
+
+## 3. 当前方案总览
+
+当前统一反应方案分成两层。
 
 ### 3.1 命中描述层
 
-每一次可造成伤害的命中，统一抽象成一个 `hitDescriptor`，至少包含：
+每一次会造成伤害或可能触发反应的命中，都抽象成一个 `hitDescriptor`。
 
-- `HitElement`：本次直伤元素类型
-- `ApplyElement`：本次命中向怪物施加的元素类型
-- `ApplyGauge`：施加的元素量，默认按 1U 近似
-- `CanApplyAura`：本次命中是否会留下元素附着
+当前通用字段包括：
+
+- `HitElement`
+- `ApplyElement`
+- `ApplyGauge`
+- `CanApplyAura`
 - `AllowAmplify`
 - `AllowCatalyze`
 - `AllowTransformative`
 - `PreferredAura`
 - `ForceReactionName`
-- `ReactionBaseDamage`
 - `ReactionElement`
+- `ReactionBonus`
+- `ReactionBaseDamage`
+- `ReactionATKWeight / HPWeight / DEFWeight / EMWeight`
+- `ReactionCritRate / ReactionCritDMG`
+- `ResolveReactionAsDamage`
 
-这样做比单纯的布尔开关更稳妥，因为它把“造成什么属性伤害”和“给怪物挂什么元素”拆开了。
+额外地，通用模拟器现在会把完整面板值一并塞进命中描述里：
+
+- `ATKValue`
+- `HPValue`
+- `DEFValue`
+- `EMValue`
+
+这样旧字段 `ReactionATKWeight` 之类不再错误地只吃平面板，而是吃完整结算面板。
 
 ### 3.2 怪物状态层
 
-敌人状态统一放在 `enemyState` 中，当前版本建模：
+敌人状态统一收敛到 `enemyState`：
 
-- 常规元素附着列表 `Auras`
-- `Quicken`
-- `ElectroCharged`
-- `Burning`
-- `DendroCores`
+- `Auras`：常规元素附着列表
+- `Quicken`：原激化底状态
+- `ElectroCharged`：感电持续状态
+- `Burning`：燃烧持续状态
+- `DendroCores`：绽放种子列表
 - `LastReaction`
-
-其中：
-
-- 常规附着负责蒸发、融化、冻结、超载、超导、绽放、扩散、结晶等即时判定
-- `Quicken` 负责激化底态
-- `ElectroCharged / Burning / DendroCores` 负责持续性或延迟型反应
 
 ---
 
-## 4. 统一结算流程
+## 4. 统一结算入口
 
 统一入口为：
 
-- `resolveReactionForHit.m`
+- `functions/resolveReactionForHit.m`
 
-每次命中的结算顺序为：
+每次命中的处理顺序如下：
 
-1. 读取当前 `enemyState`
-2. 根据 `hitDescriptor` 解析本次命中的最终元素信息
-3. 结合怪物当前附着，判定本次触发的反应类型
-4. 计算增幅倍率、激化附加值、即时剧变伤害或生成持续态
-5. 更新怪物附着、激化态、持续反应状态
-6. 返回本次命中的反应结果包
+1. 先推进敌人状态时间。
+2. 结算时间推进期间产生的持续反应包。
+3. 读取当前命中的元素、挂元素、挂元素量与反应标签。
+4. 基于敌人当前附着与激化底状态判定本次主反应。
+5. 分别计算：
+   - 增幅倍率 `AmplifyMultiplier`
+   - 激化附加值 `CatalyzeFlatDamage`
+   - 独立反应伤害 `ReactionDamage`
+6. 回写附着、耗量、激化状态、持续状态与种子状态。
 
 返回结果统一包含：
 
+- `EnemyState`
 - `AmplifyMultiplier`
 - `CatalyzeFlatDamage`
 - `ReactionDamage`
 - `PrimaryReaction`
 - `TriggeredReactions`
-- 更新后的 `EnemyState`
 
 ---
 
-## 5. 为什么“给技能命中打标签”的思路是合理的
+## 5. 当前已落地的反应分类
 
-这个思路是合理的，而且是当前工程最适合的做法。
+### 5.1 增幅反应
 
-原因有三点：
+- 蒸发 `Vaporize`
+- 融化 `Melt`
 
-1. 当前工程本质是离散动作模拟，不是逐帧战斗引擎。
-2. 角色技能、命座、附魔、转化规则差异很大，必须允许命中自带机制标签。
-3. 只有把标签落到“每一次命中”，程序才能知道这次命中究竟能否挂元素、能否吃增幅、能否触发激化或剧变。
+特点：
 
-但建议把“标签”升级成结构化命中描述，而不是继续堆零散字段。
+- 直接乘在本次直伤上。
+- 按元素精通与反应增伤计算增幅倍率。
+- 会消耗当前怪物附着量。
 
----
-
-## 6. 动态附魔与不可覆盖附魔
-
-高精度模拟建议把最终命中元素分成三层：
-
-1. 基础动作元素
-2. 外部赋魔
-3. 自身锁定附魔
-
-推荐规则：
-
-- 若命中声明 `InfusionLocked = true`，则无视外部附魔覆盖。
-- 若命中仅声明 `InfusionElement`，则允许被更高优先级机制改写。
-- 若角色脚本已经在动作级直接给出 `ActionElement`，则视为“本次命中元素已解析完成”。
-
-当前落地版本里，`simulateSimpleCharacterDPS.m` 仍以动作级 `ActionElement` 作为最终元素来源。
-这已经能兼容现在的大部分角色脚本；后续如需更强的附魔系统，可以在命中描述层继续补 `InfusionLocked / ExternalInfusionElement` 等字段。
-
----
-
-## 7. 反应分类与当前实现口径
-
-### 7.1 增幅反应
-
-- 蒸发
-- 融化
-
-当前统一入口会基于当前附着元素决定是否触发，并按元素精通与反应增伤计算倍率。
-
-### 7.2 激化链
+### 5.2 激化链
 
 - 原激化 `Quicken`
 - 蔓激化 `Spread`
 - 超激化 `Aggravate`
 
-当前实现已改成基于敌人实际激化态，而不是单纯看队伍元素计数。
+特点：
 
-### 7.3 剧变反应
+- 现在基于敌人当前 `Quicken` 状态判定，不再只看队伍元素计数。
+- 蔓激化/超激化作为附加直伤返回，由上层继续走角色对应元素的直伤口径。
 
-- 感电
-- 超载
-- 超导
-- 燃烧
-- 扩散
-- 结晶
+### 5.3 剧变与独立反应伤害
 
-其中：
+已统一到 `calcReactionDamage.m` 的包括：
 
-- `ElectroCharged / Burning / Bloom` 支持建成持续态或延迟态
-- `Swirl / Overload / Superconduct` 走即时伤害
-- `Crystallize` 当前主要作为状态与标签保留，不单独计算护盾量
+- 感电 `ElectroCharged`
+- 超载 `Overload`
+- 超导 `Superconduct`
+- 燃烧 `Burning`
+- 扩散 `Swirl`
+- 结晶 `Crystallize`
+- 绽放 `Bloom`
+- 项目内月系反应：
+  - `LunarCharged`
+  - `LunarCrystallize`
+  - `LunarBloom`
 
-### 7.4 绽放链
+当前口径：
 
-- Bloom
-- 后续可扩展 Burgeon / Hyperbloom
-
-当前基础设施已经为“种子生成 -> 延迟爆炸”留出了状态位。
-
-### 7.5 月系反应
-
-工程内的“月感电 / 月结晶 / 月绽放”属于项目自定义反应家族，不是原神基础反应。
-
-因此当前建议是：
-
-- 判定逻辑仍纳入统一反应引擎
-- 数值底数优先使用角色或数据表给定值
-- 团队加成继续走 `teamContext.Lunar*Bonus`
-
-本次重构先把统一入口和标准反应主干补齐，月系角色的细化迁移可以在后续分角色收口。
+- 吃基础反应值
+- 吃精通
+- 吃反应增伤
+- 吃抗性区
+- 不吃防御区
+- 若上层显式传入反应暴击，则额外吃期望暴击区
 
 ---
 
-## 8. 附着量与衰减
+## 6. 持续反应与延迟反应
 
-### 8.1 当前落地策略
+`functions/advanceEnemyStateTime.m` 当前负责：
 
-当前版本把每次命中的元素附着量统一抽象为 `ApplyGauge`，默认近似 1U。
+- 常规 aura 衰减
+- `Quicken` 衰减
+- 感电 tick
+- 燃烧 tick
+- 绽放种子倒计时与爆炸
 
-常规元素附着存入：
+它会返回 `reactionPackets`，统一由 `resolveReactionForHit.m` 在每次命中开始时回收结算。
 
-- `enemyState.Auras(i).Gauge`
-- `enemyState.Auras(i).DecayPerSecond`
+这意味着：
 
-这样就可以在 `advanceEnemyStateTime.m` 中按时间推进做衰减。
-
-### 8.2 当前精度边界
-
-为了先把统一链路打通，当前版本采用：
-
-- 90 级角色为主
-- 默认 1U 附着
-- 默认附着衰减秒数采用统一近似
-
-这比旧版固定线性扣减更稳定，但仍不是完整元素量论。
-
-### 8.3 后续建议
-
-如果要继续向更高精度推进，下一步应补：
-
-1. 每个动作真实挂元素量
-2. 每个动作独立 ICD 组与命中计数
-3. 不同元素或不同强弱附着的真实持续时长
-4. 双元素共存时的多反应优先级
-5. 前台/后台不同角色触发持续反应时的归属规则
+- 不再需要各个角色脚本自己单独处理感电/燃烧/种子 tick。
+- 只要角色命中持续推进时间，持续反应伤害就会被自然带出。
 
 ---
 
-## 9. 当前版本已经落地的改进点
+## 7. 通用模拟器如何接入统一引擎
 
-本次重构的落地点包括：
+`functions/simulateSimpleCharacterDPS.m` 已经改为：
 
-1. 新增统一反应入口 `resolveReactionForHit.m`
-2. `simulateSimpleCharacterDPS.m` 改为走统一反应入口
-3. `advanceEnemyStateTime.m` 可推进持续反应状态
-4. `calcReactionDamage.m` 改为按剧变/绽放口径计算，不再误吃防御乘区
-5. `applyElementalHitToEnemy.m` 退化为兼容包装层
+1. 每个动作按 `HitCount` 切成多个命中时间片。
+2. 每个命中先算本体直伤。
+3. 再构造 `hitDescriptor` 调用 `resolveReactionForHit(...)`。
+4. 将返回结果应用到本次命中：
+   - 直伤乘 `AmplifyMultiplier`
+   - 加上 `CatalyzeFlatDamage`
+   - 加上 `ReactionDamage`
+5. 将 `TriggeredReactions` 写回备注。
+
+同时补了两个兼容点：
+
+1. 优先读取动作级 `PreferredAmplifyAura`，没有时才回退到角色级 `PreferredAmplifyAura`。
+2. 对旧的“独立反应动作”做兼容：
+   - 若动作满足 `AllowTransformative = 1`
+   - 且带有 `ReactionBaseDamage` 或 `Reaction*Weight`
+   - 且 `MVOverride = 0`
+   - 则默认视为 `ResolveReactionAsDamage = true`
+
+这能兼容当前工程里类似：
+
+- Kaveh 的草原核爆炸
+- Mizuki / Heizou / Prune 的扩散动作
 
 ---
 
-## 10. 当前版本仍保留的限制
+## 8. 当前精度边界
 
-当前版本还不是完整逐帧战斗引擎，主要限制有：
+当前版本虽然已经是统一入口，但还不是完整逐帧战斗引擎。主要边界如下：
 
-1. 队伍模拟仍是“角色分开模拟 + 共用队伍上下文”，不是全队统一时间轴。
-2. 双附着共存后的复杂多段连锁反应，当前仍采用近似优先级。
-3. 月系反应的全量迁移尚未全部收口到统一入口。
-4. 动态赋魔系统目前仍以角色脚本预先决定 `ActionElement` 为主。
-
-这些限制不影响当前统一反应主干落地，但会影响极限高精度配队轮转的最终上限。
+1. `ApplyGauge` 当前默认仍常用 1U 近似，很多动作还没录入真实挂元素量。
+2. 还没有完整 ICD 组与命中序列级挂元素次数控制。
+3. 双 aura 共存与复杂多反应优先级仍是近似处理。
+4. 冻结、碎冰、超绽放、烈绽放尚未完整迁入统一主干。
+5. 月系反应已经纳入统一入口，但各角色特有机制还需要逐角色继续细抠。
+6. 动态附魔系统目前仍以动作级 `ActionElement` 为主，没有完全抽象成“基础元素 + 外部附魔 + 锁定附魔”的三层系统。
 
 ---
 
-## 11. 维护建议
+## 9. 推荐的高精度扩展路线
 
-以后维护反应相关功能时，优先顺序建议如下：
+如果要继续提升精度，建议按下面顺序推进。
 
-1. 先补 `hitDescriptor` 字段，不要直接在角色脚本里硬写新分支
-2. 反应类型判定统一改 `resolveReactionForHit.m`
-3. 持续反应、延迟爆炸统一改 `advanceEnemyStateTime.m`
-4. 反应基础倍率统一改 `getReactionBaseDamage.m`
-5. 只有角色独占机制，才放回对应 `simulate<Character>DPS.m`
+### 第一阶段：补全命中描述
 
-这样可以避免元素反应逻辑重新分散回各个角色脚本。
+给动作补充：
+
+- `ApplyGauge`
+- `CanApplyAura`
+- `ForceReactionName`
+- `ResolveReactionAsDamage`
+- 后续可加：
+  - `ICDGroup`
+  - `ICDHitRule`
+  - `InfusionLocked`
+  - `ExternalInfusionElement`
+
+### 第二阶段：补真实附着与耗量
+
+目标是让每个主要角色的关键动作都有真实挂元素量，而不是一律默认 1U。
+
+### 第三阶段：补 ICD
+
+同一动作多段命中时，需要区分：
+
+- 哪些段造成伤害但不挂元素
+- 哪些段既造成伤害又挂元素
+- 哪些段共享同一 ICD 组
+
+### 第四阶段：补完整反应族
+
+继续接入：
+
+- Frozen
+- Shatter
+- Burgeon
+- Hyperbloom
+
+并细化对应归属与反应元素判定。
+
+### 第五阶段：补三层附魔系统
+
+推荐把最终命中元素拆成三层：
+
+1. 基础动作元素
+2. 外部可覆盖附魔
+3. 自身不可覆盖附魔
+
+规则建议：
+
+- 若 `InfusionLocked = true`，则忽略外部附魔覆盖。
+- 若只有 `InfusionElement`，则允许被更高优先级附魔改写。
+- 当前若动作已经显式写 `ActionElement`，仍视为已解析完成，优先兼容现有脚本。
+
+---
+
+## 10. 维护建议
+
+以后维护反应逻辑时，建议遵守以下顺序：
+
+1. 先补 `hitDescriptor` 字段，不要直接在角色脚本里硬写新的反应分支。
+2. 反应判定统一改 `resolveReactionForHit.m`。
+3. 持续反应与延迟反应统一改 `advanceEnemyStateTime.m`。
+4. 基础反应系数统一改 `getReactionBaseDamage.m`。
+5. 只有角色独占机制，才回写到对应 `simulate<Character>DPS.m`。
+
+这样可以避免元素反应逻辑重新散回各个角色脚本。
+
+---
+
+## 11. 本轮已经完成的落地项
+
+本轮已完成：
+
+1. 新增统一入口 `resolveReactionForHit.m`。
+2. 重构 `createEnemyState.m` 与 `advanceEnemyStateTime.m`，支持 aura、激化、感电、燃烧、种子。
+3. `calcReactionDamage.m` 改为独立反应伤害口径，不再误吃防御区。
+4. `simulateSimpleCharacterDPS.m` 接入统一反应入口。
+5. 修正旧 `ReactionATKWeight / HPWeight / DEFWeight / EMWeight` 对完整面板值的兼容。
+6. 补动作级 `PreferredAmplifyAura` 兼容。
+7. 补旧“独立反应动作”兼容标记推断。
+
+---
+
+## 12. 下一步建议
+
+下一步优先做三件事：
+
+1. 给主要角色补真实 `ApplyGauge` 与关键动作的 ICD。
+2. 把 Burgeon / Hyperbloom / Frozen / Shatter 接到统一入口。
+3. 对已经接入通用模拟器的草、风、水、火体系角色做一轮逐角色校准。

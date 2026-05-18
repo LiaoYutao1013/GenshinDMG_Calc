@@ -28,6 +28,8 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateSimpleCharacterDPS( 
     base = readtable(fullfile(dataFolder, sprintf('characters_%s.csv', char(string(characterName)))));
     talent = readtable(fullfile(dataFolder, sprintf('talents_%s.csv', char(string(characterName)))));
     actions = localReadActionSequence(seqFile, spec);
+    attackMetadata = loadLunarisAttackMetadata(characterName);
+    icdStates = struct();
 
     scalingMode = localNormalizeScalingMode(getFieldOrDefault(spec, 'ScalingMode', "ATK"));
     element = string(getFieldOrDefault(spec, 'Element', getCharacterElement(characterName)));
@@ -57,7 +59,6 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateSimpleCharacterDPS( 
     for i = 1:numel(actions)
         action = string(actions{i});
         actionTime = localResolveActionTime(action, spec);
-        enemyState = advanceEnemyStateTime(enemyState, actionTime, element, teamContext);
 
         actionKey = localResolveActionKey(action, spec);
         actionSpec = localGetActionSpec(spec, actionKey);
@@ -115,14 +116,24 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateSimpleCharacterDPS( 
                 + localConstellationGate(getFieldOrDefault(actionSpec, 'C1DamageBonus', 0), constellation, 1) ...
                 + localConstellationGate(getFieldOrDefault(actionSpec, 'C2DamageBonus', 0), constellation, 2) ...
                 + localConstellationGate(getFieldOrDefault(actionSpec, 'C6DamageBonus', 0), constellation, 6);
-            reactionBonus = getFieldOrDefault(build, char(reactionBonusField), 0) ...
-                + getFieldOrDefault(actionSpec, 'ReactionBonus', 0);
+            buildReactionBonus = getFieldOrDefault(build, char(reactionBonusField), 0);
+            actionReactionBonus = getFieldOrDefault(actionSpec, 'ReactionBonus', 0);
             extraResShred = localResolveActionExtraResShred(state, actionSpec, constellation);
             localEnemy = localResolveActionEnemy(enemy, state, actionSpec, constellation);
             hitCount = max(1, round(double(getFieldOrDefault(actionSpec, 'HitCount', 1))));
+            perHitDeltaTime = actionTime / hitCount;
             reactionTags = strings(0, 1);
 
             for hitIndex = 1:hitCount %#ok<NASGU>
+                attackMeta = localResolveLunarisAttackMetadata( ...
+                    characterName, actionSpec, actionKey, paramName, actionElement, attackMetadata);
+                applyGauge = localResolveActionApplyGauge(actionSpec, attackMeta);
+                [canApplyAura, icdStates, icdSnapshot] = localResolveActionICDGate( ...
+                    icdStates, actionKey, actionSpec, attackMeta, perHitDeltaTime);
+                applyElement = string(getFieldOrDefault(actionSpec, 'ApplyElement', actionElement));
+                canApplyAura = canApplyAura && localIsElementalDamageElement(applyElement) ...
+                    && applyGauge > 0;
+
                 hitDMG = localDirectElementDamage( ...
                     actionElement, scaleComponent, mv * dynamicMultiplier, build, teamContext, localEnemy, ...
                     extraBonus, effectiveCritRate, effectiveCritDMG, extraResShred);
@@ -132,50 +143,42 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateSimpleCharacterDPS( 
                         extraBonus, effectiveCritRate, effectiveCritDMG, extraResShred);
                 end
 
-                if logical(getFieldOrDefault(actionSpec, 'AllowAmplify', 0))
-                    [reactionMult, enemyState, reaction] = localResolveAmplify( ...
-                        enemyState, actionElement, preferredAura, build, teamContext, reactionBonus);
-                    hitDMG = hitDMG * reactionMult;
-                    if reaction.Name ~= ""
-                        reactionTags(end + 1, 1) = lower(string(reaction.Name)); %#ok<AGROW>
+                hitDescriptor = localBuildHitDescriptor( ...
+                    actionSpec, actionElement, reactionElement, preferredAura, ...
+                    actionReactionBonus, buildReactionBonus, atkValue, hpValue, defValue, emValue, ...
+                    constellation, extraResShred);
+                hitDescriptor.ApplyElement = applyElement;
+                hitDescriptor.ApplyGauge = applyGauge;
+                hitDescriptor.CanApplyAura = canApplyAura;
+                hitDescriptor.StrikeType = string(getFieldOrDefault(icdSnapshot, 'StrikeType', ""));
+                hitDescriptor.ICDGroup = string(getFieldOrDefault(icdSnapshot, 'ICDGroup', ""));
+                hitDescriptor.ICDRule = string(getFieldOrDefault(icdSnapshot, 'ICDRule', ""));
+                if isstruct(attackMeta) && ~isempty(fieldnames(attackMeta))
+                    hitDescriptor.LunarisDamageParam = string(getFieldOrDefault(attackMeta, 'DamageParam', ""));
+                    hitDescriptor.LunarisAttackName = string(getFieldOrDefault(attackMeta, 'Name', ""));
+                    if strlength(string(getFieldOrDefault(attackMeta, 'Element', ""))) > 0
+                        hitDescriptor.ApplyElement = string(getFieldOrDefault(actionSpec, 'ApplyElement', applyElement));
                     end
                 end
-
-                if logical(getFieldOrDefault(actionSpec, 'AllowCatalyze', 0))
-                    [catalyzeDMG, catalyzeName] = localResolveCatalyzeDamage( ...
-                        actionElement, build, teamContext, localEnemy, extraBonus, effectiveCritRate, effectiveCritDMG, reactionBonus, actionSpec, extraResShred);
-                    hitDMG = hitDMG + catalyzeDMG;
-                    if strlength(catalyzeName) > 0
-                        reactionTags(end + 1, 1) = lower(string(catalyzeName)); %#ok<AGROW>
-                    end
+                if strcmpi(char(string(actionElement)), 'physical') || strcmpi(char(string(actionElement)), 'none')
+                    hitDescriptor.CanApplyAura = logical(getFieldOrDefault(actionSpec, 'CanApplyAura', false)) && canApplyAura;
                 end
 
-                if logical(getFieldOrDefault(actionSpec, 'AllowTransformative', 0))
-                    reactionBase = getFieldOrDefault(actionSpec, 'ReactionBaseDamage', 0) ...
-                        + getFieldOrDefault(actionSpec, 'ReactionATKWeight', 0) * atkValue ...
-                        + getFieldOrDefault(actionSpec, 'ReactionHPWeight', 0) * hpValue ...
-                        + getFieldOrDefault(actionSpec, 'ReactionDEFWeight', 0) * defValue ...
-                        + getFieldOrDefault(actionSpec, 'ReactionEMWeight', 0) * emValue;
-                    if reactionBase > 0
-                        em = getFieldOrDefault(build, 'EM', 0) + getFieldOrDefault(teamContext, 'EMBonus', 0);
-                        resShred = localElementResShred(reactionElement, build, teamContext) + extraResShred;
-                        reactionCritRate = [];
-                        reactionCritDMG = [];
-                        if isfield(actionSpec, 'ReactionCritRate') || isfield(actionSpec, 'ReactionCritDMG') ...
-                                || isfield(actionSpec, 'C6ReactionCritRate') || isfield(actionSpec, 'C6ReactionCritDMG')
-                            reactionCritRate = getFieldOrDefault(actionSpec, 'ReactionCritRate', []) ...
-                                + localConstellationGate(getFieldOrDefault(actionSpec, 'C1ReactionCritRate', 0), constellation, 1) ...
-                                + localConstellationGate(getFieldOrDefault(actionSpec, 'C2ReactionCritRate', 0), constellation, 2) ...
-                                + localConstellationGate(getFieldOrDefault(actionSpec, 'C6ReactionCritRate', 0), constellation, 6);
-                            reactionCritDMG = getFieldOrDefault(actionSpec, 'ReactionCritDMG', []) ...
-                                + localConstellationGate(getFieldOrDefault(actionSpec, 'C1ReactionCritDMG', 0), constellation, 1) ...
-                                + localConstellationGate(getFieldOrDefault(actionSpec, 'C2ReactionCritDMG', 0), constellation, 2) ...
-                                + localConstellationGate(getFieldOrDefault(actionSpec, 'C6ReactionCritDMG', 0), constellation, 6);
-                        end
-                        hitDMG = hitDMG + calcReactionDamage( ...
-                            reactionBase, em, enemy, resShred, 1 + reactionBonus, reactionCritRate, reactionCritDMG);
-                        reactionTags(end + 1, 1) = "reaction bonus"; %#ok<AGROW>
-                    end
+                reactionResult = resolveReactionForHit( ...
+                    enemyState, ...
+                    hitDescriptor, ...
+                    build, teamContext, localEnemy, perHitDeltaTime);
+                enemyState = reactionResult.EnemyState;
+
+                hitDMG = hitDMG * reactionResult.AmplifyMultiplier;
+                if reactionResult.CatalyzeFlatDamage > 0
+                    hitDMG = hitDMG + localDirectElementDamage( ...
+                        actionElement, 1, reactionResult.CatalyzeFlatDamage, build, teamContext, localEnemy, ...
+                        extraBonus, effectiveCritRate, effectiveCritDMG, extraResShred);
+                end
+                hitDMG = hitDMG + reactionResult.ReactionDamage;
+                if ~isempty(reactionResult.TriggeredReactions)
+                    reactionTags = [reactionTags; reactionResult.TriggeredReactions(:)]; %#ok<AGROW>
                 end
 
                 dmg = dmg + hitDMG;
@@ -461,47 +464,6 @@ function bonus = localElementCritDMGBonus(element, teamContext)
     end
 end
 
-function [reactionMultiplier, enemyState, reaction] = localResolveAmplify(enemyState, element, preferredAura, build, teamContext, reactionBonus)
-    em = getFieldOrDefault(build, 'EM', 0) + getFieldOrDefault(teamContext, 'EMBonus', 0);
-    triggerElement = string(element);
-    if strlength(preferredAura) > 0
-        enemyState.Auras = struct('Element', string(preferredAura), 'Gauge', 1.0);
-    end
-    [reactionMultiplier, enemyState, reaction] = getAmplifyingReactionMultiplier( ...
-        enemyState, triggerElement, em, teamContext, 1.0, 0, reactionBonus);
-end
-
-function [damage, reactionName] = localResolveCatalyzeDamage( ...
-        element, build, teamContext, enemy, extraBonus, critRate, critDMG, reactionBonus, actionSpec, extraResShred)
-    if nargin < 10 || isempty(extraResShred)
-        extraResShred = 0;
-    end
-    damage = 0;
-    reactionName = "";
-
-    switch lower(char(string(element)))
-        case 'electro'
-            if getFieldOrDefault(teamContext, 'DendroCount', 0) < 1
-                return;
-            end
-            reactionName = "Aggravate";
-            baseDamage = getFieldOrDefault(actionSpec, 'CatalyzeBaseDamage', 1663.88);
-        case 'dendro'
-            if getFieldOrDefault(teamContext, 'ElectroCount', 0) < 1
-                return;
-            end
-            reactionName = "Spread";
-            baseDamage = getFieldOrDefault(actionSpec, 'CatalyzeBaseDamage', 1808.56);
-        otherwise
-            return;
-    end
-
-    em = getFieldOrDefault(build, 'EM', 0) + getFieldOrDefault(teamContext, 'EMBonus', 0);
-    additiveFlat = baseDamage * (1 + 5 * em / (em + 1200) + reactionBonus);
-    damage = localDirectElementDamage( ...
-        element, 1, additiveFlat, build, teamContext, enemy, extraBonus, critRate, critDMG, extraResShred);
-end
-
 function actionTime = localResolveActionTime(action, spec)
     timeMap = getFieldOrDefault(spec, 'ActionTimeMap', struct());
     key = matlab.lang.makeValidName(char(string(action)));
@@ -729,4 +691,388 @@ function localEnemy = localResolveActionEnemy(enemy, state, actionSpec, constell
         + localConstellationGate(getFieldOrDefault(actionSpec, 'C1EnemyDefReduct', 0), constellation, 1) ...
         + localConstellationGate(getFieldOrDefault(actionSpec, 'C2EnemyDefReduct', 0), constellation, 2) ...
         + localConstellationGate(getFieldOrDefault(actionSpec, 'C6EnemyDefReduct', 0), constellation, 6);
+end
+
+function hitDescriptor = localBuildHitDescriptor( ...
+        actionSpec, actionElement, reactionElement, preferredAura, ...
+        actionReactionBonus, buildReactionBonus, atkValue, hpValue, defValue, emValue, ...
+        constellation, extraResShred)
+    resolveReactionAsDamage = logical(getFieldOrDefault(actionSpec, 'ResolveReactionAsDamage', ...
+        localShouldResolveReactionAsDamage(actionSpec)));
+    hitDescriptor = struct( ...
+        'HitElement', string(actionElement), ...
+        'ApplyElement', string(getFieldOrDefault(actionSpec, 'ApplyElement', actionElement)), ...
+        'ApplyGauge', getFieldOrDefault(actionSpec, 'ApplyGauge', 1.0), ...
+        'CanApplyAura', logical(getFieldOrDefault(actionSpec, 'CanApplyAura', strlength(string(actionElement)) > 0)), ...
+        'AllowAmplify', logical(getFieldOrDefault(actionSpec, 'AllowAmplify', 0)), ...
+        'AllowCatalyze', logical(getFieldOrDefault(actionSpec, 'AllowCatalyze', 0)), ...
+        'AllowTransformative', logical(getFieldOrDefault(actionSpec, 'AllowTransformative', 0)), ...
+        'PreferredAura', string(getFieldOrDefault(actionSpec, 'PreferredAmplifyAura', preferredAura)), ...
+        'ForceReactionName', string(getFieldOrDefault(actionSpec, 'ForceReactionName', "")), ...
+        'ReactionElement', string(getFieldOrDefault(actionSpec, 'ReactionElement', reactionElement)), ...
+        'ReactionBonus', buildReactionBonus + actionReactionBonus, ...
+        'ReactionBaseDamage', getFieldOrDefault(actionSpec, 'ReactionBaseDamage', 0), ...
+        'ReactionATKWeight', getFieldOrDefault(actionSpec, 'ReactionATKWeight', 0), ...
+        'ReactionHPWeight', getFieldOrDefault(actionSpec, 'ReactionHPWeight', 0), ...
+        'ReactionDEFWeight', getFieldOrDefault(actionSpec, 'ReactionDEFWeight', 0), ...
+        'ReactionEMWeight', getFieldOrDefault(actionSpec, 'ReactionEMWeight', 0), ...
+        'ResolveReactionAsDamage', resolveReactionAsDamage, ...
+        'ATKValue', atkValue, ...
+        'HPValue', hpValue, ...
+        'DEFValue', defValue, ...
+        'EMValue', emValue, ...
+        'ExtraResShred', extraResShred);
+
+    if isfield(actionSpec, 'ReactionCritRate') || isfield(actionSpec, 'ReactionCritDMG') ...
+            || isfield(actionSpec, 'C1ReactionCritRate') || isfield(actionSpec, 'C2ReactionCritRate') ...
+            || isfield(actionSpec, 'C6ReactionCritRate') || isfield(actionSpec, 'C1ReactionCritDMG') ...
+            || isfield(actionSpec, 'C2ReactionCritDMG') || isfield(actionSpec, 'C6ReactionCritDMG')
+        hitDescriptor.ReactionCritRate = getFieldOrDefault(actionSpec, 'ReactionCritRate', []) ...
+            + localConstellationGate(getFieldOrDefault(actionSpec, 'C1ReactionCritRate', 0), constellation, 1) ...
+            + localConstellationGate(getFieldOrDefault(actionSpec, 'C2ReactionCritRate', 0), constellation, 2) ...
+            + localConstellationGate(getFieldOrDefault(actionSpec, 'C6ReactionCritRate', 0), constellation, 6);
+        hitDescriptor.ReactionCritDMG = getFieldOrDefault(actionSpec, 'ReactionCritDMG', []) ...
+            + localConstellationGate(getFieldOrDefault(actionSpec, 'C1ReactionCritDMG', 0), constellation, 1) ...
+            + localConstellationGate(getFieldOrDefault(actionSpec, 'C2ReactionCritDMG', 0), constellation, 2) ...
+            + localConstellationGate(getFieldOrDefault(actionSpec, 'C6ReactionCritDMG', 0), constellation, 6);
+    end
+end
+
+function tf = localShouldResolveReactionAsDamage(actionSpec)
+    if ~logical(getFieldOrDefault(actionSpec, 'AllowTransformative', 0))
+        tf = false;
+        return;
+    end
+
+    hasCustomReactionPayload = abs(getFieldOrDefault(actionSpec, 'ReactionBaseDamage', 0)) > 1e-9 ...
+        || abs(getFieldOrDefault(actionSpec, 'ReactionATKWeight', 0)) > 1e-9 ...
+        || abs(getFieldOrDefault(actionSpec, 'ReactionHPWeight', 0)) > 1e-9 ...
+        || abs(getFieldOrDefault(actionSpec, 'ReactionDEFWeight', 0)) > 1e-9 ...
+        || abs(getFieldOrDefault(actionSpec, 'ReactionEMWeight', 0)) > 1e-9;
+    if ~hasCustomReactionPayload
+        tf = false;
+        return;
+    end
+
+    mvOverride = getFieldOrDefault(actionSpec, 'MVOverride', nan);
+    tf = (isnumeric(mvOverride) && isscalar(mvOverride) && abs(mvOverride) <= 1e-9);
+end
+
+function attackMeta = localResolveLunarisAttackMetadata(characterName, actionSpec, actionKey, paramName, actionElement, attackMetadata)
+    attackMeta = struct();
+    if isempty(attackMetadata)
+        return;
+    end
+
+    explicitDamageParam = string(getFieldOrDefault(actionSpec, 'LunarisDamageParam', ""));
+    explicitAttackName = string(getFieldOrDefault(actionSpec, 'LunarisAttackName', ""));
+    candidates = attackMetadata;
+
+    if strlength(explicitDamageParam) > 0
+        attackMeta = localFindAttackMetadata(candidates, explicitAttackName, explicitDamageParam, string(actionElement));
+        return;
+    end
+
+    attackMeta = localFindAttackMetadata( ...
+        candidates, string(actionKey), string(paramName), string(actionElement));
+    if isempty(fieldnames(attackMeta))
+        [aliasName, aliasParam] = localResolveAttackLookupAliases(actionKey, paramName, actionSpec);
+        attackMeta = localFindAttackMetadata(candidates, aliasName, aliasParam, string(actionElement));
+    end
+    if isempty(fieldnames(attackMeta))
+        attackMeta = localFindAttackMetadata(candidates, string(actionKey), string(paramName), "");
+    end
+    if isempty(fieldnames(attackMeta))
+        [aliasName, aliasParam] = localResolveAttackLookupAliases(actionKey, paramName, actionSpec);
+        attackMeta = localFindAttackMetadata(candidates, aliasName, aliasParam, "");
+    end
+    if isempty(fieldnames(attackMeta)) && strlength(explicitAttackName) > 0
+        attackMeta = localFindAttackMetadata(candidates, explicitAttackName, "", "");
+    end
+    if isempty(fieldnames(attackMeta))
+        attackMeta = struct();
+    end
+end
+
+function attackMeta = localFindAttackMetadata(candidates, attackName, damageParam, actionElement)
+    attackMeta = struct();
+    if isempty(candidates)
+        return;
+    end
+
+    normalizedName = localNormalizeLookupToken(attackName);
+    normalizedParam = localNormalizeLookupToken(damageParam);
+    normalizedElement = localNormalizeLookupToken(actionElement);
+
+    bestScore = -inf;
+    bestIndex = 0;
+    for i = 1:numel(candidates)
+        score = 0;
+        if strlength(normalizedParam) > 0
+            if candidates(i).NormalizedDamageParam == normalizedParam
+                score = score + 6;
+            elseif candidates(i).NormalizedDamageParam == localStripReactionSuffix(normalizedParam)
+                score = score + 5;
+            end
+        end
+        if strlength(normalizedName) > 0
+            if candidates(i).NormalizedName == normalizedName
+                score = score + 4;
+            elseif contains(candidates(i).NormalizedName, normalizedName) || contains(normalizedName, candidates(i).NormalizedName)
+                score = score + 2;
+            end
+        end
+        if strlength(normalizedElement) > 0 && strlength(candidates(i).Element) > 0
+            if localNormalizeLookupToken(candidates(i).Element) == normalizedElement
+                score = score + 1;
+            end
+        end
+
+        if score > bestScore
+            bestScore = score;
+            bestIndex = i;
+        end
+    end
+
+    if bestIndex > 0 && bestScore > 0
+        attackMeta = candidates(bestIndex);
+    end
+end
+
+function token = localStripReactionSuffix(token)
+    token = string(token);
+    token = regexprep(char(token), '(damage|dmg|hit|strike|art|attack|bullet|loop|loopdamage)$', '');
+    token = string(token);
+end
+
+function applyGauge = localResolveActionApplyGauge(actionSpec, attackMeta)
+    applyGauge = getFieldOrDefault(actionSpec, 'ApplyGauge', []);
+    if ~isempty(applyGauge)
+        applyGauge = double(applyGauge);
+        return;
+    end
+
+    if isstruct(attackMeta) && isfield(attackMeta, 'GaugeUnits')
+        applyGauge = double(getFieldOrDefault(attackMeta, 'GaugeUnits', 1.0));
+        return;
+    end
+
+    applyGauge = 1.0;
+end
+
+function tf = localIsElementalDamageElement(element)
+    switch lower(char(string(element)))
+        case {'pyro', 'hydro', 'cryo', 'electro', 'anemo', 'geo', 'dendro'}
+            tf = true;
+        otherwise
+            tf = false;
+    end
+end
+
+function [canApplyAura, icdStates, snapshot] = localResolveActionICDGate(icdStates, actionKey, actionSpec, attackMeta, deltaTime)
+    snapshot = struct('ICDGroup', "", 'ICDRule', "", 'ICDHits', 1, 'ICDWindow', 0, 'StrikeType', "");
+    canApplyAura = true;
+
+    explicitICDRule = string(getFieldOrDefault(actionSpec, 'ICDRule', ""));
+    if strlength(explicitICDRule) > 0
+        snapshot.ICDRule = explicitICDRule;
+        snapshot.ICDGroup = localResolveICDGroupKey(actionSpec, actionKey, struct());
+        snapshot.StrikeType = string(getFieldOrDefault(actionSpec, 'StrikeType', ""));
+        snapshotConfig = localParseExplicitICDRule(explicitICDRule);
+        snapshot.ICDHits = getFieldOrDefault(snapshotConfig, 'Hits', 1);
+        snapshot.ICDWindow = getFieldOrDefault(snapshotConfig, 'Window', 0);
+        if double(getFieldOrDefault(actionSpec, 'ApplyGauge', 1.0)) <= 0
+            canApplyAura = false;
+            return;
+        end
+        if strcmpi(char(string(getFieldOrDefault(snapshotConfig, 'Kind', "Independent"))), 'Independent') ...
+                || strlength(snapshot.ICDGroup) == 0
+            return;
+        end
+
+        fieldName = matlab.lang.makeValidName(char(snapshot.ICDGroup));
+        if ~isfield(icdStates, fieldName)
+            icdStates.(fieldName) = struct( ...
+                'HitsSinceApply', max(0, double(snapshot.ICDHits) - 1), ...
+                'Elapsed', max(0, double(snapshot.ICDWindow)), ...
+                'HitsThreshold', max(1, double(snapshot.ICDHits)), ...
+                'Window', max(0, double(snapshot.ICDWindow)));
+        end
+
+        state = icdStates.(fieldName);
+        state.Elapsed = state.Elapsed + max(0, double(deltaTime));
+        if state.Window > 0 && state.Elapsed >= state.Window
+            state.HitsSinceApply = max(0, state.HitsThreshold - 1);
+            state.Elapsed = 0;
+        end
+
+        if state.HitsSinceApply >= max(0, state.HitsThreshold - 1)
+            canApplyAura = true;
+            state.HitsSinceApply = 0;
+            state.Elapsed = 0;
+        else
+            canApplyAura = false;
+            state.HitsSinceApply = state.HitsSinceApply + 1;
+        end
+
+        icdStates.(fieldName) = state;
+        return;
+    end
+
+    if ~isstruct(attackMeta) || isempty(fieldnames(attackMeta))
+        return;
+    end
+
+    snapshot.ICDRule = string(getFieldOrDefault(attackMeta, 'ICDRule', ""));
+    snapshot.ICDGroup = localResolveICDGroupKey(actionSpec, actionKey, attackMeta);
+    snapshot.ICDHits = getFieldOrDefault(attackMeta.ICDConfig, 'Hits', 1);
+    snapshot.ICDWindow = getFieldOrDefault(attackMeta.ICDConfig, 'Window', 0);
+    snapshot.StrikeType = string(getFieldOrDefault(attackMeta, 'StrikeType', ""));
+
+    if isfield(attackMeta, 'GaugeUnits')
+        if double(getFieldOrDefault(attackMeta, 'GaugeUnits', 0)) <= 0
+            canApplyAura = false;
+            return;
+        end
+    end
+
+    if ~isfield(attackMeta, 'ICDConfig')
+        return;
+    end
+
+    ruleKind = string(getFieldOrDefault(attackMeta.ICDConfig, 'Kind', "Independent"));
+    if strcmpi(char(ruleKind), 'Independent')
+        return;
+    end
+
+    if strlength(snapshot.ICDGroup) == 0
+        return;
+    end
+
+    fieldName = matlab.lang.makeValidName(char(snapshot.ICDGroup));
+    if ~isfield(icdStates, fieldName)
+        icdStates.(fieldName) = struct( ...
+            'HitsSinceApply', max(0, double(snapshot.ICDHits) - 1), ...
+            'Elapsed', max(0, double(snapshot.ICDWindow)), ...
+            'HitsThreshold', max(1, double(snapshot.ICDHits)), ...
+            'Window', max(0, double(snapshot.ICDWindow)));
+    end
+
+    state = icdStates.(fieldName);
+    state.Elapsed = state.Elapsed + max(0, double(deltaTime));
+    if state.Window > 0 && state.Elapsed >= state.Window
+        state.HitsSinceApply = max(0, state.HitsThreshold - 1);
+        state.Elapsed = 0;
+    end
+
+    if state.HitsSinceApply >= max(0, state.HitsThreshold - 1)
+        canApplyAura = true;
+        state.HitsSinceApply = 0;
+        state.Elapsed = 0;
+    else
+        canApplyAura = false;
+        state.HitsSinceApply = state.HitsSinceApply + 1;
+    end
+
+    icdStates.(fieldName) = state;
+end
+
+function groupKey = localResolveICDGroupKey(actionSpec, actionKey, attackMeta)
+    explicitGroup = string(getFieldOrDefault(actionSpec, 'ICDGroup', ""));
+    if strlength(explicitGroup) > 0
+        groupKey = explicitGroup;
+        return;
+    end
+
+    if isstruct(attackMeta) && isfield(attackMeta, 'NormalizedICDSource') && strlength(string(attackMeta.NormalizedICDSource)) > 0
+        groupKey = string(attackMeta.NormalizedICDSource);
+        return;
+    end
+    if isstruct(attackMeta) && isfield(attackMeta, 'NormalizedName') && strlength(string(attackMeta.NormalizedName)) > 0
+        groupKey = string(attackMeta.NormalizedName);
+        return;
+    end
+    groupKey = string(actionKey);
+end
+
+function [aliasName, aliasParam] = localResolveAttackLookupAliases(actionKey, paramName, actionSpec)
+    aliasName = string(actionKey);
+    aliasParam = string(paramName);
+
+    key = lower(char(string(actionKey)));
+    switch key
+        case 'n1'
+            aliasName = "Attack01";
+        case 'n2'
+            aliasName = "Attack02";
+        case 'n3'
+            aliasName = "Attack03";
+        case 'n4'
+            aliasName = "Attack04";
+        case 'n5'
+            aliasName = "Attack05";
+        case 'n6'
+            aliasName = "Attack06";
+        case {'ca', 'charge', 'charged'}
+            aliasName = "ChargedAttack";
+        case {'plunge', 'plunging'}
+            aliasName = "FallingAnthem";
+    end
+
+    if strlength(string(getFieldOrDefault(actionSpec, 'LunarisAttackName', ""))) > 0
+        aliasName = string(getFieldOrDefault(actionSpec, 'LunarisAttackName', ""));
+    end
+
+    aliasParam = localResolveDamageParamAlias(aliasParam, actionSpec);
+end
+
+function aliasParam = localResolveDamageParamAlias(paramName, actionSpec)
+    aliasParam = string(paramName);
+    if strlength(string(getFieldOrDefault(actionSpec, 'LunarisDamageParam', ""))) > 0
+        aliasParam = string(getFieldOrDefault(actionSpec, 'LunarisDamageParam', ""));
+        return;
+    end
+
+    token = lower(char(string(paramName)));
+    switch token
+        case 'x1hitdmg'
+            aliasParam = "NormalAttack_01_Damage";
+        case 'x2hitdmg'
+            aliasParam = "NormalAttack_02_Damage";
+        case 'x3hitdmg'
+            aliasParam = "NormalAttack_03_Damage";
+        case 'x4hitdmg'
+            aliasParam = "NormalAttack_04_Damage";
+        case 'x5hitdmg'
+            aliasParam = "NormalAttack_05_Damage";
+        case 'x6hitdmg'
+            aliasParam = "NormalAttack_06_Damage";
+        case {'chargedattackdmg', 'chargedattack'}
+            aliasParam = "ChargedAttackDMG";
+    end
+end
+
+function config = localParseExplicitICDRule(ruleText)
+    ruleText = string(ruleText);
+    normalized = lower(char(ruleText));
+    config = struct('Kind', "Independent", 'Hits', 1, 'Window', 0);
+
+    if strlength(ruleText) == 0 || ruleText == "-" || contains(normalized, 'independent')
+        return;
+    end
+    if contains(normalized, 'standard')
+        config.Kind = "Windowed";
+        config.Hits = 3;
+        config.Window = 2.5;
+        return;
+    end
+
+    tokens = regexp(normalized, '(\d+)\s*hits?\s*/\s*([\d\.]+)\s*s', 'tokens', 'once');
+    if isempty(tokens)
+        return;
+    end
+
+    config.Kind = "Windowed";
+    config.Hits = max(1, str2double(tokens{1}));
+    config.Window = max(0, str2double(tokens{2}));
 end

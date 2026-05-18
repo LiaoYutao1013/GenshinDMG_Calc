@@ -26,7 +26,6 @@ function [multiplier, enemyState, reaction] = getAmplifyingReactionMultiplier( .
         enemyState, triggerElement, gaugeUnits, teamContext, deltaTime);
     multiplier = 1.0;
     if reaction.IsAmplifying
-        emBonus = 2.78 * max(0, em) / (max(0, em) + 1400);
-        multiplier = reaction.AmplifyMultiplier * (1 + emBonus + max(0, reactionBonus));
+        multiplier = reaction.AmplifyMultiplier;
     end
 end

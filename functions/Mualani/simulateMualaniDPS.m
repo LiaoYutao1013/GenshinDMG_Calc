@@ -44,7 +44,7 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateMualaniDPS(build, en
     for i = 1:numel(actions)
         action = actions{i};
         actionTime = localActionTime(action);
-        enemyState = advanceEnemyStateTime(enemyState, actionTime, "Hydro", teamContext);
+        [enemyState, ~] = advanceEnemyStateTime(enemyState, actionTime, "Hydro", teamContext);
         dmg = 0;
         note = "";
 

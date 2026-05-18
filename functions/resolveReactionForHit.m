@@ -1,0 +1,885 @@
+function result = resolveReactionForHit(enemyState, hitDescriptor, build, teamContext, enemy, deltaTime)
+    % 统一元素反应结算入口。
+    %
+    % 输入：
+    % - enemyState: 当前怪物元素状态
+    % - hitDescriptor: 本次命中的结构化描述
+    % - build / teamContext / enemy: 用于计算反应伤害与增益
+    % - deltaTime: 与上次命中的间隔，用于推进附着衰减和持续反应
+    %
+    % 输出：
+    % - EnemyState: 更新后的怪物状态
+    % - AmplifyMultiplier: 本次直伤应乘的增幅倍率
+    % - CatalyzeFlatDamage: 本次直伤应追加的激化附加值
+    % - ReactionDamage: 本次命中额外产生的独立反应伤害
+    % - TriggeredReactions: 本次命中及时间推进产生的反应标签
+    % - PrimaryReaction: 本次命中直接触发的主反应
+    if nargin < 2 || isempty(hitDescriptor)
+        hitDescriptor = struct();
+    end
+    if nargin < 3 || isempty(build)
+        build = struct();
+    end
+    if nargin < 4 || isempty(teamContext)
+        teamContext = struct();
+    end
+    if nargin < 5 || isempty(enemy)
+        enemy = struct();
+    end
+    if nargin < 6 || isempty(deltaTime)
+        deltaTime = 0;
+    end
+    if isempty(enemyState)
+        enemyState = createEnemyState(enemy, teamContext, getFieldOrDefault(hitDescriptor, 'HitElement', ""));
+    end
+
+    result = localMakeEmptyResult(enemyState);
+    [enemyState, timedPackets] = advanceEnemyStateTime( ...
+        enemyState, deltaTime, getFieldOrDefault(hitDescriptor, 'HitElement', ""), teamContext);
+    result.EnemyState = enemyState;
+
+    for i = 1:numel(timedPackets)
+        packet = timedPackets(i);
+        result.ReactionDamage = result.ReactionDamage + localResolvePacketDamage( ...
+            packet, build, teamContext, enemy, result.EnemyState);
+        result.TriggeredReactions(end + 1, 1) = lower(string(packet.ReactionName)); %#ok<AGROW>
+    end
+
+    if logical(getFieldOrDefault(hitDescriptor, 'ResolveReactionAsDamage', false))
+        forcedReaction = string(getFieldOrDefault(hitDescriptor, 'ForceReactionName', ""));
+        if strlength(forcedReaction) == 0
+            forcedReaction = localInferForcedReactionName(hitDescriptor);
+        end
+        if strlength(forcedReaction) > 0
+            result.PrimaryReaction = forcedReaction;
+            decoratedDescriptor = localDecorateReactionElement(hitDescriptor, forcedReaction, struct('ConsumedAura', ""));
+            result.ReactionDamage = result.ReactionDamage + localResolveTransformativeDamage( ...
+                forcedReaction, build, teamContext, enemy, result.EnemyState, ...
+                localResolveCustomReactionBase(hitDescriptor, build, forcedReaction), ...
+                getFieldOrDefault(hitDescriptor, 'ReactionBonus', getFieldOrDefault(build, 'ReactionDMGBonus', 0)), ...
+                decoratedDescriptor);
+            result.TriggeredReactions(end + 1, 1) = lower(forcedReaction); %#ok<AGROW>
+        end
+        result.TriggeredReactions = unique(result.TriggeredReactions(strlength(result.TriggeredReactions) > 0), 'stable');
+        return;
+    end
+
+    if ~logical(getFieldOrDefault(result.EnemyState, 'EnableElementalAura', true))
+        return;
+    end
+
+    hitElement = string(getFieldOrDefault(hitDescriptor, 'HitElement', ""));
+    applyElement = string(getFieldOrDefault(hitDescriptor, 'ApplyElement', hitElement));
+    applyGauge = double(getFieldOrDefault(hitDescriptor, 'ApplyGauge', 1.0));
+    canApplyAura = logical(getFieldOrDefault(hitDescriptor, 'CanApplyAura', strlength(applyElement) > 0));
+    preferredAura = string(getFieldOrDefault(hitDescriptor, 'PreferredAura', ""));
+    forceReaction = string(getFieldOrDefault(hitDescriptor, 'ForceReactionName', ""));
+
+    if strlength(preferredAura) > 0
+        result.EnemyState = localForceAura(result.EnemyState, preferredAura, getFieldOrDefault(result.EnemyState, 'SupportAuraGauge', 1.0));
+    end
+    result.EnemyState = localEnsureSupportAura(result.EnemyState, hitElement, teamContext);
+
+    directReaction = localResolvePrimaryReaction(result.EnemyState, hitElement, forceReaction);
+    result.PrimaryReaction = directReaction.Name;
+
+    em = getFieldOrDefault(build, 'EM', 0) + getFieldOrDefault(teamContext, 'EMBonus', 0);
+    reactionBonus = getFieldOrDefault(hitDescriptor, 'ReactionBonus', getFieldOrDefault(build, 'ReactionDMGBonus', 0));
+
+    switch lower(char(directReaction.Name))
+        case {'vaporize', 'melt'}
+            if logical(getFieldOrDefault(hitDescriptor, 'AllowAmplify', false))
+                result.AmplifyMultiplier = localAmplifyMultiplier(directReaction.Name, hitElement, em, reactionBonus);
+            end
+            result.EnemyState = localConsumeAuraForAmplify(result.EnemyState, directReaction, applyGauge);
+
+        case 'frozen'
+            result.EnemyState = localActivateFrozen(result.EnemyState, applyGauge);
+
+        case 'quicken'
+            result.EnemyState = localActivateQuicken(result.EnemyState, applyGauge);
+            result.TriggeredReactions(end + 1, 1) = "quicken"; %#ok<AGROW>
+
+        case 'aggravate'
+            if logical(getFieldOrDefault(hitDescriptor, 'AllowCatalyze', false))
+                result.CatalyzeFlatDamage = localCatalyzeFlatDamage("Aggravate", em, reactionBonus);
+            end
+            result.EnemyState = localConsumeQuickenGauge(result.EnemyState, applyGauge);
+
+        case 'spread'
+            if logical(getFieldOrDefault(hitDescriptor, 'AllowCatalyze', false))
+                result.CatalyzeFlatDamage = localCatalyzeFlatDamage("Spread", em, reactionBonus);
+            end
+            result.EnemyState = localConsumeQuickenGauge(result.EnemyState, applyGauge);
+
+        case {'electrocharged', 'overload', 'superconduct', 'swirl', 'crystallize', 'bloom', 'burning', ...
+                'lunarcharged', 'lunarcrystallize', 'lunarbloom'}
+            result = localResolveTransformativeReaction( ...
+                result, directReaction, hitDescriptor, build, teamContext, enemy, applyGauge);
+
+        otherwise
+            if logical(getFieldOrDefault(hitDescriptor, 'AllowCatalyze', false)) ...
+                    && getFieldOrDefault(result.EnemyState.Quicken, 'Active', false)
+                catalyzeName = localResolveCatalyzeReactionName(hitElement);
+                if strlength(catalyzeName) > 0
+                    result.PrimaryReaction = catalyzeName;
+                    result.CatalyzeFlatDamage = localCatalyzeFlatDamage(catalyzeName, em, reactionBonus);
+                    result.EnemyState = localConsumeQuickenGauge(result.EnemyState, applyGauge);
+                    result.TriggeredReactions(end + 1, 1) = lower(catalyzeName); %#ok<AGROW>
+                end
+            end
+    end
+
+    result = localResolveSupplementalReactions( ...
+        result, hitDescriptor, build, teamContext, enemy, applyGauge);
+
+    if result.PrimaryReaction ~= ""
+        result.TriggeredReactions(end + 1, 1) = lower(string(result.PrimaryReaction)); %#ok<AGROW>
+    end
+
+    if canApplyAura && strlength(applyElement) > 0
+        result.EnemyState = localApplyPostReactionAura(result.EnemyState, applyElement, applyGauge, directReaction.Name);
+    end
+    result.EnemyState = localRefreshFrozenState(result.EnemyState);
+    result.EnemyState.LastReaction = string(result.PrimaryReaction);
+    result.TriggeredReactions = unique(result.TriggeredReactions(strlength(result.TriggeredReactions) > 0), 'stable');
+end
+
+function result = localResolveTransformativeReaction(result, directReaction, hitDescriptor, build, teamContext, enemy, applyGauge)
+    reactionName = string(directReaction.Name);
+    reactionBonus = getFieldOrDefault(hitDescriptor, 'ReactionBonus', 0);
+    customBase = localResolveCustomReactionBase(hitDescriptor, build, reactionName);
+
+    switch lower(char(reactionName))
+        case 'electrocharged'
+            result.EnemyState.ElectroCharged = localActivateTimedReactionState( ...
+                getFieldOrDefault(result.EnemyState, 'ElectroCharged', struct()), ...
+                applyGauge, reactionBonus, hitDescriptor, build, teamContext, "Electro");
+        case 'burning'
+            result.EnemyState.Burning = localActivateTimedReactionState( ...
+                getFieldOrDefault(result.EnemyState, 'Burning', struct()), ...
+                applyGauge, reactionBonus, hitDescriptor, build, teamContext, "Pyro");
+        case 'bloom'
+            newCore = localMakeDendroCore(applyGauge, reactionBonus, hitDescriptor, build, teamContext);
+            existing = getFieldOrDefault(result.EnemyState, 'DendroCores', repmat(newCore, 1, 0));
+            if numel(existing) >= 5
+                result.ReactionDamage = result.ReactionDamage + localResolveStoredReactionDamage( ...
+                    "Bloom", existing(1), build, teamContext, enemy, result.EnemyState);
+                result.TriggeredReactions(end + 1, 1) = "bloom"; %#ok<AGROW>
+                existing = existing(2:end);
+            end
+            result.EnemyState.DendroCores = [existing, newCore];
+        otherwise
+            if localShouldDealDirectTransformativeDamage(reactionName, hitDescriptor, customBase)
+                hitDescriptor = localDecorateReactionElement(hitDescriptor, reactionName, directReaction);
+                result.ReactionDamage = result.ReactionDamage + localResolveTransformativeDamage( ...
+                    reactionName, build, teamContext, enemy, result.EnemyState, customBase, reactionBonus, hitDescriptor);
+            end
+    end
+end
+
+function damage = localResolveTransformativeDamage(reactionName, build, teamContext, enemy, enemyState, customBase, reactionBonus, hitDescriptor)
+    emOverride = getFieldOrDefault(hitDescriptor, 'ReactionEMOverride', []);
+    if isempty(emOverride)
+        em = getFieldOrDefault(build, 'EM', 0) + getFieldOrDefault(teamContext, 'EMBonus', 0);
+    else
+        em = emOverride;
+    end
+    reactionElement = string(getFieldOrDefault(hitDescriptor, 'ReactionElement', getFieldOrDefault(hitDescriptor, 'HitElement', "")));
+    baseDamage = customBase;
+    if baseDamage <= 0
+        baseDamage = getReactionBaseDamage(reactionName, getFieldOrDefault(enemyState, 'ReactionLevel', 90));
+    end
+
+    critRate = getFieldOrDefault(hitDescriptor, 'ReactionCritRate', []);
+    critDMG = getFieldOrDefault(hitDescriptor, 'ReactionCritDMG', []);
+    if isempty(critRate)
+        critRate = getFieldOrDefault(teamContext, 'ReactionCritRate', []);
+    end
+    if isempty(critDMG)
+        critDMG = getFieldOrDefault(teamContext, 'ReactionCritDMG', []);
+    end
+
+    totalBonus = localResolveReactionFamilyBonus(reactionName, build, teamContext, hitDescriptor) + reactionBonus;
+    resShredOverride = getFieldOrDefault(hitDescriptor, 'ReactionResShredOverride', []);
+    if isempty(resShredOverride)
+        resShred = getElementResShredValue(reactionElement, build, teamContext) ...
+            + getFieldOrDefault(hitDescriptor, 'ExtraResShred', 0);
+    else
+        resShred = resShredOverride + getFieldOrDefault(hitDescriptor, 'ExtraResShred', 0);
+    end
+    damage = calcReactionDamage(baseDamage, em, enemy, resShred, 1 + totalBonus, critRate, critDMG);
+end
+
+function totalBonus = localResolveReactionFamilyBonus(reactionName, build, teamContext, hitDescriptor)
+    reactionName = lower(char(string(reactionName)));
+    totalBonus = 0;
+    if nargin >= 4 && (logical(getFieldOrDefault(hitDescriptor, 'ResolveReactionAsDamage', false)) ...
+            || logical(getFieldOrDefault(hitDescriptor, 'UseReactionBonusSnapshot', false)))
+        return;
+    end
+    switch reactionName
+        case 'overload'
+            totalBonus = totalBonus + getFieldOrDefault(teamContext, 'OverloadBonus', 0);
+        case 'bloom'
+            totalBonus = totalBonus + getFieldOrDefault(teamContext, 'NilouBloomBonus', 0) ...
+                + getFieldOrDefault(teamContext, 'LunarBloomBonus', 0);
+        case 'electrocharged'
+            totalBonus = totalBonus + getFieldOrDefault(teamContext, 'LunarChargedBonus', 0);
+        case 'lunarcharged'
+            totalBonus = totalBonus + getFieldOrDefault(teamContext, 'LunarChargedBonus', 0);
+        case 'lunarcrystallize'
+            totalBonus = totalBonus + getFieldOrDefault(teamContext, 'LunarCrystallizeBonus', 0);
+        case 'lunarbloom'
+            totalBonus = totalBonus + getFieldOrDefault(teamContext, 'LunarBloomBonus', 0);
+    end
+end
+
+function baseDamage = localResolveCustomReactionBase(hitDescriptor, build, reactionName)
+    baseDamage = getFieldOrDefault(hitDescriptor, 'ReactionBaseDamage', 0) ...
+        + getFieldOrDefault(hitDescriptor, 'ReactionATKWeight', 0) * getFieldOrDefault(hitDescriptor, 'ATKValue', getFieldOrDefault(build, 'FlatATK', 0)) ...
+        + getFieldOrDefault(hitDescriptor, 'ReactionHPWeight', 0) * getFieldOrDefault(hitDescriptor, 'HPValue', getFieldOrDefault(build, 'FlatHP', 0)) ...
+        + getFieldOrDefault(hitDescriptor, 'ReactionDEFWeight', 0) * getFieldOrDefault(hitDescriptor, 'DEFValue', getFieldOrDefault(build, 'FlatDEF', 0)) ...
+        + getFieldOrDefault(hitDescriptor, 'ReactionEMWeight', 0) * getFieldOrDefault(hitDescriptor, 'EMValue', getFieldOrDefault(build, 'EM', 0));
+
+    if baseDamage > 0
+        return;
+    end
+
+    switch lower(char(string(reactionName)))
+        case 'aggravate'
+            baseDamage = getReactionBaseDamage('Aggravate', 90);
+        case 'spread'
+            baseDamage = getReactionBaseDamage('Spread', 90);
+    end
+end
+
+function hitDescriptor = localDecorateReactionElement(hitDescriptor, reactionName, directReaction)
+    explicitElement = string(getFieldOrDefault(hitDescriptor, 'ReactionElement', ""));
+    if strlength(explicitElement) > 0
+        hitDescriptor.ReactionElement = explicitElement;
+        return;
+    end
+
+    switch lower(char(string(reactionName)))
+        case {'swirl', 'crystallize'}
+            hitDescriptor.ReactionElement = string(getFieldOrDefault(directReaction, 'ConsumedAura', ""));
+        otherwise
+            defaultElement = localReactionElement(reactionName);
+            if strlength(defaultElement) > 0
+                hitDescriptor.ReactionElement = defaultElement;
+            else
+                hitDescriptor.ReactionElement = string(getFieldOrDefault(hitDescriptor, 'HitElement', ""));
+            end
+    end
+end
+
+function reactionName = localInferForcedReactionName(hitDescriptor)
+    reactionName = string(getFieldOrDefault(hitDescriptor, 'ForceReactionName', ""));
+    if strlength(reactionName) > 0
+        return;
+    end
+
+    reactionElement = lower(char(string(getFieldOrDefault(hitDescriptor, 'ReactionElement', ""))));
+    hitElement = lower(char(string(getFieldOrDefault(hitDescriptor, 'HitElement', ""))));
+    baseDamage = getFieldOrDefault(hitDescriptor, 'ReactionBaseDamage', 0);
+    customReactionWeights = abs(getFieldOrDefault(hitDescriptor, 'ReactionATKWeight', 0)) ...
+        + abs(getFieldOrDefault(hitDescriptor, 'ReactionHPWeight', 0)) ...
+        + abs(getFieldOrDefault(hitDescriptor, 'ReactionDEFWeight', 0)) ...
+        + abs(getFieldOrDefault(hitDescriptor, 'ReactionEMWeight', 0));
+
+    if baseDamage <= 0 && customReactionWeights <= 0
+        return;
+    end
+
+    switch reactionElement
+        case 'anemo'
+            reactionName = "Swirl";
+        case 'geo'
+            reactionName = "Crystallize";
+        otherwise
+            switch hitElement
+                case 'electro'
+                    reactionName = "ElectroCharged";
+                case 'dendro'
+                    reactionName = "Bloom";
+                case 'pyro'
+                    reactionName = "Overload";
+                otherwise
+                    reactionName = "";
+            end
+    end
+end
+
+function name = localResolveCatalyzeReactionName(hitElement)
+    switch lower(char(string(hitElement)))
+        case 'electro'
+            name = "Aggravate";
+        case 'dendro'
+            name = "Spread";
+        otherwise
+            name = "";
+    end
+end
+
+function base = localCatalyzeFlatDamage(reactionName, em, reactionBonus)
+    baseDamage = getReactionBaseDamage(reactionName, 90);
+    base = baseDamage * (1 + 5 * max(0, em) / (max(0, em) + 1200) + max(0, reactionBonus));
+end
+
+function multiplier = localAmplifyMultiplier(reactionName, hitElement, em, reactionBonus)
+    switch lower(char(string(reactionName)))
+        case 'vaporize'
+            if strcmpi(char(string(hitElement)), 'hydro')
+                baseMultiplier = 2.0;
+            else
+                baseMultiplier = 1.5;
+            end
+        case 'melt'
+            if strcmpi(char(string(hitElement)), 'pyro')
+                baseMultiplier = 2.0;
+            else
+                baseMultiplier = 1.5;
+            end
+        otherwise
+            baseMultiplier = 1.0;
+    end
+
+    emBonus = 2.78 * max(0, em) / (max(0, em) + 1400);
+    multiplier = baseMultiplier * (1 + emBonus + max(0, reactionBonus));
+end
+
+function reaction = localResolvePrimaryReaction(enemyState, hitElement, forcedName)
+    reaction = struct('Name', "", 'ConsumedAura', "", 'AuraIndex', 0);
+    if strlength(forcedName) > 0
+        reaction.Name = string(forcedName);
+        return;
+    end
+
+    hitElement = lower(char(string(hitElement)));
+    if getFieldOrDefault(getFieldOrDefault(enemyState, 'Frozen', struct()), 'Active', false)
+        switch hitElement
+            case 'pyro'
+                reaction.Name = "Melt";
+                reaction.ConsumedAura = "Cryo";
+                reaction.AuraIndex = localFindAuraIndex(enemyState, "Cryo");
+                return;
+            case 'electro'
+                reaction.Name = "Superconduct";
+                reaction.ConsumedAura = "Cryo";
+                reaction.AuraIndex = localFindAuraIndex(enemyState, "Cryo");
+                return;
+        end
+    end
+
+    [auraIndex, auraElement] = localPickAura(enemyState);
+    auraElementLower = lower(char(string(auraElement)));
+
+    if getFieldOrDefault(enemyState.Quicken, 'Active', false)
+        if strcmp(hitElement, 'electro')
+            reaction.Name = "Aggravate";
+            return;
+        elseif strcmp(hitElement, 'dendro')
+            reaction.Name = "Spread";
+            return;
+        end
+    end
+
+    reaction.AuraIndex = auraIndex;
+    reaction.ConsumedAura = auraElement;
+    switch hitElement
+        case 'hydro'
+            switch auraElementLower
+                case 'pyro'
+                    reaction.Name = "Vaporize";
+                case 'electro'
+                    reaction.Name = "ElectroCharged";
+                case 'dendro'
+                    reaction.Name = "Bloom";
+                case 'cryo'
+                    reaction.Name = "Frozen";
+            end
+        case 'pyro'
+            switch auraElementLower
+                case 'hydro'
+                    reaction.Name = "Vaporize";
+                case 'cryo'
+                    reaction.Name = "Melt";
+                case 'electro'
+                    reaction.Name = "Overload";
+                case 'dendro'
+                    reaction.Name = "Burning";
+            end
+        case 'cryo'
+            switch auraElementLower
+                case 'pyro'
+                    reaction.Name = "Melt";
+                case 'hydro'
+                    reaction.Name = "Frozen";
+                case 'electro'
+                    reaction.Name = "Superconduct";
+            end
+        case 'electro'
+            switch auraElementLower
+                case 'hydro'
+                    reaction.Name = "ElectroCharged";
+                case 'pyro'
+                    reaction.Name = "Overload";
+                case 'cryo'
+                    reaction.Name = "Superconduct";
+                case 'dendro'
+                    reaction.Name = "Quicken";
+            end
+        case 'dendro'
+            switch auraElementLower
+                case 'hydro'
+                    reaction.Name = "Bloom";
+                case 'electro'
+                    reaction.Name = "Quicken";
+                case 'pyro'
+                    reaction.Name = "Burning";
+            end
+        case 'anemo'
+            if any(strcmp(auraElement, ["Pyro", "Hydro", "Electro", "Cryo"]))
+                reaction.Name = "Swirl";
+            end
+        case 'geo'
+            if any(strcmp(auraElement, ["Pyro", "Hydro", "Electro", "Cryo"]))
+                reaction.Name = "Crystallize";
+            end
+    end
+end
+
+function [auraIndex, auraElement] = localPickAura(enemyState)
+    auraIndex = 0;
+    auraElement = "";
+    if ~isfield(enemyState, 'Auras') || isempty(enemyState.Auras)
+        return;
+    end
+
+    gauges = [enemyState.Auras.Gauge];
+    [~, auraIndex] = max(gauges);
+    auraElement = string(enemyState.Auras(auraIndex).Element);
+end
+
+function auraIndex = localFindAuraIndex(enemyState, auraElement)
+    auraIndex = 0;
+    if ~isfield(enemyState, 'Auras') || isempty(enemyState.Auras)
+        return;
+    end
+
+    for i = 1:numel(enemyState.Auras)
+        if strcmpi(char(enemyState.Auras(i).Element), char(string(auraElement)))
+            auraIndex = i;
+            return;
+        end
+    end
+end
+
+function enemyState = localConsumeAuraForAmplify(enemyState, reaction, applyGauge)
+    if reaction.AuraIndex <= 0 || ~isfield(enemyState, 'Auras') || isempty(enemyState.Auras)
+        return;
+    end
+
+    auraElement = lower(char(string(reaction.ConsumedAura)));
+    reactionName = lower(char(string(reaction.Name)));
+    if strcmp(reactionName, 'vaporize')
+        if strcmp(auraElement, 'pyro')
+            consumed = 0.5 * applyGauge;
+        else
+            consumed = 2.0 * applyGauge;
+        end
+    elseif strcmp(reactionName, 'melt')
+        if strcmp(auraElement, 'cryo')
+            consumed = 0.5 * applyGauge;
+        else
+            consumed = 2.0 * applyGauge;
+        end
+    else
+        consumed = applyGauge;
+    end
+
+    enemyState.Auras(reaction.AuraIndex).Gauge = max(0, enemyState.Auras(reaction.AuraIndex).Gauge - consumed);
+    if enemyState.Auras(reaction.AuraIndex).Gauge <= 1e-6
+        enemyState.Auras(reaction.AuraIndex) = [];
+    end
+    enemyState = localRefreshFrozenState(enemyState);
+end
+
+function enemyState = localActivateQuicken(enemyState, applyGauge)
+    enemyState.Quicken.Active = true;
+    enemyState.Quicken.Gauge = max(getFieldOrDefault(enemyState.Quicken, 'Gauge', 0), applyGauge + 0.8);
+    enemyState.Quicken.DecayPerSecond = 1 / 8.0;
+end
+
+function enemyState = localConsumeQuickenGauge(enemyState, applyGauge)
+    if ~getFieldOrDefault(enemyState.Quicken, 'Active', false)
+        return;
+    end
+    enemyState.Quicken.Gauge = max(0, enemyState.Quicken.Gauge - 0.5 * applyGauge);
+    enemyState.Quicken.Active = enemyState.Quicken.Gauge > 1e-6;
+end
+
+function enemyState = localActivateFrozen(enemyState, applyGauge)
+    if ~isfield(enemyState, 'Frozen') || isempty(enemyState.Frozen)
+        enemyState.Frozen = struct('Active', false, 'Gauge', 0, 'DecayPerSecond', 0.125);
+    end
+    enemyState.Frozen.Active = true;
+    enemyState.Frozen.Gauge = max(getFieldOrDefault(enemyState.Frozen, 'Gauge', 0), applyGauge);
+end
+
+function enemyState = localApplyPostReactionAura(enemyState, applyElement, applyGauge, directReactionName)
+    applyElement = string(applyElement);
+    directReactionName = lower(char(string(directReactionName)));
+
+    switch directReactionName
+        case {'vaporize', 'melt', 'overload', 'superconduct', 'swirl', 'crystallize'}
+            if strcmpi(char(applyElement), 'anemo') || strcmpi(char(applyElement), 'geo')
+                return;
+            end
+            enemyState = localAddOrReplaceAura(enemyState, applyElement, max(0, 0.4 * applyGauge));
+        case {'electrocharged', 'burning', 'bloom', 'hyperbloom', 'burgeon'}
+            return;
+        otherwise
+            if strcmpi(char(applyElement), 'anemo') || strcmpi(char(applyElement), 'geo')
+                return;
+            end
+            enemyState = localAddOrReplaceAura(enemyState, applyElement, applyGauge);
+    end
+end
+
+function enemyState = localAddOrReplaceAura(enemyState, auraElement, gaugeUnits)
+    if gaugeUnits <= 0 || strlength(string(auraElement)) == 0
+        return;
+    end
+
+    if ~isfield(enemyState, 'Auras') || isempty(enemyState.Auras)
+        enemyState.Auras = localMakeAura(auraElement, gaugeUnits);
+        return;
+    end
+
+    for i = 1:numel(enemyState.Auras)
+        if strcmpi(char(enemyState.Auras(i).Element), char(string(auraElement)))
+            enemyState.Auras(i).Gauge = max(enemyState.Auras(i).Gauge, gaugeUnits);
+            return;
+        end
+    end
+
+    enemyState.Auras(end + 1) = localMakeAura(auraElement, gaugeUnits); %#ok<AGROW>
+end
+
+function enemyState = localForceAura(enemyState, auraElement, gaugeUnits)
+    enemyState.Auras = localMakeAura(auraElement, gaugeUnits);
+end
+
+function enemyState = localEnsureSupportAura(enemyState, triggerElement, teamContext)
+    if ~logical(getFieldOrDefault(enemyState, 'AutoSupportAura', true))
+        return;
+    end
+    if (isfield(enemyState, 'Auras') && ~isempty(enemyState.Auras)) ...
+            || getFieldOrDefault(enemyState.Quicken, 'Active', false)
+        return;
+    end
+
+    supportAura = localInferSupportAura(triggerElement, teamContext);
+    if strlength(supportAura) == 0
+        return;
+    end
+    enemyState.Auras = localMakeAura(supportAura, getFieldOrDefault(enemyState, 'SupportAuraGauge', 1.0));
+end
+
+function aura = localInferSupportAura(triggerElement, teamContext)
+    triggerElement = lower(char(string(triggerElement)));
+    pyroCount = getFieldOrDefault(teamContext, 'PyroCount', 0);
+    hydroCount = getFieldOrDefault(teamContext, 'HydroCount', 0);
+    cryoCount = getFieldOrDefault(teamContext, 'CryoCount', 0);
+    dendroCount = getFieldOrDefault(teamContext, 'DendroCount', 0);
+    electroCount = getFieldOrDefault(teamContext, 'ElectroCount', 0);
+
+    switch triggerElement
+        case 'hydro'
+            if pyroCount >= 1
+                aura = "Pyro";
+            elseif electroCount >= 1
+                aura = "Electro";
+            elseif dendroCount >= 1
+                aura = "Dendro";
+            else
+                aura = "";
+            end
+        case 'pyro'
+            if cryoCount >= 1
+                aura = "Cryo";
+            elseif hydroCount >= 1
+                aura = "Hydro";
+            elseif electroCount >= 1
+                aura = "Electro";
+            elseif dendroCount >= 1
+                aura = "Dendro";
+            else
+                aura = "";
+            end
+        case 'cryo'
+            if pyroCount >= 1
+                aura = "Pyro";
+            elseif hydroCount >= 1
+                aura = "Hydro";
+            else
+                aura = "";
+            end
+        case 'electro'
+            if hydroCount >= 1
+                aura = "Hydro";
+            elseif pyroCount >= 1
+                aura = "Pyro";
+            elseif dendroCount >= 1
+                aura = "Dendro";
+            else
+                aura = "";
+            end
+        case 'dendro'
+            if hydroCount >= 1
+                aura = "Hydro";
+            elseif electroCount >= 1
+                aura = "Electro";
+            elseif pyroCount >= 1
+                aura = "Pyro";
+            else
+                aura = "";
+            end
+        otherwise
+            aura = "";
+    end
+end
+
+function damage = localResolvePacketDamage(packet, build, teamContext, enemy, enemyState)
+    reactionName = string(getFieldOrDefault(packet, 'ReactionName', ""));
+    hitDescriptor = struct( ...
+        'ReactionElement', string(getFieldOrDefault(packet, 'ReactionElement', localReactionElement(reactionName))), ...
+        'ReactionCritRate', getFieldOrDefault(packet, 'CritRate', []), ...
+        'ReactionCritDMG', getFieldOrDefault(packet, 'CritDMG', []), ...
+        'ReactionEMOverride', getFieldOrDefault(packet, 'SourceEM', []), ...
+        'ReactionResShredOverride', getFieldOrDefault(packet, 'SourceResShred', []), ...
+        'UseReactionBonusSnapshot', logical(getFieldOrDefault(packet, 'UseSnapshot', false)));
+    damage = localResolveTransformativeDamage( ...
+        reactionName, build, teamContext, enemy, enemyState, 0, ...
+        getFieldOrDefault(packet, 'ReactionBonus', 0), hitDescriptor);
+end
+
+function element = localReactionElement(reactionName)
+    switch lower(char(string(reactionName)))
+        case {'overload', 'burning', 'burgeon'}
+            element = "Pyro";
+        case {'electrocharged', 'aggravate'}
+            element = "Electro";
+        case {'spread', 'bloom', 'hyperbloom'}
+            element = "Dendro";
+        case 'swirl'
+            element = "Anemo";
+        case 'crystallize'
+            element = "Geo";
+        case 'superconduct'
+            element = "Cryo";
+        case 'shatter'
+            element = "Physical";
+        otherwise
+            element = "";
+    end
+end
+
+function result = localResolveSupplementalReactions(result, hitDescriptor, build, teamContext, enemy, applyGauge)
+    result = localResolveShatterReaction(result, hitDescriptor, build, teamContext, enemy, applyGauge);
+    result = localResolveCoreConversionReaction(result, hitDescriptor, build, teamContext, enemy);
+end
+
+function result = localResolveShatterReaction(result, hitDescriptor, build, teamContext, enemy, applyGauge)
+    if ~getFieldOrDefault(getFieldOrDefault(result.EnemyState, 'Frozen', struct()), 'Active', false)
+        return;
+    end
+    if ~localCanTriggerShatter(hitDescriptor)
+        return;
+    end
+
+    shatterDescriptor = localDecorateReactionElement(hitDescriptor, "Shatter", struct());
+    shatterDescriptor.ReactionElement = "Physical";
+    result.ReactionDamage = result.ReactionDamage + localResolveTransformativeDamage( ...
+        "Shatter", build, teamContext, enemy, result.EnemyState, 0, ...
+        getFieldOrDefault(hitDescriptor, 'ReactionBonus', 0), shatterDescriptor);
+    result.EnemyState = localConsumeFrozenState(result.EnemyState, max(1.0, applyGauge));
+    if result.PrimaryReaction == ""
+        result.PrimaryReaction = "Shatter";
+    end
+    result.TriggeredReactions(end + 1, 1) = "shatter"; %#ok<AGROW>
+end
+
+function result = localResolveCoreConversionReaction(result, hitDescriptor, build, teamContext, enemy)
+    if ~isfield(result.EnemyState, 'DendroCores') || isempty(result.EnemyState.DendroCores)
+        return;
+    end
+
+    hitElement = lower(char(string(getFieldOrDefault(hitDescriptor, 'HitElement', ""))));
+    switch hitElement
+        case 'electro'
+            reactionName = "Hyperbloom";
+        case 'pyro'
+            reactionName = "Burgeon";
+        otherwise
+            return;
+    end
+
+    coreCount = min(numel(result.EnemyState.DendroCores), max(1, round(double(getFieldOrDefault(hitDescriptor, 'CoreReactionCount', 1)))));
+    if coreCount <= 0
+        return;
+    end
+
+    reactionDescriptor = localDecorateReactionElement(hitDescriptor, reactionName, struct());
+    for i = 1:coreCount
+        result.ReactionDamage = result.ReactionDamage + localResolveTransformativeDamage( ...
+            reactionName, build, teamContext, enemy, result.EnemyState, 0, ...
+            getFieldOrDefault(hitDescriptor, 'ReactionBonus', 0), reactionDescriptor);
+    end
+    result.EnemyState.DendroCores(1:coreCount) = [];
+    if result.PrimaryReaction == ""
+        result.PrimaryReaction = reactionName;
+    end
+    result.TriggeredReactions(end + 1, 1) = lower(string(reactionName)); %#ok<AGROW>
+end
+
+function tf = localCanTriggerShatter(hitDescriptor)
+    hitElement = lower(char(string(getFieldOrDefault(hitDescriptor, 'HitElement', ""))));
+    strikeType = lower(char(string(getFieldOrDefault(hitDescriptor, 'StrikeType', ""))));
+    tf = logical(getFieldOrDefault(hitDescriptor, 'CanShatter', false)) ...
+        || strcmp(hitElement, 'geo') ...
+        || strcmp(strikeType, 'blunt');
+end
+
+function enemyState = localConsumeFrozenState(enemyState, consumedGauge)
+    enemyState = localConsumeAuraByElement(enemyState, "Hydro", 0.5 * consumedGauge);
+    enemyState = localConsumeAuraByElement(enemyState, "Cryo", 0.5 * consumedGauge);
+    enemyState = localRefreshFrozenState(enemyState);
+end
+
+function enemyState = localConsumeAuraByElement(enemyState, auraElement, consumedGauge)
+    if consumedGauge <= 0 || ~isfield(enemyState, 'Auras') || isempty(enemyState.Auras)
+        return;
+    end
+
+    keepMask = true(1, numel(enemyState.Auras));
+    for i = 1:numel(enemyState.Auras)
+        if strcmpi(char(enemyState.Auras(i).Element), char(string(auraElement)))
+            enemyState.Auras(i).Gauge = max(0, enemyState.Auras(i).Gauge - consumedGauge);
+            keepMask(i) = enemyState.Auras(i).Gauge > 1e-6;
+            break;
+        end
+    end
+    enemyState.Auras = enemyState.Auras(keepMask);
+end
+
+function enemyState = localRefreshFrozenState(enemyState)
+    if ~isfield(enemyState, 'Frozen') || isempty(enemyState.Frozen)
+        enemyState.Frozen = struct('Active', false, 'Gauge', 0, 'DecayPerSecond', 0.125);
+    end
+
+    hydroGauge = localAuraGauge(enemyState, "Hydro");
+    cryoGauge = localAuraGauge(enemyState, "Cryo");
+    enemyState.Frozen.Gauge = min(hydroGauge, cryoGauge);
+    enemyState.Frozen.Active = enemyState.Frozen.Gauge > 1e-6;
+end
+
+function gauge = localAuraGauge(enemyState, auraElement)
+    gauge = 0;
+    if ~isfield(enemyState, 'Auras') || isempty(enemyState.Auras)
+        return;
+    end
+
+    for i = 1:numel(enemyState.Auras)
+        if strcmpi(char(enemyState.Auras(i).Element), char(string(auraElement)))
+            gauge = max(gauge, double(enemyState.Auras(i).Gauge));
+        end
+    end
+end
+
+function tf = localShouldDealDirectTransformativeDamage(reactionName, hitDescriptor, customBase)
+    tf = logical(getFieldOrDefault(hitDescriptor, 'AllowTransformative', false)) || customBase > 0;
+    if tf
+        return;
+    end
+
+    switch lower(char(string(reactionName)))
+        case {'overload', 'superconduct', 'swirl', 'lunarcharged', 'lunarbloom'}
+            tf = true;
+        otherwise
+            tf = false;
+    end
+end
+
+function state = localActivateTimedReactionState(state, applyGauge, reactionBonus, hitDescriptor, build, teamContext, reactionElement)
+    state.Active = true;
+    state.Gauge = max(getFieldOrDefault(state, 'Gauge', 0), applyGauge);
+    state.TickTimer = 0;
+    state.ReactionBonus = reactionBonus;
+    state.SourceEM = getFieldOrDefault(build, 'EM', 0) + getFieldOrDefault(teamContext, 'EMBonus', 0);
+    state.SourceCritRate = getFieldOrDefault(hitDescriptor, 'ReactionCritRate', getFieldOrDefault(teamContext, 'ReactionCritRate', []));
+    state.SourceCritDMG = getFieldOrDefault(hitDescriptor, 'ReactionCritDMG', getFieldOrDefault(teamContext, 'ReactionCritDMG', []));
+    state.SourceResShred = getElementResShredValue(reactionElement, build, teamContext) ...
+        + getFieldOrDefault(hitDescriptor, 'ExtraResShred', 0);
+    state.ReactionElement = string(reactionElement);
+    state.UseSnapshot = true;
+end
+
+function core = localMakeDendroCore(applyGauge, reactionBonus, hitDescriptor, build, teamContext)
+    core = struct( ...
+        'TimeRemaining', 6.0, ...
+        'Gauge', applyGauge, ...
+        'OwnerElement', "Dendro", ...
+        'ReactionName', "Bloom", ...
+        'ReactionBonus', reactionBonus, ...
+        'SourceEM', getFieldOrDefault(build, 'EM', 0) + getFieldOrDefault(teamContext, 'EMBonus', 0), ...
+        'SourceCritRate', getFieldOrDefault(hitDescriptor, 'ReactionCritRate', getFieldOrDefault(teamContext, 'ReactionCritRate', [])), ...
+        'SourceCritDMG', getFieldOrDefault(hitDescriptor, 'ReactionCritDMG', getFieldOrDefault(teamContext, 'ReactionCritDMG', [])), ...
+        'SourceResShred', getElementResShredValue("Dendro", build, teamContext) + getFieldOrDefault(hitDescriptor, 'ExtraResShred', 0), ...
+        'ReactionElement', "Dendro", ...
+        'UseSnapshot', true);
+end
+
+function damage = localResolveStoredReactionDamage(reactionName, snapshot, build, teamContext, enemy, enemyState)
+    hitDescriptor = struct( ...
+        'ReactionElement', string(getFieldOrDefault(snapshot, 'ReactionElement', localReactionElement(reactionName))), ...
+        'ReactionCritRate', getFieldOrDefault(snapshot, 'SourceCritRate', []), ...
+        'ReactionCritDMG', getFieldOrDefault(snapshot, 'SourceCritDMG', []), ...
+        'ReactionEMOverride', getFieldOrDefault(snapshot, 'SourceEM', []), ...
+        'ReactionResShredOverride', getFieldOrDefault(snapshot, 'SourceResShred', []), ...
+        'UseReactionBonusSnapshot', true);
+    damage = localResolveTransformativeDamage( ...
+        reactionName, build, teamContext, enemy, enemyState, 0, ...
+        getFieldOrDefault(snapshot, 'ReactionBonus', 0), hitDescriptor);
+end
+
+function aura = localMakeAura(element, gaugeUnits)
+    aura = struct( ...
+        'Element', string(element), ...
+        'Gauge', max(0, double(gaugeUnits)), ...
+        'DecayPerSecond', localDefaultDecayPerSecond(element, gaugeUnits));
+end
+
+function decayPerSecond = localDefaultDecayPerSecond(auraElement, gaugeUnits)
+    auraElement = lower(char(string(auraElement)));
+    gaugeUnits = max(0.25, double(gaugeUnits));
+    switch auraElement
+        case {'pyro', 'hydro', 'cryo', 'electro', 'dendro'}
+            duration = 9.5 * gaugeUnits;
+        otherwise
+            duration = 8.0 * gaugeUnits;
+    end
+    decayPerSecond = 1.0 / max(duration, 1.0);
+end
+
+function result = localMakeEmptyResult(enemyState)
+    result = struct( ...
+        'EnemyState', enemyState, ...
+        'AmplifyMultiplier', 1.0, ...
+        'CatalyzeFlatDamage', 0, ...
+        'ReactionDamage', 0, ...
+        'PrimaryReaction', "", ...
+        'TriggeredReactions', strings(0, 1));
+end

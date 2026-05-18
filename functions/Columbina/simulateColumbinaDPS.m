@@ -169,7 +169,7 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateColumbinaDPS(build, 
         rotationTime = rotationTime + actionTime;
 
         if advanceAfterAction
-            state.EnemyState = advanceEnemyStateTime(state.EnemyState, actionTime, "Hydro", teamContext);
+            [state.EnemyState, ~] = advanceEnemyStateTime(state.EnemyState, actionTime, "Hydro", teamContext);
         end
         state = localAdvanceState(state, actionTime);
     end
@@ -204,7 +204,7 @@ function [totalDMG, enemyState, reactionCount] = localResolveMoonCont(enemyState
 
     tickMV = localLevelValue(talent, 10, skillLevel);
     for tickIndex = 1:40
-        enemyState = advanceEnemyStateTime(enemyState, 0.25, "Hydro", teamContext);
+        [enemyState, ~] = advanceEnemyStateTime(enemyState, 0.25, "Hydro", teamContext);
         [tickDMG, enemyState, reactionName] = localApplyHydroHit( ...
             enemyState, maxHP, tickMV, build, teamContext, enemy, hydroResShred, em, ...
             localHydroDamageBonus(build, teamContext, getFieldOrDefault(build, 'SkillDMGBonus', 0), constellation), ...
@@ -250,7 +250,7 @@ function [totalDMG, enemyState] = localResolveLunarField(enemyState, maxHP, tale
 
     tickBase = maxHP * localLevelValue(talent, rowIndex, skillLevel);
     for tickIndex = 1:16
-        enemyState = advanceEnemyStateTime(enemyState, 0.50, "Hydro", teamContext);
+        [enemyState, ~] = advanceEnemyStateTime(enemyState, 0.50, "Hydro", teamContext);
         totalDMG = totalDMG + calcReactionDamage( ...
             tickBase, em, enemy, hydroResShred, reactionBonus, reactionCritRate, reactionCritDMG);
     end
