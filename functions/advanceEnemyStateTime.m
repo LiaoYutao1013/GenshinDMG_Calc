@@ -51,7 +51,7 @@ function [enemyState, reactionPackets] = advanceEnemyStateTime(enemyState, delta
         enemyState, reactionPackets, 'Burning', 'Burning', teamContext, deltaTime);
     [enemyState, reactionPackets] = localAdvanceDendroCores(enemyState, reactionPackets, deltaTime, teamContext);
 
-    if logical(getFieldOrDefault(enemyState, 'AutoSupportAura', true)) ...
+    if localUsesApproximateSupportAura(enemyState) ...
             && (~isfield(enemyState, 'Auras') || isempty(enemyState.Auras)) ...
             && ~getFieldOrDefault(enemyState.Quicken, 'Active', false)
         supportAura = localInferSupportAura(triggerElement, teamContext);
@@ -256,4 +256,13 @@ function aura = localInferSupportAura(triggerElement, teamContext)
         otherwise
             aura = "";
     end
+end
+
+function tf = localUsesApproximateSupportAura(enemyState)
+    reactionMode = lower(char(string(getFieldOrDefault(enemyState, 'ReactionMode', ""))));
+    if strlength(string(reactionMode)) == 0
+        tf = logical(getFieldOrDefault(enemyState, 'AutoSupportAura', true));
+        return;
+    end
+    tf = strcmp(reactionMode, 'approximate') && logical(getFieldOrDefault(enemyState, 'AutoSupportAura', true));
 end

@@ -103,7 +103,7 @@ function build = buildGenericCharacterArtifact(characterName)
     if exist(fileparts(outputPath), 'dir') ~= 7
         mkdir(fileparts(outputPath));
     end
-    writetable(struct2table(build), outputPath);
+    writetable(struct2table(build, 'AsArray', true), outputPath);
 end
 
 function [info, tf] = localReadCharacterBaseInfo(characterKey)

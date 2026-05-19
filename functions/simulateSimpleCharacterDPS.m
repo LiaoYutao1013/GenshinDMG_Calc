@@ -1,4 +1,4 @@
-function [totalDMG, dps, breakdown, rotationTime] = simulateSimpleCharacterDPS( ...
+function [totalDMG, dps, breakdown, rotationTime, audit] = simulateSimpleCharacterDPS( ...
         characterName, build, enemy, seqFile, talentLevel, constellation, teamContext, spec)
     % 通用 spec 驱动角色模拟器。
     % 这层用于承接大部分“已导入全量倍率，但暂未写独立状态机”的角色，实现：
@@ -55,6 +55,7 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateSimpleCharacterDPS( 
     rotationTime = 0;
     breakdown = table('Size', [0 3], 'VariableTypes', {'string', 'double', 'string'}, ...
         'VariableNames', {'Action', 'Damage', 'Note'});
+    auditRows = {};
 
     for i = 1:numel(actions)
         action = string(actions{i});
@@ -64,6 +65,12 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateSimpleCharacterDPS( 
         actionSpec = localGetActionSpec(spec, actionKey);
         note = string(getFieldOrDefault(actionSpec, 'Note', ""));
         dmg = 0;
+        auditApplyGauge = NaN;
+        auditApplyGaugeSource = "";
+        auditICDRule = "";
+        auditICDSource = "";
+        auditLunarisAttackName = "";
+        auditLunarisDamageParam = "";
 
         if ~isstruct(actionSpec) || isempty(fieldnames(actionSpec))
             note = "Unknown action";
@@ -128,9 +135,13 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateSimpleCharacterDPS( 
                 hitDeltaTime = hitTimeline(hitIndex);
                 attackMeta = localResolveLunarisAttackMetadata( ...
                     characterName, actionSpec, actionKey, paramName, actionElement, attackMetadata);
-                applyGauge = localResolveActionApplyGauge(actionSpec, attackMeta);
+                [applyGauge, applyGaugeSource] = localResolveActionApplyGauge(actionSpec, attackMeta);
                 [canApplyAura, icdStates, icdSnapshot] = localResolveActionICDGate( ...
                     icdStates, actionKey, actionSpec, attackMeta, hitDeltaTime);
+                auditApplyGauge = applyGauge;
+                auditApplyGaugeSource = applyGaugeSource;
+                auditICDRule = string(getFieldOrDefault(icdSnapshot, 'ICDRule', ""));
+                auditICDSource = string(getFieldOrDefault(icdSnapshot, 'ICDSource', ""));
                 applyElement = string(getFieldOrDefault(actionSpec, 'ApplyElement', actionElement));
                 canApplyAura = canApplyAura && localIsElementalDamageElement(applyElement) ...
                     && applyGauge > 0;
@@ -150,13 +161,17 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateSimpleCharacterDPS( 
                     constellation, extraResShred);
                 hitDescriptor.ApplyElement = applyElement;
                 hitDescriptor.ApplyGauge = applyGauge;
+                hitDescriptor.ApplyGaugeSource = applyGaugeSource;
                 hitDescriptor.CanApplyAura = canApplyAura;
                 hitDescriptor.StrikeType = string(getFieldOrDefault(icdSnapshot, 'StrikeType', ""));
                 hitDescriptor.ICDGroup = string(getFieldOrDefault(icdSnapshot, 'ICDGroup', ""));
                 hitDescriptor.ICDRule = string(getFieldOrDefault(icdSnapshot, 'ICDRule', ""));
+                hitDescriptor.ICDSource = string(getFieldOrDefault(icdSnapshot, 'ICDSource', ""));
                 if isstruct(attackMeta) && ~isempty(fieldnames(attackMeta))
                     hitDescriptor.LunarisDamageParam = string(getFieldOrDefault(attackMeta, 'DamageParam', ""));
                     hitDescriptor.LunarisAttackName = string(getFieldOrDefault(attackMeta, 'Name', ""));
+                    auditLunarisDamageParam = string(getFieldOrDefault(attackMeta, 'DamageParam', ""));
+                    auditLunarisAttackName = string(getFieldOrDefault(attackMeta, 'Name', ""));
                     if strlength(string(getFieldOrDefault(attackMeta, 'Element', ""))) > 0
                         hitDescriptor.ApplyElement = string(getFieldOrDefault(actionSpec, 'ApplyElement', applyElement));
                     end
@@ -208,6 +223,10 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateSimpleCharacterDPS( 
 
         totalDMG = totalDMG + dmg;
         breakdown = [breakdown; {action, dmg, note}]; %#ok<AGROW>
+        auditRows = [auditRows; {action, actionKey, auditApplyGauge, auditApplyGaugeSource, ...
+            auditICDRule, auditICDSource, auditLunarisAttackName, auditLunarisDamageParam, ...
+            strcmpi(char(auditApplyGaugeSource), 'fallback'), ...
+            strcmpi(char(auditICDSource), 'fallback')}]; %#ok<AGROW>
         rotationTime = rotationTime + actionTime;
         state = localAdvanceSimpleState(state, actionTime);
     end
@@ -216,6 +235,21 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateSimpleCharacterDPS( 
         rotationTime = getFieldOrDefault(teamContext, 'RotationDuration', 20);
     end
     dps = totalDMG / rotationTime;
+
+    if nargout > 4
+        auditTable = table();
+        if ~isempty(auditRows)
+            auditTable = cell2table(auditRows, 'VariableNames', { ...
+                'Action', 'ActionKey', 'ApplyGauge', 'ApplyGaugeSource', 'ICDRule', 'ICDSource', ...
+                'LunarisAttackName', 'LunarisDamageParam', 'ApplyGaugeFallback', 'ICDFallback'});
+        end
+        audit = struct( ...
+            'Character', string(characterName), ...
+            'RotationFile', string(seqFile), ...
+            'Rows', auditTable);
+    else
+        audit = struct();
+    end
 end
 
 function actions = localReadActionSequence(seqFile, spec)
@@ -834,7 +868,13 @@ function attackMeta = localResolveLunarisAttackMetadata(characterName, actionSpe
 
     if strlength(explicitDamageParam) > 0
         attackMeta = localFindAttackMetadata(candidates, explicitAttackName, explicitDamageParam, string(actionElement));
-        return;
+        if ~isempty(fieldnames(attackMeta))
+            return;
+        end
+        attackMeta = localFindAttackMetadata(candidates, explicitAttackName, explicitDamageParam, "");
+        if ~isempty(fieldnames(attackMeta))
+            return;
+        end
     end
 
     attackMeta = localFindAttackMetadata( ...
@@ -849,6 +889,19 @@ function attackMeta = localResolveLunarisAttackMetadata(characterName, actionSpe
     if isempty(fieldnames(attackMeta))
         [aliasName, aliasParam] = localResolveAttackLookupAliases(actionKey, paramName, actionSpec);
         attackMeta = localFindAttackMetadata(candidates, aliasName, aliasParam, "");
+    end
+    if isempty(fieldnames(attackMeta))
+        [alternateNames, alternateParams] = localResolveSecondaryLookupAliases(actionKey, paramName, actionSpec);
+        for idx = 1:numel(alternateNames)
+            attackMeta = localFindAttackMetadata(candidates, alternateNames(idx), alternateParams(idx), string(actionElement));
+            if ~isempty(fieldnames(attackMeta))
+                break;
+            end
+            attackMeta = localFindAttackMetadata(candidates, alternateNames(idx), alternateParams(idx), "");
+            if ~isempty(fieldnames(attackMeta))
+                break;
+            end
+        end
     end
     if isempty(fieldnames(attackMeta)) && strlength(explicitAttackName) > 0
         attackMeta = localFindAttackMetadata(candidates, explicitAttackName, "", "");
@@ -909,19 +962,22 @@ function token = localStripReactionSuffix(token)
     token = string(token);
 end
 
-function applyGauge = localResolveActionApplyGauge(actionSpec, attackMeta)
+function [applyGauge, source] = localResolveActionApplyGauge(actionSpec, attackMeta)
     applyGauge = getFieldOrDefault(actionSpec, 'ApplyGauge', []);
     if ~isempty(applyGauge)
         applyGauge = double(applyGauge);
+        source = "explicit";
         return;
     end
 
     if isstruct(attackMeta) && isfield(attackMeta, 'GaugeUnits')
-        applyGauge = double(getFieldOrDefault(attackMeta, 'GaugeUnits', 1.0));
+        applyGauge = double(getFieldOrDefault(attackMeta, 'GaugeUnits', 0));
+        source = "metadata";
         return;
     end
 
     applyGauge = 1.0;
+    source = "fallback";
 end
 
 function tf = localIsElementalDamageElement(element)
@@ -934,7 +990,7 @@ function tf = localIsElementalDamageElement(element)
 end
 
 function [canApplyAura, icdStates, snapshot] = localResolveActionICDGate(icdStates, actionKey, actionSpec, attackMeta, deltaTime)
-    snapshot = struct('ICDGroup', "", 'ICDRule', "", 'ICDHits', 1, 'ICDWindow', 0, 'StrikeType', "");
+    snapshot = struct('ICDGroup', "", 'ICDRule', "", 'ICDHits', 1, 'ICDWindow', 0, 'StrikeType', "", 'ICDSource', "");
     canApplyAura = true;
 
     explicitICDRule = string(getFieldOrDefault(actionSpec, 'ICDRule', ""));
@@ -942,6 +998,7 @@ function [canApplyAura, icdStates, snapshot] = localResolveActionICDGate(icdStat
         snapshot.ICDRule = explicitICDRule;
         snapshot.ICDGroup = localResolveICDGroupKey(actionSpec, actionKey, struct());
         snapshot.StrikeType = string(getFieldOrDefault(actionSpec, 'StrikeType', ""));
+        snapshot.ICDSource = "explicit";
         snapshotConfig = localParseExplicitICDRule(explicitICDRule);
         snapshot.ICDHits = getFieldOrDefault(snapshotConfig, 'Hits', 1);
         snapshot.ICDWindow = getFieldOrDefault(snapshotConfig, 'Window', 0);
@@ -1000,6 +1057,11 @@ function [canApplyAura, icdStates, snapshot] = localResolveActionICDGate(icdStat
     snapshot.ICDHits = getFieldOrDefault(attackMeta.ICDConfig, 'Hits', 1);
     snapshot.ICDWindow = getFieldOrDefault(attackMeta.ICDConfig, 'Window', 0);
     snapshot.StrikeType = string(getFieldOrDefault(attackMeta, 'StrikeType', ""));
+    if strlength(snapshot.ICDRule) > 0
+        snapshot.ICDSource = "metadata";
+    else
+        snapshot.ICDSource = "fallback";
+    end
 
     if isfield(attackMeta, 'GaugeUnits')
         if double(getFieldOrDefault(attackMeta, 'GaugeUnits', 0)) <= 0
@@ -1009,15 +1071,18 @@ function [canApplyAura, icdStates, snapshot] = localResolveActionICDGate(icdStat
     end
 
     if ~isfield(attackMeta, 'ICDConfig')
+        snapshot.ICDSource = "fallback";
         return;
     end
 
     ruleKind = string(getFieldOrDefault(attackMeta.ICDConfig, 'Kind', "Independent"));
     if strcmpi(char(ruleKind), 'Independent')
+        snapshot.ICDSource = "metadata";
         return;
     end
 
     if strlength(snapshot.ICDGroup) == 0
+        snapshot.ICDSource = "fallback";
         return;
     end
 
@@ -1104,6 +1169,43 @@ function [aliasName, aliasParam] = localResolveAttackLookupAliases(actionKey, pa
     end
 
     aliasParam = localResolveDamageParamAlias(aliasParam, actionSpec);
+end
+
+function [aliasNames, aliasParams] = localResolveSecondaryLookupAliases(actionKey, paramName, actionSpec)
+    aliasNames = strings(0, 1);
+    aliasParams = strings(0, 1);
+
+    explicitAttackName = string(getFieldOrDefault(actionSpec, 'LunarisAttackName', ""));
+    explicitDamageParam = string(getFieldOrDefault(actionSpec, 'LunarisDamageParam', ""));
+    baseParam = string(paramName);
+    key = lower(char(string(actionKey)));
+
+    if strlength(explicitAttackName) > 0 && strlength(baseParam) > 0
+        aliasNames(end + 1, 1) = explicitAttackName; %#ok<AGROW>
+        aliasParams(end + 1, 1) = baseParam; %#ok<AGROW>
+    end
+
+    if strlength(explicitDamageParam) > 0
+        aliasNames(end + 1, 1) = string(actionKey); %#ok<AGROW>
+        aliasParams(end + 1, 1) = explicitDamageParam; %#ok<AGROW>
+    end
+
+    switch key
+        case {'charged', 'ca'}
+            aliasNames(end + 1, 1) = "ChargedAttack"; %#ok<AGROW>
+            aliasParams(end + 1, 1) = "ChargedAttackDMG"; %#ok<AGROW>
+            aliasNames(end + 1, 1) = "AimShot"; %#ok<AGROW>
+            aliasParams(end + 1, 1) = "AimedShot"; %#ok<AGROW>
+        case {'e', 'e2'}
+            aliasNames(end + 1, 1) = "ElementalArt"; %#ok<AGROW>
+            aliasParams(end + 1, 1) = baseParam; %#ok<AGROW>
+        case {'q', 'qloop'}
+            aliasNames(end + 1, 1) = "ElementalBurst"; %#ok<AGROW>
+            aliasParams(end + 1, 1) = baseParam; %#ok<AGROW>
+        case {'plunge', 'plunging'}
+            aliasNames(end + 1, 1) = "FallingAnthem"; %#ok<AGROW>
+            aliasParams(end + 1, 1) = baseParam; %#ok<AGROW>
+    end
 end
 
 function aliasParam = localResolveDamageParamAlias(paramName, actionSpec)

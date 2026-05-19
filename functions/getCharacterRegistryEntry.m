@@ -238,10 +238,11 @@ function entry = localReadAvatarDbFallback(aliasTarget, originalName)
             continue;
         end
 
-        [key, displayName, avatarKey] = localResolveAvatarMapping(item._name, aliasMap);
+        rawName = item.('_name');
+        [key, displayName, avatarKey] = localResolveAvatarMapping(rawName, aliasMap);
         keyToken = char(localNormalizeLookup(key));
         avatarToken = char(localNormalizeLookup(avatarKey));
-        rawToken = char(localNormalizeLookup(item._name));
+        rawToken = char(localNormalizeLookup(rawName));
         if ~strcmp(keyToken, target) && ~strcmp(avatarToken, target) && ~strcmp(rawToken, target)
             continue;
         end

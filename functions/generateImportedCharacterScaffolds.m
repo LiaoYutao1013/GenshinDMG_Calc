@@ -1,4 +1,4 @@
-function summary = generateImportedCharacterScaffolds(characterList)
+function summary = generateImportedCharacterScaffolds(characterList, options)
     % 批量为“已有数据包、但尚未补齐函数包装层/分析入口”的角色生成脚手架。
     % 生成内容包括：
     % 1. functions/<Character>/customArtifact_<Character>.m
@@ -16,6 +16,10 @@ function summary = generateImportedCharacterScaffolds(characterList)
     if nargin < 1 || isempty(characterList)
         characterList = localDetectPendingCharacters(projectRoot);
     end
+    if nargin < 2
+        options = struct();
+    end
+    materializeArtifacts = logical(getFieldOrDefault(options, 'MaterializeArtifacts', false));
     characterList = string(characterList(:));
 
     rows = repmat(struct( ...
@@ -36,10 +40,13 @@ function summary = generateImportedCharacterScaffolds(characterList)
                 localEnsureFunctionScaffold(projectRoot, key);
             rows(i).AnalysisEntryCreated = localEnsureAnalysisEntry(projectRoot, key);
 
-            % 生成默认 artifacts_<Character>.csv，保证 GUI/分析脚本第一次使用时
-            % 就有一份本地化构筑文件可供检查和后续细调。
-            buildGenericCharacterArtifact(key);
-            rows(i).ArtifactMaterialized = true;
+            % 是否顺带物化默认构筑文件由调用方决定。
+            % 默认只补齐函数/分析脚手架，避免批量生成时反复触发武器表与
+            % 分件模型构筑，导致整轮导入明显变慢。
+            if materializeArtifacts
+                buildGenericCharacterArtifact(key);
+                rows(i).ArtifactMaterialized = true;
+            end
 
             rows(i).Status = "ok";
             rows(i).Message = "scaffolded";

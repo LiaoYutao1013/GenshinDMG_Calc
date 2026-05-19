@@ -21,9 +21,12 @@ function enemyState = createEnemyState(enemy, teamContext, triggerElement)
         triggerElement = "";
     end
 
+    reactionMode = localResolveReactionMode(enemy, teamContext);
+    autoSupportAura = logical(getFieldOrDefault(enemy, 'AutoSupportAura', reactionMode == "Approximate"));
+
     initialElement = string(getFieldOrDefault(enemy, 'InitialAuraElement', ""));
     initialGauge = double(getFieldOrDefault(enemy, 'InitialAuraGauge', 0));
-    if strlength(initialElement) == 0
+    if strlength(initialElement) == 0 && autoSupportAura
         initialElement = localInferSupportAura(triggerElement, teamContext);
         initialGauge = 1.0 * double(strlength(initialElement) > 0);
     end
@@ -42,11 +45,31 @@ function enemyState = createEnemyState(enemy, teamContext, triggerElement)
         'Burning', localMakeTimedReactionState(0.25, "Pyro"), ...
         'DendroCores', repmat(localMakeDendroCore(), 1, 0), ...
         'EnableElementalAura', logical(getFieldOrDefault(enemy, 'EnableElementalAura', true)), ...
-        'AutoSupportAura', logical(getFieldOrDefault(enemy, 'AutoSupportAura', true)), ...
+        'ReactionMode', reactionMode, ...
+        'AutoSupportAura', autoSupportAura, ...
         'SupportAuraGauge', double(getFieldOrDefault(enemy, 'SupportAuraGauge', 1.0)), ...
         'ReactionLevel', double(getFieldOrDefault(enemy, 'ReactionLevel', 90)), ...
         'AuraDecayScale', double(getFieldOrDefault(enemy, 'AuraDecayScale', 1.0)), ...
         'LastReaction', "");
+end
+
+function reactionMode = localResolveReactionMode(enemy, teamContext)
+    % ReactionMode controls whether the enemy state should synthesize a
+    % support aura automatically. "Realistic" means every aura must come
+    % from explicit hits or an explicit enemy initial state.
+    reactionMode = string(getFieldOrDefault(enemy, 'ReactionMode', ""));
+    if strlength(reactionMode) == 0
+        reactionMode = string(getFieldOrDefault(teamContext, 'ReactionMode', ""));
+    end
+    token = lower(char(reactionMode));
+    switch token
+        case {'realistic', 'real', 'explicit', 'sequence'}
+            reactionMode = "Realistic";
+        case {'approximate', 'approx', 'supportaura', 'legacy'}
+            reactionMode = "Approximate";
+        otherwise
+            reactionMode = "Approximate";
+    end
 end
 
 function aura = localMakeAura(element, gaugeUnits)

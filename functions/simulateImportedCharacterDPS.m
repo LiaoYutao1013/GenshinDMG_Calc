@@ -1,4 +1,4 @@
-function [totalDMG, dps, breakdown, rotationTime] = simulateImportedCharacterDPS(characterName, build, enemy, seqFile, talentLevel, constellation, teamContext)
+function [totalDMG, dps, breakdown, rotationTime, audit] = simulateImportedCharacterDPS(characterName, build, enemy, seqFile, talentLevel, constellation, teamContext)
     % Generic simulator for imported characters that do not yet have a
     % bespoke high-precision implementation. It maps a compact default
     % rotation onto the unified spec-driven engine and keeps the character
@@ -20,7 +20,7 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateImportedCharacterDPS
     meta = getCharacterRegistryEntry(characterName);
     spec = localBuildImportedSpec(characterName, meta, build, teamContext);
 
-    [totalDMG, dps, breakdown, rotationTime] = simulateSimpleCharacterDPS( ...
+    [totalDMG, dps, breakdown, rotationTime, audit] = simulateSimpleCharacterDPS( ...
         char(string(characterName)), build, enemy, seqFile, talentLevel, constellation, teamContext, spec);
 end
 
@@ -66,6 +66,7 @@ function spec = localBuildImportedSpec(characterName, meta, build, teamContext)
         if strlength(string(action.Param)) == 0
             continue;
         end
+        action = localDecorateActionForLunaris(actionNames{i}, action);
         filteredActions.(actionNames{i}) = action;
     end
     if isempty(fieldnames(filteredActions))
@@ -93,6 +94,57 @@ function action = localMakeAction(talentGroup, paramName, damageField, actionEle
         'AllowCatalyze', logical(reactionFlags.AllowCatalyze), ...
         'AllowTransformative', logical(reactionFlags.AllowTransformative), ...
         'Note', string(note));
+end
+
+function action = localDecorateActionForLunaris(actionKey, action)
+    actionKey = string(actionKey);
+    param = string(getFieldOrDefault(action, 'Param', ""));
+    normalizedParam = lower(char(param));
+
+    switch lower(char(actionKey))
+        case {'n1', 'n2', 'n3', 'n4', 'n5', 'n6'}
+            normalIndex = regexp(char(actionKey), '\d+', 'match', 'once');
+            if ~isempty(normalIndex)
+                action.LunarisAttackName = "Attack0" + string(normalIndex);
+                action.LunarisDamageParam = "NormalAttack_0" + string(normalIndex) + "_Damage";
+            end
+        case {'charged', 'ca'}
+            action.LunarisAttackName = "ChargedAttack";
+            if contains(normalizedParam, 'aimedshot')
+                action.LunarisAttackName = "AimShot";
+            end
+            action.LunarisDamageParam = param;
+        case 'plunge'
+            action.LunarisAttackName = "FallingAnthem";
+            action.LunarisDamageParam = param;
+        case 'e'
+            action.LunarisAttackName = localInferActionNameFromParam(param, "ElementalArt");
+            action.LunarisDamageParam = param;
+        case 'e2'
+            action.LunarisAttackName = localInferActionNameFromParam(param, "ElementalArt");
+            action.LunarisDamageParam = param;
+        case 'q'
+            action.LunarisAttackName = localInferActionNameFromParam(param, "ElementalBurst");
+            action.LunarisDamageParam = param;
+        case 'qloop'
+            action.LunarisAttackName = localInferActionNameFromParam(param, "ElementalBurst");
+            action.LunarisDamageParam = param;
+    end
+end
+
+function attackName = localInferActionNameFromParam(param, fallbackName)
+    token = lower(char(string(param)));
+    attackName = string(fallbackName);
+
+    if contains(token, 'burst') || contains(token, 'waterball') || contains(token, 'swordrain')
+        attackName = "ElementalBurst";
+    elseif contains(token, 'skill') || contains(token, 'art') || contains(token, 'spoondrift')
+        attackName = "ElementalArt";
+    elseif contains(token, 'fallinganthem')
+        attackName = "FallingAnthem";
+    elseif contains(token, 'attackratio')
+        attackName = "NormalAttack_Gadget";
+    end
 end
 
 function defaultRotation = localBuildDefaultRotation(actions, weaponType, characterName)

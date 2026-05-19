@@ -283,7 +283,7 @@ function cfg = localBuildImportedConfig(name, projectRoot)
         error('Unsupported character in unified entry: %s', name);
     end
 
-    build = buildGenericCharacterArtifact(key);
+    build = localLoadOrBuildImportedArtifact(projectRoot, key);
     rotationFile = fullfile(projectRoot, 'data', char(key), sprintf('rotation_%s.txt', char(key)));
     cfg = localBaseConfig(char(key), build, rotationFile);
     if strlength(string(entry.DisplayName)) > 0
@@ -292,6 +292,22 @@ function cfg = localBuildImportedConfig(name, projectRoot)
     if isfield(entry, 'Element') && strlength(string(entry.Element)) > 0
         cfg.Element = string(entry.Element);
     end
+end
+
+function build = localLoadOrBuildImportedArtifact(projectRoot, key)
+    artifactPath = fullfile(projectRoot, 'data', char(key), sprintf('artifacts_%s.csv', char(key)));
+    if exist(artifactPath, 'file') == 2
+        try
+            tbl = readtable(artifactPath, 'TextType', 'string');
+            if ~isempty(tbl)
+                build = table2struct(tbl(1, :), 'ToScalar', true);
+                return;
+            end
+        catch
+        end
+    end
+
+    build = buildGenericCharacterArtifact(key);
 end
 
 function cfg = localBaseConfig(displayName, build, rotationFile)

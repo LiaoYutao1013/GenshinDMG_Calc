@@ -75,7 +75,7 @@ function result = resolveReactionForHit(enemyState, hitDescriptor, build, teamCo
     preferredAura = string(getFieldOrDefault(hitDescriptor, 'PreferredAura', ""));
     forceReaction = string(getFieldOrDefault(hitDescriptor, 'ForceReactionName', ""));
 
-    if strlength(preferredAura) > 0
+    if strlength(preferredAura) > 0 && localUsesApproximateSupportAura(result.EnemyState)
         result.EnemyState = localForceAura(result.EnemyState, preferredAura, getFieldOrDefault(result.EnemyState, 'SupportAuraGauge', 1.0));
     end
     result.EnemyState = localEnsureSupportAura(result.EnemyState, hitElement, teamContext);
@@ -573,7 +573,7 @@ function enemyState = localForceAura(enemyState, auraElement, gaugeUnits)
 end
 
 function enemyState = localEnsureSupportAura(enemyState, triggerElement, teamContext)
-    if ~logical(getFieldOrDefault(enemyState, 'AutoSupportAura', true))
+    if ~localUsesApproximateSupportAura(enemyState)
         return;
     end
     if (isfield(enemyState, 'Auras') && ~isempty(enemyState.Auras)) ...
@@ -650,6 +650,15 @@ function aura = localInferSupportAura(triggerElement, teamContext)
         otherwise
             aura = "";
     end
+end
+
+function tf = localUsesApproximateSupportAura(enemyState)
+    reactionMode = lower(char(string(getFieldOrDefault(enemyState, 'ReactionMode', ""))));
+    if strlength(string(reactionMode)) == 0
+        tf = logical(getFieldOrDefault(enemyState, 'AutoSupportAura', true));
+        return;
+    end
+    tf = strcmp(reactionMode, 'approximate') && logical(getFieldOrDefault(enemyState, 'AutoSupportAura', true));
 end
 
 function damage = localResolvePacketDamage(packet, build, teamContext, enemy, enemyState)
