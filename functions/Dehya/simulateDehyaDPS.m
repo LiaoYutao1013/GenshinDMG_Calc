@@ -1,4 +1,4 @@
-function [totalDMG, dps, breakdown, rotationTime] = simulateDehyaDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
+function [totalDMG, dps, breakdown, rotationTime, audit] = simulateDehyaDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
     % Dehya simulator reconstructing mixed ATK/HP field and burst punches from imported Lunaris totals.
     if nargin < 3 || isempty(seqFile)
         seqFile = fullfile(fileparts(mfilename('fullpath')), '..', '..', 'data', 'Dehya', 'rotation_Dehya.txt');
@@ -93,6 +93,7 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateDehyaDPS(build, enem
         'ActionTimeMap', struct('E1', 0.75, 'FieldPre', 5.50, 'QFist', 4.00, 'Drive', 0.20, 'E2', 0.80, 'FieldPost', 6.00), ...
         'Actions', actions);
 
-    [totalDMG, dps, breakdown, rotationTime] = simulateSimpleCharacterDPS( ...
+    [totalDMG, dps, breakdown, rotationTime, audit] = simulateSimpleCharacterDPS( ...
         'Dehya', workBuild, enemy, seqFile, talentLevel, constellation, teamContext, spec);
 end
+

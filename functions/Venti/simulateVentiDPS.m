@@ -1,11 +1,5 @@
-function [totalDMG, dps, breakdown, rotationTime] = simulateVentiDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
-    % 温迪高精度近似模拟。
-    % 建模要点：
-    % 1. 区分点按/长按 E、Q 本体风伤、元素转化附加伤；
-    % 2. C2 通过 E 减风抗/物抗与 Q 后重置 E 的轴体现；
-    % 3. C4/C6 的风伤与暴伤/减抗直接并入对应窗口；
-    % 4. 吸收元素按队伍元素优先级推断，默认优先火->水->雷->冰。
-    if nargin < 3 || isempty(seqFile)
+function [totalDMG, dps, breakdown, rotationTime, audit] = simulateVentiDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
+    % 温迪高精度近似模拟�?    % 建模要点�?    % 1. 区分点按/长按 E、Q 本体风伤、元素转化附加伤�?    % 2. C2 通过 E 减风�?物抗�?Q 后重�?E 的轴体现�?    % 3. C4/C6 的风伤与暴伤/减抗直接并入对应窗口�?    % 4. 吸收元素按队伍元素优先级推断，默认优先火->�?>�?>冰�?    if nargin < 3 || isempty(seqFile)
         seqFile = fullfile(fileparts(mfilename('fullpath')), '..', '..', 'data', 'Venti', 'rotation_Venti.txt');
     end
     if nargin < 4 || isempty(talentLevel)
@@ -51,7 +45,7 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateVentiDPS(build, enem
         'ActionTimeMap', struct('E', 0.70, 'EHold', 1.05, 'QDot', 8.00, 'QInfuse', 0.10), ...
         'Actions', actions);
 
-    [totalDMG, dps, breakdown, rotationTime] = simulateSimpleCharacterDPS( ...
+    [totalDMG, dps, breakdown, rotationTime, audit] = simulateSimpleCharacterDPS( ...
         'Venti', build, enemy, seqFile, talentLevel, constellation, teamContext, spec);
 end
 
@@ -74,3 +68,4 @@ function element = localResolveAbsorbedElement(teamContext, enemy)
     end
     element = "";
 end
+

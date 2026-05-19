@@ -110,6 +110,12 @@ function cfg = getDefaultCharacterConfig(name, overrides)
         case {'xiangling'}
             cfg = localBaseConfig('Xiangling', customArtifact_Xiangling(), fullfile(projectRoot, 'data', 'Xiangling', 'rotation_Xiangling.txt'));
 
+        case {'fischl'}
+            cfg = localBaseConfig('Fischl', customArtifact_Fischl(), fullfile(projectRoot, 'data', 'Fischl', 'rotation_Fischl.txt'));
+
+        case {'beidou'}
+            cfg = localBaseConfig('Beidou', customArtifact_Beidou(), fullfile(projectRoot, 'data', 'Beidou', 'rotation_Beidou.txt'));
+
         case {'hutao', 'hu tao'}
             cfg = localBaseConfig('Hutao', customArtifact_Hutao(), fullfile(projectRoot, 'data', 'Hutao', 'rotation_Hutao.txt'));
             cfg.DisplayName = "Hu Tao";

@@ -1,4 +1,4 @@
-function [totalDMG, dps, breakdown, rotationTime] = simulateLyneyDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
+function [totalDMG, dps, breakdown, rotationTime, audit] = simulateLyneyDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
     % Lyney simulator focusing on Prop Arrow strings, Grin-Malkin detonations, and stack-consuming skill.
     if nargin < 3 || isempty(seqFile)
         seqFile = fullfile(fileparts(mfilename('fullpath')), '..', '..', 'data', 'Lyney', 'rotation_Lyney.txt');
@@ -82,6 +82,7 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateLyneyDPS(build, enem
         'ActionTimeMap', struct('Aimed1', 1.05, 'Aimed2', 1.05, 'Aimed3', 1.05, 'Strike', 0.45, 'E', 0.80, 'Q', 1.05, 'Firework', 0.50, 'Reprised', 0.10), ...
         'Actions', actions);
 
-    [totalDMG, dps, breakdown, rotationTime] = simulateSimpleCharacterDPS( ...
+    [totalDMG, dps, breakdown, rotationTime, audit] = simulateSimpleCharacterDPS( ...
         'Lyney', workBuild, enemy, seqFile, talentLevel, constellation, teamContext, spec);
 end
+

@@ -1,4 +1,4 @@
-function [totalDMG, dps, breakdown, rotationTime] = simulateSigewinneDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
+function [totalDMG, dps, breakdown, rotationTime, audit] = simulateSigewinneDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
     % Sigewinne simulator emphasizing HP-scaled bubble hits and short burst.
     if nargin < 3 || isempty(seqFile)
         seqFile = fullfile(fileparts(mfilename('fullpath')), '..', '..', 'data', 'Sigewinne', 'rotation_Sigewinne.txt');
@@ -31,6 +31,7 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateSigewinneDPS(build, 
         'ActionTimeMap', struct('E', 1.20, 'Follow', 2.50, 'Q', 0.95), ...
         'Actions', actions);
 
-    [totalDMG, dps, breakdown, rotationTime] = simulateSimpleCharacterDPS( ...
+    [totalDMG, dps, breakdown, rotationTime, audit] = simulateSimpleCharacterDPS( ...
         'Sigewinne', build, enemy, seqFile, talentLevel, constellation, teamContext, spec);
 end
+

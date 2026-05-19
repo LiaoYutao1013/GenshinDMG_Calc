@@ -1,4 +1,4 @@
-function [totalDMG, dps, breakdown, rotationTime] = simulateFaruzanDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
+function [totalDMG, dps, breakdown, rotationTime, audit] = simulateFaruzanDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
     % Faruzan simulator focusing on skill shot, collapse vortex, and burst nuke.
     if nargin < 3 || isempty(seqFile)
         seqFile = fullfile(fileparts(mfilename('fullpath')), '..', '..', 'data', 'Faruzan', 'rotation_Faruzan.txt');
@@ -37,6 +37,7 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateFaruzanDPS(build, en
         'ActionTimeMap', struct('Q', 1.00, 'E', 0.75, 'Collapse', 0.85, 'C6Collapse', 2.60), ...
         'Actions', actions);
 
-    [totalDMG, dps, breakdown, rotationTime] = simulateSimpleCharacterDPS( ...
+    [totalDMG, dps, breakdown, rotationTime, audit] = simulateSimpleCharacterDPS( ...
         'Faruzan', build, enemy, seqFile, talentLevel, constellation, teamContext, spec);
 end
+

@@ -1,4 +1,4 @@
-function [totalDMG, dps, breakdown, rotationTime] = simulateMizukiDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
+function [totalDMG, dps, breakdown, rotationTime, audit] = simulateMizukiDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
     % Mizuki simulator emphasizing Dreamdrifter anemo ticks and EM-based swirl support.
     if nargin < 3 || isempty(seqFile)
         seqFile = fullfile(fileparts(mfilename('fullpath')), '..', '..', 'data', 'Mizuki', 'rotation_Mizuki.txt');
@@ -65,6 +65,7 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateMizukiDPS(build, ene
         spec.Actions = actions;
     end
 
-    [totalDMG, dps, breakdown, rotationTime] = simulateSimpleCharacterDPS( ...
+    [totalDMG, dps, breakdown, rotationTime, audit] = simulateSimpleCharacterDPS( ...
         'Mizuki', build, enemy, seqFile, talentLevel, constellation, teamContext, spec);
 end
+

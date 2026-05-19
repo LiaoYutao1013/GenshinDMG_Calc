@@ -4,8 +4,7 @@ function [totalDMG, dps, breakdown, rotationTime, audit] = simulateImportedChara
     % rotation onto the unified spec-driven engine and keeps the character
     % inside the same team / GUI / reaction pipeline.
     if nargin < 4 || isempty(seqFile)
-        seqFile = fullfile(fileparts(mfilename('fullpath')), '..', 'data', char(string(characterName)), ...
-            sprintf('rotation_%s.txt', char(string(characterName))));
+        seqFile = char(resolveCharacterDataFile(characterName, 'rotation'));
     end
     if nargin < 5 || isempty(talentLevel)
         talentLevel = 10;
@@ -136,7 +135,15 @@ function attackName = localInferActionNameFromParam(param, fallbackName)
     token = lower(char(string(param)));
     attackName = string(fallbackName);
 
-    if contains(token, 'burst') || contains(token, 'waterball') || contains(token, 'swordrain')
+    if contains(token, 'waterball')
+        attackName = "ElementalBurst_Gadget";
+    elseif contains(token, 'swordrain')
+        attackName = "ElementalBurst_Dice_Bullet_01";
+    elseif contains(token, 'breakthrough') || contains(token, 'barb')
+        attackName = "SneakArrow";
+    elseif contains(token, 'ringofsanctification') || contains(token, 'tickdamage')
+        attackName = "ElementalArt_TickLogic";
+    elseif contains(token, 'burst') || contains(token, 'additional') || contains(token, 'wave')
         attackName = "ElementalBurst";
     elseif contains(token, 'skill') || contains(token, 'art') || contains(token, 'spoondrift')
         attackName = "ElementalArt";
@@ -325,15 +332,12 @@ end
 
 function paramName = localSelectFirstExistingParam(characterName, skillName, candidates)
     paramName = "";
-    funcFolder = fileparts(mfilename('fullpath'));
-    projectRoot = fileparts(funcFolder);
-    talentPath = fullfile(projectRoot, 'data', char(string(characterName)), ...
-        sprintf('talents_%s.csv', char(string(characterName))));
-    if exist(talentPath, 'file') ~= 2
+    talentPath = resolveCharacterDataFile(characterName, 'talents');
+    if exist(char(talentPath), 'file') ~= 2
         return;
     end
 
-    talent = readtable(talentPath, 'TextType', 'string');
+    talent = readtable(char(talentPath), 'TextType', 'string');
     skillMask = strcmpi(talent.Skill, string(skillName));
     if ~any(skillMask)
         return;

@@ -1,4 +1,4 @@
-function [totalDMG, dps, breakdown, rotationTime] = simulateEmilieDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
+function [totalDMG, dps, breakdown, rotationTime, audit] = simulateEmilieDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
     % Emilie simulator emphasizing Lumidouce Case uptime and thorn procs.
     if nargin < 3 || isempty(seqFile)
         seqFile = fullfile(fileparts(mfilename('fullpath')), '..', '..', 'data', 'Emilie', 'rotation_Emilie.txt');
@@ -32,6 +32,7 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateEmilieDPS(build, ene
         'ActionTimeMap', struct('E', 0.55, 'CaseHit', 3.20, 'Q', 1.05, 'Thorn', 2.80), ...
         'Actions', actions);
 
-    [totalDMG, dps, breakdown, rotationTime] = simulateSimpleCharacterDPS( ...
+    [totalDMG, dps, breakdown, rotationTime, audit] = simulateSimpleCharacterDPS( ...
         'Emilie', build, enemy, seqFile, talentLevel, constellation, teamContext, spec);
 end
+

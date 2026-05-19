@@ -1,4 +1,4 @@
-function [totalDMG, dps, breakdown, rotationTime] = simulateKavehDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
+function [totalDMG, dps, breakdown, rotationTime, audit] = simulateKavehDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
     % Kaveh simulator covering burst-infused Dendro normals plus owned Bloom explosions in Hydro teams.
     if nargin < 3 || isempty(seqFile)
         seqFile = fullfile(fileparts(mfilename('fullpath')), '..', '..', 'data', 'Kaveh', 'rotation_Kaveh.txt');
@@ -59,6 +59,7 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateKavehDPS(build, enem
         'ActionTimeMap', struct('Q', 1.00, 'N1', 0.45, 'N2', 0.45, 'N3', 0.50, 'N4', 0.60, 'E', 0.80, 'Core', 0.40), ...
         'Actions', actions);
 
-    [totalDMG, dps, breakdown, rotationTime] = simulateSimpleCharacterDPS( ...
+    [totalDMG, dps, breakdown, rotationTime, audit] = simulateSimpleCharacterDPS( ...
         'Kaveh', build, enemy, seqFile, talentLevel, constellation, teamContext, spec);
 end
+

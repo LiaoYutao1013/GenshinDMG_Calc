@@ -1,4 +1,4 @@
-function [totalDMG, dps, breakdown, rotationTime] = simulateColleiDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
+function [totalDMG, dps, breakdown, rotationTime, audit] = simulateColleiDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
     % Collei simulator modeling boomerang passes and burst leaps.
     if nargin < 3 || isempty(seqFile)
         seqFile = fullfile(fileparts(mfilename('fullpath')), '..', '..', 'data', 'Collei', 'rotation_Collei.txt');
@@ -53,6 +53,7 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateColleiDPS(build, ene
         'ActionTimeMap', struct('EGo', 0.35, 'EBack', 0.35, 'Q', 0.95, 'Leap', 6.00, 'C6Sprout', 0.20), ...
         'Actions', actions);
 
-    [totalDMG, dps, breakdown, rotationTime] = simulateSimpleCharacterDPS( ...
+    [totalDMG, dps, breakdown, rotationTime, audit] = simulateSimpleCharacterDPS( ...
         'Collei', build, enemy, seqFile, talentLevel, constellation, teamContext, spec);
 end
+

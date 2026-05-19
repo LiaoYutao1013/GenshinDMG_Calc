@@ -1,4 +1,4 @@
-function [totalDMG, dps, breakdown, rotationTime] = simulateOroronDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
+function [totalDMG, dps, breakdown, rotationTime, audit] = simulateOroronDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
     % Ororon simulator emphasizing Night's Sling bounces and burst pulses.
     if nargin < 3 || isempty(seqFile)
         seqFile = fullfile(fileparts(mfilename('fullpath')), '..', '..', 'data', 'Ororon', 'rotation_Ororon.txt');
@@ -31,6 +31,7 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateOroronDPS(build, ene
         'ActionTimeMap', struct('E', 0.60, 'Bounce', 1.10, 'Q', 0.95, 'Wave', 1.50), ...
         'Actions', actions);
 
-    [totalDMG, dps, breakdown, rotationTime] = simulateSimpleCharacterDPS( ...
+    [totalDMG, dps, breakdown, rotationTime, audit] = simulateSimpleCharacterDPS( ...
         'Ororon', build, enemy, seqFile, talentLevel, constellation, teamContext, spec);
 end
+

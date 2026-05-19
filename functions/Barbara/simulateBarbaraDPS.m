@@ -1,11 +1,6 @@
-function [totalDMG, dps, breakdown, rotationTime] = simulateBarbaraDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
-    % 芭芭拉高精度近似模拟。
-    % 建模要点：
-    % 1. E 拆为落地挂水与 Melody Loop 周期伤害；
-    % 2. C2 通过 E 期间水伤加成体现，C4 重击回能不直接计伤害；
-    % 3. Q 仍视为纯治疗，不伪造伤害，只保留轮转时间；
-    % 4. 默认按站场驾驶/挂水辅助的简化轴处理。
-    if nargin < 3 || isempty(seqFile)
+function [totalDMG, dps, breakdown, rotationTime, audit] = simulateBarbaraDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
+    % 芭芭拉高精度近似模拟�?    % 建模要点�?    % 1. E 拆为落地挂水�?Melody Loop 周期伤害�?    % 2. C2 通过 E 期间水伤加成体现，C4 重击回能不直接计伤害�?    % 3. Q 仍视为纯治疗，不伪造伤害，只保留轮转时间；
+    % 4. 默认按站场驾�?挂水辅助的简化轴处理�?    if nargin < 3 || isempty(seqFile)
         seqFile = fullfile(fileparts(mfilename('fullpath')), '..', '..', 'data', 'Barbara', 'rotation_Barbara.txt');
     end
     if nargin < 4 || isempty(talentLevel)
@@ -56,6 +51,7 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateBarbaraDPS(build, en
         'ActionTimeMap', struct('N1', 0.40, 'N2', 0.42, 'N3', 0.45, 'N4', 0.52, 'CA', 0.95, 'E', 0.80, 'Loop', 2.40, 'Q', 1.10), ...
         'Actions', actions);
 
-    [totalDMG, dps, breakdown, rotationTime] = simulateSimpleCharacterDPS( ...
+    [totalDMG, dps, breakdown, rotationTime, audit] = simulateSimpleCharacterDPS( ...
         'Barbara', build, enemy, seqFile, talentLevel, constellation, teamContext, spec);
 end
+

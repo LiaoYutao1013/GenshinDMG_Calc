@@ -1,4 +1,4 @@
-function [totalDMG, dps, breakdown, rotationTime] = simulateGamingDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
+function [totalDMG, dps, breakdown, rotationTime, audit] = simulateGamingDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
     % Gaming simulator centered on Lion Dance plunge loops.
     if nargin < 3 || isempty(seqFile)
         seqFile = fullfile(fileparts(mfilename('fullpath')), '..', '..', 'data', 'Gaming', 'rotation_Gaming.txt');
@@ -32,6 +32,7 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateGamingDPS(build, ene
         'ActionTimeMap', struct('E', 0.95, 'Q', 1.10), ...
         'Actions', actions);
 
-    [totalDMG, dps, breakdown, rotationTime] = simulateSimpleCharacterDPS( ...
+    [totalDMG, dps, breakdown, rotationTime, audit] = simulateSimpleCharacterDPS( ...
         'Gaming', build, enemy, seqFile, talentLevel, constellation, teamContext, spec);
 end
+

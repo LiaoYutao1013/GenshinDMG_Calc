@@ -1,11 +1,6 @@
-function [totalDMG, dps, breakdown, rotationTime] = simulateKaeyaDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
-    % 凯亚高精度近似模拟。
-    % 建模要点：
-    % 1. E 与 Q 分离建模，Q 按持续冰棱段数与 C6 额外冰棱计算；
-    % 2. C1 对受冰附着目标的普重击暴击率单独处理；
-    % 3. 默认按速切挂冰轴近似，不虚构击杀延长的 C2；
-    % 4. C6 以额外冰棱与回能价值中的伤害部分显式体现。
-    if nargin < 3 || isempty(seqFile)
+function [totalDMG, dps, breakdown, rotationTime, audit] = simulateKaeyaDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
+    % 凯亚高精度近似模拟�?    % 建模要点�?    % 1. E �?Q 分离建模，Q 按持续冰棱段数与 C6 额外冰棱计算�?    % 2. C1 对受冰附着目标的普重击暴击率单独处理；
+    % 3. 默认按速切挂冰轴近似，不虚构击杀延长�?C2�?    % 4. C6 以额外冰棱与回能价值中的伤害部分显式体现�?    if nargin < 3 || isempty(seqFile)
         seqFile = fullfile(fileparts(mfilename('fullpath')), '..', '..', 'data', 'Kaeya', 'rotation_Kaeya.txt');
     end
     if nargin < 4 || isempty(talentLevel)
@@ -47,6 +42,7 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateKaeyaDPS(build, enem
         'ActionTimeMap', struct('E', 0.60, 'Q', 1.00, 'N1', 0.35, 'N2', 0.40, 'N3', 0.48, 'CA', 0.72), ...
         'Actions', actions);
 
-    [totalDMG, dps, breakdown, rotationTime] = simulateSimpleCharacterDPS( ...
+    [totalDMG, dps, breakdown, rotationTime, audit] = simulateSimpleCharacterDPS( ...
         'Kaeya', build, enemy, seqFile, talentLevel, constellation, teamContext, spec);
 end
+

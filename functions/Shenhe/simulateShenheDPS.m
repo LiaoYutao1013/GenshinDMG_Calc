@@ -1,4 +1,4 @@
-function [totalDMG, dps, breakdown, rotationTime] = simulateShenheDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
+function [totalDMG, dps, breakdown, rotationTime, audit] = simulateShenheDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
     % Shenhe simulator for Icy Quills setup and burst field damage.
     if nargin < 3 || isempty(seqFile)
         seqFile = fullfile(fileparts(mfilename('fullpath')), '..', '..', 'data', 'Shenhe', 'rotation_Shenhe.txt');
@@ -33,6 +33,7 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateShenheDPS(build, ene
         'ActionTimeMap', struct('EPress', 0.65, 'EHold', 0.85, 'Q', 1.00, 'DoT', 12.00), ...
         'Actions', actions);
 
-    [totalDMG, dps, breakdown, rotationTime] = simulateSimpleCharacterDPS( ...
+    [totalDMG, dps, breakdown, rotationTime, audit] = simulateSimpleCharacterDPS( ...
         'Shenhe', build, enemy, seqFile, talentLevel, constellation, teamContext, spec);
 end
+

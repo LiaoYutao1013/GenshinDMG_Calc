@@ -1,4 +1,4 @@
-function [totalDMG, dps, breakdown, rotationTime] = simulateNaviaDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
+function [totalDMG, dps, breakdown, rotationTime, audit] = simulateNaviaDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
     % Navia simulator using full Lunaris multipliers for skill shells and burst support fire.
     if nargin < 3 || isempty(seqFile)
         seqFile = fullfile(fileparts(mfilename('fullpath')), '..', '..', 'data', 'Navia', 'rotation_Navia.txt');
@@ -32,6 +32,7 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateNaviaDPS(build, enem
         'ActionTimeMap', struct('Q', 1.10, 'Support', 1.80, 'E', 0.75, 'Blade', 0.35), ...
         'Actions', actions);
 
-    [totalDMG, dps, breakdown, rotationTime] = simulateSimpleCharacterDPS( ...
+    [totalDMG, dps, breakdown, rotationTime, audit] = simulateSimpleCharacterDPS( ...
         'Navia', build, enemy, seqFile, talentLevel, constellation, teamContext, spec);
 end
+

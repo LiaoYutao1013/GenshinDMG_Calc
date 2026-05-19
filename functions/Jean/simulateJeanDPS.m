@@ -1,11 +1,7 @@
-function [totalDMG, dps, breakdown, rotationTime] = simulateJeanDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
-    % 琴高精度近似模拟。
-    % 建模要点：
-    % 1. 区分点按 E、长按 E，以及 Q 落地伤和风场进出伤；
+function [totalDMG, dps, breakdown, rotationTime, audit] = simulateJeanDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
+    % 琴高精度近似模拟�?    % 建模要点�?    % 1. 区分点按 E、长�?E，以�?Q 落地伤和风场进出伤；
     % 2. Q 的治疗不计入 DPS，但伤害段完整保留；
-    % 3. C1/C4 通过 E 长按增伤、Q 场内减风抗直接作用到对应动作；
-    % 4. 默认按速切辅助轴建模，保留一定普攻补刀片段。
-    if nargin < 3 || isempty(seqFile)
+    % 3. C1/C4 通过 E 长按增伤、Q 场内减风抗直接作用到对应动作�?    % 4. 默认按速切辅助轴建模，保留一定普攻补刀片段�?    if nargin < 3 || isempty(seqFile)
         seqFile = fullfile(fileparts(mfilename('fullpath')), '..', '..', 'data', 'Jean', 'rotation_Jean.txt');
     end
     if nargin < 4 || isempty(talentLevel)
@@ -53,6 +49,7 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateJeanDPS(build, enemy
         spec.DefaultRotation = {{'EHold', 'QCast', 'QField', 'N1', 'N2', 'N3'}};
     end
 
-    [totalDMG, dps, breakdown, rotationTime] = simulateSimpleCharacterDPS( ...
+    [totalDMG, dps, breakdown, rotationTime, audit] = simulateSimpleCharacterDPS( ...
         'Jean', build, enemy, seqFile, talentLevel, constellation, teamContext, spec);
 end
+

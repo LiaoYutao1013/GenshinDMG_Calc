@@ -1,4 +1,4 @@
-function [totalDMG, dps, breakdown, rotationTime] = simulateCynoDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
+function [totalDMG, dps, breakdown, rotationTime, audit] = simulateCynoDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
     % Cyno simulator for burst-mode normal loops, Mortuary Rites, and EM scaling.
     if nargin < 3 || isempty(seqFile)
         seqFile = fullfile(fileparts(mfilename('fullpath')), '..', '..', 'data', 'Cyno', 'rotation_Cyno.txt');
@@ -76,6 +76,7 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateCynoDPS(build, enemy
     build.SkillDMGBonus = getFieldOrDefault(build, 'SkillDMGBonus', 0) + 0.20;
     build.BurstDMGBonus = getFieldOrDefault(build, 'BurstDMGBonus', 0) + 0.20;
 
-    [totalDMG, dps, breakdown, rotationTime] = simulateSimpleCharacterDPS( ...
+    [totalDMG, dps, breakdown, rotationTime, audit] = simulateSimpleCharacterDPS( ...
         'Cyno', build, enemy, seqFile, talentLevel, constellation, teamContext, spec);
 end
+

@@ -1,4 +1,4 @@
-function [totalDMG, dps, breakdown, rotationTime] = simulateShikanoinHeizouDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
+function [totalDMG, dps, breakdown, rotationTime, audit] = simulateShikanoinHeizouDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
     % Heizou simulator with declension stacks, swirl-fed setup, and burst iris follow-up.
     if nargin < 3 || isempty(seqFile)
         seqFile = fullfile(fileparts(mfilename('fullpath')), '..', '..', 'data', 'ShikanoinHeizou', 'rotation_ShikanoinHeizou.txt');
@@ -84,7 +84,7 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateShikanoinHeizouDPS(b
             'E', 0.55, 'EHold', 0.78, 'EFull', 0.82, 'Q', 1.00, 'Iris', 0.30), ...
         'Actions', localFinalizeHeizouActions(actions, constellation));
 
-    [totalDMG, dps, breakdown, rotationTime] = simulateSimpleCharacterDPS( ...
+    [totalDMG, dps, breakdown, rotationTime, audit] = simulateSimpleCharacterDPS( ...
         'ShikanoinHeizou', build, enemy, seqFile, talentLevel, constellation, teamContext, spec);
 end
 
@@ -155,3 +155,4 @@ end
 function element = localResolveSwirlElement(teamContext, enemy)
     element = localResolveBurstInfusedElement(teamContext, enemy);
 end
+

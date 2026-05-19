@@ -1,4 +1,4 @@
-function [totalDMG, dps, breakdown, rotationTime] = simulateClorindeDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
+function [totalDMG, dps, breakdown, rotationTime, audit] = simulateClorindeDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
     % Clorinde simulator tracking a Night Vigil loop of Swift Hunt and Impale the Night.
     if nargin < 3 || isempty(seqFile)
         seqFile = fullfile(fileparts(mfilename('fullpath')), '..', '..', 'data', 'Clorinde', 'rotation_Clorinde.txt');
@@ -35,6 +35,7 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateClorindeDPS(build, e
         'ActionTimeMap', struct('E', 0.35, 'Shot', 0.35, 'Lunge', 0.55, 'Surge', 0.18, 'Q', 1.00), ...
         'Actions', actions);
 
-    [totalDMG, dps, breakdown, rotationTime] = simulateSimpleCharacterDPS( ...
+    [totalDMG, dps, breakdown, rotationTime, audit] = simulateSimpleCharacterDPS( ...
         'Clorinde', build, enemy, seqFile, talentLevel, constellation, teamContext, spec);
 end
+

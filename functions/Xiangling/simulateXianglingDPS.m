@@ -1,11 +1,6 @@
-function [totalDMG, dps, breakdown, rotationTime] = simulateXianglingDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
-    % 香菱高精度近似模拟。
-    % 建模要点：
-    % 1. 锅巴拆成持续喷火命中，并在 C1 时为后续火段挂减抗窗口；
-    % 2. 旋火轮拆为起手三段 + 持续轮切段，C4 增加持续时间导致段数增加；
-    % 3. 将 A4 辣椒常驻近似到后半轮转，并把 C2 末段爆炸显式加入；
-    % 4. 默认轴按锅巴 -> Q -> 旋火轮站场切人近似，而不是简单聚合成一段。
-    if nargin < 3 || isempty(seqFile)
+function [totalDMG, dps, breakdown, rotationTime, audit] = simulateXianglingDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
+    % 香菱高精度近似模拟�?    % 建模要点�?    % 1. 锅巴拆成持续喷火命中，并�?C1 时为后续火段挂减抗窗口；
+    % 2. 旋火轮拆为起手三�?+ 持续轮切段，C4 增加持续时间导致段数增加�?    % 3. �?A4 辣椒常驻近似到后半轮转，并把 C2 末段爆炸显式加入�?    % 4. 默认轴按锅巴 -> Q -> 旋火轮站场切人近似，而不是简单聚合成一段�?    if nargin < 3 || isempty(seqFile)
         seqFile = fullfile(fileparts(mfilename('fullpath')), '..', '..', 'data', 'Xiangling', 'rotation_Xiangling.txt');
     end
     if nargin < 4 || isempty(talentLevel)
@@ -67,6 +62,7 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateXianglingDPS(build, 
         'ActionTimeMap', struct('E', 0.80, 'Chili', 0.10, 'QSlash1', 0.15, 'QSlash2', 0.15, 'QSlash3', 0.15, 'Pyronado', 9.80 + 4.00 * double(constellation >= 4), 'N5Explode', 0.10), ...
         'Actions', actions);
 
-    [totalDMG, dps, breakdown, rotationTime] = simulateSimpleCharacterDPS( ...
+    [totalDMG, dps, breakdown, rotationTime, audit] = simulateSimpleCharacterDPS( ...
         'Xiangling', build, enemy, seqFile, talentLevel, constellation, teamContext, spec);
 end
+

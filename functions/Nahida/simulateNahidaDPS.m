@@ -1,4 +1,4 @@
-function [totalDMG, dps, breakdown, rotationTime] = simulateNahidaDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
+function [totalDMG, dps, breakdown, rotationTime, audit] = simulateNahidaDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
     % Nahida simulator focusing on Tri-Karma ticks plus burst-enhanced EM scaling.
     if nargin < 3 || isempty(seqFile)
         seqFile = fullfile(fileparts(mfilename('fullpath')), '..', '..', 'data', 'Nahida', 'rotation_Nahida.txt');
@@ -68,6 +68,7 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateNahidaDPS(build, ene
     build.EM = em;
     build.DendroDMGBonus = getFieldOrDefault(build, 'DendroDMGBonus', 0) + 0.15;
 
-    [totalDMG, dps, breakdown, rotationTime] = simulateSimpleCharacterDPS( ...
+    [totalDMG, dps, breakdown, rotationTime, audit] = simulateSimpleCharacterDPS( ...
         'Nahida', build, enemy, seqFile, talentLevel, constellation, teamContext, spec);
 end
+

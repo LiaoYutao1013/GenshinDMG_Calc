@@ -1,4 +1,4 @@
-function [totalDMG, dps, breakdown, rotationTime] = simulateTighnariDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
+function [totalDMG, dps, breakdown, rotationTime, audit] = simulateTighnariDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
     % Tighnari simulator for aimed shots, Wreath Arrows, and burst volleys.
     if nargin < 3 || isempty(seqFile)
         seqFile = fullfile(fileparts(mfilename('fullpath')), '..', '..', 'data', 'Tighnari', 'rotation_Tighnari.txt');
@@ -51,6 +51,7 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateTighnariDPS(build, e
         'ActionTimeMap', struct('Charge', 0.55, 'Wreath1', 0.10, 'Cluster1', 0.10, 'E', 0.80, 'Q', 1.00, 'Q2', 0.30), ...
         'Actions', actions);
 
-    [totalDMG, dps, breakdown, rotationTime] = simulateSimpleCharacterDPS( ...
+    [totalDMG, dps, breakdown, rotationTime, audit] = simulateSimpleCharacterDPS( ...
         'Tighnari', build, enemy, seqFile, talentLevel, constellation, teamContext, spec);
 end
+

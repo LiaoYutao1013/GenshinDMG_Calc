@@ -1,4 +1,4 @@
-function [totalDMG, dps, breakdown, rotationTime] = simulateSethosDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
+function [totalDMG, dps, breakdown, rotationTime, audit] = simulateSethosDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
     % Sethos simulator emphasizing EM-scaled Shadowpiercing shots and burst bolts.
     if nargin < 3 || isempty(seqFile)
         seqFile = fullfile(fileparts(mfilename('fullpath')), '..', '..', 'data', 'Sethos', 'rotation_Sethos.txt');
@@ -34,6 +34,7 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateSethosDPS(build, ene
         'ActionTimeMap', struct('Aimed', 0.70, 'Shadow', 0.82, 'E', 0.60, 'Q', 0.80, 'BurstBolt', 0.45), ...
         'Actions', actions);
 
-    [totalDMG, dps, breakdown, rotationTime] = simulateSimpleCharacterDPS( ...
+    [totalDMG, dps, breakdown, rotationTime, audit] = simulateSimpleCharacterDPS( ...
         'Sethos', build, enemy, seqFile, talentLevel, constellation, teamContext, spec);
 end
+

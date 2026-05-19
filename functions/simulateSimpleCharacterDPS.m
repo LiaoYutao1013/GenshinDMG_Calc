@@ -23,10 +23,8 @@ function [totalDMG, dps, breakdown, rotationTime, audit] = simulateSimpleCharact
         spec = struct();
     end
 
-    thisFolder = fileparts(mfilename('fullpath'));
-    dataFolder = fullfile(thisFolder, '..', 'data', char(string(characterName)));
-    base = readtable(fullfile(dataFolder, sprintf('characters_%s.csv', char(string(characterName)))));
-    talent = readtable(fullfile(dataFolder, sprintf('talents_%s.csv', char(string(characterName)))));
+    base = readtable(char(resolveCharacterDataFile(characterName, 'characters')));
+    talent = readtable(char(resolveCharacterDataFile(characterName, 'talents')));
     actions = localReadActionSequence(seqFile, spec);
     attackMetadata = loadLunarisAttackMetadata(characterName);
     icdStates = struct();

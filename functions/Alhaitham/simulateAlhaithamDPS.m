@@ -1,4 +1,4 @@
-function [totalDMG, dps, breakdown, rotationTime] = simulateAlhaithamDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
+function [totalDMG, dps, breakdown, rotationTime, audit] = simulateAlhaithamDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
     % Alhaitham simulator for mirror generation, projection attacks, and burst instance scaling.
     if nargin < 3 || isempty(seqFile)
         seqFile = fullfile(fileparts(mfilename('fullpath')), '..', '..', 'data', 'Alhaitham', 'rotation_Alhaitham.txt');
@@ -67,6 +67,7 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateAlhaithamDPS(build, 
     build.EM = getFieldOrDefault(build, 'EM', 0) + 200 * double(constellation >= 2);
     build.DendroDMGBonus = getFieldOrDefault(build, 'DendroDMGBonus', 0) + projectionEMBonus;
 
-    [totalDMG, dps, breakdown, rotationTime] = simulateSimpleCharacterDPS( ...
+    [totalDMG, dps, breakdown, rotationTime, audit] = simulateSimpleCharacterDPS( ...
         'Alhaitham', build, enemy, seqFile, talentLevel, constellation, teamContext, spec);
 end
+

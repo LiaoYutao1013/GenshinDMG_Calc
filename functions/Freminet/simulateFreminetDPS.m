@@ -1,4 +1,4 @@
-function [totalDMG, dps, breakdown, rotationTime] = simulateFreminetDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
+function [totalDMG, dps, breakdown, rotationTime, audit] = simulateFreminetDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
     % Freminet simulator emphasizing Level 4 Shattering Pressure and burst-enhanced frost pressure generation.
     if nargin < 3 || isempty(seqFile)
         seqFile = fullfile(fileparts(mfilename('fullpath')), '..', '..', 'data', 'Freminet', 'rotation_Freminet.txt');
@@ -52,6 +52,8 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateFreminetDPS(build, e
         'ActionTimeMap', struct('E', 0.70, 'Frost', 0.45 * speedFactor, 'BFrost', 0.40 * speedFactor, 'P4', 0.85, 'Q', 1.00, 'Thorn', 0.10), ...
         'Actions', actions);
 
-    [totalDMG, dps, breakdown, rotationTime] = simulateSimpleCharacterDPS( ...
+    [totalDMG, dps, breakdown, rotationTime, audit] = simulateSimpleCharacterDPS( ...
         'Freminet', workBuild, enemy, seqFile, talentLevel, constellation, teamContext, spec);
 end
+
+

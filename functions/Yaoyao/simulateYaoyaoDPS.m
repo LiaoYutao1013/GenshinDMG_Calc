@@ -1,4 +1,4 @@
-function [totalDMG, dps, breakdown, rotationTime] = simulateYaoyaoDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
+function [totalDMG, dps, breakdown, rotationTime, audit] = simulateYaoyaoDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
     % Yaoyao simulator covering Yuegui radishes and Adeptal Legacy barrages.
     if nargin < 3 || isempty(seqFile)
         seqFile = fullfile(fileparts(mfilename('fullpath')), '..', '..', 'data', 'Yaoyao', 'rotation_Yaoyao.txt');
@@ -44,6 +44,7 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateYaoyaoDPS(build, ene
         'ActionTimeMap', struct('E', 0.70, 'Radish', 10.00, 'Q', 0.95, 'BurstRadish', 5.00), ...
         'Actions', actions);
 
-    [totalDMG, dps, breakdown, rotationTime] = simulateSimpleCharacterDPS( ...
+    [totalDMG, dps, breakdown, rotationTime, audit] = simulateSimpleCharacterDPS( ...
         'Yaoyao', build, enemy, seqFile, talentLevel, constellation, teamContext, spec);
 end
+

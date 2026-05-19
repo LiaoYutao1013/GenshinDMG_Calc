@@ -1,4 +1,4 @@
-function [totalDMG, dps, breakdown, rotationTime] = simulateWriothesleyDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
+function [totalDMG, dps, breakdown, rotationTime, audit] = simulateWriothesleyDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
     % Wriothesley simulator modeling enhanced Cryo normals, Rebuke charged punches, and burst follow-up blades.
     if nargin < 3 || isempty(seqFile)
         seqFile = fullfile(fileparts(mfilename('fullpath')), '..', '..', 'data', 'Wriothesley', 'rotation_Wriothesley.txt');
@@ -69,6 +69,7 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateWriothesleyDPS(build
             'Rebuke', 0.80, 'Q', 1.10, 'Blade', 0.35, 'C6Icicle', 0.10), ...
         'Actions', actions);
 
-    [totalDMG, dps, breakdown, rotationTime] = simulateSimpleCharacterDPS( ...
+    [totalDMG, dps, breakdown, rotationTime, audit] = simulateSimpleCharacterDPS( ...
         'Wriothesley', build, enemy, seqFile, talentLevel, constellation, teamContext, spec);
 end
+

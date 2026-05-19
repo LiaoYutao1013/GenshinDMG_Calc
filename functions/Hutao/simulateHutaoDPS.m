@@ -1,4 +1,4 @@
-function [totalDMG, dps, breakdown, rotationTime] = simulateHutaoDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
+function [totalDMG, dps, breakdown, rotationTime, audit] = simulateHutaoDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
     % Hu Tao simulator focusing on Paramita Papilio charged attacks, Blood Blossom ticks, and low-HP burst.
     if nargin < 3 || isempty(seqFile)
         seqFile = fullfile(fileparts(mfilename('fullpath')), '..', '..', 'data', 'Hutao', 'rotation_Hutao.txt');
@@ -67,6 +67,7 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateHutaoDPS(build, enem
         'ActionTimeMap', struct('E', 0.65, 'N1', 0.28, 'CA', 0.75, 'Blossom', 0.10, 'Q', 1.05), ...
         'Actions', actions);
 
-    [totalDMG, dps, breakdown, rotationTime] = simulateSimpleCharacterDPS( ...
+    [totalDMG, dps, breakdown, rotationTime, audit] = simulateSimpleCharacterDPS( ...
         'Hutao', workBuild, enemy, seqFile, talentLevel, constellation, teamContext, spec);
 end
+

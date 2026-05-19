@@ -1,4 +1,4 @@
-function [totalDMG, dps, breakdown, rotationTime] = simulateLynetteDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
+function [totalDMG, dps, breakdown, rotationTime, audit] = simulateLynetteDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
     % Lynette simulator covering quickswap skill, Ousia blade, and burst box plus converted shots.
     if nargin < 3 || isempty(seqFile)
         seqFile = fullfile(fileparts(mfilename('fullpath')), '..', '..', 'data', 'Lynette', 'rotation_Lynette.txt');
@@ -35,7 +35,7 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateLynetteDPS(build, en
         'ActionTimeMap', struct('E', 0.75, 'Blade', 0.15, 'Q', 1.00, 'Box', 4.50, 'Vivid', 4.50), ...
         'Actions', actions);
 
-    [totalDMG, dps, breakdown, rotationTime] = simulateSimpleCharacterDPS( ...
+    [totalDMG, dps, breakdown, rotationTime, audit] = simulateSimpleCharacterDPS( ...
         'Lynette', build, enemy, seqFile, talentLevel, constellation, teamContext, spec);
 end
 
@@ -50,3 +50,4 @@ function element = localResolveLynetteAbsorbElement(teamContext)
     end
     element = "Anemo";
 end
+

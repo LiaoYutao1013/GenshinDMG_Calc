@@ -1,4 +1,4 @@
-function [totalDMG, dps, breakdown, rotationTime] = simulateAratakiIttoDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
+function [totalDMG, dps, breakdown, rotationTime, audit] = simulateAratakiIttoDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
     % Itto simulator with burst conversion, Superlative Superstrength economy, and DEF conversion.
     if nargin < 3 || isempty(seqFile)
         seqFile = fullfile(fileparts(mfilename('fullpath')), '..', '..', 'data', 'AratakiItto', 'rotation_AratakiItto.txt');
@@ -68,6 +68,7 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateAratakiIttoDPS(build
             'Combo', 1.20, 'Final', 0.42, 'Saichimonji', 0.52), ...
         'Actions', actions);
 
-    [totalDMG, dps, breakdown, rotationTime] = simulateSimpleCharacterDPS( ...
+    [totalDMG, dps, breakdown, rotationTime, audit] = simulateSimpleCharacterDPS( ...
         'AratakiItto', build, enemy, seqFile, talentLevel, constellation, teamContext, spec);
 end
+

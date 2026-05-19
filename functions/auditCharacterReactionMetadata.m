@@ -27,8 +27,19 @@ function audit = auditCharacterReactionMetadata(characterName, overrides, enemy)
     cfg = getDefaultCharacterConfig(characterName, overrides);
     teamContext = buildTeamContext({cfg}, 20, struct('ReactionMode', "Realistic"), enemy);
 
-    [~, ~, ~, ~, audit] = simulateImportedCharacterDPS( ...
-        cfg.Name, cfg.Build, enemy, cfg.RotationFile, cfg.TalentLevel, cfg.Constellation, teamContext);
+    simulatorName = "simulate" + string(cfg.Name) + "DPS";
+    if exist(char(simulatorName), 'file') == 2
+        try
+            [~, ~, ~, ~, audit] = feval(char(simulatorName), ...
+                cfg.Build, enemy, cfg.RotationFile, cfg.TalentLevel, cfg.Constellation, teamContext);
+        catch
+            [~, ~, ~, ~, audit] = simulateImportedCharacterDPS( ...
+                cfg.Name, cfg.Build, enemy, cfg.RotationFile, cfg.TalentLevel, cfg.Constellation, teamContext);
+        end
+    else
+        [~, ~, ~, ~, audit] = simulateImportedCharacterDPS( ...
+            cfg.Name, cfg.Build, enemy, cfg.RotationFile, cfg.TalentLevel, cfg.Constellation, teamContext);
+    end
 
     rows = table();
     if ~isempty(audit) && isfield(audit, 'Rows') && istable(audit.Rows)

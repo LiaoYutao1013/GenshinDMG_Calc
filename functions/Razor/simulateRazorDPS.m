@@ -1,11 +1,6 @@
-function [totalDMG, dps, breakdown, rotationTime] = simulateRazorDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
-    % 雷泽高精度近似模拟。
-    % 建模要点：
-    % 1. E 点按积攒雷之印，长按按层数清空并结算；
-    % 2. Q 开启后普攻与狼魂追击拆开，按常见站场节奏估算段数；
-    % 3. C4 点按减防、C6 落雷与暴击强化窗口显式处理；
-    % 4. 物伤主轴下保留超导减抗由 teamContext 统一提供。
-    if nargin < 3 || isempty(seqFile)
+function [totalDMG, dps, breakdown, rotationTime, audit] = simulateRazorDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
+    % 雷泽高精度近似模拟�?    % 建模要点�?    % 1. E 点按积攒雷之印，长按按层数清空并结算�?    % 2. Q 开启后普攻与狼魂追击拆开，按常见站场节奏估算段数�?    % 3. C4 点按减防、C6 落雷与暴击强化窗口显式处理；
+    % 4. 物伤主轴下保留超导减抗由 teamContext 统一提供�?    if nargin < 3 || isempty(seqFile)
         seqFile = fullfile(fileparts(mfilename('fullpath')), '..', '..', 'data', 'Razor', 'rotation_Razor.txt');
     end
     if nargin < 4 || isempty(talentLevel)
@@ -61,6 +56,7 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateRazorDPS(build, enem
         spec.DefaultRotation = {{'ETap', 'ETap', 'EHold', 'Q', 'N1', 'N2', 'N3', 'N4', 'Wolf'}};
     end
 
-    [totalDMG, dps, breakdown, rotationTime] = simulateSimpleCharacterDPS( ...
+    [totalDMG, dps, breakdown, rotationTime, audit] = simulateSimpleCharacterDPS( ...
         'Razor', build, enemy, seqFile, talentLevel, constellation, teamContext, spec);
 end
+

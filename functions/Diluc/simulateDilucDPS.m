@@ -1,11 +1,7 @@
-function [totalDMG, dps, breakdown, rotationTime] = simulateDilucDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
-    % 迪卢克高精度近似模拟。
-    % 建模要点：
-    % 1. E 三段分开建模，并显式处理 C4“节奏释放”额外 40%；
-    % 2. Q 拆为起手斩、凤凰路径持续伤、终点爆炸，并开启火附魔窗；
+function [totalDMG, dps, breakdown, rotationTime, audit] = simulateDilucDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
+    % 迪卢克高精度近似模拟�?    % 建模要点�?    % 1. E 三段分开建模，并显式处理 C4“节奏释放”额�?40%�?    % 2. Q 拆为起手斩、凤凰路径持续伤、终点爆炸，并开启火附魔窗；
     % 3. 附魔期间普攻视为火伤，A4 额外火伤加成始终写入该窗口；
-    % 4. C6 将 E 后两次普攻增伤单独拆成动作，避免直接粗暴平均。
-    if nargin < 3 || isempty(seqFile)
+    % 4. C6 �?E 后两次普攻增伤单独拆成动作，避免直接粗暴平均�?    if nargin < 3 || isempty(seqFile)
         seqFile = fullfile(fileparts(mfilename('fullpath')), '..', '..', 'data', 'Diluc', 'rotation_Diluc.txt');
     end
     if nargin < 4 || isempty(talentLevel)
@@ -97,6 +93,7 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateDilucDPS(build, enem
         spec.DefaultRotation = {{'Q1', 'QPhoenix', 'Q2', 'E1', 'NA6A', 'E2Rhythm', 'NA6B', 'E3Rhythm', 'N3', 'N4'}};
     end
 
-    [totalDMG, dps, breakdown, rotationTime] = simulateSimpleCharacterDPS( ...
+    [totalDMG, dps, breakdown, rotationTime, audit] = simulateSimpleCharacterDPS( ...
         'Diluc', build, enemy, seqFile, talentLevel, constellation, teamContext, spec);
 end
+
