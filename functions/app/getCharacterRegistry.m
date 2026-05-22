@@ -203,6 +203,8 @@ function aliasMap = localCharacterAliasMap()
     aliasMap('Kokomi') = struct('Key', "SangonomiyaKokomi", 'DisplayName', "Sangonomiya Kokomi", 'AvatarKey', "Kokomi", 'Include', true);
     aliasMap('Sara') = struct('Key', "KujouSara", 'DisplayName', "Kujou Sara", 'AvatarKey', "Sara", 'Include', true);
     aliasMap('Kazuha') = struct('Key', "KaedeharaKazuha", 'DisplayName', "Kaedehara Kazuha", 'AvatarKey', "Kazuha", 'Include', true);
+    aliasMap('Sandrone') = struct('Key', "Sandrone", 'DisplayName', "Sandrone", 'AvatarKey', "MarionetteNew", 'Include', true);
+    aliasMap('MarionetteNew') = struct('Key', "Sandrone", 'DisplayName', "Sandrone", 'AvatarKey', "MarionetteNew", 'Include', true);
 end
 
 function mapping = localResolveCharacterMapping(rawName, aliasMap)

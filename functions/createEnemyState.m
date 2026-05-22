@@ -161,6 +161,8 @@ function aura = localInferSupportAura(triggerElement, teamContext)
                 aura = "Pyro";
             elseif hydroCount >= 1
                 aura = "Hydro";
+            elseif electroCount >= 1
+                aura = "Electro";
             else
                 aura = "";
             end

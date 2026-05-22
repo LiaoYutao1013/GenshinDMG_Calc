@@ -4,7 +4,7 @@
     "description": "A young lady who has inherited trace amounts of non-human blood. She is the incredibly popular bartender of the Cat's Tail tavern.",
     "rarity": "QUALITY_PURPLE",
     "weapon": "WEAPON_BOW",
-    "birthday": "18/1",
+    "birthday": "0/1",
     "element": "Cryo",
     "title": "Kätzlein Cocktail",
     "constellation": "Feles",
@@ -1179,7 +1179,11 @@
       "description": "When a Perfect Cooking is achieved on a dish with restorative effects, there is a 12% chance to obtain double the product.",
       "icon": "UI_Talent_Cook_Heal"
     },
-    "p4": ""
+    "p4": {
+      "name": "Choice Treasures",
+      "description": "Within 20s after using the Elemental Skill <color=#FFD780FF>Icy Paws</color>, Diona will also fire off three <color=#FFD780FF>Icy Paws</color> when nearby party members trigger Superconduct, Stellar-Conduct, or Cryo Swirl reactions. <color=#FFD780FF>Icy Paws</color> fired this way cannot generate Elemental Particles, nor will they generate a shield upon hitting opponents. This effect can occur once every 3.5s.",
+      "icon": "UI_Talent_S_Diona_08"
+    }
   },
   "constellations": {
     "const1": {
@@ -1209,7 +1213,7 @@
     },
     "const6": {
       "name": "Cat's Tail Closing Time",
-      "description": "Characters within <color=#FFD780FF>Signature Mix</color>'s radius will gain the following effects based on their HP amounts:\\n·Increases Incoming Healing Bonus by 30% when HP falls below or is equal to 50%.\\n·Elemental Mastery increased by 200 when HP is above 50%.",
+      "description": "Characters within <color=#FFD780FF>Signature Mix</color>'s radius gain the following effects based on their HP levels:\\n· The Incoming Healing Bonus is increased by 30% when HP is at, or lower than, 50%.\\n· Elemental Mastery is increased by 200 when HP is above 50%.\\n\\nAdditionally, Diona's Max HP is increased by 25%, and characters within <color=#FFD780FF>Signature Mix</color>'s radius deal 40% increased Superconduct, Stellar-Conduct, and Cryo Swirl Reaction DMG.",
       "icon": "UI_Talent_S_Diona_04"
     }
   },
@@ -1756,6 +1760,17 @@
     },
     {
       "name": "ElementalArt_Bullet_Material",
+      "icd_source": "Tag: Elemental_Art (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV2/30",
+      "element": "Ice",
+      "attackType": "Default",
+      "strikeType": "Pierce",
+      "damageParam": "ElementalArt_Damage"
+    },
+    {
+      "name": "ElementalArt_Bullet_Material_New",
       "icd_source": "Tag: Elemental_Art (!)",
       "icd_rule": "Independent",
       "gauge": "1U",

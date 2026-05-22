@@ -1,4 +1,4 @@
-function cfg = getDefaultCharacterConfig(name, overrides)
+﻿function cfg = getDefaultCharacterConfig(name, overrides)
     % Unified default config registry for standalone and team entries.
     initProjectPaths();
     if nargin < 2
@@ -79,6 +79,9 @@ function cfg = getDefaultCharacterConfig(name, overrides)
 
         case {'nicole'}
             cfg = localBaseConfig('Nicole', customArtifact_Nicole(), fullfile(projectRoot, 'data', 'Nicole', 'rotation_Nicole.txt'));
+
+        case {'sandrone', 'marionettenew'}
+            cfg = localBaseConfig('Sandrone', customArtifact_Sandrone(), fullfile(projectRoot, 'data', 'Sandrone', 'rotation_Sandrone.txt'));
 
         case {'kamisato ayaka', 'ayaka', 'kamisatoayaka'}
             cfg = localBaseConfig('KamisatoAyaka', customArtifact_KamisatoAyaka(), fullfile(projectRoot, 'data', 'KamisatoAyaka', 'rotation_KamisatoAyaka.txt'));

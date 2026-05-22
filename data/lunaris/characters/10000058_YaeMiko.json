@@ -4,7 +4,7 @@
     "description": "Lady Guuji of the Grand Narukami Shrine. Also serves as the editor-in-chief of Yae Publishing House. Unimaginable intelligence and cunning are hidden under her beautiful appearance.",
     "rarity": "QUALITY_ORANGE",
     "weapon": "WEAPON_CATALYST",
-    "birthday": "27/6",
+    "birthday": "0/6",
     "element": "Electro",
     "title": "Astute Amusement",
     "constellation": "Divina Vulpes",
@@ -1091,7 +1091,7 @@
           "90"
         ]
       },
-      "description": "Legends of \"kitsunetsuki,\" or the manifestation of a kitsune's might, are common in Inazuma's folktales. One that particularly captures the imagination is that of the Sky Kitsune, said to cause lightning to fall down upon the foes of the Grand Narukami Shrine. Summons a lightning strike, dealing <color=#FFACFFFF>AoE Electro DMG</color>.\\nWhen she uses this skill, Yae Miko will unseal nearby Sesshou Sakura, destroying their outer forms and transforming them into Tenko Thunderbolts that descend from the skies, dealing <color=#FFACFFFF>AoE Electro DMG</color>. Each Sesshou Sakura destroyed in this way will create one Tenko Thunderbolt.\\n\\n<i>Only at times like these will Yae reveal her Sky Kitsune form and wield lightning itself. None have seen the Lady Guuji's tails and lived to tell the story... so remember, as far as you are concerned, Lady Yae does not have a tail.</i>"
+      "description": "Legends of \"kitsunetsuki,\" or the manifestation of a kitsune's might, are common in Inazuma's folktales. One that particularly captures the imagination is that of the Sky Kitsune, said to cause lightning to fall down upon the foes of the Grand Narukami Shrine. Summons a lightning strike, dealing <color=#FFACFFFF>AoE Electro DMG</color>.\\nWhen this is cast, Yae Miko will transform nearby Sesshou Sakura into Tenko Thunderbolts that descend from the skies, dealing <color=#FFACFFFF>AoE Electro DMG</color>. Each Sesshou Sakura within range transforms into one Tenko Thunderbolt.\\n\\n<i>Only at times like these will Yae reveal her Sky Kitsune form and wield lightning itself. None have seen the Lady Guuji's tails and lived to tell the story... so remember, as far as you are concerned, Lady Yae does not have a tail.</i>"
     },
     "leveling": {
       "crown": {
@@ -1128,17 +1128,21 @@
       "description": "Has a 25% chance to get 1 regional Character Talent Material (base material excluded) when crafting. The rarity is that of the base material.",
       "icon": "UI_Talent_S_Yae_07"
     },
-    "p4": ""
+    "p4": {
+      "name": "Edict of Cleansing",
+      "description": "Extends the duration of the Sesshou Sakura by 10s. When a nearby party member triggers a Superconduct or Stellar-Conduct reaction, the next instance of Sesshou Sakura lightning is enhanced as follows: DMG dealt is increased at 80% of Yae Miko's ATK. This effect can trigger once every 2.5s. If your Yae Miko is in the <color=#FFD780FF>Radiance: Stellar-Conduct</color> state, a lightning hit on the opponent will also cause an additional instance of <color=#FFACFFFF>Electro DMG</color> at 125% of Yae Miko's ATK. This DMG is considered Stellar-Conduct DMG.",
+      "icon": "UI_Talent_S_Yae_08"
+    }
   },
   "constellations": {
     "const1": {
       "name": "Yakan Offering",
-      "description": "Each time <color=#FFD780FF>Great Secret Art: Tenko Kenshin</color> activates a Tenko Thunderbolt, Yae Miko will restore 8 Elemental Energy for herself.",
+      "description": "Each time <color=#FFD780FF>Great Secret Art: Tenko Kenshin</color> activates a Tenko Thunderbolt, Yae Miko restores 8 Elemental Energy to herself. After Yae Miko triggers a Superconduct or Stellar-Conduct reaction, or deals Stellar-Conduct DMG, nearby party members will gain a 40% Electro DMG and Stellar-Conduct DMG Bonus for 8s. Triggering these reactions again will refresh the duration of the DMG bonuses.",
       "icon": "UI_Talent_S_Yae_01"
     },
     "const2": {
       "name": "Fox's Mooncall",
-      "description": "<color=#FFD780FF>Sesshou Sakura</color> start at Level 2 when created, their max level is increased to 4, and their attack range is increased by 60%.",
+      "description": "<color=#FFD780FF>Sesshou Sakura</color> start at Level 2 when created, their max level is increased to 4, and their attack range is increased by 60%. Additionally, when there are Sesshou Sakura in the field, Yae Miko's and your current active character's Elemental Mastery will also be increased by 60/90/120/200 points, depending on the level of the Sesshou Sakura.",
       "icon": "UI_Talent_S_Yae_02"
     },
     "const3": {
@@ -1148,7 +1152,7 @@
     },
     "const4": {
       "name": "Sakura Channeling",
-      "description": "When <color=#FFD780FF>Sesshou Sakura</color> lightning hits opponents, the <color=#FFACFFFF>Electro DMG Bonus</color> of all nearby party members is increased by 20% for 5s.",
+      "description": "When <color=#FFD780FF>Sesshou Sakura</color> lightning hits opponents, the <color=#FFACFFFF>Electro DMG Bonus</color> of all nearby party members is increased by 20% for 5s, and Yae Miko regenerates 8 Elemental Energy. The aforementioned Elemental Energy recovery effect can trigger once every 5s. Additionally, Yae Miko's Elemental Burst DMG is increased by 100%.",
       "icon": "UI_Talent_S_Yae_03"
     },
     "const5": {
@@ -1158,7 +1162,7 @@
     },
     "const6": {
       "name": "Forbidden Art: Daisesshou",
-      "description": "<color=#FFD780FF>The Sesshou Sakura's</color> attacks will ignore 60% of the opponents' DEF.",
+      "description": "<color=#FFD780FF>Sesshou Sakura's</color> attacks will ignore 60% of the opponents' DEF. The CRIT DMG of Yae Miko's Stellar-Conduct Electro DMG is increased by 150%.",
       "icon": "UI_Talent_S_Yae_04"
     }
   },
@@ -1819,12 +1823,34 @@
       "name": "FoxTower_ThunderFall_Level1",
       "icd_source": "Tag: Elemental_Art (!)",
       "icd_rule": "Independent",
+      "gauge": "0U",
+      "poise": "LV2/50",
+      "element": "Electric",
+      "attackType": "Default",
+      "strikeType": "-",
+      "damageParam": "FoxTower_Damage_Level_1"
+    },
+    {
+      "name": "FoxTower_ThunderFall_Level1",
+      "icd_source": "Tag: Elemental_Art (!)",
+      "icd_rule": "Independent",
       "gauge": "1U",
       "poise": "LV2/25",
       "element": "Electric",
       "attackType": "Default",
       "strikeType": "-",
       "damageParam": "FoxTower_Damage_Level_1"
+    },
+    {
+      "name": "FoxTower_ThunderFall_Level2",
+      "icd_source": "Tag: Elemental_Art (!)",
+      "icd_rule": "Independent",
+      "gauge": "0U",
+      "poise": "LV2/50",
+      "element": "Electric",
+      "attackType": "Default",
+      "strikeType": "-",
+      "damageParam": "FoxTower_Damage_Level_2"
     },
     {
       "name": "FoxTower_ThunderFall_Level2",
@@ -1841,12 +1867,34 @@
       "name": "FoxTower_ThunderFall_Level3",
       "icd_source": "Tag: Elemental_Art (!)",
       "icd_rule": "Independent",
+      "gauge": "0U",
+      "poise": "LV2/50",
+      "element": "Electric",
+      "attackType": "Default",
+      "strikeType": "-",
+      "damageParam": "FoxTower_Damage_Level_3"
+    },
+    {
+      "name": "FoxTower_ThunderFall_Level3",
+      "icd_source": "Tag: Elemental_Art (!)",
+      "icd_rule": "Independent",
       "gauge": "1U",
       "poise": "LV2/25",
       "element": "Electric",
       "attackType": "Default",
       "strikeType": "-",
       "damageParam": "FoxTower_Damage_Level_3"
+    },
+    {
+      "name": "FoxTower_ThunderFall_Level4",
+      "icd_source": "Tag: Elemental_Art (!)",
+      "icd_rule": "Independent",
+      "gauge": "0U",
+      "poise": "LV2/50",
+      "element": "Electric",
+      "attackType": "Default",
+      "strikeType": "-",
+      "damageParam": "FoxTower_Damage_Level_4"
     },
     {
       "name": "FoxTower_ThunderFall_Level4",
@@ -1902,6 +1950,39 @@
       "attackType": "Default",
       "strikeType": "-",
       "damageParam": "TowerExplosion_Damage"
+    },
+    {
+      "name": "PermanentSkill_3",
+      "icd_source": "Tag: StarSuperconductorElectricDamage (!)",
+      "icd_rule": "Independent",
+      "gauge": "0U",
+      "poise": "LV2/110",
+      "element": "Electric",
+      "attackType": "Range",
+      "strikeType": "Pierce",
+      "damageParam": "-"
+    },
+    {
+      "name": "PermanentSkill_3",
+      "icd_source": "Grp: default",
+      "icd_rule": "Standard (3h/2.5s)",
+      "gauge": "0U",
+      "poise": "LV2/25",
+      "element": "Electric",
+      "attackType": "Default",
+      "strikeType": "-",
+      "damageParam": "AS_Permanent3_ThunderDMG"
+    },
+    {
+      "name": "PermanentSkill_3",
+      "icd_source": "Tag: StarSuperconductorElectricDamage (!)",
+      "icd_rule": "Independent",
+      "gauge": "0U",
+      "poise": "LV2/30",
+      "element": "Electric",
+      "attackType": "Melee",
+      "strikeType": "-",
+      "damageParam": "-"
     },
     {
       "name": "FallingAnthem",

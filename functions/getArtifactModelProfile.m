@@ -32,21 +32,18 @@ function profile = getArtifactModelProfile(characterName, build)
             profile.CircletMainStat = "CritRate";
             profile.ApplySetBonuses = true;
             profile.AssumeBondOfLifeStacks = 3;
-
         case 'furina'
             profile.SandsMainStat = "HPBonus";
             profile.GobletMainStat = "HydroDMGBonus";
             profile.CircletMainStat = "CritRate";
             profile.ApplySetBonuses = true;
             profile.AssumeOffFieldSkill = true;
-
         case 'neuvillette'
             profile.SandsMainStat = "HPBonus";
             profile.GobletMainStat = "HydroDMGBonus";
             profile.CircletMainStat = "CritRate";
             profile.ApplySetBonuses = true;
             profile.AssumeMarechausseeStacks = 3;
-
         case 'skirk'
             profile.SandsMainStat = "AtkBonus";
             profile.GobletMainStat = "CryoDMGBonus";
@@ -54,32 +51,27 @@ function profile = getArtifactModelProfile(characterName, build)
             profile.ApplySetBonuses = true;
             profile.AssumeCryoAura = true;
             profile.AssumeFrozen = true;
-
         case 'escoffier'
             profile.SandsMainStat = "AtkBonus";
             profile.GobletMainStat = "CryoDMGBonus";
             profile.CircletMainStat = "CritRate";
             profile.ApplySetBonuses = true;
             profile.AssumeOffFieldSkill = true;
-
         case 'citlali'
             profile.SandsMainStat = "EM";
             profile.GobletMainStat = "CryoDMGBonus";
             profile.CircletMainStat = "EM";
             profile.ApplySetBonuses = true;
-
         case 'lauma'
             profile.SandsMainStat = "EM";
             profile.GobletMainStat = "DendroDMGBonus";
             profile.CircletMainStat = "EM";
             profile.ApplySetBonuses = true;
-
         case 'nefer'
             profile.SandsMainStat = "EM";
             profile.GobletMainStat = "DendroDMGBonus";
             profile.CircletMainStat = "CritRate";
             profile.ApplySetBonuses = true;
-
         case 'xilonen'
             profile.SandsMainStat = "DEFBonus";
             profile.GobletMainStat = "GeoDMGBonus";
@@ -87,28 +79,29 @@ function profile = getArtifactModelProfile(characterName, build)
             profile.ApplySetBonuses = true;
             profile.AssumeHuskStacks = 4;
             profile.AssumeNightsoulBlessing = true;
-
         case 'zibai'
             profile.SandsMainStat = "DEFBonus";
             profile.GobletMainStat = "GeoDMGBonus";
             profile.CircletMainStat = "CritRate";
             profile.ApplySetBonuses = true;
             profile.AssumeHuskStacks = 4;
-
         case 'linnea'
             profile.SandsMainStat = "DEFBonus";
             profile.GobletMainStat = "GeoDMGBonus";
             profile.CircletMainStat = "CritRate";
             profile.ApplySetBonuses = true;
             profile.AssumeHuskStacks = 4;
-
         case 'nicole'
             profile.SandsMainStat = "AtkBonus";
             profile.GobletMainStat = "PyroDMGBonus";
             profile.CircletMainStat = "CritRate";
             profile.ApplySetBonuses = true;
             profile.AssumeOffFieldSkill = true;
-
+        case 'sandrone'
+            profile.SandsMainStat = "AtkBonus";
+            profile.GobletMainStat = "CryoDMGBonus";
+            profile.CircletMainStat = "CritRate";
+            profile.ApplySetBonuses = true;
         case 'kamisatoayaka'
             profile.SandsMainStat = "AtkBonus";
             profile.GobletMainStat = "CryoDMGBonus";
@@ -116,67 +109,56 @@ function profile = getArtifactModelProfile(characterName, build)
             profile.ApplySetBonuses = true;
             profile.AssumeCryoAura = true;
             profile.AssumeFrozen = true;
-
         case 'jean'
             profile.SandsMainStat = "AtkBonus";
             profile.GobletMainStat = "AnemoDMGBonus";
             profile.CircletMainStat = "HealingBonus";
             profile.ApplySetBonuses = true;
-
         case 'lisa'
             profile.SandsMainStat = "AtkBonus";
             profile.GobletMainStat = "ElectroDMGBonus";
             profile.CircletMainStat = "CritRate";
             profile.ApplySetBonuses = true;
-
         case 'barbara'
             profile.SandsMainStat = "HPBonus";
             profile.GobletMainStat = "HPBonus";
             profile.CircletMainStat = "HealingBonus";
             profile.ApplySetBonuses = true;
-
         case 'kaeya'
             profile.SandsMainStat = "AtkBonus";
             profile.GobletMainStat = "CryoDMGBonus";
             profile.CircletMainStat = "CritRate";
             profile.ApplySetBonuses = true;
             profile.AssumeCryoAura = true;
-
         case 'diluc'
             profile.SandsMainStat = "AtkBonus";
             profile.GobletMainStat = "PyroDMGBonus";
             profile.CircletMainStat = "CritRate";
             profile.ApplySetBonuses = true;
-
         case 'razor'
             profile.SandsMainStat = "AtkBonus";
             profile.GobletMainStat = "PhysicalDMGBonus";
             profile.CircletMainStat = "CritRate";
             profile.ApplySetBonuses = true;
-
         case 'amber'
             profile.SandsMainStat = "AtkBonus";
             profile.GobletMainStat = "PyroDMGBonus";
             profile.CircletMainStat = "CritRate";
             profile.ApplySetBonuses = true;
-
         case 'venti'
             profile.SandsMainStat = "EM";
             profile.GobletMainStat = "AnemoDMGBonus";
             profile.CircletMainStat = "EM";
             profile.ApplySetBonuses = true;
-
         case 'xiangling'
             profile.SandsMainStat = "ER";
             profile.GobletMainStat = "PyroDMGBonus";
             profile.CircletMainStat = "CritRate";
             profile.ApplySetBonuses = true;
-
         case 'nilou'
             profile.SandsMainStat = "HPBonus";
             profile.GobletMainStat = "HydroDMGBonus";
             profile.CircletMainStat = "HPBonus";
-
         case 'chasca'
             profile.SandsMainStat = "AtkBonus";
             profile.GobletMainStat = "AnemoDMGBonus";
@@ -184,32 +166,26 @@ function profile = getArtifactModelProfile(characterName, build)
             profile.ApplySetBonuses = true;
             profile.AssumeNightsoulBlessing = true;
             profile.AssumeObsidianActive = true;
-
         case 'chevreuse'
             profile.SandsMainStat = "HPBonus";
             profile.GobletMainStat = "PyroDMGBonus";
             profile.CircletMainStat = "HealingBonus";
-
         case 'iansan'
             profile.SandsMainStat = "AtkBonus";
             profile.GobletMainStat = "ElectroDMGBonus";
             profile.CircletMainStat = "CritRate";
-
         case 'ineffa'
             profile.SandsMainStat = "AtkBonus";
             profile.GobletMainStat = "ElectroDMGBonus";
             profile.CircletMainStat = "CritRate";
-
         case 'flins'
             profile.SandsMainStat = "AtkBonus";
             profile.GobletMainStat = "ElectroDMGBonus";
             profile.CircletMainStat = "CritRate";
-
         case 'mavuika'
             profile.SandsMainStat = "AtkBonus";
             profile.GobletMainStat = "PyroDMGBonus";
             profile.CircletMainStat = "CritRate";
-
         case 'mualani'
             profile.SandsMainStat = "HPBonus";
             profile.GobletMainStat = "HydroDMGBonus";
@@ -218,7 +194,6 @@ function profile = getArtifactModelProfile(characterName, build)
             profile.AssumeNightsoulBlessing = true;
             profile.AssumeObsidianActive = true;
             profile.AssumeNymphStacks = 3;
-
         case 'varesa'
             profile.SandsMainStat = "AtkBonus";
             profile.GobletMainStat = "ElectroDMGBonus";
@@ -226,245 +201,205 @@ function profile = getArtifactModelProfile(characterName, build)
             profile.ApplySetBonuses = true;
             profile.AssumeNightsoulBlessing = true;
             profile.AssumeObsidianActive = true;
-
         case 'durin'
             profile.SandsMainStat = "AtkBonus";
             profile.GobletMainStat = "PyroDMGBonus";
             profile.CircletMainStat = "CritRate";
-
         case 'hutao'
             profile.SandsMainStat = "HPBonus";
             profile.GobletMainStat = "PyroDMGBonus";
             profile.CircletMainStat = "CritRate";
             profile.ApplySetBonuses = true;
-
         case 'charlotte'
             profile.SandsMainStat = "ER";
             profile.GobletMainStat = "CryoDMGBonus";
             profile.CircletMainStat = "HealingBonus";
             profile.ApplySetBonuses = true;
-
         case 'wriothesley'
             profile.SandsMainStat = "AtkBonus";
             profile.GobletMainStat = "CryoDMGBonus";
             profile.CircletMainStat = "CritRate";
             profile.ApplySetBonuses = true;
             profile.AssumeMarechausseeStacks = 3;
-
         case 'freminet'
             profile.SandsMainStat = "AtkBonus";
             profile.GobletMainStat = "PhysicalDMGBonus";
             profile.CircletMainStat = "CritRate";
             profile.ApplySetBonuses = true;
-
         case 'lyney'
             profile.SandsMainStat = "AtkBonus";
             profile.GobletMainStat = "PyroDMGBonus";
             profile.CircletMainStat = "CritRate";
             profile.ApplySetBonuses = true;
             profile.AssumeMarechausseeStacks = 3;
-
         case 'lynette'
             profile.SandsMainStat = "AtkBonus";
             profile.GobletMainStat = "AnemoDMGBonus";
             profile.CircletMainStat = "CritRate";
             profile.ApplySetBonuses = true;
-
         case 'baizhu'
             profile.SandsMainStat = "HPBonus";
             profile.GobletMainStat = "HPBonus";
             profile.CircletMainStat = "HealingBonus";
             profile.ApplySetBonuses = true;
-
         case 'kaveh'
             profile.SandsMainStat = "EM";
             profile.GobletMainStat = "DendroDMGBonus";
             profile.CircletMainStat = "EM";
             profile.ApplySetBonuses = true;
-
         case 'mika'
             profile.SandsMainStat = "ER";
             profile.GobletMainStat = "HPBonus";
             profile.CircletMainStat = "HealingBonus";
             profile.ApplySetBonuses = true;
-
         case 'dehya'
             profile.SandsMainStat = "HPBonus";
             profile.GobletMainStat = "PyroDMGBonus";
             profile.CircletMainStat = "CritRate";
             profile.ApplySetBonuses = true;
-
         case 'alhaitham'
             profile.SandsMainStat = "EM";
             profile.GobletMainStat = "DendroDMGBonus";
             profile.CircletMainStat = "CritRate";
             profile.ApplySetBonuses = true;
-
         case 'yaoyao'
             profile.SandsMainStat = "HPBonus";
             profile.GobletMainStat = "HPBonus";
             profile.CircletMainStat = "HealingBonus";
             profile.ApplySetBonuses = true;
-
         case 'faruzan'
             profile.SandsMainStat = "ER";
             profile.GobletMainStat = "AnemoDMGBonus";
             profile.CircletMainStat = "CritRate";
             profile.ApplySetBonuses = true;
-
         case 'wanderer'
             profile.SandsMainStat = "AtkBonus";
             profile.GobletMainStat = "AnemoDMGBonus";
             profile.CircletMainStat = "CritRate";
             profile.ApplySetBonuses = true;
-
         case 'layla'
             profile.SandsMainStat = "HPBonus";
             profile.GobletMainStat = "CryoDMGBonus";
             profile.CircletMainStat = "CritRate";
             profile.ApplySetBonuses = true;
-
         case 'nahida'
             profile.SandsMainStat = "EM";
             profile.GobletMainStat = "DendroDMGBonus";
             profile.CircletMainStat = "EM";
             profile.ApplySetBonuses = true;
-
         case 'candace'
             profile.SandsMainStat = "HPBonus";
             profile.GobletMainStat = "HydroDMGBonus";
             profile.CircletMainStat = "HPBonus";
             profile.ApplySetBonuses = true;
-
         case 'cyno'
             profile.SandsMainStat = "EM";
             profile.GobletMainStat = "ElectroDMGBonus";
             profile.CircletMainStat = "CritRate";
             profile.ApplySetBonuses = true;
-
         case 'dori'
             profile.SandsMainStat = "ER";
             profile.GobletMainStat = "ElectroDMGBonus";
             profile.CircletMainStat = "HealingBonus";
             profile.ApplySetBonuses = true;
-
         case 'collei'
             profile.SandsMainStat = "ER";
             profile.GobletMainStat = "DendroDMGBonus";
             profile.CircletMainStat = "CritRate";
             profile.ApplySetBonuses = true;
-
         case 'tighnari'
             profile.SandsMainStat = "EM";
             profile.GobletMainStat = "DendroDMGBonus";
             profile.CircletMainStat = "CritRate";
             profile.ApplySetBonuses = true;
-
         case 'kamisatoayato'
             profile.SandsMainStat = "AtkBonus";
             profile.GobletMainStat = "HydroDMGBonus";
             profile.CircletMainStat = "CritRate";
             profile.ApplySetBonuses = true;
-
         case 'kukishinobu'
             profile.SandsMainStat = "EM";
             profile.GobletMainStat = "ElectroDMGBonus";
             profile.CircletMainStat = "EM";
             profile.ApplySetBonuses = true;
-
         case 'yunjin'
             profile.SandsMainStat = "DEFBonus";
             profile.GobletMainStat = "GeoDMGBonus";
             profile.CircletMainStat = "CritRate";
             profile.ApplySetBonuses = true;
-
         case 'shenhe'
             profile.SandsMainStat = "AtkBonus";
             profile.GobletMainStat = "CryoDMGBonus";
             profile.CircletMainStat = "AtkBonus";
             profile.ApplySetBonuses = true;
-
         case 'yelan'
             profile.SandsMainStat = "HPBonus";
             profile.GobletMainStat = "HydroDMGBonus";
             profile.CircletMainStat = "CritRate";
             profile.ApplySetBonuses = true;
-
         case 'shikanoinheizou'
             profile.SandsMainStat = "AtkBonus";
             profile.GobletMainStat = "AnemoDMGBonus";
             profile.CircletMainStat = "CritRate";
             profile.ApplySetBonuses = true;
-
         case 'yaemiko'
             profile.SandsMainStat = "AtkBonus";
             profile.GobletMainStat = "ElectroDMGBonus";
             profile.CircletMainStat = "CritRate";
             profile.ApplySetBonuses = true;
             profile.AssumeOffFieldSkill = true;
-
         case 'aratakiitto'
             profile.SandsMainStat = "DEFBonus";
             profile.GobletMainStat = "GeoDMGBonus";
             profile.CircletMainStat = "CritRate";
             profile.ApplySetBonuses = true;
             profile.AssumeHuskStacks = 4;
-
         case 'gorou'
             profile.SandsMainStat = "DEFBonus";
             profile.GobletMainStat = "GeoDMGBonus";
             profile.CircletMainStat = "CritRate";
             profile.ApplySetBonuses = true;
-
         case 'xianyun'
             profile.SandsMainStat = "AtkBonus";
             profile.GobletMainStat = "AnemoDMGBonus";
             profile.CircletMainStat = "AtkBonus";
             profile.ApplySetBonuses = true;
-
         case 'navia'
             profile.SandsMainStat = "AtkBonus";
             profile.GobletMainStat = "GeoDMGBonus";
             profile.CircletMainStat = "CritRate";
             profile.ApplySetBonuses = true;
-
         case 'gaming'
             profile.SandsMainStat = "AtkBonus";
             profile.GobletMainStat = "PyroDMGBonus";
             profile.CircletMainStat = "CritRate";
             profile.ApplySetBonuses = true;
-
         case 'chiori'
             profile.SandsMainStat = "DEFBonus";
             profile.GobletMainStat = "GeoDMGBonus";
             profile.CircletMainStat = "CritRate";
             profile.ApplySetBonuses = true;
             profile.AssumeHuskStacks = 4;
-
         case 'sigewinne'
             profile.SandsMainStat = "HPBonus";
             profile.GobletMainStat = "HydroDMGBonus";
             profile.CircletMainStat = "CritRate";
             profile.ApplySetBonuses = true;
-
         case 'clorinde'
             profile.SandsMainStat = "AtkBonus";
             profile.GobletMainStat = "ElectroDMGBonus";
             profile.CircletMainStat = "CritRate";
             profile.ApplySetBonuses = true;
-
         case 'emilie'
             profile.SandsMainStat = "AtkBonus";
             profile.GobletMainStat = "DendroDMGBonus";
             profile.CircletMainStat = "CritRate";
             profile.ApplySetBonuses = true;
-
         case 'kachina'
             profile.SandsMainStat = "DEFBonus";
             profile.GobletMainStat = "GeoDMGBonus";
             profile.CircletMainStat = "CritRate";
             profile.ApplySetBonuses = true;
-
         case 'kinich'
             profile.SandsMainStat = "AtkBonus";
             profile.GobletMainStat = "DendroDMGBonus";
@@ -472,13 +407,11 @@ function profile = getArtifactModelProfile(characterName, build)
             profile.ApplySetBonuses = true;
             profile.AssumeNightsoulBlessing = true;
             profile.AssumeObsidianActive = true;
-
         case 'sethos'
             profile.SandsMainStat = "EM";
             profile.GobletMainStat = "ElectroDMGBonus";
             profile.CircletMainStat = "CritRate";
             profile.ApplySetBonuses = true;
-
         case 'ororon'
             profile.SandsMainStat = "AtkBonus";
             profile.GobletMainStat = "ElectroDMGBonus";
@@ -486,63 +419,53 @@ function profile = getArtifactModelProfile(characterName, build)
             profile.ApplySetBonuses = true;
             profile.AssumeNightsoulBlessing = true;
             profile.AssumeObsidianActive = true;
-
         case 'mizuki'
             profile.SandsMainStat = "EM";
             profile.GobletMainStat = "AnemoDMGBonus";
             profile.CircletMainStat = "EM";
             profile.ApplySetBonuses = true;
-
         case 'ifa'
             profile.SandsMainStat = "AtkBonus";
             profile.GobletMainStat = "AnemoDMGBonus";
             profile.CircletMainStat = "CritRate";
             profile.ApplySetBonuses = true;
-
         case 'dahlia'
             profile.SandsMainStat = "AtkBonus";
             profile.GobletMainStat = "HydroDMGBonus";
             profile.CircletMainStat = "CritRate";
             profile.ApplySetBonuses = true;
-
         case 'aino'
             profile.SandsMainStat = "AtkBonus";
             profile.GobletMainStat = "HydroDMGBonus";
             profile.CircletMainStat = "CritRate";
             profile.ApplySetBonuses = true;
-
         case 'jahoda'
             profile.SandsMainStat = "AtkBonus";
             profile.GobletMainStat = "AnemoDMGBonus";
             profile.CircletMainStat = "CritRate";
             profile.ApplySetBonuses = true;
-
         case 'illuga'
             profile.SandsMainStat = "EM";
             profile.GobletMainStat = "GeoDMGBonus";
             profile.CircletMainStat = "CritRate";
             profile.ApplySetBonuses = true;
             profile.AssumeHuskStacks = 4;
-
         case 'varka'
             profile.SandsMainStat = "AtkBonus";
             profile.GobletMainStat = "AnemoDMGBonus";
             profile.CircletMainStat = "CritRate";
             profile.ApplySetBonuses = true;
-
         case 'lohen'
             profile.SandsMainStat = "AtkBonus";
             profile.GobletMainStat = "CryoDMGBonus";
             profile.CircletMainStat = "CritRate";
             profile.ApplySetBonuses = true;
             profile.AssumeCryoAura = true;
-
         case 'prune'
             profile.SandsMainStat = "AtkBonus";
             profile.GobletMainStat = "AnemoDMGBonus";
             profile.CircletMainStat = "CritRate";
             profile.ApplySetBonuses = true;
-
         case 'lanyan'
             profile.SandsMainStat = "AtkBonus";
             profile.GobletMainStat = "AnemoDMGBonus";

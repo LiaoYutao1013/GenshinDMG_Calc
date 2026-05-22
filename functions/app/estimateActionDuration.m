@@ -41,6 +41,17 @@ function duration = estimateActionDuration(characterName, action, fallbackDurati
             duration = 0.95;
         case {"droplet", "drain"}
             duration = 0.35;
+        case {"rebuke", "rebukec2", "luster", "lusterbuffed"}
+            duration = 0.80;
+        case "blade"
+            duration = 0.35;
+        case "herald"
+            duration = 15.00;
+        case {"heraldcoord", "qstellar", "c6icicle", "n3stellar", "n5stellar", "n5stellarbuffed", ...
+                "n3stellarc2", "n5stellarc2", "n5stellarbuffedc2", ...
+                "lusterstellar", "lusterstellarbuffed", "lusterstellarc2", "lusterstellarbuffedc2", ...
+                "n5icicle", "lustericicle"}
+            duration = 0.01;
         case {"switchpneuma", "switchousia"}
             duration = 0.25;
         case {"usher", "cheval", "crab"}

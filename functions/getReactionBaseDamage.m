@@ -20,6 +20,8 @@ function baseDamage = getReactionBaseDamage(reactionName, reactionLevel)
             coefficient = 2.4;
         case 'superconduct'
             coefficient = 1.0;
+        case {'stellarconduct', 'starconduct', 'star_superconduct'}
+            coefficient = 1.0;
         case 'swirl'
             coefficient = 1.2;
         case 'shatter'
@@ -52,4 +54,3 @@ function value = localReactionLevelScalar(level)
     % non-90 level. The current simulator still defaults to level 90.
     value = 1446.853458 * (max(1, level) / 90) ^ 2;
 end
-

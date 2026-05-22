@@ -73,7 +73,9 @@ classdef GenshinDMGApp < handle
         RotationValueLabel
 
         SummaryTable
+        EnergyTable
         BreakdownTable
+        EffectsTable
         TimelineAxes
         BarAxes
     end
@@ -729,7 +731,9 @@ classdef GenshinDMGApp < handle
             tabs.Layout.Column = 1;
 
             summaryTab = uitab(tabs, 'Title', '成员汇总');
+            energyTab = uitab(tabs, 'Title', '能量恢复过程');
             breakdownTab = uitab(tabs, 'Title', '伤害明细');
+            effectsTab = uitab(tabs, 'Title', '持续效果');
             timelineTab = uitab(tabs, 'Title', '输出轴');
             chartTab = uitab(tabs, 'Title', '成员对比');
 
@@ -737,7 +741,15 @@ classdef GenshinDMGApp < handle
                 'Position', [8 8 760 560], ...
                 'RowName', {});
 
+            obj.EnergyTable = uitable(energyTab, ...
+                'Position', [8 8 760 560], ...
+                'RowName', {});
+
             obj.BreakdownTable = uitable(breakdownTab, ...
+                'Position', [8 8 760 560], ...
+                'RowName', {});
+
+            obj.EffectsTable = uitable(effectsTab, ...
                 'Position', [8 8 760 560], ...
                 'RowName', {});
 
@@ -979,7 +991,6 @@ classdef GenshinDMGApp < handle
         function saveSelectedSlotState(obj)
             % 将中间编辑区的构筑表和轮转文本写回当前选中槽位。
             if isempty(obj.BuildTable) || isempty(obj.RotationTextArea) || isempty(obj.Slots)
-                return;
             end
             if obj.SelectedSlot < 1 || obj.SelectedSlot > numel(obj.Slots)
                 return;
@@ -1272,6 +1283,7 @@ classdef GenshinDMGApp < handle
                 'Constellation', slot.Constellation, ...
                 'TalentLevel', slot.TalentLevel, ...
                 'Build', slot.Build, ...
+                'StartTime', slot.StartTime, ...
                 'RotationFile', tempRotationPath);
             memberCfg = getDefaultCharacterConfig(char(slot.CharacterKey), overrides);
         end
@@ -1318,7 +1330,7 @@ classdef GenshinDMGApp < handle
                 obj.LastSimulationMode = "单人";
 
                 summary = obj.buildSingleSummaryTable(result);
-                obj.updateResultTables(summary, result.Breakdown);
+                obj.updateResultTables(summary, result.Breakdown, table(), table());
                 obj.updateKpi(result.TotalDMG, result.DPS, result.RotationTime);
                 obj.renderBarChart(summary);
                 obj.renderTimeline(obj.SelectedSlot, result);
@@ -1348,20 +1360,32 @@ classdef GenshinDMGApp < handle
                 obj.LastMemberResults = memberResults;
                 obj.LastSimulationMode = "整队";
 
-                obj.updateResultTables(teamResult.Summary, teamResult.Breakdown);
+                obj.updateResultTables( ...
+                    teamResult.Summary, ...
+                    teamResult.Breakdown, ...
+                    getFieldOrDefault(teamResult, 'EnergyTimeline', table()), ...
+                    getFieldOrDefault(teamResult, 'ActiveEffectsTable', table()));
                 obj.updateKpi(teamResult.TotalDMG, teamResult.DPS, teamResult.RotationDuration);
                 obj.renderBarChart(teamResult.Summary);
-                obj.renderTimeline(slotIndices, memberResults);
-                obj.setStatus(sprintf('已完成整队模拟，共 %d 名角色。', numel(slotIndices)));
+                obj.renderTimeline(slotIndices, teamResult);
+                obj.setStatus(obj.localBuildTeamStatus(teamResult, numel(slotIndices)));
             catch ME
                 obj.showSimulationError(ME);
             end
         end
 
-        function updateResultTables(obj, summaryTable, breakdownTable)
+        function updateResultTables(obj, summaryTable, breakdownTable, energyTable, effectsTable)
             % 更新右侧结果表格。
             obj.SummaryTable.Data = summaryTable;
+            if nargin < 4 || isempty(energyTable)
+                energyTable = table();
+            end
+            if nargin < 5 || isempty(effectsTable)
+                effectsTable = table();
+            end
+            obj.EnergyTable.Data = energyTable;
             obj.BreakdownTable.Data = breakdownTable;
+            obj.EffectsTable.Data = effectsTable;
         end
 
         function updateKpi(obj, totalDamage, dps, rotationTime)
@@ -1403,6 +1427,11 @@ classdef GenshinDMGApp < handle
             % 根据轮转文本绘制输出轴。
             cla(obj.TimelineAxes);
             hold(obj.TimelineAxes, 'on');
+            if isstruct(results) && isscalar(results) && isfield(results, 'TimelineTable')
+                obj.renderSharedTimeline(results);
+                hold(obj.TimelineAxes, 'off');
+                return;
+            end
 
             if isempty(slotIndexOrList)
                 title(obj.TimelineAxes, '输出轴预览');
@@ -1473,6 +1502,103 @@ classdef GenshinDMGApp < handle
             title(obj.TimelineAxes, sprintf('%s模式：输出轴预览', char(obj.LastSimulationMode)));
             grid(obj.TimelineAxes, 'on');
             hold(obj.TimelineAxes, 'off');
+        end
+
+        function renderSharedTimeline(obj, teamResult)
+            % 根据共享时间线表渲染整队真实时间轴。
+            timelineTable = getFieldOrDefault(teamResult, 'TimelineTable', table());
+            if isempty(timelineTable) || ~istable(timelineTable) || height(timelineTable) == 0
+                title(obj.TimelineAxes, '整队时间线为空');
+                xlabel(obj.TimelineAxes, 'Time (s)');
+                ylabel(obj.TimelineAxes, 'Character');
+                grid(obj.TimelineAxes, 'on');
+                return;
+            end
+
+            names = string(timelineTable.Character);
+            orderedNames = unique(names, 'stable');
+            colors = lines(max(4, numel(orderedNames)));
+            maxEndTime = max([obj.TeamDurationField.Value; timelineTable.EndTime]);
+
+            for i = 1:height(timelineTable)
+                row = timelineTable(i, :);
+                name = string(row.Character);
+                duration = max(0, row.EndTime - row.StartTime);
+                if duration <= 0
+                    duration = 0.05;
+                end
+
+                yCenter = find(orderedNames == name, 1, 'first');
+                if isempty(yCenter)
+                    continue;
+                end
+
+                if strcmpi(char(name), 'Team')
+                    faceColor = [0.88 0.88 0.90];
+                    edgeColor = [0.45 0.45 0.48];
+                else
+                    faceColor = colors(yCenter, :) * 0.82 + 0.18;
+                    edgeColor = colors(yCenter, :);
+                end
+
+                rectangle(obj.TimelineAxes, ...
+                    'Position', [row.StartTime, yCenter - 0.34, duration, 0.68], ...
+                    'FaceColor', faceColor, ...
+                    'EdgeColor', edgeColor, ...
+                    'LineWidth', 1.2);
+
+                if duration >= 0.30
+                    label = char(string(row.Action));
+                    if strlength(string(getFieldOrDefault(row, 'Reaction', ""))) > 0 ...
+                            && ~strcmpi(char(name), 'Team')
+                        label = sprintf('%s | %s', char(string(row.Action)), char(string(row.Reaction)));
+                    end
+                    text(obj.TimelineAxes, row.StartTime + duration / 2, yCenter, label, ...
+                        'HorizontalAlignment', 'center', ...
+                        'VerticalAlignment', 'middle', ...
+                        'FontSize', 9, ...
+                        'Color', [0.08 0.10 0.14], ...
+                        'Interpreter', 'none');
+                end
+            end
+
+            xline(obj.TimelineAxes, obj.TeamDurationField.Value, '--', '团队轴长', ...
+                'Color', [0.68 0.28 0.28], 'LabelVerticalAlignment', 'middle');
+            ylim(obj.TimelineAxes, [0.4, numel(orderedNames) + 0.6]);
+            xlim(obj.TimelineAxes, [0, max(1, maxEndTime + 0.5)]);
+            yticks(obj.TimelineAxes, 1:numel(orderedNames));
+            yticklabels(obj.TimelineAxes, cellstr(orderedNames));
+            xlabel(obj.TimelineAxes, 'Time (s)');
+            ylabel(obj.TimelineAxes, 'Character');
+            title(obj.TimelineAxes, sprintf('%s模式：共享队伍时间线', char(obj.LastSimulationMode)));
+            grid(obj.TimelineAxes, 'on');
+        end
+
+        function message = localBuildTeamStatus(obj, teamResult, slotCount) %#ok<INUSD>
+            archetype = string(getFieldOrDefault(getFieldOrDefault(teamResult, 'ArchetypeInfo', struct()), ...
+                'PrimaryArchetype', ""));
+            secondary = string(getFieldOrDefault(getFieldOrDefault(teamResult, 'ArchetypeInfo', struct()), ...
+                'SecondaryArchetype', ""));
+            if strlength(secondary) > 0
+                archetype = archetype + "/" + secondary;
+            end
+
+            if strlength(archetype) == 0
+                archetype = "Unknown";
+            end
+
+            canLoop = logical(getFieldOrDefault(teamResult, 'CanLoopNextCycle', false));
+            readiness = double(getFieldOrDefault(teamResult, 'LoopReadiness', 0));
+            timelineSummary = getFieldOrDefault(teamResult, 'TimelineSummary', struct());
+            overlapTime = double(getFieldOrDefault(timelineSummary, 'OverlapTime', 0));
+            idleTime = double(getFieldOrDefault(timelineSummary, 'IdleTime', 0));
+            warnings = string(getFieldOrDefault(teamResult, 'PlanningWarnings', strings(0, 1)));
+
+            message = sprintf('Team simulation done: %s | Slots %d | Loop %s | Readiness %.2f | Overlap %.2fs | Idle %.2fs', ...
+                char(archetype), slotCount, obj.localOnOff(canLoop), readiness, overlapTime, idleTime);
+            if ~isempty(warnings)
+                message = sprintf('%s | Warnings %d', message, numel(warnings));
+            end
         end
 
         function [durations, labels] = estimateTimelineBlocks(obj, slot, actions, resultRotationTime)

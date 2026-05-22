@@ -4,7 +4,7 @@
     "description": "Captain of her crew, The Crux. She's quite an unbound and forthright woman.",
     "rarity": "QUALITY_PURPLE",
     "weapon": "WEAPON_CLAYMORE",
-    "birthday": "14/2",
+    "birthday": "0/2",
     "element": "Electro",
     "title": "Uncrowned Lord of the Ocean",
     "constellation": "Victor Mare",
@@ -1196,7 +1196,11 @@
       "description": "Decreases swimming Stamina consumption for your own party members by 20%.\\nNot stackable with Passive Talents that provide the exact same effects.",
       "icon": "UI_Talent_Explosion_Swim"
     },
-    "p4": ""
+    "p4": {
+      "name": "Polaris",
+      "description": "Increases counterattack DMG Bonus every 0.8s while the Skill button is being held down. Additionally, unleashing the enhanced Tidecaller counterattack reduces the Elemental Skill's CD by 4s for each stack of the enhancement (max 2 stacks) active, and each stack will also restore 8 Energy (max 2 stacks). This effect can be triggered once every 15s.",
+      "icon": "UI_Talent_S_Beidou_08"
+    }
   },
   "constellations": {
     "const1": {
@@ -1226,7 +1230,7 @@
     },
     "const6": {
       "name": "Bane of Evil",
-      "description": "During the duration of <color=#FFD780FF>Stormbreaker</color>, the <color=#FFACFFFF>Electro RES</color> of surrounding opponents is decreased by 15%.",
+      "description": "While <color=#FFD780FF>Stormbreaker</color> is active, nearby opponents' <color=#FFACFFFF>Electro RES</color> is reduced by 15%.\\n\\nIf the current active party member is in the Radiance: Stellar-Conduct state, the Cryo RES of nearby opponents will be reduced by 15% while Stormbreaker is active. Additionally, the current active party member's Elemental Mastery is increased by 200.",
       "icon": "UI_Talent_S_Beidou_04"
     }
   },

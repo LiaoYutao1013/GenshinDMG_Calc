@@ -1,0 +1,2 @@
+Weapon,WeaponATK,WeaponSubStatType,WeaponSubStatValue,WeaponRefinement,AtkBonus,FlatATK,HPBonus,FlatHP,CritRate,CritDMG,CryoDMGBonus,ChargedDMGBonus,SkillDMGBonus,BurstDMGBonus,ResShred,ArtifactSet1,ArtifactSet1Pieces,ArtifactSet2,ArtifactSet2Pieces,ArtifactSet4Active
+Beacon of the Reed Sea,608,CR,0.331,1,0.66,311,0.12,1200,0.75,1.88,0.466,0.18,0.2,0.2,0,BlizzardStrayer,2,GladiatorsFinale,2,0

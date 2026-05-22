@@ -4,7 +4,7 @@
     "description": "An apprentice and herb gatherer at Bubu Pharmacy. An undead with a bone-white complexion, she seldom has much in the way of words or emotion.",
     "rarity": "QUALITY_ORANGE",
     "weapon": "WEAPON_SWORD_ONE_HAND",
-    "birthday": "3/3",
+    "birthday": "0/3",
     "element": "Cryo",
     "title": "Icy Resurrection",
     "constellation": "Pristina Nola",
@@ -1033,24 +1033,58 @@
           "15s"
         ],
         "CD": [
-          "30s",
-          "30s",
-          "30s",
-          "30s",
-          "30s",
-          "30s",
-          "30s",
-          "30s",
-          "30s",
-          "30s",
-          "30s",
-          "30s",
-          "30s",
-          "30s",
-          "30s"
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s"
+        ],
+        "HeraldOfFrostCoordinatedAttackDMG": [
+          "24%",
+          "25.8%",
+          "27.6%",
+          "30%",
+          "31.8%",
+          "33.6%",
+          "36%",
+          "38.4%",
+          "40.8%",
+          "43.2%",
+          "45.6%",
+          "48%",
+          "51%",
+          "54%",
+          "57%"
+        ],
+        "HeraldOfFrostCoordinatedAttackCD": [
+          "2.2s",
+          "2.2s",
+          "2.2s",
+          "2.2s",
+          "2.2s",
+          "2.2s",
+          "2.2s",
+          "2.2s",
+          "2.2s",
+          "2.2s",
+          "2.2s",
+          "2.2s",
+          "2.2s",
+          "2.2s",
+          "2.2s"
         ]
       },
-      "description": "Using the Icevein Talisman, Qiqi brings forth the Herald of Frost, dealing <color=#99FFFFFF>Cryo DMG</color> to surrounding opponents.\\n\\n<color=#FFD780FF>Herald of Frost</color>\\n·On hit, Qiqi's Normal and Charged Attacks regenerate HP for your own party members and nearby teammates. Healing scales based on Qiqi's ATK.\\n·Periodically regenerates your active character's HP.\\n·Follows the character around, dealing <color=#99FFFFFF>Cryo DMG</color> to opponents in their path.\\n\\n<i>I use this to prevent warming and rot... of Dr. Bai's precious ingredients. Yes.</i>"
+      "description": "Using the Icevein Talisman, Qiqi brings forth the Herald of Frost, dealing <color=#99FFFFFF>Cryo DMG</color> to surrounding opponents.\\n\\n<color=#FFD780FF>Herald of Frost</color>\\n· On hit, Qiqi's Normal and Charged Attacks regenerate HP for party members and nearby teammates, with healing scaled based on Qiqi's ATK.\\n· Periodically regenerates your active character's HP.\\n· Follows the character around, dealing <color=#99FFFFFF>Cryo DMG</color> to opponents in their path.\\nDuring the skill's duration, if your current active character hits an opponent with an attack, the Herald of Frost will perform a coordinated attack on the opponent, dealing <color=#99FFFFFF>Cryo DMG</color>.\\n\\n<i>\"I use this to prevent warming and rot... of Dr. Bai's precious ingredients. Yes.\"</i>"
     },
     "elementalburst": {
       "name": "Adeptus Art: Preserver of Fortune",
@@ -1140,9 +1174,26 @@
           "80",
           "80",
           "80"
+        ],
+        "Stellar_ConductDMG": [
+          "297.33%",
+          "319.63%",
+          "341.93%",
+          "371.67%",
+          "393.97%",
+          "416.27%",
+          "446%",
+          "475.73%",
+          "505.47%",
+          "535.2%",
+          "564.93%",
+          "594.67%",
+          "631.83%",
+          "669%",
+          "706.17%"
         ]
       },
-      "description": "Qiqi releases the adeptus power sealed within her body, marking nearby opponents with a Fortune-Preserving Talisman that deals <color=#99FFFFFF>Cryo DMG</color>.\\n\\n<color=#FFD780FF>Fortune-Preserving Talisman</color>\\nWhen opponents affected by this Talisman take DMG, the character that dealt this DMG regenerates HP.\\n\\n<i>\"I am the Fortune Preserver, the Maiden of Resurrection.\"</i>\\n<i>— Qiqi does not remember these words.</i>"
+      "description": "Qiqi releases the Adeptal power sealed within her body, marking nearby opponents with a Fortune-Preserving Talisman that deals <color=#99FFFFFF>Cryo DMG</color>.\\nRadiance: Stellar-Conduct: Deals an additional instance of Cryo DMG that is also considered Stellar-Conduct DMG.\\n\\n<color=#FFD780FF>Fortune-Preserving Talisman</color>\\nWhen opponents affected by this Talisman take DMG, the character that dealt this DMG regenerates HP.\\n\\n<i>\"I am the Fortune Preserver, the Maiden of Resurrection.\"</i>\\n<i>— Qiqi does not remember these words.</i>"
     },
     "leveling": {
       "books": {
@@ -1179,17 +1230,21 @@
       "description": "Displays the location of nearby <color=#FFD780FF>resources unique to Liyue</color> on the mini-map.",
       "icon": "UI_Talent_Collect_Local_Liyue"
     },
-    "p4": ""
+    "p4": {
+      "name": "Seven Sacred Treasures",
+      "description": "Elemental Skill cooldown is reduced to 15s.\\nRadiance: Stellar-Conduct: While the Herald of Frost is on the field, all party members have their Superconduct, Stellar-Conduct, and Cryo Swirl Reaction DMG increased by 50%.",
+      "icon": "UI_Talent_S_Qiqi_08"
+    }
   },
   "constellations": {
     "const1": {
       "name": "Ascetics of Frost",
-      "description": "When the Herald of Frost hits an opponent marked by a Fortune-Preserving Talisman, Qiqi regenerates 2 Energy.",
+      "description": "Qiqi regenerates 2 Energy when the Herald of Frost hits an opponent marked by a Fortune-Preserving Talisman.\\nRadiance: Stellar-Conduct: Qiqi will also regenerate 6 Energy when the Herald of Frost's attacks hit opponents. This can occur once every 6s.",
       "icon": "UI_Talent_S_Qiqi_01"
     },
     "const2": {
       "name": "Frozen to the Bone",
-      "description": "Qiqi's Normal and Charged Attack DMG against opponents affected by <color=#99FFFFFF>Cryo</color> is increased by 15%.",
+      "description": "Qiqi's Normal and Charged Attack DMG against opponents affected by <color=#99FFFFFF>Cryo</color> is increased by 15%.\\nRadiance: Stellar-Conduct: Qiqi's ATK is increased by 50%.",
       "icon": "UI_Talent_S_Qiqi_02"
     },
     "const3": {
@@ -1199,7 +1254,7 @@
     },
     "const4": {
       "name": "Divine Suppression",
-      "description": "Targets marked by the Fortune-Preserving Talisman have their ATK decreased by 20%.",
+      "description": "Targets marked by a Fortune-Preserving Talisman have their ATK reduced by 20%.\\nAdditionally, when the healing effect of Fortune-Preserving Talisman triggers, the nearby party member with the lowest HP percentage remaining will also receive an additional instance of healing for 180% of Qiqi's ATK.",
       "icon": "UI_Talent_S_Qiqi_03"
     },
     "const5": {
@@ -1209,7 +1264,7 @@
     },
     "const6": {
       "name": "Rite of Resurrection",
-      "description": "Using <color=#FFD780FF>Adeptus Art: Preserver of Fortune</color> revives all fallen party members nearby and regenerates 50% of their HP.\\nThis effect can only occur once every 15 mins.",
+      "description": "Using <color=#FFD780FF>Adeptus Art: Preserver of Fortune</color> revives all fallen party members nearby and regenerates 50% of their HP.\\nThis effect can only occur once every 15 mins.\\nAdditionally, after using <color=#FFD780FF>Adeptus Art: Preserver of Fortune</color>, Qiqi will also gain 4 stacks of [(test) DMG boost], and when your current active character deals [（test) Stellar Reaction] DMG, DMG dealt is increased by 600% of Qiqi's ATK. The [(test) DMG boost] effect lasts up to 12s, and unleashing <color=#FFD780FF>Adeptus Art: Preserver of Fortune</color> refreshes the [(test) DMG boost] stack count.",
       "icon": "UI_Talent_S_Qiqi_04"
     }
   },
@@ -1665,12 +1720,16 @@
       "quoteTitle": "About Prune",
       "quoteText": "She looks tough on the outside... but her palms are nice and soft. I like her.",
       "unlockConds": [
-        "Unlocks at Friendship Lv. 4",
-        "Complete \"The Magic That Never Fails\""
+        "Unlocks at Friendship Lv. 4"
       ]
     }
   },
-  "energy": [],
+  "energy": {
+    "source": "UNIQUE_ElementalArt_StarStrengthen_AOE_ElemBall_CD",
+    "particles": "2",
+    "chance": "100%",
+    "cd": "6s"
+  },
   "attacks": [
     {
       "name": "ElementalArt_Bullet",
@@ -1706,6 +1765,17 @@
       "damageParam": "ElementalBurst_Damage"
     },
     {
+      "name": "ElementalBurst_TriggerAttack",
+      "icd_source": "Tag: StarSuperconductorIceDamage (!)",
+      "icd_rule": "Independent",
+      "gauge": "0U",
+      "poise": "LV4/100",
+      "element": "Ice",
+      "attackType": "Default",
+      "strikeType": "-",
+      "damageParam": "-"
+    },
+    {
       "name": "FallingAnthem",
       "icd_source": "Tag: FallingAttack (!)",
       "icd_rule": "Independent",
@@ -1737,6 +1807,17 @@
       "attackType": "Melee",
       "strikeType": "Blunt",
       "damageParam": "FallingAnthem_Normal_Rank_2_Damage"
+    },
+    {
+      "name": "PermanentSkill_3",
+      "icd_source": "Tag: Elemental_Art (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV3/20",
+      "element": "Ice",
+      "attackType": "Default",
+      "strikeType": "-",
+      "damageParam": "ElementalArt_StarStrengthen_AOE_Damage"
     }
   ],
   "endure": []

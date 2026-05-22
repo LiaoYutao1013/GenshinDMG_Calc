@@ -47,6 +47,8 @@ function element = getCharacterElement(name)
             element = "Pyro";
         case 'nicole'
             element = "Pyro";
+        case {'sandrone', 'marionettenew'}
+            element = "Cryo";
         case {'kamisatoayaka', 'kamisato ayaka', 'ayaka'}
             element = "Cryo";
         case 'jean'

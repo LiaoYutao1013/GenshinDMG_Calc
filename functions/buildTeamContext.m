@@ -110,14 +110,20 @@ function teamContext = buildTeamContext(members, rotationDuration, sharedBuffs, 
     hasNicole = any(memberNames == "Nicole");
     hasXianyun = any(memberNames == "Xianyun");
     hasMizuki = any(memberNames == "Mizuki");
+    hasQiqi = any(memberNames == "Qiqi");
+    hasDiona = any(memberNames == "Diona");
+    hasBeidou = any(memberNames == "Beidou");
+    hasYaeMiko = any(memberNames == "YaeMiko");
     hasPrune = any(memberNames == "Prune");
     hasMika = any(memberNames == "Mika");
     hasFaruzan = any(memberNames == "Faruzan");
     hasNahida = any(memberNames == "Nahida");
+    hasSandrone = any(memberNames == "Sandrone");
 
     lunarBloomEnabled = hasLauma || hasNefer || (hasColumbina && hydroCount >= 1 && dendroCount >= 1);
     lunarChargedEnabled = (hasIneffa || hasFlins || hasColumbina) && hydroCount >= 1 && electroCount >= 1;
     lunarCrystallizeEnabled = (hasLinnea || hasZibai || hasColumbina) && hydroCount >= 1 && geoCount >= 1;
+    stellarConductEnabled = hasSandrone && electroCount >= 1 && cryoCount >= 1;
     nilouPureBloomTeam = hasNilou && (hydroCount + dendroCount == memberCount) ...
         && hydroCount >= 1 && dendroCount >= 1;
     burningReady = pyroCount >= 1 && dendroCount >= 1;
@@ -149,6 +155,17 @@ function teamContext = buildTeamContext(members, rotationDuration, sharedBuffs, 
     lunarBloomBonus = sharedLunarBloomBonus + lunarBloomBaseBonus + columbinaSupportBonus * double(hasColumbina);
     lunarChargedBonus = sharedLunarChargedBonus + lunarChargedBaseBonus + columbinaSupportBonus * double(hasColumbina);
     lunarCrystallizeBonus = sharedLunarCrystallizeBonus + lunarCrystallizeBaseBonus + columbinaSupportBonus * double(hasColumbina);
+    % Stellar-Conduct 在工程里拆为三层：
+    % 1. StellarConductBonus: 只用于统一反应引擎里的“星超导反应”基础增伤；
+    % 2. SandroneStellarConductBonus: 只用于桑多涅本人“视为星超导伤害”的直伤标签增伤；
+    % 3. SandroneStellarConductC1Bonus + Active: C1 的“解码期间全队星超导增伤”动态窗口。
+    superconductBonus = getFieldOrDefault(sharedBuffs, 'SuperconductBonus', 0);
+    cryoSwirlBonus = getFieldOrDefault(sharedBuffs, 'CryoSwirlBonus', 0);
+    stellarConductBonus = getFieldOrDefault(sharedBuffs, 'StellarConductBonus', 0);
+    qiqiC6StellarConductFlatDamage = getFieldOrDefault(sharedBuffs, 'QiqiC6StellarConductFlatDamage', 0);
+    stellarConductTaggedDMGBonus = getFieldOrDefault(sharedBuffs, 'StellarConductTaggedDMGBonus', 0);
+    sandroneStellarConductBonus = getFieldOrDefault(sharedBuffs, 'SandroneStellarConductBonus', 0);
+    sandroneStellarConductC1Bonus = getFieldOrDefault(sharedBuffs, 'SandroneStellarConductC1Bonus', 0);
     nilouBloomBonus = sharedNilouBloomBonus + 0.20 * double(nilouPureBloomTeam);
 
     reactionCritRate = getFieldOrDefault(sharedBuffs, 'ReactionCritRate', 0) + getFieldOrDefault(sharedArtifactBuffs, 'ReactionCritRate', 0);
@@ -161,6 +178,20 @@ function teamContext = buildTeamContext(members, rotationDuration, sharedBuffs, 
     if hasCitlali
         pyroResShred = pyroResShred + 0.20;
         hydroResShred = hydroResShred + 0.20;
+    end
+
+    if hasQiqi
+        qiqiIndex = find(memberNames == "Qiqi", 1, 'first');
+        qiqiConstellation = memberConstellations(qiqiIndex);
+        if stellarConductEnabled
+            superconductBonus = superconductBonus + 0.50;
+            cryoSwirlBonus = cryoSwirlBonus + 0.50;
+            stellarConductBonus = stellarConductBonus + 0.50;
+            if qiqiConstellation >= 6
+                qiqiC6StellarConductFlatDamage = qiqiC6StellarConductFlatDamage ...
+                    + 6.0 * localApproxMemberATK(members{qiqiIndex}, 287);
+            end
+        end
     end
 
     if hasFaruzan
@@ -264,16 +295,57 @@ function teamContext = buildTeamContext(members, rotationDuration, sharedBuffs, 
         mizukiIndex = find(memberNames == "Mizuki", 1, 'first');
         mizukiBuild = getFieldOrDefault(members{mizukiIndex}, 'Build', struct());
         mizukiEM = getFieldOrDefault(mizukiBuild, 'EM', 0);
+        emBonus = emBonus + 0.10 * mizukiEM;
         if getFieldOrDefault(members{mizukiIndex}, 'Constellation', 0) >= 2
             elementalShare = 0.0004 * mizukiEM;
             pyroDMGBonus = pyroDMGBonus + elementalShare;
             hydroDMGBonus = hydroDMGBonus + elementalShare;
             cryoDMGBonus = cryoDMGBonus + elementalShare;
             electroDMGBonus = electroDMGBonus + elementalShare;
+            pyroResShred = pyroResShred + 0.20;
+            hydroResShred = hydroResShred + 0.20;
+            cryoResShred = cryoResShred + 0.20;
+            electroResShred = electroResShred + 0.20;
+            anemoResShred = anemoResShred + 0.20;
         end
         if getFieldOrDefault(members{mizukiIndex}, 'Constellation', 0) >= 6
-            reactionCritRate = max(reactionCritRate, 0.30);
-            reactionCritDMG = max(reactionCritDMG, 1.00);
+            bonusCritRate = min(0.20, max(0, mizukiEM - 500) * 0.0004);
+            bonusCritDMG = min(0.80, max(0, mizukiEM - 500) * 0.0016);
+            reactionCritRate = max(reactionCritRate, 0.30 + bonusCritRate);
+            reactionCritDMG = max(reactionCritDMG, 1.00 + bonusCritDMG);
+        end
+    end
+
+    if hasDiona
+        dionaIndex = find(memberNames == "Diona", 1, 'first');
+        dionaConstellation = memberConstellations(dionaIndex);
+        if dionaConstellation >= 6
+            emBonus = emBonus + 200;
+            superconductBonus = superconductBonus + 0.40;
+            cryoSwirlBonus = cryoSwirlBonus + 0.40;
+            stellarConductBonus = stellarConductBonus + 0.40;
+        end
+    end
+
+    if hasBeidou
+        beidouIndex = find(memberNames == "Beidou", 1, 'first');
+        beidouConstellation = memberConstellations(beidouIndex);
+        if beidouConstellation >= 6
+            electroResShred = electroResShred + 0.15;
+            if stellarConductEnabled
+                cryoResShred = cryoResShred + 0.15;
+                emBonus = emBonus + 200;
+            end
+        end
+    end
+
+    if hasYaeMiko
+        yaeIndex = find(memberNames == "YaeMiko", 1, 'first');
+        yaeConstellation = memberConstellations(yaeIndex);
+        if yaeConstellation >= 1 && cryoCount >= 1 && electroCount >= 1
+            electroDMGBonus = electroDMGBonus + 0.40;
+            stellarConductBonus = stellarConductBonus + 0.40 * double(stellarConductEnabled);
+            stellarConductTaggedDMGBonus = stellarConductTaggedDMGBonus + 0.40 * double(stellarConductEnabled);
         end
     end
 
@@ -282,6 +354,19 @@ function teamContext = buildTeamContext(members, rotationDuration, sharedBuffs, 
         pruneATK = localApproxMemberATK(members{pruneIndex}, 221);
         pruneSharedBonus = min(0.50, max(0, 0.00025 * max(0, pruneATK - 2000)));
         allDMGBonus = allDMGBonus + pruneSharedBonus;
+    end
+
+    sandroneStellarConductActive = logical(getFieldOrDefault(sharedBuffs, ...
+        'SandroneStellarConductActive', hasSandrone && (memberCount == 1 || stellarConductEnabled)));
+    if hasSandrone
+        sandroneIndex = find(memberNames == "Sandrone", 1, 'first');
+        sandroneATK = localApproxMemberATK(members{sandroneIndex}, 342);
+        sandroneConstellation = memberConstellations(sandroneIndex);
+        stellarConductBonus = stellarConductBonus + min(0.14, 0.00007 * max(0, sandroneATK));
+        sandroneStellarConductBonus = sandroneStellarConductBonus + 0.20;
+        if sandroneConstellation >= 1
+            sandroneStellarConductC1Bonus = sandroneStellarConductC1Bonus + 0.30 * double(sandroneStellarConductActive);
+        end
     end
 
     if hasMika
@@ -378,6 +463,7 @@ function teamContext = buildTeamContext(members, rotationDuration, sharedBuffs, 
         'LunarBloomEnabled', lunarBloomEnabled, ...
         'LunarChargedEnabled', lunarChargedEnabled, ...
         'LunarCrystallizeEnabled', lunarCrystallizeEnabled, ...
+        'StellarConductEnabled', stellarConductEnabled, ...
         'DominantLunarReaction', dominantLunarReaction, ...
         'NilouPureBloomTeam', nilouPureBloomTeam, ...
         'SharedLunarBloomBonus', sharedLunarBloomBonus, ...
@@ -386,6 +472,14 @@ function teamContext = buildTeamContext(members, rotationDuration, sharedBuffs, 
         'LunarBloomBonus', lunarBloomBonus, ...
         'LunarChargedBonus', lunarChargedBonus, ...
         'LunarCrystallizeBonus', lunarCrystallizeBonus, ...
+        'SuperconductBonus', superconductBonus, ...
+        'CryoSwirlBonus', cryoSwirlBonus, ...
+        'StellarConductBonus', stellarConductBonus, ...
+        'QiqiC6StellarConductFlatDamage', qiqiC6StellarConductFlatDamage, ...
+        'StellarConductTaggedDMGBonus', stellarConductTaggedDMGBonus, ...
+        'SandroneStellarConductBonus', sandroneStellarConductBonus, ...
+        'SandroneStellarConductC1Bonus', sandroneStellarConductC1Bonus, ...
+        'SandroneStellarConductActive', sandroneStellarConductActive, ...
         'NilouBloomBonus', nilouBloomBonus, ...
         'ReactionCritRate', reactionCritRate, ...
         'ReactionCritDMG', reactionCritDMG, ...

@@ -111,6 +111,10 @@ function result = simulateCharacterDPS(memberCfg, enemy, teamContext)
             [totalDMG, dps, breakdown, rotationTime] = simulateNicoleDPS( ...
                 compiledBuild, enemy, memberCfg.RotationFile, memberCfg.TalentLevel, memberCfg.Constellation, memberTeamContext);
 
+        case 'sandrone'
+            [totalDMG, dps, breakdown, rotationTime] = simulateSandroneDPS( ...
+                compiledBuild, enemy, memberCfg.RotationFile, memberCfg.TalentLevel, memberCfg.Constellation, memberTeamContext);
+
         case {'kamisatoayaka', 'ayaka'}
             [totalDMG, dps, breakdown, rotationTime] = simulateKamisatoAyakaDPS( ...
                 compiledBuild, enemy, memberCfg.RotationFile, memberCfg.TalentLevel, memberCfg.Constellation, memberTeamContext);
@@ -364,8 +368,15 @@ function result = simulateCharacterDPS(memberCfg, enemy, teamContext)
                 compiledBuild, enemy, memberCfg.RotationFile, memberCfg.TalentLevel, memberCfg.Constellation, memberTeamContext);
 
         otherwise
-            [totalDMG, dps, breakdown, rotationTime] = simulateImportedCharacterDPS( ...
-                memberCfg.Name, compiledBuild, enemy, memberCfg.RotationFile, memberCfg.TalentLevel, memberCfg.Constellation, memberTeamContext);
+            simulatorName = localResolveCharacterSimulatorName(memberCfg.Name);
+            if strlength(simulatorName) > 0
+                simulator = str2func(char(simulatorName));
+                [totalDMG, dps, breakdown, rotationTime] = simulator( ...
+                    compiledBuild, enemy, memberCfg.RotationFile, memberCfg.TalentLevel, memberCfg.Constellation, memberTeamContext);
+            else
+                [totalDMG, dps, breakdown, rotationTime] = simulateImportedCharacterDPS( ...
+                    memberCfg.Name, compiledBuild, enemy, memberCfg.RotationFile, memberCfg.TalentLevel, memberCfg.Constellation, memberTeamContext);
+            end
     end
 
     result = struct( ...
@@ -375,6 +386,19 @@ function result = simulateCharacterDPS(memberCfg, enemy, teamContext)
         'DPS', dps, ...
         'RotationTime', rotationTime, ...
         'Breakdown', breakdown);
+end
+
+function simulatorName = localResolveCharacterSimulatorName(characterName)
+    simulatorName = "";
+    normalized = regexprep(char(string(characterName)), '[^A-Za-z0-9]', '');
+    if isempty(normalized)
+        return;
+    end
+
+    candidate = "simulate" + string(normalized) + "DPS";
+    if exist(char(candidate), 'file') == 2
+        simulatorName = candidate;
+    end
 end
 
 function teamContext = localApplyElementSpecificTeamBonuses(teamContext, characterName)

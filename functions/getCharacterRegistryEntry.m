@@ -106,6 +106,8 @@ function aliasMap = localAliasMap()
     aliasMap('kokomi') = 'SangonomiyaKokomi';
     aliasMap('sara') = 'KujouSara';
     aliasMap('kazuha') = 'KaedeharaKazuha';
+    aliasMap('sandrone') = 'Sandrone';
+    aliasMap('marionettenew') = 'Sandrone';
     aliasMap('colunbina') = 'Columbina';
 end
 

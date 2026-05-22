@@ -1,0 +1,2051 @@
+﻿{
+    "info":  {
+                 "name":  "Sandrone",
+                 "description":  "",
+                 "rarity":  "QUALITY_ORANGE",
+                 "weapon":  "WEAPON_CLAYMORE",
+                 "birthday":  "0/1",
+                 "element":  "Cryo",
+                 "title":  "???",
+                 "constellation":  "???",
+                 "affiliation":  "???",
+                 "cv":  {
+                            "EN":  "???",
+                            "CHS":  "???",
+                            "JP":  "???",
+                            "KR":  "???"
+                        },
+                 "attributes":  [
+                                    {
+                                        "level":  1,
+                                        "ascension":  0,
+                                        "hp":  1030,
+                                        "atk":  27,
+                                        "def":  59,
+                                        "CRIT Rate%":  "0"
+                                    },
+                                    {
+                                        "level":  2,
+                                        "ascension":  0,
+                                        "hp":  1115,
+                                        "atk":  29,
+                                        "def":  63,
+                                        "CRIT Rate%":  "0"
+                                    },
+                                    {
+                                        "level":  3,
+                                        "ascension":  0,
+                                        "hp":  1200,
+                                        "atk":  31,
+                                        "def":  68,
+                                        "CRIT Rate%":  "0"
+                                    },
+                                    {
+                                        "level":  4,
+                                        "ascension":  0,
+                                        "hp":  1287,
+                                        "atk":  33,
+                                        "def":  73,
+                                        "CRIT Rate%":  "0"
+                                    },
+                                    {
+                                        "level":  5,
+                                        "ascension":  0,
+                                        "hp":  1372,
+                                        "atk":  35,
+                                        "def":  78,
+                                        "CRIT Rate%":  "0"
+                                    },
+                                    {
+                                        "level":  6,
+                                        "ascension":  0,
+                                        "hp":  1459,
+                                        "atk":  38,
+                                        "def":  83,
+                                        "CRIT Rate%":  "0"
+                                    },
+                                    {
+                                        "level":  7,
+                                        "ascension":  0,
+                                        "hp":  1544,
+                                        "atk":  40,
+                                        "def":  88,
+                                        "CRIT Rate%":  "0"
+                                    },
+                                    {
+                                        "level":  8,
+                                        "ascension":  0,
+                                        "hp":  1631,
+                                        "atk":  42,
+                                        "def":  93,
+                                        "CRIT Rate%":  "0"
+                                    },
+                                    {
+                                        "level":  9,
+                                        "ascension":  0,
+                                        "hp":  1717,
+                                        "atk":  44,
+                                        "def":  98,
+                                        "CRIT Rate%":  "0"
+                                    },
+                                    {
+                                        "level":  10,
+                                        "ascension":  0,
+                                        "hp":  1803,
+                                        "atk":  47,
+                                        "def":  103,
+                                        "CRIT Rate%":  "0"
+                                    },
+                                    {
+                                        "level":  11,
+                                        "ascension":  0,
+                                        "hp":  1889,
+                                        "atk":  49,
+                                        "def":  107,
+                                        "CRIT Rate%":  "0"
+                                    },
+                                    {
+                                        "level":  12,
+                                        "ascension":  0,
+                                        "hp":  1976,
+                                        "atk":  51,
+                                        "def":  112,
+                                        "CRIT Rate%":  "0"
+                                    },
+                                    {
+                                        "level":  13,
+                                        "ascension":  0,
+                                        "hp":  2062,
+                                        "atk":  53,
+                                        "def":  117,
+                                        "CRIT Rate%":  "0"
+                                    },
+                                    {
+                                        "level":  14,
+                                        "ascension":  0,
+                                        "hp":  2150,
+                                        "atk":  56,
+                                        "def":  122,
+                                        "CRIT Rate%":  "0"
+                                    },
+                                    {
+                                        "level":  15,
+                                        "ascension":  0,
+                                        "hp":  2236,
+                                        "atk":  58,
+                                        "def":  127,
+                                        "CRIT Rate%":  "0"
+                                    },
+                                    {
+                                        "level":  16,
+                                        "ascension":  0,
+                                        "hp":  2323,
+                                        "atk":  60,
+                                        "def":  132,
+                                        "CRIT Rate%":  "0"
+                                    },
+                                    {
+                                        "level":  17,
+                                        "ascension":  0,
+                                        "hp":  2410,
+                                        "atk":  62,
+                                        "def":  137,
+                                        "CRIT Rate%":  "0"
+                                    },
+                                    {
+                                        "level":  18,
+                                        "ascension":  0,
+                                        "hp":  2497,
+                                        "atk":  65,
+                                        "def":  142,
+                                        "CRIT Rate%":  "0"
+                                    },
+                                    {
+                                        "level":  19,
+                                        "ascension":  0,
+                                        "hp":  2584,
+                                        "atk":  67,
+                                        "def":  147,
+                                        "CRIT Rate%":  "0"
+                                    },
+                                    {
+                                        "level":  20,
+                                        "ascension":  0,
+                                        "hp":  2671,
+                                        "atk":  69,
+                                        "def":  152,
+                                        "CRIT Rate%":  "0"
+                                    },
+                                    {
+                                        "level":  21,
+                                        "ascension":  1,
+                                        "hp":  3641,
+                                        "atk":  94,
+                                        "def":  207,
+                                        "CRIT Rate%":  "0"
+                                    },
+                                    {
+                                        "level":  22,
+                                        "ascension":  1,
+                                        "hp":  3729,
+                                        "atk":  96,
+                                        "def":  212,
+                                        "CRIT Rate%":  "0"
+                                    },
+                                    {
+                                        "level":  23,
+                                        "ascension":  1,
+                                        "hp":  3816,
+                                        "atk":  99,
+                                        "def":  217,
+                                        "CRIT Rate%":  "0"
+                                    },
+                                    {
+                                        "level":  24,
+                                        "ascension":  1,
+                                        "hp":  3904,
+                                        "atk":  101,
+                                        "def":  222,
+                                        "CRIT Rate%":  "0"
+                                    },
+                                    {
+                                        "level":  25,
+                                        "ascension":  1,
+                                        "hp":  3991,
+                                        "atk":  103,
+                                        "def":  227,
+                                        "CRIT Rate%":  "0"
+                                    },
+                                    {
+                                        "level":  26,
+                                        "ascension":  1,
+                                        "hp":  4080,
+                                        "atk":  106,
+                                        "def":  232,
+                                        "CRIT Rate%":  "0"
+                                    },
+                                    {
+                                        "level":  27,
+                                        "ascension":  1,
+                                        "hp":  4167,
+                                        "atk":  108,
+                                        "def":  237,
+                                        "CRIT Rate%":  "0"
+                                    },
+                                    {
+                                        "level":  28,
+                                        "ascension":  1,
+                                        "hp":  4255,
+                                        "atk":  110,
+                                        "def":  242,
+                                        "CRIT Rate%":  "0"
+                                    },
+                                    {
+                                        "level":  29,
+                                        "ascension":  1,
+                                        "hp":  4343,
+                                        "atk":  112,
+                                        "def":  247,
+                                        "CRIT Rate%":  "0"
+                                    },
+                                    {
+                                        "level":  30,
+                                        "ascension":  1,
+                                        "hp":  4431,
+                                        "atk":  115,
+                                        "def":  252,
+                                        "CRIT Rate%":  "0"
+                                    },
+                                    {
+                                        "level":  31,
+                                        "ascension":  1,
+                                        "hp":  4519,
+                                        "atk":  117,
+                                        "def":  257,
+                                        "CRIT Rate%":  "0"
+                                    },
+                                    {
+                                        "level":  32,
+                                        "ascension":  1,
+                                        "hp":  4608,
+                                        "atk":  119,
+                                        "def":  262,
+                                        "CRIT Rate%":  "0"
+                                    },
+                                    {
+                                        "level":  33,
+                                        "ascension":  1,
+                                        "hp":  4696,
+                                        "atk":  121,
+                                        "def":  267,
+                                        "CRIT Rate%":  "0"
+                                    },
+                                    {
+                                        "level":  34,
+                                        "ascension":  1,
+                                        "hp":  4784,
+                                        "atk":  124,
+                                        "def":  272,
+                                        "CRIT Rate%":  "0"
+                                    },
+                                    {
+                                        "level":  35,
+                                        "ascension":  1,
+                                        "hp":  4872,
+                                        "atk":  126,
+                                        "def":  277,
+                                        "CRIT Rate%":  "0"
+                                    },
+                                    {
+                                        "level":  36,
+                                        "ascension":  1,
+                                        "hp":  4962,
+                                        "atk":  128,
+                                        "def":  282,
+                                        "CRIT Rate%":  "0"
+                                    },
+                                    {
+                                        "level":  37,
+                                        "ascension":  1,
+                                        "hp":  5051,
+                                        "atk":  131,
+                                        "def":  287,
+                                        "CRIT Rate%":  "0"
+                                    },
+                                    {
+                                        "level":  38,
+                                        "ascension":  1,
+                                        "hp":  5139,
+                                        "atk":  133,
+                                        "def":  292,
+                                        "CRIT Rate%":  "0"
+                                    },
+                                    {
+                                        "level":  39,
+                                        "ascension":  1,
+                                        "hp":  5228,
+                                        "atk":  135,
+                                        "def":  297,
+                                        "CRIT Rate%":  "0"
+                                    },
+                                    {
+                                        "level":  40,
+                                        "ascension":  1,
+                                        "hp":  5317,
+                                        "atk":  138,
+                                        "def":  302,
+                                        "CRIT Rate%":  "0"
+                                    },
+                                    {
+                                        "level":  41,
+                                        "ascension":  2,
+                                        "hp":  6033,
+                                        "atk":  156,
+                                        "def":  343,
+                                        "CRIT Rate%":  "4.8"
+                                    },
+                                    {
+                                        "level":  42,
+                                        "ascension":  2,
+                                        "hp":  6123,
+                                        "atk":  158,
+                                        "def":  348,
+                                        "CRIT Rate%":  "4.8"
+                                    },
+                                    {
+                                        "level":  43,
+                                        "ascension":  2,
+                                        "hp":  6212,
+                                        "atk":  161,
+                                        "def":  353,
+                                        "CRIT Rate%":  "4.8"
+                                    },
+                                    {
+                                        "level":  44,
+                                        "ascension":  2,
+                                        "hp":  6301,
+                                        "atk":  163,
+                                        "def":  358,
+                                        "CRIT Rate%":  "4.8"
+                                    },
+                                    {
+                                        "level":  45,
+                                        "ascension":  2,
+                                        "hp":  6390,
+                                        "atk":  165,
+                                        "def":  364,
+                                        "CRIT Rate%":  "4.8"
+                                    },
+                                    {
+                                        "level":  46,
+                                        "ascension":  2,
+                                        "hp":  6480,
+                                        "atk":  168,
+                                        "def":  369,
+                                        "CRIT Rate%":  "4.8"
+                                    },
+                                    {
+                                        "level":  47,
+                                        "ascension":  2,
+                                        "hp":  6569,
+                                        "atk":  170,
+                                        "def":  374,
+                                        "CRIT Rate%":  "4.8"
+                                    },
+                                    {
+                                        "level":  48,
+                                        "ascension":  2,
+                                        "hp":  6659,
+                                        "atk":  172,
+                                        "def":  379,
+                                        "CRIT Rate%":  "4.8"
+                                    },
+                                    {
+                                        "level":  49,
+                                        "ascension":  2,
+                                        "hp":  6750,
+                                        "atk":  175,
+                                        "def":  384,
+                                        "CRIT Rate%":  "4.8"
+                                    },
+                                    {
+                                        "level":  50,
+                                        "ascension":  2,
+                                        "hp":  6839,
+                                        "atk":  177,
+                                        "def":  389,
+                                        "CRIT Rate%":  "4.8"
+                                    },
+                                    {
+                                        "level":  51,
+                                        "ascension":  3,
+                                        "hp":  7765,
+                                        "atk":  201,
+                                        "def":  442,
+                                        "CRIT Rate%":  "9.6"
+                                    },
+                                    {
+                                        "level":  52,
+                                        "ascension":  3,
+                                        "hp":  7856,
+                                        "atk":  203,
+                                        "def":  447,
+                                        "CRIT Rate%":  "9.6"
+                                    },
+                                    {
+                                        "level":  53,
+                                        "ascension":  3,
+                                        "hp":  7945,
+                                        "atk":  205,
+                                        "def":  452,
+                                        "CRIT Rate%":  "9.6"
+                                    },
+                                    {
+                                        "level":  54,
+                                        "ascension":  3,
+                                        "hp":  8036,
+                                        "atk":  208,
+                                        "def":  457,
+                                        "CRIT Rate%":  "9.6"
+                                    },
+                                    {
+                                        "level":  55,
+                                        "ascension":  3,
+                                        "hp":  8126,
+                                        "atk":  210,
+                                        "def":  462,
+                                        "CRIT Rate%":  "9.6"
+                                    },
+                                    {
+                                        "level":  56,
+                                        "ascension":  3,
+                                        "hp":  8217,
+                                        "atk":  212,
+                                        "def":  467,
+                                        "CRIT Rate%":  "9.6"
+                                    },
+                                    {
+                                        "level":  57,
+                                        "ascension":  3,
+                                        "hp":  8308,
+                                        "atk":  215,
+                                        "def":  473,
+                                        "CRIT Rate%":  "9.6"
+                                    },
+                                    {
+                                        "level":  58,
+                                        "ascension":  3,
+                                        "hp":  8398,
+                                        "atk":  217,
+                                        "def":  478,
+                                        "CRIT Rate%":  "9.6"
+                                    },
+                                    {
+                                        "level":  59,
+                                        "ascension":  3,
+                                        "hp":  8489,
+                                        "atk":  220,
+                                        "def":  483,
+                                        "CRIT Rate%":  "9.6"
+                                    },
+                                    {
+                                        "level":  60,
+                                        "ascension":  3,
+                                        "hp":  8579,
+                                        "atk":  222,
+                                        "def":  488,
+                                        "CRIT Rate%":  "9.6"
+                                    },
+                                    {
+                                        "level":  61,
+                                        "ascension":  4,
+                                        "hp":  9297,
+                                        "atk":  240,
+                                        "def":  529,
+                                        "CRIT Rate%":  "9.6"
+                                    },
+                                    {
+                                        "level":  62,
+                                        "ascension":  4,
+                                        "hp":  9388,
+                                        "atk":  243,
+                                        "def":  534,
+                                        "CRIT Rate%":  "9.6"
+                                    },
+                                    {
+                                        "level":  63,
+                                        "ascension":  4,
+                                        "hp":  9480,
+                                        "atk":  245,
+                                        "def":  539,
+                                        "CRIT Rate%":  "9.6"
+                                    },
+                                    {
+                                        "level":  64,
+                                        "ascension":  4,
+                                        "hp":  9570,
+                                        "atk":  247,
+                                        "def":  544,
+                                        "CRIT Rate%":  "9.6"
+                                    },
+                                    {
+                                        "level":  65,
+                                        "ascension":  4,
+                                        "hp":  9662,
+                                        "atk":  250,
+                                        "def":  550,
+                                        "CRIT Rate%":  "9.6"
+                                    },
+                                    {
+                                        "level":  66,
+                                        "ascension":  4,
+                                        "hp":  9753,
+                                        "atk":  252,
+                                        "def":  555,
+                                        "CRIT Rate%":  "9.6"
+                                    },
+                                    {
+                                        "level":  67,
+                                        "ascension":  4,
+                                        "hp":  9844,
+                                        "atk":  255,
+                                        "def":  560,
+                                        "CRIT Rate%":  "9.6"
+                                    },
+                                    {
+                                        "level":  68,
+                                        "ascension":  4,
+                                        "hp":  9936,
+                                        "atk":  257,
+                                        "def":  565,
+                                        "CRIT Rate%":  "9.6"
+                                    },
+                                    {
+                                        "level":  69,
+                                        "ascension":  4,
+                                        "hp":  10027,
+                                        "atk":  259,
+                                        "def":  570,
+                                        "CRIT Rate%":  "9.6"
+                                    },
+                                    {
+                                        "level":  70,
+                                        "ascension":  4,
+                                        "hp":  10119,
+                                        "atk":  262,
+                                        "def":  576,
+                                        "CRIT Rate%":  "9.6"
+                                    },
+                                    {
+                                        "level":  71,
+                                        "ascension":  5,
+                                        "hp":  10838,
+                                        "atk":  280,
+                                        "def":  617,
+                                        "CRIT Rate%":  "14.4"
+                                    },
+                                    {
+                                        "level":  72,
+                                        "ascension":  5,
+                                        "hp":  10930,
+                                        "atk":  283,
+                                        "def":  622,
+                                        "CRIT Rate%":  "14.4"
+                                    },
+                                    {
+                                        "level":  73,
+                                        "ascension":  5,
+                                        "hp":  11022,
+                                        "atk":  285,
+                                        "def":  627,
+                                        "CRIT Rate%":  "14.4"
+                                    },
+                                    {
+                                        "level":  74,
+                                        "ascension":  5,
+                                        "hp":  11114,
+                                        "atk":  287,
+                                        "def":  632,
+                                        "CRIT Rate%":  "14.4"
+                                    },
+                                    {
+                                        "level":  75,
+                                        "ascension":  5,
+                                        "hp":  11206,
+                                        "atk":  290,
+                                        "def":  638,
+                                        "CRIT Rate%":  "14.4"
+                                    },
+                                    {
+                                        "level":  76,
+                                        "ascension":  5,
+                                        "hp":  11298,
+                                        "atk":  292,
+                                        "def":  643,
+                                        "CRIT Rate%":  "14.4"
+                                    },
+                                    {
+                                        "level":  77,
+                                        "ascension":  5,
+                                        "hp":  11391,
+                                        "atk":  295,
+                                        "def":  648,
+                                        "CRIT Rate%":  "14.4"
+                                    },
+                                    {
+                                        "level":  78,
+                                        "ascension":  5,
+                                        "hp":  11483,
+                                        "atk":  297,
+                                        "def":  653,
+                                        "CRIT Rate%":  "14.4"
+                                    },
+                                    {
+                                        "level":  79,
+                                        "ascension":  5,
+                                        "hp":  11576,
+                                        "atk":  299,
+                                        "def":  659,
+                                        "CRIT Rate%":  "14.4"
+                                    },
+                                    {
+                                        "level":  80,
+                                        "ascension":  5,
+                                        "hp":  11669,
+                                        "atk":  302,
+                                        "def":  664,
+                                        "CRIT Rate%":  "14.4"
+                                    },
+                                    {
+                                        "level":  81,
+                                        "ascension":  6,
+                                        "hp":  12389,
+                                        "atk":  320,
+                                        "def":  705,
+                                        "CRIT Rate%":  "19.2"
+                                    },
+                                    {
+                                        "level":  82,
+                                        "ascension":  6,
+                                        "hp":  12481,
+                                        "atk":  323,
+                                        "def":  710,
+                                        "CRIT Rate%":  "19.2"
+                                    },
+                                    {
+                                        "level":  83,
+                                        "ascension":  6,
+                                        "hp":  12574,
+                                        "atk":  325,
+                                        "def":  715,
+                                        "CRIT Rate%":  "19.2"
+                                    },
+                                    {
+                                        "level":  84,
+                                        "ascension":  6,
+                                        "hp":  12667,
+                                        "atk":  328,
+                                        "def":  721,
+                                        "CRIT Rate%":  "19.2"
+                                    },
+                                    {
+                                        "level":  85,
+                                        "ascension":  6,
+                                        "hp":  12759,
+                                        "atk":  330,
+                                        "def":  726,
+                                        "CRIT Rate%":  "19.2"
+                                    },
+                                    {
+                                        "level":  86,
+                                        "ascension":  6,
+                                        "hp":  12853,
+                                        "atk":  332,
+                                        "def":  731,
+                                        "CRIT Rate%":  "19.2"
+                                    },
+                                    {
+                                        "level":  87,
+                                        "ascension":  6,
+                                        "hp":  12946,
+                                        "atk":  335,
+                                        "def":  736,
+                                        "CRIT Rate%":  "19.2"
+                                    },
+                                    {
+                                        "level":  88,
+                                        "ascension":  6,
+                                        "hp":  13039,
+                                        "atk":  337,
+                                        "def":  742,
+                                        "CRIT Rate%":  "19.2"
+                                    },
+                                    {
+                                        "level":  89,
+                                        "ascension":  6,
+                                        "hp":  13133,
+                                        "atk":  340,
+                                        "def":  747,
+                                        "CRIT Rate%":  "19.2"
+                                    },
+                                    {
+                                        "level":  90,
+                                        "ascension":  6,
+                                        "hp":  13226,
+                                        "atk":  342,
+                                        "def":  752,
+                                        "CRIT Rate%":  "19.2"
+                                    },
+                                    {
+                                        "level":  95,
+                                        "ascension":  6,
+                                        "hp":  13695,
+                                        "atk":  381,
+                                        "def":  779,
+                                        "CRIT Rate%":  "19.2"
+                                    },
+                                    {
+                                        "level":  100,
+                                        "ascension":  6,
+                                        "hp":  14166,
+                                        "atk":  419,
+                                        "def":  806,
+                                        "CRIT Rate%":  "19.2"
+                                    }
+                                ]
+             },
+    "icons":  {
+                  "forward":  "UI_AvatarIcon_MarionetteNew",
+                  "coop_img":  "UI_CoopImg_MarionetteNew"
+              },
+    "ascension":  {
+                      "202":  7049900,
+                      "exp":  {
+                                  "104001":  2,
+                                  "104003":  418
+                              },
+                      "speciality":  {
+                                         "101239":  168
+                                     },
+                      "elemental":  {
+                                        "104161":  1,
+                                        "104162":  9,
+                                        "104163":  9,
+                                        "104164":  6
+                                    },
+                      "worldmonster":  {
+                                           "112122":  18,
+                                           "112123":  30,
+                                           "112124":  36
+                                       },
+                      "elitemonster":  {
+                                           "113086":  46
+                                       }
+                  },
+    "skills":  {
+                   "normalattack":  {
+                                        "name":  "Formule Phenomenale: Self-Evident Proposition",
+                                        "icon":  "Skill_A_04",
+                                        "multipliers":  {
+                                                            "1-Hit DMG":  [
+                                                                              "76.29%",
+                                                                              "82.5%",
+                                                                              "88.7%",
+                                                                              "97.58%",
+                                                                              "103.78%",
+                                                                              "110.88%",
+                                                                              "120.64%",
+                                                                              "130.4%",
+                                                                              "140.15%",
+                                                                              "150.8%",
+                                                                              "161.44%",
+                                                                              "172.09%",
+                                                                              "182.73%",
+                                                                              "193.38%",
+                                                                              "204.02%"
+                                                                          ],
+                                                            "2-Hit DMG":  [
+                                                                              "67.2%",
+                                                                              "72.67%",
+                                                                              "78.14%",
+                                                                              "85.95%",
+                                                                              "91.42%",
+                                                                              "97.67%",
+                                                                              "106.26%",
+                                                                              "114.86%",
+                                                                              "123.45%",
+                                                                              "132.83%",
+                                                                              "142.21%",
+                                                                              "151.58%",
+                                                                              "160.96%",
+                                                                              "170.34%",
+                                                                              "179.71%"
+                                                                          ],
+                                                            "3-Hit DMG":  [
+                                                                              "102.8%",
+                                                                              "111.17%",
+                                                                              "119.54%",
+                                                                              "131.49%",
+                                                                              "139.86%",
+                                                                              "149.42%",
+                                                                              "162.57%",
+                                                                              "175.72%",
+                                                                              "188.87%",
+                                                                              "203.22%",
+                                                                              "217.56%",
+                                                                              "231.91%",
+                                                                              "246.25%",
+                                                                              "260.6%",
+                                                                              "274.94%"
+                                                                          ],
+                                                            "Charged Attack Sweeping Fire DMG":  [
+                                                                                                     "43%",
+                                                                                                     "46.5%",
+                                                                                                     "50%",
+                                                                                                     "55%",
+                                                                                                     "58.5%",
+                                                                                                     "62.5%",
+                                                                                                     "68%",
+                                                                                                     "73.5%",
+                                                                                                     "79%",
+                                                                                                     "85%",
+                                                                                                     "91%",
+                                                                                                     "97%",
+                                                                                                     "103%",
+                                                                                                     "109%",
+                                                                                                     "115%"
+                                                                                                 ],
+                                                            "Charged Attack Condensed Beam DMG":  [
+                                                                                                      "90.3%",
+                                                                                                      "97.65%",
+                                                                                                      "105%",
+                                                                                                      "115.5%",
+                                                                                                      "122.85%",
+                                                                                                      "131.25%",
+                                                                                                      "142.8%",
+                                                                                                      "154.35%",
+                                                                                                      "165.9%",
+                                                                                                      "178.5%",
+                                                                                                      "191.1%",
+                                                                                                      "203.7%",
+                                                                                                      "216.3%",
+                                                                                                      "228.9%",
+                                                                                                      "241.5%"
+                                                                                                  ],
+                                                            "Charged Attack Condensed Beam Stellar-Conduct DMG":  [
+                                                                                                                      "60.2%",
+                                                                                                                      "65.1%",
+                                                                                                                      "70%",
+                                                                                                                      "77%",
+                                                                                                                      "81.9%",
+                                                                                                                      "87.5%",
+                                                                                                                      "95.2%",
+                                                                                                                      "102.9%",
+                                                                                                                      "110.6%",
+                                                                                                                      "119%",
+                                                                                                                      "127.4%",
+                                                                                                                      "135.8%",
+                                                                                                                      "144.2%",
+                                                                                                                      "152.6%",
+                                                                                                                      "161%"
+                                                                                                                  ],
+                                                            "DMG When in Power Overdrive":  [
+                                                                                                "43%",
+                                                                                                "46.5%",
+                                                                                                "50%",
+                                                                                                "55%",
+                                                                                                "58.5%",
+                                                                                                "62.5%",
+                                                                                                "68%",
+                                                                                                "73.5%",
+                                                                                                "79%",
+                                                                                                "85%",
+                                                                                                "91%",
+                                                                                                "97%",
+                                                                                                "103%",
+                                                                                                "109%",
+                                                                                                "115%"
+                                                                                            ],
+                                                            "Plunge DMG":  [
+                                                                               "74.59%",
+                                                                               "80.66%",
+                                                                               "86.73%",
+                                                                               "95.4%",
+                                                                               "101.47%",
+                                                                               "108.41%",
+                                                                               "117.95%",
+                                                                               "127.49%",
+                                                                               "137.03%",
+                                                                               "147.44%",
+                                                                               "157.85%",
+                                                                               "168.26%",
+                                                                               "178.66%",
+                                                                               "189.07%",
+                                                                               "199.48%"
+                                                                           ],
+                                                            "Low/High Plunge DMG":  [
+                                                                                        "149.14%/186.29%",
+                                                                                        "161.28%/201.45%",
+                                                                                        "173.42%/216.62%",
+                                                                                        "190.77%/238.28%",
+                                                                                        "202.91%/253.44%",
+                                                                                        "216.78%/270.77%",
+                                                                                        "235.86%/294.6%",
+                                                                                        "254.93%/318.42%",
+                                                                                        "274.01%/342.25%",
+                                                                                        "294.82%/368.25%",
+                                                                                        "315.63%/394.24%",
+                                                                                        "336.44%/420.23%",
+                                                                                        "357.25%/446.23%",
+                                                                                        "378.06%/472.22%",
+                                                                                        "398.87%/498.21%"
+                                                                                    ]
+                                                        },
+                                        "description":  "\u003ccolor=#FFD780FF\u003eNormal Attack\u003c/color\u003e\\nGenerates threads that control her weapon using formulae, performing up to 3 consecutive strikes.\\n\\n\u003ccolor=#FFD780FF\u003eCharged Attack\u003c/color\u003e\\nSummons the Facilitateur Automatise Generaliste Interactif et Omnitache, or \"\u003ccolor=#FFD780FF\u003eFagio\u003c/color\u003e,\" and switches it to {LINK#N11330001}Decoding{/LINK} mode: Unleashes a sweeping fire attack on enemies in front, as well as periodically fires condensed beams, dealing \u003ccolor=#99FFFFFF\u003eAoE Cryo DMG\u003c/color\u003e.\\n\u003ccolor=#FFD780FF\u003eRadiance: Stellar-Conduct\u003c/color\u003e: The condensed beams will instead deal \u003ccolor=#99FFFFFF\u003eAoE Cryo DMG\u003c/color\u003e that is considered Stellar-Conduct DMG.\\nWhile in \u003ccolor=#FFD780FF\u003eDecoding\u003c/color\u003e mode, Fagio\u0027s {LINK#N11330002}Decoding Power{/LINK} will continuously increase. Firing condensed beams will also further increase its \u003ccolor=#FFD780FF\u003eDecoding Power\u003c/color\u003e.\\n\u003ccolor=#FFD780FF\u003eWhen Fagio\u0027s Decoding Power\u003c/color\u003e reaches the maximum of 100 points, it switches to \u003ccolor=#FFD780FF\u003ePower Overdrive\u003c/color\u003e mode, in which it fires at opponents with longer intervals, dealing \u003ccolor=#99FFFFFF\u003eCryo DMG\u003c/color\u003e. It will be unable to switch to \u003ccolor=#FFD780FF\u003eDecoding\u003c/color\u003e mode at this time.\\nWhen not in \u003ccolor=#FFD780FF\u003eDecoding\u003c/color\u003e mode, Fagio\u0027s \u003ccolor=#FFD780FF\u003eDecoding Power\u003c/color\u003e gradually decreases. When Sandrone is off-field, she will focus on maintaining Fagio, causing its \u003ccolor=#FFD780FF\u003eDecoding Power\u003c/color\u003e to decrease at 300% the original rate.\\nFagio exits \u003ccolor=#FFD780FF\u003ePower Overdrive\u003c/color\u003e mode when its \u003ccolor=#FFD780FF\u003eDecoding Power\u003c/color\u003e has decreased to under 50.\\n\\n\u003ccolor=#FFD780FF\u003ePlunging Attack\u003c/color\u003e\\nPlunges from midair to strike the ground below, dealing DMG to opponents along their path and causing AoE DMG on landing."
+                                    },
+                   "elementalskill":  {
+                                          "name":  "Formule Phenomenale: Differential Analysis",
+                                          "icon":  "Skill_S_MarionetteNew_01",
+                                          "multipliers":  {
+                                                              "Prism Shot DMG":  [
+                                                                                     "32.4%",
+                                                                                     "34.83%",
+                                                                                     "37.26%",
+                                                                                     "40.5%",
+                                                                                     "42.93%",
+                                                                                     "45.36%",
+                                                                                     "48.6%",
+                                                                                     "51.84%",
+                                                                                     "55.08%",
+                                                                                     "58.32%",
+                                                                                     "61.56%",
+                                                                                     "64.8%",
+                                                                                     "68.85%",
+                                                                                     "72.9%",
+                                                                                     "76.95%"
+                                                                                 ],
+                                                              "Prism Shot Stellar-Conduct DMG":  [
+                                                                                                     "21.6%",
+                                                                                                     "23.22%",
+                                                                                                     "24.84%",
+                                                                                                     "27%",
+                                                                                                     "28.62%",
+                                                                                                     "30.24%",
+                                                                                                     "32.4%",
+                                                                                                     "34.56%",
+                                                                                                     "36.72%",
+                                                                                                     "38.88%",
+                                                                                                     "41.04%",
+                                                                                                     "43.2%",
+                                                                                                     "45.9%",
+                                                                                                     "48.6%",
+                                                                                                     "51.3%"
+                                                                                                 ],
+                                                              "CD":  [
+                                                                         "4s",
+                                                                         "4s",
+                                                                         "4s",
+                                                                         "4s",
+                                                                         "4s",
+                                                                         "4s",
+                                                                         "4s",
+                                                                         "4s",
+                                                                         "4s",
+                                                                         "4s",
+                                                                         "4s",
+                                                                         "4s",
+                                                                         "4s",
+                                                                         "4s",
+                                                                         "4s"
+                                                                     ]
+                                                          },
+                                          "description":  "With her impeccable, ladylike poise, Sandrone boards the \u003ccolor=#FFD780FF\u003eTea Party Tactical Assault Hovermech\u003c/color\u003e and hovers forward for 6s. During this time, Sandrone can control the travel direction of the craft. Pressing Sprint consumes 10 Stamina and launches her into an elegant high-speed hover mode, in which she will move even faster at the cost of 15 Stamina per second.\\n\\nWhen Sandrone starts hovering, if there are opponents nearby, she will also summon a Prismatic Resonance Cannon and fire 2 Prism Shots at any opponents who have yet to cool down, dealing \u003ccolor=#99FFFFFF\u003eCryo DMG\u003c/color\u003e.\\n\u003ccolor=#FFD780FF\u003eRadiance: Stellar-Conduct\u003c/color\u003e: The second Prism Shot will instead deal \u003ccolor=#99FFFFFF\u003eCryo DMG\u003c/color\u003e that is considered Stellar-Conduct DMG.\\n\\nWhen on the \u003ccolor=#FFD780FF\u003eTea Party Tactical Assault Hovermech\u003c/color\u003e, Sandrone will also elegantly and quietly repair Fagio, causing its {LINK#N11330002}Decoding Power{/LINK} to decrease by 40 points when she starts her ride, and then by a further 10 points for every 0.1s she is on it.\n\\n\\n\u003ci\u003eThe turning of the gears in various machines, the precise point where the Primordial Sea freezes, the frequency at which the night songs gently drift in the air, the ancient laws of the tides\u0027 ebb and flow, and the rising and setting of the moon... All these can be brought under theorems reducible to clean, neat formulas.\\n\"Then it does us no harm to admit, as indeed we must, that our gods, our hopes, and the things we love â they can all be defined by reason.\"\u003c/i\u003e"
+                                      },
+                   "elementalburst":  {
+                                          "name":  "Formule Phenomenale: Q.E.D.",
+                                          "icon":  "Skill_E_MarionetteNew_01",
+                                          "multipliers":  {
+                                                              "Bombardment DMG":  [
+                                                                                      "88.22% Ã3",
+                                                                                      "94.83% Ã3",
+                                                                                      "101.45% Ã3",
+                                                                                      "110.27% Ã3",
+                                                                                      "116.89% Ã3",
+                                                                                      "123.5% Ã3",
+                                                                                      "132.32% Ã3",
+                                                                                      "141.15% Ã3",
+                                                                                      "149.97% Ã3",
+                                                                                      "158.79% Ã3",
+                                                                                      "167.61% Ã3",
+                                                                                      "176.43% Ã3",
+                                                                                      "187.46% Ã3",
+                                                                                      "198.49% Ã3",
+                                                                                      "209.51% Ã3"
+                                                                                  ],
+                                                              "Convective Inhibition Ray DMG":  [
+                                                                                                    "264%",
+                                                                                                    "283.8%",
+                                                                                                    "303.6%",
+                                                                                                    "330%",
+                                                                                                    "349.8%",
+                                                                                                    "369.6%",
+                                                                                                    "396%",
+                                                                                                    "422.4%",
+                                                                                                    "448.8%",
+                                                                                                    "475.2%",
+                                                                                                    "501.6%",
+                                                                                                    "528%",
+                                                                                                    "561%",
+                                                                                                    "594%",
+                                                                                                    "627%"
+                                                                                                ],
+                                                              "Convective Inhibition Ray Stellar-Conduct DMG":  [
+                                                                                                                    "176%",
+                                                                                                                    "189.2%",
+                                                                                                                    "202.4%",
+                                                                                                                    "220%",
+                                                                                                                    "233.2%",
+                                                                                                                    "246.4%",
+                                                                                                                    "264%",
+                                                                                                                    "281.6%",
+                                                                                                                    "299.2%",
+                                                                                                                    "316.8%",
+                                                                                                                    "334.4%",
+                                                                                                                    "352%",
+                                                                                                                    "374%",
+                                                                                                                    "396%",
+                                                                                                                    "418%"
+                                                                                                                ],
+                                                              "CD":  [
+                                                                         "15s",
+                                                                         "15s",
+                                                                         "15s",
+                                                                         "15s",
+                                                                         "15s",
+                                                                         "15s",
+                                                                         "15s",
+                                                                         "15s",
+                                                                         "15s",
+                                                                         "15s",
+                                                                         "15s",
+                                                                         "15s",
+                                                                         "15s",
+                                                                         "15s",
+                                                                         "15s"
+                                                                     ],
+                                                              "Energy Cost":  [
+                                                                                  "60",
+                                                                                  "60",
+                                                                                  "60",
+                                                                                  "60",
+                                                                                  "60",
+                                                                                  "60",
+                                                                                  "60",
+                                                                                  "60",
+                                                                                  "60",
+                                                                                  "60",
+                                                                                  "60",
+                                                                                  "60",
+                                                                                  "60",
+                                                                                  "60",
+                                                                                  "60"
+                                                                              ]
+                                                          },
+                                          "description":  "In line with established ladylike behavior, Sandrone summons a large number of Prismatic Resonance Cannons for a frontal bombardment before firing on her foes with a Convective Inhibition Ray, dealing \u003ccolor=#99FFFFFF\u003eAoE Cryo DMG\u003c/color\u003e.\\n\u003ccolor=#FFD780FF\u003eRadiance: Stellar-Conduct\u003c/color\u003e: The Convective Inhibition Ray instead deals \u003ccolor=#99FFFFFF\u003eAoE Cryo DMG\u003c/color\u003e that is considered Stellar-Conduct DMG.\n\\n\\n\u003ci\u003e\"I can believe in something so long as solid evidence can be produced for it. If not, then I will have to first prove it.\"\\n\"This is how a proper lady carries herself. She who submits to the unknown out of weakness of will cannot be called such.\"\u003c/i\u003e"
+                                      },
+                   "leveling":  {
+                                    "crown":  {
+                                                  "104319":  3
+                                              },
+                                    "books":  {
+                                                  "104362":  9,
+                                                  "104363":  63,
+                                                  "104364":  114
+                                              },
+                                    "worldmonster":  {
+                                                         "112122":  18,
+                                                         "112123":  66,
+                                                         "112124":  93
+                                                     },
+                                    "weekly":  {
+                                                   "113082":  18
+                                               }
+                                }
+               },
+    "passives":  {
+                     "p1":  {
+                                "name":  "Archaic Calculation Engine",
+                                "description":  "\u003ccolor=#FFD780FF\u003eRadiance: Stellar-Conduct\u003c/color\u003e: When using the Elemental Skill {LINK#S11332}\u003ccolor=#FFD780FF\u003eFormule Phenomenale: Differential Analysis\u003c/color\u003e{/LINK}, if Fagio\u0027s {LINK#N11330002}Decoding Power{/LINK} is greater than 50, the second Prism Shot fired by Fagio at nearby opponents will deal 400% of its original DMG as Fagio\u0027s \u003ccolor=#FFD780FF\u003eDecoding Power\u003c/color\u003e is decreased.\\nAdditionally, for every 10 points of \u003ccolor=#FFD780FF\u003eDecoding Power\u003c/color\u003e Fagio loses, it gains 1 stack of \u003ccolor=#FFD780FF\u003eRefined Tactics\u003c/color\u003e for 60s (max 10 stacks). When Sandrone uses the Elemental Burst {LINK#S11335}\u003ccolor=#FFD780FF\u003eFormule Phenomenale: Q.E.D.\u003c/color\u003e{/LINK} while in the \u003ccolor=#FFD780FF\u003eRadiance: Stellar-Conduct\u003c/color\u003e state, all stacks of \u003ccolor=#FFD780FF\u003eRefined Tactics\u003c/color\u003e are cleared, causing the Convective Inhibition Ray to deal (100% + (no. of stacks cleared Ã5))% of its original DMG.",
+                                "icon":  "UI_Talent_S_MarionetteNew_05"
+                            },
+                     "p2":  {
+                                "name":  "A Lady\u0027s Code of Conduct",
+                                "description":  "\u003ccolor=#FFD780FF\u003eRadiance: Stellar-Conduct\u003c/color\u003e: Increases Sandrone\u0027s Elemental Mastery based on her ATK. Every 100 ATK will increase her Elemental Mastery by 8. The maximum increase she can gain this way is 160.",
+                                "icon":  "UI_Talent_S_MarionetteNew_06"
+                            },
+                     "p3":  {
+                                "name":  "Light of Rationalisme",
+                                "description":  "When your party members trigger Superconduct, it will be changed to Stellar-Conduct, and your party members\u0027 Base Stellar-Conduct DMG will be increased based on Sandrone\u0027s ATK: Every 100 ATK she has increases the Base Stellar-Conduct DMG by 0.7%. The maximum increase that can be gained this way is 14%.\\nAdditionally, when Sandrone is within a {LINK#N11330003}\u003ccolor=#FFD780FF\u003ePolestar Field\u003c/color\u003e{/LINK}, she will enter the \u003ccolor=#FFD780FF\u003eRadiance: Stellar-Conduct\u003c/color\u003e state.",
+                                "icon":  "UI_Talent_S_MarionetteNew_07"
+                            },
+                     "p4":  {
+                                "name":  "A Caucus Prelude and a Long Tale",
+                                "description":  "When Sandrone is in the party, you will gain additional snack rewards after turning in your Daily Commissions with Katheryne.",
+                                "icon":  "UI_Talent_S_MarionetteNew_08"
+                            }
+                 },
+    "constellations":  {
+                           "const1":  {
+                                          "name":  "Morrow After the Golden Dusk",
+                                          "description":  "When in {LINK#N11330001}Decoding{/LINK} mode, Fagio\u0027s {LINK#N11330002}Decoding Power{/LINK} increases at a 50% lower rate, and all party members deal 30% increased Stellar-Conduct DMG.",
+                                          "icon":  "UI_Talent_S_MarionetteNew_01"
+                                      },
+                           "const2":  {
+                                          "name":  "An Heiress Gazed Into the Looking-Glass",
+                                          "description":  "\u003ccolor=#FFD780FF\u003eRadiance: Stellar-Conduct\u003c/color\u003e: Increases Charged Attack condensed beam DMG by 100% of Sandrone\u0027s ATK. Also, each time a beam is fired, DMG dealt by all condensed beams fired during this {LINK#N11330001}Decoding{/LINK} mode period will be further increased by 40% of Sandrone\u0027s ATK (max 3 stacks).",
+                                          "icon":  "UI_Talent_S_MarionetteNew_02"
+                                      },
+                           "const3":  {
+                                          "name":  "Refuse the Wake of Dusk, the Moonlit Yoke",
+                                          "description":  "Increases the Level of {LINK#S11331}\u003ccolor=#FFD780FF\u003eFormule Phenomenale: Self-Evident Proposition\u003c/color\u003e{/LINK} by 3.\\nMaximum upgrade level is 15.",
+                                          "icon":  "UI_Talent_U_MarionetteNew_01"
+                                      },
+                           "const4":  {
+                                          "name":  "In Knowledge Lies the World\u0027s True Ground",
+                                          "description":  "When Sandrone deals Stellar-Conduct DMG, she will also summon an extra Prismatic Resonance Cannon to fire off a coordinated attack which deals \u003ccolor=#99FFFFFF\u003eCryo DMG\u003c/color\u003e at 125% of her ATK. This DMG is considered Stellar-Conduct DMG, and the effect can occur once every 4s.",
+                                          "icon":  "UI_Talent_S_MarionetteNew_03"
+                                      },
+                           "const5":  {
+                                          "name":  "Of All Beside, She Takes No Part",
+                                          "description":  "Increases the Level of {LINK#S11331}\u003ccolor=#FFD780FF\u003eFormule Phenomenale: Q.E.D.\u003c/color\u003e{/LINK} by 3.\\nMaximum upgrade level is 15.",
+                                          "icon":  "UI_Talent_U_MarionetteNew_02"
+                                      },
+                           "const6":  {
+                                          "name":  "Narcissus Wakes, Her Eyes Upon the Dawn",
+                                          "description":  "When Fagio fires a condensed beam for the third time while in {LINK#N11330001}Decoding{/LINK} mode, the beam becomes a more powerful \u003ccolor=#FFD780FF\u003eCondensed Cluster Beam\u003c/color\u003e that fires continuously. This beam will deal up to 4 additional instances of \u003ccolor=#99FFFFFF\u003eAoE Cryo DMG\u003c/color\u003e at 75% of Sandrone\u0027s ATK on top of any subsequent original beam fired. \u003ccolor=#FFD780FF\u003eRadiance: Stellar-Conduct\u003c/color\u003e: The \u003ccolor=#FFD780FF\u003eCondensed Cluster Beam\u003c/color\u003e will instead deal 4 additional instances of \u003ccolor=#99FFFFFF\u003eAoE Cryo DMG\u003c/color\u003e at 50% of Sandrone\u0027s ATK. This DMG is considered Stellar-Conduct DMG.\\nAdditionally, all Stellar-Conduct DMG dealt by Sandrone is {LINK#N11190007}\u003ccolor=#FFD780FF\u003eelevated\u003c/color\u003e{/LINK} by 20%.",
+                                          "icon":  "UI_Talent_S_MarionetteNew_04"
+                                      }
+                       },
+    "hyperlinks":  [
+                       {
+                           "id":  11190007,
+                           "name":  "Elevation",
+                           "description":  "Special DMG Boost effect. It is calculated independently of other DMG Boost effects.",
+                           "params":  [
+                                          "",
+                                          "",
+                                          "",
+                                          "",
+                                          ""
+                                      ]
+                       },
+                       {
+                           "id":  11330001,
+                           "name":  "Decoding",
+                           "description":  "Fagio will switch to this mode when using a Charged Attack.\\nWhen in this mode, Fagio will engage any opponents ahead with a sweeping fire attack, as well as fire condensed beams at intervals, dealing AoE Cryo DMG.\\nRadiance: Stellar-Conduct: The condensed beams will instead deal AoE Cryo DMG that is considered Stellar-Conduct DMG.",
+                           "params":  [
+                                          "",
+                                          "",
+                                          "",
+                                          "",
+                                          ""
+                                      ]
+                       },
+                       {
+                           "id":  11330002,
+                           "name":  "Decoding Power",
+                           "description":  "When in Decoding mode, Fagio\u0027s Decoding Power will continuously increase. When its Decoding Power reaches the maximum, Fagio will be unable to maintain or re-enter Decoding mode.",
+                           "params":  [
+                                          "",
+                                          "",
+                                          "",
+                                          "",
+                                          ""
+                                      ]
+                       },
+                       {
+                           "id":  11330003,
+                           "name":  "Radiance: Stellar-Conduct",
+                           "description":  "When Stellar-Conduct is triggered, the surrounding area will transform into a Polestar Field for a short period of time, and when Sandrone is inside a Polestar Field she will enter the Radiance: Stellar-Conduct state, which grants various buffs to her skills.",
+                           "params":  [
+                                          "",
+                                          "",
+                                          "",
+                                          "",
+                                          ""
+                                      ]
+                       }
+                   ],
+    "stories":  {
+                    "133200":  {
+                                   "storyTitle":  "???",
+                                   "storyText":  "",
+                                   "unlockConds":  [
+
+                                                   ]
+                               },
+                    "133201":  {
+                                   "storyTitle":  "???",
+                                   "storyText":  "",
+                                   "unlockConds":  [
+
+                                                   ]
+                               },
+                    "133202":  {
+                                   "storyTitle":  "???",
+                                   "storyText":  "",
+                                   "unlockConds":  [
+
+                                                   ]
+                               },
+                    "133203":  {
+                                   "storyTitle":  "???",
+                                   "storyText":  "",
+                                   "unlockConds":  [
+
+                                                   ]
+                               },
+                    "133204":  {
+                                   "storyTitle":  "???",
+                                   "storyText":  "",
+                                   "unlockConds":  [
+
+                                                   ]
+                               },
+                    "133205":  {
+                                   "storyTitle":  "???",
+                                   "storyText":  "",
+                                   "unlockConds":  [
+
+                                                   ]
+                               },
+                    "133207":  {
+                                   "storyTitle":  "???",
+                                   "storyText":  "",
+                                   "unlockConds":  [
+
+                                                   ]
+                               }
+                },
+    "quotes":  {
+                   "133000":  {
+                                  "quoteTitle":  "???",
+                                  "quoteText":  "???",
+                                  "unlockConds":  [
+
+                                                  ]
+                              },
+                   "133001":  {
+                                  "quoteTitle":  "???",
+                                  "quoteText":  "???",
+                                  "unlockConds":  [
+
+                                                  ]
+                              },
+                   "133002":  {
+                                  "quoteTitle":  "???",
+                                  "quoteText":  "???",
+                                  "unlockConds":  [
+
+                                                  ]
+                              },
+                   "133003":  {
+                                  "quoteTitle":  "???",
+                                  "quoteText":  "???",
+                                  "unlockConds":  [
+
+                                                  ]
+                              },
+                   "133004":  {
+                                  "quoteTitle":  "???",
+                                  "quoteText":  "???",
+                                  "unlockConds":  [
+
+                                                  ]
+                              },
+                   "133005":  {
+                                  "quoteTitle":  "???",
+                                  "quoteText":  "???",
+                                  "unlockConds":  [
+
+                                                  ]
+                              },
+                   "133006":  {
+                                  "quoteTitle":  "???",
+                                  "quoteText":  "???",
+                                  "unlockConds":  [
+
+                                                  ]
+                              },
+                   "133007":  {
+                                  "quoteTitle":  "???",
+                                  "quoteText":  "???",
+                                  "unlockConds":  [
+
+                                                  ]
+                              },
+                   "133008":  {
+                                  "quoteTitle":  "???",
+                                  "quoteText":  "???",
+                                  "unlockConds":  [
+
+                                                  ]
+                              },
+                   "133009":  {
+                                  "quoteTitle":  "???",
+                                  "quoteText":  "???",
+                                  "unlockConds":  [
+
+                                                  ]
+                              },
+                   "133010":  {
+                                  "quoteTitle":  "???",
+                                  "quoteText":  "???",
+                                  "unlockConds":  [
+
+                                                  ]
+                              },
+                   "133011":  {
+                                  "quoteTitle":  "???",
+                                  "quoteText":  "???",
+                                  "unlockConds":  [
+
+                                                  ]
+                              },
+                   "133012":  {
+                                  "quoteTitle":  "???",
+                                  "quoteText":  "???",
+                                  "unlockConds":  [
+
+                                                  ]
+                              },
+                   "133013":  {
+                                  "quoteTitle":  "???",
+                                  "quoteText":  "???",
+                                  "unlockConds":  [
+
+                                                  ]
+                              },
+                   "133014":  {
+                                  "quoteTitle":  "???",
+                                  "quoteText":  "???",
+                                  "unlockConds":  [
+
+                                                  ]
+                              },
+                   "133015":  {
+                                  "quoteTitle":  "???",
+                                  "quoteText":  "???",
+                                  "unlockConds":  [
+
+                                                  ]
+                              },
+                   "133016":  {
+                                  "quoteTitle":  "???",
+                                  "quoteText":  "???",
+                                  "unlockConds":  [
+
+                                                  ]
+                              },
+                   "133017":  {
+                                  "quoteTitle":  "???",
+                                  "quoteText":  "???",
+                                  "unlockConds":  [
+
+                                                  ]
+                              },
+                   "133018":  {
+                                  "quoteTitle":  "???",
+                                  "quoteText":  "???",
+                                  "unlockConds":  [
+
+                                                  ]
+                              },
+                   "133019":  {
+                                  "quoteTitle":  "???",
+                                  "quoteText":  "???",
+                                  "unlockConds":  [
+
+                                                  ]
+                              },
+                   "133020":  {
+                                  "quoteTitle":  "???",
+                                  "quoteText":  "???",
+                                  "unlockConds":  [
+
+                                                  ]
+                              },
+                   "133021":  {
+                                  "quoteTitle":  "???",
+                                  "quoteText":  "???",
+                                  "unlockConds":  [
+
+                                                  ]
+                              },
+                   "133022":  {
+                                  "quoteTitle":  "???",
+                                  "quoteText":  "???",
+                                  "unlockConds":  [
+
+                                                  ]
+                              },
+                   "133023":  {
+                                  "quoteTitle":  "???",
+                                  "quoteText":  "???",
+                                  "unlockConds":  [
+
+                                                  ]
+                              },
+                   "133024":  {
+                                  "quoteTitle":  "???",
+                                  "quoteText":  "???",
+                                  "unlockConds":  [
+
+                                                  ]
+                              },
+                   "133025":  {
+                                  "quoteTitle":  "???",
+                                  "quoteText":  "???",
+                                  "unlockConds":  [
+
+                                                  ]
+                              },
+                   "133026":  {
+                                  "quoteTitle":  "???",
+                                  "quoteText":  "???",
+                                  "unlockConds":  [
+
+                                                  ]
+                              },
+                   "133027":  {
+                                  "quoteTitle":  "???",
+                                  "quoteText":  "???",
+                                  "unlockConds":  [
+
+                                                  ]
+                              },
+                   "133028":  {
+                                  "quoteTitle":  "???",
+                                  "quoteText":  "???",
+                                  "unlockConds":  [
+
+                                                  ]
+                              },
+                   "133029":  {
+                                  "quoteTitle":  "???",
+                                  "quoteText":  "???",
+                                  "unlockConds":  [
+
+                                                  ]
+                              },
+                   "133030":  {
+                                  "quoteTitle":  "???",
+                                  "quoteText":  "???",
+                                  "unlockConds":  [
+
+                                                  ]
+                              },
+                   "133031":  {
+                                  "quoteTitle":  "???",
+                                  "quoteText":  "???",
+                                  "unlockConds":  [
+
+                                                  ]
+                              },
+                   "133032":  {
+                                  "quoteTitle":  "???",
+                                  "quoteText":  "???",
+                                  "unlockConds":  [
+
+                                                  ]
+                              },
+                   "133033":  {
+                                  "quoteTitle":  "???",
+                                  "quoteText":  "???",
+                                  "unlockConds":  [
+
+                                                  ]
+                              },
+                   "133034":  {
+                                  "quoteTitle":  "???",
+                                  "quoteText":  "???",
+                                  "unlockConds":  [
+
+                                                  ]
+                              },
+                   "133035":  {
+                                  "quoteTitle":  "???",
+                                  "quoteText":  "???",
+                                  "unlockConds":  [
+
+                                                  ]
+                              },
+                   "133036":  {
+                                  "quoteTitle":  "???",
+                                  "quoteText":  "???",
+                                  "unlockConds":  [
+
+                                                  ]
+                              },
+                   "133037":  {
+                                  "quoteTitle":  "???",
+                                  "quoteText":  "???",
+                                  "unlockConds":  [
+
+                                                  ]
+                              },
+                   "133038":  {
+                                  "quoteTitle":  "???",
+                                  "quoteText":  "???",
+                                  "unlockConds":  [
+
+                                                  ]
+                              },
+                   "133039":  {
+                                  "quoteTitle":  "???",
+                                  "quoteText":  "???",
+                                  "unlockConds":  [
+
+                                                  ]
+                              },
+                   "133040":  {
+                                  "quoteTitle":  "???",
+                                  "quoteText":  "???",
+                                  "unlockConds":  [
+
+                                                  ]
+                              },
+                   "133041":  {
+                                  "quoteTitle":  "???",
+                                  "quoteText":  "???",
+                                  "unlockConds":  [
+
+                                                  ]
+                              },
+                   "133042":  {
+                                  "quoteTitle":  "???",
+                                  "quoteText":  "???",
+                                  "unlockConds":  [
+
+                                                  ]
+                              },
+                   "133043":  {
+                                  "quoteTitle":  "???",
+                                  "quoteText":  "???",
+                                  "unlockConds":  [
+
+                                                  ]
+                              },
+                   "133044":  {
+                                  "quoteTitle":  "???",
+                                  "quoteText":  "???",
+                                  "unlockConds":  [
+
+                                                  ]
+                              },
+                   "133045":  {
+                                  "quoteTitle":  "???",
+                                  "quoteText":  "???",
+                                  "unlockConds":  [
+
+                                                  ]
+                              },
+                   "133046":  {
+                                  "quoteTitle":  "???",
+                                  "quoteText":  "???",
+                                  "unlockConds":  [
+
+                                                  ]
+                              },
+                   "133047":  {
+                                  "quoteTitle":  "???",
+                                  "quoteText":  "???",
+                                  "unlockConds":  [
+
+                                                  ]
+                              },
+                   "133048":  {
+                                  "quoteTitle":  "???",
+                                  "quoteText":  "???",
+                                  "unlockConds":  [
+
+                                                  ]
+                              },
+                   "133049":  {
+                                  "quoteTitle":  "???",
+                                  "quoteText":  "???",
+                                  "unlockConds":  [
+
+                                                  ]
+                              },
+                   "133050":  {
+                                  "quoteTitle":  "???",
+                                  "quoteText":  "???",
+                                  "unlockConds":  [
+
+                                                  ]
+                              },
+                   "133051":  {
+                                  "quoteTitle":  "???",
+                                  "quoteText":  "???",
+                                  "unlockConds":  [
+
+                                                  ]
+                              },
+                   "133052":  {
+                                  "quoteTitle":  "???",
+                                  "quoteText":  "???",
+                                  "unlockConds":  [
+
+                                                  ]
+                              },
+                   "133053":  {
+                                  "quoteTitle":  "???",
+                                  "quoteText":  "???",
+                                  "unlockConds":  [
+
+                                                  ]
+                              },
+                   "133054":  {
+                                  "quoteTitle":  "???",
+                                  "quoteText":  "???",
+                                  "unlockConds":  [
+
+                                                  ]
+                              },
+                   "133055":  {
+                                  "quoteTitle":  "???",
+                                  "quoteText":  "???",
+                                  "unlockConds":  [
+
+                                                  ]
+                              },
+                   "133056":  {
+                                  "quoteTitle":  "???",
+                                  "quoteText":  "???",
+                                  "unlockConds":  [
+
+                                                  ]
+                              },
+                   "133057":  {
+                                  "quoteTitle":  "???",
+                                  "quoteText":  "???",
+                                  "unlockConds":  [
+
+                                                  ]
+                              },
+                   "133058":  {
+                                  "quoteTitle":  "???",
+                                  "quoteText":  "???",
+                                  "unlockConds":  [
+
+                                                  ]
+                              },
+                   "133059":  {
+                                  "quoteTitle":  "???",
+                                  "quoteText":  "???",
+                                  "unlockConds":  [
+
+                                                  ]
+                              },
+                   "133060":  {
+                                  "quoteTitle":  "???",
+                                  "quoteText":  "???",
+                                  "unlockConds":  [
+
+                                                  ]
+                              },
+                   "133061":  {
+                                  "quoteTitle":  "???",
+                                  "quoteText":  "???",
+                                  "unlockConds":  [
+
+                                                  ]
+                              },
+                   "133062":  {
+                                  "quoteTitle":  "???",
+                                  "quoteText":  "???",
+                                  "unlockConds":  [
+
+                                                  ]
+                              },
+                   "133063":  {
+                                  "quoteTitle":  "???",
+                                  "quoteText":  "???",
+                                  "unlockConds":  [
+
+                                                  ]
+                              },
+                   "133064":  {
+                                  "quoteTitle":  "???",
+                                  "quoteText":  "???",
+                                  "unlockConds":  [
+
+                                                  ]
+                              },
+                   "133065":  {
+                                  "quoteTitle":  "???",
+                                  "quoteText":  "???",
+                                  "unlockConds":  [
+
+                                                  ]
+                              },
+                   "133066":  {
+                                  "quoteTitle":  "???",
+                                  "quoteText":  "???",
+                                  "unlockConds":  [
+
+                                                  ]
+                              },
+                   "133067":  {
+                                  "quoteTitle":  "???",
+                                  "quoteText":  "???",
+                                  "unlockConds":  [
+
+                                                  ]
+                              },
+                   "133068":  {
+                                  "quoteTitle":  "???",
+                                  "quoteText":  "???",
+                                  "unlockConds":  [
+
+                                                  ]
+                              },
+                   "133069":  {
+                                  "quoteTitle":  "???",
+                                  "quoteText":  "???",
+                                  "unlockConds":  [
+
+                                                  ]
+                              },
+                   "133070":  {
+                                  "quoteTitle":  "???",
+                                  "quoteText":  "???",
+                                  "unlockConds":  [
+
+                                                  ]
+                              },
+                   "133071":  {
+                                  "quoteTitle":  "???",
+                                  "quoteText":  "???",
+                                  "unlockConds":  [
+
+                                                  ]
+                              },
+                   "133072":  {
+                                  "quoteTitle":  "???",
+                                  "quoteText":  "???",
+                                  "unlockConds":  [
+
+                                                  ]
+                              },
+                   "133073":  {
+                                  "quoteTitle":  "???",
+                                  "quoteText":  "???",
+                                  "unlockConds":  [
+
+                                                  ]
+                              },
+                   "133074":  {
+                                  "quoteTitle":  "???",
+                                  "quoteText":  "???",
+                                  "unlockConds":  [
+
+                                                  ]
+                              },
+                   "133075":  {
+                                  "quoteTitle":  "???",
+                                  "quoteText":  "???",
+                                  "unlockConds":  [
+
+                                                  ]
+                              },
+                   "133076":  {
+                                  "quoteTitle":  "???",
+                                  "quoteText":  "???",
+                                  "unlockConds":  [
+
+                                                  ]
+                              },
+                   "133077":  {
+                                  "quoteTitle":  "???",
+                                  "quoteText":  "???",
+                                  "unlockConds":  [
+
+                                                  ]
+                              },
+                   "133078":  {
+                                  "quoteTitle":  "???",
+                                  "quoteText":  "???",
+                                  "unlockConds":  [
+
+                                                  ]
+                              }
+               },
+    "energy":  [
+                   {
+                       "source":  "Elemball_Proc",
+                       "particles":  "1",
+                       "chance":  "100%",
+                       "cd":  "2.5s"
+                   }
+               ],
+    "attacks":  [
+                    {
+                        "name":  "Funnel_Bullet",
+                        "icd_source":  "Tag: Elemental_Art (!)",
+                        "icd_rule":  "Independent",
+                        "gauge":  "1U",
+                        "poise":  "LV2/40",
+                        "element":  "Ice",
+                        "attackType":  "Melee",
+                        "strikeType":  "-",
+                        "damageParam":  "DamageRatio"
+                    },
+                    {
+                        "name":  "Funnel_Bullet_Enhanced",
+                        "icd_source":  "Tag: Elemental_Art (!)",
+                        "icd_rule":  "Independent",
+                        "gauge":  "1U",
+                        "poise":  "LV3/40",
+                        "element":  "Ice",
+                        "attackType":  "Melee",
+                        "strikeType":  "-",
+                        "damageParam":  "DamageRatio"
+                    },
+                    {
+                        "name":  "Funnel_Bullet_Enhanced",
+                        "icd_source":  "Tag: StarSuperconductorIceDamage (!)",
+                        "icd_rule":  "Independent",
+                        "gauge":  "0U",
+                        "poise":  "LV3/60",
+                        "element":  "Ice",
+                        "attackType":  "Range",
+                        "strikeType":  "-",
+                        "damageParam":  "-"
+                    },
+                    {
+                        "name":  "Avatar_Marionette_ExtraAttackBullet_01",
+                        "icd_source":  "Tag: ExtraAttackLaser (!)",
+                        "icd_rule":  "Independent",
+                        "gauge":  "1U",
+                        "poise":  "LV2/30",
+                        "element":  "Ice",
+                        "attackType":  "Melee",
+                        "strikeType":  "Blunt",
+                        "damageParam":  "NormalDamageRatio"
+                    },
+                    {
+                        "name":  "Avatar_Marionette_ExtraAttackBullet_01",
+                        "icd_source":  "Tag: StarSuperconductorIceDamage (!)",
+                        "icd_rule":  "Independent",
+                        "gauge":  "0U",
+                        "poise":  "LV2/50",
+                        "element":  "Ice",
+                        "attackType":  "Range",
+                        "strikeType":  "Blunt",
+                        "damageParam":  "-"
+                    },
+                    {
+                        "name":  "Avatar_Marionette_ExtraAttackBullet_Loop",
+                        "icd_source":  "Tag: ExtraAttackLaser (!)",
+                        "icd_rule":  "Independent",
+                        "gauge":  "1U",
+                        "poise":  "LV2/30",
+                        "element":  "Ice",
+                        "attackType":  "Melee",
+                        "strikeType":  "Blunt",
+                        "damageParam":  "NormalDamageRatio"
+                    },
+                    {
+                        "name":  "Avatar_Marionette_ExtraAttackBullet_Loop",
+                        "icd_source":  "Tag: StarSuperconductorIceDamage (!)",
+                        "icd_rule":  "Independent",
+                        "gauge":  "0U",
+                        "poise":  "LV2/45",
+                        "element":  "Ice",
+                        "attackType":  "Range",
+                        "strikeType":  "Blunt",
+                        "damageParam":  "-"
+                    },
+                    {
+                        "name":  "Avatar_Marionette_ExtraAttackBullet_02",
+                        "icd_source":  "Tag: Avatar_Marionette_MachineGun",
+                        "icd_rule":  "2 hits / 1.4s",
+                        "gauge":  "1U",
+                        "poise":  "LV2/10",
+                        "element":  "Ice",
+                        "attackType":  "Range",
+                        "strikeType":  "-",
+                        "damageParam":  "DamageRatio"
+                    },
+                    {
+                        "name":  "Avatar_Marionette_ExtraAttackBullet_02",
+                        "icd_source":  "Grp: default",
+                        "icd_rule":  "Standard (3h/2.5s)",
+                        "gauge":  "0U",
+                        "poise":  "LV1/2",
+                        "element":  "-",
+                        "attackType":  "Default",
+                        "strikeType":  "-",
+                        "damageParam":  "-"
+                    },
+                    {
+                        "name":  "Avatar_Marionette_ExtraAttackBullet_04",
+                        "icd_source":  "Tag: Avatar_Marionette_MachineGun",
+                        "icd_rule":  "2 hits / 1.4s",
+                        "gauge":  "1U",
+                        "poise":  "LV2/10",
+                        "element":  "Ice",
+                        "attackType":  "Melee",
+                        "strikeType":  "-",
+                        "damageParam":  "DamageRatio"
+                    },
+                    {
+                        "name":  "Avatar_Marionette_ElementalArtBullet_01",
+                        "icd_source":  "Tag: ExtraAttack (!)",
+                        "icd_rule":  "Independent",
+                        "gauge":  "1U",
+                        "poise":  "LV3/75",
+                        "element":  "Ice",
+                        "attackType":  "Range",
+                        "strikeType":  "Blunt",
+                        "damageParam":  "2.000000"
+                    },
+                    {
+                        "name":  "BurstAttacker",
+                        "icd_source":  "Tag: Elemental_Burst (!)",
+                        "icd_rule":  "Independent",
+                        "gauge":  "1U",
+                        "poise":  "LV3/50",
+                        "element":  "Ice",
+                        "attackType":  "Range",
+                        "strikeType":  "-",
+                        "damageParam":  "BurstRatio"
+                    },
+                    {
+                        "name":  "BurstAttacker",
+                        "icd_source":  "Tag: Elemental_Burst (!)",
+                        "icd_rule":  "Independent",
+                        "gauge":  "1U",
+                        "poise":  "LV3/50",
+                        "element":  "Ice",
+                        "attackType":  "Range",
+                        "strikeType":  "-",
+                        "damageParam":  "BurstRatio"
+                    },
+                    {
+                        "name":  "BurstAttacker",
+                        "icd_source":  "Tag: StarSuperconductorIceDamage (!)",
+                        "icd_rule":  "Independent",
+                        "gauge":  "0U",
+                        "poise":  "LV3/100",
+                        "element":  "Ice",
+                        "attackType":  "Range",
+                        "strikeType":  "Blunt",
+                        "damageParam":  "-"
+                    },
+                    {
+                        "name":  "BurstAttacker",
+                        "icd_source":  "Tag: Elemental_Burst (!)",
+                        "icd_rule":  "Independent",
+                        "gauge":  "1U",
+                        "poise":  "LV3/70",
+                        "element":  "Ice",
+                        "attackType":  "Melee",
+                        "strikeType":  "Blunt",
+                        "damageParam":  "BurstLaserRatio"
+                    },
+                    {
+                        "name":  "T4",
+                        "icd_source":  "Tag: StarSuperconductorIceDamage (!)",
+                        "icd_rule":  "Independent",
+                        "gauge":  "0U",
+                        "poise":  "LV3/50",
+                        "element":  "Ice",
+                        "attackType":  "Range",
+                        "strikeType":  "-",
+                        "damageParam":  "-"
+                    },
+                    {
+                        "name":  "FallingAnthem",
+                        "icd_source":  "Tag: FallingAttack (!)",
+                        "icd_rule":  "Independent",
+                        "gauge":  "0U",
+                        "poise":  "LV2/35",
+                        "element":  "-",
+                        "attackType":  "Melee",
+                        "strikeType":  "Slash",
+                        "damageParam":  "FallingAnthem_Normal_Loop_Damage"
+                    },
+                    {
+                        "name":  "FallingAnthem",
+                        "icd_source":  "Tag: FallingAttack (!)",
+                        "icd_rule":  "Independent",
+                        "gauge":  "1U",
+                        "poise":  "LV4/150",
+                        "element":  "-",
+                        "attackType":  "Melee",
+                        "strikeType":  "Blunt",
+                        "damageParam":  "FallingAnthem_Normal_Rank_1_Damage"
+                    },
+                    {
+                        "name":  "FallingAnthem",
+                        "icd_source":  "Tag: FallingAttack (!)",
+                        "icd_rule":  "Independent",
+                        "gauge":  "1U",
+                        "poise":  "LV7/200",
+                        "element":  "-",
+                        "attackType":  "Melee",
+                        "strikeType":  "Blunt",
+                        "damageParam":  "FallingAnthem_Normal_Rank_2_Damage"
+                    }
+                ],
+    "endure":  [
+                   {
+                       "ability":  "SpecialExAtkDriver",
+                       "handler":  "Avatar_Marionette_ExtraAttack_RobotEff",
+                       "Actor_EndureDelta":  0.5
+                   }
+               ]
+}

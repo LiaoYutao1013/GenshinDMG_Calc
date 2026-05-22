@@ -156,6 +156,9 @@ function bonus = localResolvePacketBonus(reactionName, teamContext)
             bonus = bonus + getFieldOrDefault(teamContext, 'LunarChargedBonus', 0);
         case 'burning'
             bonus = bonus + getFieldOrDefault(teamContext, 'ReactionDMGBonus', 0);
+        case 'stellarconduct'
+            bonus = bonus + getFieldOrDefault(teamContext, 'StellarConductBonus', 0) ...
+                + getFieldOrDefault(teamContext, 'SandroneStellarConductC1Bonus', 0);
     end
 end
 
@@ -230,6 +233,8 @@ function aura = localInferSupportAura(triggerElement, teamContext)
                 aura = "Pyro";
             elseif hydroCount >= 1
                 aura = "Hydro";
+            elseif electroCount >= 1
+                aura = "Electro";
             else
                 aura = "";
             end

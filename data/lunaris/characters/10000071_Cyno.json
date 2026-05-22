@@ -4,7 +4,7 @@
     "description": "The General Mahamatra in charge of supervising the researchers of the Akademiya. It is said that when he gets down to work, the General Mahamatra is even more efficient than the \"Great Vayuvyastra\" made by the Kshahrewar.",
     "rarity": "QUALITY_ORANGE",
     "weapon": "WEAPON_POLE",
-    "birthday": "23/6",
+    "birthday": "0/6",
     "element": "Electro",
     "title": "Judicator of Secrets",
     "constellation": "Lupus Aureus",
@@ -1016,7 +1016,7 @@
           "3s"
         ]
       },
-      "description": "Performs a swift thrust, dealing <color=#FFACFFFF>Electro DMG</color> to opponents along the path.\\n\\nWhen Cyno is under the Pactsworn Pathclearer state triggered by Sacred Rite: Wolf's Swiftness, he will instead unleash a <color=#FFD780FF>Mortuary Rite</color> that deals thunderous <color=#FFACFFFF>AoE Electro DMG</color> and extends the duration of Pactsworn Pathclearer.\\n\\n<i>\"This judgment brooks no choice. There is no rejection or acceptance here... We have both long been bound up in this conviction.\"</i>"
+      "description": "Performs a swift thrust, dealing <color=#FFACFFFF>Electro DMG</color> to opponents along the way.\\n\\nWhen Cyno is in the Pactsworn Pathclearer state, he will instead unleash a <color=#FFD780FF>Mortuary Rite</color> that deals thunderous <color=#FFACFFFF>AoE Electro DMG</color>. If this instance of Pactsworn Pathclearer is a result of his Elemental Burst, then Mortuary Rite will also extend the duration of this instance of Pactsworn Pathclearer.\\n\\n<i>\"This judgment brooks no choice. There is no rejection or acceptance here... We have both long been bound up in this conviction.\"</i>"
     },
     "elementalburst": {
       "name": "Sacred Rite: Wolf's Swiftness",
@@ -1281,17 +1281,21 @@
       "description": "Gains 25% more rewards when dispatched on a Sumeru Expedition for 20 hours.",
       "icon": "UI_Talent_S_Cyno_07"
     },
-    "p4": ""
+    "p4": {
+      "name": "A Star With Which to Start the Journey",
+      "description": "When Cyno is not in the Pactsworn Pathclearer state, after unleashing his Elemental Skill, he will transform into the Pactsworn Pathclearer for 6s.",
+      "icon": "UI_Talent_S_Cyno_08"
+    }
   },
   "constellations": {
     "const1": {
       "name": "Ordinance: Unceasing Vigil",
-      "description": "After using <color=#FFD780FF>Sacred Rite: Wolf's Swiftness</color>, Cyno's Normal Attack SPD will be increased by 20% for 10s. If the Judication effect of his Ascension Talent Featherfall Judgment is triggered during <color=#FFD780FF>Secret Rite: Chasmic Soulfarer</color>, the duration of this increase will be refreshed.\\nYou must first unlock the Ascension Talent \"Featherfall Judgment.\"",
+      "description": "After using <color=#FFD780FF>Sacred Rite: Wolf's Swiftness</color>, Cyno's Normal Attack SPD will be increased by 20% for 10s. If the Judication effect of his Ascension Talent Featherfall Judgment is triggered during <color=#FFD780FF>Secret Rite: Chasmic Soulfarer</color>, the duration of this increase will be refreshed.\\nYou must first unlock the Ascension Talent \"Featherfall Judgment.\"\\n\\nWhen Cyno morphs into the Pactsworn Pathclearer while in the Radiance: Stellar-Conduct state, the Pactsworn Pathclearer state will also grant an additional Protection of Anubis effect which increases the Elemental Mastery of its target by 200. When Cyno switches characters while Protection of Anubis is active, the effect is also transferred to the incoming ally for the remaining duration of Pactsworn Pathclearer.",
       "icon": "UI_Talent_S_Cyno_01"
     },
     "const2": {
       "name": "Ceremony: Homecoming of Spirits",
-      "description": "When Cyno's Normal Attacks hit opponents, his <color=#FFACFFFF>Electro DMG Bonus</color> will increase by 10% for 4s. This effect can be triggered once every 0.1s. Max 5 stacks.",
+      "description": "When Cyno's Normal Attacks hit opponents, his <color=#FFACFFFF>Electro DMG Bonus</color> will increase by 10% for 4s. This effect can be triggered once every 0.1s. Max 5 stacks.\\n\\nAfter a character enjoying the Protection of Anubis hits an opponent with a Normal Attack, their Stellar-Conduct DMG is increased by 10%. This effect can be triggered once every 0.1s. Max 5 stacks. The effect lasts until the protection ends.",
       "icon": "UI_Talent_S_Cyno_02"
     },
     "const3": {
@@ -1301,7 +1305,7 @@
     },
     "const4": {
       "name": "Austerity: Forbidding Guard",
-      "description": "When Cyno is in the Pactsworn Pathclearer state triggered by <color=#FFD780FF>Sacred Rite: Wolf's Swiftness</color>, after he triggers an Electro-Charged, Lunar-Charged, Superconduct, Overloaded, Quicken, Aggravate, Hyperbloom, or Electro Swirl reaction, he will restore 3 Elemental Energy for all nearby party members (except himself.)\\nThis effect can occur 5 times within one use of <color=#FFD780FF>Sacred Rite: Wolf's Swiftness</color>.",
+      "description": "When Cyno is in the Pactsworn Pathclearer state triggered by <color=#FFD780FF>Sacred Rite: Wolf's Swiftness</color>, after he triggers an Electro-Charged, Lunar-Charged, Superconduct, Stellar-Conduct, Overloaded, Quicken, Aggravate, Hyperbloom, or Electro Swirl reaction, he will restore 3 Elemental Energy for all nearby party members (except himself). This effect can occur 5 times within one use of <color=#FFD780FF>Sacred Rite: Wolf's Swiftness</color>.\\n\\nAfter a character enjoying the Protection of Anubis (except for Cyno himself) triggers the above reactions, Cyno regenerates 20 Elemental Energy. This effect can be triggered once every 18s.",
       "icon": "UI_Talent_S_Cyno_03"
     },
     "const5": {
@@ -1311,7 +1315,7 @@
     },
     "const6": {
       "name": "Raiment: Just Scales",
-      "description": "After using <color=#FFD780FF>Sacred Rite: Wolf's Swiftness</color> or triggering the Judication effect of the Ascension Talent \"Featherfall Judgment,\" Cyno will gain 4 stacks of the \"Day of the Jackal\" effect. When he hits opponents with Normal Attacks, he will consume 1 stack of \"Day of the Jackal\" to fire off one Duststalker Bolt.\\n\"Day of the Jackal\" lasts for 8s. Max 8 stacks. It will be canceled once Pactsworn Pathclearer ends.\\nA maximum of 1 Duststalker Bolt can be unleashed this way every 0.4s.\\nYou must first unlock the Ascension Talent \"Featherfall Judgment.\"",
+      "description": "After using <color=#FFD780FF>Sacred Rite: Wolf's Swiftness</color> or triggering the Judication effect of the Ascension Talent \"Featherfall Judgment,\" Cyno will gain 4 stacks of the \"Day of the Jackal\" effect. When he hits opponents with Normal Attacks, he will consume 1 stack of \"Day of the Jackal\" to fire off one Duststalker Bolt. If, at this time, Cyno enjoys the Protection of Anubis, he will consume 1 stack of \"Day of the Jackal\" and fire off one Trialseeker Bolt instead.\\n\"Day of the Jackal\" lasts for 8s. Max 8 stacks for each instance of Pactsworn Pathclearer. It will be canceled once Pactsworn Pathclearer from Sacred Rite: Wolf's Swiftness ends.\\nA maximum of 1 Duststalker Bolt or 1 Trialseeker Bolt can be unleashed this way every 0.4s.\\nYou must first unlock the Ascension Talent \"Featherfall Judgment.\"",
       "icon": "UI_Talent_S_Cyno_04"
     }
   },
@@ -1923,14 +1927,14 @@
     },
     {
       "name": "ElementalArt_Blade_Hit",
-      "icd_source": "Grp: Cyno_ElementalArt_Blade (Tag Miss)",
-      "icd_rule": "11 hits / 2.5s",
-      "gauge": "1U",
-      "poise": "LV2/25",
+      "icd_source": "Tag: StarSuperconductorElectricDamage (!)",
+      "icd_rule": "Independent",
+      "gauge": "0U",
+      "poise": "LV2/30",
       "element": "Electric",
       "attackType": "Melee",
       "strikeType": "Slash",
-      "damageParam": "Cyno_ElementalArt_Blade"
+      "damageParam": "-"
     },
     {
       "name": "Constellation_6_Blade",

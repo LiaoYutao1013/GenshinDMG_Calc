@@ -72,6 +72,7 @@ function result = resolveReactionForHit(enemyState, hitDescriptor, build, teamCo
     applyElement = string(getFieldOrDefault(hitDescriptor, 'ApplyElement', hitElement));
     applyGauge = double(getFieldOrDefault(hitDescriptor, 'ApplyGauge', 1.0));
     canApplyAura = logical(getFieldOrDefault(hitDescriptor, 'CanApplyAura', strlength(applyElement) > 0));
+    canTriggerReaction = logical(getFieldOrDefault(hitDescriptor, 'CanTriggerReaction', true));
     preferredAura = string(getFieldOrDefault(hitDescriptor, 'PreferredAura', ""));
     forceReaction = string(getFieldOrDefault(hitDescriptor, 'ForceReactionName', ""));
 
@@ -80,10 +81,23 @@ function result = resolveReactionForHit(enemyState, hitDescriptor, build, teamCo
     end
     result.EnemyState = localEnsureSupportAura(result.EnemyState, hitElement, teamContext);
 
-    directReaction = localResolvePrimaryReaction(result.EnemyState, hitElement, forceReaction);
+    if ~canTriggerReaction
+        if canApplyAura && strlength(applyElement) > 0
+            result.EnemyState = localApplyPostReactionAura(result.EnemyState, applyElement, applyGauge, "");
+        end
+        result.EnemyState = localRefreshFrozenState(result.EnemyState);
+        return;
+    end
+
+    directReaction = localResolvePrimaryReaction(result.EnemyState, hitElement, forceReaction, teamContext);
     result.PrimaryReaction = directReaction.Name;
 
-    em = getFieldOrDefault(build, 'EM', 0) + getFieldOrDefault(teamContext, 'EMBonus', 0);
+    emOverride = getFieldOrDefault(hitDescriptor, 'ReactionEMOverride', []);
+    if isempty(emOverride)
+        em = getFieldOrDefault(build, 'EM', 0) + getFieldOrDefault(teamContext, 'EMBonus', 0);
+    else
+        em = double(emOverride);
+    end
     reactionBonus = getFieldOrDefault(hitDescriptor, 'ReactionBonus', getFieldOrDefault(build, 'ReactionDMGBonus', 0));
 
     switch lower(char(directReaction.Name))
@@ -112,7 +126,7 @@ function result = resolveReactionForHit(enemyState, hitDescriptor, build, teamCo
             end
             result.EnemyState = localConsumeQuickenGauge(result.EnemyState, applyGauge);
 
-        case {'electrocharged', 'overload', 'superconduct', 'swirl', 'crystallize', 'bloom', 'burning', ...
+        case {'electrocharged', 'overload', 'superconduct', 'stellarconduct', 'swirl', 'crystallize', 'bloom', 'burning', ...
                 'lunarcharged', 'lunarcrystallize', 'lunarbloom'}
             result = localResolveTransformativeReaction( ...
                 result, directReaction, hitDescriptor, build, teamContext, enemy, applyGauge);
@@ -209,6 +223,19 @@ function damage = localResolveTransformativeDamage(reactionName, build, teamCont
         resShred = resShredOverride + getFieldOrDefault(hitDescriptor, 'ExtraResShred', 0);
     end
     damage = calcReactionDamage(baseDamage, em, enemy, resShred, 1 + totalBonus, critRate, critDMG);
+    damage = damage + localResolveTeamReactionFlatDamage( ...
+        reactionName, teamContext, enemy, resShred, totalBonus, critRate, critDMG);
+end
+
+function damage = localResolveTeamReactionFlatDamage(reactionName, teamContext, enemy, resShred, totalBonus, critRate, critDMG)
+    damage = 0;
+    switch lower(char(string(reactionName)))
+        case 'stellarconduct'
+            flatBase = getFieldOrDefault(teamContext, 'QiqiC6StellarConductFlatDamage', 0);
+            if flatBase > 0
+                damage = calcReactionDamage(flatBase, 0, enemy, resShred, 1 + totalBonus, critRate, critDMG);
+            end
+    end
 end
 
 function totalBonus = localResolveReactionFamilyBonus(reactionName, build, teamContext, hitDescriptor)
@@ -219,6 +246,8 @@ function totalBonus = localResolveReactionFamilyBonus(reactionName, build, teamC
         return;
     end
     switch reactionName
+        case 'superconduct'
+            totalBonus = totalBonus + getFieldOrDefault(teamContext, 'SuperconductBonus', 0);
         case 'overload'
             totalBonus = totalBonus + getFieldOrDefault(teamContext, 'OverloadBonus', 0);
         case 'bloom'
@@ -232,6 +261,15 @@ function totalBonus = localResolveReactionFamilyBonus(reactionName, build, teamC
             totalBonus = totalBonus + getFieldOrDefault(teamContext, 'LunarCrystallizeBonus', 0);
         case 'lunarbloom'
             totalBonus = totalBonus + getFieldOrDefault(teamContext, 'LunarBloomBonus', 0);
+        case 'stellarconduct'
+            totalBonus = totalBonus ...
+                + getFieldOrDefault(teamContext, 'StellarConductBonus', 0) ...
+                + getFieldOrDefault(teamContext, 'SandroneStellarConductC1Bonus', 0);
+        case 'swirl'
+            reactionElement = lower(char(string(getFieldOrDefault(hitDescriptor, 'ReactionElement', ""))));
+            if strcmp(reactionElement, 'cryo')
+                totalBonus = totalBonus + getFieldOrDefault(teamContext, 'CryoSwirlBonus', 0);
+            end
     end
 end
 
@@ -349,7 +387,7 @@ function multiplier = localAmplifyMultiplier(reactionName, hitElement, em, react
     multiplier = baseMultiplier * (1 + emBonus + max(0, reactionBonus));
 end
 
-function reaction = localResolvePrimaryReaction(enemyState, hitElement, forcedName)
+function reaction = localResolvePrimaryReaction(enemyState, hitElement, forcedName, teamContext)
     reaction = struct('Name', "", 'ConsumedAura', "", 'AuraIndex', 0);
     if strlength(forcedName) > 0
         reaction.Name = string(forcedName);
@@ -365,7 +403,7 @@ function reaction = localResolvePrimaryReaction(enemyState, hitElement, forcedNa
                 reaction.AuraIndex = localFindAuraIndex(enemyState, "Cryo");
                 return;
             case 'electro'
-                reaction.Name = "Superconduct";
+                reaction.Name = localResolveSuperconductReactionName(teamContext);
                 reaction.ConsumedAura = "Cryo";
                 reaction.AuraIndex = localFindAuraIndex(enemyState, "Cryo");
                 return;
@@ -417,7 +455,7 @@ function reaction = localResolvePrimaryReaction(enemyState, hitElement, forcedNa
                 case 'hydro'
                     reaction.Name = "Frozen";
                 case 'electro'
-                    reaction.Name = "Superconduct";
+                    reaction.Name = localResolveSuperconductReactionName(teamContext);
             end
         case 'electro'
             switch auraElementLower
@@ -426,7 +464,7 @@ function reaction = localResolvePrimaryReaction(enemyState, hitElement, forcedNa
                 case 'pyro'
                     reaction.Name = "Overload";
                 case 'cryo'
-                    reaction.Name = "Superconduct";
+                    reaction.Name = localResolveSuperconductReactionName(teamContext);
                 case 'dendro'
                     reaction.Name = "Quicken";
             end
@@ -447,6 +485,14 @@ function reaction = localResolvePrimaryReaction(enemyState, hitElement, forcedNa
             if any(strcmp(auraElement, ["Pyro", "Hydro", "Electro", "Cryo"]))
                 reaction.Name = "Crystallize";
             end
+    end
+end
+
+function reactionName = localResolveSuperconductReactionName(teamContext)
+    if logical(getFieldOrDefault(teamContext, 'StellarConductEnabled', false))
+        reactionName = "StellarConduct";
+    else
+        reactionName = "Superconduct";
     end
 end
 
@@ -533,7 +579,7 @@ function enemyState = localApplyPostReactionAura(enemyState, applyElement, apply
     directReactionName = lower(char(string(directReactionName)));
 
     switch directReactionName
-        case {'vaporize', 'melt', 'overload', 'superconduct', 'swirl', 'crystallize'}
+        case {'vaporize', 'melt', 'overload', 'superconduct', 'stellarconduct', 'swirl', 'crystallize'}
             if strcmpi(char(applyElement), 'anemo') || strcmpi(char(applyElement), 'geo')
                 return;
             end
@@ -624,6 +670,8 @@ function aura = localInferSupportAura(triggerElement, teamContext)
                 aura = "Pyro";
             elseif hydroCount >= 1
                 aura = "Hydro";
+            elseif electroCount >= 1
+                aura = "Electro";
             else
                 aura = "";
             end
@@ -688,6 +736,8 @@ function element = localReactionElement(reactionName)
         case 'crystallize'
             element = "Geo";
         case 'superconduct'
+            element = "Cryo";
+        case 'stellarconduct'
             element = "Cryo";
         case 'shatter'
             element = "Physical";
@@ -815,7 +865,7 @@ function tf = localShouldDealDirectTransformativeDamage(reactionName, hitDescrip
     end
 
     switch lower(char(string(reactionName)))
-        case {'overload', 'superconduct', 'swirl', 'lunarcharged', 'lunarbloom'}
+        case {'overload', 'superconduct', 'stellarconduct', 'swirl', 'lunarcharged', 'lunarbloom'}
             tf = true;
         otherwise
             tf = false;

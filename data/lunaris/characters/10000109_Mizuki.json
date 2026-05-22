@@ -4,7 +4,7 @@
     "description": "A shareholder of Aisa Bathhouse, a baku, and a clinical psychologist. Dedicated to the dispersal of nightmares, and to bringing people peace of mind.",
     "rarity": "QUALITY_ORANGE",
     "weapon": "WEAPON_CATALYST",
-    "birthday": "16/3",
+    "birthday": "0/3",
     "element": "Anemo",
     "title": "Embrace of Enchanting Dreams",
     "constellation": "Tapirus Somniator",
@@ -1145,17 +1145,21 @@
       "description": "When Yumemizuki Mizuki is in the party, party members have a chance to recover 30% additional HP when using healing foods that do not have reviving properties. The trigger chance for this effect increases with the corresponding character's Friendship Level. (This effect will always trigger if the Traveler is the character consuming healing food.)",
       "icon": "UI_Talent_S_Mizuki_07"
     },
-    "p4": ""
+    "p4": {
+      "name": "Vast Be the Dream",
+      "description": "When Yumemizuki Mizuki triggers a Swirl reaction while in the Dreamdrifter state, the next instance of periodic <color=#80FFD7FF>AoE Anemo DMG</color> she deals to nearby enemies during that same state will be increased by 1,000% of her Elemental Mastery. The aforementioned effect can trigger once every 2.5s.\\nAdditionally, while Yumemizuki Mizuki is in the Dreamdrifter state, the Elemental Mastery of nearby party characters is increased by 10% of Yumemizuki Mizuki's Elemental Mastery.",
+      "icon": "UI_Talent_S_Mizuki_08"
+    }
   },
   "constellations": {
     "const1": {
       "name": "In Mist-Like Waters",
-      "description": "When Yumemizuki Mizuki is in the Dreamdrifter state, she will continuously apply the \"Twenty-Three Nights' Awaiting\" effect to nearby opponents for 3s every 3.5s. When an opponent is affected by Anemo DMG-triggered Swirl reactions while the aforementioned effect is active, the effect will be canceled and this Swirl instance has its DMG against this opponent increased by 1,100% of Mizuki's Elemental Mastery.",
+      "description": "When Yumemizuki Mizuki is in the Dreamdrifter state, she will continuously apply the \"Twenty-Three Nights' Awaiting\" effect to nearby opponents for 3s every 3.5s. When an opponent is affected by Anemo DMG-triggered Swirl reactions while the aforementioned effect is active, the effect will be canceled, and this Swirl instance has its DMG against this opponent increased by 1,100% of Mizuki's Elemental Mastery. She also launches an additional attack on the same opponent, dealing <color=#80FFD7FF>Anemo DMG</color> equal to 1,000% of Yumemizuki Mizuki's Elemental Mastery.",
       "icon": "UI_Talent_S_Mizuki_01"
     },
     "const2": {
       "name": "Your Echo I Meet in Dreams",
-      "description": "When Yumemizuki Mizuki enters the Dreamdrifter state, every Elemental Mastery point she has will increase all nearby party members' <color=#FF9999FF>Pyro</color>, <color=#80C0FFFF>Hydro</color>, <color=#99FFFFFF>Cryo</color>, and <color=#FFACFFFF>Electro</color> DMG Bonuses by 0.04% until the Dreamdrifter state ends.",
+      "description": "When Yumemizuki Mizuki enters the Dreamdrifter state, every Elemental Mastery point she has will increase all nearby party members' <color=#FF9999FF>Pyro</color>, <color=#80C0FFFF>Hydro</color>, <color=#99FFFFFF>Cryo</color>, and <color=#FFACFFFF>Electro</color> DMG Bonuses by 0.04% until the Dreamdrifter state ends.\\nAdditionally, while Yumemizuki Mizuki is in the Dreamdrifter state, the <color=#FF9999FF>Pyro RES</color>, <color=#80C0FFFF>Hydro RES</color>, <color=#99FFFFFF>Cryo RES</color>, <color=#FFACFFFF>Electro RES</color>, and <color=#80FFD7FF>Anemo RES</color> of nearby opponents are lowered by 20%.",
       "icon": "UI_Talent_S_Mizuki_02"
     },
     "const3": {
@@ -1165,7 +1169,7 @@
     },
     "const4": {
       "name": "Buds Warm Lucid Springs",
-      "description": "Picking up a <color=#FFD780FF>Yumemi Style Special Snack</color> from the Elemental Burst <color=#FFD780FF>Anraku Secret Spring Therapy</color> will both deal DMG and heal, and will restore 5 Energy to Yumemizuki Mizuki. Energy can be restored this way 4 times per <color=#FFD780FF>Anraku Secret Spring Therapy</color> duration.",
+      "description": "Picking up a <color=#FFD780FF>Yumemi Style Special Snack</color> from the Elemental Burst <color=#FFD780FF>Anraku Secret Spring Therapy</color> will both deal DMG and heal. It will also heal a nearby party member with lower HP for 266% of Yumemizuki Mizuki's Elemental Mastery, as well as regenerate 5 Energy for Yumemizuki Mizuki. Energy can be restored this way 4 times per <color=#FFD780FF>Anraku Secret Spring Therapy</color> duration.",
       "icon": "UI_Talent_S_Mizuki_03"
     },
     "const5": {
@@ -1175,7 +1179,7 @@
     },
     "const6": {
       "name": "The Heart Lingers Long",
-      "description": "While Yumemizuki Mizuki is in the Dreamdrifter state, Swirl DMG dealt by nearby party members can score CRIT Hits, with CRIT Rate fixed at 30%, and CRIT DMG fixed at 100%.",
+      "description": "While Yumemizuki Mizuki is in the Dreamdrifter state, Swirl DMG dealt by nearby party members can score CRIT Hits, with CRIT Rate fixed at 30%, and CRIT DMG fixed at 100%.\\nEvery 100 points of Elemental Mastery Yumemizuki Mizuki has in excess of 500 increases her CRIT Rate by 0.04% and her CRIT DMG by 0.16%. Yumemizuki Mizuki's CRIT Rate and CRIT DMG can be increased by up to 20% and 80% in this way, respectively.",
       "icon": "UI_Talent_S_Mizuki_04"
     }
   },
@@ -1751,6 +1755,17 @@
       "attackType": "Default",
       "strikeType": "-",
       "damageParam": "DamageRatio"
+    },
+    {
+      "name": "Talent_1_New",
+      "icd_source": "Tag: MizukiTalent_1 (!)",
+      "icd_rule": "Independent",
+      "gauge": "0U",
+      "poise": "LV3/20",
+      "element": "Wind",
+      "attackType": "Melee",
+      "strikeType": "-",
+      "damageParam": "-"
     },
     {
       "name": "ElementalBurst",
