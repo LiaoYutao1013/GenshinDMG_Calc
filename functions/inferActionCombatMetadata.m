@@ -20,6 +20,7 @@
 
     characterName = string(getFieldOrDefault(member, 'Name', ""));
     normalizedName = localNormalizeName(characterName);
+    constellation = double(getFieldOrDefault(member, 'Constellation', 0));
     action = string(action);
     lowerAction = lower(char(action));
     characterElement = string(getCharacterElement(characterName));
@@ -51,6 +52,15 @@
         'EffectTickCount', 0, ...
         'EffectTickAction', "", ...
         'EffectTickGauge', 0.0, ...
+        'TriggeredFollowUpAction', "", ...
+        'TriggeredFollowUpDelay', 0.0, ...
+        'TriggeredFollowUpGauge', 0.0, ...
+        'TriggeredFollowUpInternalCooldown', 0.0, ...
+        'TriggeredFollowUpEligibleClasses', strings(1, 0), ...
+        'TriggeredFollowUpForegroundOnly', true, ...
+        'TriggeredFollowUpMaxCount', inf, ...
+        'BackgroundDriverKind', "", ...
+        'BackgroundDriverMode', "", ...
         'ResolveReactionAsDamage', false, ...
         'ForceReactionName', "", ...
         'ReactionElement', "", ...
@@ -81,7 +91,11 @@
     meta.FlatEnergyTeam = localResolveFlatEnergyTeam(normalizedName, lowerAction, teamContext);
     [meta.EffectDuration, meta.EffectTag, meta.EffectFirstTickDelay, ...
         meta.EffectTickInterval, meta.EffectTickCount, meta.EffectTickAction, meta.EffectTickGauge] = localResolveEffectDuration( ...
-        normalizedName, lowerAction, meta.ActionClass);
+        normalizedName, lowerAction, meta.ActionClass, constellation);
+    [meta.TriggeredFollowUpAction, meta.TriggeredFollowUpDelay, meta.TriggeredFollowUpGauge, ...
+        meta.TriggeredFollowUpInternalCooldown, meta.TriggeredFollowUpEligibleClasses, ...
+        meta.TriggeredFollowUpForegroundOnly, meta.TriggeredFollowUpMaxCount] = localResolveTriggeredFollowUpProfile( ...
+        normalizedName, lowerAction, meta.EffectTag, meta.EffectDuration, constellation);
 
     forcedReaction = localResolveForcedReaction(lowerAction);
     if strlength(forcedReaction) > 0
@@ -126,6 +140,8 @@ function actionClass = localResolveActionClass(lowerAction)
     end
     if strcmp(lowerAction, 'e') || strcmp(lowerAction, 'skill') ...
             || startsWith(lowerAction, 'ehold') || startsWith(lowerAction, 'epress') ...
+            || ~isempty(regexp(lowerAction, '^e\d+$', 'once')) ...
+            || ~isempty(regexp(lowerAction, '^resete\d+$', 'once')) ...
             || startsWith(lowerAction, 'skill') || strcmp(lowerAction, 'exq') ...
             || contains(lowerAction, 'dance')
         actionClass = "Skill";
@@ -160,7 +176,7 @@ function actionClass = localResolveActionClass(lowerAction)
         actionClass = "Plunge";
         return;
     end
-    if any(strcmp(lowerAction, {'blade', 'herald', 'heraldcoord', 'qstellar'})) ...
+    if any(strcmp(lowerAction, {'blade', 'herald', 'heraldcoord', 'qstellar', 'casehit', 'thorn', 'scenteddew'})) ...
             || contains(lowerAction, 'stellar') || contains(lowerAction, 'icicle')
         actionClass = "FollowUp";
         return;
@@ -244,6 +260,7 @@ function hitElement = localResolveActionElement(normalizedName, characterElement
             || contains(lowerAction, 'skull') || contains(lowerAction, 'usher') || contains(lowerAction, 'cheval') ...
             || contains(lowerAction, 'crab') || contains(lowerAction, 'loop') || contains(lowerAction, 'field') ...
             || contains(lowerAction, 'wave') || contains(lowerAction, 'slash') ...
+            || contains(lowerAction, 'case') || contains(lowerAction, 'thorn') || contains(lowerAction, 'dew') ...
             || contains(lowerAction, 'bite') || contains(lowerAction, 'missile') ...
             || contains(lowerAction, 'loadedshot')
         hitElement = characterElement;
@@ -353,6 +370,9 @@ function [particles, orbs] = localResolveEnergyPacket(normalizedName, lowerActio
         particles = 4;
     elseif normalizedName == "yaemiko" && strcmp(lowerAction, 'e')
         particles = 1;
+    elseif normalizedName == "yaemiko" ...
+            && (~isempty(regexp(lowerAction, '^e\d+$', 'once')) || ~isempty(regexp(lowerAction, '^resete\d+$', 'once')))
+        particles = 0;
     elseif normalizedName == "alhaitham" && strcmp(lowerAction, 'e')
         particles = 3;
     elseif normalizedName == "kamisatoayaka" && strcmp(lowerAction, 'e')
@@ -415,7 +435,7 @@ function flatEnergy = localResolveFlatEnergyTeam(normalizedName, lowerAction, te
     end
 end
 
-function [duration, tag, firstTickDelay, tickInterval, tickCount, tickAction, tickGauge] = localResolveEffectDuration(normalizedName, lowerAction, actionClass)
+function [duration, tag, firstTickDelay, tickInterval, tickCount, tickAction, tickGauge] = localResolveEffectDuration(normalizedName, lowerAction, actionClass, constellation)
     duration = 0;
     tag = "";
     firstTickDelay = 0;
@@ -423,6 +443,9 @@ function [duration, tag, firstTickDelay, tickInterval, tickCount, tickAction, ti
     tickCount = 0;
     tickAction = "";
     tickGauge = 0;
+    if nargin < 4 || isempty(constellation)
+        constellation = 0;
+    end
 
     if any(strcmp(lowerAction, {'oz', 'qoz', 'eye', 'pillar', 'ring', 'source', ...
             'trikarma', 'bursttrikarma', 'starwicker', 'rain1', 'rain2', ...
@@ -459,6 +482,12 @@ function [duration, tag, firstTickDelay, tickInterval, tickCount, tickAction, ti
                 duration = 10.0;
                 tag = "Oz";
             end
+        case 'yaemiko'
+            if ~isempty(regexp(lowerAction, '^e\d+$', 'once')) || ~isempty(regexp(lowerAction, '^resete\d+$', 'once')) ...
+                    || strcmp(lowerAction, 'e')
+                duration = 14.0;
+                tag = "SesshouSakura";
+            end
         case 'xingqiu'
             if strcmp(lowerAction, 'q')
                 duration = 15.0;
@@ -470,7 +499,7 @@ function [duration, tag, firstTickDelay, tickInterval, tickCount, tickAction, ti
                 tag = "ExquisiteThrow";
             end
         case 'nahida'
-            if strcmp(lowerAction, 'e')
+            if any(strcmp(lowerAction, {'e', 'epress', 'ehold'}))
                 duration = 25.0;
                 tag = "SeedOfSkandha";
             elseif strcmp(lowerAction, 'q')
@@ -482,13 +511,46 @@ function [duration, tag, firstTickDelay, tickInterval, tickCount, tickAction, ti
                 duration = 14.0;
                 tag = "SeamlessShield";
             end
+        case 'thoma'
+            if strcmp(lowerAction, 'q')
+                duration = 15.0 + 3.0 * double(constellation >= 2);
+                tag = "CrimsonOoyoroi";
+            end
+        case 'dehya'
+            if any(strcmp(lowerAction, {'e', 'e1', 'e2'}))
+                duration = 12.0;
+                tag = "FierySanctum";
+            end
+        case 'collei'
+            if strcmp(lowerAction, 'q')
+                duration = 6.0;
+                tag = "CuileinAnbar";
+            end
+        case 'albedo'
+            if strcmp(lowerAction, 'e')
+                duration = 30.0;
+                tag = "SolarIsotoma";
+            end
+        case 'chiori'
+            if strcmp(lowerAction, 'e')
+                duration = 17.0;
+                tag = "Tamoto";
+            end
+        case 'emilie'
+            if any(strcmp(lowerAction, {'e', 'skill'}))
+                duration = 22.0;
+                tag = "LumidouceCase";
+            elseif any(strcmp(lowerAction, {'q', 'burst'}))
+                duration = 2.8;
+                tag = "AromaticExplication";
+            end
         case 'xianyun'
             if strcmp(lowerAction, 'q')
                 duration = 16.0;
                 tag = "Starwicker";
             end
         case 'qiqi'
-            if strcmp(lowerAction, 'herald')
+            if any(strcmp(lowerAction, {'e', 'epress', 'ehold'}))
                 duration = 15.0;
                 tag = "HeraldOfFrost";
             elseif strcmp(lowerAction, 'q')
@@ -504,6 +566,11 @@ function [duration, tag, firstTickDelay, tickInterval, tickCount, tickAction, ti
             if strcmp(lowerAction, 'q')
                 duration = 12.0;
                 tag = "InspirationField";
+            end
+        case 'beidou'
+            if strcmp(lowerAction, 'q')
+                duration = 15.0;
+                tag = "Stormbreaker";
             end
         case 'zhongli'
             if any(strcmp(lowerAction, {'e', 'epress', 'ehold'}))
@@ -572,10 +639,53 @@ function [firstTickDelay, tickInterval, tickCount, tickAction, tickGauge] = loca
                 tickGauge = 1.0;
             end
 
+        case 'yaemiko'
+            if strcmp(effectTag, "SesshouSakura")
+                tickAction = "SesshouSakuraTick";
+                tickInterval = 1.40;
+                tickGauge = 1.0;
+            end
+
         case 'nahida'
             if strcmp(effectTag, "SeedOfSkandha")
                 tickAction = "TriKarmaTick";
                 tickInterval = 2.50;
+                tickGauge = 1.0;
+            end
+
+        case 'baizhu'
+            if strcmp(effectTag, "SeamlessShield")
+                tickAction = "SpiritveinTick";
+                firstTickDelay = 2.00;
+                tickInterval = 2.00;
+                tickGauge = 1.0;
+                tickCount = 6;
+            end
+
+        case 'collei'
+            if strcmp(effectTag, "CuileinAnbar")
+                tickAction = "CuileinLeap";
+                tickInterval = 1.00;
+                tickGauge = 1.0;
+            end
+
+        case 'chiori'
+            if strcmp(effectTag, "Tamoto")
+                tickAction = "TamotoSlash";
+                tickInterval = 3.20;
+                tickGauge = 1.0;
+            end
+
+        case 'emilie'
+            if strcmp(effectTag, "LumidouceCase")
+                tickAction = "CaseHit";
+                firstTickDelay = 2.00;
+                tickInterval = 2.00;
+                tickGauge = 1.0;
+            elseif strcmp(effectTag, "AromaticExplication")
+                tickAction = "ScentedDew";
+                firstTickDelay = 0.30;
+                tickInterval = 0.30;
                 tickGauge = 1.0;
             end
 
@@ -620,8 +730,135 @@ function [firstTickDelay, tickInterval, tickCount, tickAction, tickGauge] = loca
         return;
     end
 
-    firstTickDelay = tickInterval;
-    tickCount = max(0, floor((duration - firstTickDelay + 1e-9) / tickInterval) + 1);
+    if firstTickDelay <= 0
+        firstTickDelay = tickInterval;
+    end
+    if tickCount <= 0
+        tickCount = max(0, floor((duration - firstTickDelay + 1e-9) / tickInterval) + 1);
+    end
+end
+
+function [followUpAction, followUpDelay, followUpGauge, internalCooldown, eligibleClasses, foregroundOnly, maxTriggerCount] = ...
+        localResolveTriggeredFollowUpProfile(normalizedName, lowerAction, effectTag, duration, constellation) %#ok<INUSD>
+    followUpAction = "";
+    followUpDelay = 0;
+    followUpGauge = 0;
+    internalCooldown = 0;
+    eligibleClasses = strings(1, 0);
+    foregroundOnly = true;
+    maxTriggerCount = inf;
+    if nargin < 5 || isempty(constellation)
+        constellation = 0;
+    end
+
+    if duration <= 0 || strlength(string(effectTag)) == 0
+        return;
+    end
+
+    switch char(normalizedName)
+        case 'nahida'
+            if strcmp(effectTag, "SeedOfSkandha")
+                followUpAction = "TriKarmaTick";
+                followUpDelay = 0.15;
+                followUpGauge = 1.0;
+                internalCooldown = 2.50;
+                eligibleClasses = ["Reaction"];
+                foregroundOnly = false;
+            end
+
+        case 'xingqiu'
+            if strcmp(effectTag, "RainSwords")
+                followUpAction = "RainSwordWave";
+                followUpDelay = 0.08;
+                followUpGauge = 1.0;
+                internalCooldown = 1.00;
+                eligibleClasses = ["Normal"];
+            end
+
+        case 'yelan'
+            if strcmp(effectTag, "ExquisiteThrow")
+                followUpAction = "ExquisiteThrowWave";
+                followUpDelay = 0.08;
+                followUpGauge = 1.0;
+                internalCooldown = 1.00;
+                eligibleClasses = ["Normal"];
+            end
+
+        case 'raidenshogun'
+            if strcmp(effectTag, "EyeOfStormyJudgment")
+                followUpAction = "EyeCoordSlash";
+                followUpDelay = 0.05;
+                followUpGauge = 0.5;
+                internalCooldown = 0.90;
+                eligibleClasses = ["Normal", "Charged", "Plunge", "Skill", "Burst"];
+            end
+
+        case 'beidou'
+            if strcmp(effectTag, "Stormbreaker")
+                followUpAction = "StormbreakerArc";
+                followUpDelay = 0.10;
+                followUpGauge = 1.0;
+                internalCooldown = 1.00;
+                eligibleClasses = ["Normal", "Charged", "Plunge", "Skill", "Burst"];
+            end
+
+        case 'thoma'
+            if strcmp(effectTag, "CrimsonOoyoroi")
+                followUpAction = "FieryCollapse";
+                followUpDelay = 0.08;
+                followUpGauge = 1.0;
+                internalCooldown = 1.00;
+                eligibleClasses = ["Normal"];
+            end
+
+        case 'dehya'
+            if strcmp(effectTag, "FierySanctum")
+                followUpAction = "FierySanctumStrike";
+                followUpDelay = 0.05;
+                followUpGauge = 1.0;
+                internalCooldown = 2.50;
+                eligibleClasses = ["Normal", "Charged", "Plunge", "Skill", "Burst", "FollowUp"];
+                foregroundOnly = false;
+            end
+
+        case 'albedo'
+            if strcmp(effectTag, "SolarIsotoma")
+                followUpAction = "TransientBlossom";
+                followUpDelay = 0.05;
+                followUpGauge = 1.0;
+                internalCooldown = 2.00;
+                eligibleClasses = ["Normal", "Charged", "Plunge", "Skill", "Burst", "FollowUp"];
+                foregroundOnly = false;
+            end
+
+        case 'fischl'
+            if strcmp(effectTag, "Oz") && constellation >= 6
+                followUpAction = "OzJointAttack";
+                followUpDelay = 0.05;
+                followUpGauge = 0.4;
+                internalCooldown = 0.10;
+                eligibleClasses = ["Normal", "Charged", "Plunge"];
+            end
+
+        case 'xianyun'
+            if strcmp(effectTag, "Starwicker")
+                followUpAction = "Starwicker";
+                followUpDelay = 0.05;
+                followUpGauge = 1.0;
+                internalCooldown = 0.0;
+                eligibleClasses = ["Plunge"];
+                maxTriggerCount = 8;
+            end
+
+        case 'qiqi'
+            if strcmp(effectTag, "HeraldOfFrost")
+                followUpAction = "HeraldCoord";
+                followUpDelay = 0.05;
+                followUpGauge = 1.0;
+                internalCooldown = 2.20;
+                eligibleClasses = ["Normal", "Charged"];
+            end
+    end
 end
 
 function expectedReaction = localInferExpectedReaction(hitElement, preferredAura, archetypeInfo)

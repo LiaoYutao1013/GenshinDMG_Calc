@@ -96,6 +96,15 @@ function info = identifyTeamArchetype(members, sharedBuffs)
         confidence = 0.90;
         reactionPriority = ["Bloom"; "Burgeon"; "Burning"];
 
+    elseif counts.Pyro >= 1 && counts.Dendro >= 1 && counts.Hydro == 0 && counts.Electro == 0
+        primary = "Burning";
+        confidence = 0.84;
+        reactionPriority = ["Burning"; "Spread"];
+        if any(normalizedNames == "emilie")
+            confidence = 0.94;
+            notes(end + 1, 1) = "Detected Emilie in a Pyro-Dendro team; prioritize Burning routing."; %#ok<AGROW>
+        end
+
     elseif counts.Hydro >= 1 && counts.Cryo >= 1 ...
             && (counts.Anemo >= 1 || hasEscoffier || hasShenhe ...
             || any(ismember(normalizedNames, ["kamisatoayaka", "wriothesley", "skirk", "ganyu"])))
@@ -192,6 +201,17 @@ function info = identifyTeamArchetype(members, sharedBuffs)
         notes(end + 1, 1) = "ForceArchetype 覆盖了自动识别结果。"; %#ok<AGROW>
     end
 
+    carryMode = localCarryModeForArchetype(primary);
+    preferredJobs = strings(1, memberCount);
+    for i = 1:memberCount
+        preferredJobs(i) = localPreferredJobForArchetype( ...
+            normalizedNames(i), elements(i), primary, carryOrder, i, carryMode);
+    end
+    openerIndices = find(preferredJobs == "Opener");
+    triggerIndices = find(preferredJobs == "Trigger");
+    sustainIndices = find(preferredJobs == "Sustain");
+    driverIndices = find(preferredJobs == "Driver");
+
     info = struct( ...
         'PrimaryArchetype', string(primary), ...
         'SecondaryArchetype', string(secondary), ...
@@ -207,6 +227,12 @@ function info = identifyTeamArchetype(members, sharedBuffs)
         'OpenerWeights', openerWeights, ...
         'RecommendedCarryIndices', carryOrder(:).', ...
         'RecommendedCarryNames', names(carryOrder), ...
+        'CarryMode', carryMode, ...
+        'PreferredJobs', preferredJobs, ...
+        'RecommendedOpenerIndices', openerIndices(:).', ...
+        'RecommendedTriggerIndices', triggerIndices(:).', ...
+        'RecommendedSustainIndices', sustainIndices(:).', ...
+        'RecommendedDriverIndices', driverIndices(:).', ...
         'PreferredAuraPairs', preferredAuraPairs, ...
         'NilouPureBloom', nilouPureBloom, ...
         'PyroElectroOnly', pyroElectroOnly, ...
@@ -302,6 +328,13 @@ function weight = localCarryWeightForArchetype(name, element, weaponType, primar
                 weight = weight + 1.8;
             end
 
+        case 'Burning'
+            if any(name == ["emilie", "thoma", "dehya", "xiangling", "bennett"])
+                weight = weight + 3.2;
+            elseif element == "Dendro" || element == "Pyro"
+                weight = weight + 1.0;
+            end
+
         case 'AnemoHypercarry'
             if any(name == ["wanderer", "xiao", "shikanoinheizou", "mizuki", "varka"])
                 weight = weight + 3.8;
@@ -386,8 +419,13 @@ function weight = localSupportWeightForArchetype(name, element, primary, seconda
             end
 
         case {'Aggravate', 'Spread'}
-            if any(name == ["nahida", "baizhu", "yaoyao", "fischl", "yaemiko", "kukishinobu", "zhongli"])
+            if any(name == ["nahida", "baizhu", "yaoyao", "fischl", "yaemiko", "kukishinobu", "zhongli", "emilie"])
                 weight = weight + 2.8;
+            end
+
+        case 'Burning'
+            if any(name == ["emilie", "nahida", "baizhu", "yaoyao", "thoma", "dehya", "xiangling"])
+                weight = weight + 2.6;
             end
 
         case 'AnemoHypercarry'
@@ -427,6 +465,10 @@ function weight = localOpenerWeightForArchetype(name, element, primary, secondar
             end
         case 'Overload'
             if any(name == ["chevreuse", "bennett", "kujousara", "iansan"])
+                weight = weight + 2.0;
+            end
+        case 'Burning'
+            if any(name == ["emilie", "nahida", "baizhu", "yaoyao", "bennett"])
                 weight = weight + 2.0;
             end
         case 'Plunge'
@@ -482,6 +524,9 @@ function pairs = localPreferredAuraPairs(primary, secondary)
             pairs.Hydro = "Dendro";
             pairs.Dendro = "Hydro";
             pairs.Pyro = "Dendro";
+        case 'Burning'
+            pairs.Pyro = "Dendro";
+            pairs.Dendro = "Pyro";
         case {'Aggravate', 'Spread'}
             pairs.Electro = "Dendro";
             pairs.Dendro = "Electro";
@@ -496,6 +541,142 @@ function pairs = localPreferredAuraPairs(primary, secondary)
                 pairs.Pyro = "Cryo";
                 pairs.Cryo = "Pyro";
             end
+    end
+end
+
+function carryMode = localCarryModeForArchetype(primary)
+    primary = string(primary);
+    if any(primary == ["Hyperbloom", "Bloom", "Burgeon", "Aggravate", "Spread", "Burning"])
+        carryMode = "DriverCore";
+    elseif any(primary == ["Freeze", "Vaporize", "Melt", "Plunge", "GeoHypercarry", "AnemoHypercarry", "Mono"])
+        carryMode = "FrontloadHypercarry";
+    else
+        carryMode = "Balanced";
+    end
+end
+
+function job = localPreferredJobForArchetype(name, element, primary, carryOrder, memberIndex, carryMode)
+    name = string(name);
+    element = string(element);
+    primary = string(primary);
+    carryMode = string(carryMode);
+    job = "";
+
+    if ~isempty(carryOrder) && memberIndex == carryOrder(1)
+        if carryMode == "DriverCore"
+            job = "Driver";
+        else
+            job = "Carry";
+        end
+        return;
+    end
+
+    sustainNames = ["baizhu", "yaoyao", "diona", "layla", "charlotte", "barbara", ...
+        "sangonomiyakokomi", "qiqi", "jean", "kirara", "zhongli", "thoma"];
+    openerNames = ["xianyun", "faruzan", "bennett", "furina", "mona", "nahida", ...
+        "chevreuse", "xilonen", "citlali", "escoffier", "shenhe", "gorou", ...
+        "kujousara", "yunjin", "kaedeharakazuha", "sucrose", "nicole"];
+    triggerNames = ["fischl", "yaemiko", "kukishinobu", "raidenshogun", "xiangling", ...
+        "thoma", "dehya", "xingqiu", "yelan", "ororon", "beidou"];
+
+    switch char(primary)
+        case 'Bloom'
+            if name == "nilou" || any(name == ["nahida", "furina", "baizhu", "yaoyao"])
+                job = "Opener";
+            elseif element == "Hydro" || element == "Dendro"
+                job = "Trigger";
+            end
+        case 'Hyperbloom'
+            if any(name == ["kukishinobu", "raidenshogun", "yaemiko", "fischl"])
+                job = "Trigger";
+            elseif any(name == ["nahida", "baizhu", "yaoyao", "xingqiu", "yelan", "furina", ...
+                    "sangonomiyakokomi", "barbara"])
+                job = "Opener";
+            end
+        case 'Burgeon'
+            if any(name == ["thoma", "dehya"])
+                job = "Trigger";
+            elseif any(name == ["nahida", "baizhu", "yaoyao", "xingqiu", "yelan", "furina", ...
+                    "sangonomiyakokomi", "barbara"])
+                job = "Opener";
+            end
+        case 'Freeze'
+            if element == "Anemo" || any(name == ["mona", "furina", "shenhe", "escoffier"])
+                job = "Opener";
+            elseif element == "Hydro"
+                job = "Trigger";
+            elseif any(name == sustainNames)
+                job = "Sustain";
+            end
+        case 'Vaporize'
+            if any(name == ["xingqiu", "yelan", "furina", "mona"])
+                job = "Trigger";
+            elseif any(name == ["bennett", "kaedeharakazuha", "sucrose", "xilonen", "zhongli", ...
+                    "citlali", "chevreuse"])
+                job = "Opener";
+            elseif any(name == sustainNames)
+                job = "Sustain";
+            end
+        case 'Melt'
+            if any(name == ["xiangling", "citlali", "rosaria"])
+                job = "Trigger";
+            elseif any(name == ["bennett", "kaedeharakazuha", "sucrose", "shenhe", "charlotte"])
+                job = "Opener";
+            elseif any(name == sustainNames)
+                job = "Sustain";
+            end
+        case 'Overload'
+            if any(name == ["chevreuse", "bennett", "kujousara", "iansan"])
+                job = "Opener";
+            elseif any(name == ["fischl", "yaemiko", "beidou", "ororon", "kukishinobu"])
+                job = "Trigger";
+            elseif any(name == sustainNames)
+                job = "Sustain";
+            end
+        case {'Aggravate', 'Spread'}
+            if any(name == ["nahida", "baizhu", "yaoyao", "zhongli", "emilie"])
+                job = "Opener";
+            elseif any(name == ["fischl", "yaemiko", "kukishinobu", "raidenshogun"])
+                job = "Trigger";
+            elseif any(name == sustainNames)
+                job = "Sustain";
+            end
+        case 'Burning'
+            if any(name == ["emilie", "nahida", "baizhu", "yaoyao"])
+                job = "Opener";
+            elseif any(name == ["thoma", "dehya", "xiangling"])
+                job = "Trigger";
+            elseif any(name == sustainNames)
+                job = "Sustain";
+            end
+        case 'Plunge'
+            if any(name == ["xianyun", "faruzan", "bennett", "furina"])
+                job = "Opener";
+            elseif any(name == sustainNames)
+                job = "Sustain";
+            end
+        case 'AnemoHypercarry'
+            if any(name == ["faruzan", "bennett", "furina", "zhongli"])
+                job = "Opener";
+            end
+        case 'GeoHypercarry'
+            if any(name == ["gorou", "zhongli", "albedo", "furina"])
+                job = "Opener";
+            elseif any(name == sustainNames)
+                job = "Sustain";
+            end
+    end
+
+    if strlength(job) == 0
+        if any(name == sustainNames)
+            job = "Sustain";
+        elseif any(name == openerNames)
+            job = "Opener";
+        elseif any(name == triggerNames)
+            job = "Trigger";
+        else
+            job = "Support";
+        end
     end
 end
 

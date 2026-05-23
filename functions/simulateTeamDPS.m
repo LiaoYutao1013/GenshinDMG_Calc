@@ -60,10 +60,11 @@ function [teamResult, memberResults] = simulateTeamDPS(teamSpec, enemy)
     teamDPS = totalDMG / rotationDuration;
     timelineResult = simulateTeamTimeline(members, rotationPlan, teamContext, enemy, planOptions);
 
-    [plannedRoles, plannedStarts, plannedEnds, plannedDurations] = localCollectPlanSummary(rotationPlan, members);
+    [plannedRoles, plannedJobs, plannedStarts, plannedEnds, plannedDurations] = localCollectPlanSummary(rotationPlan, members);
     memberSummary = table( ...
         [memberResults.DisplayName].', ...
         plannedRoles(:), ...
+        plannedJobs(:), ...
         plannedStarts(:), ...
         plannedEnds(:), ...
         plannedDurations(:), ...
@@ -71,7 +72,7 @@ function [teamResult, memberResults] = simulateTeamDPS(teamSpec, enemy)
         ([memberResults.TotalDMG].' ./ rotationDuration), ...
         [memberResults.RotationTime].', ...
         [memberResults.DPS].', ...
-        'VariableNames', {'Character', 'PlannedRole', 'PlannedStartTime', 'PlannedEndTime', 'ReservedTime', ...
+        'VariableNames', {'Character', 'PlannedRole', 'PlannedJob', 'PlannedStartTime', 'PlannedEndTime', 'ReservedTime', ...
         'TotalDMG', 'TeamCycleDPS', 'ActionTime', 'StandaloneDPS'});
     memberSummary = localAttachEnergySummary(memberSummary, timelineResult);
     memberSummary = localAttachTimelineSummary(memberSummary, timelineResult);
@@ -198,9 +199,10 @@ function [role, startTime] = localLookupMemberPlan(rotationPlan, memberName)
     end
 end
 
-function [roles, starts, ends, reservedTimes] = localCollectPlanSummary(rotationPlan, members)
+function [roles, jobs, starts, ends, reservedTimes] = localCollectPlanSummary(rotationPlan, members)
     memberCount = numel(members);
     roles = repmat("", memberCount, 1);
+    jobs = repmat("", memberCount, 1);
     starts = nan(memberCount, 1);
     ends = nan(memberCount, 1);
     reservedTimes = zeros(memberCount, 1);
@@ -211,6 +213,7 @@ function [roles, starts, ends, reservedTimes] = localCollectPlanSummary(rotation
 
     for i = 1:min(memberCount, numel(rotationPlan.MemberPlans))
         roles(i) = string(getFieldOrDefault(rotationPlan.MemberPlans(i), 'Role', ""));
+        jobs(i) = string(getFieldOrDefault(rotationPlan.MemberPlans(i), 'Job', ""));
         starts(i) = getFieldOrDefault(rotationPlan.MemberPlans(i), 'StartTime', NaN);
         ends(i) = getFieldOrDefault(rotationPlan.MemberPlans(i), 'EndTime', NaN);
         reservedTimes(i) = getFieldOrDefault(rotationPlan.MemberPlans(i), 'EstimatedDuration', 0);
@@ -319,6 +322,12 @@ function memberSummary = localAttachTimelineSummary(memberSummary, timelineResul
     scheduledActionTime = zeros(height(memberSummary), 1);
     backgroundEventCount = zeros(height(memberSummary), 1);
     backgroundEventTime = zeros(height(memberSummary), 1);
+    autonomousBackgroundCount = zeros(height(memberSummary), 1);
+    autonomousBackgroundTime = zeros(height(memberSummary), 1);
+    actionTriggeredBackgroundCount = zeros(height(memberSummary), 1);
+    actionTriggeredBackgroundTime = zeros(height(memberSummary), 1);
+    reactionTriggeredBackgroundCount = zeros(height(memberSummary), 1);
+    reactionTriggeredBackgroundTime = zeros(height(memberSummary), 1);
     firstActionTime = nan(height(memberSummary), 1);
     lastActionTime = nan(height(memberSummary), 1);
 
@@ -335,6 +344,24 @@ function memberSummary = localAttachTimelineSummary(memberSummary, timelineResul
         if ismember('BackgroundEventTime', memberTimeline.Properties.VariableNames)
             backgroundEventTime(i) = memberTimeline.BackgroundEventTime(idx);
         end
+        if ismember('AutonomousBackgroundCount', memberTimeline.Properties.VariableNames)
+            autonomousBackgroundCount(i) = memberTimeline.AutonomousBackgroundCount(idx);
+        end
+        if ismember('AutonomousBackgroundTime', memberTimeline.Properties.VariableNames)
+            autonomousBackgroundTime(i) = memberTimeline.AutonomousBackgroundTime(idx);
+        end
+        if ismember('ActionTriggeredBackgroundCount', memberTimeline.Properties.VariableNames)
+            actionTriggeredBackgroundCount(i) = memberTimeline.ActionTriggeredBackgroundCount(idx);
+        end
+        if ismember('ActionTriggeredBackgroundTime', memberTimeline.Properties.VariableNames)
+            actionTriggeredBackgroundTime(i) = memberTimeline.ActionTriggeredBackgroundTime(idx);
+        end
+        if ismember('ReactionTriggeredBackgroundCount', memberTimeline.Properties.VariableNames)
+            reactionTriggeredBackgroundCount(i) = memberTimeline.ReactionTriggeredBackgroundCount(idx);
+        end
+        if ismember('ReactionTriggeredBackgroundTime', memberTimeline.Properties.VariableNames)
+            reactionTriggeredBackgroundTime(i) = memberTimeline.ReactionTriggeredBackgroundTime(idx);
+        end
         firstActionTime(i) = memberTimeline.FirstActionTime(idx);
         lastActionTime(i) = memberTimeline.LastActionTime(idx);
     end
@@ -343,6 +370,12 @@ function memberSummary = localAttachTimelineSummary(memberSummary, timelineResul
     memberSummary.ScheduledActionTime = scheduledActionTime;
     memberSummary.BackgroundEventCount = backgroundEventCount;
     memberSummary.BackgroundEventTime = backgroundEventTime;
+    memberSummary.AutonomousBackgroundCount = autonomousBackgroundCount;
+    memberSummary.AutonomousBackgroundTime = autonomousBackgroundTime;
+    memberSummary.ActionTriggeredBackgroundCount = actionTriggeredBackgroundCount;
+    memberSummary.ActionTriggeredBackgroundTime = actionTriggeredBackgroundTime;
+    memberSummary.ReactionTriggeredBackgroundCount = reactionTriggeredBackgroundCount;
+    memberSummary.ReactionTriggeredBackgroundTime = reactionTriggeredBackgroundTime;
     memberSummary.FirstActionTime = firstActionTime;
     memberSummary.LastActionTime = lastActionTime;
 end

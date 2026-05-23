@@ -1,6 +1,10 @@
 function [totalDMG, dps, breakdown, rotationTime, audit] = simulateBarbaraDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
-    % 芭芭拉高精度近似模拟�?    % 建模要点�?    % 1. E 拆为落地挂水�?Melody Loop 周期伤害�?    % 2. C2 通过 E 期间水伤加成体现，C4 重击回能不直接计伤害�?    % 3. Q 仍视为纯治疗，不伪造伤害，只保留轮转时间；
-    % 4. 默认按站场驾�?挂水辅助的简化轴处理�?    if nargin < 3 || isempty(seqFile)
+    % Barbara high-detail approximate simulator.
+    % 1. E is modeled as Hydro application plus Melody Loop periodic damage.
+    % 2. C2 is reflected through the E-window Hydro bonus; C4 energy refund is not direct damage.
+    % 3. Q remains healing-only and only reserves rotation time.
+    % 4. The default rotation is kept as a simple on-field support loop.
+    if nargin < 3 || isempty(seqFile)
         seqFile = fullfile(fileparts(mfilename('fullpath')), '..', '..', 'data', 'Barbara', 'rotation_Barbara.txt');
     end
     if nargin < 4 || isempty(talentLevel)
@@ -54,4 +58,3 @@ function [totalDMG, dps, breakdown, rotationTime, audit] = simulateBarbaraDPS(bu
     [totalDMG, dps, breakdown, rotationTime, audit] = simulateSimpleCharacterDPS( ...
         'Barbara', build, enemy, seqFile, talentLevel, constellation, teamContext, spec);
 end
-

@@ -427,16 +427,30 @@ function [roles, carryIndex, memberJobs] = localAssignMemberRoles(scores, archet
     carryIndex = localChooseCarryIndex(scores, archetypeInfo);
     roles = repmat("Support", 1, numel(scores));
     memberJobs = repmat("Sustain", 1, numel(scores));
+    preferredJobs = string(getFieldOrDefault(archetypeInfo, 'PreferredJobs', strings(1, numel(scores))));
+    if numel(preferredJobs) < numel(scores)
+        preferredJobs(numel(scores)) = "";
+    end
 
     for i = 1:numel(scores)
         if i == carryIndex
             roles(i) = "Carry";
-            memberJobs(i) = localResolveCarryJob(scores(i).NormalizedName, archetypeInfo);
+            preferredJob = localPreferredJobAtIndex(preferredJobs, i);
+            if any(preferredJob == ["Carry", "Driver"])
+                memberJobs(i) = preferredJob;
+            else
+                memberJobs(i) = localResolveCarryJob(scores(i).NormalizedName, archetypeInfo);
+            end
             continue;
         end
 
-        memberJobs(i) = localResolveSupportJob( ...
-            scores(i).NormalizedName, string(teamInfo.Elements(i)), teamInfo, archetypeInfo, scores(i));
+        preferredJob = localPreferredJobAtIndex(preferredJobs, i);
+        if strlength(preferredJob) > 0 && preferredJob ~= "Carry"
+            memberJobs(i) = preferredJob;
+        else
+            memberJobs(i) = localResolveSupportJob( ...
+                scores(i).NormalizedName, string(teamInfo.Elements(i)), teamInfo, archetypeInfo, scores(i));
+        end
         if localShouldDefaultToSupport(scores(i).NormalizedName)
             roles(i) = "Support";
         elseif scores(i).CarryScore >= max(6.5, scores(i).SupportScore + 2.0)
@@ -447,8 +461,16 @@ function [roles, carryIndex, memberJobs] = localAssignMemberRoles(scores, archet
     end
 
     [~, openerIndex] = max([scores.OpenerScore]);
-    if openerIndex >= 1 && openerIndex <= numel(memberJobs) && roles(openerIndex) ~= "Carry"
+    if openerIndex >= 1 && openerIndex <= numel(memberJobs) && roles(openerIndex) ~= "Carry" ...
+            && ~any(memberJobs == "Opener")
         memberJobs(openerIndex) = "Opener";
+    end
+end
+
+function job = localPreferredJobAtIndex(preferredJobs, index)
+    job = "";
+    if index >= 1 && index <= numel(preferredJobs)
+        job = string(preferredJobs(index));
     end
 end
 
@@ -1034,11 +1056,11 @@ function tokens = localNamedSupportTokens(normalizedName, archetypeInfo, job)
     switch char(normalizedName)
         case 'furina'
             if any(primary == ["Bloom", "Hyperbloom", "Burgeon"])
-                tokens = {'E', 'Q', 'Usher'};
+                tokens = {'E', 'Q'};
             elseif primary == "Plunge"
-                tokens = {'Q', 'E', 'Usher'};
+                tokens = {'Q', 'E'};
             else
-                tokens = {'Q', 'E', 'Usher', 'Cheval'};
+                tokens = {'Q', 'E'};
             end
         case 'nilou'
             tokens = {'E', 'Dance1', 'Dance2', 'Dance3', 'Aura', 'Q'};
@@ -1060,15 +1082,15 @@ function tokens = localNamedSupportTokens(normalizedName, archetypeInfo, job)
             end
         case 'zhongli'
             if any(primary == ["GeoHypercarry", "Plunge"])
-                tokens = {'EHold', 'Pillar', 'Q'};
+                tokens = {'EHold', 'Q'};
             else
-                tokens = {'EHold', 'Pillar'};
+                tokens = {'EHold'};
             end
         case 'sucrose'
             tokens = {'E', 'Q'};
         case 'kaedeharakazuha'
             if any(primary == ["Freeze", "Vaporize", "Melt"])
-                tokens = {'EHold', 'PlungeMix', 'Q', 'QDoT'};
+                tokens = {'EHold', 'PlungeMix', 'Q'};
             else
                 tokens = {'EHold', 'PlungeMix', 'Q'};
             end
@@ -1080,28 +1102,32 @@ function tokens = localNamedSupportTokens(normalizedName, archetypeInfo, job)
             end
         case 'nahida'
             if any(primary == ["Bloom", "Hyperbloom", "Spread", "Aggravate"])
-                tokens = {'EPress', 'Q', 'BurstTriKarma'};
+                tokens = {'EPress', 'Q'};
             else
                 tokens = {'EPress', 'Q'};
             end
         case 'xingqiu'
-            tokens = {'E', 'Q', 'Rain1', 'Rain2'};
+            tokens = {'E', 'Q'};
         case 'yelan'
-            tokens = {'E', 'Q', 'Throw'};
+            tokens = {'E', 'Q'};
         case 'fischl'
-            tokens = {'E', 'Oz'};
+            tokens = {'E'};
+        case 'beidou'
+            tokens = {'E', 'Q'};
         case 'xiangling'
-            tokens = {'E', 'Q', 'Pyronado'};
+            tokens = {'E', 'Q'};
         case 'xianyun'
             if primary == "Plunge"
-                tokens = {'E', 'Q', 'Starwicker', 'Starwicker'};
+                tokens = {'E', 'Q'};
             else
                 tokens = {'E', 'Q'};
             end
+        case 'yaemiko'
+            tokens = {'E1', 'E2', 'E3', 'Q'};
         case 'xilonen'
             tokens = {'E', 'Source', 'Q', 'Source'};
         case 'kukishinobu'
-            tokens = {'E', 'Ring'};
+            tokens = {'E'};
         case 'baizhu'
             tokens = {'E', 'Q'};
         case 'yaoyao'
@@ -1147,6 +1173,18 @@ function tokens = localNamedHybridTokens(normalizedName, archetypeInfo, job) %#o
     switch char(normalizedName)
         case 'durin'
             tokens = {'AUTO'};
+        case 'beidou'
+            if job == "Trigger"
+                tokens = {'E', 'Q'};
+            else
+                tokens = {'E', 'Q', 'N1', 'N2'};
+            end
+        case 'yaemiko'
+            if any(primary == ["Aggravate", "Spread", "Hyperbloom", "Overload"])
+                tokens = {'E1', 'E2', 'E3', 'Q'};
+            else
+                tokens = {'E1', 'E2', 'E3'};
+            end
         case 'nefer'
             if any(primary == ["Bloom", "Hyperbloom", "Burgeon"])
                 tokens = {'E', 'Phantasm', 'Phantasm', 'Q', 'LunarBloom', 'Phantasm', 'LunarBloom'};

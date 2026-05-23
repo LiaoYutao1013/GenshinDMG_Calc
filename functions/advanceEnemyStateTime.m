@@ -76,7 +76,10 @@ function [enemyState, packets] = localAdvanceTimedReaction(enemyState, packets, 
     tickInterval = max(0.1, getFieldOrDefault(state, 'TickInterval', 1.0));
     while state.TickTimer >= tickInterval && state.Gauge > 1e-6
         state.TickTimer = state.TickTimer - tickInterval;
-        packets(end + 1) = localMakePacket(reactionName, teamContext, state); %#ok<AGROW>
+        packetSnapshot = state;
+        packetSnapshot.TriggerTime = getFieldOrDefault(enemyState, 'Time', 0) - state.TickTimer;
+        packetSnapshot.PacketSource = string(fieldName);
+        packets(end + 1) = localMakePacket(reactionName, teamContext, packetSnapshot); %#ok<AGROW>
     end
 
     state.Active = state.Gauge > 1e-6;
@@ -104,7 +107,10 @@ function [enemyState, packets] = localAdvanceDendroCores(enemyState, packets, de
         core = enemyState.DendroCores(i);
         core.TimeRemaining = core.TimeRemaining - deltaTime;
         if core.TimeRemaining <= 1e-6
-            packets(end + 1) = localMakePacket(string(getFieldOrDefault(core, 'ReactionName', "Bloom")), teamContext, core); %#ok<AGROW>
+            packetSnapshot = core;
+            packetSnapshot.TriggerTime = getFieldOrDefault(enemyState, 'Time', 0) + core.TimeRemaining;
+            packetSnapshot.PacketSource = "DendroCore";
+            packets(end + 1) = localMakePacket(string(getFieldOrDefault(core, 'ReactionName', "Bloom")), teamContext, packetSnapshot); %#ok<AGROW>
         else
             kept(end + 1) = core; %#ok<AGROW>
         end
@@ -142,7 +148,12 @@ function packet = localMakePacket(reactionName, teamContext, snapshot)
         'ReactionElement', string(getFieldOrDefault(snapshot, 'ReactionElement', "")), ...
         'SourceEM', getFieldOrDefault(snapshot, 'SourceEM', 0), ...
         'SourceResShred', getFieldOrDefault(snapshot, 'SourceResShred', 0), ...
-        'UseSnapshot', useSnapshot);
+        'UseSnapshot', useSnapshot, ...
+        'TriggerTime', getFieldOrDefault(snapshot, 'TriggerTime', NaN), ...
+        'PacketSource', string(getFieldOrDefault(snapshot, 'PacketSource', "")), ...
+        'SourceType', string(getFieldOrDefault(snapshot, 'SourceType', "")), ...
+        'SourceCharacter', string(getFieldOrDefault(snapshot, 'SourceCharacter', "")), ...
+        'SourceAction', string(getFieldOrDefault(snapshot, 'SourceAction', "")));
 end
 
 function bonus = localResolvePacketBonus(reactionName, teamContext)
@@ -194,6 +205,9 @@ function core = localEmptyCore()
         'SourceCritDMG', [], ...
         'SourceResShred', 0, ...
         'ReactionElement', "Dendro", ...
+        'SourceType', "", ...
+        'SourceCharacter', "", ...
+        'SourceAction', "", ...
         'UseSnapshot', false);
 end
 

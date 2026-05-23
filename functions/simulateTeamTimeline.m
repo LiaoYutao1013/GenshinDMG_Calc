@@ -1,11 +1,9 @@
-function timelineResult = simulateTeamTimeline(members, rotationPlan, teamContext, enemy, options)
-    % 统一队伍时间线与能量近似模拟器。
+﻿function timelineResult = simulateTeamTimeline(members, rotationPlan, teamContext, enemy, options)
+    % Unified team timeline and energy simulator.
+    % Merges member actions into one shared timeline, advances enemy state,
+    % estimates team energy flow, and records active background windows.
     %
-    % 这一层不直接替代各角色单体高精度伤害模拟，而是补齐队伍级主干能力：
-    % 1. 把各成员的 StartTime / 切人空档 / action token 合并成一条共享时间线；
-    % 2. 在这条时间线上推进共享敌人元素状态；
-    % 3. 按动作近似估算粒子、返能与下一轮循环衔接情况；
-    % 4. 产出可视化友好的时间线表、能量表和效果窗口表。
+    % Outputs timeline, energy, and active-effect tables for team analysis.
     if nargin < 1 || isempty(members)
         members = {};
     end
@@ -43,33 +41,45 @@ function timelineResult = simulateTeamTimeline(members, rotationPlan, teamContex
     end
 
     actionEvents = localBuildActionEvents(members, rotationPlan, rotationDuration);
-    actionEvents = localExpandActionEventsWithEffectTicks( ...
+    actionEvents = localExpandActionEventsWithBackgroundDrivers( ...
         actionEvents, rotationPlan, archetypeInfo, teamContext, rotationDuration);
+    actionQueue = localSortActionEvents(actionEvents);
     energyState = localInitializeEnergyState(members);
     compiledBuilds = localCompileBuilds(members, teamContext);
+    runtimeTriggeredWindows = repmat(localEmptyActiveWindow(), 1, 0);
+    runtimeTriggeredLastTriggerTimes = containers.Map('KeyType', 'char', 'ValueType', 'double');
 
     triggerElement = localResolveInitialTriggerElement(members, archetypeInfo);
     enemyState = createEnemyState(enemy, teamContext, triggerElement);
     currentTime = 0;
     activeForegroundCharacter = "";
 
-    timelineRows = cell(0, 19);
+    timelineRows = cell(0, 25);
     energyRows = cell(0, 6);
-    effectRows = cell(0, 9);
+    effectRows = cell(0, 11);
     actionOrder = 0;
 
     previousForegroundCharacter = "";
     previousForegroundEndTime = 0;
     previousForegroundKnown = false;
 
-    for i = 1:numel(actionEvents)
-        event = actionEvents(i);
+    while ~isempty(actionQueue)
+        event = actionQueue(1);
+        actionQueue(1) = [];
         meta = localResolveEventMeta(event, archetypeInfo, teamContext);
         eventTriggerElement = string(getFieldOrDefault(meta, 'HitElement', event.HitElement));
+        runtimeTriggeredWindows = localPruneExpiredActiveWindows(runtimeTriggeredWindows, event.StartTime);
         deltaTime = max(0, event.StartTime - currentTime);
         if deltaTime > 1e-9
             [enemyState, timedPackets] = advanceEnemyStateTime( ...
                 enemyState, deltaTime, eventTriggerElement, teamContext);
+            [runtimeReactionEvents, runtimeTriggeredWindows, runtimeTriggeredLastTriggerTimes] = ...
+                localResolveBackgroundReactionTriggeredEvents( ...
+                timedPackets, event.StartTime, runtimeTriggeredWindows, ...
+                runtimeTriggeredLastTriggerTimes, rotationDuration);
+            if ~isempty(runtimeReactionEvents)
+                actionQueue = localSortActionEvents([runtimeReactionEvents, actionQueue]);
+            end
             if previousForegroundKnown && logical(getFieldOrDefault(meta, 'ConsumesActiveWindow', true)) ...
                     && previousForegroundCharacter ~= "" && event.Character ~= previousForegroundCharacter ...
                     && event.StartTime - previousForegroundEndTime > 1e-9
@@ -79,7 +89,7 @@ function timelineResult = simulateTeamTimeline(members, rotationPlan, teamContex
                     "Swap", "Swap", "Team", "Utility", "", 0, ...
                     localJoinReactionNames(timedPackets), localAuraSummary(enemyState), ...
                     localQuickenGauge(enemyState), localFrozenGauge(enemyState), localCoreCount(enemyState), ...
-                    0, "", false};
+                    0, "", false, "", "", "", "", "", ""};
             end
             currentTime = event.StartTime;
         end
@@ -94,11 +104,41 @@ function timelineResult = simulateTeamTimeline(members, rotationPlan, teamContex
             'PreferredAura', meta.PreferredAura, ...
             'ResolveReactionAsDamage', logical(getFieldOrDefault(meta, 'ResolveReactionAsDamage', false)), ...
             'ForceReactionName', string(getFieldOrDefault(meta, 'ForceReactionName', "")), ...
-            'ReactionElement', string(getFieldOrDefault(meta, 'ReactionElement', "")));
+            'ReactionElement', string(getFieldOrDefault(meta, 'ReactionElement', "")), ...
+            'SourceType', string(getFieldOrDefault(event, 'SourceType', "MemberAction")), ...
+            'SourceCharacter', string(getFieldOrDefault(event, 'Character', "")), ...
+            'SourceAction', string(getFieldOrDefault(event, 'Action', "")));
 
         build = compiledBuilds{event.MemberIndex};
         reactionResult = resolveReactionForHit(enemyState, hitDescriptor, build, teamContext, enemy, 0);
         enemyState = reactionResult.EnemyState;
+
+        [runtimeActionEvents, runtimeTriggeredWindows, runtimeTriggeredLastTriggerTimes] = ...
+            localResolveBackgroundTriggeredEvents( ...
+            event, meta, runtimeTriggeredWindows, ...
+            runtimeTriggeredLastTriggerTimes, rotationDuration);
+        if ~isempty(runtimeActionEvents)
+            actionQueue = localSortActionEvents([actionQueue, runtimeActionEvents]);
+        end
+
+        directReactionPackets = localBuildDirectReactionTriggerPackets(reactionResult, event.EndTime, event);
+        [runtimeReactionEvents, runtimeTriggeredWindows, runtimeTriggeredLastTriggerTimes] = ...
+            localResolveBackgroundReactionTriggeredEvents( ...
+            directReactionPackets, event.EndTime, runtimeTriggeredWindows, ...
+            runtimeTriggeredLastTriggerTimes, rotationDuration);
+        if ~isempty(runtimeReactionEvents)
+            actionQueue = localSortActionEvents([actionQueue, runtimeReactionEvents]);
+        end
+
+        if localShouldExpandBackgroundDrivers(meta, event)
+            currentWindows = localBuildBackgroundDriverWindows(event, meta, rotationDuration);
+            for windowIndex = 1:numel(currentWindows)
+                currentWindow = currentWindows(windowIndex);
+                if string(getFieldOrDefault(currentWindow, 'DriverKind', "")) == "Triggered"
+                    runtimeTriggeredWindows(end + 1) = currentWindow; %#ok<AGROW>
+                end
+            end
+        end
 
         [energyState, currentEnergyRows, ownerEnergyDelta] = localApplyEnergyEvent( ...
             energyState, event.MemberIndex, meta, event.EndTime);
@@ -110,13 +150,22 @@ function timelineResult = simulateTeamTimeline(members, rotationPlan, teamContex
             activeForegroundCharacter = event.Character;
         end
 
+        [effectKind, effectMode, effectAction, effectInterval, effectCount] = ...
+            localDescribeBackgroundDrivers(meta);
+        displayDriverKind = string(getFieldOrDefault(meta, 'BackgroundDriverKind', ""));
+        displayDriverMode = string(getFieldOrDefault(meta, 'BackgroundDriverMode', ""));
+        if strlength(displayDriverKind) == 0
+            displayDriverKind = effectKind;
+        end
+        if strlength(displayDriverMode) == 0
+            displayDriverMode = effectMode;
+        end
+
         if meta.EffectDuration > 0 && strlength(string(meta.EffectTag)) > 0
             effectRows(end + 1, :) = { ... %#ok<AGROW>
                 event.Character, event.Action, meta.EffectTag, ...
                 event.StartTime, min(rotationDuration, event.StartTime + meta.EffectDuration), ...
-                event.MemberRole, string(getFieldOrDefault(meta, 'EffectTickAction', "")), ...
-                double(getFieldOrDefault(meta, 'EffectTickInterval', 0)), ...
-                double(getFieldOrDefault(meta, 'EffectTickCount', 0))};
+                event.MemberRole, effectKind, effectMode, effectAction, effectInterval, effectCount};
         end
 
         actionOrder = actionOrder + 1;
@@ -127,7 +176,12 @@ function timelineResult = simulateTeamTimeline(members, rotationPlan, teamContex
             localJoinReactions(reactionResult.PrimaryReaction, reactionResult.TriggeredReactions), ...
             localAuraSummary(enemyState), localQuickenGauge(enemyState), ...
             localFrozenGauge(enemyState), localCoreCount(enemyState), ...
-            ownerEnergyDelta, meta.EffectTag, logical(getFieldOrDefault(meta, 'ConsumesActiveWindow', true))};
+            ownerEnergyDelta, meta.EffectTag, logical(getFieldOrDefault(meta, 'ConsumesActiveWindow', true)), ...
+            displayDriverKind, displayDriverMode, ...
+            string(getFieldOrDefault(event, 'TriggerSourceType', "")), ...
+            string(getFieldOrDefault(event, 'TriggerSourceCharacter', "")), ...
+            string(getFieldOrDefault(event, 'TriggerSourceAction', "")), ...
+            string(getFieldOrDefault(event, 'TriggerPacketSource', ""))};
 
         currentTime = max(currentTime, event.StartTime);
         if logical(getFieldOrDefault(meta, 'ConsumesActiveWindow', true))
@@ -145,7 +199,8 @@ function timelineResult = simulateTeamTimeline(members, rotationPlan, teamContex
             timelineRows(end + 1, :) = { ... %#ok<AGROW>
                 actionOrder, currentTime, rotationDuration, "Team", activeForegroundCharacter, "Tail", "Tail", ...
                 "Team", "Utility", "", 0, localJoinReactionNames(timedPackets), localAuraSummary(enemyState), ...
-                localQuickenGauge(enemyState), localFrozenGauge(enemyState), localCoreCount(enemyState), 0, "", false};
+                localQuickenGauge(enemyState), localFrozenGauge(enemyState), localCoreCount(enemyState), ...
+                0, "", false, "", "", "", "", "", ""};
         end
     end
 
@@ -197,6 +252,7 @@ function actionEvents = localBuildActionEvents(members, rotationPlan, rotationDu
         if isempty(tokens)
             continue;
         end
+        disableRuntimeExpansion = localPlanHasExplicitFollowUpTokens(tokens);
 
         cursor = getFieldOrDefault(plan, 'StartTime', 0);
         for tokenIndex = 1:numel(tokens)
@@ -220,6 +276,7 @@ function actionEvents = localBuildActionEvents(members, rotationPlan, rotationDu
             event.EndTime = min(rotationDuration, cursor + duration);
             event.Duration = max(0, event.EndTime - event.StartTime);
             event.HitElement = string(getCharacterElement(members{i}.Name));
+            event.DisableRuntimeBackgroundExpansion = disableRuntimeExpansion;
             actionEvents(end + 1) = event; %#ok<AGROW>
 
             cursor = cursor + duration;
@@ -233,54 +290,37 @@ function actionEvents = localBuildActionEvents(members, rotationPlan, rotationDu
     actionEvents = actionEvents(order);
 end
 
-function actionEvents = localExpandActionEventsWithEffectTicks(actionEvents, rotationPlan, archetypeInfo, teamContext, rotationDuration)
+function actionEvents = localExpandActionEventsWithBackgroundDrivers(actionEvents, rotationPlan, archetypeInfo, teamContext, rotationDuration)
     if isempty(actionEvents)
         return;
     end
 
     expandedEvents = repmat(localEmptyEvent(), 1, 0);
-    memberPlans = getFieldOrDefault(rotationPlan, 'MemberPlans', struct([]));
 
     for i = 1:numel(actionEvents)
         event = actionEvents(i);
-        meta = inferActionCombatMetadata(event.Member, event.Action, archetypeInfo, teamContext);
+        meta = localResolveEventMeta(event, archetypeInfo, teamContext);
         event.CombatMeta = meta;
+
         expandedEvents(end + 1) = event; %#ok<AGROW>
 
-        memberPlan = struct();
-        if event.MemberIndex >= 1 && event.MemberIndex <= numel(memberPlans)
-            memberPlan = memberPlans(event.MemberIndex);
-        end
-        if ~localShouldExpandEffectTicks(memberPlan)
+        if ~localShouldExpandBackgroundDrivers(meta, event)
             continue;
         end
 
-        tickCount = double(getFieldOrDefault(meta, 'EffectTickCount', 0));
-        tickInterval = double(getFieldOrDefault(meta, 'EffectTickInterval', 0));
-        firstTickDelay = double(getFieldOrDefault(meta, 'EffectFirstTickDelay', 0));
-        tickAction = string(getFieldOrDefault(meta, 'EffectTickAction', ""));
-        effectDuration = double(getFieldOrDefault(meta, 'EffectDuration', 0));
-        if tickCount <= 0 || tickInterval <= 0 || effectDuration <= 0 || strlength(tickAction) == 0
-            continue;
-        end
-
-        effectEndTime = min(rotationDuration, event.StartTime + effectDuration);
-        for tickIndex = 1:tickCount
-            tickTime = event.StartTime + firstTickDelay + (tickIndex - 1) * tickInterval;
-            if tickTime > effectEndTime + 1e-9 || tickTime >= rotationDuration - 1e-9
-                break;
+        windows = localBuildBackgroundDriverWindows(event, meta, rotationDuration);
+        for j = 1:numel(windows)
+            window = windows(j);
+            if string(getFieldOrDefault(window, 'DriverKind', "")) ~= "Triggered"
+                driverEvents = localBuildAutonomousBackgroundEvents(window, rotationDuration);
+                for k = 1:numel(driverEvents)
+                    expandedEvents(end + 1) = driverEvents(k); %#ok<AGROW>
+                end
             end
-            expandedEvents(end + 1) = localBuildSyntheticEffectTickEvent( ... %#ok<AGROW>
-                event, meta, tickIndex, tickTime, rotationDuration);
         end
     end
 
-    sortRows = zeros(numel(expandedEvents), 3);
-    for i = 1:numel(expandedEvents)
-        sortRows(i, :) = [expandedEvents(i).StartTime, localEventSourcePriority(expandedEvents(i)), i];
-    end
-    order = sortrows(sortRows, [1 2 3]);
-    actionEvents = expandedEvents(order(:, 3).');
+    actionEvents = localSortActionEvents(expandedEvents);
 end
 
 function meta = localResolveEventMeta(event, archetypeInfo, teamContext)
@@ -291,32 +331,544 @@ function meta = localResolveEventMeta(event, archetypeInfo, teamContext)
     meta = inferActionCombatMetadata(event.Member, event.Action, archetypeInfo, teamContext);
 end
 
-function tf = localShouldExpandEffectTicks(memberPlan)
-    planningSource = lower(char(string(getFieldOrDefault(memberPlan, 'PlanningSource', ""))));
-    if strlength(string(planningSource)) == 0
-        tf = true;
-        return;
-    end
-    if contains(planningSource, 'seed') || contains(planningSource, 'manual')
+function tf = localShouldExpandBackgroundDrivers(meta, sourceInfo)
+    specs = localCollectBackgroundDriverSpecs(meta);
+    if isempty(specs)
         tf = false;
         return;
     end
-    tf = contains(planningSource, 'named') || contains(planningSource, 'generic') ...
-        || contains(planningSource, 'auto') || contains(planningSource, 'fallback');
+    if nargin >= 2 && logical(getFieldOrDefault(sourceInfo, 'DisableRuntimeBackgroundExpansion', false))
+        tf = false;
+        return;
+    end
+    % Expand runtime background windows unless the rotation already lists explicit follow-up tokens.
+    tf = true;
 end
 
-function event = localBuildSyntheticEffectTickEvent(baseEvent, baseMeta, tickIndex, tickTime, rotationDuration)
+function tf = localPlanHasExplicitFollowUpTokens(tokens)
+    patterns = {'rain', 'throw', 'chain', 'radish', 'spirit', 'pyronado', 'doll', ...
+        'projection', 'phantom', 'pathfinder', 'moon', 'star', 'skull', 'usher', ...
+        'cheval', 'crab', 'loop', 'field', 'wave', 'slash', 'connector', 'spring', ...
+        'song', 'bolt', 'arkhe', 'summon', 'mark', 'dice', 'spore', 'blossom', 'debt', ...
+        'sanctuary', 'phantasm', 'herald', 'stellar', 'icicle', 'blade', ...
+        'oz', 'eye', 'pillar', 'ring', 'source', 'trikarma', 'starwicker', ...
+        'casehit', 'thorn', 'scenteddew', 'lumidoucecase', 'aromaticexplication', ...
+        'collapse', 'geowave', 'qdot', 'qinfuse', 'qoz', 'mirror'};
+    tf = false;
+    for tokenIndex = 1:numel(tokens)
+        action = lower(char(string(tokens{tokenIndex})));
+        for patternIndex = 1:numel(patterns)
+            if contains(action, patterns{patternIndex})
+                tf = true;
+                return;
+            end
+        end
+    end
+end
+
+function specs = localCollectBackgroundDriverSpecs(meta)
+    specs = repmat(localEmptyBackgroundDriverSpec(), 1, 0);
+
+    followUpAction = string(getFieldOrDefault(meta, 'TriggeredFollowUpAction', ""));
+    tickAction = string(getFieldOrDefault(meta, 'EffectTickAction', ""));
+    tickCount = double(getFieldOrDefault(meta, 'EffectTickCount', 0));
+    tickInterval = double(getFieldOrDefault(meta, 'EffectTickInterval', 0));
+    effectDuration = double(getFieldOrDefault(meta, 'EffectDuration', 0));
+    if strlength(tickAction) > 0 && tickCount > 0 && tickInterval > 0 && effectDuration > 0
+        autonomousMode = localResolveAutonomousBackgroundDriverMode(meta);
+        % Resolve reaction-triggered pseudo-periodic effects at runtime instead of pre-expanding fixed ticks.
+        if autonomousMode == "ReactionPeriodicApprox"
+            spec = localEmptyBackgroundDriverSpec();
+            spec.DriverKind = "Triggered";
+            spec.DriverMode = "ReactionEventTrigger";
+            if strlength(followUpAction) > 0
+                spec.Action = followUpAction;
+                spec.FirstDelay = double(getFieldOrDefault(meta, 'TriggeredFollowUpDelay', localResolveReactionTriggerDelay(meta)));
+                spec.Gauge = double(getFieldOrDefault(meta, 'TriggeredFollowUpGauge', getFieldOrDefault(meta, 'EffectTickGauge', 0)));
+                spec.InternalCooldown = double(getFieldOrDefault(meta, 'TriggeredFollowUpInternalCooldown', tickInterval));
+                spec.EligibleClasses = string(getFieldOrDefault(meta, 'TriggeredFollowUpEligibleClasses', strings(1, 0)));
+                spec.MaxTriggers = double(getFieldOrDefault(meta, 'TriggeredFollowUpMaxCount', inf));
+            else
+                spec.Action = tickAction;
+                spec.FirstDelay = localResolveReactionTriggerDelay(meta);
+                spec.Gauge = double(getFieldOrDefault(meta, 'EffectTickGauge', 0));
+                spec.InternalCooldown = tickInterval;
+            end
+            spec.ForegroundOnly = false;
+            specs(end + 1) = spec; %#ok<AGROW>
+        else
+            spec = localEmptyBackgroundDriverSpec();
+            spec.DriverKind = "Autonomous";
+            spec.DriverMode = autonomousMode;
+            spec.Action = tickAction;
+            spec.FirstDelay = double(getFieldOrDefault(meta, 'EffectFirstTickDelay', 0));
+            spec.Interval = tickInterval;
+            spec.Count = tickCount;
+            spec.Gauge = double(getFieldOrDefault(meta, 'EffectTickGauge', 0));
+            specs(end + 1) = spec; %#ok<AGROW>
+        end
+    end
+
+    followUpMode = localResolveTriggeredBackgroundDriverMode(meta);
+    if strlength(followUpAction) > 0 && effectDuration > 0 ...
+            && followUpMode ~= "ReactionEventTrigger"
+        spec = localEmptyBackgroundDriverSpec();
+        spec.DriverKind = "Triggered";
+        spec.DriverMode = followUpMode;
+        spec.Action = followUpAction;
+        spec.FirstDelay = double(getFieldOrDefault(meta, 'TriggeredFollowUpDelay', 0));
+        spec.Gauge = double(getFieldOrDefault(meta, 'TriggeredFollowUpGauge', 0));
+        spec.InternalCooldown = double(getFieldOrDefault(meta, 'TriggeredFollowUpInternalCooldown', 0));
+        spec.EligibleClasses = string(getFieldOrDefault(meta, 'TriggeredFollowUpEligibleClasses', strings(1, 0)));
+        spec.ForegroundOnly = logical(getFieldOrDefault(meta, 'TriggeredFollowUpForegroundOnly', true));
+        spec.MaxTriggers = double(getFieldOrDefault(meta, 'TriggeredFollowUpMaxCount', inf));
+        specs(end + 1) = spec; %#ok<AGROW>
+    end
+end
+
+function mode = localResolveAutonomousBackgroundDriverMode(meta)
+    tag = lower(char(string(getFieldOrDefault(meta, 'EffectTag', ""))));
+    switch tag
+        case {'stonestele', 'autumnwhirlwind'}
+            mode = "FieldPulse";
+        case {'sesshousakura', 'oz', 'kurage', 'guoba', 'cuileinanbar', 'lumidoucecase', 'aromaticexplication'}
+            mode = "SummonPeriodic";
+        case {'salonmembers', 'tamoto'}
+            mode = "CompanionPeriodic";
+        case {'pyronado', 'heraldoffrost', 'sanctifyingring', 'seamlessshield'}
+            mode = "OrbitingPeriodic";
+        case {'seedofskandha'}
+            mode = "ReactionPeriodicApprox";
+        otherwise
+            mode = "AutonomousTick";
+    end
+end
+
+function mode = localResolveTriggeredBackgroundDriverMode(meta)
+    tag = lower(char(string(getFieldOrDefault(meta, 'EffectTag', ""))));
+    eligibleClasses = string(getFieldOrDefault(meta, 'TriggeredFollowUpEligibleClasses', strings(1, 0)));
+    if any(strcmpi(cellstr(eligibleClasses(:)), 'Reaction'))
+        mode = "ReactionEventTrigger";
+        return;
+    end
+    switch tag
+        case {'rainswords', 'exquisitethrow'}
+            mode = "ForegroundNormalTrigger";
+        case {'stormbreaker'}
+            mode = "ForegroundNormalChargedTrigger";
+        case {'eyeofstormyjudgment'}
+            mode = "ForegroundAnyActionTrigger";
+        case {'seedofskandha'}
+            mode = "ReactionEventTrigger";
+        otherwise
+            eligibleClasses = string(getFieldOrDefault(meta, 'TriggeredFollowUpEligibleClasses', strings(1, 0)));
+            eligibleCells = cellstr(eligibleClasses(:));
+            hasNormal = any(strcmpi(eligibleCells, 'Normal'));
+            hasCharged = any(strcmpi(eligibleCells, 'Charged'));
+            hasPlunge = any(strcmpi(eligibleCells, 'Plunge'));
+            hasSkill = any(strcmpi(eligibleCells, 'Skill'));
+            hasBurst = any(strcmpi(eligibleCells, 'Burst'));
+            if hasNormal && ~(hasCharged || hasPlunge || hasSkill || hasBurst)
+                mode = "ForegroundNormalTrigger";
+            elseif hasCharged && ~(hasNormal || hasPlunge || hasSkill || hasBurst)
+                mode = "ForegroundChargedTrigger";
+            elseif hasPlunge && ~(hasNormal || hasCharged || hasSkill || hasBurst)
+                mode = "ForegroundPlungeTrigger";
+            elseif hasNormal && hasCharged && ~(hasPlunge || hasSkill || hasBurst)
+                mode = "ForegroundNormalChargedTrigger";
+            elseif (hasNormal || hasCharged || hasPlunge) && ~(hasSkill || hasBurst)
+                mode = "ForegroundAttackTrigger";
+            else
+                mode = "ForegroundAnyActionTrigger";
+            end
+    end
+end
+
+function delay = localResolveReactionTriggerDelay(meta)
+    tag = lower(char(string(getFieldOrDefault(meta, 'EffectTag', ""))));
+    switch tag
+        case 'seedofskandha'
+            delay = 0.15;
+        otherwise
+            delay = 0.10;
+    end
+end
+
+function windows = localBuildBackgroundDriverWindows(baseEvent, baseMeta, rotationDuration)
+    windows = repmat(localEmptyActiveWindow(), 1, 0);
+    specs = localCollectBackgroundDriverSpecs(baseMeta);
+    if isempty(specs)
+        return;
+    end
+
+    duration = double(getFieldOrDefault(baseMeta, 'EffectDuration', 0));
+    if duration <= 0
+        return;
+    end
+
+    effectEndTime = min(rotationDuration, baseEvent.StartTime + duration);
+    for i = 1:numel(specs)
+        window = localEmptyActiveWindow();
+        window.MemberIndex = baseEvent.MemberIndex;
+        window.Member = baseEvent.Member;
+        window.Character = baseEvent.Character;
+        window.MemberRole = baseEvent.MemberRole;
+        window.EffectTag = string(getFieldOrDefault(baseMeta, 'EffectTag', ""));
+        window.StartTime = baseEvent.StartTime;
+        window.EndTime = effectEndTime;
+        window.Meta = baseMeta;
+        window.DriverKind = string(specs(i).DriverKind);
+        window.DriverMode = string(specs(i).DriverMode);
+        window.DriverSpec = specs(i);
+        window.RemainingTriggers = double(getFieldOrDefault(specs(i), 'MaxTriggers', inf));
+        windows(end + 1) = window; %#ok<AGROW>
+    end
+end
+
+function [driverEvents, activeWindows, lastTriggerTimes] = localResolveBackgroundTriggeredEvents( ...
+        driverEvent, driverMeta, activeWindows, lastTriggerTimes, rotationDuration)
+    driverEvents = repmat(localEmptyEvent(), 1, 0);
+    driverClass = string(getFieldOrDefault(driverMeta, 'ActionClass', ""));
+    if strlength(driverClass) == 0
+        return;
+    end
+
+    for i = 1:numel(activeWindows)
+        window = activeWindows(i);
+        if string(getFieldOrDefault(window, 'DriverKind', "")) ~= "Triggered"
+            continue;
+        end
+        driverSpec = getFieldOrDefault(window, 'DriverSpec', localEmptyBackgroundDriverSpec());
+        driverMode = string(getFieldOrDefault(driverSpec, 'DriverMode', ""));
+        if driverMode == "ReactionEventTrigger"
+            continue;
+        end
+        remainingTriggers = double(getFieldOrDefault(window, 'RemainingTriggers', inf));
+        if isfinite(remainingTriggers) && remainingTriggers <= 0
+            continue;
+        end
+
+        % Filter by driver mode first, then apply any driver-specific eligible classes.
+        if driverMode == "ForegroundNormalTrigger" && driverClass ~= "Normal"
+            continue;
+        elseif driverMode == "ForegroundChargedTrigger" && driverClass ~= "Charged"
+            continue;
+        elseif driverMode == "ForegroundPlungeTrigger" && driverClass ~= "Plunge"
+            continue;
+        elseif driverMode == "ForegroundNormalChargedTrigger" ...
+                && ~any(strcmpi(char(driverClass), {'Normal', 'Charged'}))
+            continue;
+        elseif driverMode == "ForegroundAttackTrigger" ...
+                && ~any(strcmpi(char(driverClass), {'Normal', 'Charged', 'Plunge'}))
+            continue;
+        elseif driverMode == "ForegroundActionTrigger" ...
+                && ~any(strcmpi(char(driverClass), {'Normal', 'Charged', 'Plunge', 'Skill', 'Burst'}))
+            continue;
+        elseif any(driverMode == ["ForegroundAnyActionTrigger", "ForegroundAnyHitTrigger"]) ...
+                && any(strcmpi(char(driverClass), {'Utility', 'Reaction'}))
+            continue;
+        end
+
+        if driverEvent.StartTime + 1e-9 < window.StartTime || driverEvent.StartTime > window.EndTime + 1e-9
+            continue;
+        end
+
+        eligibleClasses = string(getFieldOrDefault(driverSpec, 'EligibleClasses', strings(1, 0)));
+        if ~isempty(eligibleClasses) && ~any(strcmpi(char(driverClass), cellstr(eligibleClasses(:))))
+            continue;
+        end
+        if logical(getFieldOrDefault(driverSpec, 'ForegroundOnly', true)) ...
+                && ~logical(getFieldOrDefault(driverMeta, 'ConsumesActiveWindow', true))
+            continue;
+        end
+
+        key = localBuildBackgroundTriggerKey(window, driverSpec);
+        icd = double(getFieldOrDefault(driverSpec, 'InternalCooldown', 0));
+        lastTime = -inf;
+        if isKey(lastTriggerTimes, key)
+            lastTime = lastTriggerTimes(key);
+        end
+        if driverEvent.StartTime - lastTime < icd - 1e-9
+            continue;
+        end
+
+        driverEvents(end + 1) = localBuildTriggeredFollowUpEvent( ... %#ok<AGROW>
+            window, window.Meta, driverEvent, rotationDuration, driverSpec);
+        lastTriggerTimes(key) = driverEvent.StartTime;
+        if isfinite(remainingTriggers)
+            activeWindows(i).RemainingTriggers = max(0, remainingTriggers - 1);
+        end
+    end
+end
+
+function [driverEvents, activeWindows, lastTriggerTimes] = localResolveBackgroundReactionTriggeredEvents( ...
+        reactionPackets, fallbackTriggerTime, activeWindows, lastTriggerTimes, rotationDuration)
+    driverEvents = repmat(localEmptyEvent(), 1, 0);
+    if isempty(reactionPackets) || isempty(activeWindows)
+        return;
+    end
+
+    for packetIndex = 1:numel(reactionPackets)
+        packet = reactionPackets(packetIndex);
+        reactionName = string(getFieldOrDefault(packet, 'ReactionName', ""));
+        if strlength(reactionName) == 0
+            continue;
+        end
+
+        triggerTime = double(getFieldOrDefault(packet, 'TriggerTime', fallbackTriggerTime));
+        if ~isfinite(triggerTime)
+            triggerTime = fallbackTriggerTime;
+        end
+        triggerTime = min(rotationDuration, max(0, triggerTime));
+
+        for windowIndex = 1:numel(activeWindows)
+            window = activeWindows(windowIndex);
+            if ~localWindowNeedsRuntimeReactionResolution(window)
+                continue;
+            end
+            if triggerTime + 1e-9 < window.StartTime || triggerTime > window.EndTime + 1e-9
+                continue;
+            end
+
+            driverSpec = getFieldOrDefault(window, 'DriverSpec', localEmptyBackgroundDriverSpec());
+            remainingTriggers = double(getFieldOrDefault(window, 'RemainingTriggers', inf));
+            if isfinite(remainingTriggers) && remainingTriggers <= 0
+                continue;
+            end
+            key = localBuildBackgroundTriggerKey(window, driverSpec);
+            icd = double(getFieldOrDefault(driverSpec, 'InternalCooldown', 0));
+            lastTime = -inf;
+            if isKey(lastTriggerTimes, key)
+                lastTime = lastTriggerTimes(key);
+            end
+            if triggerTime - lastTime < icd - 1e-9
+                continue;
+            end
+
+            triggerEvent = localEmptyEvent();
+            triggerEvent.Action = reactionName;
+            triggerEvent.SourceType = "ReactionTrigger";
+            triggerEvent.StartTime = triggerTime;
+            triggerEvent.EndTime = triggerTime;
+            triggerEvent.TriggerSourceType = string(getFieldOrDefault(packet, 'SourceType', "ReactionPacket"));
+            triggerEvent.TriggerSourceCharacter = string(getFieldOrDefault(packet, 'SourceCharacter', ""));
+            triggerEvent.TriggerSourceAction = string(getFieldOrDefault(packet, 'SourceAction', reactionName));
+            triggerEvent.TriggerPacketSource = string(getFieldOrDefault(packet, 'PacketSource', ""));
+            driverEvents(end + 1) = localBuildTriggeredFollowUpEvent( ... %#ok<AGROW>
+                window, window.Meta, triggerEvent, rotationDuration, driverSpec);
+            lastTriggerTimes(key) = triggerTime;
+            if isfinite(remainingTriggers)
+                activeWindows(windowIndex).RemainingTriggers = max(0, remainingTriggers - 1);
+            end
+        end
+    end
+end
+
+function driverEvents = localBuildAutonomousBackgroundEvents(window, rotationDuration)
+    driverEvents = repmat(localEmptyEvent(), 1, 0);
+    driverSpec = getFieldOrDefault(window, 'DriverSpec', localEmptyBackgroundDriverSpec());
+    tickCount = double(getFieldOrDefault(driverSpec, 'Count', 0));
+    tickInterval = double(getFieldOrDefault(driverSpec, 'Interval', 0));
+    firstTickDelay = double(getFieldOrDefault(driverSpec, 'FirstDelay', 0));
+    if tickCount <= 0 || tickInterval <= 0
+        return;
+    end
+
+    for tickIndex = 1:tickCount
+        tickTime = window.StartTime + firstTickDelay + (tickIndex - 1) * tickInterval;
+        if tickTime > window.EndTime + 1e-9 || tickTime >= rotationDuration - 1e-9
+            break;
+        end
+        driverEvents(end + 1) = localBuildSyntheticEffectTickEvent( ... %#ok<AGROW>
+            window, window.Meta, tickIndex, tickTime, rotationDuration, driverSpec);
+    end
+end
+
+function tf = localWindowNeedsRuntimeReactionResolution(window)
+    tf = string(getFieldOrDefault(window, 'DriverKind', "")) == "Triggered" ...
+        && string(getFieldOrDefault(window, 'DriverMode', "")) == "ReactionEventTrigger";
+end
+
+function tf = localIsReactionTriggeredBackgroundEvent(row)
+    tf = false;
+    if ~isfield(row, 'SourceType')
+        return;
+    end
+    if string(getFieldOrDefault(row, 'SourceType', "")) ~= "TriggeredFollowUp"
+        return;
+    end
+    if isfield(row, 'BackgroundDriverMode') && string(getFieldOrDefault(row, 'BackgroundDriverMode', "")) == "ReactionEventTrigger"
+        tf = true;
+        return;
+    end
+    if isfield(row, 'TriggerSourceType') && string(getFieldOrDefault(row, 'TriggerSourceType', "")) == "ReactionPacket"
+        tf = true;
+    end
+end
+
+function key = localBuildBackgroundTriggerKey(window, driverSpec)
+    % Build a per-window trigger key so different background windows do not share ICD state.
+    key = char(lower(string(getFieldOrDefault(window, 'Character', "")) + ":" ...
+        + string(getFieldOrDefault(window, 'StartTime', 0)) + ":" ...
+        + string(getFieldOrDefault(window, 'EndTime', 0)) + ":" ...
+        + string(getFieldOrDefault(window, 'EffectTag', "")) + ":" ...
+        + string(getFieldOrDefault(driverSpec, 'Action', "")) + ":" ...
+        + string(getFieldOrDefault(driverSpec, 'DriverMode', ""))));
+end
+
+function [driverKind, driverMode, driverAction, driverInterval, driverCount] = localDescribeBackgroundDrivers(meta)
+    specs = localCollectBackgroundDriverSpecs(meta);
+    if isempty(specs)
+        driverKind = "";
+        driverMode = "";
+        driverAction = "";
+        driverInterval = 0;
+        driverCount = 0;
+        return;
+    end
+
+    driverKind = join(unique(string({specs.DriverKind}), 'stable'), ", ");
+    driverMode = join(unique(string({specs.DriverMode}), 'stable'), ", ");
+    driverAction = join(unique(string({specs.Action}), 'stable'), ", ");
+    if numel(specs) == 1
+        spec = specs(1);
+        if string(spec.DriverKind) == "Autonomous"
+            driverInterval = double(getFieldOrDefault(spec, 'Interval', 0));
+            driverCount = double(getFieldOrDefault(spec, 'Count', 0));
+        else
+            driverInterval = double(getFieldOrDefault(spec, 'InternalCooldown', 0));
+            if isfinite(double(getFieldOrDefault(spec, 'MaxTriggers', inf)))
+                driverCount = double(getFieldOrDefault(spec, 'MaxTriggers', inf));
+            else
+                driverCount = NaN;
+            end
+        end
+    else
+        driverInterval = NaN;
+        driverCount = NaN;
+    end
+end
+
+function activeWindows = localPruneExpiredActiveWindows(activeWindows, currentTime)
+    if isempty(activeWindows)
+        return;
+    end
+    keepMask = false(1, numel(activeWindows));
+    for i = 1:numel(activeWindows)
+        remainingTriggers = double(getFieldOrDefault(activeWindows(i), 'RemainingTriggers', inf));
+        keepMask(i) = currentTime <= activeWindows(i).EndTime + 1e-9 ...
+            && (~isfinite(remainingTriggers) || remainingTriggers > 0);
+    end
+    activeWindows = activeWindows(keepMask);
+end
+
+function packets = localBuildDirectReactionTriggerPackets(reactionResult, triggerTime, sourceEvent)
+    packets = repmat(localEmptyReactionPacket(), 1, 0);
+    if nargin < 2 || isempty(triggerTime) || ~isfinite(triggerTime)
+        triggerTime = NaN;
+    end
+    if nargin < 3 || isempty(sourceEvent)
+        sourceEvent = struct();
+    end
+
+    reactionNames = strings(0, 1);
+    primaryReaction = string(getFieldOrDefault(reactionResult, 'PrimaryReaction', ""));
+    if strlength(primaryReaction) > 0
+        reactionNames(end + 1, 1) = primaryReaction; %#ok<AGROW>
+    end
+    triggered = string(getFieldOrDefault(reactionResult, 'TriggeredReactions', strings(0, 1)));
+    if ~isempty(triggered)
+        reactionNames = [reactionNames; triggered(:)]; %#ok<AGROW>
+    end
+    reactionNames = unique(reactionNames(strlength(reactionNames) > 0), 'stable');
+    if isempty(reactionNames)
+        return;
+    end
+
+    for i = 1:numel(reactionNames)
+        packet = localEmptyReactionPacket();
+        packet.ReactionName = reactionNames(i);
+        packet.TriggerTime = triggerTime;
+        packet.PacketSource = "DirectHitReaction";
+        packet.SourceType = string(getFieldOrDefault(sourceEvent, 'SourceType', "MemberAction"));
+        packet.SourceCharacter = string(getFieldOrDefault(sourceEvent, 'Character', ""));
+        packet.SourceAction = string(getFieldOrDefault(sourceEvent, 'Action', ""));
+        packets(end + 1) = packet; %#ok<AGROW>
+    end
+end
+
+function event = localBuildTriggeredFollowUpEvent(window, sourceMeta, driverEvent, rotationDuration, driverSpec)
+    if nargin < 5 || isempty(driverSpec)
+        driverSpec = localEmptyBackgroundDriverSpec();
+    end
+    event = localEmptyEvent();
+    event.MemberIndex = window.MemberIndex;
+    event.Member = window.Member;
+    event.Character = window.Character;
+    event.MemberRole = window.MemberRole;
+    event.SourceType = "TriggeredFollowUp";
+    event.Action = string(getFieldOrDefault(driverSpec, 'Action', getFieldOrDefault(sourceMeta, 'TriggeredFollowUpAction', "")));
+    event.StartTime = min(rotationDuration, driverEvent.EndTime + double(getFieldOrDefault(driverSpec, 'FirstDelay', getFieldOrDefault(sourceMeta, 'TriggeredFollowUpDelay', 0.08))));
+    event.EndTime = min(rotationDuration, event.StartTime + 0.02);
+    event.Duration = max(0, event.EndTime - event.StartTime);
+    event.HitElement = string(getFieldOrDefault(sourceMeta, 'ApplyElement', getFieldOrDefault(sourceMeta, 'HitElement', "")));
+    event.TriggerSourceType = string(getFieldOrDefault(driverEvent, 'TriggerSourceType', getFieldOrDefault(driverEvent, 'SourceType', "")));
+    event.TriggerSourceCharacter = string(getFieldOrDefault(driverEvent, 'TriggerSourceCharacter', getFieldOrDefault(driverEvent, 'Character', "")));
+    event.TriggerSourceAction = string(getFieldOrDefault(driverEvent, 'TriggerSourceAction', getFieldOrDefault(driverEvent, 'Action', "")));
+    event.TriggerPacketSource = string(getFieldOrDefault(driverEvent, 'TriggerPacketSource', getFieldOrDefault(driverEvent, 'PacketSource', "")));
+
+    followUpMeta = sourceMeta;
+    followUpMeta.Action = event.Action;
+    followUpMeta.ActionClass = "FollowUp";
+    followUpMeta.ConsumesActiveWindow = false;
+    followUpMeta.HitElement = event.HitElement;
+    followUpMeta.ApplyElement = event.HitElement;
+    followUpMeta.ApplyGauge = double(getFieldOrDefault(driverSpec, 'Gauge', getFieldOrDefault(sourceMeta, 'TriggeredFollowUpGauge', getFieldOrDefault(sourceMeta, 'EffectTickGauge', 0))));
+    followUpMeta.CanApplyAura = followUpMeta.ApplyGauge > 0 && strlength(string(followUpMeta.ApplyElement)) > 0;
+    followUpMeta.EstimatedParticles = 0;
+    followUpMeta.EstimatedOrbs = 0;
+    followUpMeta.FlatEnergySelf = 0;
+    followUpMeta.FlatEnergyTeam = 0;
+    followUpMeta.ConsumesBurstEnergy = false;
+    followUpMeta.BurstCost = 0;
+    followUpMeta.EffectDuration = 0;
+    followUpMeta.EffectFirstTickDelay = 0;
+    followUpMeta.EffectTickInterval = 0;
+    followUpMeta.EffectTickCount = 0;
+    followUpMeta.EffectTickAction = "";
+    followUpMeta.EffectTickGauge = 0;
+    followUpMeta.TriggeredFollowUpAction = "";
+    followUpMeta.TriggeredFollowUpDelay = 0;
+    followUpMeta.TriggeredFollowUpGauge = 0;
+    followUpMeta.TriggeredFollowUpInternalCooldown = 0;
+    followUpMeta.TriggeredFollowUpEligibleClasses = strings(1, 0);
+    followUpMeta.TriggeredFollowUpForegroundOnly = false;
+    followUpMeta.TriggeredFollowUpMaxCount = inf;
+    followUpMeta.BackgroundDriverKind = string(getFieldOrDefault(driverSpec, 'DriverKind', "Triggered"));
+    followUpMeta.BackgroundDriverMode = string(getFieldOrDefault(driverSpec, 'DriverMode', "ForegroundAnyActionTrigger"));
+    followUpMeta.EffectTag = string(getFieldOrDefault(sourceMeta, 'EffectTag', ""));
+    event.CombatMeta = followUpMeta;
+end
+
+function event = localBuildSyntheticEffectTickEvent(baseEvent, baseMeta, tickIndex, tickTime, rotationDuration, driverSpec)
+    if nargin < 6 || isempty(driverSpec)
+        driverSpec = localEmptyBackgroundDriverSpec();
+    end
     event = localEmptyEvent();
     event.MemberIndex = baseEvent.MemberIndex;
     event.Member = baseEvent.Member;
     event.Character = baseEvent.Character;
     event.MemberRole = baseEvent.MemberRole;
     event.SourceType = "EffectTick";
-    event.Action = string(getFieldOrDefault(baseMeta, 'EffectTickAction', "EffectTick")) + "#" + string(tickIndex);
+    event.Action = string(getFieldOrDefault(driverSpec, 'Action', getFieldOrDefault(baseMeta, 'EffectTickAction', "EffectTick"))) + "#" + string(tickIndex);
     event.StartTime = tickTime;
     event.EndTime = min(rotationDuration, tickTime + 0.01);
     event.Duration = max(0, event.EndTime - event.StartTime);
     event.HitElement = string(getFieldOrDefault(baseMeta, 'ApplyElement', getFieldOrDefault(baseMeta, 'HitElement', "")));
+    event.TriggerSourceType = "EffectWindow";
+    event.TriggerSourceCharacter = string(getFieldOrDefault(baseEvent, 'Character', ""));
+    event.TriggerSourceAction = string(getFieldOrDefault(baseMeta, 'Action', getFieldOrDefault(baseEvent, 'Action', "")));
+    event.TriggerPacketSource = "";
 
     tickMeta = baseMeta;
     tickMeta.Action = event.Action;
@@ -324,7 +876,7 @@ function event = localBuildSyntheticEffectTickEvent(baseEvent, baseMeta, tickInd
     tickMeta.ConsumesActiveWindow = false;
     tickMeta.HitElement = event.HitElement;
     tickMeta.ApplyElement = event.HitElement;
-    tickMeta.ApplyGauge = double(getFieldOrDefault(baseMeta, 'EffectTickGauge', 0));
+    tickMeta.ApplyGauge = double(getFieldOrDefault(driverSpec, 'Gauge', getFieldOrDefault(baseMeta, 'EffectTickGauge', 0)));
     tickMeta.CanApplyAura = tickMeta.ApplyGauge > 0 && strlength(string(tickMeta.ApplyElement)) > 0;
     tickMeta.EstimatedParticles = 0;
     tickMeta.EstimatedOrbs = 0;
@@ -337,17 +889,71 @@ function event = localBuildSyntheticEffectTickEvent(baseEvent, baseMeta, tickInd
     tickMeta.EffectTickInterval = 0;
     tickMeta.EffectTickCount = 0;
     tickMeta.EffectTickAction = "";
+    tickMeta.EffectTickGauge = 0;
+    tickMeta.TriggeredFollowUpAction = "";
+    tickMeta.TriggeredFollowUpDelay = 0;
+    tickMeta.TriggeredFollowUpGauge = 0;
+    tickMeta.TriggeredFollowUpInternalCooldown = 0;
+    tickMeta.TriggeredFollowUpEligibleClasses = strings(1, 0);
+    tickMeta.TriggeredFollowUpForegroundOnly = false;
+    tickMeta.TriggeredFollowUpMaxCount = inf;
+    tickMeta.BackgroundDriverKind = string(getFieldOrDefault(driverSpec, 'DriverKind', "Autonomous"));
+    tickMeta.BackgroundDriverMode = string(getFieldOrDefault(driverSpec, 'DriverMode', "AutonomousTick"));
     tickMeta.EffectTag = string(getFieldOrDefault(baseMeta, 'EffectTag', ""));
     event.CombatMeta = tickMeta;
 end
 
+function spec = localEmptyBackgroundDriverSpec()
+    spec = struct( ...
+        'DriverKind', "", ...
+        'DriverMode', "", ...
+        'Action', "", ...
+        'FirstDelay', 0, ...
+        'Interval', 0, ...
+        'Count', 0, ...
+        'Gauge', 0, ...
+        'InternalCooldown', 0, ...
+        'EligibleClasses', strings(1, 0), ...
+        'ForegroundOnly', true, ...
+        'MaxTriggers', inf);
+end
+
+function packet = localEmptyReactionPacket()
+    packet = struct( ...
+        'ReactionName', "", ...
+        'TriggerTime', NaN, ...
+        'PacketSource', "", ...
+        'SourceType', "", ...
+        'SourceCharacter', "", ...
+        'SourceAction', "");
+end
+
 function priority = localEventSourcePriority(event)
     sourceType = string(getFieldOrDefault(event, 'SourceType', "MemberAction"));
-    if sourceType == "EffectTick"
-        priority = 2;
-    else
-        priority = 1;
+    switch char(sourceType)
+        case 'TriggeredFollowUp'
+            priority = 2;
+        case 'EffectTick'
+            priority = 3;
+        otherwise
+            priority = 1;
     end
+end
+
+function actionEvents = localSortActionEvents(actionEvents)
+    if isempty(actionEvents)
+        return;
+    end
+
+    sortRows = zeros(numel(actionEvents), 3);
+    for eventIndex = 1:numel(actionEvents)
+        sortRows(eventIndex, :) = [ ...
+            actionEvents(eventIndex).StartTime, ...
+            localEventSourcePriority(actionEvents(eventIndex)), ...
+            eventIndex];
+    end
+    order = sortrows(sortRows, [1 2 3]);
+    actionEvents = actionEvents(order(:, 3).');
 end
 
 function builds = localCompileBuilds(members, teamContext)
@@ -472,7 +1078,8 @@ function tableOut = localTimelineTable(rows)
         'Order', 'StartTime', 'EndTime', 'Character', 'ActiveCharacter', 'Role', 'Action', ...
         'SourceType', 'ActionClass', 'HitElement', 'ApplyGauge', 'Reaction', 'AuraState', ...
         'QuickenGauge', 'FrozenGauge', 'DendroCoreCount', 'OwnerEnergyDelta', 'EffectTag', ...
-        'ConsumesActiveWindow'});
+        'ConsumesActiveWindow', 'BackgroundDriverKind', 'BackgroundDriverMode', ...
+        'TriggerSourceType', 'TriggerSourceCharacter', 'TriggerSourceAction', 'TriggerPacketSource'});
 end
 
 function tableOut = localBuildEnergySummaryTable(energyState)
@@ -524,7 +1131,7 @@ function tableOut = localBuildEffectTable(rows)
     end
     tableOut = cell2table(rows, 'VariableNames', { ...
         'Character', 'Action', 'EffectTag', 'StartTime', 'EndTime', 'Role', ...
-        'TickAction', 'TickInterval', 'TickCount'});
+        'DriverKind', 'DriverMode', 'DriverAction', 'DriverInterval', 'DriverCount'});
 end
 
 function summary = localAuraSummary(enemyState)
@@ -598,10 +1205,16 @@ function summary = localBuildTimelineSummary(timelineTable, rotationDuration)
         'ActionCount', 0, ...
         'MemberEventCount', 0, ...
         'BackgroundEventCount', 0, ...
+        'AutonomousBackgroundCount', 0, ...
+        'ActionTriggeredBackgroundCount', 0, ...
+        'ReactionTriggeredBackgroundCount', 0, ...
         'SwapCount', 0, ...
         'TailCount', 0, ...
         'MemberScheduledActionTime', 0, ...
         'MemberOccupiedTime', 0, ...
+        'AutonomousBackgroundTime', 0, ...
+        'ActionTriggeredBackgroundTime', 0, ...
+        'ReactionTriggeredBackgroundTime', 0, ...
         'SwapTime', 0, ...
         'TailTime', 0, ...
         'OverlapTime', 0, ...
@@ -616,21 +1229,39 @@ function summary = localBuildTimelineSummary(timelineTable, rotationDuration)
     actionNames = string(timelineTable.Action);
     characterNames = string(timelineTable.Character);
     memberMask = characterNames ~= "Team";
-    foregroundMask = memberMask;
+    sourceTypes = strings(height(timelineTable), 1);
+    if ismember('SourceType', timelineTable.Properties.VariableNames)
+        sourceTypes = string(timelineTable.SourceType);
+    end
+    foregroundMask = memberMask & (sourceTypes == "MemberAction");
     if ismember('ConsumesActiveWindow', timelineTable.Properties.VariableNames)
         foregroundMask = foregroundMask & logical(timelineTable.ConsumesActiveWindow);
     end
+    backgroundMask = memberMask & (sourceTypes ~= "MemberAction");
+    autonomousMask = backgroundMask & (sourceTypes == "EffectTick");
+    triggeredMask = backgroundMask & (sourceTypes == "TriggeredFollowUp");
+    reactionTriggeredMask = false(height(timelineTable), 1);
+    for rowIndex = find(triggeredMask(:)).'
+        reactionTriggeredMask(rowIndex) = localIsReactionTriggeredBackgroundEvent(table2struct(timelineTable(rowIndex, :)));
+    end
+    actionTriggeredMask = triggeredMask & ~reactionTriggeredMask;
     swapMask = characterNames == "Team" & strcmpi(actionNames, "Swap");
     tailMask = characterNames == "Team" & strcmpi(actionNames, "Tail");
 
     summary.ActionCount = height(timelineTable);
     summary.MemberEventCount = sum(memberMask);
-    summary.BackgroundEventCount = max(0, summary.MemberEventCount - sum(foregroundMask));
+    summary.BackgroundEventCount = sum(backgroundMask);
+    summary.AutonomousBackgroundCount = sum(autonomousMask);
+    summary.ActionTriggeredBackgroundCount = sum(actionTriggeredMask);
+    summary.ReactionTriggeredBackgroundCount = sum(reactionTriggeredMask);
     summary.SwapCount = sum(swapMask);
     summary.TailCount = sum(tailMask);
     summary.MemberScheduledActionTime = sum(durations(foregroundMask));
     summary.MemberOccupiedTime = localUnionDuration( ...
         timelineTable.StartTime(foregroundMask), timelineTable.EndTime(foregroundMask));
+    summary.AutonomousBackgroundTime = sum(durations(autonomousMask));
+    summary.ActionTriggeredBackgroundTime = sum(durations(actionTriggeredMask));
+    summary.ReactionTriggeredBackgroundTime = sum(durations(reactionTriggeredMask));
     summary.SwapTime = sum(durations(swapMask));
     summary.TailTime = sum(durations(tailMask));
     summary.OverlapTime = max(0, summary.MemberScheduledActionTime - summary.MemberOccupiedTime);
@@ -649,6 +1280,12 @@ function memberTable = localBuildMemberTimelineTable(timelineTable, members)
     scheduledTimes = zeros(numel(members), 1);
     backgroundCounts = zeros(numel(members), 1);
     backgroundTimes = zeros(numel(members), 1);
+    autonomousCounts = zeros(numel(members), 1);
+    autonomousTimes = zeros(numel(members), 1);
+    actionTriggeredCounts = zeros(numel(members), 1);
+    actionTriggeredTimes = zeros(numel(members), 1);
+    reactionTriggeredCounts = zeros(numel(members), 1);
+    reactionTriggeredTimes = zeros(numel(members), 1);
     firstStarts = nan(numel(members), 1);
     lastEnds = nan(numel(members), 1);
 
@@ -657,14 +1294,29 @@ function memberTable = localBuildMemberTimelineTable(timelineTable, members)
     end
 
     if isempty(timelineTable) || ~istable(timelineTable) || height(timelineTable) == 0
-        memberTable = table(names, actionCounts, scheduledTimes, backgroundCounts, backgroundTimes, firstStarts, lastEnds, ...
+        memberTable = table(names, actionCounts, scheduledTimes, backgroundCounts, backgroundTimes, ...
+            autonomousCounts, autonomousTimes, actionTriggeredCounts, actionTriggeredTimes, ...
+            reactionTriggeredCounts, reactionTriggeredTimes, firstStarts, lastEnds, ...
             'VariableNames', {'Character', 'ScheduledActionCount', 'ScheduledActionTime', ...
-            'BackgroundEventCount', 'BackgroundEventTime', 'FirstActionTime', 'LastActionTime'});
+            'BackgroundEventCount', 'BackgroundEventTime', ...
+            'AutonomousBackgroundCount', 'AutonomousBackgroundTime', ...
+            'ActionTriggeredBackgroundCount', 'ActionTriggeredBackgroundTime', ...
+            'ReactionTriggeredBackgroundCount', 'ReactionTriggeredBackgroundTime', ...
+            'FirstActionTime', 'LastActionTime'});
         return;
     end
 
     rowNames = string(timelineTable.Character);
     rowDurations = max(0, timelineTable.EndTime - timelineTable.StartTime);
+    rowSourceTypes = strings(height(timelineTable), 1);
+    if ismember('SourceType', timelineTable.Properties.VariableNames)
+        rowSourceTypes = string(timelineTable.SourceType);
+    end
+    reactionTriggeredGlobalMask = false(height(timelineTable), 1);
+    triggerRows = find(rowSourceTypes == "TriggeredFollowUp");
+    for rowIndex = triggerRows(:).'
+        reactionTriggeredGlobalMask(rowIndex) = localIsReactionTriggeredBackgroundEvent(table2struct(timelineTable(rowIndex, :)));
+    end
     consumeMask = true(height(timelineTable), 1);
     if ismember('ConsumesActiveWindow', timelineTable.Properties.VariableNames)
         consumeMask = logical(timelineTable.ConsumesActiveWindow);
@@ -674,19 +1326,35 @@ function memberTable = localBuildMemberTimelineTable(timelineTable, members)
         if ~any(memberMask)
             continue;
         end
-        foregroundMask = memberMask & consumeMask;
-        backgroundMask = memberMask & ~consumeMask;
+        foregroundMask = memberMask & (rowSourceTypes == "MemberAction") & consumeMask;
+        backgroundMask = memberMask & (rowSourceTypes ~= "MemberAction");
+        autonomousMask = backgroundMask & (rowSourceTypes == "EffectTick");
+        triggeredMask = backgroundMask & (rowSourceTypes == "TriggeredFollowUp");
+        reactionTriggeredMask = backgroundMask & reactionTriggeredGlobalMask;
+        actionTriggeredMask = triggeredMask & ~reactionTriggeredMask;
         actionCounts(i) = sum(foregroundMask);
         scheduledTimes(i) = sum(rowDurations(foregroundMask));
         backgroundCounts(i) = sum(backgroundMask);
         backgroundTimes(i) = sum(rowDurations(backgroundMask));
+        autonomousCounts(i) = sum(autonomousMask);
+        autonomousTimes(i) = sum(rowDurations(autonomousMask));
+        actionTriggeredCounts(i) = sum(actionTriggeredMask);
+        actionTriggeredTimes(i) = sum(rowDurations(actionTriggeredMask));
+        reactionTriggeredCounts(i) = sum(reactionTriggeredMask);
+        reactionTriggeredTimes(i) = sum(rowDurations(reactionTriggeredMask));
         firstStarts(i) = min(timelineTable.StartTime(memberMask));
         lastEnds(i) = max(timelineTable.EndTime(memberMask));
     end
 
-    memberTable = table(names, actionCounts, scheduledTimes, backgroundCounts, backgroundTimes, firstStarts, lastEnds, ...
+    memberTable = table(names, actionCounts, scheduledTimes, backgroundCounts, backgroundTimes, ...
+        autonomousCounts, autonomousTimes, actionTriggeredCounts, actionTriggeredTimes, ...
+        reactionTriggeredCounts, reactionTriggeredTimes, firstStarts, lastEnds, ...
         'VariableNames', {'Character', 'ScheduledActionCount', 'ScheduledActionTime', ...
-        'BackgroundEventCount', 'BackgroundEventTime', 'FirstActionTime', 'LastActionTime'});
+        'BackgroundEventCount', 'BackgroundEventTime', ...
+        'AutonomousBackgroundCount', 'AutonomousBackgroundTime', ...
+        'ActionTriggeredBackgroundCount', 'ActionTriggeredBackgroundTime', ...
+        'ReactionTriggeredBackgroundCount', 'ReactionTriggeredBackgroundTime', ...
+        'FirstActionTime', 'LastActionTime'});
 end
 
 function duration = localUnionDuration(starts, ends)
@@ -767,10 +1435,31 @@ function event = localEmptyEvent()
         'Character', "", ...
         'MemberRole', "", ...
         'SourceType', "MemberAction", ...
+        'TriggerSourceType', "", ...
+        'TriggerSourceCharacter', "", ...
+        'TriggerSourceAction', "", ...
+        'TriggerPacketSource', "", ...
+        'DisableRuntimeBackgroundExpansion', false, ...
         'Action', "", ...
         'StartTime', 0, ...
         'EndTime', 0, ...
         'Duration', 0, ...
         'HitElement', "", ...
         'CombatMeta', struct());
+end
+
+function window = localEmptyActiveWindow()
+    window = struct( ...
+        'MemberIndex', 0, ...
+        'Member', struct(), ...
+        'Character', "", ...
+        'MemberRole', "", ...
+        'EffectTag', "", ...
+        'StartTime', 0, ...
+        'EndTime', 0, ...
+        'Meta', struct(), ...
+        'DriverKind', "", ...
+        'DriverMode', "", ...
+        'DriverSpec', localEmptyBackgroundDriverSpec(), ...
+        'RemainingTriggers', inf);
 end
