@@ -2,8 +2,8 @@ function [totalDMG, dps, breakdown, rotationTime, audit] = simulateSethosDPS(bui
     % Sethos high-detail simulator.
     % Focus:
     % - Shadowpiercing Shot mixed ATK + EM scaling.
-    % - A1 fast-charge assumption based on a pre-burst full-energy opener.
-    % - A4 Scorching Sandshade applied to the default pre-burst Shadow shots.
+    % - A1 current-energy fast-charge and energy consumption / refund loop.
+    % - A4 Scorching Sandshade window, 4-hit cap, and 15s re-entry cooldown.
     % - Burst Dusk Bolt sequence split by the transformed normal-hit pattern.
     if nargin < 3 || isempty(seqFile)
         seqFile = fullfile(fileparts(mfilename('fullpath')), '..', '..', 'data', 'Sethos', 'rotation_Sethos.txt');
@@ -33,15 +33,6 @@ function [totalDMG, dps, breakdown, rotationTime, audit] = simulateSethosDPS(bui
     enemyTargetCount = max(1, round(getFieldOrDefault(enemy, 'TargetCount', ...
         getFieldOrDefault(enemy, 'EnemyCount', 1))));
 
-    % C4 is a team EM share triggered by AoE Shadow / Dusk hits.
-    % For the default AoE case, approximate it as a sustained mid-rotation buff.
-    if constellation >= 4 && enemyTargetCount >= 2
-        build.EM = getFieldOrDefault(build, 'EM', 0) + 80;
-    end
-
-    c2InitialStacks = double(constellation >= 2 && electroReactionReady);
-    c2PerStackBonus = 0.15 * double(constellation >= 2);
-
     normalCoeffs = localResolveNormalBoltCoefficients(talent, normalLevel);
     shadowATKCoeff = localResolveShadowATKCoeff(normalLevel);
     shadowEMCoeff = localResolveShadowEMCoeff(normalLevel);
@@ -59,8 +50,6 @@ function [totalDMG, dps, breakdown, rotationTime, audit] = simulateSethosDPS(bui
         'ICDRule', "Independent", ...
         'AllowCatalyze', double(aggravateReady), ...
         'AllowTransformative', double(electroReactionReady), ...
-        'PostAddMarks', c2InitialStacks, ...
-        'PostMaxMarks', 2, ...
         'LunarisAttackName', "ElementalArt", ...
         'LunarisDamageParam', "ElementalArtDamage", ...
         'Note', "Ancient Rite: The Thundering Sands");
@@ -79,10 +68,10 @@ function [totalDMG, dps, breakdown, rotationTime, audit] = simulateSethosDPS(bui
         'LunarisDamageParam', "DamageWithElec", ...
         'Note', "Charge level 1 shot");
     actions.ShadowBuffed = localMakeShadowAction( ...
-        shadowATKCoeff, shadowEMCoeff + 7.0, normalLevel, c2PerStackBonus, aggravateReady, electroReactionReady);
-    actions.ShadowBuffed.Note = "Shadowpiercing Shot with Scorching Sandshade";
+        shadowATKCoeff, shadowEMCoeff, normalLevel, aggravateReady, electroReactionReady);
+    actions.ShadowBuffed.Note = "Shadowpiercing Shot opener";
     actions.Shadow = localMakeShadowAction( ...
-        shadowATKCoeff, shadowEMCoeff, normalLevel, c2PerStackBonus, aggravateReady, electroReactionReady);
+        shadowATKCoeff, shadowEMCoeff, normalLevel, aggravateReady, electroReactionReady);
     actions.Shadow.Note = "Shadowpiercing Shot";
     actions.Q = struct( ...
         'TalentGroup', "Burst", ...
@@ -95,26 +84,29 @@ function [totalDMG, dps, breakdown, rotationTime, audit] = simulateSethosDPS(bui
         'CanApplyAura', false, ...
         'CanTriggerReaction', false, ...
         'PostSetBurstActiveTime', 8.0, ...
-        'PostAddMarks', double(constellation >= 2), ...
-        'PostMaxMarks', 2, ...
         'Note', "Secret Rite: Twilight Shadowpiercer");
     actions.D1 = localMakeDuskBoltAction( ...
         "Bullet_ShootArrow_Lightning_Burst_01", "LightningArrowDamage_Burst_01", ...
-        "Dusk Bolt 1", normalCoeffs(1), duskEMCoeff, c2PerStackBonus, aggravateReady, electroReactionReady);
+        "Dusk Bolt 1", normalCoeffs(1), duskEMCoeff, aggravateReady, electroReactionReady);
     actions.D2 = localMakeDuskBoltAction( ...
         "Bullet_ShootArrow_Lightning_Burst_02", "LightningArrowDamage_Burst_02", ...
-        "Dusk Bolt 2", normalCoeffs(2), duskEMCoeff, c2PerStackBonus, aggravateReady, electroReactionReady);
+        "Dusk Bolt 2", normalCoeffs(2), duskEMCoeff, aggravateReady, electroReactionReady);
     actions.D3 = localMakeDuskBoltAction( ...
         "Bullet_ShootArrow_Lightning_Burst_03", "LightningArrowDamage_Burst_03", ...
-        "Dusk Bolt 3", normalCoeffs(3), duskEMCoeff, c2PerStackBonus, aggravateReady, electroReactionReady);
+        "Dusk Bolt 3", normalCoeffs(3), duskEMCoeff, aggravateReady, electroReactionReady);
     actions.D4 = localMakeDuskBoltAction( ...
         "Bullet_ShootArrow_Lightning_Burst_04", "LightningArrowDamage_Burst_04", ...
-        "Dusk Bolt 4", normalCoeffs(4), duskEMCoeff, c2PerStackBonus, aggravateReady, electroReactionReady);
+        "Dusk Bolt 4", normalCoeffs(4), duskEMCoeff, aggravateReady, electroReactionReady);
 
     spec = struct( ...
         'Element', "Electro", ...
         'ScalingMode', "ATK", ...
         'DefaultActionTime', 0.75, ...
+        'InitializeStateFn', @localInitializeState, ...
+        'BeforeActionFn', @localBeforeAction, ...
+        'AfterHitFn', @localAfterHit, ...
+        'AfterActionFn', @localAfterAction, ...
+        'AdvanceStateFn', @localAdvanceState, ...
         'DefaultRotation', {{ ...
             'E', 'ShadowBuffed', 'ShadowBuffed', 'Q', ...
             'D1', 'D2', 'D3', 'D4', ...
@@ -136,7 +128,7 @@ function [totalDMG, dps, breakdown, rotationTime, audit] = simulateSethosDPS(bui
         'Sethos', build, enemy, seqFile, talentLevel, constellation, teamContext, spec);
 end
 
-function action = localMakeShadowAction(shadowATKCoeff, shadowEMCoeff, normalLevel, c2PerStackBonus, aggravateReady, electroReactionReady)
+function action = localMakeShadowAction(shadowATKCoeff, shadowEMCoeff, normalLevel, aggravateReady, electroReactionReady)
     action = struct( ...
         'TalentGroup', "Normal", ...
         'TalentLevelOverride', normalLevel, ...
@@ -150,16 +142,13 @@ function action = localMakeShadowAction(shadowATKCoeff, shadowEMCoeff, normalLev
         'ICDRule', "Independent", ...
         'AllowCatalyze', double(aggravateReady), ...
         'AllowTransformative', double(electroReactionReady), ...
-        'PerMarkDamageBonus', c2PerStackBonus, ...
         'C1CritRateBonus', 0.15, ...
-        'PostAddMarks', double(c2PerStackBonus > 0), ...
-        'PostMaxMarks', 2, ...
         'LunarisAttackName', "Bullet_ShootArrow_Lightning", ...
         'LunarisDamageParam', "LightningArrowDamage_AttackRatio");
 end
 
 function action = localMakeDuskBoltAction( ...
-        attackName, damageParam, note, normalCoeff, duskEMCoeff, c2PerStackBonus, aggravateReady, electroReactionReady)
+        attackName, damageParam, note, normalCoeff, duskEMCoeff, aggravateReady, electroReactionReady)
     action = struct( ...
         'TalentGroup', "Burst", ...
         'Param', "DuskBoltDMGIncrease", ...
@@ -172,7 +161,6 @@ function action = localMakeDuskBoltAction( ...
         'ICDRule', "Independent", ...
         'AllowCatalyze', double(aggravateReady), ...
         'AllowTransformative', double(electroReactionReady), ...
-        'PerMarkDamageBonus', c2PerStackBonus, ...
         'LunarisAttackName', string(attackName), ...
         'LunarisDamageParam', string(damageParam), ...
         'Note', string(note));
@@ -209,4 +197,175 @@ end
 
 function level = localClampTalentLevel(level)
     level = max(1, min(15, round(level)));
+end
+
+function state = localInitializeState(state, hookContext)
+    state.CustomValue = 60; % Track current energy for A1/A6 interactions.
+    state.SandshadeReady = true;
+    state.SandshadeWindowTime = 0;
+    state.SandshadeCooldown = 0;
+    state.SandshadeHitsRemaining = 4;
+    state.ElectroBonusTimers = zeros(1, 2);
+    state.C4BuffTime = 0;
+    state.C6Cooldown = 0;
+    state.TempEMBonus = 0;
+end
+
+function [state, actionSpec, actionTime, note] = localBeforeAction( ...
+        state, actionKey, actionSpec, actionTime, note, hookContext)
+    constellation = getFieldOrDefault(hookContext, 'Constellation', 0);
+    currentEnergy = max(0, state.CustomValue);
+    activeBonusStacks = sum(state.ElectroBonusTimers > 1e-6);
+    if activeBonusStacks > 0 && c1PerStackBonusFromConstellation(constellation) > 0
+        actionSpec.FlatDamageBonus = getFieldOrDefault(actionSpec, 'FlatDamageBonus', 0) ...
+            + c1PerStackBonusFromConstellation(constellation) * activeBonusStacks;
+        note = localAppendNote(note, "C1 x" + string(activeBonusStacks));
+    end
+    if state.C4BuffTime > 1e-6
+        emShare = 80;
+        state.TempEMBonus = emShare;
+        actionSpec.ReactionEMOverride = getFieldOrDefault(hookContext.Build, 'EM', 0) ...
+            + getFieldOrDefault(hookContext.TeamContext, 'EMBonus', 0) + emShare;
+        note = localAppendNote(note, "C4 EM");
+    else
+        state.TempEMBonus = 0;
+    end
+
+    if actionKey == "ShadowBuffed" || actionKey == "Shadow"
+        talliedEnergy = localResolveAimedTalliedEnergy(currentEnergy);
+        actionSpec.ConsumedEnergy = talliedEnergy;
+        actionSpec.PreSetCustomValue = currentEnergy - talliedEnergy;
+        if talliedEnergy > 0 && constellation >= 1
+            state = localAddElectroBonusStack(state, 10.0);
+            note = localAppendNote(note, "A1 consume " + string(round(talliedEnergy, 1)) + " energy");
+        end
+        if state.SandshadeReady
+            actionSpec.FlatDirectEMWeight = getFieldOrDefault(actionSpec, 'FlatDirectEMWeight', 0) + 7.0;
+            note = localAppendNote(note, "Sandshade");
+        end
+    elseif actionKey == "Aimed"
+        talliedEnergy = localResolveAimedTalliedEnergy(currentEnergy);
+        consumedEnergy = 0.5 * talliedEnergy;
+        actionSpec.ConsumedEnergy = consumedEnergy;
+        actionSpec.PreSetCustomValue = currentEnergy - consumedEnergy;
+        if consumedEnergy > 0 && constellation >= 1
+            state = localAddElectroBonusStack(state, 10.0);
+            note = localAppendNote(note, "A1 consume " + string(round(consumedEnergy, 1)) + " energy");
+        end
+    elseif startsWith(actionKey, "D")
+        actionSpec.CanApplyAura = true;
+        actionSpec.ApplyGauge = 1.0;
+    elseif actionKey == "Q"
+        actionSpec.PreSetCustomValue = max(0, currentEnergy - 60);
+        if constellation >= 1
+            state = localAddElectroBonusStack(state, 10.0);
+            note = localAppendNote(note, "C1 trigger");
+        end
+    end
+end
+
+function [state, note] = localAfterHit(state, actionKey, actionSpec, hitIndex, reactionResult, note, hookContext) %#ok<INUSD>
+    constellation = getFieldOrDefault(hookContext, 'Constellation', 0);
+    enemy = getFieldOrDefault(hookContext, 'Enemy', struct());
+    enemyTargetCount = max(1, round(getFieldOrDefault(enemy, 'TargetCount', ...
+        getFieldOrDefault(enemy, 'EnemyCount', 1))));
+    triggered = string(getFieldOrDefault(reactionResult, 'TriggeredReactions', strings(0, 1)));
+    primary = string(getFieldOrDefault(reactionResult, 'PrimaryReaction', ""));
+    if strlength(primary) > 0
+        triggered = [primary; triggered(:)]; %#ok<AGROW>
+    end
+    triggered = lower(unique(triggered(strlength(triggered) > 0), 'stable'));
+
+    if actionKey == "E" && ~isempty(triggered) && any(triggered == [ ...
+            "electrocharged"; "lunarcharged"; "superconduct"; "stellarconduct"; ...
+            "overload"; "quicken"; "aggravate"; "hyperbloom"; "swirl"])
+        energyGain = 12;
+        state.CustomValue = min(60, state.CustomValue + energyGain);
+        if constellation >= 1
+            state = localAddElectroBonusStack(state, 10.0);
+        end
+        note = localAppendNote(note, "E refund");
+    end
+
+    if (actionKey == "ShadowBuffed" || actionKey == "Shadow") && hitIndex == 1
+        if state.SandshadeReady
+            if state.SandshadeWindowTime <= 1e-6
+                state.SandshadeWindowTime = 5.0;
+                state.SandshadeCooldown = 15.0;
+            end
+            state.SandshadeHitsRemaining = max(0, state.SandshadeHitsRemaining - 1);
+            if state.SandshadeHitsRemaining <= 0
+                state.SandshadeReady = false;
+            end
+            note = localAppendNote(note, "A4 hit");
+        end
+        if constellation >= 6 && state.C6Cooldown <= 1e-6
+            talliedEnergy = double(getFieldOrDefault(actionSpec, 'ConsumedEnergy', 0));
+            if talliedEnergy > 0
+                state.CustomValue = min(60, state.CustomValue + talliedEnergy);
+                state.C6Cooldown = 15.0;
+                note = localAppendNote(note, "C6 refund");
+            end
+        end
+    end
+
+    if constellation >= 4 && enemyTargetCount >= 2 ...
+            && (actionKey == "ShadowBuffed" || actionKey == "Shadow" || startsWith(actionKey, "D"))
+        state.C4BuffTime = 10.0;
+        note = localAppendNote(note, "C4 team EM");
+    end
+end
+
+function [state, note] = localAfterAction(state, actionKey, actionSpec, actionDamage, reactionTags, note, hookContext) %#ok<INUSD>
+    if actionKey == "Q"
+        note = localAppendNote(note, "Twilight");
+    elseif startsWith(actionKey, "D")
+        note = localAppendNote(note, "Dusk Bolt");
+    end
+end
+
+function state = localAdvanceState(state, actionTime, hookContext) %#ok<INUSD>
+    state.SandshadeWindowTime = max(0, state.SandshadeWindowTime - actionTime);
+    state.SandshadeCooldown = max(0, state.SandshadeCooldown - actionTime);
+    state.C4BuffTime = max(0, state.C4BuffTime - actionTime);
+    state.C6Cooldown = max(0, state.C6Cooldown - actionTime);
+    state.ElectroBonusTimers = max(0, state.ElectroBonusTimers - actionTime);
+    state.Marks = sum(state.ElectroBonusTimers > 1e-6);
+    if state.SandshadeWindowTime <= 1e-6 && state.SandshadeCooldown > 1e-6 && state.SandshadeHitsRemaining < 4
+        state.SandshadeReady = false;
+    end
+    if ~state.SandshadeReady && state.SandshadeCooldown <= 1e-6
+        state.SandshadeReady = true;
+        state.SandshadeWindowTime = 0;
+        state.SandshadeHitsRemaining = 4;
+    end
+    state.CustomValue = max(0, min(60, state.CustomValue));
+    state.TempEMBonus = 80 * double(state.C4BuffTime > 1e-6);
+end
+
+function talliedEnergy = localResolveAimedTalliedEnergy(currentEnergy)
+    talliedEnergy = min(20, max(0, currentEnergy));
+end
+
+function state = localAddElectroBonusStack(state, duration)
+    timers = state.ElectroBonusTimers;
+    slotIndex = find(timers <= 1e-6, 1, 'first');
+    if isempty(slotIndex)
+        [~, slotIndex] = min(timers);
+    end
+    timers(slotIndex) = max(duration, timers(slotIndex));
+    state.ElectroBonusTimers = timers;
+    state.Marks = sum(timers > 1e-6);
+end
+
+function bonus = c1PerStackBonusFromConstellation(constellation)
+    bonus = 0.15 * double(constellation >= 1);
+end
+
+function note = localAppendNote(baseNote, suffix)
+    if strlength(string(baseNote)) == 0
+        note = string(suffix);
+    else
+        note = string(baseNote) + ", " + string(suffix);
+    end
 end
