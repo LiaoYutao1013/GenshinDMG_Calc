@@ -9,6 +9,7 @@ function initProjectPaths()
 
     root = fileparts(fileparts(mfilename('fullpath')));
     addpath(genpath(fullfile(root, 'functions')));
+    addpath(genpath(fullfile(root, 'tests')));
 
     initialized = true;
 end
