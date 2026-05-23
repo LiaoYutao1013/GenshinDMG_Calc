@@ -20,24 +20,25 @@ function [totalDMG, dps, breakdown, rotationTime, audit] = simulateJahodaDPS(bui
     cryoCount = getFieldOrDefault(teamContext, 'CryoCount', 0);
     enemyTargetCount = max(1, round(getFieldOrDefault(enemy, 'TargetCount', getFieldOrDefault(enemy, 'EnemyCount', 1))));
 
-    convertedElement = localResolveJahodaElement(teamContext);
+    dominantElement = localResolveJahodaElement(teamContext);
+    convertedElement = dominantElement;
     conversionReady = strlength(convertedElement) > 0;
     if ~conversionReady
         convertedElement = "Hydro";
     end
     moonsignActive = localHasAscendantMoonsign(teamContext);
-    robotCount = 2 + double(electroCount >= max([pyroCount, hydroCount, cryoCount, 1]));
-    robotInterval = 2.20 * (1 - 0.10 * double(cryoCount >= max([pyroCount, hydroCount, electroCount, 1])));
+    robotCount = 2 + double(strcmpi(dominantElement, 'Electro'));
+    robotInterval = 2.20 * (1 - 0.10 * double(strcmpi(dominantElement, 'Cryo')));
     robotHitCount = max(1, floor(12.0 / robotInterval));
     robotTimeline = robotInterval * ones(1, robotHitCount);
-    robotDamageBonus = 0.30 * double(pyroCount >= max([hydroCount, electroCount, cryoCount, 1]));
+    robotDamageBonus = 0.30 * double(strcmpi(dominantElement, 'Pyro'));
     meowballCount = 3;
     if moonsignActive
         meowballCount = 4;
     end
     meowballTimeline = 1.00 * ones(1, meowballCount);
-    bounceCount = double(constellation >= 1) * meowballCount;
-    bounceTimeline = 0.10 * ones(1, max(1, bounceCount));
+    bounceCount = max(1, double(constellation >= 1) * meowballCount);
+    bounceTimeline = 0.10 * ones(1, bounceCount);
     critSupportRate = 0.05 * double(constellation >= 6 && moonsignActive);
     critSupportDmg = 0.40 * double(constellation >= 6 && moonsignActive);
 
@@ -158,7 +159,7 @@ function [totalDMG, dps, breakdown, rotationTime, audit] = simulateJahodaDPS(bui
         'DamageField', "SkillDMGBonus", ...
         'ActionElement', convertedElement, ...
         'BaseMultiplier', 0.50 * double(conversionReady) * double(enemyTargetCount >= 2), ...
-        'HitCount', meowballCount, ...
+        'HitCount', bounceCount, ...
         'HitTimeline', bounceTimeline, ...
         'ApplyGauge', double(conversionReady), ...
         'ICDGroup', "Jahoda_Meowball_C1", ...
