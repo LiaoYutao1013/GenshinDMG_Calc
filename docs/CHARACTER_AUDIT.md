@@ -12,90 +12,53 @@ The project currently has a stable unified chain:
 - Team context builder: `functions/buildTeamContext.m`
 - GUI registry source: `functions/app/getCharacterRegistry.m`
 
-## Implemented Characters
+## Current Status
 
-The following characters currently have simulator folders, data folders, and
-are already wired into the unified dispatcher/default-config chain:
+The previously flagged import batch is already fully wired into the unified
+dispatcher, default-config registry, analysis entry set, and GUI registry:
 
-- `Arlecchino`
-- `Chasca`
-- `Chevreuse`
-- `Chiori`
-- `Clorinde`
-- `Citlali`
-- `Columbina`
-- `Durin`
-- `Emilie`
-- `Escoffier`
-- `Flins`
-- `Furina`
-- `Gaming`
-- `Iansan`
-- `Ineffa`
-- `Kachina`
-- `Kinich`
-- `Lauma`
-- `Linnea`
-- `Mavuika`
-- `Mualani`
-- `Navia`
-- `Nefer`
-- `Neuvillette`
-- `Nicole`
-- `Nilou`
-- `Sigewinne`
-- `Skirk`
-- `Varesa`
-- `Xianyun`
-- `Xilonen`
-- `Zibai`
+- `Sethos`
+- `Ororon`
+- `Ifa`
+- `Dahlia`
+- `Aino`
+- `Jahoda`
+- `Illuga`
+- `Varka`
+- `LanYan`
 
-## Not Yet Implemented
-
-These characters already exist in the local avatar metadata, but do not yet
-have full simulator folders plus unified entry wiring:
-
-| Character | Project Key | Weapon | Element | Avatar Key | Lunaris Id |
-| --- | --- | --- | --- | --- | --- |
-| Sethos | `Sethos` | Bow | Electro | `Sethos` | `10000097` |
-| Ororon | `Ororon` | Bow | Electro | `Olorun` | `10000105` |
-| Ifa | `Ifa` | Catalyst | Anemo | `Ifa` | `10000113` |
-| Dahlia | `Dahlia` | Sword | Hydro | `Dahlia` | `10000115` |
-| Aino | `Aino` | Claymore | Hydro | `Aino` | `10000121` |
-| Jahoda | `Jahoda` | Bow | Anemo | `Jahoda` | `10000124` |
-| Illuga | `Illuga` | Pole | Geo | `Illuga` | `10000127` |
-| Varka | `Varka` | Claymore | Anemo | `Varka` | `10000128` |
-| Lan Yan | `LanYan` | Catalyst | Anemo | `Lanyan` | local alias |
-
-## Current Gaps
-
-For the not-yet-implemented list above, the project is still missing some or
-all of the following:
+Audit against the current local roster shows that all imported character
+folders under `data/` now have matching:
 
 - `functions/<Character>/simulate<Character>DPS.m`
 - `functions/<Character>/customArtifact_<Character>.m`
-- `data/<Character>/characters_<Character>.csv`
-- `data/<Character>/talents_<Character>.csv`
-- `data/<Character>/rotation_<Character>.txt`
 - `analysis/main<Character>Full.m`
-- `functions/getDefaultCharacterConfig.m` case
-- `functions/simulateCharacterDPS.m` dispatch case
+- unified dispatch wiring in `simulateCharacterDPS.m`
+- default-config wiring in `getDefaultCharacterConfig.m`
 
-## Recommended Import Order
+## Remaining Structural Gaps
 
-To reduce risk and keep team/GUI integration stable, the next import batches
-should follow the order below:
+- No remaining missing character-folder or unified-entry gaps were found in
+  the current local roster audit.
+- `Furina` previously used legacy localized data filenames. Canonical
+  `characters_Furina.csv` and `talents_Furina.csv` are now expected to
+  coexist with the older exports for compatibility.
 
-1. `Sethos`, `Ororon`, `Ifa`, `Dahlia`
-2. `Aino`, `Jahoda`, `Illuga`, `Varka`, `LanYan`
+## Remaining Work
+
+- Continue second-pass precision calibration for simple-wrapper characters,
+  prioritizing `Sethos`, `Ororon`, and the rest of the recently imported
+  batch.
+- Continue real `ApplyGauge` / `ICD` / reaction-regression validation after
+  per-character refinements.
+- Continue team-timeline and off-field trigger convergence against the
+  unified simulator path.
 
 ## Notes
 
 - `Lan Yan` uses project key `LanYan` but local avatar metadata key
   `Lanyan`, so registry/GUI code must preserve the alias mapping.
 - `Ororon` currently maps to avatar key `Olorun` in local Lunaris metadata.
-- Local Lunaris metadata is sufficient for base roster registration,
-  portrait/icon lookup, and weapon/element typing.
-- A stable local JSON source for full talent multipliers, constellations, and
-  weapon passive text has not yet been confirmed, so detailed simulator data
-  still needs per-character modeling work.
+- Local Lunaris metadata is now sufficient for base roster registration,
+  portrait/icon lookup, weapon/element typing, and most attack metadata
+  lookups used by the unified simulator.

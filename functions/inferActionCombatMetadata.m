@@ -557,6 +557,11 @@ function [duration, tag, firstTickDelay, tickInterval, tickCount, tickAction, ti
                 duration = 15.0;
                 tag = "FortunePreservingTalisman";
             end
+        case 'kaeya'
+            if strcmp(lowerAction, 'q')
+                duration = 8.0;
+                tag = "GlacialWaltz";
+            end
         case 'kaedeharakazuha'
             if strcmp(lowerAction, 'q')
                 duration = 8.0;
@@ -595,6 +600,22 @@ function [duration, tag, firstTickDelay, tickInterval, tickCount, tickAction, ti
                 duration = 12.0;
                 tag = "SanctifyingRing";
             end
+        case 'yaoyao'
+            if any(strcmp(lowerAction, {'e', 'skill'}))
+                duration = 10.0;
+                tag = "Yuegui";
+            elseif strcmp(lowerAction, 'q')
+                duration = 5.0;
+                tag = "AdeptalLegacy";
+            end
+        case 'kachina'
+            if strcmp(lowerAction, 'e')
+                duration = 20.0;
+                tag = "TurboTwirly";
+            elseif strcmp(lowerAction, 'q')
+                duration = 12.0;
+                tag = "TimeToGetSerious";
+            end
     end
 
     if duration <= 0 && localIsPersistentToken(lowerAction)
@@ -603,15 +624,19 @@ function [duration, tag, firstTickDelay, tickInterval, tickCount, tickAction, ti
     end
 
     [firstTickDelay, tickInterval, tickCount, tickAction, tickGauge] = ...
-        localResolveEffectTickProfile(normalizedName, lowerAction, tag, duration);
+        localResolveEffectTickProfile(normalizedName, lowerAction, tag, duration, constellation);
 end
 
-function [firstTickDelay, tickInterval, tickCount, tickAction, tickGauge] = localResolveEffectTickProfile(normalizedName, lowerAction, effectTag, duration)
+function [firstTickDelay, tickInterval, tickCount, tickAction, tickGauge] = ...
+        localResolveEffectTickProfile(normalizedName, lowerAction, effectTag, duration, constellation)
     firstTickDelay = 0;
     tickInterval = 0;
     tickCount = 0;
     tickAction = "";
     tickGauge = 0;
+    if nargin < 5 || isempty(constellation)
+        constellation = 0;
+    end
 
     if duration <= 0 || contains(lowerAction, 'tick') || contains(lowerAction, 'pulse')
         return;
@@ -696,6 +721,15 @@ function [firstTickDelay, tickInterval, tickCount, tickAction, tickGauge] = loca
                 tickGauge = 1.0;
             end
 
+        case 'kaeya'
+            if strcmp(effectTag, "GlacialWaltz")
+                tickAction = "Icicle";
+                firstTickDelay = 1.00;
+                tickInterval = 1.00;
+                tickGauge = 1.0;
+                tickCount = 8 + double(constellation >= 6);
+            end
+
         case 'kaedeharakazuha'
             if strcmp(effectTag, "AutumnWhirlwind")
                 tickAction = "WhirlwindTick";
@@ -722,6 +756,30 @@ function [firstTickDelay, tickInterval, tickCount, tickAction, tickGauge] = loca
                 tickAction = "PillarPulse";
                 tickInterval = 2.00;
                 tickGauge = 0.5;
+            end
+
+        case 'yaoyao'
+            if strcmp(effectTag, "Yuegui")
+                tickAction = "Radish";
+                firstTickDelay = 1.90;
+                tickInterval = 1.90;
+                tickGauge = 1.0;
+                tickCount = 5 + double(constellation >= 1);
+            elseif strcmp(effectTag, "AdeptalLegacy")
+                tickAction = "BurstRadish";
+                firstTickDelay = 0.60;
+                tickInterval = 0.60;
+                tickGauge = 1.0;
+                tickCount = 6 + 2 * double(constellation >= 6);
+            end
+
+        case 'kachina'
+            if strcmp(effectTag, "TurboTwirly")
+                tickAction = "Drill";
+                firstTickDelay = 3.20;
+                tickInterval = 3.20;
+                tickGauge = 1.0;
+                tickCount = 6;
             end
 
     end
@@ -916,6 +974,7 @@ function tf = localIsPersistentToken(lowerAction)
         'cheval', 'crab', 'loop', 'field', 'wave', 'slash', 'connector', 'spring', ...
         'song', 'bolt', 'arkhe', 'summon', 'mark', 'dice', 'spore', 'blossom', 'debt', ...
         'sanctuary', 'phantasm', 'bloom', 'herald', 'stellar', 'icicle', 'blade', ...
+        'glacialwaltz', 'yuegui', 'turbotwirly', 'drill', ...
         'oz', 'eye', 'pillar', 'ring', 'source', 'trikarma', 'starwicker', ...
         'collapse', 'geowave', 'qdot', 'qinfuse', 'qoz', 'mirror'};
     tf = false;
@@ -937,6 +996,12 @@ function duration = localGenericPersistentDuration(lowerAction)
         duration = 10.0;
     elseif contains(lowerAction, 'spirit')
         duration = 12.0;
+    elseif contains(lowerAction, 'glacialwaltz')
+        duration = 8.0;
+    elseif contains(lowerAction, 'yuegui')
+        duration = 10.0;
+    elseif contains(lowerAction, 'turbotwirly')
+        duration = 20.0;
     elseif contains(lowerAction, 'projection')
         duration = 10.0;
     elseif contains(lowerAction, 'usher') || contains(lowerAction, 'cheval') || contains(lowerAction, 'crab')

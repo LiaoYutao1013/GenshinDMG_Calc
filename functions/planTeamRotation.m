@@ -670,7 +670,7 @@ function job = localResolveSupportJob(normalizedName, element, teamInfo, archety
             end
 
         case 'GeoHypercarry'
-            if any(normalizedName == ["gorou", "zhongli", "albedo", "furina", "xilonen"])
+            if any(normalizedName == ["gorou", "zhongli", "albedo", "furina", "xilonen", "kachina"])
                 job = "Opener";
             end
     end
@@ -1131,7 +1131,7 @@ function tokens = localNamedSupportTokens(normalizedName, archetypeInfo, job)
         case 'baizhu'
             tokens = {'E', 'Q'};
         case 'yaoyao'
-            tokens = {'E', 'Q', 'Radish'};
+            tokens = {'E', 'Q'};
         case 'kirara'
             tokens = {'EHold', 'Q'};
         case 'thoma'
@@ -1223,6 +1223,12 @@ function tokens = localNamedCarryTokens(normalizedName, archetypeInfo, job) %#ok
                 tokens = {'E', 'Q', 'Droplet', 'Charge', 'Beam', 'Drain', 'Beam', 'Charge'};
             else
                 tokens = {'E', 'Q', 'Droplet', 'Charge', 'Beam', 'Drain', 'Beam'};
+            end
+        case 'kaeya'
+            if any(primary == ["Freeze", "Melt", "Vaporize"])
+                tokens = {'E', 'Q', 'N1', 'N2', 'CA', 'N1', 'N2', 'CA'};
+            else
+                tokens = {'E', 'Q', 'N1', 'N2', 'CA'};
             end
         case 'mualani'
             tokens = {'E', 'Bite', 'Bite', 'Missile', 'Q', 'Bite'};
@@ -1384,7 +1390,7 @@ function duration = localEstimateActionDuration(characterName, action, fallbackD
             duration = 1.80;
         case {"debttick", "summon", "arkhe"}
             duration = 0.40;
-        case {"collapse", "geowave", "qdot", "qoz", "rain1", "rain2", "throw", "oz", "pillar", "ring", "source", "trikarma", "bursttrikarma", "starwicker", "mooncont", "moonbloom", "eye"}
+        case {"collapse", "geowave", "qdot", "qoz", "rain1", "rain2", "throw", "oz", "pillar", "ring", "source", "trikarma", "bursttrikarma", "starwicker", "mooncont", "moonbloom", "eye", "icicle", "drill"}
             duration = 0.45;
         case {"projection"}
             duration = 3.00;
@@ -1442,7 +1448,8 @@ function tf = localIsPersistentSupportToken(token)
         'support', 'field', 'wave', 'connector', 'round', 'collapse', 'geowave', ...
         'pathfinder', 'droplet', 'drain', 'loadedshot', 'debttick', 'qdot', 'qoz', ...
         'rain', 'throw', 'oz', 'eye', 'pillar', 'ring', 'source', 'trikarma', ...
-        'starwicker', 'pyronado', 'mirror', 'radish', 'sanctuary', 'phantasm', 'lunarbloom', 'bloom'};
+        'starwicker', 'pyronado', 'mirror', 'radish', 'icicle', 'drill', ...
+        'sanctuary', 'phantasm', 'lunarbloom', 'bloom'};
     tf = false;
     for i = 1:numel(patterns)
         if contains(token, patterns{i})

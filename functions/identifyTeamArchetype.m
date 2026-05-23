@@ -371,7 +371,7 @@ function weight = localSupportWeightForArchetype(name, element, primary, seconda
     if any(name == ["furina", "xilonen", "escoffier", "citlali", "chevreuse", "xianyun", ...
             "faruzan", "bennett", "mona", "nahida", "yelan", "xingqiu", "fischl", ...
             "xiangling", "zhongli", "baizhu", "yaoyao", "collei", "gorou", "yunjin", ...
-            "kujousara", "nicole"])
+            "kujousara", "nicole", "kachina"])
         weight = weight + 1.5;
     end
 
@@ -434,7 +434,7 @@ function weight = localSupportWeightForArchetype(name, element, primary, seconda
             end
 
         case 'GeoHypercarry'
-            if any(name == ["gorou", "zhongli", "albedo", "furina"])
+            if any(name == ["gorou", "zhongli", "albedo", "furina", "kachina"])
                 weight = weight + 2.8;
             end
     end
