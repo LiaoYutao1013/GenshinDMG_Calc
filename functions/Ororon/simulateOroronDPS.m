@@ -132,7 +132,7 @@ function [totalDMG, dps, breakdown, rotationTime, audit] = simulateOroronDPS(bui
         'ApplyGauge', double(hypersenseActive), ...
         'ICDGroup', "Ororon_Hypersense", ...
         'ICDRule', "Standard (3h/2.5s)", ...
-        'BaseActionDamageBonus', c1NighttideBonus + c2ElectroBonus, ...
+        'BaseActionDamageBonus', c2ElectroBonus, ...
         'LunarisAttackName', "NyxState", ...
         'LunarisDamageParam', "Damage_ExpendNyx", ...
         'Note', "Nightshade Synesthesia");
@@ -151,7 +151,7 @@ function [totalDMG, dps, breakdown, rotationTime, audit] = simulateOroronDPS(bui
         'ApplyGauge', 1.0, ...
         'ICDGroup', "Ororon_Hypersense", ...
         'ICDRule', "Standard (3h/2.5s)", ...
-        'BaseActionDamageBonus', c1NighttideBonus + c2ElectroBonus, ...
+        'BaseActionDamageBonus', c2ElectroBonus, ...
         'LunarisAttackName', "Constellation_AttackUp", ...
         'LunarisDamageParam', "Damage_Constellation6|Damage_ExpendNyx|MUL", ...
         'Note', "C6 burst-triggered Hypersense");
@@ -173,14 +173,18 @@ function [totalDMG, dps, breakdown, rotationTime, audit] = simulateOroronDPS(bui
         'Element', "Electro", ...
         'ScalingMode', "ATK", ...
         'DefaultActionTime', 0.8, ...
+        'InitializeStateFn', @localInitializeState, ...
+        'BeforeActionFn', @localBeforeAction, ...
+        'AfterHitFn', @localAfterHit, ...
+        'AdvanceStateFn', @localAdvanceState, ...
         'DefaultRotation', {defaultRotation}, ...
         'ActionTimeMap', struct( ...
             'E', 0.60, ...
             'Bounce', max(0.20, sum(bounceTimeline)), ...
             'Q', 0.95, ...
             'Wave', 9.0, ...
-            'Hypersense', 0.01, ...
-            'C6Echo', 0.01), ...
+            'Hypersense', 0.20, ...
+            'C6Echo', 0.20), ...
         'Actions', actions);
 
     [totalDMG, dps, breakdown, rotationTime, audit] = simulateSimpleCharacterDPS( ...
@@ -261,6 +265,69 @@ function count = localCountNightsoulAllies(teamContext)
         "Kinich", "Mavuika", "Ororon", "Xilonen"];
     count = sum(ismember(memberNames, nightsoulRoster)) - double(any(memberNames == "Ororon"));
     count = max(0, count);
+end
+
+function state = localInitializeState(state, hookContext)
+    %#ok<INUSD>
+    state.NighttideTimers = zeros(1, 0);
+    state.C6EchoReady = true;
+end
+
+function [state, actionSpec, actionTime, note] = localBeforeAction(state, actionKey, actionSpec, actionTime, note, hookContext)
+    %#ok<INUSD>
+    if ~isfield(state, 'NighttideTimers')
+        state = localInitializeState(state, hookContext);
+    end
+    if strcmp(actionKey, "Hypersense")
+        coverage = localNighttideCoverage(state, getFieldOrDefault(hookContext.Enemy, 'TargetCount', 1));
+        if coverage > 0
+            actionSpec.BaseActionDamageBonus = getFieldOrDefault(actionSpec, 'BaseActionDamageBonus', 0) + 0.50 * double(coverage >= 1);
+            note = localAppendNote(note, "Nighttide");
+        end
+    elseif strcmp(actionKey, "C6Echo")
+        if ~state.C6EchoReady
+            actionSpec.MVOverride = 0;
+            actionSpec.ApplyGauge = 0;
+            actionSpec.CanApplyAura = false;
+            actionSpec.CanTriggerReaction = false;
+        else
+            state.C6EchoReady = false;
+        end
+    end
+    actionTime = max(0, actionTime);
+end
+
+function [state, note] = localAfterHit(state, actionKey, actionSpec, hitIndex, reactionResult, note, hookContext) %#ok<INUSD>
+    if any(strcmp(actionKey, ["E", "Bounce"]))
+        state.NighttideTimers(end + 1) = 12.0; %#ok<AGROW>
+        if numel(state.NighttideTimers) > 4
+            state.NighttideTimers = state.NighttideTimers(end-3:end);
+        end
+        note = localAppendNote(note, "Nighttide+1");
+    end
+end
+
+function state = localAdvanceState(state, actionTime, hookContext) %#ok<INUSD>
+    if ~isfield(state, 'NighttideTimers')
+        state = localInitializeState(state, hookContext);
+    end
+    state.NighttideTimers = max(0, state.NighttideTimers - actionTime);
+    state.NighttideTimers = state.NighttideTimers(state.NighttideTimers > 1e-6);
+end
+
+function note = localAppendNote(baseNote, suffix)
+    if strlength(string(baseNote)) == 0
+        note = string(suffix);
+    else
+        note = string(baseNote) + ", " + string(suffix);
+    end
+end
+
+function coverage = localNighttideCoverage(state, targetCount)
+    if nargin < 2 || isempty(targetCount)
+        targetCount = 1;
+    end
+    coverage = min(1.0, numel(getFieldOrDefault(state, 'NighttideTimers', zeros(1, 0))) / max(1, targetCount));
 end
 
 function level = localClampTalentLevel(level)

@@ -18,6 +18,8 @@ function validateOroronRegression()
         cfgC5.Build, enemy, cfgC5.RotationFile, cfgC5.TalentLevel, cfgC5.Constellation, teamContext);
     [damageC6, ~, breakdownC6] = simulateOroronDPS( ...
         cfgC6.Build, enemy, cfgC6.RotationFile, cfgC6.TalentLevel, cfgC6.Constellation, teamContext);
+    [damageC1, ~, breakdownC1] = simulateOroronDPS( ...
+        cfgC5.Build, enemy, cfgC5.RotationFile, cfgC5.TalentLevel, 1, teamContext);
 
     assert(damageC6 >= damageC5, ...
         'Ororon C6 should not underperform C5 in the default multi-target rotation.');
@@ -25,6 +27,8 @@ function validateOroronRegression()
         'Ororon C6 should expose the burst-triggered Hypersense note.');
     assert(any(contains(string(breakdownC6.Action), "C6Echo")), ...
         'Ororon C6 rotation should include the C6 echo action.');
+    assert(any(contains(string(breakdownC1.Note), "Nighttide")), ...
+        'Ororon C1 should expose the Nighttide note on Spirit Orb hits.');
 
     disp('validateOroronRegression passed');
 end
