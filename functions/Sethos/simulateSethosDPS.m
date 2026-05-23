@@ -21,8 +21,8 @@ function [totalDMG, dps, breakdown, rotationTime, audit] = simulateSethosDPS(bui
     talentPath = fullfile(fileparts(mfilename('fullpath')), '..', '..', 'data', 'Sethos', 'talents_Sethos.csv');
     talent = readtable(talentPath);
 
-    normalLevel = localClampTalentLevel(talentLevel);
-    skillLevel = localClampTalentLevel(talentLevel + 3 * double(constellation >= 3));
+    normalLevel = localClampTalentLevel(talentLevel + 3 * double(constellation >= 3));
+    skillLevel = localClampTalentLevel(talentLevel);
     burstLevel = localClampTalentLevel(talentLevel + 3 * double(constellation >= 5));
 
     aggravateReady = getFieldOrDefault(teamContext, 'DendroCount', 0) >= 1;
@@ -216,10 +216,10 @@ function [state, actionSpec, actionTime, note] = localBeforeAction( ...
     constellation = getFieldOrDefault(hookContext, 'Constellation', 0);
     currentEnergy = max(0, state.CustomValue);
     activeBonusStacks = sum(state.ElectroBonusTimers > 1e-6);
-    if activeBonusStacks > 0 && c1PerStackBonusFromConstellation(constellation) > 0
+    if activeBonusStacks > 0 && localC2PerStackBonusFromConstellation(constellation) > 0
         actionSpec.FlatDamageBonus = getFieldOrDefault(actionSpec, 'FlatDamageBonus', 0) ...
-            + c1PerStackBonusFromConstellation(constellation) * activeBonusStacks;
-        note = localAppendNote(note, "C1 x" + string(activeBonusStacks));
+            + localC2PerStackBonusFromConstellation(constellation) * activeBonusStacks;
+        note = localAppendNote(note, "C2 x" + string(activeBonusStacks));
     end
     if state.C4BuffTime > 1e-6
         emShare = 80;
@@ -232,10 +232,13 @@ function [state, actionSpec, actionTime, note] = localBeforeAction( ...
     end
 
     if actionKey == "ShadowBuffed" || actionKey == "Shadow"
+        if constellation >= 1
+            note = localAppendNote(note, "C1 CRIT");
+        end
         talliedEnergy = localResolveAimedTalliedEnergy(currentEnergy);
         actionSpec.ConsumedEnergy = talliedEnergy;
         actionSpec.PreSetCustomValue = currentEnergy - talliedEnergy;
-        if talliedEnergy > 0 && constellation >= 1
+        if talliedEnergy > 0 && constellation >= 2
             state = localAddElectroBonusStack(state, 10.0);
             note = localAppendNote(note, "A1 consume " + string(round(talliedEnergy, 1)) + " energy");
         end
@@ -248,7 +251,7 @@ function [state, actionSpec, actionTime, note] = localBeforeAction( ...
         consumedEnergy = 0.5 * talliedEnergy;
         actionSpec.ConsumedEnergy = consumedEnergy;
         actionSpec.PreSetCustomValue = currentEnergy - consumedEnergy;
-        if consumedEnergy > 0 && constellation >= 1
+        if consumedEnergy > 0 && constellation >= 2
             state = localAddElectroBonusStack(state, 10.0);
             note = localAppendNote(note, "A1 consume " + string(round(consumedEnergy, 1)) + " energy");
         end
@@ -257,9 +260,9 @@ function [state, actionSpec, actionTime, note] = localBeforeAction( ...
         actionSpec.ApplyGauge = 1.0;
     elseif actionKey == "Q"
         actionSpec.PreSetCustomValue = max(0, currentEnergy - 60);
-        if constellation >= 1
+        if constellation >= 2
             state = localAddElectroBonusStack(state, 10.0);
-            note = localAppendNote(note, "C1 trigger");
+            note = localAppendNote(note, "C2 trigger");
         end
     end
 end
@@ -281,7 +284,7 @@ function [state, note] = localAfterHit(state, actionKey, actionSpec, hitIndex, r
             "overload"; "quicken"; "aggravate"; "hyperbloom"; "swirl"])
         energyGain = 12;
         state.CustomValue = min(60, state.CustomValue + energyGain);
-        if constellation >= 1
+        if constellation >= 2
             state = localAddElectroBonusStack(state, 10.0);
         end
         note = localAppendNote(note, "E refund");
@@ -358,8 +361,8 @@ function state = localAddElectroBonusStack(state, duration)
     state.Marks = sum(timers > 1e-6);
 end
 
-function bonus = c1PerStackBonusFromConstellation(constellation)
-    bonus = 0.15 * double(constellation >= 1);
+function bonus = localC2PerStackBonusFromConstellation(constellation)
+    bonus = 0.15 * double(constellation >= 2);
 end
 
 function note = localAppendNote(baseNote, suffix)
