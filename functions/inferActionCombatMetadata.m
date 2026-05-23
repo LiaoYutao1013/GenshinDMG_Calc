@@ -52,9 +52,13 @@
         'EffectTickCount', 0, ...
         'EffectTickAction', "", ...
         'EffectTickGauge', 0.0, ...
+        'EffectTickElement', "", ...
+        'EffectTickPreferredAura', "", ...
         'TriggeredFollowUpAction', "", ...
         'TriggeredFollowUpDelay', 0.0, ...
         'TriggeredFollowUpGauge', 0.0, ...
+        'TriggeredFollowUpElement', "", ...
+        'TriggeredFollowUpPreferredAura', "", ...
         'TriggeredFollowUpInternalCooldown', 0.0, ...
         'TriggeredFollowUpEligibleClasses', strings(1, 0), ...
         'TriggeredFollowUpForegroundOnly', true, ...
@@ -96,6 +100,7 @@
         meta.TriggeredFollowUpInternalCooldown, meta.TriggeredFollowUpEligibleClasses, ...
         meta.TriggeredFollowUpForegroundOnly, meta.TriggeredFollowUpMaxCount] = localResolveTriggeredFollowUpProfile( ...
         normalizedName, lowerAction, meta.EffectTag, meta.EffectDuration, constellation);
+    meta = localApplyCharacterSpecificMetadata(meta, member, normalizedName, lowerAction, teamContext);
 
     forcedReaction = localResolveForcedReaction(lowerAction);
     if strlength(forcedReaction) > 0
@@ -172,11 +177,16 @@ function actionClass = localResolveActionClass(lowerAction)
         actionClass = "Charged";
         return;
     end
+    if any(strcmp(lowerAction, {'flaskfull', 'flaskpartial'}))
+        actionClass = "Skill";
+        return;
+    end
     if contains(lowerAction, 'plunge') || contains(lowerAction, 'plung')
         actionClass = "Plunge";
         return;
     end
-    if any(strcmp(lowerAction, {'blade', 'herald', 'heraldcoord', 'qstellar', 'casehit', 'thorn', 'scenteddew'})) ...
+    if any(strcmp(lowerAction, {'blade', 'herald', 'heraldcoord', 'qstellar', 'casehit', 'thorn', ...
+            'scenteddew', 'duckywaterball', 'robotstrike', 'meowball', 'meowbounce'})) ...
             || contains(lowerAction, 'stellar') || contains(lowerAction, 'icicle')
         actionClass = "FollowUp";
         return;
@@ -334,6 +344,175 @@ function preferredAura = localResolvePreferredAura(hitElement, archetypeInfo)
     fieldName = char(string(hitElement));
     if isstruct(auraPairs) && isfield(auraPairs, fieldName)
         preferredAura = string(getFieldOrDefault(auraPairs, fieldName, ""));
+    end
+end
+
+function meta = localApplyCharacterSpecificMetadata(meta, member, normalizedName, lowerAction, teamContext)
+    if nargin < 5 || isempty(teamContext)
+        teamContext = struct();
+    end
+
+    constellation = double(getFieldOrDefault(member, 'Constellation', 0));
+
+    switch char(normalizedName)
+        case 'aino'
+            aura = localResolveAinoPreferredAura(teamContext);
+            if any(strcmp(lowerAction, {'e', 'e2'})) && constellation >= 1
+                meta.EffectDuration = 15.0;
+                meta.EffectTag = "AinoC1EM";
+            elseif strcmp(lowerAction, 'q')
+                interval = 2.0;
+                if localHasAscendantMoonsign(teamContext)
+                    interval = 1.5;
+                end
+                meta.EffectDuration = 14.0;
+                meta.EffectTag = "CoolYourJetsDucky";
+                meta.TriggeredFollowUpAction = "DuckyWaterBall";
+                meta.TriggeredFollowUpDelay = interval;
+                meta.TriggeredFollowUpGauge = 1.0;
+                meta.TriggeredFollowUpElement = "Hydro";
+                meta.TriggeredFollowUpPreferredAura = aura;
+                meta.TriggeredFollowUpInternalCooldown = interval;
+                meta.TriggeredFollowUpEligibleClasses = ["Normal", "Charged", "Plunge", "Skill", "Burst", "FollowUp"];
+                meta.TriggeredFollowUpForegroundOnly = false;
+                meta.TriggeredFollowUpMaxCount = max(1, floor(14.0 / interval));
+
+                if constellation >= 2
+                    meta.EffectTickAction = "DuckyWaterBallC2";
+                    meta.EffectTickInterval = 5.0;
+                    meta.EffectTickCount = 3;
+                    meta.EffectTickGauge = 1.0;
+                    meta.EffectTickElement = "Hydro";
+                    meta.EffectTickPreferredAura = aura;
+                end
+            elseif any(strcmp(lowerAction, {'duckywaterball', 'duckywaterballc2'}))
+                meta.HitElement = "Hydro";
+                meta.ApplyElement = "Hydro";
+                meta.ApplyGauge = 1.0;
+                meta.CanApplyAura = true;
+                meta.AllowAmplify = true;
+                meta.AllowCatalyze = false;
+                meta.PreferredAura = aura;
+                if constellation >= 4
+                    meta.FlatEnergySelf = meta.FlatEnergySelf + 10;
+                end
+            end
+
+        case 'jahoda'
+            convertedElement = localResolveJahodaConvertedElement(teamContext);
+            aura = localResolveJahodaPreferredAura(convertedElement, teamContext);
+            if any(strcmp(lowerAction, {'flaskfull', 'flaskpartial'}))
+                meowballCount = 3 + double(localHasAscendantMoonsign(teamContext));
+                meta.EffectDuration = max(meta.EffectDuration, meowballCount);
+                meta.EffectTag = "JahodaFlaskWindow";
+                meta.TriggeredFollowUpAction = "Meowball";
+                meta.TriggeredFollowUpDelay = 0.30;
+                meta.TriggeredFollowUpGauge = double(convertedElement ~= "");
+                meta.TriggeredFollowUpElement = convertedElement;
+                meta.TriggeredFollowUpPreferredAura = aura;
+                meta.TriggeredFollowUpInternalCooldown = 1.00;
+                meta.TriggeredFollowUpEligibleClasses = ["Normal", "Charged", "Plunge", "Skill", "Burst", "FollowUp"];
+                meta.TriggeredFollowUpForegroundOnly = false;
+                meta.TriggeredFollowUpMaxCount = meowballCount;
+            elseif strcmp(lowerAction, 'q')
+                robotCount = 2 + double(strcmpi(convertedElement, 'Electro'));
+                robotInterval = 2.20 * (1 - 0.10 * double(strcmpi(convertedElement, 'Cryo')));
+                meta.EffectDuration = 12.0;
+                meta.EffectTag = "PurrsonalCoordinatedAssistanceRobots";
+                meta.EffectTickAction = "RobotStrike";
+                meta.EffectTickInterval = robotInterval;
+                meta.EffectTickCount = max(1, floor(12.0 / robotInterval));
+                meta.EffectTickGauge = double(convertedElement ~= "") * min(robotCount, 3);
+                meta.EffectTickElement = convertedElement;
+                meta.EffectTickPreferredAura = aura;
+            elseif any(strcmp(lowerAction, {'meowball', 'meowbounce', 'robotstrike'}))
+                meta.HitElement = convertedElement;
+                meta.ApplyElement = convertedElement;
+                meta.ApplyGauge = 1.0;
+                meta.CanApplyAura = strlength(convertedElement) > 0;
+                meta.AllowAmplify = any(strcmpi(convertedElement, {'Hydro', 'Pyro', 'Cryo'}));
+                meta.AllowCatalyze = strcmpi(convertedElement, 'Electro');
+                meta.PreferredAura = aura;
+                if constellation >= 2
+                    meta.FlatEnergySelf = meta.FlatEnergySelf + 3;
+                end
+            end
+    end
+end
+
+function aura = localResolveAinoPreferredAura(teamContext)
+    aura = "";
+    if getFieldOrDefault(teamContext, 'PyroCount', 0) >= 1
+        aura = "Pyro";
+    elseif getFieldOrDefault(teamContext, 'CryoCount', 0) >= 1
+        aura = "Cryo";
+    end
+end
+
+function tf = localHasAscendantMoonsign(teamContext)
+    tf = false;
+    members = getFieldOrDefault(teamContext, 'Members', {});
+    if isstruct(members)
+        count = 0;
+        for i = 1:numel(members)
+            name = localNormalizeName(getFieldOrDefault(members(i), 'Name', ""));
+            if any(strcmp(name, {'aino', 'jahoda', 'illuga'}))
+                count = count + 1;
+            end
+        end
+        tf = count >= 1;
+    elseif iscell(members)
+        count = 0;
+        for i = 1:numel(members)
+            name = localNormalizeName(getFieldOrDefault(members{i}, 'Name', ""));
+            if any(strcmp(name, {'aino', 'jahoda', 'illuga'}))
+                count = count + 1;
+            end
+        end
+        tf = count >= 1;
+    end
+end
+
+function element = localResolveJahodaConvertedElement(teamContext)
+    priority = ["Pyro", "Hydro", "Electro", "Cryo"];
+    counts = [ ...
+        getFieldOrDefault(teamContext, 'PyroCount', 0), ...
+        getFieldOrDefault(teamContext, 'HydroCount', 0), ...
+        getFieldOrDefault(teamContext, 'ElectroCount', 0), ...
+        getFieldOrDefault(teamContext, 'CryoCount', 0)];
+    element = "Hydro";
+    bestCount = 0;
+    for i = 1:numel(priority)
+        if counts(i) > bestCount
+            bestCount = counts(i);
+            element = priority(i);
+        end
+    end
+end
+
+function aura = localResolveJahodaPreferredAura(element, teamContext)
+    aura = "";
+    switch lower(char(string(element)))
+        case 'hydro'
+            if getFieldOrDefault(teamContext, 'PyroCount', 0) >= 1
+                aura = "Pyro";
+            end
+        case 'pyro'
+            if getFieldOrDefault(teamContext, 'HydroCount', 0) >= 1
+                aura = "Hydro";
+            elseif getFieldOrDefault(teamContext, 'CryoCount', 0) >= 1
+                aura = "Cryo";
+            end
+        case 'electro'
+            if getFieldOrDefault(teamContext, 'HydroCount', 0) >= 1
+                aura = "Hydro";
+            elseif getFieldOrDefault(teamContext, 'PyroCount', 0) >= 1
+                aura = "Pyro";
+            end
+        case 'cryo'
+            if getFieldOrDefault(teamContext, 'PyroCount', 0) >= 1
+                aura = "Pyro";
+            end
     end
 end
 
@@ -974,6 +1153,7 @@ function tf = localIsPersistentToken(lowerAction)
         'cheval', 'crab', 'loop', 'field', 'wave', 'slash', 'connector', 'spring', ...
         'song', 'bolt', 'arkhe', 'summon', 'mark', 'dice', 'spore', 'blossom', 'debt', ...
         'sanctuary', 'phantasm', 'bloom', 'herald', 'stellar', 'icicle', 'blade', ...
+        'ducky', 'waterball', 'meowball', 'robotstrike', 'robot', ...
         'glacialwaltz', 'yuegui', 'turbotwirly', 'drill', ...
         'oz', 'eye', 'pillar', 'ring', 'source', 'trikarma', 'starwicker', ...
         'collapse', 'geowave', 'qdot', 'qinfuse', 'qoz', 'mirror'};

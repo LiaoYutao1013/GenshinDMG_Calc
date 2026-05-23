@@ -383,6 +383,8 @@ function specs = localCollectBackgroundDriverSpecs(meta)
             spec.DriverMode = "ReactionEventTrigger";
             if strlength(followUpAction) > 0
                 spec.Action = followUpAction;
+                spec.Element = string(getFieldOrDefault(meta, 'TriggeredFollowUpElement', ""));
+                spec.PreferredAura = string(getFieldOrDefault(meta, 'TriggeredFollowUpPreferredAura', ""));
                 spec.FirstDelay = double(getFieldOrDefault(meta, 'TriggeredFollowUpDelay', localResolveReactionTriggerDelay(meta)));
                 spec.Gauge = double(getFieldOrDefault(meta, 'TriggeredFollowUpGauge', getFieldOrDefault(meta, 'EffectTickGauge', 0)));
                 spec.InternalCooldown = double(getFieldOrDefault(meta, 'TriggeredFollowUpInternalCooldown', tickInterval));
@@ -401,6 +403,8 @@ function specs = localCollectBackgroundDriverSpecs(meta)
             spec.DriverKind = "Autonomous";
             spec.DriverMode = autonomousMode;
             spec.Action = tickAction;
+            spec.Element = string(getFieldOrDefault(meta, 'EffectTickElement', ""));
+            spec.PreferredAura = string(getFieldOrDefault(meta, 'EffectTickPreferredAura', ""));
             spec.FirstDelay = double(getFieldOrDefault(meta, 'EffectFirstTickDelay', 0));
             spec.Interval = tickInterval;
             spec.Count = tickCount;
@@ -416,6 +420,8 @@ function specs = localCollectBackgroundDriverSpecs(meta)
         spec.DriverKind = "Triggered";
         spec.DriverMode = followUpMode;
         spec.Action = followUpAction;
+        spec.Element = string(getFieldOrDefault(meta, 'TriggeredFollowUpElement', ""));
+        spec.PreferredAura = string(getFieldOrDefault(meta, 'TriggeredFollowUpPreferredAura', ""));
         spec.FirstDelay = double(getFieldOrDefault(meta, 'TriggeredFollowUpDelay', 0));
         spec.Gauge = double(getFieldOrDefault(meta, 'TriggeredFollowUpGauge', 0));
         spec.InternalCooldown = double(getFieldOrDefault(meta, 'TriggeredFollowUpInternalCooldown', 0));
@@ -812,7 +818,9 @@ function event = localBuildTriggeredFollowUpEvent(window, sourceMeta, driverEven
     event.StartTime = min(rotationDuration, driverEvent.EndTime + double(getFieldOrDefault(driverSpec, 'FirstDelay', getFieldOrDefault(sourceMeta, 'TriggeredFollowUpDelay', 0.08))));
     event.EndTime = min(rotationDuration, event.StartTime + 0.02);
     event.Duration = max(0, event.EndTime - event.StartTime);
-    event.HitElement = string(getFieldOrDefault(sourceMeta, 'ApplyElement', getFieldOrDefault(sourceMeta, 'HitElement', "")));
+    event.HitElement = string(getFieldOrDefault(driverSpec, 'Element', ...
+        getFieldOrDefault(sourceMeta, 'TriggeredFollowUpElement', ...
+        getFieldOrDefault(sourceMeta, 'ApplyElement', getFieldOrDefault(sourceMeta, 'HitElement', "")))));
     event.TriggerSourceType = string(getFieldOrDefault(driverEvent, 'TriggerSourceType', getFieldOrDefault(driverEvent, 'SourceType', "")));
     event.TriggerSourceCharacter = string(getFieldOrDefault(driverEvent, 'TriggerSourceCharacter', getFieldOrDefault(driverEvent, 'Character', "")));
     event.TriggerSourceAction = string(getFieldOrDefault(driverEvent, 'TriggerSourceAction', getFieldOrDefault(driverEvent, 'Action', "")));
@@ -826,6 +834,7 @@ function event = localBuildTriggeredFollowUpEvent(window, sourceMeta, driverEven
     followUpMeta.ApplyElement = event.HitElement;
     followUpMeta.ApplyGauge = double(getFieldOrDefault(driverSpec, 'Gauge', getFieldOrDefault(sourceMeta, 'TriggeredFollowUpGauge', getFieldOrDefault(sourceMeta, 'EffectTickGauge', 0))));
     followUpMeta.CanApplyAura = followUpMeta.ApplyGauge > 0 && strlength(string(followUpMeta.ApplyElement)) > 0;
+    followUpMeta.PreferredAura = string(getFieldOrDefault(driverSpec, 'PreferredAura', getFieldOrDefault(sourceMeta, 'TriggeredFollowUpPreferredAura', getFieldOrDefault(sourceMeta, 'PreferredAura', ""))));
     followUpMeta.EstimatedParticles = 0;
     followUpMeta.EstimatedOrbs = 0;
     followUpMeta.FlatEnergySelf = 0;
@@ -865,7 +874,9 @@ function event = localBuildSyntheticEffectTickEvent(baseEvent, baseMeta, tickInd
     event.StartTime = tickTime;
     event.EndTime = min(rotationDuration, tickTime + 0.01);
     event.Duration = max(0, event.EndTime - event.StartTime);
-    event.HitElement = string(getFieldOrDefault(baseMeta, 'ApplyElement', getFieldOrDefault(baseMeta, 'HitElement', "")));
+    event.HitElement = string(getFieldOrDefault(driverSpec, 'Element', ...
+        getFieldOrDefault(baseMeta, 'EffectTickElement', ...
+        getFieldOrDefault(baseMeta, 'ApplyElement', getFieldOrDefault(baseMeta, 'HitElement', "")))));
     event.TriggerSourceType = "EffectWindow";
     event.TriggerSourceCharacter = string(getFieldOrDefault(baseEvent, 'Character', ""));
     event.TriggerSourceAction = string(getFieldOrDefault(baseMeta, 'Action', getFieldOrDefault(baseEvent, 'Action', "")));
@@ -879,6 +890,7 @@ function event = localBuildSyntheticEffectTickEvent(baseEvent, baseMeta, tickInd
     tickMeta.ApplyElement = event.HitElement;
     tickMeta.ApplyGauge = double(getFieldOrDefault(driverSpec, 'Gauge', getFieldOrDefault(baseMeta, 'EffectTickGauge', 0)));
     tickMeta.CanApplyAura = tickMeta.ApplyGauge > 0 && strlength(string(tickMeta.ApplyElement)) > 0;
+    tickMeta.PreferredAura = string(getFieldOrDefault(driverSpec, 'PreferredAura', getFieldOrDefault(baseMeta, 'EffectTickPreferredAura', getFieldOrDefault(baseMeta, 'PreferredAura', ""))));
     tickMeta.EstimatedParticles = 0;
     tickMeta.EstimatedOrbs = 0;
     tickMeta.FlatEnergySelf = 0;
@@ -909,6 +921,8 @@ function spec = localEmptyBackgroundDriverSpec()
         'DriverKind', "", ...
         'DriverMode', "", ...
         'Action', "", ...
+        'Element', "", ...
+        'PreferredAura', "", ...
         'FirstDelay', 0, ...
         'Interval', 0, ...
         'Count', 0, ...
