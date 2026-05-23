@@ -32,6 +32,7 @@ function result = resolveReactionForHit(enemyState, hitDescriptor, build, teamCo
     if isempty(enemyState)
         enemyState = createEnemyState(enemy, teamContext, getFieldOrDefault(hitDescriptor, 'HitElement', ""));
     end
+    enemyState = localEnsureEnemyStateSchema(enemyState);
 
     result = localMakeEmptyResult(enemyState);
     [enemyState, timedPackets] = advanceEnemyStateTime( ...
@@ -504,7 +505,24 @@ function [auraIndex, auraElement] = localPickAura(enemyState)
     end
 
     gauges = [enemyState.Auras.Gauge];
-    [~, auraIndex] = max(gauges);
+    maxGauge = max(gauges);
+    candidateMask = abs(gauges - maxGauge) <= 1e-6;
+    candidateIndices = find(candidateMask);
+    if numel(candidateIndices) == 1
+        auraIndex = candidateIndices(1);
+    else
+        sortRows = zeros(numel(candidateIndices), 4);
+        for idx = 1:numel(candidateIndices)
+            currentIndex = candidateIndices(idx);
+            sortRows(idx, :) = [ ...
+                -double(enemyState.Auras(currentIndex).Gauge), ...
+                double(getFieldOrDefault(enemyState.Auras(currentIndex), 'AppliedSequence', currentIndex)), ...
+                double(getFieldOrDefault(enemyState.Auras(currentIndex), 'AppliedTime', 0)), ...
+                currentIndex];
+        end
+        sortRows = sortrows(sortRows, [1 2 3 4]);
+        auraIndex = sortRows(1, 4);
+    end
     auraElement = string(enemyState.Auras(auraIndex).Element);
 end
 
@@ -584,7 +602,13 @@ function enemyState = localApplyPostReactionAura(enemyState, applyElement, apply
                 return;
             end
             enemyState = localAddOrReplaceAura(enemyState, applyElement, max(0, 0.4 * applyGauge));
-        case {'electrocharged', 'burning', 'bloom', 'hyperbloom', 'burgeon'}
+        case 'electrocharged'
+            if strcmpi(char(applyElement), 'anemo') || strcmpi(char(applyElement), 'geo')
+                return;
+            end
+            % Electro-Charged keeps Hydro and Electro coexisting for later hits.
+            enemyState = localAddOrReplaceAura(enemyState, applyElement, applyGauge);
+        case {'burning', 'bloom', 'hyperbloom', 'burgeon'}
             return;
         otherwise
             if strcmpi(char(applyElement), 'anemo') || strcmpi(char(applyElement), 'geo')
@@ -599,23 +623,31 @@ function enemyState = localAddOrReplaceAura(enemyState, auraElement, gaugeUnits)
         return;
     end
 
+    nextSeq = getFieldOrDefault(enemyState, 'AuraSequenceCounter', 0) + 1;
+    enemyState.AuraSequenceCounter = nextSeq;
+
     if ~isfield(enemyState, 'Auras') || isempty(enemyState.Auras)
-        enemyState.Auras = localMakeAura(auraElement, gaugeUnits);
+        enemyState.Auras = localMakeAura(auraElement, gaugeUnits, getFieldOrDefault(enemyState, 'Time', 0), nextSeq);
         return;
     end
 
     for i = 1:numel(enemyState.Auras)
         if strcmpi(char(enemyState.Auras(i).Element), char(string(auraElement)))
             enemyState.Auras(i).Gauge = max(enemyState.Auras(i).Gauge, gaugeUnits);
+            enemyState.Auras(i).DecayPerSecond = localDefaultDecayPerSecond(auraElement, enemyState.Auras(i).Gauge);
+            enemyState.Auras(i).AppliedTime = getFieldOrDefault(enemyState, 'Time', 0);
+            enemyState.Auras(i).AppliedSequence = nextSeq;
             return;
         end
     end
 
-    enemyState.Auras(end + 1) = localMakeAura(auraElement, gaugeUnits); %#ok<AGROW>
+    enemyState.Auras(end + 1) = localMakeAura(auraElement, gaugeUnits, getFieldOrDefault(enemyState, 'Time', 0), nextSeq); %#ok<AGROW>
 end
 
 function enemyState = localForceAura(enemyState, auraElement, gaugeUnits)
-    enemyState.Auras = localMakeAura(auraElement, gaugeUnits);
+    nextSeq = getFieldOrDefault(enemyState, 'AuraSequenceCounter', 0) + 1;
+    enemyState.AuraSequenceCounter = nextSeq;
+    enemyState.Auras = localMakeAura(auraElement, gaugeUnits, getFieldOrDefault(enemyState, 'Time', 0), nextSeq);
 end
 
 function enemyState = localEnsureSupportAura(enemyState, triggerElement, teamContext)
@@ -631,7 +663,7 @@ function enemyState = localEnsureSupportAura(enemyState, triggerElement, teamCon
     if strlength(supportAura) == 0
         return;
     end
-    enemyState.Auras = localMakeAura(supportAura, getFieldOrDefault(enemyState, 'SupportAuraGauge', 1.0));
+    enemyState = localAddOrReplaceAura(enemyState, supportAura, getFieldOrDefault(enemyState, 'SupportAuraGauge', 1.0));
 end
 
 function aura = localInferSupportAura(triggerElement, teamContext)
@@ -875,6 +907,7 @@ end
 function state = localActivateTimedReactionState(state, applyGauge, reactionBonus, hitDescriptor, build, teamContext, reactionElement)
     state.Active = true;
     state.Gauge = max(getFieldOrDefault(state, 'Gauge', 0), applyGauge);
+    state.DecayPerSecond = localDefaultDecayPerSecond(reactionElement, state.Gauge);
     state.TickTimer = 0;
     state.ReactionBonus = reactionBonus;
     state.SourceEM = getFieldOrDefault(build, 'EM', 0) + getFieldOrDefault(teamContext, 'EMBonus', 0);
@@ -920,11 +953,19 @@ function damage = localResolveStoredReactionDamage(reactionName, snapshot, build
         getFieldOrDefault(snapshot, 'ReactionBonus', 0), hitDescriptor);
 end
 
-function aura = localMakeAura(element, gaugeUnits)
+function aura = localMakeAura(element, gaugeUnits, appliedTime, appliedSequence)
+    if nargin < 3 || isempty(appliedTime)
+        appliedTime = 0;
+    end
+    if nargin < 4 || isempty(appliedSequence)
+        appliedSequence = 0;
+    end
     aura = struct( ...
         'Element', string(element), ...
         'Gauge', max(0, double(gaugeUnits)), ...
-        'DecayPerSecond', localDefaultDecayPerSecond(element, gaugeUnits));
+        'DecayPerSecond', localDefaultDecayPerSecond(element, gaugeUnits), ...
+        'AppliedTime', double(appliedTime), ...
+        'AppliedSequence', double(appliedSequence));
 end
 
 function decayPerSecond = localDefaultDecayPerSecond(auraElement, gaugeUnits)
@@ -947,4 +988,15 @@ function result = localMakeEmptyResult(enemyState)
         'ReactionDamage', 0, ...
         'PrimaryReaction', "", ...
         'TriggeredReactions', strings(0, 1));
+end
+
+function enemyState = localEnsureEnemyStateSchema(enemyState)
+    defaults = createEnemyState(struct(), struct(), "");
+    defaultFields = fieldnames(defaults);
+    for i = 1:numel(defaultFields)
+        fieldName = defaultFields{i};
+        if ~isfield(enemyState, fieldName) || isempty(enemyState.(fieldName))
+            enemyState.(fieldName) = defaults.(fieldName);
+        end
+    end
 end

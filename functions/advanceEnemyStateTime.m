@@ -15,13 +15,14 @@ function [enemyState, reactionPackets] = advanceEnemyStateTime(enemyState, delta
     if isempty(enemyState)
         enemyState = createEnemyState(struct(), teamContext, triggerElement);
     end
+    enemyState = localEnsureEnemyStateSchema(enemyState);
 
     reactionPackets = repmat(localMakePacket(), 1, 0);
     enemyState.Time = getFieldOrDefault(enemyState, 'Time', 0) + deltaTime;
     decayScale = max(0, getFieldOrDefault(enemyState, 'AuraDecayScale', 1.0));
 
     if isfield(enemyState, 'Auras') && ~isempty(enemyState.Auras)
-        newAuras = repmat(localMakeAura("", 0, 0), 1, 0);
+        newAuras = repmat(localMakeAura("", 0, 0, 0, 0), 1, 0);
         for i = 1:numel(enemyState.Auras)
             currentGauge = double(enemyState.Auras(i).Gauge);
             if numel(currentGauge) > 1
@@ -31,13 +32,15 @@ function [enemyState, reactionPackets] = advanceEnemyStateTime(enemyState, delta
             currentGauge = max(0, currentGauge - decayPerSecond * decayScale * deltaTime);
             if currentGauge > 1e-6
                 newAuras(end + 1) = localMakeAura( ... %#ok<AGROW>
-                    enemyState.Auras(i).Element, currentGauge, decayPerSecond);
+                    enemyState.Auras(i).Element, currentGauge, decayPerSecond, ...
+                    getFieldOrDefault(enemyState.Auras(i), 'AppliedTime', 0), ...
+                    getFieldOrDefault(enemyState.Auras(i), 'AppliedSequence', i));
             end
         end
         enemyState.Auras = newAuras;
     end
 
-    if isfield(enemyState, 'Quicken') && getFieldOrDefault(enemyState.Quicken, 'Active', false)
+    if getFieldOrDefault(getFieldOrDefault(enemyState, 'Quicken', struct()), 'Active', false)
         enemyState.Quicken.Gauge = max(0, enemyState.Quicken.Gauge ...
             - getFieldOrDefault(enemyState.Quicken, 'DecayPerSecond', 0.125) * decayScale * deltaTime);
         enemyState.Quicken.Active = enemyState.Quicken.Gauge > 1e-6;
@@ -56,7 +59,22 @@ function [enemyState, reactionPackets] = advanceEnemyStateTime(enemyState, delta
             && ~getFieldOrDefault(enemyState.Quicken, 'Active', false)
         supportAura = localInferSupportAura(triggerElement, teamContext);
         if strlength(supportAura) > 0
-            enemyState.Auras = localMakeAura(supportAura, getFieldOrDefault(enemyState, 'SupportAuraGauge', 1.0), 0.125);
+            nextSeq = getFieldOrDefault(enemyState, 'AuraSequenceCounter', 0) + 1;
+            enemyState.AuraSequenceCounter = nextSeq;
+            enemyState.Auras = localMakeAura( ...
+                supportAura, getFieldOrDefault(enemyState, 'SupportAuraGauge', 1.0), ...
+                0.125, getFieldOrDefault(enemyState, 'Time', 0), nextSeq);
+        end
+    end
+end
+
+function enemyState = localEnsureEnemyStateSchema(enemyState)
+    defaults = createEnemyState(struct(), struct(), "");
+    defaultFields = fieldnames(defaults);
+    for i = 1:numel(defaultFields)
+        fieldName = defaultFields{i};
+        if ~isfield(enemyState, fieldName) || isempty(enemyState.(fieldName))
+            enemyState.(fieldName) = defaults.(fieldName);
         end
     end
 end
@@ -71,7 +89,7 @@ function [enemyState, packets] = localAdvanceTimedReaction(enemyState, packets, 
         return;
     end
 
-    state.Gauge = max(0, state.Gauge - 0.10 * deltaTime);
+    state.Gauge = max(0, state.Gauge - getFieldOrDefault(state, 'DecayPerSecond', 0.10) * deltaTime);
     state.TickTimer = getFieldOrDefault(state, 'TickTimer', 0) + deltaTime;
     tickInterval = max(0.1, getFieldOrDefault(state, 'TickInterval', 1.0));
     while state.TickTimer >= tickInterval && state.Gauge > 1e-6
@@ -173,11 +191,19 @@ function bonus = localResolvePacketBonus(reactionName, teamContext)
     end
 end
 
-function aura = localMakeAura(element, gaugeUnits, decayPerSecond)
+function aura = localMakeAura(element, gaugeUnits, decayPerSecond, appliedTime, appliedSequence)
+    if nargin < 4 || isempty(appliedTime)
+        appliedTime = 0;
+    end
+    if nargin < 5 || isempty(appliedSequence)
+        appliedSequence = 0;
+    end
     aura = struct( ...
         'Element', string(element), ...
         'Gauge', max(0, double(gaugeUnits)), ...
-        'DecayPerSecond', max(0, double(decayPerSecond)));
+        'DecayPerSecond', max(0, double(decayPerSecond)), ...
+        'AppliedTime', double(appliedTime), ...
+        'AppliedSequence', double(appliedSequence));
 end
 
 function gauge = localAuraGauge(enemyState, auraElement)
