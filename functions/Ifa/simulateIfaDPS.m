@@ -20,12 +20,6 @@ function [totalDMG, dps, breakdown, rotationTime, audit] = simulateIfaDPS(build,
     electroCount = getFieldOrDefault(teamContext, 'ElectroCount', 0);
     swirlReady = pyroCount + hydroCount + cryoCount + electroCount >= 1;
 
-    rescuePoints = max(0, getFieldOrDefault(teamContext, 'MemberCount', 1) * 20);
-    rescueBonus = 0.015 * min(rescuePoints, 150);
-    if constellation >= 2
-        rescueBonus = rescueBonus + 0.015 * min(50, max(0, rescuePoints - 60) * 4);
-    end
-
     absorbedElement = localResolveIfaBurstElement(teamContext);
     burstReactionReady = strcmpi(absorbedElement, 'electro') || strcmpi(absorbedElement, 'pyro') ...
         || strcmpi(absorbedElement, 'hydro') || strcmpi(absorbedElement, 'cryo');
@@ -102,6 +96,7 @@ function [totalDMG, dps, breakdown, rotationTime, audit] = simulateIfaDPS(build,
         'DamageField', "SkillDMGBonus", ...
         'ActionElement', "Anemo", ...
         'BaseMultiplier', 0.00, ...
+        'PreSetCustomValue', 80, ...
         'PostSetSkillActiveTime', 7.5, ...
         'ApplyGauge', 0.0, ...
         'CanApplyAura', false, ...
@@ -172,7 +167,6 @@ function [totalDMG, dps, breakdown, rotationTime, audit] = simulateIfaDPS(build,
         'AllowAmplify', double(any(strcmpi(absorbedElement, {'Hydro', 'Pyro', 'Cryo'})) && (pyroCount + hydroCount + cryoCount) >= 1), ...
         'AllowTransformative', double(burstReactionReady), ...
         'PreferredAmplifyAura', localResolvePreferredAura(absorbedElement, teamContext), ...
-        'ReactionBonus', rescueBonus * double(any(strcmpi(absorbedElement, {'Hydro', 'Pyro', 'Cryo', 'Electro'}))), ...
         'Note', "Sedation field extra hits");
 
     spec = struct( ...
@@ -182,6 +176,10 @@ function [totalDMG, dps, breakdown, rotationTime, audit] = simulateIfaDPS(build,
         'DefaultRotation', {{'Q', 'Mark', 'ECast', 'SupportTap', 'SupportHold', 'CA'}}, ...
         'ActionTimeMap', struct('N1', 0.34, 'N2', 0.34, 'N3', 0.42, 'CA', 0.80, ...
             'ECast', 0.55, 'SupportTap', 0.50, 'SupportHold', 1.90, 'Q', 0.95, 'Mark', 7.60), ...
+        'InitializeStateFn', @localInitializeState, ...
+        'BeforeActionFn', @localBeforeAction, ...
+        'AfterActionFn', @localAfterAction, ...
+        'AdvanceStateFn', @localAdvanceState, ...
         'Actions', actions);
 
     [totalDMG, dps, breakdown, rotationTime, audit] = simulateSimpleCharacterDPS( ...
@@ -232,4 +230,79 @@ function aura = localResolvePreferredAura(element, teamContext)
         otherwise
             aura = "";
     end
+end
+
+function state = localInitializeState(state, hookContext)
+    state.NightsoulPoints = 0;
+    state.OtherNightsoulPoints = max(0, getFieldOrDefault(hookContext.TeamContext, 'NightsoulPointPool', 0));
+    state.BurstEMBuffTime = 0;
+end
+
+function [state, actionSpec, actionTime, note] = localBeforeAction( ...
+        state, actionKey, actionSpec, actionTime, note, hookContext)
+    if any(actionKey == ["SupportTap", "SupportHold"])
+        rescuePoints = localResolveRescuePoints(state, hookContext);
+        rescueBonus = localResolveRescueBonus(rescuePoints, getFieldOrDefault(hookContext, 'Constellation', 0));
+        if rescueBonus > 0
+            actionSpec.ReactionBonus = getFieldOrDefault(actionSpec, 'ReactionBonus', 0) + rescueBonus;
+            note = localAppendNote(note, "Rescue " + string(round(rescuePoints, 0)));
+        end
+    end
+
+    if state.BurstEMBuffTime > 1e-6 && any(actionKey == ["Mark", "SupportTap", "SupportHold", "CA", "N1", "N2", "N3"])
+        actionSpec.ReactionEMOverride = getFieldOrDefault(hookContext.Build, 'EM', 0) ...
+            + getFieldOrDefault(hookContext.TeamContext, 'EMBonus', 0) + 100;
+        note = localAppendNote(note, "C4 EM");
+    end
+end
+
+function [state, note] = localAfterAction(state, actionKey, actionSpec, actionDamage, reactionTags, note, hookContext) %#ok<INUSD>
+    if actionKey == "ECast"
+        state.NightsoulPoints = 80 + state.OtherNightsoulPoints;
+        note = localAppendNote(note, "Nightsoul " + string(round(state.NightsoulPoints, 0)));
+    elseif actionKey == "Q" && getFieldOrDefault(hookContext, 'Constellation', 0) >= 4
+        state.BurstEMBuffTime = 15.0;
+        note = localAppendNote(note, "C4 ready");
+    end
+end
+
+function state = localAdvanceState(state, actionTime, hookContext) %#ok<INUSD>
+    if getFieldOrDefault(state, 'SkillActiveTime', 0) > 1e-6
+        state.NightsoulPoints = max(0, state.NightsoulPoints - actionTime * (80 / 7.5));
+    end
+    state.BurstEMBuffTime = max(0, state.BurstEMBuffTime - actionTime);
+end
+
+function note = localAppendNote(baseNote, suffix)
+    if strlength(string(baseNote)) == 0
+        note = string(suffix);
+    else
+        note = string(baseNote) + ", " + string(suffix);
+    end
+end
+
+function rescuePoints = localResolveRescuePoints(state, hookContext)
+    if getFieldOrDefault(state, 'SkillActiveTime', 0) <= 1e-6
+        rescuePoints = 0;
+        return;
+    end
+
+    selfPoints = max(0, getFieldOrDefault(state, 'NightsoulPoints', 0));
+    otherPoints = max(0, getFieldOrDefault(state, 'OtherNightsoulPoints', 0));
+    rescuePoints = selfPoints;
+    if selfPoints <= 0
+        rescuePoints = 80 + otherPoints;
+    end
+    rescuePoints = max(0, rescuePoints);
+end
+
+function bonus = localResolveRescueBonus(rescuePoints, constellation)
+    effectivePoints = max(0, rescuePoints);
+    if constellation >= 2
+        effectivePoints = effectivePoints + 4 * max(0, rescuePoints - 60);
+        effectivePoints = min(200, effectivePoints);
+    else
+        effectivePoints = min(150, effectivePoints);
+    end
+    bonus = 0.015 * effectivePoints;
 end
