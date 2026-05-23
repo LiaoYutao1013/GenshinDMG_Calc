@@ -1,2 +1,2 @@
-Weapon,WeaponATK,WeaponSubStatType,WeaponSubStatValue,WeaponRefinement,EM,AtkBonus,FlatATK,CritRate,CritDMG,GeoDMGBonus,SkillDMGBonus,BurstDMGBonus,ResShred,ArtifactSet1,ArtifactSet1Pieces,ArtifactSet2,ArtifactSet2Pieces,ArtifactSet4Active
-Ballad of the Fjords,510,EM,120,1,640,0.24,180,0.7,1.82,0.466,0.24,0.22,0,HuskOfOpulentDreams,4,None,0,1
+Weapon,WeaponATK,WeaponSubStatType,WeaponSubStatValue,WeaponRefinement,EM,AtkBonus,FlatATK,DEFBonus,FlatDEF,CritRate,CritDMG,GeoDMGBonus,SkillDMGBonus,BurstDMGBonus,ResShred,ArtifactSet1,ArtifactSet1Pieces,ArtifactSet2,ArtifactSet2Pieces,ArtifactSet4Active
+Ballad of the Fjords,510,EM,120,1,640,0.24,180,0.58,300,0.7,1.82,0.466,0.24,0.22,0,HuskOfOpulentDreams,4,None,0,1
