@@ -10,13 +10,14 @@ function [totalDMG, dps, breakdown, rotationTime, audit] = simulateVarkaDPS(buil
     %    - C1 额外可用次数与 Lyrical Libation；
     %    - C2 额外 800% ATK 风伤追击；
     %    - C4 扩散后 10s 风伤 / 对应元素伤加成；
-    %    - C6 按“下一次合法衔接动作”近似处理免费连携。
+    %    - C6 免费衔接在 Sturm 期间保留，直到被对应特殊动作消耗。
     % 3. Wind's Vanguard 的扩散叠层、每层 7.5% 增伤与 C6 每层 20% 暴伤。
     %
     % 待进一步核验的点：
     % 1. Lunaris 仅给出部分“分裂成多元素段”的合并倍率，因此当前按等分拆段；
     % 2. Varka 专属招式的真实 ApplyGauge / ICD 仍待更细来源校准；
-    % 3. C6 “短时间内”窗口当前近似为“下一次匹配的特殊动作”。
+    % 3. C6 “短时间内”的精确游戏侧时限仍待更细来源校准；
+    %    当前实现保留到 Sturm 结束或被对应特殊动作消耗。
     if nargin < 3 || isempty(seqFile)
         seqFile = fullfile(fileparts(mfilename('fullpath')), '..', '..', 'data', 'Varka', 'rotation_Varka.txt');
     end
@@ -244,10 +245,8 @@ function [state, actionSpec, actionTime, note] = localBeforeAction(state, action
     state = localEnsureStateFields(state, cfg);
     note = string(note);
 
-    if state.PendingFreeDevour && ~strcmp(getFieldOrDefault(actionSpec, 'VarkaSpecialKind', ""), "Devour")
+    if state.SkillActiveTime <= 1e-6
         state.PendingFreeDevour = false;
-    end
-    if state.PendingFreeAscend && ~strcmp(getFieldOrDefault(actionSpec, 'VarkaSpecialKind', ""), "Ascend")
         state.PendingFreeAscend = false;
     end
 
@@ -465,6 +464,11 @@ function state = localAdvanceState(state, actionTime, hookContext, cfg)
     state = localEnsureStateFields(state, cfg);
     state.OathCooldown = max(0, state.OathCooldown - actionTime);
     state.C4BuffTime = max(0, state.C4BuffTime - actionTime);
+
+    if state.SkillActiveTime <= 1e-6
+        state.PendingFreeDevour = false;
+        state.PendingFreeAscend = false;
+    end
 
     if ~isempty(state.OathTimers)
         state.OathTimers = max(0, state.OathTimers - actionTime);
