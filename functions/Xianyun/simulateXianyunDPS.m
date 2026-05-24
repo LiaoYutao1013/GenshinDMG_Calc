@@ -1,11 +1,11 @@
 function [totalDMG, dps, breakdown, rotationTime, audit] = simulateXianyunDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
-    % 闲云高精度近似模拟器。
-    % 建模重点：
-    % 1. E 的 Skyladder 次数与对应 Driftcloud Wave 三档倍率；
-    % 2. Q 的施放伤害、Starwicker 追击与初始/持续治疗；
-    % 3. A1 下落暴击率、A4/C2 下落平伤辅助；
-    % 4. C4 额外全队治疗、C6 漂云波暴伤与 Q 后多次 E 窗口；
-    % 5. 专武对全队下落增伤的近似接入。
+    % Xianyun simulator.
+    % Focus:
+    % 1. E Skyladder count and Driftcloud Wave scaling.
+    % 2. Q cast damage, Starwicker follow-up, and burst healing.
+    % 3. A1 plunge crit support plus A4/C2 plunge bonuses.
+    % 4. C4 extra healing, C6 crit bonus, and post-burst E window.
+    % 5. Weapon plunge bonus integration.
     if nargin < 3 || isempty(seqFile)
         seqFile = fullfile(fileparts(mfilename('fullpath')), '..', '..', 'data', 'Xianyun', 'rotation_Xianyun.txt');
     end
@@ -109,7 +109,7 @@ function [totalDMG, dps, breakdown, rotationTime, audit] = simulateXianyunDPS(bu
                 if state.BurstTime > 0 && state.StarwickerStacks > 0
                     mv = getTalentValue(talent, 'Burst', 'StarwickerATK', localBurstTalentLevel(talentLevel, constellation));
                     dmg = localAnemoDamage(atk, mv, build, teamContext, anemoMult, getFieldOrDefault(build, 'BurstDMGBonus', 0), critRate, critDMG);
-                    heal = heal + localTickHeal(atk, build, talent, talentLevel);
+                    heal = heal + localTickHeal(atk, build, talent, talentLevel, constellation);
                     state.StarwickerStacks = max(0, state.StarwickerStacks - 1);
                     note = sprintf('Starwicker trigger, stacks=%d', state.StarwickerStacks);
                 else
@@ -179,9 +179,9 @@ function heal = localInitialHeal(atk, build, talent, talentLevel, constellation)
     heal = (atk * atkRatio + flatHeal) * (1 + getFieldOrDefault(build, 'HealingBonus', 0));
 end
 
-function heal = localTickHeal(atk, build, talent, talentLevel)
-    atkRatio = getTalentValue(talent, 'Burst', 'TickHealATK', localBurstTalentLevel(talentLevel, 0));
-    flatHeal = getTalentValue(talent, 'Burst', 'TickHealFlat', localBurstTalentLevel(talentLevel, 0));
+function heal = localTickHeal(atk, build, talent, talentLevel, constellation)
+    atkRatio = getTalentValue(talent, 'Burst', 'TickHealATK', localBurstTalentLevel(talentLevel, constellation));
+    flatHeal = getTalentValue(talent, 'Burst', 'TickHealFlat', localBurstTalentLevel(talentLevel, constellation));
     heal = (atk * atkRatio + flatHeal) * (1 + getFieldOrDefault(build, 'HealingBonus', 0));
 end
 
