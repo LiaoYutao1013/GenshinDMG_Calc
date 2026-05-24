@@ -1,7 +1,10 @@
 function [totalDMG, dps, breakdown, rotationTime, audit] = simulateJeanDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
-    % 琴高精度近似模拟�?    % 建模要点�?    % 1. 区分点按 E、长�?E，以�?Q 落地伤和风场进出伤；
-    % 2. Q 的治疗不计入 DPS，但伤害段完整保留；
-    % 3. C1/C4 通过 E 长按增伤、Q 场内减风抗直接作用到对应动作�?    % 4. 默认按速切辅助轴建模，保留一定普攻补刀片段�?    if nargin < 3 || isempty(seqFile)
+    % Jean high-fidelity approximation model.
+    % 1. Split tap E, hold E, Q cast, and field entry/exit damage.
+    % 2. Ignore healing in DPS while preserving damage-side burst logic.
+    % 3. Apply C1/C4 directly on the relevant hold-E / burst-window actions.
+    % 4. Use a fast-swap support rotation with a short normal-string filler.
+    if nargin < 3 || isempty(seqFile)
         seqFile = fullfile(fileparts(mfilename('fullpath')), '..', '..', 'data', 'Jean', 'rotation_Jean.txt');
     end
     if nargin < 4 || isempty(talentLevel)

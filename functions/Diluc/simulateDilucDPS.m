@@ -1,7 +1,10 @@
 function [totalDMG, dps, breakdown, rotationTime, audit] = simulateDilucDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
-    % 迪卢克高精度近似模拟�?    % 建模要点�?    % 1. E 三段分开建模，并显式处理 C4“节奏释放”额�?40%�?    % 2. Q 拆为起手斩、凤凰路径持续伤、终点爆炸，并开启火附魔窗；
-    % 3. 附魔期间普攻视为火伤，A4 额外火伤加成始终写入该窗口；
-    % 4. C6 �?E 后两次普攻增伤单独拆成动作，避免直接粗暴平均�?    if nargin < 3 || isempty(seqFile)
+    % Diluc high-fidelity approximation model.
+    % 1. Split the three E casts and preserve the C4 rhythm variants.
+    % 2. Split Q into startup slash, phoenix travel, and final explosion.
+    % 3. Treat infused normals as Pyro during the burst window with A4 bonus.
+    % 4. Model C6 post-E empowered normals as separate actions.
+    if nargin < 3 || isempty(seqFile)
         seqFile = fullfile(fileparts(mfilename('fullpath')), '..', '..', 'data', 'Diluc', 'rotation_Diluc.txt');
     end
     if nargin < 4 || isempty(talentLevel)
