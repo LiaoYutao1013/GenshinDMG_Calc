@@ -1,9 +1,9 @@
 function [totalDMG, dps, breakdown, rotationTime, audit] = simulateFischlDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
-    % Fischl 高精度近似模拟。
-    % 建模重点：
-    % 1. 将召唤 Oz、Oz 后台射击、元素爆发起手命中拆开；
-    % 2. 为主要雷伤命中补上显式 ApplyGauge / ICD / Lunaris 攻击映射；
-    % 3. 先覆盖反应最敏感的主要命中，A4 / C6 额外追击留待后续细抠。
+    % Fischl explicit summon / Oz / burst refresh script with approximation.
+    % Summon impact, Oz turret shots, burst impact, and Oz refresh shots are
+    % modeled as separate actions with explicit gauge and ICD data.
+    % Remaining approximation: A4 and C6 extra follow-up attacks are not
+    % yet expanded into separate reaction-aware action rows.
     if nargin < 3 || isempty(seqFile)
         seqFile = fullfile(fileparts(mfilename('fullpath')), '..', '..', 'data', 'Fischl', 'rotation_Fischl.txt');
     end

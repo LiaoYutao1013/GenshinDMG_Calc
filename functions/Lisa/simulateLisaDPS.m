@@ -1,10 +1,9 @@
 function [totalDMG, dps, breakdown, rotationTime, audit] = simulateLisaDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
-    % 丽莎高精度近似模拟。
-    % 建模要点：
-    % 1. 区分点按叠导电、重击附导电、长按按导电层数结算；
-    % 2. Q 期间写入 A4 15% 减防，C4 用 2 段期望闪电近似；
-    % 3. C6 进场 3 层导电通过默认轴近似为起手直接长按；
-    % 4. 激化队环境下，E/Q/普重击均可走激化附加伤。
+    % Lisa explicit conductive-stack / burst script with approximation.
+    % Tap E, charged attack conductive application, hold E stack payoff, and
+    % Lightning Rose burst are modeled as separate actions.
+    % Remaining approximation: C4 burst lightning uses a doubled expected
+    % hit count and C6 opens from a scripted 3-stack hold-E starter.
     if nargin < 3 || isempty(seqFile)
         seqFile = fullfile(fileparts(mfilename('fullpath')), '..', '..', 'data', 'Lisa', 'rotation_Lisa.txt');
     end
