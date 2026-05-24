@@ -250,7 +250,7 @@ function teamContext = buildTeamContext(members, rotationDuration, sharedBuffs, 
     if hasIansan
         iansanIndex = find(memberNames == "Iansan", 1, 'first');
         iansanConstellation = memberConstellations(iansanIndex);
-        iansanBurstATKBonus = 0.28 + 0.06 * double(iansanConstellation >= 1) ...
+        iansanBurstATKBonus = localResolveIansanSupportShare() + 0.06 * double(iansanConstellation >= 1) ...
             + 0.08 * double(iansanConstellation >= 6);
     end
 
@@ -769,6 +769,27 @@ function bonus = localApproxFurinaBonus(constellation)
     else
         bonus = 0.60;
     end
+end
+
+function share = localResolveIansanSupportShare()
+    share = 0;
+    talentPath = fullfile(fileparts(mfilename('fullpath')), '..', 'data', 'Iansan', 'talents_Iansan.csv');
+    if exist(talentPath, 'file') ~= 2
+        share = 0.28;
+        return;
+    end
+
+    try
+        talent = readtable(talentPath, 'TextType', 'string');
+        row = talent(strcmp(string(talent.Skill), "Support") & strcmp(string(talent.Param), "ATKShare"), :);
+        if ~isempty(row)
+            share = double(row.Level10(1));
+            return;
+        end
+    catch
+    end
+
+    share = 0.28;
 end
 
 function bonus = localApproxColumbinaReactionBonus(constellation)

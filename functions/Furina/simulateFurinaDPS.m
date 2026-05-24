@@ -21,9 +21,15 @@ function [totalDMG, dps, breakdown, rotationTime, audit] = simulateFurinaDPS(bui
     talent = readtable(char(localResolveFurinaTalentFile()), 'TextType', 'string');
     actions = localResolveRotation(seqFile);
 
+    localTeamContext = localRemoveFurinaApprox(teamContext);
     maxHP = base.BaseHP(1) * (1 + getFieldOrDefault(build, 'HPBonus', 0)) + getFieldOrDefault(build, 'FlatHP', 0);
-    hydroResShred = getFieldOrDefault(build, 'ResShred', 0) + getFieldOrDefault(teamContext, 'HydroResShred', 0);
+    atk = (base.BaseATK(1) + getFieldOrDefault(build, 'WeaponATK', 0)) ...
+        * (1 + getFieldOrDefault(build, 'AtkBonus', 0) + getFieldOrDefault(localTeamContext, 'ATKBonus', 0)) ...
+        + getFieldOrDefault(build, 'FlatATK', 0) + getFieldOrDefault(localTeamContext, 'FlatATK', 0);
+    hydroResShred = getFieldOrDefault(build, 'ResShred', 0) + getFieldOrDefault(localTeamContext, 'HydroResShred', 0);
     hydroMult = calcDamageMultiplier(90, enemy, hydroResShred);
+    physicalResShred = getFieldOrDefault(build, 'ResShred', 0) + getFieldOrDefault(localTeamContext, 'PhysicalResShred', 0);
+    physicalMult = calcDamageMultiplier(90, enemy, physicalResShred);
 
     state = struct( ...
         'ArkheMode', "Ousia", ...
@@ -57,9 +63,8 @@ function [totalDMG, dps, breakdown, rotationTime, audit] = simulateFurinaDPS(bui
                 state.SalonTicks = 0;
                 state.SingerTicks = 0;
                 foamMV = localTalentRowValue(talent, 11, localSkillTalentLevel(talentLevel, constellation));
-                dmg = localDirectDamage(maxHP, foamMV, ...
-                    localHydroBonus(build, teamContext, state, getFieldOrDefault(build, 'SkillDMGBonus', 0)), ...
-                    build, state, hydroMult);
+                dmg = localHPScaledDamage(maxHP, foamMV, "Hydro", build, localTeamContext, state, ...
+                    getFieldOrDefault(build, 'SkillDMGBonus', 0), hydroMult);
                 note = "Salon deployed";
                 if constellation >= 6
                     state.C6Time = 10.0;
@@ -77,32 +82,30 @@ function [totalDMG, dps, breakdown, rotationTime, audit] = simulateFurinaDPS(bui
 
             case {'N1', 'N2', 'N3', 'N4'}
                 [normalMV, normalNote] = localNormalMV(talent, action, talentLevel);
-                dmg = localDirectDamage(maxHP, normalMV, ...
-                    localHydroBonus(build, teamContext, state, getFieldOrDefault(build, 'NormalDMGBonus', 0)), ...
-                    build, state, hydroMult);
+                dmg = localATKScaledDamage(atk, normalMV, "Physical", build, localTeamContext, state, ...
+                    getFieldOrDefault(build, 'NormalDMGBonus', 0), physicalMult);
                 note = normalNote;
                 if state.C6HitsLeft > 0 && state.C6Time > 0
-                    [c6DMG, c6Heal, c6Note, state] = localResolveC6Hit(build, teamContext, state, maxHP, hydroMult, action);
+                    [c6DMG, c6Heal, c6Note, state] = localResolveC6Hit(build, localTeamContext, state, maxHP, hydroMult, action);
                     dmg = dmg + c6DMG;
                     heal = heal + c6Heal;
                     note = strtrim(note + " " + c6Note);
                 end
                 if state.ThornCooldown <= 0
                     thornMV = localTalentRowValue(talent, 9, talentLevel);
-                    thornDMG = localDirectDamage(maxHP, thornMV, localHydroBonus(build, teamContext, state, 0), build, state, hydroMult);
+                    thornDMG = localHPScaledDamage(maxHP, thornMV, "Hydro", build, localTeamContext, state, 0, hydroMult);
                     totalDMG = totalDMG + thornDMG;
-                    breakdown = [breakdown; {string("Arkhe"), thornDMG, string("Ousia thorn")}]; %#ok<AGROW>
+                    breakdown = [breakdown; {string("Arkhe"), thornDMG, localArkheNote(state)}]; %#ok<AGROW>
                     state.ThornCooldown = 6.0;
                 end
 
             case {'HEAVY', 'CA'}
                 heavyMV = localTalentRowValue(talent, 5, talentLevel);
-                dmg = localDirectDamage(maxHP, heavyMV, ...
-                    localHydroBonus(build, teamContext, state, getFieldOrDefault(build, 'NormalDMGBonus', 0)), ...
-                    build, state, hydroMult);
+                dmg = localATKScaledDamage(atk, heavyMV, "Physical", build, localTeamContext, state, ...
+                    getFieldOrDefault(build, 'NormalDMGBonus', 0), physicalMult);
                 note = "Charged attack";
                 if state.C6HitsLeft > 0 && state.C6Time > 0
-                    [c6DMG, c6Heal, c6Note, state] = localResolveC6Hit(build, teamContext, state, maxHP, hydroMult, action);
+                    [c6DMG, c6Heal, c6Note, state] = localResolveC6Hit(build, localTeamContext, state, maxHP, hydroMult, action);
                     dmg = dmg + c6DMG;
                     heal = heal + c6Heal;
                     note = strtrim(note + " " + c6Note);
@@ -110,12 +113,11 @@ function [totalDMG, dps, breakdown, rotationTime, audit] = simulateFurinaDPS(bui
 
             case 'PLUNGE'
                 plungeMV = localTalentRowValue(talent, 8, talentLevel);
-                dmg = localDirectDamage(maxHP, plungeMV, ...
-                    localHydroBonus(build, teamContext, state, getFieldOrDefault(build, 'NormalDMGBonus', 0)), ...
-                    build, state, hydroMult);
+                dmg = localATKScaledDamage(atk, plungeMV, "Physical", build, localTeamContext, state, ...
+                    getFieldOrDefault(build, 'NormalDMGBonus', 0), physicalMult);
                 note = "Plunging attack";
                 if state.C6HitsLeft > 0 && state.C6Time > 0
-                    [c6DMG, c6Heal, c6Note, state] = localResolveC6Hit(build, teamContext, state, maxHP, hydroMult, action);
+                    [c6DMG, c6Heal, c6Note, state] = localResolveC6Hit(build, localTeamContext, state, maxHP, hydroMult, action);
                     dmg = dmg + c6DMG;
                     heal = heal + c6Heal;
                     note = strtrim(note + " " + c6Note);
@@ -126,12 +128,12 @@ function [totalDMG, dps, breakdown, rotationTime, audit] = simulateFurinaDPS(bui
                     state.SalonTicks = state.SalonTicks + 1;
                     [salonMV, subtypeName] = localSalonMV(talent, action, localSkillTalentLevel(talentLevel, constellation));
                     salonAmp = [1.00, 1.10, 1.20, 1.30, 1.40];
-                    partyIndex = min(max(1, getFieldOrDefault(teamContext, 'MemberCount', 4)), 4) + 1;
+                    partyIndex = min(max(1, getFieldOrDefault(localTeamContext, 'MemberCount', 4)), 4) + 1;
                     hpPassiveBonus = min(0.28, max(0, maxHP - 30000) / 1000 * 0.007);
                     tickRamp = 1 + 0.03 * max(0, state.SalonTicks - 1);
-                    dmg = localDirectDamage(maxHP, salonMV, ...
-                        localHydroBonus(build, teamContext, state, getFieldOrDefault(build, 'SkillDMGBonus', 0) + hpPassiveBonus), ...
-                        build, state, hydroMult) * salonAmp(partyIndex) * tickRamp;
+                    dmg = localHPScaledDamage(maxHP, salonMV, "Hydro", build, localTeamContext, state, ...
+                        getFieldOrDefault(build, 'SkillDMGBonus', 0) + hpPassiveBonus, hydroMult) ...
+                        * salonAmp(partyIndex) * tickRamp;
                     note = sprintf('%s hit #%d', subtypeName, state.SalonTicks);
                     state = localGainFanfare(state, 14 + 3 * double(constellation >= 2));
                 else
@@ -143,7 +145,7 @@ function [totalDMG, dps, breakdown, rotationTime, audit] = simulateFurinaDPS(bui
                     state.SingerTicks = state.SingerTicks + 1;
                     [healRate, healFlat] = localSingerHeal(talent, talentLevel);
                     intervalBonus = min(0.16, max(0, maxHP - 30000) / 1000 * 0.004);
-                    heal = (maxHP * healRate + healFlat) * (1 + getFieldOrDefault(build, 'HealingBonus', 0));
+                    heal = localHealingAmount(maxHP, healRate, healFlat, build, state);
                     heal = heal * (1 + intervalBonus * 0.50);
                     note = sprintf('Singer heal #%d', state.SingerTicks);
                     state = localGainFanfare(state, 18 + 4 * double(constellation >= 2));
@@ -153,9 +155,8 @@ function [totalDMG, dps, breakdown, rotationTime, audit] = simulateFurinaDPS(bui
 
             case 'Q'
                 qMV = localTalentRowValue(talent, 21, localBurstTalentLevel(talentLevel, constellation));
-                dmg = localDirectDamage(maxHP, qMV, ...
-                    localHydroBonus(build, teamContext, state, getFieldOrDefault(build, 'BurstDMGBonus', 0)), ...
-                    build, state, hydroMult);
+                dmg = localHPScaledDamage(maxHP, qMV, "Hydro", build, localTeamContext, state, ...
+                    getFieldOrDefault(build, 'BurstDMGBonus', 0), hydroMult);
                 state.BurstTime = 18.0;
                 state.Fanfare = min(state.FanfareCap, 150 + 75 * double(constellation >= 1));
                 state.OverflowFanfare = 0;
@@ -192,7 +193,9 @@ function [totalDMG, dps, breakdown, rotationTime, audit] = simulateFurinaDPS(bui
     end
 
     dps = totalDMG / rotationTime;
-    audit = struct('Character', "Furina", 'RotationFile', string(seqFile), 'Rows', table());
+    audit = buildInferredReactionAudit( ...
+        struct('Name', "Furina", 'Constellation', constellation, 'TalentLevel', talentLevel), ...
+        actions, localTeamContext, seqFile, struct(), struct('PrimaryArchetype', "Support"));
 end
 
 function actions = localResolveRotation(seqFile)
@@ -278,11 +281,11 @@ function [dmg, heal, note, state] = localResolveC6Hit(build, teamContext, state,
 
     if state.ArkheMode == "Ousia"
         heal = maxHP * 0.04;
-        dmg = localDirectDamage(maxHP, baseC6MV, localHydroBonus(build, teamContext, state, extraBonus), build, state, hydroMult);
+        dmg = localHPScaledDamage(maxHP, baseC6MV, "Hydro", build, teamContext, state, extraBonus, hydroMult);
         note = "C6 Ousia infusion";
     else
         heal = 0;
-        dmg = localDirectDamage(maxHP, baseC6MV + 0.25, localHydroBonus(build, teamContext, state, extraBonus), build, state, hydroMult);
+        dmg = localHPScaledDamage(maxHP, baseC6MV + 0.25, "Hydro", build, teamContext, state, extraBonus, hydroMult);
         state = localGainFanfare(state, 8);
         note = "C6 Pneuma infusion";
     end
@@ -302,16 +305,21 @@ function state = localGainFanfare(state, gainAmount)
     end
 end
 
-function dmg = localDirectDamage(maxHP, mv, hydroBonus, build, state, hydroMult)
+function dmg = localHPScaledDamage(maxHP, mv, element, build, teamContext, state, extraBonus, damageMult)
     critMult = calcExpectedCritMultiplier(getFieldOrDefault(build, 'CritRate', 0), getFieldOrDefault(build, 'CritDMG', 0));
-    dmg = maxHP * mv * hydroBonus * critMult * hydroMult;
-    if state.Fanfare > 0
-        dmg = dmg * (1 + localFanfareDamageBonus(state));
-    end
+    dmg = maxHP * mv ...
+        * localDamageBonusMultiplier(element, build, teamContext, state, extraBonus) ...
+        * critMult * damageMult;
 end
 
-function bonus = localHydroBonus(build, teamContext, state, extraBonus)
-    bonus = 1 + getFieldOrDefault(build, 'HydroDMGBonus', 0) ...
+function dmg = localATKScaledDamage(atk, mv, element, build, teamContext, state, extraBonus, damageMult)
+    critMult = calcExpectedCritMultiplier(getFieldOrDefault(build, 'CritRate', 0), getFieldOrDefault(build, 'CritDMG', 0));
+    dmg = atk * mv * localDamageBonusMultiplier(element, build, teamContext, state, extraBonus) ...
+        * critMult * damageMult;
+end
+
+function bonus = localDamageBonusMultiplier(element, build, teamContext, state, extraBonus)
+    bonus = 1 + localElementBonus(element, build, teamContext) ...
         + getFieldOrDefault(teamContext, 'AllDMGBonus', 0) + extraBonus;
     if state.Fanfare > 0
         bonus = bonus + localFanfareDamageBonus(state);
@@ -321,12 +329,42 @@ function bonus = localHydroBonus(build, teamContext, state, extraBonus)
     end
 end
 
+function bonus = localElementBonus(element, build, teamContext)
+    switch lower(char(string(element)))
+        case 'hydro'
+            bonus = getFieldOrDefault(build, 'HydroDMGBonus', 0) + getFieldOrDefault(teamContext, 'HydroDMGBonus', 0);
+        case 'physical'
+            bonus = getFieldOrDefault(build, 'PhysicalDMGBonus', 0) + getFieldOrDefault(teamContext, 'PhysicalDMGBonus', 0);
+        otherwise
+            bonus = getFieldOrDefault(teamContext, sprintf('%sDMGBonus', char(string(element))), 0);
+    end
+end
+
 function bonus = localFanfareDamageBonus(state)
     if state.BurstTime <= 0
         bonus = 0;
         return;
     end
     bonus = state.Fanfare * 0.0025;
+end
+
+function heal = localHealingAmount(maxHP, healRate, healFlat, build, state)
+    heal = (maxHP * healRate + healFlat) ...
+        * (1 + getFieldOrDefault(build, 'HealingBonus', 0));
+end
+
+function note = localArkheNote(state)
+    if state.ArkheMode == "Pneuma"
+        note = "Pneuma blade";
+    else
+        note = "Ousia thorn";
+    end
+end
+
+function teamContext = localRemoveFurinaApprox(teamContext)
+    furinaApproxBonus = getFieldOrDefault(teamContext, 'ApproxFurinaBonus', 0);
+    teamContext.AllDMGBonus = getFieldOrDefault(teamContext, 'AllDMGBonus', 0) - furinaApproxBonus;
+    teamContext.ApproxFurinaBonus = 0;
 end
 
 function state = localAdvanceState(state, actionTime)

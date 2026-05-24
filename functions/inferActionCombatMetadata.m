@@ -379,6 +379,17 @@ function meta = localApplyCharacterSpecificMetadata(meta, member, normalizedName
                 meta.AllowCatalyze = false;
             end
 
+        case 'furina'
+            if any(strcmp(lowerAction, {'singer', 'drain'}))
+                meta.ActionClass = "Utility";
+                meta.HitElement = "";
+                meta.ApplyElement = "";
+                meta.ApplyGauge = 0.0;
+                meta.CanApplyAura = false;
+                meta.AllowAmplify = false;
+                meta.AllowCatalyze = false;
+            end
+
         case 'iansan'
             if strcmp(lowerAction, 'bolt')
                 meta.ConsumesActiveWindow = true;
