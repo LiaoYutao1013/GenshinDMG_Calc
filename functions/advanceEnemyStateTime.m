@@ -89,18 +89,32 @@ function [enemyState, packets] = localAdvanceTimedReaction(enemyState, packets, 
         return;
     end
 
-    state.Gauge = max(0, state.Gauge - getFieldOrDefault(state, 'DecayPerSecond', 0.10) * deltaTime);
-    state.TickTimer = getFieldOrDefault(state, 'TickTimer', 0) + deltaTime;
     tickInterval = max(0.1, getFieldOrDefault(state, 'TickInterval', 1.0));
-    while state.TickTimer >= tickInterval && state.Gauge > 1e-6
-        state.TickTimer = state.TickTimer - tickInterval;
+    decayPerSecond = max(0, getFieldOrDefault(state, 'DecayPerSecond', 0.10));
+    elapsedTime = max(0, double(deltaTime));
+    startTime = getFieldOrDefault(enemyState, 'Time', 0) - elapsedTime;
+    previousTickTimer = mod(max(0, double(getFieldOrDefault(state, 'TickTimer', 0))), tickInterval);
+
+    aliveDuration = elapsedTime;
+    if decayPerSecond > 1e-9
+        aliveDuration = min(aliveDuration, double(getFieldOrDefault(state, 'Gauge', 0)) / decayPerSecond);
+    end
+
+    tickOffsets = (tickInterval - previousTickTimer):tickInterval:aliveDuration;
+    for tickIndex = 1:numel(tickOffsets)
         packetSnapshot = state;
-        packetSnapshot.TriggerTime = getFieldOrDefault(enemyState, 'Time', 0) - state.TickTimer;
+        packetSnapshot.TriggerTime = startTime + tickOffsets(tickIndex);
         packetSnapshot.PacketSource = string(fieldName);
         packets(end + 1) = localMakePacket(reactionName, teamContext, packetSnapshot); %#ok<AGROW>
     end
 
+    state.Gauge = max(0, state.Gauge - decayPerSecond * elapsedTime);
     state.Active = state.Gauge > 1e-6;
+    if state.Active
+        state.TickTimer = mod(previousTickTimer + aliveDuration, tickInterval);
+    else
+        state.TickTimer = 0;
+    end
     enemyState.(fieldName) = state;
 end
 

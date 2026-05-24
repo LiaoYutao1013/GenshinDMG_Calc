@@ -54,6 +54,16 @@ function validateReactionEngineRegression()
     assert(isempty(hyperbloom.EnemyState.DendroCores), ...
         'Hyperbloom should consume the available Dendro Core.');
 
+    burgeonState = createEnemyState(enemy, teamContext, "");
+    burgeonState = localApplyAuraOnly(burgeonState, "Dendro", 1.0, build, teamContext, enemy);
+    burgeonBloom = resolveReactionForHit(burgeonState, localMakeHit("Hydro", 1.0), build, teamContext, enemy, 0);
+    burgeon = resolveReactionForHit(burgeonBloom.EnemyState, localMakeHit("Pyro", 1.0), build, teamContext, enemy, 0);
+    assert(any(strcmpi(cellstr(string(burgeon.TriggeredReactions)), 'burgeon')) ...
+        || strcmpi(char(burgeon.PrimaryReaction), 'Burgeon'), ...
+        'Expected Burgeon to trigger from Pyro on a Bloom core.');
+    assert(isempty(burgeon.EnemyState.DendroCores), ...
+        'Burgeon should consume the available Dendro Core.');
+
     [expiredState, packets] = advanceEnemyStateTime(bloom.EnemyState, 6.1, "", teamContext);
     packetNames = strings(0, 1);
     if ~isempty(packets)
@@ -63,6 +73,16 @@ function validateReactionEngineRegression()
         'A Dendro Core should explode into Bloom damage on timeout.');
     assert(isempty(expiredState.DendroCores), ...
         'Expired Dendro Cores should be removed from enemy state.');
+
+    [timedECState, ecPackets] = advanceEnemyStateTime(electroCharged.EnemyState, 12.0, "", teamContext);
+    ecPacketNames = strings(0, 1);
+    if ~isempty(ecPackets)
+        ecPacketNames = string({ecPackets.ReactionName}).';
+    end
+    assert(sum(strcmpi(cellstr(ecPacketNames), 'ElectroCharged')) == 9, ...
+        'Electro-Charged should emit all intermediate timed ticks during a long advance window.');
+    assert(~timedECState.ElectroCharged.Active, ...
+        'Electro-Charged should expire after its gauge is fully advanced out.');
 
     disp('validateReactionEngineRegression passed');
 end
