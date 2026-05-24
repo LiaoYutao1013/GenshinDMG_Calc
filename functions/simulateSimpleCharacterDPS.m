@@ -165,11 +165,10 @@ function [totalDMG, dps, breakdown, rotationTime, audit] = simulateSimpleCharact
                 [applyGauge, applyGaugeSource] = localResolveActionApplyGauge(actionSpec, attackMeta);
                 [canApplyAura, icdStates, icdSnapshot] = localResolveActionICDGate( ...
                     icdStates, actionKey, actionSpec, attackMeta, hitDeltaTime);
-                auditApplyGauge = applyGauge;
-                auditApplyGaugeSource = applyGaugeSource;
-                auditICDRule = string(getFieldOrDefault(icdSnapshot, 'ICDRule', ""));
-                auditICDSource = string(getFieldOrDefault(icdSnapshot, 'ICDSource', ""));
                 applyElement = string(getFieldOrDefault(actionSpec, 'ApplyElement', actionElement));
+                [auditApplyGauge, auditApplyGaugeSource, auditICDRule, auditICDSource] = ...
+                    localNormalizeAuraAuditMetadata( ...
+                    actionSpec, attackMeta, actionElement, applyElement, applyGauge, applyGaugeSource, icdSnapshot);
                 canApplyAura = canApplyAura && localIsElementalDamageElement(applyElement) ...
                     && applyGauge > 0;
 
@@ -1169,6 +1168,49 @@ function tf = localIsElementalDamageElement(element)
             tf = true;
         otherwise
             tf = false;
+    end
+end
+
+function [applyGauge, applyGaugeSource, icdRule, icdSource] = localNormalizeAuraAuditMetadata( ...
+    actionSpec, attackMeta, actionElement, applyElement, applyGauge, applyGaugeSource, icdSnapshot)
+    icdRule = string(getFieldOrDefault(icdSnapshot, 'ICDRule', ""));
+    icdSource = string(getFieldOrDefault(icdSnapshot, 'ICDSource', ""));
+
+    if localShouldAuditAuraMetadata(actionSpec, attackMeta, applyElement)
+        return;
+    end
+
+    if ~localIsElementalDamageElement(applyElement) || strcmpi(char(string(actionElement)), 'physical') ...
+            || strcmpi(char(string(actionElement)), 'none')
+        applyGauge = NaN;
+    end
+
+    applyGaugeSource = "not_applicable";
+    icdRule = "";
+    icdSource = "not_applicable";
+end
+
+function tf = localShouldAuditAuraMetadata(actionSpec, attackMeta, applyElement)
+    tf = localIsElementalDamageElement(applyElement);
+    if ~tf
+        return;
+    end
+
+    if isfield(actionSpec, 'CanApplyAura') && ~logical(getFieldOrDefault(actionSpec, 'CanApplyAura', true))
+        tf = false;
+        return;
+    end
+
+    explicitApplyGauge = getFieldOrDefault(actionSpec, 'ApplyGauge', []);
+    if ~isempty(explicitApplyGauge) && double(explicitApplyGauge) <= 0
+        tf = false;
+        return;
+    end
+
+    if isstruct(attackMeta) && ~isempty(fieldnames(attackMeta)) ...
+            && isfield(attackMeta, 'GaugeUnits') && isempty(explicitApplyGauge) ...
+            && double(getFieldOrDefault(attackMeta, 'GaugeUnits', 0)) <= 0
+        tf = false;
     end
 end
 
