@@ -2,8 +2,8 @@ function [totalDMG, dps, breakdown, rotationTime, audit] = simulateDurinDPS(buil
     % Durin explicit transmutation / dragon-mode script with approximation.
     % Confirmation and denial branches, burst mode swaps, and white/dark
     % dragon follow-up ticks are modeled as separate actions.
-    % Remaining approximation: fusion-cycle consumption and dark reaction
-    % routing still use expected-value heuristics from team support flags.
+    % Remaining approximation: fusion-cycle consumption still uses
+    % expected-value heuristics for the C4 refund window.
     if nargin < 3 || isempty(seqFile)
         seqFile = fullfile(fileparts(mfilename('fullpath')), '..', '..', 'data', 'Durin', 'rotation_Durin.txt');
     end
@@ -273,7 +273,7 @@ function [dmg, state, enemyState, reactionName] = localResolvedPyroAttack(atk, m
 
     defIgnore = 0.40 * double(darkMode && constellation >= 6);
     reactionName = "";
-    if allowReaction && localHasDarkReaction(teamContext)
+    if allowReaction && localShouldResolveDarkReaction(enemyState, teamContext)
         baseDMG = localPyroDamage(atk, mv + flatMV, build, teamContext, enemy, pyroResShred, bonus, critRate, critDMG, defIgnore, 0);
         [reactionMult, enemyState, reaction] = getAmplifyingReactionMultiplier( ...
             enemyState, "Pyro", em, teamContext, 1.0, 0, darkPassiveBonus);
@@ -318,8 +318,56 @@ function cost = localExpectedConsumption(baseCost, hasC4)
     end
 end
 
-function tf = localHasDarkReaction(teamContext)
-    tf = getFieldOrDefault(teamContext, 'HydroCount', 0) >= 1 || getFieldOrDefault(teamContext, 'CryoCount', 0) >= 1;
+function tf = localShouldResolveDarkReaction(enemyState, teamContext)
+    if localHasAura(enemyState, "Hydro") || localHasAura(enemyState, "Cryo") ...
+            || getFieldOrDefault(getFieldOrDefault(enemyState, 'Frozen', struct()), 'Active', false)
+        tf = true;
+        return;
+    end
+
+    if isfield(enemyState, 'Auras') && ~isempty(enemyState.Auras)
+        tf = false;
+        return;
+    end
+
+    if ~localUsesApproximateDarkSupport(enemyState, teamContext)
+        tf = false;
+        return;
+    end
+
+    tf = strlength(localResolveApproximateDarkAura(teamContext)) > 0;
+end
+
+function tf = localUsesApproximateDarkSupport(enemyState, teamContext)
+    reactionMode = lower(char(string(getFieldOrDefault(enemyState, 'ReactionMode', ...
+        getFieldOrDefault(teamContext, 'ReactionMode', "")))));
+    autoSupport = logical(getFieldOrDefault(enemyState, 'AutoSupportAura', strcmp(reactionMode, 'approximate')));
+    tf = strcmp(reactionMode, 'approximate') && autoSupport;
+end
+
+function aura = localResolveApproximateDarkAura(teamContext)
+    if getFieldOrDefault(teamContext, 'CryoCount', 0) >= 1
+        aura = "Cryo";
+    elseif getFieldOrDefault(teamContext, 'HydroCount', 0) >= 1
+        aura = "Hydro";
+    else
+        aura = "";
+    end
+end
+
+function tf = localHasAura(enemyState, auraElement)
+    tf = false;
+    if ~isfield(enemyState, 'Auras') || isempty(enemyState.Auras)
+        return;
+    end
+
+    for i = 1:numel(enemyState.Auras)
+        if strcmpi(char(enemyState.Auras(i).Element), char(string(auraElement))) ...
+                && getFieldOrDefault(enemyState.Auras(i), 'Gauge', 0) > 1e-6
+            tf = true;
+            return;
+        end
+    end
 end
 
 function state = localAdvanceState(state, actionTime)
