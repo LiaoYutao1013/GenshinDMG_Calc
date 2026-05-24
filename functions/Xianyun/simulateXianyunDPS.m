@@ -77,7 +77,8 @@ function [totalDMG, dps, breakdown, rotationTime, audit] = simulateXianyunDPS(bu
                 mvField = sprintf('Driftcloud%dATK', min(3, ladderCount));
                 mv = getTalentValue(talent, 'Skill', mvField, localSkillTalentLevel(talentLevel, constellation));
                 plungeBonus = getFieldOrDefault(build, 'PlungeDMGBonus', 0) + getFieldOrDefault(teamContext, 'PlungeDMGBonus', 0);
-                localCritDMG = critDMG + localC6CritBonus(talent, talentLevel, constellation, ladderCount);
+                [c6CritBonus, state] = localConsumeC6CritBonus(state, talent, talentLevel, constellation, ladderCount);
+                localCritDMG = critDMG + c6CritBonus;
                 dmg = localAnemoDamage(atk, mv, build, teamContext, anemoMult, plungeBonus, critRate, localCritDMG);
                 state.StormPinionStacks = min(4, state.StormPinionStacks + 1);
                 state.CurrentSkyladders = 0;
@@ -86,6 +87,9 @@ function [totalDMG, dps, breakdown, rotationTime, audit] = simulateXianyunDPS(bu
                 end
                 state.WeaponPlungeBonusTime = 20.0;
                 note = sprintf('Driftcloud Wave after %d ladder(s)', ladderCount);
+                if c6CritBonus > 0
+                    note = localAppendNote(note, sprintf('C6 crit +%.0f%%', c6CritBonus * 100));
+                end
 
                 if constellation >= 4 && state.LastC4HealCooldown <= 0
                     healRate = localC4HealRate(talent, talentLevel, ladderCount);
@@ -197,6 +201,28 @@ function value = localC6CritBonus(talent, talentLevel, constellation, ladderCoun
             value = getTalentValue(talent, 'Constellation', 'C6CritDMG2', talentLevel);
         otherwise
             value = getTalentValue(talent, 'Constellation', 'C6CritDMG3', talentLevel);
+    end
+end
+
+function [value, state] = localConsumeC6CritBonus(state, talent, talentLevel, constellation, ladderCount)
+    value = 0;
+    if constellation < 6
+        return;
+    end
+    if getFieldOrDefault(state, 'C6WindowTime', 0) <= 1e-9 || getFieldOrDefault(state, 'C6UsesLeft', 0) <= 0
+        return;
+    end
+    value = localC6CritBonus(talent, talentLevel, constellation, ladderCount);
+    if value > 0
+        state.C6UsesLeft = max(0, state.C6UsesLeft - 1);
+    end
+end
+
+function note = localAppendNote(baseNote, suffix)
+    if strlength(string(baseNote)) == 0
+        note = string(suffix);
+    else
+        note = string(baseNote) + ", " + string(suffix);
     end
 end
 
