@@ -401,7 +401,7 @@ function expanded = localExpandActionTokens(actions)
     expanded = cell(0, 1);
     for i = 1:numel(actions)
         token = string(actions{i});
-        parts = regexp(char(token), '^([A-Za-z][A-Za-z0-9_]*)(?:[x\*](\d+))?$', 'tokens', 'once');
+        parts = regexp(char(token), '^([A-Za-z][A-Za-z0-9_]*)[x\*](\d+)$', 'tokens', 'once');
         if isempty(parts)
             expanded{end + 1, 1} = char(token); %#ok<AGROW>
             continue;

@@ -1,4 +1,4 @@
-function [totalDMG, dps, breakdown, rotationTime] = simulateIansanDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
+function [totalDMG, dps, breakdown, rotationTime, audit] = simulateIansanDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
     % 伊安珊高精度近似模拟器。
     % 建模重点：
     % 1. 战技冲刺与印记投掷的前台动作；
@@ -128,6 +128,14 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateIansanDPS(build, ene
         rotationTime = getFieldOrDefault(teamContext, 'RotationDuration', 20);
     end
     dps = totalDMG / rotationTime;
+
+    if nargout > 4
+        audit = buildInferredReactionAudit( ...
+            struct('Name', "Iansan", 'Constellation', constellation, 'TalentLevel', talentLevel), ...
+            actions, teamContext, seqFile, struct(), struct('PrimaryArchetype', "Support"));
+    else
+        audit = struct();
+    end
 end
 
 function level = localSkillTalentLevel(talentLevel, constellation)

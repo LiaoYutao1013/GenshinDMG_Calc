@@ -148,7 +148,8 @@ function actionClass = localResolveActionClass(lowerAction)
             || ~isempty(regexp(lowerAction, '^e\d+$', 'once')) ...
             || ~isempty(regexp(lowerAction, '^resete\d+$', 'once')) ...
             || startsWith(lowerAction, 'skill') || strcmp(lowerAction, 'exq') ...
-            || contains(lowerAction, 'dance')
+            || contains(lowerAction, 'dance') ...
+            || any(strcmp(lowerAction, {'confirm', 'deny', 'grenade', 'sprint', 'throw', 'rush', 'leap', 'skyladder'}))
         actionClass = "Skill";
         return;
     end
@@ -186,7 +187,8 @@ function actionClass = localResolveActionClass(lowerAction)
         return;
     end
     if any(strcmp(lowerAction, {'blade', 'herald', 'heraldcoord', 'qstellar', 'casehit', 'thorn', ...
-            'scenteddew', 'duckywaterball', 'robotstrike', 'meowball', 'meowbounce'})) ...
+            'scenteddew', 'duckywaterball', 'robotstrike', 'meowball', 'meowbounce', ...
+            'bolt', 'starwicker', 'projection', 'whitetick', 'darktick', 'singer', 'finisher'})) ...
             || contains(lowerAction, 'stellar') || contains(lowerAction, 'icicle')
         actionClass = "FollowUp";
         return;
@@ -227,7 +229,8 @@ function hitElement = localResolveActionElement(normalizedName, characterElement
         return;
     end
 
-    if any(strcmpi(lowerAction, {'beam', 'drain', 'droplet', 'bite', 'missile', 'loadedshot'})) ...
+    if any(strcmpi(lowerAction, {'beam', 'drain', 'droplet', 'bite', 'missile', 'loadedshot', ...
+            'bolt', 'projection', 'whitetick', 'darktick'})) ...
             || contains(lowerAction, 'beam') || contains(lowerAction, 'drain')
         hitElement = characterElement;
         return;
@@ -272,7 +275,8 @@ function hitElement = localResolveActionElement(normalizedName, characterElement
             || contains(lowerAction, 'wave') || contains(lowerAction, 'slash') ...
             || contains(lowerAction, 'case') || contains(lowerAction, 'thorn') || contains(lowerAction, 'dew') ...
             || contains(lowerAction, 'bite') || contains(lowerAction, 'missile') ...
-            || contains(lowerAction, 'loadedshot')
+            || contains(lowerAction, 'loadedshot') || contains(lowerAction, 'bolt') ...
+            || contains(lowerAction, 'tick') || contains(lowerAction, 'rush') || contains(lowerAction, 'leap')
         hitElement = characterElement;
     end
 end
@@ -355,6 +359,46 @@ function meta = localApplyCharacterSpecificMetadata(meta, member, normalizedName
     constellation = double(getFieldOrDefault(member, 'Constellation', 0));
 
     switch char(normalizedName)
+        case 'chevreuse'
+            if strcmp(lowerAction, 'heal')
+                meta.ConsumesActiveWindow = true;
+                meta.HitElement = "";
+                meta.ApplyElement = "";
+                meta.ApplyGauge = 0.0;
+                meta.CanApplyAura = false;
+                meta.AllowAmplify = false;
+                meta.AllowCatalyze = false;
+            end
+
+        case 'iansan'
+            if strcmp(lowerAction, 'bolt')
+                meta.ConsumesActiveWindow = true;
+            end
+
+        case 'xianyun'
+            if strcmp(lowerAction, 'e')
+                meta.HitElement = "";
+                meta.ApplyElement = "";
+                meta.ApplyGauge = 0.0;
+                meta.CanApplyAura = false;
+                meta.AllowAmplify = false;
+                meta.AllowCatalyze = false;
+            elseif any(strcmp(lowerAction, {'plunge1', 'plunge2', 'plunge3', 'driftcloudwave'}))
+                meta.HitElement = "Anemo";
+                meta.ApplyElement = "Anemo";
+                meta.ApplyGauge = 1.0;
+                meta.CanApplyAura = true;
+                meta.AllowAmplify = false;
+                meta.AllowCatalyze = false;
+            elseif strcmp(lowerAction, 'starwicker')
+                meta.ConsumesActiveWindow = true;
+            end
+
+        case 'varesa'
+            if strcmp(lowerAction, 'finisher')
+                meta.ConsumesActiveWindow = true;
+            end
+
         case 'aino'
             aura = localResolveAinoPreferredAura(teamContext);
             if any(strcmp(lowerAction, {'e', 'e2'})) && constellation >= 1
@@ -619,6 +663,10 @@ function [particles, orbs] = localResolveEnergyPacket(normalizedName, lowerActio
         particles = 4;
     elseif normalizedName == "chevreuse" && any(strcmp(lowerAction, {'e', 'epress'}))
         particles = 4;
+    elseif normalizedName == "iansan" && strcmp(lowerAction, 'e')
+        particles = 4;
+    elseif normalizedName == "varesa" && strcmp(lowerAction, 'e')
+        particles = 3;
     elseif normalizedName == "fischl" && strcmp(lowerAction, 'e')
         particles = 4;
     elseif normalizedName == "yaemiko" && strcmp(lowerAction, 'e')
@@ -702,7 +750,8 @@ function [duration, tag, firstTickDelay, tickInterval, tickCount, tickAction, ti
 
     if any(strcmp(lowerAction, {'oz', 'qoz', 'eye', 'pillar', 'ring', 'source', ...
             'trikarma', 'bursttrikarma', 'starwicker', 'rain1', 'rain2', ...
-            'throw', 'qdot', 'qinfuse', 'geowave', 'collapse'}))
+            'throw', 'qdot', 'qinfuse', 'geowave', 'collapse', 'bolt', ...
+            'projection', 'whitetick', 'darktick', 'singer'}))
         return;
     end
 
@@ -734,6 +783,40 @@ function [duration, tag, firstTickDelay, tickInterval, tickCount, tickAction, ti
             if any(strcmp(lowerAction, {'e', 'q'}))
                 duration = 10.0;
                 tag = "Oz";
+            end
+        case 'iansan'
+            if strcmp(lowerAction, 'q')
+                duration = 12.0;
+                tag = "IansanTrainingGround";
+            end
+        case 'xianyun'
+            if strcmp(lowerAction, 'q')
+                duration = 16.0;
+                tag = "AdeptalLegacy";
+            end
+        case 'varesa'
+            if strcmp(lowerAction, 'q')
+                duration = 10.0;
+                tag = "VaresaBurstWindow";
+            elseif strcmp(lowerAction, 'e')
+                duration = 10.0;
+                tag = "VaresaRushWindow";
+            end
+        case 'durin'
+            if strcmp(lowerAction, 'q')
+                duration = 20.0;
+                tag = "DurinDragon";
+            elseif any(strcmp(lowerAction, {'confirm', 'deny'}))
+                duration = 30.0;
+                tag = "DurinTransmutation";
+            end
+        case 'nicole'
+            if strcmp(lowerAction, 'q')
+                duration = 12.0;
+                tag = "SilentContemplation";
+            elseif strcmp(lowerAction, 'e')
+                duration = 12.0;
+                tag = "NicoleGrace";
             end
         case 'yaemiko'
             if ~isempty(regexp(lowerAction, '^e\d+$', 'once')) || ~isempty(regexp(lowerAction, '^resete\d+$', 'once')) ...

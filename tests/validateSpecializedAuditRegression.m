@@ -1,0 +1,29 @@
+function validateSpecializedAuditRegression()
+    initProjectPaths();
+
+    enemy = struct( ...
+        'Level', 90, ...
+        'Res', 0.10, ...
+        'DefReduct', 0, ...
+        'ReactionMode', "Realistic", ...
+        'AutoSupportAura', false);
+
+    cases = {'Chevreuse', 'Iansan', 'Xianyun', 'Varesa'};
+    for i = 1:numel(cases)
+        name = cases{i};
+        cfg = getDefaultCharacterConfig(name);
+        teamContext = buildTeamContext({cfg}, 20, struct('ReactionMode', "Realistic"), enemy);
+        [~, ~, ~, ~, audit] = feval(char("simulate" + string(name) + "DPS"), ...
+            cfg.Build, enemy, cfg.RotationFile, cfg.TalentLevel, cfg.Constellation, teamContext);
+
+        rows = audit.Rows;
+        assert(istable(rows), sprintf('%s audit should return a standardized table.', name));
+        assert(all(ismember(["Action", "ActionKey", "ApplyGauge", "ApplyGaugeSource", "ICDRule", "ICDSource", ...
+            "LunarisAttackName", "LunarisDamageParam", "ApplyGaugeFallback", "ICDFallback"], string(rows.Properties.VariableNames))), ...
+            sprintf('%s audit should expose the standard compatibility columns.', name));
+        assert(~any(rows.ApplyGaugeFallback | rows.ICDFallback), ...
+            sprintf('%s audit should avoid generic fallback rows for the wired rotation.', name));
+    end
+
+    disp('validateSpecializedAuditRegression passed');
+end

@@ -1,4 +1,4 @@
-function [totalDMG, dps, breakdown, rotationTime] = simulateVaresaDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
+function [totalDMG, dps, breakdown, rotationTime, audit] = simulateVaresaDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
     % 瓦雷莎高精度近似模拟器。
     % 建模重点：
     % 1. 战技入场后的突进、腾跃与下落输出链；
@@ -172,6 +172,14 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateVaresaDPS(build, ene
         rotationTime = getFieldOrDefault(teamContext, 'RotationDuration', 20);
     end
     dps = totalDMG / rotationTime;
+
+    if nargout > 4
+        audit = buildInferredReactionAudit( ...
+            struct('Name', "Varesa", 'Constellation', constellation, 'TalentLevel', talentLevel), ...
+            actions, teamContext, seqFile, struct(), struct('PrimaryArchetype', "Plunge"));
+    else
+        audit = struct();
+    end
 end
 
 function level = localSkillTalentLevel(talentLevel, constellation)

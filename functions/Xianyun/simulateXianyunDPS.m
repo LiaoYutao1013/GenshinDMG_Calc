@@ -1,4 +1,4 @@
-function [totalDMG, dps, breakdown, rotationTime] = simulateXianyunDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
+function [totalDMG, dps, breakdown, rotationTime, audit] = simulateXianyunDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
     % 闲云高精度近似模拟器。
     % 建模重点：
     % 1. E 的 Skyladder 次数与对应 Driftcloud Wave 三档倍率；
@@ -147,6 +147,16 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateXianyunDPS(build, en
         rotationTime = getFieldOrDefault(teamContext, 'RotationDuration', 20);
     end
     dps = totalDMG / rotationTime;
+
+    if nargout > 4
+        auditOverrides = struct( ...
+            'e', struct('ApplyGaugeSource', "not_applicable", 'ICDSource', "not_applicable"));
+        audit = buildInferredReactionAudit( ...
+            struct('Name', "Xianyun", 'Constellation', constellation, 'TalentLevel', talentLevel), ...
+            actions, teamContext, seqFile, auditOverrides, struct('PrimaryArchetype', "Plunge"));
+    else
+        audit = struct();
+    end
 end
 
 function level = localSkillTalentLevel(talentLevel, constellation)

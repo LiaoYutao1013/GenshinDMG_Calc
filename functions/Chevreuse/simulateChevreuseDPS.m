@@ -1,4 +1,4 @@
-function [totalDMG, dps, breakdown, rotationTime] = simulateChevreuseDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
+function [totalDMG, dps, breakdown, rotationTime, audit] = simulateChevreuseDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
     % 夏沃蕾高精度近似模拟器。
     % 建模重点：
     % 1. 记录战技命中后生成的超量装药弹窗口；
@@ -146,6 +146,17 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateChevreuseDPS(build, 
         rotationTime = getFieldOrDefault(teamContext, 'RotationDuration', 20);
     end
     dps = totalDMG / rotationTime;
+
+    if nargout > 4
+        auditOverrides = struct( ...
+            'loadedshot', struct('ApplyGaugeSource', "not_applicable", 'ICDSource', "not_applicable"), ...
+            'heal', struct('ApplyGaugeSource', "not_applicable", 'ICDSource', "not_applicable"));
+        audit = buildInferredReactionAudit( ...
+            struct('Name', "Chevreuse", 'Constellation', constellation, 'TalentLevel', talentLevel), ...
+            actions, teamContext, seqFile, auditOverrides, struct('PrimaryArchetype', "Support"));
+    else
+        audit = struct();
+    end
 end
 
 function level = localSkillTalentLevel(talentLevel, constellation)
