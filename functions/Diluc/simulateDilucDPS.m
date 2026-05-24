@@ -1,5 +1,5 @@
 function [totalDMG, dps, breakdown, rotationTime, audit] = simulateDilucDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
-    % Diluc high-fidelity approximation model.
+    % Diluc high-fidelity simulator.
     % 1. Split the three E casts and preserve the C4 rhythm variants.
     % 2. Split Q into startup slash, phoenix travel, and final explosion.
     % 3. Treat infused normals as Pyro during the burst window with A4 bonus.

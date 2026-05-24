@@ -1,5 +1,5 @@
 function [totalDMG, dps, breakdown, rotationTime, audit] = simulateJeanDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
-    % Jean high-fidelity approximation model.
+    % Jean high-fidelity simulator.
     % 1. Split tap E, hold E, Q cast, and field entry/exit damage.
     % 2. Ignore healing in DPS while preserving damage-side burst logic.
     % 3. Apply C1/C4 directly on the relevant hold-E / burst-window actions.
