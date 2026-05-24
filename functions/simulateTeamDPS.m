@@ -262,26 +262,77 @@ function rotationPlan = localBuildPassthroughPlan(members, rotationDuration)
     for i = 1:numel(members)
         currentFile = string(getFieldOrDefault(members{i}, 'RotationFile', ""));
         currentText = "";
+        tokens = cell(0, 1);
         if strlength(currentFile) > 0 && exist(char(currentFile), 'file') == 2
             currentText = string(fileread(char(currentFile)));
+            tokens = readRotationTokens(char(currentFile));
         end
+        startTime = getFieldOrDefault(members{i}, 'StartTime', 0);
+        estimatedDuration = localEstimatePassthroughRotationDuration(tokens, members{i}.Name);
         memberPlans(i).Name = string(members{i}.Name);
         memberPlans(i).DisplayName = string(getFieldOrDefault(members{i}, 'DisplayName', members{i}.Name));
-        memberPlans(i).Order = i;
-        memberPlans(i).StartTime = getFieldOrDefault(members{i}, 'StartTime', 0);
+        memberPlans(i).StartTime = startTime;
+        memberPlans(i).EndTime = startTime + estimatedDuration;
+        memberPlans(i).RotationTokens = tokens;
         memberPlans(i).RotationText = currentText;
-        memberPlans(i).Preview = currentText;
+        memberPlans(i).Preview = localPreviewPassthroughRotation(tokens, currentText);
+        memberPlans(i).EstimatedDuration = estimatedDuration;
         memberPlans(i).TempRotationFile = currentFile;
     end
+
+    sortRows = [(1:numel(members)).', [memberPlans.StartTime].'];
+    sortedMembers = sortrows(sortRows, [2 1]);
+    executionOrder = sortedMembers(:, 1).';
+    executionRows = cell(0, 8);
+    for orderPos = 1:numel(executionOrder)
+        memberIndex = executionOrder(orderPos);
+        memberPlans(memberIndex).Order = orderPos;
+        executionRows(end + 1, :) = { ... %#ok<AGROW>
+            orderPos, ...
+            memberPlans(memberIndex).DisplayName, ...
+            memberPlans(memberIndex).Role, ...
+            "", ...
+            memberPlans(memberIndex).StartTime, ...
+            memberPlans(memberIndex).EndTime, ...
+            memberPlans(memberIndex).EstimatedDuration, ...
+            memberPlans(memberIndex).Preview};
+    end
+
+    executionTable = cell2table(executionRows, 'VariableNames', { ...
+        'Order', 'Character', 'Role', 'Job', 'StartTime', 'EndTime', 'ReservedTime', 'RotationPreview'});
 
     rotationPlan = struct( ...
         'RotationDuration', rotationDuration, ...
         'CarryIndex', 0, ...
-        'ExecutionOrder', 1:numel(members), ...
+        'ExecutionOrder', executionOrder, ...
         'PlanDirectory', "", ...
         'MemberPlans', memberPlans, ...
         'ArchetypeInfo', identifyTeamArchetype(members, struct()), ...
-        'ExecutionTable', table());
+        'ExecutionTable', executionTable);
+end
+
+function duration = localEstimatePassthroughRotationDuration(tokens, characterName)
+    if nargin < 1 || isempty(tokens)
+        duration = 0;
+        return;
+    end
+
+    duration = 0;
+    for i = 1:numel(tokens)
+        duration = duration + estimateActionDuration(characterName, tokens{i}, 0.60);
+    end
+end
+
+function preview = localPreviewPassthroughRotation(tokens, rawText)
+    if nargin < 1 || isempty(tokens)
+        preview = strtrim(string(rawText));
+        return;
+    end
+
+    preview = join(string(tokens(:)).', " > ");
+    if strlength(preview) > 160
+        preview = extractBefore(preview, 158) + "…";
+    end
 end
 
 function memberSummary = localAttachEnergySummary(memberSummary, timelineResult)
