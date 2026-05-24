@@ -197,25 +197,7 @@ function weight = localResolveNightingaleEMWeight(hydroGeoCount, lunarCrystalliz
 end
 
 function tf = localHasAscendantMoonsignIlluga(teamContext)
-    members = getFieldOrDefault(teamContext, 'Members', {});
-    tf = false;
-    if isstruct(members)
-        for i = 1:numel(members)
-            name = lower(char(string(getFieldOrDefault(members(i), 'Name', ""))));
-            if any(strcmp(name, {'jahoda', 'aino', 'illuga'}))
-                tf = true;
-                return;
-            end
-        end
-    elseif iscell(members)
-        for i = 1:numel(members)
-            name = lower(char(string(getFieldOrDefault(members{i}, 'Name', ""))));
-            if any(strcmp(name, {'jahoda', 'aino', 'illuga'}))
-                tf = true;
-                return;
-            end
-        end
-    end
+    tf = hasAscendantMoonsign(teamContext);
 end
 
 function level = localClampTalentLevel(level)

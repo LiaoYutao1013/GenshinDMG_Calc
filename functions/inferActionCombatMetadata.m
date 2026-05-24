@@ -360,30 +360,41 @@ function meta = localApplyCharacterSpecificMetadata(meta, member, normalizedName
             if any(strcmp(lowerAction, {'e', 'e2'})) && constellation >= 1
                 meta.EffectDuration = 15.0;
                 meta.EffectTag = "AinoC1EM";
+                if strcmp(lowerAction, 'e2') && constellation >= 4
+                    meta.FlatEnergySelf = meta.FlatEnergySelf + 10;
+                end
             elseif strcmp(lowerAction, 'q')
+                meta.HitElement = "";
+                meta.ApplyElement = "";
+                meta.ApplyGauge = 0.0;
+                meta.CanApplyAura = false;
+                meta.AllowAmplify = false;
+                meta.AllowCatalyze = false;
+                meta.AllowTransformative = false;
                 interval = 2.0;
                 if localHasAscendantMoonsign(teamContext)
                     interval = 1.5;
                 end
                 meta.EffectDuration = 14.0;
                 meta.EffectTag = "CoolYourJetsDucky";
-                meta.TriggeredFollowUpAction = "DuckyWaterBall";
-                meta.TriggeredFollowUpDelay = interval;
-                meta.TriggeredFollowUpGauge = 1.0;
-                meta.TriggeredFollowUpElement = "Hydro";
-                meta.TriggeredFollowUpPreferredAura = aura;
-                meta.TriggeredFollowUpInternalCooldown = interval;
-                meta.TriggeredFollowUpEligibleClasses = ["Normal", "Charged", "Plunge", "Skill", "Burst", "FollowUp"];
-                meta.TriggeredFollowUpForegroundOnly = false;
-                meta.TriggeredFollowUpMaxCount = max(1, floor(14.0 / interval));
+                meta.EffectFirstTickDelay = interval;
+                meta.EffectTickAction = "DuckyWaterBall";
+                meta.EffectTickInterval = interval;
+                meta.EffectTickCount = max(1, floor(14.0 / interval));
+                meta.EffectTickGauge = 1.0;
+                meta.EffectTickElement = "Hydro";
+                meta.EffectTickPreferredAura = aura;
 
                 if constellation >= 2
-                    meta.EffectTickAction = "DuckyWaterBallC2";
-                    meta.EffectTickInterval = 5.0;
-                    meta.EffectTickCount = 3;
-                    meta.EffectTickGauge = 1.0;
-                    meta.EffectTickElement = "Hydro";
-                    meta.EffectTickPreferredAura = aura;
+                    meta.TriggeredFollowUpAction = "DuckyWaterBallC2";
+                    meta.TriggeredFollowUpDelay = 0.05;
+                    meta.TriggeredFollowUpGauge = 1.0;
+                    meta.TriggeredFollowUpElement = "Hydro";
+                    meta.TriggeredFollowUpPreferredAura = aura;
+                    meta.TriggeredFollowUpInternalCooldown = 5.0;
+                    meta.TriggeredFollowUpEligibleClasses = ["Normal", "Charged", "Plunge", "Skill", "Burst", "FollowUp"];
+                    meta.TriggeredFollowUpForegroundOnly = true;
+                    meta.TriggeredFollowUpMaxCount = 3;
                 end
             elseif any(strcmp(lowerAction, {'duckywaterball', 'duckywaterballc2'}))
                 meta.HitElement = "Hydro";
@@ -393,30 +404,34 @@ function meta = localApplyCharacterSpecificMetadata(meta, member, normalizedName
                 meta.AllowAmplify = true;
                 meta.AllowCatalyze = false;
                 meta.PreferredAura = aura;
-                if constellation >= 4
-                    meta.FlatEnergySelf = meta.FlatEnergySelf + 10;
-                end
             end
 
         case 'jahoda'
             convertedElement = localResolveJahodaConvertedElement(teamContext);
             aura = localResolveJahodaPreferredAura(convertedElement, teamContext);
-            if any(strcmp(lowerAction, {'flaskfull', 'flaskpartial'}))
-                meowballCount = 3 + double(localHasAscendantMoonsign(teamContext));
+            moonsignActive = localHasAscendantMoonsign(teamContext);
+            enhancementElements = localResolveJahodaEnhancementElements(teamContext, constellation, moonsignActive);
+            if strcmp(lowerAction, 'flaskfull') && moonsignActive && strlength(convertedElement) > 0
+                meta.HitElement = "";
+                meta.ApplyElement = "";
+                meta.ApplyGauge = 0.0;
+                meta.CanApplyAura = false;
+                meta.AllowAmplify = false;
+                meta.AllowCatalyze = false;
+                meta.AllowTransformative = false;
+                meowballCount = 4;
                 meta.EffectDuration = max(meta.EffectDuration, meowballCount);
                 meta.EffectTag = "JahodaFlaskWindow";
-                meta.TriggeredFollowUpAction = "Meowball";
-                meta.TriggeredFollowUpDelay = 0.30;
-                meta.TriggeredFollowUpGauge = double(convertedElement ~= "");
-                meta.TriggeredFollowUpElement = convertedElement;
-                meta.TriggeredFollowUpPreferredAura = aura;
-                meta.TriggeredFollowUpInternalCooldown = 1.00;
-                meta.TriggeredFollowUpEligibleClasses = ["Normal", "Charged", "Plunge", "Skill", "Burst", "FollowUp"];
-                meta.TriggeredFollowUpForegroundOnly = false;
-                meta.TriggeredFollowUpMaxCount = meowballCount;
+                meta.EffectFirstTickDelay = 1.0;
+                meta.EffectTickAction = "Meowball";
+                meta.EffectTickInterval = 1.0;
+                meta.EffectTickCount = meowballCount;
+                meta.EffectTickGauge = double(convertedElement ~= "");
+                meta.EffectTickElement = convertedElement;
+                meta.EffectTickPreferredAura = aura;
             elseif strcmp(lowerAction, 'q')
-                robotCount = 2 + double(strcmpi(convertedElement, 'Electro'));
-                robotInterval = 2.20 * (1 - 0.10 * double(strcmpi(convertedElement, 'Cryo')));
+                robotCount = 2 + double(any(strcmpi(enhancementElements, 'Electro')));
+                robotInterval = 2.20 * (1 - 0.10 * double(any(strcmpi(enhancementElements, 'Cryo'))));
                 meta.EffectDuration = 12.0;
                 meta.EffectTag = "PurrsonalCoordinatedAssistanceRobots";
                 meta.EffectTickAction = "RobotStrike";
@@ -425,6 +440,9 @@ function meta = localApplyCharacterSpecificMetadata(meta, member, normalizedName
                 meta.EffectTickGauge = double(convertedElement ~= "") * min(robotCount, 3);
                 meta.EffectTickElement = convertedElement;
                 meta.EffectTickPreferredAura = aura;
+                if constellation >= 4 && strlength(convertedElement) > 0
+                    meta.FlatEnergySelf = meta.FlatEnergySelf + 4;
+                end
             elseif any(strcmp(lowerAction, {'meowball', 'meowbounce', 'robotstrike'}))
                 meta.HitElement = convertedElement;
                 meta.ApplyElement = convertedElement;
@@ -433,9 +451,26 @@ function meta = localApplyCharacterSpecificMetadata(meta, member, normalizedName
                 meta.AllowAmplify = any(strcmpi(convertedElement, {'Hydro', 'Pyro', 'Cryo'}));
                 meta.AllowCatalyze = strcmpi(convertedElement, 'Electro');
                 meta.PreferredAura = aura;
-                if constellation >= 2
-                    meta.FlatEnergySelf = meta.FlatEnergySelf + 3;
+                if strcmp(lowerAction, 'meowball')
+                    meta.FlatEnergySelf = meta.FlatEnergySelf + 2;
                 end
+            end
+
+        case 'ifa'
+            absorbedElement = localResolveIfaBurstElement(teamContext);
+            aura = localResolveIfaPreferredAura(absorbedElement, teamContext);
+            if strcmp(lowerAction, 'q')
+                meta.EffectDuration = 7.6;
+                meta.EffectTag = "IfaSedationField";
+                meta.EffectFirstTickDelay = 1.6;
+                meta.EffectTickAction = "Mark";
+                meta.EffectTickInterval = 2.0;
+                meta.EffectTickCount = 4;
+                meta.EffectTickGauge = double(strlength(absorbedElement) > 0);
+                meta.EffectTickElement = absorbedElement;
+                meta.EffectTickPreferredAura = aura;
+            elseif any(strcmp(lowerAction, {'supporttap', 'supporthold'})) && constellation >= 1
+                meta.FlatEnergySelf = meta.FlatEnergySelf + 6;
             end
     end
 end
@@ -450,27 +485,7 @@ function aura = localResolveAinoPreferredAura(teamContext)
 end
 
 function tf = localHasAscendantMoonsign(teamContext)
-    tf = false;
-    members = getFieldOrDefault(teamContext, 'Members', {});
-    if isstruct(members)
-        count = 0;
-        for i = 1:numel(members)
-            name = localNormalizeName(getFieldOrDefault(members(i), 'Name', ""));
-            if any(strcmp(name, {'aino', 'jahoda', 'illuga'}))
-                count = count + 1;
-            end
-        end
-        tf = count >= 1;
-    elseif iscell(members)
-        count = 0;
-        for i = 1:numel(members)
-            name = localNormalizeName(getFieldOrDefault(members{i}, 'Name', ""));
-            if any(strcmp(name, {'aino', 'jahoda', 'illuga'}))
-                count = count + 1;
-            end
-        end
-        tf = count >= 1;
-    end
+    tf = hasAscendantMoonsign(teamContext);
 end
 
 function element = localResolveJahodaConvertedElement(teamContext)
@@ -480,13 +495,35 @@ function element = localResolveJahodaConvertedElement(teamContext)
         getFieldOrDefault(teamContext, 'HydroCount', 0), ...
         getFieldOrDefault(teamContext, 'ElectroCount', 0), ...
         getFieldOrDefault(teamContext, 'CryoCount', 0)];
-    element = "Hydro";
+    element = "";
     bestCount = 0;
     for i = 1:numel(priority)
         if counts(i) > bestCount
             bestCount = counts(i);
             element = priority(i);
         end
+    end
+end
+
+function elements = localResolveJahodaEnhancementElements(teamContext, constellation, moonsignActive)
+    priority = ["Pyro", "Hydro", "Electro", "Cryo"];
+    counts = [ ...
+        getFieldOrDefault(teamContext, 'PyroCount', 0), ...
+        getFieldOrDefault(teamContext, 'HydroCount', 0), ...
+        getFieldOrDefault(teamContext, 'ElectroCount', 0), ...
+        getFieldOrDefault(teamContext, 'CryoCount', 0)];
+    [~, order] = sortrows([(-counts(:)) (1:numel(priority)).']);
+    sortedPriority = priority(order);
+    sortedCounts = counts(order);
+    elements = sortedPriority(sortedCounts > 0);
+    if isempty(elements)
+        elements = strings(1, 0);
+        return;
+    end
+    if ~(moonsignActive && constellation >= 2)
+        elements = elements(1);
+    else
+        elements = elements(1:min(2, numel(elements)));
     end
 end
 
@@ -508,6 +545,43 @@ function aura = localResolveJahodaPreferredAura(element, teamContext)
                 aura = "Hydro";
             elseif getFieldOrDefault(teamContext, 'PyroCount', 0) >= 1
                 aura = "Pyro";
+            end
+        case 'cryo'
+            if getFieldOrDefault(teamContext, 'PyroCount', 0) >= 1
+                aura = "Pyro";
+            end
+    end
+end
+
+function element = localResolveIfaBurstElement(teamContext)
+    priority = ["Pyro", "Hydro", "Electro", "Cryo"];
+    counts = [ ...
+        getFieldOrDefault(teamContext, 'PyroCount', 0), ...
+        getFieldOrDefault(teamContext, 'HydroCount', 0), ...
+        getFieldOrDefault(teamContext, 'ElectroCount', 0), ...
+        getFieldOrDefault(teamContext, 'CryoCount', 0)];
+    element = "";
+    bestCount = 0;
+    for i = 1:numel(priority)
+        if counts(i) > bestCount
+            bestCount = counts(i);
+            element = priority(i);
+        end
+    end
+end
+
+function aura = localResolveIfaPreferredAura(element, teamContext)
+    aura = "";
+    switch lower(char(string(element)))
+        case 'hydro'
+            if getFieldOrDefault(teamContext, 'PyroCount', 0) >= 1
+                aura = "Pyro";
+            end
+        case 'pyro'
+            if getFieldOrDefault(teamContext, 'HydroCount', 0) >= 1
+                aura = "Hydro";
+            elseif getFieldOrDefault(teamContext, 'CryoCount', 0) >= 1
+                aura = "Cryo";
             end
         case 'cryo'
             if getFieldOrDefault(teamContext, 'PyroCount', 0) >= 1

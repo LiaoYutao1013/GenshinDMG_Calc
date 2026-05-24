@@ -346,6 +346,8 @@ function tf = localShouldExpandBackgroundDrivers(meta, sourceInfo)
 end
 
 function tf = localPlanHasExplicitFollowUpTokens(tokens)
+    explicitActions = ["duckywaterball", "duckywaterballc2", ...
+        "meowball", "meowbounce", "robot", "robotstrike"];
     patterns = {'rain', 'throw', 'chain', 'radish', 'spirit', 'pyronado', 'doll', ...
         'projection', 'phantom', 'pathfinder', 'moon', 'star', 'skull', 'usher', ...
         'cheval', 'crab', 'loop', 'field', 'wave', 'slash', 'connector', 'spring', ...
@@ -357,6 +359,10 @@ function tf = localPlanHasExplicitFollowUpTokens(tokens)
     tf = false;
     for tokenIndex = 1:numel(tokens)
         action = lower(char(string(tokens{tokenIndex})));
+        if any(strcmp(action, explicitActions))
+            tf = true;
+            return;
+        end
         for patternIndex = 1:numel(patterns)
             if contains(action, patterns{patternIndex})
                 tf = true;
