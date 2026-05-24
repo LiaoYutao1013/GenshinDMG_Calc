@@ -264,6 +264,12 @@ function [ownerATK, dmgBonus, resShred, critRate, critDMG] = localProjectionOwne
 end
 
 function baseATK = localFallbackBaseATK(ownerConfig)
+    resolvedATK = localResolveOwnerBaseATKFromData(ownerConfig);
+    if resolvedATK > 0
+        baseATK = resolvedATK;
+        return;
+    end
+
     name = lower(char(string(getFieldOrDefault(ownerConfig, 'Name', ""))));
     switch name
         case 'nicole'
@@ -281,6 +287,26 @@ function baseATK = localFallbackBaseATK(ownerConfig)
         otherwise
             baseATK = 300;
     end
+end
+
+function baseATK = localResolveOwnerBaseATKFromData(ownerConfig)
+    baseATK = 0;
+    ownerName = string(getFieldOrDefault(ownerConfig, 'Name', ""));
+    if strlength(ownerName) == 0
+        return;
+    end
+
+    filePath = resolveCharacterDataFile(ownerName, 'characters');
+    if strlength(filePath) == 0 || exist(char(filePath), 'file') ~= 2
+        return;
+    end
+
+    try
+        tbl = readtable(char(filePath), 'TextType', 'string');
+    catch
+        return;
+    end
+    baseATK = double(getFieldOrDefault(tbl, 'BaseATK', 0));
 end
 
 function [dmg, state, note, extraRows] = localResolveNicoleAttack(action, atk, build, teamContext, enemy, talent, skillLevel, defIgnore, critRate, critDMG, currentWeaponBonus, state, extraRows)
