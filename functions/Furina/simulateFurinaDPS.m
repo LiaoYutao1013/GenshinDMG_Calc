@@ -1,10 +1,5 @@
 function [totalDMG, dps, breakdown, rotationTime, audit] = simulateFurinaDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
-    % Furina 高精度近似模拟。
-    % 采用显式状态机处理：
-    % 1. 荒 / 芒切换；
-    % 2. 沙龙成员持续输出与歌者治疗；
-    % 3. 气氛值与 C2/C6 的额外收益；
-    % 4. 默认轮转缺失时的 AUTO 兜底。
+    % Furina high-fidelity approximate model with explicit Arkhe and Salon state.
     if nargin < 3 || isempty(seqFile)
         seqFile = char(resolveCharacterDataFile('Furina', 'rotation'));
     end
@@ -19,7 +14,7 @@ function [totalDMG, dps, breakdown, rotationTime, audit] = simulateFurinaDPS(bui
     end
 
     base = readtable(char(resolveCharacterDataFile('Furina', 'characters')));
-    talent = readtable(char(resolveCharacterDataFile('Furina', 'talents')));
+    talent = readtable(char(localResolveFurinaTalentFile()), 'TextType', 'string');
     actions = localResolveRotation(seqFile);
 
     maxHP = base.BaseHP(1) * (1 + getFieldOrDefault(build, 'HPBonus', 0)) + getFieldOrDefault(build, 'FlatHP', 0);
@@ -58,7 +53,9 @@ function [totalDMG, dps, breakdown, rotationTime, audit] = simulateFurinaDPS(bui
                 state.SalonTicks = 0;
                 state.SingerTicks = 0;
                 foamMV = localTalentRowValue(talent, 11, localSkillTalentLevel(talentLevel, constellation));
-                dmg = localDirectDamage(maxHP, foamMV, localHydroBonus(build, teamContext, state, getFieldOrDefault(build, 'SkillDMGBonus', 0)), build, state, hydroMult);
+                dmg = localDirectDamage(maxHP, foamMV, ...
+                    localHydroBonus(build, teamContext, state, getFieldOrDefault(build, 'SkillDMGBonus', 0)), ...
+                    build, state, hydroMult);
                 note = "Salon deployed";
                 if constellation >= 6
                     state.C6Time = 10.0;
@@ -76,7 +73,9 @@ function [totalDMG, dps, breakdown, rotationTime, audit] = simulateFurinaDPS(bui
 
             case {'N1', 'N2', 'N3', 'N4'}
                 [normalMV, normalNote] = localNormalMV(talent, action, talentLevel);
-                dmg = localDirectDamage(maxHP, normalMV, localHydroBonus(build, teamContext, state, getFieldOrDefault(build, 'NormalDMGBonus', 0)), build, state, hydroMult);
+                dmg = localDirectDamage(maxHP, normalMV, ...
+                    localHydroBonus(build, teamContext, state, getFieldOrDefault(build, 'NormalDMGBonus', 0)), ...
+                    build, state, hydroMult);
                 note = normalNote;
                 if state.C6HitsLeft > 0 && state.C6Time > 0
                     [c6DMG, c6Heal, c6Note, state] = localResolveC6Hit(build, teamContext, state, maxHP, hydroMult, action);
@@ -94,7 +93,9 @@ function [totalDMG, dps, breakdown, rotationTime, audit] = simulateFurinaDPS(bui
 
             case {'HEAVY', 'CA'}
                 heavyMV = localTalentRowValue(talent, 5, talentLevel);
-                dmg = localDirectDamage(maxHP, heavyMV, localHydroBonus(build, teamContext, state, getFieldOrDefault(build, 'NormalDMGBonus', 0)), build, state, hydroMult);
+                dmg = localDirectDamage(maxHP, heavyMV, ...
+                    localHydroBonus(build, teamContext, state, getFieldOrDefault(build, 'NormalDMGBonus', 0)), ...
+                    build, state, hydroMult);
                 note = "Charged attack";
                 if state.C6HitsLeft > 0 && state.C6Time > 0
                     [c6DMG, c6Heal, c6Note, state] = localResolveC6Hit(build, teamContext, state, maxHP, hydroMult, action);
@@ -105,7 +106,9 @@ function [totalDMG, dps, breakdown, rotationTime, audit] = simulateFurinaDPS(bui
 
             case 'PLUNGE'
                 plungeMV = localTalentRowValue(talent, 8, talentLevel);
-                dmg = localDirectDamage(maxHP, plungeMV, localHydroBonus(build, teamContext, state, getFieldOrDefault(build, 'NormalDMGBonus', 0)), build, state, hydroMult);
+                dmg = localDirectDamage(maxHP, plungeMV, ...
+                    localHydroBonus(build, teamContext, state, getFieldOrDefault(build, 'NormalDMGBonus', 0)), ...
+                    build, state, hydroMult);
                 note = "Plunging attack";
                 if state.C6HitsLeft > 0 && state.C6Time > 0
                     [c6DMG, c6Heal, c6Note, state] = localResolveC6Hit(build, teamContext, state, maxHP, hydroMult, action);
@@ -146,7 +149,9 @@ function [totalDMG, dps, breakdown, rotationTime, audit] = simulateFurinaDPS(bui
 
             case 'Q'
                 qMV = localTalentRowValue(talent, 21, localBurstTalentLevel(talentLevel, constellation));
-                dmg = localDirectDamage(maxHP, qMV, localHydroBonus(build, teamContext, state, getFieldOrDefault(build, 'BurstDMGBonus', 0)), build, state, hydroMult);
+                dmg = localDirectDamage(maxHP, qMV, ...
+                    localHydroBonus(build, teamContext, state, getFieldOrDefault(build, 'BurstDMGBonus', 0)), ...
+                    build, state, hydroMult);
                 state.BurstTime = 18.0;
                 state.Fanfare = min(state.FanfareCap, 150 + 75 * double(constellation >= 1));
                 state.OverflowFanfare = 0;
@@ -254,8 +259,9 @@ function [mv, subtypeName] = localSalonMV(talent, action, talentLevel)
 end
 
 function [healRate, healFlat] = localSingerHeal(talent, talentLevel)
-    healRate = localTalentRowValue(talent, 19, talentLevel);
-    healFlat = 1016.9728 * double(talentLevel >= 10);
+    rowIndex = 19;
+    healRate = localTalentRowValue(talent, rowIndex, talentLevel);
+    healFlat = localTalentAuxValue(talent, rowIndex, talentLevel);
 end
 
 function [dmg, heal, note, state] = localResolveC6Hit(build, teamContext, state, maxHP, hydroMult, action)
@@ -386,4 +392,75 @@ function value = localTalentRowValue(talentTable, rowIndex, talentLevel)
     end
 
     error('No numeric Furina talent value found for row %d.', rowIndex);
+end
+
+function value = localTalentAuxValue(talentTable, rowIndex, talentLevel)
+    value = localReadLevelColumn(talentTable, rowIndex, talentLevel, 'AuxLevel');
+    if isfinite(value)
+        return;
+    end
+
+    rawField = localResolveRawLevelField(talentLevel);
+    if ismember(rawField, talentTable.Properties.VariableNames)
+        rawValue = string(talentTable.(rawField)(rowIndex));
+        matches = regexp(char(rawValue), '(?<num>[\d\.]+)(?<pct>%?)', 'names');
+        value = localResolveRawSecondaryValue(matches);
+        if isfinite(value)
+            return;
+        end
+    end
+
+    value = 0;
+end
+
+function value = localReadLevelColumn(talentTable, rowIndex, talentLevel, prefix)
+    value = NaN;
+    targetLevel = min(max(round(talentLevel), 1), 15);
+    for level = targetLevel:-1:1
+        levelName = sprintf('%s%d', prefix, level);
+        if ismember(levelName, talentTable.Properties.VariableNames)
+            candidate = talentTable.(levelName)(rowIndex);
+            if isnumeric(candidate) && isfinite(candidate)
+                value = candidate;
+                return;
+            end
+        end
+    end
+end
+
+function fieldName = localResolveRawLevelField(talentLevel)
+    clampedLevel = min(max(round(talentLevel), 1), 15);
+    if clampedLevel >= 15
+        fieldName = 'RawLevel15';
+    elseif clampedLevel >= 10
+        fieldName = 'RawLevel10';
+    else
+        fieldName = 'RawLevel1';
+    end
+end
+
+function value = localResolveRawSecondaryValue(matches)
+    value = NaN;
+    if numel(matches) < 2
+        return;
+    end
+
+    raw = str2double(matches(2).num);
+    if isnan(raw)
+        return;
+    end
+    if strcmp(matches(2).pct, '%')
+        value = raw / 100;
+    else
+        value = raw;
+    end
+end
+
+function filePath = localResolveFurinaTalentFile()
+    preferred = fullfile(fileparts(mfilename('fullpath')), '..', '..', 'data', 'Furina', 'talents_Furina_VerL.csv');
+    if exist(preferred, 'file') == 2
+        filePath = string(preferred);
+    else
+        filePath = resolveCharacterDataFile('Furina', 'talents');
+    end
 end

@@ -1,144 +1,151 @@
 function talentTable = parseTalentFurina(skillFile, charName, version)
-    % Furina needs a dedicated parser because summon, healing, and stance
-    % parameters are all consumed later by the simulator.
-    % The export keeps both normalized numeric levels and selected raw text
-    % so non-standard entries remain inspectable after flattening.
-    % parseTalentJS - 芙寧娜特化版：保留所有 ParamDesc（含非傷害字段）
-    % 輸出 CSV 包含所有等級列 + SubType（召喚物分類） + IsDamage（是否傷害相關）
-    
-    if nargin < 3
+    % Parse Furina skill JSON into a flat talent table with raw secondary values.
+    if nargin < 3 || strlength(string(version)) == 0
         version = 'L';
+    else
+        version = char(string(version));
     end
-    
-    % Source assets arrive as JavaScript assignments rather than pure JSON.
-    txt = fileread(skillFile);
-    txt = strtrim(txt);
+    charName = char(string(charName));
+
+    txt = strtrim(fileread(skillFile));
     txt = regexprep(txt, '^var\s+.*?\=\s*', '');
-    txt = regexprep(txt, ';$', '');
-    
+    txt = regexprep(txt, ';\s*$', '');
     data = jsondecode(txt);
-    
+
     if ~isfield(data, charName) || ~isfield(data.(charName).Ver, version)
-        error('找不到 %s Ver%s', charName, version);
+        error('Unable to locate %s Ver%s in %s.', charName, version, skillFile);
     end
-    
+
     skills = data.(charName).Ver.(version).BattleSkills;
     rows = table();
-    
-    % Flatten nested skill data into one row per ParamDesc so downstream
-    % damage code can stay table-driven.
-    for si = 1:numel(skills)
-        skill = skills(si);
-        skillName = skill.Name;
-        
-        for pi = 1:numel(skill.ParamDesc)
-            param = skill.ParamDesc(pi);
-            desc = param.Desc;
-            levelList = param.ParamLevelList;
-            
-            % 判斷縮放類型
-            scalingType = 'None';  % 預設
-            if contains(desc, {'生命值上限','Max HP','HP上限'})
-                scalingType = 'MaxHP';
-            elseif contains(desc, {'攻擊力','ATK'})
-                scalingType = 'ATK';
-            elseif contains(desc, {'防御力','DEF'})
-                scalingType = 'DEF';
-            elseif contains(desc, {'精通','EM'})
-                scalingType = 'EM';
-            end
-            
-            % 提取 ×N
-            multiplier = 1;
-            multMatch = regexp(desc, '[×x](\d+)', 'tokens');
-            if ~isempty(multMatch) && ~isempty(multMatch{1})
-                multiplier = str2double(multMatch{1}{1});
-            end
-            
-            % ------------------ 芙寧娜特化：召喚物分類 ------------------
-            subType = '';
-            if contains(skillName, {'孤心沙龙','Salon Members','孤心沙龍'})
-                if contains(desc, {'烏瑟勳爵','Usher','球球章魚'})
-                    subType = 'Usher';
-                elseif contains(desc, {'海薇瑪夫人','Chevalmarin','泡泡海馬'})
-                    subType = 'Chevalmarin';
-                elseif contains(desc, {'謝貝蕾妲小姐','Crabaletta','重甲蟹'})
-                    subType = 'Crabaletta';
-                elseif contains(desc, {'眾水的歌者','Singer','歌者'})
-                    subType = 'Singer';
-                elseif contains(desc, {'泡沫','Foam','荒性泡沫'})
-                    subType = 'Foam';
-                elseif contains(desc, {'治療','回復','治療量'})
-                    subType = 'Healing';
-                end
-            end
-            
-            % 判斷是否為傷害/治療相關（用於後續過濾）
-            isDamage = contains(desc, {'伤害','傷害','治疗','治療','回復','恢复','回復量'}) || ...
-                       ~isempty(subType) && ~strcmp(subType, '');
-            
-            % 解析每一級數值（如果有數字）
-            values = nan(1,15);
-            for li = 1:min(15, numel(levelList))
-                str = levelList{li};
-                numMatch = regexp(str, '[\d\.]+', 'match', 'once');
-                if ~isempty(numMatch)
-                    values(li) = str2double(numMatch) / 100;  % 轉小數
-                else
-                    % 非純數字的保留原始字串（例如 "20秒"）
-                    values(li) = NaN;
-                end
-            end
-            
-            % 建立一行（所有字段都保留）
-            rowStruct = struct(...
-                'Skill', skillName, ...
-                'Param', desc, ...
-                'ScalingType', scalingType, ...
-                'Multiplier', multiplier, ...
-                'SubType', subType, ...
-                'IsDamage', isDamage, ...           % 是否傷害/治療相關
-                'Level1', values(1), ...
-                'Level2', values(2), ...
-                'Level3', values(3), ...
-                'Level4', values(4), ...
-                'Level5', values(5), ...
-                'Level6', values(6), ...
-                'Level7', values(7), ...
-                'Level8', values(8), ...
-                'Level9', values(9), ...
-                'Level10', values(10), ...
-                'Level11', values(11), ...
-                'Level12', values(12), ...
-                'Level13', values(13), ...
-                'Level14', values(14), ...
-                'Level15', values(15), ...
-                'RawLevel1', levelList{min(1,numel(levelList))}, ...   % 原始字串備份
-                'RawLevel10', levelList{min(10,numel(levelList))}, ...
-                'RawLevel15', levelList{min(15,numel(levelList))} ...
-            );
-            newRow = struct2table(rowStruct, 'AsArray', true);  % ← 關鍵：加上 'AsArray', true
-            rows = [rows; newRow];
+    for skillIndex = 1:numel(skills)
+        skill = skills(skillIndex);
+        skillName = string(skill.Name);
+        for paramIndex = 1:numel(skill.ParamDesc)
+            param = skill.ParamDesc(paramIndex);
+            desc = string(param.Desc);
+            levelList = string(param.ParamLevelList(:));
+
+            [values, auxValues] = localParseLevelValues(levelList);
+            scalingType = localResolveScalingType(desc);
+            multiplier = localResolveMultiplier(desc);
+            subType = localResolveSubType(skillName, desc);
+            isDamage = localIsDamageOrHealing(desc, subType);
+
+            row = table( ...
+                skillName, desc, scalingType, multiplier, subType, isDamage, ...
+                values(1), values(2), values(3), values(4), values(5), ...
+                values(6), values(7), values(8), values(9), values(10), ...
+                values(11), values(12), values(13), values(14), values(15), ...
+                auxValues(1), auxValues(2), auxValues(3), auxValues(4), auxValues(5), ...
+                auxValues(6), auxValues(7), auxValues(8), auxValues(9), auxValues(10), ...
+                auxValues(11), auxValues(12), auxValues(13), auxValues(14), auxValues(15), ...
+                string(levelList(min(1, numel(levelList)))), ...
+                string(levelList(min(10, numel(levelList)))), ...
+                string(levelList(min(15, numel(levelList)))), ...
+                'VariableNames', { ...
+                'Skill', 'Param', 'ScalingType', 'Multiplier', 'SubType', 'IsDamage', ...
+                'Level1', 'Level2', 'Level3', 'Level4', 'Level5', ...
+                'Level6', 'Level7', 'Level8', 'Level9', 'Level10', ...
+                'Level11', 'Level12', 'Level13', 'Level14', 'Level15', ...
+                'AuxLevel1', 'AuxLevel2', 'AuxLevel3', 'AuxLevel4', 'AuxLevel5', ...
+                'AuxLevel6', 'AuxLevel7', 'AuxLevel8', 'AuxLevel9', 'AuxLevel10', ...
+                'AuxLevel11', 'AuxLevel12', 'AuxLevel13', 'AuxLevel14', 'AuxLevel15', ...
+                'RawLevel1', 'RawLevel10', 'RawLevel15'});
+            rows = [rows; row]; %#ok<AGROW>
         end
     end
-    
-    % The CSV becomes the stable hand-off point between parsing once and
-    % simulating many times.
-    outputFile = sprintf('../../data/Furina/talents_%s_Ver%s.csv', charName, version);
+
+    outputFile = fullfile(fileparts(mfilename('fullpath')), '..', '..', 'data', 'Furina', ...
+        sprintf('talents_%s_Ver%s.csv', charName, version));
     writetable(rows, outputFile);
-    
-    fprintf('芙寧娜天賦解析完成（Ver %s）：共 %d 行（包含所有參數），已保存至 %s\n', ...
-        version, height(rows), outputFile);
-    
-    % 預覽所有行（特別標注召喚物與非傷害行）
-    fprintf('\n預覽（前10行 + 召喚物相關行）:\n');
-    disp(rows(1:min(10,height(rows)), {'Skill','Param','SubType','IsDamage','ScalingType','Level10'}));
-    
-    summonRows = rows(~cellfun(@isempty, rows.SubType), :);
-    if ~isempty(summonRows)
-        fprintf('\n召喚物相關行：\n');
-        disp(summonRows(:, {'Skill','Param','SubType','ScalingType','Level10'}));
+    if strcmpi(version, 'L')
+        genericOutputFile = fullfile(fileparts(mfilename('fullpath')), '..', '..', 'data', 'Furina', ...
+            sprintf('talents_%s.csv', charName));
+        writetable(rows, genericOutputFile);
     end
-    
     talentTable = rows;
+end
+
+function [values, auxValues] = localParseLevelValues(levelList)
+    values = nan(1, 15);
+    auxValues = nan(1, 15);
+    for levelIndex = 1:min(15, numel(levelList))
+        tokens = regexp(char(levelList(levelIndex)), '([\d\.]+)(%)?', 'tokens');
+        if isempty(tokens)
+            continue;
+        end
+
+        values(levelIndex) = localTokenToValue(tokens, 1);
+        auxValues(levelIndex) = localTokenToValue(tokens, 2);
+    end
+end
+
+function value = localTokenToValue(tokens, index)
+    value = NaN;
+    if numel(tokens) < index
+        return;
+    end
+
+    num = str2double(tokens{index}{1});
+    if isnan(num)
+        return;
+    end
+    if numel(tokens{index}) > 1 && strcmp(tokens{index}{2}, '%')
+        value = num / 100;
+    else
+        value = num;
+    end
+end
+
+function scalingType = localResolveScalingType(desc)
+    text = string(desc);
+    if any(contains(text, ["Max HP", "HP"]))
+        scalingType = "MaxHP";
+    elseif any(contains(text, ["ATK"]))
+        scalingType = "ATK";
+    elseif any(contains(text, ["DEF"]))
+        scalingType = "DEF";
+    elseif any(contains(text, ["EM"]))
+        scalingType = "EM";
+    else
+        scalingType = "None";
+    end
+end
+
+function multiplier = localResolveMultiplier(desc)
+    multiplier = 1;
+    match = regexp(char(desc), '[xX](\d+)', 'tokens', 'once');
+    if ~isempty(match)
+        multiplier = str2double(match{1});
+        if isnan(multiplier)
+            multiplier = 1;
+        end
+    end
+end
+
+function subType = localResolveSubType(skillName, desc)
+    subType = "";
+    skillText = string(skillName);
+    descText = string(desc);
+    if ~any(contains(skillText, ["Salon Members", "沙龙", "侍者"]))
+        return;
+    end
+
+    if any(contains(descText, ["Usher"]))
+        subType = "Usher";
+    elseif any(contains(descText, ["Chevalmarin"]))
+        subType = "Chevalmarin";
+    elseif any(contains(descText, ["Crabaletta"]))
+        subType = "Crabaletta";
+    elseif any(contains(descText, ["Singer"]))
+        subType = "Singer";
+    elseif any(contains(descText, ["Healing", "heal"]))
+        subType = "Healing";
+    end
+end
+
+function tf = localIsDamageOrHealing(desc, subType)
+    text = string(desc);
+    tf = any(contains(text, ["damage", "heal", "HP", "ATK"])) || strlength(subType) > 0;
 end
