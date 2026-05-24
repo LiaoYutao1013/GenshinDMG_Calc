@@ -21,6 +21,23 @@ function validateOroronRegression()
     [damageC1, ~, breakdownC1] = simulateOroronDPS( ...
         cfgC5.Build, enemy, cfgC5.RotationFile, cfgC5.TalentLevel, 1, teamContext);
 
+    ororonEC = getDefaultCharacterConfig('Ororon', struct('Constellation', 1));
+    xingqiu = getDefaultCharacterConfig('Xingqiu');
+    fischl = getDefaultCharacterConfig('Fischl');
+    noelle = getDefaultCharacterConfig('Noelle');
+    ifa = getDefaultCharacterConfig('Ifa');
+
+    teamContextEC = buildTeamContext({ororonEC, xingqiu, fischl, noelle}, 20, struct('ReactionMode', "Realistic"), enemy);
+    teamContextNatlanEC = buildTeamContext({ororonEC, xingqiu, fischl, ifa}, 20, struct('ReactionMode', "Realistic"), enemy);
+
+    [damageEC, ~, breakdownEC] = simulateOroronDPS( ...
+        ororonEC.Build, enemy, ororonEC.RotationFile, ororonEC.TalentLevel, ororonEC.Constellation, teamContextEC);
+    [damageNatlanEC, ~, breakdownNatlanEC] = simulateOroronDPS( ...
+        ororonEC.Build, enemy, ororonEC.RotationFile, ororonEC.TalentLevel, ororonEC.Constellation, teamContextNatlanEC);
+
+    hypersenseNoteEC = string(breakdownEC.Note(strcmp(string(breakdownEC.Action), "Hypersense")));
+    hypersenseNoteNatlanEC = string(breakdownNatlanEC.Note(strcmp(string(breakdownNatlanEC.Action), "Hypersense")));
+
     assert(damageC6 >= damageC5, ...
         'Ororon C6 should not underperform C5 in the default multi-target rotation.');
     assert(any(contains(string(breakdownC6.Note), "C6 burst-triggered Hypersense")), ...
@@ -29,6 +46,15 @@ function validateOroronRegression()
         'Ororon C6 rotation should include the C6 echo action.');
     assert(any(contains(string(breakdownC1.Note), "Nighttide")), ...
         'Ororon C1 should expose the Nighttide note on Spirit Orb hits.');
+    assert(isfield(teamContextEC, 'ArchetypeInfo') && isstruct(teamContextEC.ArchetypeInfo) ...
+        && ~isempty(fieldnames(teamContextEC.ArchetypeInfo)), ...
+        'buildTeamContext should expose ArchetypeInfo for direct character sims.');
+    assert(any(contains(hypersenseNoteEC, "est. 5 procs")), ...
+        'Ororon plain Electro-Charged comp should expose the 5-proc Hypersense estimate.');
+    assert(any(contains(hypersenseNoteNatlanEC, "est. 7 procs")), ...
+        'Ororon Natlan + Electro-Charged comp should expose the higher 7-proc Hypersense estimate.');
+    assert(damageNatlanEC > damageEC, ...
+        'Natlan-backed Electro-Charged setup should outperform plain Electro-Charged via extra Hypersense pressure.');
 
     disp('validateOroronRegression passed');
 end

@@ -46,9 +46,9 @@ folders under `data/` now have matching:
 
 ## Remaining Work
 
-- Continue second-pass precision calibration for simple-wrapper characters,
-  prioritizing `Sethos`, `Ororon`, and the rest of the recently imported
-  batch.
+- Continue second-pass precision calibration for the remaining simple-wrapper
+  characters in the imported batch, now prioritizing the still-unreviewed
+  members.
 - Continue real `ApplyGauge` / `ICD` / reaction-regression validation after
   per-character refinements.
 - Continue team-timeline and off-field trigger convergence against the

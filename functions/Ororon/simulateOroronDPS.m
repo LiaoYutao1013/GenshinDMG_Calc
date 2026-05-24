@@ -135,7 +135,7 @@ function [totalDMG, dps, breakdown, rotationTime, audit] = simulateOroronDPS(bui
         'BaseActionDamageBonus', c2ElectroBonus, ...
         'LunarisAttackName', "NyxState", ...
         'LunarisDamageParam', "Damage_ExpendNyx", ...
-        'Note', "Nightshade Synesthesia");
+        'Note', localBuildHypersenseNote(hypersenseProcCount));
     actions.C6Echo = struct( ...
         'TalentGroup', "Skill", ...
         'TalentLevelOverride', skillLevel, ...
@@ -237,20 +237,105 @@ end
 
 function procCount = localEstimateHypersenseProcCount(teamContext, electroChargedReady, natlanSupportReady, enemyTargetCount)
     procCount = 0;
-    if electroChargedReady
-        procCount = 3 ...
-            + double(getFieldOrDefault(teamContext, 'MemberCount', 1) >= 3) ...
-            + double(getFieldOrDefault(teamContext, 'HydroCount', 0) >= 1 && getFieldOrDefault(teamContext, 'ElectroCount', 0) >= 2);
-    elseif natlanSupportReady
-        procCount = 2 ...
-            + double(getFieldOrDefault(teamContext, 'MemberCount', 1) >= 3) ...
-            + double(enemyTargetCount >= 2);
+    if ~(electroChargedReady || natlanSupportReady)
+        return;
     end
 
-    if electroChargedReady && natlanSupportReady
-        procCount = procCount + 1;
+    archetypeInfo = localResolveArchetypeInfo(teamContext);
+    memberNames = string(getFieldOrDefault(teamContext, 'MemberNames', strings(1, 0)));
+    memberElements = string(getFieldOrDefault(teamContext, 'MemberElements', strings(1, 0)));
+    preferredJobs = string(getFieldOrDefault(archetypeInfo, 'PreferredJobs', repmat("", size(memberNames))));
+    if numel(memberElements) ~= numel(memberNames)
+        memberElements = repmat("", size(memberNames));
     end
-    procCount = min(6, procCount);
+    if numel(preferredJobs) ~= numel(memberNames)
+        preferredJobs = repmat("", size(memberNames));
+    end
+
+    normalizedNames = lower(memberNames);
+    ororonMask = normalizedNames == "ororon";
+    driverMask = preferredJobs == "Driver" | preferredJobs == "Carry";
+    triggerMask = preferredJobs == "Trigger";
+    hydroElectroMask = (memberElements == "Hydro" | memberElements == "Electro") & ~ororonMask;
+
+    otherHydroElectroCount = sum(hydroElectroMask);
+    driverHydroElectroCount = sum(hydroElectroMask & driverMask);
+    triggerHydroElectroCount = sum(hydroElectroMask & triggerMask);
+    otherNightsoulCount = localCountNightsoulAllies(teamContext);
+    otherDriverCount = sum(driverMask & ~ororonMask);
+    otherTriggerCount = sum(triggerMask & ~ororonMask);
+
+    pointGainEvents = localEstimateHypersensePointGainEvents( ...
+        electroChargedReady, otherHydroElectroCount, driverHydroElectroCount, triggerHydroElectroCount);
+    pointBudgetProcCount = floor((40 * double(natlanSupportReady) + 5 * pointGainEvents) / 10);
+    triggerOpportunityCount = localEstimateHypersenseTriggerOpportunityCount( ...
+        electroChargedReady, natlanSupportReady, enemyTargetCount, ...
+        otherHydroElectroCount, driverHydroElectroCount, triggerHydroElectroCount, ...
+        otherNightsoulCount, otherDriverCount, otherTriggerCount);
+
+    procCount = min([8, pointBudgetProcCount, triggerOpportunityCount]);
+    procCount = max(0, procCount);
+end
+
+function events = localEstimateHypersensePointGainEvents( ...
+        electroChargedReady, otherHydroElectroCount, driverHydroElectroCount, triggerHydroElectroCount)
+    events = 0;
+    if ~electroChargedReady || otherHydroElectroCount <= 0
+        return;
+    end
+
+    events = 5 ...
+        + 2 * min(otherHydroElectroCount, 2) ...
+        + driverHydroElectroCount ...
+        + triggerHydroElectroCount;
+    events = min(10, events);
+end
+
+function opportunityCount = localEstimateHypersenseTriggerOpportunityCount( ...
+        electroChargedReady, natlanSupportReady, enemyTargetCount, ...
+        otherHydroElectroCount, driverHydroElectroCount, triggerHydroElectroCount, ...
+        otherNightsoulCount, otherDriverCount, otherTriggerCount)
+    opportunityCount = 0;
+    if electroChargedReady
+        opportunityCount = max(opportunityCount, 4 ...
+            + double(otherHydroElectroCount >= 2) ...
+            + double(driverHydroElectroCount >= 1) ...
+            + double(triggerHydroElectroCount >= 1) ...
+            + double(enemyTargetCount >= 2));
+    end
+
+    if natlanSupportReady
+        opportunityCount = max(opportunityCount, 3 ...
+            + double(otherNightsoulCount >= 2) ...
+            + double(otherDriverCount >= 1) ...
+            + double(otherTriggerCount >= 1) ...
+            + double(enemyTargetCount >= 2));
+    end
+
+    opportunityCount = min(8, opportunityCount);
+end
+
+function archetypeInfo = localResolveArchetypeInfo(teamContext)
+    archetypeInfo = getFieldOrDefault(teamContext, 'ArchetypeInfo', struct());
+    if isstruct(archetypeInfo) && ~isempty(fieldnames(archetypeInfo))
+        return;
+    end
+
+    memberNames = string(getFieldOrDefault(teamContext, 'MemberNames', strings(1, 0)));
+    if isempty(memberNames)
+        archetypeInfo = struct();
+        return;
+    end
+
+    members = cell(1, numel(memberNames));
+    for i = 1:numel(memberNames)
+        members{i} = struct('Name', char(memberNames(i)));
+    end
+    archetypeInfo = identifyTeamArchetype(members, struct());
+end
+
+function note = localBuildHypersenseNote(procCount)
+    note = sprintf('Nightshade Synesthesia (est. %d procs)', procCount);
 end
 
 function count = localCountNightsoulAllies(teamContext)
