@@ -1,9 +1,9 @@
 function [totalDMG, dps, breakdown, rotationTime, audit] = simulateDurinDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
-    % 杜林高精度近似模拟器。
-    % 建模重点：
-    % 1. 战技后的净化/黯蚀双形态切换；
-    % 2. 爆发根据当前形态切换为白焰龙或暗蚀龙；
-    % 3. 处理原粹聚变层数、关键命座与反应优先级。
+    % Durin explicit transmutation / dragon-mode script with approximation.
+    % Confirmation and denial branches, burst mode swaps, and white/dark
+    % dragon follow-up ticks are modeled as separate actions.
+    % Remaining approximation: fusion-cycle consumption and dark reaction
+    % routing still use expected-value heuristics from team support flags.
     if nargin < 3 || isempty(seqFile)
         seqFile = fullfile(fileparts(mfilename('fullpath')), '..', '..', 'data', 'Durin', 'rotation_Durin.txt');
     end

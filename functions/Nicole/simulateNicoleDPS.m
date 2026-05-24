@@ -1,11 +1,9 @@
 function [totalDMG, dps, breakdown, rotationTime, audit] = simulateNicoleDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
-    % Nicole 高精度近似模拟器。
-    % 建模重点：
-    % 1. 战技的护盾、Grace / Guidance 攻击加成与专武触发；
-    % 2. 爆发的 4 次 3 秒间隔 Arcane Projection；
-    % 3. Hexerei: Secret Rite、C1 / C4 / C6 与对应投影元素；
-    % 4. 单人入口下剥离 teamContext 中为“团队近似”预先注入的 Nicole 自身增益，
-    %    避免 Nicole 自己的模拟出现双重计算。
+    % Nicole explicit shield / projection / unity script with approximation.
+    % Skill shield, Grace and Guidance windows, burst projections, and
+    % unity follow-ups are modeled as separate actions.
+    % Remaining approximation: team-shared Nicole support still enters via
+    % pre-injected approximate teamContext fields and owner fallbacks.
     if nargin < 3 || isempty(seqFile)
         seqFile = fullfile(fileparts(mfilename('fullpath')), '..', '..', 'data', 'Nicole', 'rotation_Nicole.txt');
     end

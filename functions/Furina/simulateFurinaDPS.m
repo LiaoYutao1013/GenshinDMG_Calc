@@ -1,5 +1,9 @@
 function [totalDMG, dps, breakdown, rotationTime, audit] = simulateFurinaDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
-    % Furina high-fidelity approximate model with explicit Arkhe and Salon state.
+    % Furina explicit Arkhe / Salon script with approximation.
+    % Arkhe mode swaps, Salon member attacks, Singer heals, burst, and C6
+    % infusions are modeled as separate stateful actions.
+    % Remaining approximation: party HP drift, fanfare gain, and Salon ramp
+    % still use scripted team-size heuristics instead of full team timelines.
     if nargin < 3 || isempty(seqFile)
         seqFile = char(resolveCharacterDataFile('Furina', 'rotation'));
     end

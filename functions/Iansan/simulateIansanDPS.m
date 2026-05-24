@@ -1,9 +1,9 @@
 function [totalDMG, dps, breakdown, rotationTime, audit] = simulateIansanDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
-    % 伊安珊高精度近似模拟器。
-    % 建模重点：
-    % 1. 战技冲刺与印记投掷的前台动作；
-    % 2. 爆发后的训练场/增幅窗口与协同落雷；
-    % 3. 队伍中高移动或高站场节奏下的攻击辅助近似收益。
+    % Iansan explicit dash / burst support script with approximation.
+    % Dash entry, mark toss, burst window, and coordinated lightning are
+    % modeled as separate actions.
+    % Remaining approximation: team attack-support value still depends on
+    % scripted movement and on-field rhythm heuristics.
     if nargin < 3 || isempty(seqFile)
         seqFile = fullfile(fileparts(mfilename('fullpath')), '..', '..', 'data', 'Iansan', 'rotation_Iansan.txt');
     end
