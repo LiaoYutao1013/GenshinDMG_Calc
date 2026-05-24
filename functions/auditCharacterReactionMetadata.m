@@ -41,9 +41,9 @@ function audit = auditCharacterReactionMetadata(characterName, overrides, enemy)
             cfg.Name, cfg.Build, enemy, cfg.RotationFile, cfg.TalentLevel, cfg.Constellation, teamContext);
     end
 
-    rows = table();
+    rows = localMakeEmptyAuditRows();
     if ~isempty(audit) && isfield(audit, 'Rows') && istable(audit.Rows)
-        rows = audit.Rows;
+        rows = localNormalizeAuditRows(audit.Rows);
     end
 
     if ~isempty(rows)
@@ -58,4 +58,49 @@ function audit = auditCharacterReactionMetadata(characterName, overrides, enemy)
         'RotationFile', string(cfg.RotationFile), ...
         'Mode', "Realistic", ...
         'Rows', rows);
+end
+
+function rows = localNormalizeAuditRows(rows)
+    rows = localDefaultAuditRows(rows);
+    expected = localMakeEmptyAuditRows();
+    expectedNames = string(expected.Properties.VariableNames);
+
+    if isempty(rows)
+        rows = expected;
+        return;
+    end
+
+    for i = 1:numel(expectedNames)
+        name = char(expectedNames(i));
+        if ismember(name, rows.Properties.VariableNames)
+            continue;
+        end
+        rows.(name) = localDefaultAuditColumn(name, height(rows));
+    end
+
+    rows = rows(:, cellstr(expectedNames));
+end
+
+function rows = localMakeEmptyAuditRows()
+    rows = table('Size', [0 10], ...
+        'VariableTypes', {'string', 'string', 'double', 'string', 'string', 'string', 'string', 'string', 'logical', 'logical'}, ...
+        'VariableNames', {'Action', 'ActionKey', 'ApplyGauge', 'ApplyGaugeSource', 'ICDRule', 'ICDSource', ...
+        'LunarisAttackName', 'LunarisDamageParam', 'ApplyGaugeFallback', 'ICDFallback'});
+end
+
+function rows = localDefaultAuditRows(rows)
+    if nargin < 1 || ~istable(rows)
+        rows = localMakeEmptyAuditRows();
+    end
+end
+
+function value = localDefaultAuditColumn(name, count)
+    switch char(string(name))
+        case 'ApplyGauge'
+            value = nan(count, 1);
+        case {'ApplyGaugeFallback', 'ICDFallback'}
+            value = false(count, 1);
+        otherwise
+            value = strings(count, 1);
+    end
 end
