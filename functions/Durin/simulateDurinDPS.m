@@ -1,4 +1,4 @@
-function [totalDMG, dps, breakdown, rotationTime] = simulateDurinDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
+function [totalDMG, dps, breakdown, rotationTime, audit] = simulateDurinDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
     % 杜林高精度近似模拟器。
     % 建模重点：
     % 1. 战技后的净化/黯蚀双形态切换；
@@ -143,6 +143,14 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateDurinDPS(build, enem
         rotationTime = getFieldOrDefault(teamContext, 'RotationDuration', 20);
     end
     dps = totalDMG / rotationTime;
+
+    if nargout > 4
+        audit = buildInferredReactionAudit( ...
+            struct('Name', "Durin", 'Constellation', constellation, 'TalentLevel', talentLevel), ...
+            actions.Tokens, teamContext, seqFile, struct(), struct('PrimaryArchetype', "Burst"));
+    else
+        audit = struct();
+    end
 end
 
 function actions = localResolveRotation(seqFile, teamContext)

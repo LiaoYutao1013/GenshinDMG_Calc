@@ -1,4 +1,4 @@
-function [totalDMG, dps, breakdown, rotationTime] = simulateNicoleDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
+function [totalDMG, dps, breakdown, rotationTime, audit] = simulateNicoleDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
     % Nicole 高精度近似模拟器。
     % 建模重点：
     % 1. 战技的护盾、Grace / Guidance 攻击加成与专武触发；
@@ -161,6 +161,14 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateNicoleDPS(build, ene
         rotationTime = getFieldOrDefault(localTeamContext, 'RotationDuration', 20);
     end
     dps = totalDMG / rotationTime;
+
+    if nargout > 4
+        audit = buildInferredReactionAudit( ...
+            struct('Name', "Nicole", 'Constellation', constellation, 'TalentLevel', talentLevel), ...
+            actions, localTeamContext, seqFile, struct(), struct('PrimaryArchetype', "Support"));
+    else
+        audit = struct();
+    end
 end
 
 function actions = localResolveRotation(seqFile)

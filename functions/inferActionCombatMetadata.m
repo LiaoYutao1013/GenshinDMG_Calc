@@ -188,7 +188,7 @@ function actionClass = localResolveActionClass(lowerAction)
     end
     if any(strcmp(lowerAction, {'blade', 'herald', 'heraldcoord', 'qstellar', 'casehit', 'thorn', ...
             'scenteddew', 'duckywaterball', 'robotstrike', 'meowball', 'meowbounce', ...
-            'bolt', 'starwicker', 'projection', 'whitetick', 'darktick', 'singer', 'finisher'})) ...
+            'bolt', 'starwicker', 'projection', 'whitetick', 'darktick', 'singer', 'finisher', 'unity'})) ...
             || contains(lowerAction, 'stellar') || contains(lowerAction, 'icicle')
         actionClass = "FollowUp";
         return;
@@ -397,6 +397,55 @@ function meta = localApplyCharacterSpecificMetadata(meta, member, normalizedName
         case 'varesa'
             if strcmp(lowerAction, 'finisher')
                 meta.ConsumesActiveWindow = true;
+            end
+
+        case 'durin'
+            if strcmp(lowerAction, 'e')
+                meta.HitElement = "";
+                meta.ApplyElement = "";
+                meta.ApplyGauge = 0.0;
+                meta.CanApplyAura = false;
+                meta.AllowAmplify = false;
+                meta.AllowCatalyze = false;
+            elseif any(strcmp(lowerAction, {'q', 'confirm', 'deny', 'whitetick', 'darktick'}))
+                meta.HitElement = "Pyro";
+                meta.ApplyElement = "Pyro";
+                meta.ApplyGauge = 1.0;
+                meta.CanApplyAura = true;
+                meta.AllowAmplify = true;
+                meta.AllowCatalyze = false;
+            end
+            if strcmp(lowerAction, 'deny')
+                meta.EffectDuration = max(meta.EffectDuration, 30.0);
+            end
+
+        case 'nicole'
+            ownerElement = string(getFieldOrDefault(teamContext, 'NicoleProjectionOwnerElement', "Pyro"));
+            ownerAllowAmplify = any(strcmpi(char(ownerElement), {'Pyro', 'Hydro', 'Cryo'}));
+            ownerAllowCatalyze = any(strcmpi(char(ownerElement), {'Electro', 'Dendro'}));
+            if any(strcmp(lowerAction, {'e', 'q', 'na1', 'na2', 'na3', 'ca'}))
+                meta.HitElement = "Pyro";
+                meta.ApplyElement = "Pyro";
+                meta.ApplyGauge = 1.0;
+                meta.CanApplyAura = true;
+                meta.AllowAmplify = true;
+                meta.AllowCatalyze = false;
+            elseif strcmp(lowerAction, 'projection')
+                meta.HitElement = ownerElement;
+                meta.ApplyElement = ownerElement;
+                meta.ApplyGauge = 1.0;
+                meta.CanApplyAura = true;
+                meta.AllowAmplify = ownerAllowAmplify;
+                meta.AllowCatalyze = ownerAllowCatalyze;
+            elseif strcmp(lowerAction, 'unity')
+                meta.ActionClass = "FollowUp";
+                meta.ConsumesActiveWindow = false;
+                meta.HitElement = ownerElement;
+                meta.ApplyElement = ownerElement;
+                meta.ApplyGauge = 1.0;
+                meta.CanApplyAura = true;
+                meta.AllowAmplify = ownerAllowAmplify;
+                meta.AllowCatalyze = ownerAllowCatalyze;
             end
 
         case 'aino'
