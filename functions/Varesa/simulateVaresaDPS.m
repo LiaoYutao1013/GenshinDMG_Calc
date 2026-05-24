@@ -1,9 +1,9 @@
 function [totalDMG, dps, breakdown, rotationTime, audit] = simulateVaresaDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
-    % 瓦雷莎高精度近似模拟器。
-    % 建模重点：
-    % 1. 战技入场后的突进、腾跃与下落输出链；
-    % 2. 明确处理弹丸/转化优先级为纯雷站场，不混入不确定元素转换；
-    % 3. 命座对技能段、爆发终结段和暴击状态的强化。
+    % Varesa explicit rush / plunge / burst script with one approximation.
+    % Rush, leap, plunge, burst, and finisher windows are modeled as
+    % separate stateful actions.
+    % Remaining approximation: plunge Electro-Charged splash still keys off
+    % teamContext.ElectroChargedReady instead of explicit aura ownership.
     if nargin < 3 || isempty(seqFile)
         seqFile = fullfile(fileparts(mfilename('fullpath')), '..', '..', 'data', 'Varesa', 'rotation_Varesa.txt');
     end
