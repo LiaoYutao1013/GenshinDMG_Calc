@@ -1,10 +1,9 @@
-function [totalDMG, dps, breakdown, rotationTime] = simulateKamisatoAyakaDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
-    % 神里绫华高精度近似模拟。
-    % 建模要点：
-    % 1. 显式区分冲刺附魔后的普攻/重击、E 后 6 秒普重击增伤、冲刺后 10 秒冰伤加成；
-    % 2. 将 Q 拆分为主风暴切割段、终结绽放段，以及 C2 两道小风暴的期望伤害；
-    % 3. C4 通过 Q 段内减防直接写入敌方防御区，C6 按“首个重击大幅强化”建模；
-    % 4. 默认轮转改为更接近冻结队的冲刺起手轴，而不是依赖 AUTO 兜底。
+function [totalDMG, dps, breakdown, rotationTime, audit] = simulateKamisatoAyakaDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
+    % Ayaka explicit infused string / burst storm script with approximation.
+    % Senho, infused normals and charged attacks, and burst storm segments
+    % are modeled as separate actions with C6 first-CA handling.
+    % Remaining approximation: C2 side storms use expected-damage rows
+    % instead of target-position-resolved hit confirmation.
     if nargin < 3 || isempty(seqFile)
         seqFile = fullfile(fileparts(mfilename('fullpath')), '..', '..', 'data', 'KamisatoAyaka', 'rotation_KamisatoAyaka.txt');
     end
@@ -87,6 +86,6 @@ function [totalDMG, dps, breakdown, rotationTime] = simulateKamisatoAyakaDPS(bui
         spec.DefaultRotation = {{'Senho', 'E', 'QCut', 'QCutC2', 'QBloom', 'QBloomC2', 'N1', 'N2', 'N3', 'N4', 'CA6', 'Senho', 'N1', 'N2', 'CA'}};
     end
 
-    [totalDMG, dps, breakdown, rotationTime] = simulateSimpleCharacterDPS( ...
+    [totalDMG, dps, breakdown, rotationTime, audit] = simulateSimpleCharacterDPS( ...
         'KamisatoAyaka', build, enemy, seqFile, talentLevel, constellation, teamContext, spec);
 end
