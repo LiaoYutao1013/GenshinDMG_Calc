@@ -74,6 +74,7 @@ function teamContext = buildTeamContext(members, rotationDuration, sharedBuffs, 
     cryoCritDMGBonus = getFieldOrDefault(sharedBuffs, 'CryoCritDMGBonus', 0);
     anemoCritDMGBonus = getFieldOrDefault(sharedBuffs, 'AnemoCritDMGBonus', 0);
     geoCritDMGBonus = getFieldOrDefault(sharedBuffs, 'GeoCritDMGBonus', 0);
+    geoCritRateBonus = getFieldOrDefault(sharedBuffs, 'GeoCritRateBonus', 0);
     physicalCritRateBonus = getFieldOrDefault(sharedBuffs, 'PhysicalCritRateBonus', 0);
     physicalCritDMGBonus = getFieldOrDefault(sharedBuffs, 'PhysicalCritDMGBonus', 0);
     mikaATKSpeedBonus = 0;
@@ -119,6 +120,8 @@ function teamContext = buildTeamContext(members, rotationDuration, sharedBuffs, 
     hasFaruzan = any(memberNames == "Faruzan");
     hasNahida = any(memberNames == "Nahida");
     hasSandrone = any(memberNames == "Sandrone");
+    hasIlluga = any(memberNames == "Illuga");
+    ascendantMoonsign = hasAscendantMoonsign(struct('MemberNames', memberNames));
 
     lunarBloomEnabled = hasLauma || hasNefer || (hasColumbina && hydroCount >= 1 && dendroCount >= 1);
     lunarChargedEnabled = (hasIneffa || hasFlins || hasColumbina) && hydroCount >= 1 && electroCount >= 1;
@@ -281,6 +284,15 @@ function teamContext = buildTeamContext(members, rotationDuration, sharedBuffs, 
     if hasXianyun
         xianyunIndex = find(memberNames == "Xianyun", 1, 'first');
         xianyunSupport = localBuildXianyunSupport(members{xianyunIndex});
+    end
+
+    illugaSupport = localDefaultIllugaSupport();
+    if hasIlluga
+        illugaIndex = find(memberNames == "Illuga", 1, 'first');
+        illugaSupport = localBuildIllugaSupport(members{illugaIndex}, ascendantMoonsign);
+        geoCritRateBonus = geoCritRateBonus + illugaSupport.GeoCritRateBonus;
+        geoCritDMGBonus = geoCritDMGBonus + illugaSupport.GeoCritDMGBonus;
+        emBonus = emBonus + illugaSupport.SharedEMBonus;
     end
 
     flatATK = getFieldOrDefault(sharedBuffs, 'FlatATK', 0) + nicoleTeamFlatATK;
@@ -452,6 +464,8 @@ function teamContext = buildTeamContext(members, rotationDuration, sharedBuffs, 
         'CryoCritDMGBonus', cryoCritDMGBonus, ...
         'AnemoCritDMGBonus', anemoCritDMGBonus, ...
         'GeoCritDMGBonus', geoCritDMGBonus, ...
+        'GeoCritRateBonus', geoCritRateBonus, ...
+        'IllugaSupport', illugaSupport, ...
         'PhysicalCritRateBonus', physicalCritRateBonus, ...
         'PhysicalCritDMGBonus', physicalCritDMGBonus, ...
         'MikaATKSpeedBonus', mikaATKSpeedBonus, ...
@@ -650,6 +664,36 @@ function buffs = localEmptyArtifactTeamBuffs()
         'CryoResShred', 0, ...
         'ElectroResShred', 0, ...
         'GeoResShred', 0);
+end
+
+function support = localDefaultIllugaSupport()
+    support = struct( ...
+        'GeoCritRateBonus', 0, ...
+        'GeoCritDMGBonus', 0, ...
+        'SharedEMBonus', 0);
+end
+
+function support = localBuildIllugaSupport(illugaMember, moonsignActive)
+    support = localDefaultIllugaSupport();
+    constellation = getFieldOrDefault(illugaMember, 'Constellation', 0);
+
+    % Torchforger's Covenant is modeled as a shared team buff here.
+    % Illuga's own simulator removes these bonuses from his personal view.
+    if constellation >= 6
+        support.GeoCritRateBonus = 0.10;
+        support.GeoCritDMGBonus = 0.30;
+    else
+        support.GeoCritRateBonus = 0.05;
+        support.GeoCritDMGBonus = 0.10;
+    end
+
+    if moonsignActive
+        if constellation >= 6
+            support.SharedEMBonus = 80;
+        else
+            support.SharedEMBonus = 50;
+        end
+    end
 end
 
 function merged = localMergeArtifactTeamBuffsMax(baseBuffs, incomingBuffs)

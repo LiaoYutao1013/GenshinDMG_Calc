@@ -16,6 +16,7 @@ function result = simulateCharacterDPS(memberCfg, enemy, teamContext)
     end
     memberTeamContext = teamContext;
     memberTeamContext = localApplyElementSpecificTeamBonuses(memberTeamContext, memberCfg.Name);
+    memberTeamContext = localApplyCharacterSelfSuppression(memberTeamContext, memberCfg.Name);
     memberTeamContext.EnemyState = memberCfg.EnemyState;
 
     switch name
@@ -430,4 +431,16 @@ function teamContext = localApplyElementSpecificTeamBonuses(teamContext, charact
 
     teamContext.ElementSpecificDMGBonus = elementBonus;
     teamContext.AllDMGBonus = getFieldOrDefault(teamContext, 'AllDMGBonus', 0) + elementBonus;
+end
+
+function teamContext = localApplyCharacterSelfSuppression(teamContext, characterName)
+    name = lower(strtrim(char(string(characterName))));
+    switch name
+        case 'illuga'
+            support = getFieldOrDefault(teamContext, 'IllugaSupport', struct());
+            teamContext.IllugaSelfSupportRemoved = true;
+            teamContext.GeoCritRateBonus = max(0, getFieldOrDefault(teamContext, 'GeoCritRateBonus', 0) - getFieldOrDefault(support, 'GeoCritRateBonus', 0));
+            teamContext.GeoCritDMGBonus = max(0, getFieldOrDefault(teamContext, 'GeoCritDMGBonus', 0) - getFieldOrDefault(support, 'GeoCritDMGBonus', 0));
+            teamContext.EMBonus = max(0, getFieldOrDefault(teamContext, 'EMBonus', 0) - getFieldOrDefault(support, 'SharedEMBonus', 0));
+    end
 end

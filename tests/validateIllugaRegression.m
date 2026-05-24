@@ -10,16 +10,34 @@ function validateIllugaRegression()
         'EnemyCount', 2, ...
         'TargetCount', 2);
 
+    cfgC0 = getDefaultCharacterConfig('Illuga', struct('Constellation', 0));
     cfgC1 = getDefaultCharacterConfig('Illuga', struct('Constellation', 1));
     cfgC2 = getDefaultCharacterConfig('Illuga', struct('Constellation', 2));
+    teamContextC0 = buildTeamContext({cfgC0}, 20, struct('ReactionMode', "Realistic"), enemy);
     teamContextC1 = buildTeamContext({cfgC1}, 20, struct('ReactionMode', "Realistic"), enemy);
     teamContextC2 = buildTeamContext({cfgC2}, 20, struct('ReactionMode', "Realistic"), enemy);
 
+    support = getFieldOrDefault(teamContextC0, 'IllugaSupport', struct());
+    strippedContext = teamContextC0;
+    strippedContext.GeoCritRateBonus = max(0, getFieldOrDefault(strippedContext, 'GeoCritRateBonus', 0) - getFieldOrDefault(support, 'GeoCritRateBonus', 0));
+    strippedContext.GeoCritDMGBonus = max(0, getFieldOrDefault(strippedContext, 'GeoCritDMGBonus', 0) - getFieldOrDefault(support, 'GeoCritDMGBonus', 0));
+    strippedContext.EMBonus = max(0, getFieldOrDefault(strippedContext, 'EMBonus', 0) - getFieldOrDefault(support, 'SharedEMBonus', 0));
+    strippedContext.IllugaSelfSupportRemoved = true;
+
+    [damageC0, ~, ~] = simulateIllugaDPS( ...
+        cfgC0.Build, enemy, cfgC0.RotationFile, cfgC0.TalentLevel, cfgC0.Constellation, teamContextC0);
+    [damageC0Stripped, ~, ~] = simulateIllugaDPS( ...
+        cfgC0.Build, enemy, cfgC0.RotationFile, cfgC0.TalentLevel, cfgC0.Constellation, strippedContext);
     [damageC1, ~, breakdownC1] = simulateIllugaDPS( ...
         cfgC1.Build, enemy, cfgC1.RotationFile, cfgC1.TalentLevel, cfgC1.Constellation, teamContextC1);
     [damageC2, ~, breakdownC2] = simulateIllugaDPS( ...
         cfgC2.Build, enemy, cfgC2.RotationFile, cfgC2.TalentLevel, cfgC2.Constellation, teamContextC2);
 
+    assert(getFieldOrDefault(support, 'GeoCritRateBonus', 0) > 0 ...
+        && getFieldOrDefault(support, 'GeoCritDMGBonus', 0) > 0, ...
+        'Illuga team context should expose Lightkeeper''s Oath support bonuses.');
+    assert(abs(damageC0 - damageC0Stripped) <= 1e-6 * max(1, abs(damageC0Stripped)), ...
+        'Illuga should not benefit from his own Lightkeeper''s Oath team bonuses.');
     assert(damageC2 > damageC1, ...
         'Illuga C2 should outperform C1 in the default burst rotation.');
     assert(any(contains(string(breakdownC2.Action), "SongBoost")), ...

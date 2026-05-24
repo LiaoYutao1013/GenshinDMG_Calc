@@ -18,6 +18,7 @@ function [totalDMG, dps, breakdown, rotationTime, audit] = simulateIllugaDPS( ..
     if nargin < 6 || isempty(teamContext)
         teamContext = buildTeamContext({struct('Name', 'Illuga', 'Constellation', constellation, 'Build', build)}, 20, struct());
     end
+    teamContext = localStripIllugaSelfSupport(teamContext);
 
     talent = readtable(char(resolveCharacterDataFile('Illuga', 'talents')));
     skillLevel = localClampTalentLevel(talentLevel + 3 * double(constellation >= 5));
@@ -198,6 +199,18 @@ end
 
 function tf = localHasAscendantMoonsignIlluga(teamContext)
     tf = hasAscendantMoonsign(teamContext);
+end
+
+function teamContext = localStripIllugaSelfSupport(teamContext)
+    if logical(getFieldOrDefault(teamContext, 'IllugaSelfSupportRemoved', false))
+        return;
+    end
+
+    support = getFieldOrDefault(teamContext, 'IllugaSupport', struct());
+    teamContext.GeoCritRateBonus = max(0, getFieldOrDefault(teamContext, 'GeoCritRateBonus', 0) - getFieldOrDefault(support, 'GeoCritRateBonus', 0));
+    teamContext.GeoCritDMGBonus = max(0, getFieldOrDefault(teamContext, 'GeoCritDMGBonus', 0) - getFieldOrDefault(support, 'GeoCritDMGBonus', 0));
+    teamContext.EMBonus = max(0, getFieldOrDefault(teamContext, 'EMBonus', 0) - getFieldOrDefault(support, 'SharedEMBonus', 0));
+    teamContext.IllugaSelfSupportRemoved = true;
 end
 
 function level = localClampTalentLevel(level)

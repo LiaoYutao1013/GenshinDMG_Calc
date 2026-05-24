@@ -612,6 +612,8 @@ end
 
 function bonus = localElementCritRateBonus(element, teamContext)
     switch lower(char(string(element)))
+        case 'geo'
+            bonus = getFieldOrDefault(teamContext, 'GeoCritRateBonus', 0);
         case 'physical'
             bonus = getFieldOrDefault(teamContext, 'PhysicalCritRateBonus', 0);
         otherwise
