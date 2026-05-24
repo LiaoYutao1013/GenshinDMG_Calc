@@ -62,6 +62,9 @@ classdef GenshinDMGApp < handle
         EnemyResField
         EnemyDefField
         StatusLabel
+        DashboardHTML
+        LastStatusMessage
+        LastResultMetrics
 
         RunSingleButton
         RunTeamButton
@@ -90,6 +93,12 @@ classdef GenshinDMGApp < handle
             projectRoot = fileparts(fileparts(appFolder));
             obj.PortraitCacheDir = fullfile(projectRoot, 'art', 'portraits');
             obj.TempRotationDir = fullfile(tempdir, 'genshin_dmg_calc_rotations');
+            obj.LastStatusMessage = "界面已加载，等待模拟。";
+            obj.LastResultMetrics = struct( ...
+                'HasResult', false, ...
+                'TotalDamage', NaN, ...
+                'DPS', NaN, ...
+                'RotationTime', NaN);
 
             obj.initializeSlots();
             obj.createUI();
@@ -611,8 +620,8 @@ classdef GenshinDMGApp < handle
             resultPanel.Layout.Row = 1;
             resultPanel.Layout.Column = 3;
 
-            resultGrid = uigridlayout(resultPanel, [3 1]);
-            resultGrid.RowHeight = {156, 90, '1x'};
+            resultGrid = uigridlayout(resultPanel, [4 1]);
+            resultGrid.RowHeight = {156, 186, 90, '1x'};
             resultGrid.ColumnWidth = {'1x'};
             resultGrid.RowSpacing = 12;
             resultGrid.Padding = [12 12 12 12];
@@ -713,8 +722,17 @@ classdef GenshinDMGApp < handle
             obj.RefreshTimelineButton.Layout.Row = 3;
             obj.RefreshTimelineButton.Layout.Column = 6;
 
+            appFolder = fileparts(mfilename('fullpath'));
+            dashboardPath = fullfile(appFolder, 'GenshinDMGDashboard.html');
+            obj.DashboardHTML = uihtml(resultGrid, ...
+                'HTMLSource', dashboardPath, ...
+                'Tooltip', '伤害仪表盘');
+            obj.DashboardHTML.Layout.Row = 2;
+            obj.DashboardHTML.Layout.Column = 1;
+            obj.DashboardHTML.Data = obj.buildDashboardData();
+
             kpiGrid = uigridlayout(resultGrid, [1 3]);
-            kpiGrid.Layout.Row = 2;
+            kpiGrid.Layout.Row = 3;
             kpiGrid.Layout.Column = 1;
             kpiGrid.ColumnWidth = {'1x', '1x', '1x'};
             kpiGrid.RowHeight = {'1x'};
@@ -727,7 +745,7 @@ classdef GenshinDMGApp < handle
             [~, obj.RotationValueLabel] = obj.createKpiCard(kpiGrid, 3, '轮转时长', [0.74 0.57 0.76]);
 
             tabs = uitabgroup(resultGrid);
-            tabs.Layout.Row = 3;
+            tabs.Layout.Row = 4;
             tabs.Layout.Column = 1;
 
             summaryTab = uitab(tabs, 'Title', '成员汇总');
@@ -795,6 +813,94 @@ classdef GenshinDMGApp < handle
                 'FontColor', [0.18 0.22 0.30]);
             valueLabel.Layout.Row = 2;
             valueLabel.Layout.Column = 1;
+        end
+
+        function data = buildDashboardData(obj)
+            slot = obj.Slots(obj.SelectedSlot);
+            activeCount = nnz([obj.Slots.Enabled]);
+            totalSlots = numel(obj.Slots);
+
+            hasResult = false;
+            totalDamageValue = '--';
+            dpsValue = '--';
+            rotationValue = '--';
+            totalDamageNote = '尚未运行';
+            dpsNote = sprintf('%d/%d 启用', activeCount, totalSlots);
+            rotationNote = sprintf('起始 %.1f s', slot.StartTime);
+
+            if isstruct(obj.LastResultMetrics) ...
+                    && isfield(obj.LastResultMetrics, 'HasResult') ...
+                    && logical(obj.LastResultMetrics.HasResult)
+                hasResult = true;
+                totalDamageValue = obj.formatLargeNumber(obj.LastResultMetrics.TotalDamage);
+                dpsValue = obj.formatLargeNumber(obj.LastResultMetrics.DPS);
+                rotationValue = sprintf('%.2f s', obj.LastResultMetrics.RotationTime);
+                totalDamageNote = char(obj.LastSimulationMode);
+            end
+
+            statusMessage = string(obj.LastStatusMessage);
+            if strlength(strtrim(statusMessage)) == 0
+                statusMessage = "等待模拟。";
+            end
+            statusTone = obj.classifyStatusTone(statusMessage, hasResult);
+
+            data = struct( ...
+                'headline', '伤害仪表盘', ...
+                'subtitle', char(statusMessage), ...
+                'statusTone', char(statusTone), ...
+                'statusLabel', char(obj.statusToneLabel(statusTone)), ...
+                'totalDamageValue', totalDamageValue, ...
+                'totalDamageNote', totalDamageNote, ...
+                'dpsValue', dpsValue, ...
+                'dpsNote', dpsNote, ...
+                'rotationValue', rotationValue, ...
+                'rotationNote', rotationNote, ...
+                'slotValue', sprintf('槽位 %d', obj.SelectedSlot), ...
+                'slotNote', sprintf('R%d · %.1f s · %s', slot.WeaponRefinement, slot.StartTime, char(obj.localOnOff(slot.Enabled))), ...
+                'characterName', char(slot.DisplayName), ...
+                'weaponName', char(slot.WeaponName), ...
+                'artifactName', sprintf('%s · %s', char(slot.ArtifactSet1), char(obj.resolveArtifactModeLabel(slot))), ...
+                'presetName', char(obj.lookupPresetLabel(slot)), ...
+                'talentSummary', sprintf('C%d · Lv.%d · R%d', slot.Constellation, slot.TalentLevel, slot.WeaponRefinement), ...
+                'modeSummary', sprintf('%s · %d/%d 启用', char(obj.LastSimulationMode), activeCount, totalSlots));
+        end
+
+        function syncDashboard(obj)
+            if isempty(obj.DashboardHTML) || ~isvalid(obj.DashboardHTML)
+                return;
+            end
+
+            obj.DashboardHTML.Data = obj.buildDashboardData();
+        end
+
+        function label = statusToneLabel(obj, tone) %#ok<INUSD>
+            switch char(string(tone))
+                case 'success'
+                    label = '完成';
+                case 'warn'
+                    label = '警告';
+                case 'error'
+                    label = '失败';
+                case 'ready'
+                    label = '就绪';
+                otherwise
+                    label = '待机';
+            end
+        end
+
+        function tone = classifyStatusTone(obj, message, hasResult) %#ok<INUSD>
+            text = lower(char(string(message)));
+            if contains(text, {'失败', '错误', 'error', 'exception'})
+                tone = 'error';
+            elseif contains(text, {'警告', 'warning', '注意'})
+                tone = 'warn';
+            elseif hasResult
+                tone = 'success';
+            elseif contains(text, {'预览', '刷新', '等待', '已加载', 'ready'})
+                tone = 'ready';
+            else
+                tone = 'idle';
+            end
         end
 
         function labels = getCharacterDropdownLabels(obj)
@@ -957,6 +1063,7 @@ classdef GenshinDMGApp < handle
 
             obj.BuildTable.Data = buildStructToTableData(slot.Build);
             obj.RotationTextArea.Value = obj.rotationStringToTextAreaValue(slot.RotationText);
+            obj.syncDashboard();
         end
 
         function label = lookupPresetLabel(obj, slot)
@@ -1393,6 +1500,12 @@ classdef GenshinDMGApp < handle
             obj.TotalDamageValueLabel.Text = obj.formatLargeNumber(totalDamage);
             obj.TeamDPSValueLabel.Text = obj.formatLargeNumber(dps);
             obj.RotationValueLabel.Text = sprintf('%.2f s', rotationTime);
+            obj.LastResultMetrics = struct( ...
+                'HasResult', true, ...
+                'TotalDamage', totalDamage, ...
+                'DPS', dps, ...
+                'RotationTime', rotationTime);
+            obj.syncDashboard();
         end
 
         function text = formatLargeNumber(obj, value) %#ok<MANU>
@@ -1659,11 +1772,21 @@ classdef GenshinDMGApp < handle
         end
 
         function setStatus(obj, message)
+            obj.LastStatusMessage = string(message);
+            obj.StatusLabel.Text = obj.shortenText(message, 48);
+            obj.StatusLabel.Tooltip = char(message);
+            obj.syncDashboard();
             % 更新状态栏文本。
             obj.StatusLabel.Text = char(message);
         end
 
         function showSimulationError(obj, ME)
+            obj.LastResultMetrics = struct( ...
+                'HasResult', false, ...
+                'TotalDamage', NaN, ...
+                'DPS', NaN, ...
+                'RotationTime', NaN);
+            obj.setStatus('模拟失败，请检查输入。');
             % 展示模拟错误，同时保留堆栈首条关键信息。
             obj.setStatus('模拟失败，请检查输入。');
             detail = ME.message;
@@ -1959,6 +2082,17 @@ classdef GenshinDMGApp < handle
             obj.refreshEditorForSelectedSlot();
             obj.refreshTimelinePreview();
             obj.setStatus('已重置当前角色为默认配置。');
+        end
+        function text = shortenText(obj, value, limit) %#ok<INUSD>
+            if nargin < 3
+                limit = 48;
+            end
+
+            textValue = string(value);
+            if strlength(textValue) > limit
+                textValue = extractBefore(textValue, limit) + "...";
+            end
+            text = char(textValue);
         end
     end
 end
