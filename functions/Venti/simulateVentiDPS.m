@@ -1,5 +1,10 @@
-function [totalDMG, dps, breakdown, rotationTime, audit] = simulateVentiDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
-    % 温迪高精度近似模拟�?    % 建模要点�?    % 1. 区分点按/长按 E、Q 本体风伤、元素转化附加伤�?    % 2. C2 通过 E 减风�?物抗�?Q 后重�?E 的轴体现�?    % 3. C4/C6 的风伤与暴伤/减抗直接并入对应窗口�?    % 4. 吸收元素按队伍元素优先级推断，默认优先火->�?>�?>冰�?    if nargin < 3 || isempty(seqFile)
+﻿function [totalDMG, dps, breakdown, rotationTime, audit] = simulateVentiDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
+    % Venti explicit tap / hold E and burst script with approximation.
+    % Tap and hold skill damage, burst DoT, and absorbed-element follow-up
+    % are modeled as separate actions with constellation bonuses applied.
+    % Remaining approximation: absorbed element still resolves by initial
+    % aura override or team priority Pyro > Hydro > Electro > Cryo.
+    if nargin < 3 || isempty(seqFile)
         seqFile = fullfile(fileparts(mfilename('fullpath')), '..', '..', 'data', 'Venti', 'rotation_Venti.txt');
     end
     if nargin < 4 || isempty(talentLevel)
@@ -31,7 +36,7 @@ function [totalDMG, dps, breakdown, rotationTime, audit] = simulateVentiDPS(buil
     actions.QDot = struct('TalentGroup', "Burst", 'Param', "DoT", 'DamageField', "BurstDMGBonus", ...
         'ActionElement', "Anemo", 'BaseMultiplier', 1.00, 'HitCount', 20, 'BaseActionDamageBonus', c4AnemoBonus, ...
         'ExtraResShred', 0.20 * double(constellation >= 6), 'C6CritDMGBonus', c6CritDamageBonus, ...
-        'LunarisAttackName', "Hurricane_FX", 'LunarisDamageParam', "Elemental_Burst_Damage", 'Note', "Wind's Grand Ode");
+        'LunarisAttackName', "Hurricane_FX", 'LunarisDamageParam', "Elemental_Burst_Damage", 'Note', "Wind''s Grand Ode");
     actions.QInfuse = struct('TalentGroup', "Burst", 'Param', "AdditionalElementalDMG", 'DamageField', "BurstDMGBonus", ...
         'ActionElement', absorbedElement, 'BaseMultiplier', absorbedMultiplier, 'HitCount', 16, ...
         'AllowAmplify', absorbedMultiplier, 'ExtraResShred', absorbedResShred, ...
@@ -68,4 +73,3 @@ function element = localResolveAbsorbedElement(teamContext, enemy)
     end
     element = "";
 end
-

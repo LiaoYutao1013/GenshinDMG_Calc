@@ -1,6 +1,10 @@
-function [totalDMG, dps, breakdown, rotationTime, audit] = simulateXianglingDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
-    % 香菱高精度近似模拟�?    % 建模要点�?    % 1. 锅巴拆成持续喷火命中，并�?C1 时为后续火段挂减抗窗口；
-    % 2. 旋火轮拆为起手三�?+ 持续轮切段，C4 增加持续时间导致段数增加�?    % 3. �?A4 辣椒常驻近似到后半轮转，并把 C2 末段爆炸显式加入�?    % 4. 默认轴按锅巴 -> Q -> 旋火轮站场切人近似，而不是简单聚合成一段�?    if nargin < 3 || isempty(seqFile)
+﻿function [totalDMG, dps, breakdown, rotationTime, audit] = simulateXianglingDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
+    % Xiangling explicit Guoba / Pyronado script with approximation.
+    % Guoba sprays, Pyronado opening slashes, sustained spins, and C2
+    % implode are modeled as separate scripted actions.
+    % Remaining approximation: the Guoba chili pickup window is scripted as
+    % later-rotation coverage instead of position-validated pickup timing.
+    if nargin < 3 || isempty(seqFile)
         seqFile = fullfile(fileparts(mfilename('fullpath')), '..', '..', 'data', 'Xiangling', 'rotation_Xiangling.txt');
     end
     if nargin < 4 || isempty(talentLevel)
@@ -65,4 +69,3 @@ function [totalDMG, dps, breakdown, rotationTime, audit] = simulateXianglingDPS(
     [totalDMG, dps, breakdown, rotationTime, audit] = simulateSimpleCharacterDPS( ...
         'Xiangling', build, enemy, seqFile, talentLevel, constellation, teamContext, spec);
 end
-
