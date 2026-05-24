@@ -48,13 +48,14 @@
     compiledBuilds = localCompileBuilds(members, teamContext);
     runtimeTriggeredWindows = repmat(localEmptyActiveWindow(), 1, 0);
     runtimeTriggeredLastTriggerTimes = containers.Map('KeyType', 'char', 'ValueType', 'double');
+    auraICDStates = struct();
 
     triggerElement = localResolveInitialTriggerElement(members, archetypeInfo);
     enemyState = createEnemyState(enemy, teamContext, triggerElement);
     currentTime = 0;
     activeForegroundCharacter = "";
 
-    timelineRows = cell(0, 25);
+    timelineRows = cell(0, 30);
     energyRows = cell(0, 6);
     effectRows = cell(0, 11);
     actionOrder = 0;
@@ -87,6 +88,7 @@
                 timelineRows(end + 1, :) = { ... %#ok<AGROW>
                     actionOrder, previousForegroundEndTime, event.StartTime, "Team", activeForegroundCharacter, ...
                     "Swap", "Swap", "Team", "Utility", "", 0, ...
+                    false, "", "", "", "", ...
                     localJoinReactionNames(timedPackets), localAuraSummary(enemyState), ...
                     localQuickenGauge(enemyState), localFrozenGauge(enemyState), localCoreCount(enemyState), ...
                     0, "", false, "", "", "", "", "", ""};
@@ -98,16 +100,31 @@
             'HitElement', meta.HitElement, ...
             'ApplyElement', meta.ApplyElement, ...
             'ApplyGauge', meta.ApplyGauge, ...
+            'ApplyGaugeSource', string(getFieldOrDefault(meta, 'ApplyGaugeSource', "")), ...
             'CanApplyAura', meta.CanApplyAura, ...
             'AllowAmplify', meta.AllowAmplify, ...
             'AllowCatalyze', meta.AllowCatalyze, ...
             'PreferredAura', meta.PreferredAura, ...
+            'CanTriggerReaction', logical(getFieldOrDefault(meta, 'CanTriggerReaction', true)), ...
             'ResolveReactionAsDamage', logical(getFieldOrDefault(meta, 'ResolveReactionAsDamage', false)), ...
             'ForceReactionName', string(getFieldOrDefault(meta, 'ForceReactionName', "")), ...
             'ReactionElement', string(getFieldOrDefault(meta, 'ReactionElement', "")), ...
+            'StrikeType', string(getFieldOrDefault(meta, 'StrikeType', "")), ...
+            'ICDGroup', string(getFieldOrDefault(meta, 'ICDGroup', "")), ...
+            'ICDRule', string(getFieldOrDefault(meta, 'ICDRule', "")), ...
+            'ICDSource', string(getFieldOrDefault(meta, 'ICDSource', "")), ...
+            'LunarisAttackName', string(getFieldOrDefault(meta, 'LunarisAttackName', "")), ...
+            'LunarisDamageParam', string(getFieldOrDefault(meta, 'LunarisDamageParam', "")), ...
             'SourceType', string(getFieldOrDefault(event, 'SourceType', "MemberAction")), ...
             'SourceCharacter', string(getFieldOrDefault(event, 'Character', "")), ...
             'SourceAction', string(getFieldOrDefault(event, 'Action', "")));
+
+        [hitDescriptor.CanApplyAura, auraICDStates, icdSnapshot] = localResolveTimelineAuraICD( ...
+            auraICDStates, event, meta, deltaTime);
+        hitDescriptor.StrikeType = string(getFieldOrDefault(icdSnapshot, 'StrikeType', hitDescriptor.StrikeType));
+        hitDescriptor.ICDGroup = string(getFieldOrDefault(icdSnapshot, 'ICDGroup', hitDescriptor.ICDGroup));
+        hitDescriptor.ICDRule = string(getFieldOrDefault(icdSnapshot, 'ICDRule', hitDescriptor.ICDRule));
+        hitDescriptor.ICDSource = string(getFieldOrDefault(icdSnapshot, 'ICDSource', hitDescriptor.ICDSource));
 
         build = compiledBuilds{event.MemberIndex};
         reactionResult = resolveReactionForHit(enemyState, hitDescriptor, build, teamContext, enemy, 0);
@@ -173,6 +190,11 @@
             actionOrder, event.StartTime, event.EndTime, event.Character, activeForegroundCharacter, ...
             event.MemberRole, event.Action, string(getFieldOrDefault(event, 'SourceType', "MemberAction")), ...
             meta.ActionClass, meta.HitElement, meta.ApplyGauge, ...
+            hitDescriptor.CanApplyAura, ...
+            string(getFieldOrDefault(hitDescriptor, 'ApplyGaugeSource', "")), ...
+            string(getFieldOrDefault(hitDescriptor, 'ICDRule', "")), ...
+            string(getFieldOrDefault(hitDescriptor, 'ICDGroup', "")), ...
+            string(getFieldOrDefault(hitDescriptor, 'ICDSource', "")), ...
             localJoinReactions(reactionResult.PrimaryReaction, reactionResult.TriggeredReactions), ...
             localAuraSummary(enemyState), localQuickenGauge(enemyState), ...
             localFrozenGauge(enemyState), localCoreCount(enemyState), ...
@@ -198,7 +220,8 @@
             actionOrder = actionOrder + 1;
             timelineRows(end + 1, :) = { ... %#ok<AGROW>
                 actionOrder, currentTime, rotationDuration, "Team", activeForegroundCharacter, "Tail", "Tail", ...
-                "Team", "Utility", "", 0, localJoinReactionNames(timedPackets), localAuraSummary(enemyState), ...
+                "Team", "Utility", "", 0, false, "", "", "", "", ...
+                localJoinReactionNames(timedPackets), localAuraSummary(enemyState), ...
                 localQuickenGauge(enemyState), localFrozenGauge(enemyState), localCoreCount(enemyState), ...
                 0, "", false, "", "", "", "", "", ""};
         end
@@ -329,6 +352,117 @@ function meta = localResolveEventMeta(event, archetypeInfo, teamContext)
         return;
     end
     meta = inferActionCombatMetadata(event.Member, event.Action, archetypeInfo, teamContext);
+end
+
+function [canApplyAura, icdStates, snapshot] = localResolveTimelineAuraICD(icdStates, event, meta, deltaTime)
+    if nargin < 4 || isempty(deltaTime)
+        deltaTime = 0;
+    end
+
+    snapshot = struct( ...
+        'ICDGroup', string(getFieldOrDefault(meta, 'ICDGroup', "")), ...
+        'ICDRule', string(getFieldOrDefault(meta, 'ICDRule', "")), ...
+        'ICDHits', 1, ...
+        'ICDWindow', 0, ...
+        'StrikeType', string(getFieldOrDefault(meta, 'StrikeType', "")), ...
+        'ICDSource', string(getFieldOrDefault(meta, 'ICDSource', "")));
+    canApplyAura = logical(getFieldOrDefault(meta, 'CanApplyAura', false)) ...
+        && double(getFieldOrDefault(meta, 'ApplyGauge', 0)) > 0 ...
+        && localIsElementalDamageElement(string(getFieldOrDefault(meta, 'ApplyElement', "")));
+
+    if ~canApplyAura
+        return;
+    end
+
+    icdRule = string(getFieldOrDefault(meta, 'ICDRule', ""));
+    if strlength(icdRule) == 0 || strcmpi(char(icdRule), 'independent')
+        if strlength(snapshot.ICDSource) == 0
+            snapshot.ICDSource = "not_applicable";
+        end
+        return;
+    end
+
+    [icdHits, icdWindow, isWindowed] = localParseICDRuleText(icdRule);
+    snapshot.ICDHits = icdHits;
+    snapshot.ICDWindow = icdWindow;
+    if ~isWindowed
+        return;
+    end
+
+    icdGroup = string(getFieldOrDefault(meta, 'ICDGroup', ""));
+    if strlength(icdGroup) == 0
+        icdGroup = string(getFieldOrDefault(meta, 'LunarisAttackName', ""));
+    end
+    if strlength(icdGroup) == 0
+        icdGroup = string(getFieldOrDefault(event, 'Character', "")) + "_" + string(getFieldOrDefault(event, 'Action', ""));
+    end
+    snapshot.ICDGroup = icdGroup;
+
+    fieldName = matlab.lang.makeValidName(char(snapshot.ICDGroup));
+    if ~isfield(icdStates, fieldName)
+        icdStates.(fieldName) = struct( ...
+            'HitsSinceApply', max(0, double(snapshot.ICDHits) - 1), ...
+            'Elapsed', max(0, double(snapshot.ICDWindow)), ...
+            'HitsThreshold', max(1, double(snapshot.ICDHits)), ...
+            'Window', max(0, double(snapshot.ICDWindow)));
+    end
+
+    state = icdStates.(fieldName);
+    state.Elapsed = state.Elapsed + max(0, double(deltaTime));
+    if state.HitsThreshold <= 1 && state.Window > 0
+        canApplyAura = state.Elapsed >= state.Window;
+        if canApplyAura
+            state.Elapsed = 0;
+        end
+        icdStates.(fieldName) = state;
+        return;
+    end
+    if state.Window > 0 && state.Elapsed >= state.Window
+        state.HitsSinceApply = max(0, state.HitsThreshold - 1);
+        state.Elapsed = 0;
+    end
+
+    if state.HitsSinceApply >= max(0, state.HitsThreshold - 1)
+        canApplyAura = true;
+        state.HitsSinceApply = 0;
+        state.Elapsed = 0;
+    else
+        canApplyAura = false;
+        state.HitsSinceApply = state.HitsSinceApply + 1;
+    end
+    icdStates.(fieldName) = state;
+end
+
+function [hits, window, isWindowed] = localParseICDRuleText(ruleText)
+    ruleText = lower(char(string(ruleText)));
+    hits = 1;
+    window = 0;
+    isWindowed = false;
+    if isempty(ruleText) || strcmp(ruleText, '-') || contains(ruleText, 'independent')
+        return;
+    end
+    if contains(ruleText, 'standard')
+        hits = 3;
+        window = 2.5;
+        isWindowed = true;
+        return;
+    end
+    tokens = regexp(ruleText, '(\d+)\s*hits?\s*/\s*([\d\.]+)\s*s', 'tokens', 'once');
+    if isempty(tokens)
+        return;
+    end
+    hits = max(1, str2double(tokens{1}));
+    window = max(0, str2double(tokens{2}));
+    isWindowed = true;
+end
+
+function tf = localIsElementalDamageElement(element)
+    switch lower(char(string(element)))
+        case {'pyro', 'hydro', 'cryo', 'electro', 'anemo', 'geo', 'dendro'}
+            tf = true;
+        otherwise
+            tf = false;
+    end
 end
 
 function tf = localShouldExpandBackgroundDrivers(meta, sourceInfo)
@@ -836,8 +970,10 @@ function event = localBuildTriggeredFollowUpEvent(window, sourceMeta, driverEven
     followUpMeta.Action = event.Action;
     followUpMeta.ActionClass = "FollowUp";
     followUpMeta.ConsumesActiveWindow = false;
-    followUpMeta.HitElement = event.HitElement;
-    followUpMeta.ApplyElement = event.HitElement;
+    if strlength(string(getFieldOrDefault(driverSpec, 'Element', ""))) > 0
+        followUpMeta.HitElement = string(getFieldOrDefault(driverSpec, 'Element', followUpMeta.HitElement));
+        followUpMeta.ApplyElement = followUpMeta.HitElement;
+    end
     followUpMeta.ApplyGauge = double(getFieldOrDefault(driverSpec, 'Gauge', getFieldOrDefault(sourceMeta, 'TriggeredFollowUpGauge', getFieldOrDefault(sourceMeta, 'EffectTickGauge', 0))));
     followUpMeta.CanApplyAura = followUpMeta.ApplyGauge > 0 && strlength(string(followUpMeta.ApplyElement)) > 0;
     followUpMeta.PreferredAura = string(getFieldOrDefault(driverSpec, 'PreferredAura', getFieldOrDefault(sourceMeta, 'TriggeredFollowUpPreferredAura', getFieldOrDefault(sourceMeta, 'PreferredAura', ""))));
@@ -863,6 +999,7 @@ function event = localBuildTriggeredFollowUpEvent(window, sourceMeta, driverEven
     followUpMeta.BackgroundDriverKind = string(getFieldOrDefault(driverSpec, 'DriverKind', "Triggered"));
     followUpMeta.BackgroundDriverMode = string(getFieldOrDefault(driverSpec, 'DriverMode', "ForegroundAnyActionTrigger"));
     followUpMeta.EffectTag = string(getFieldOrDefault(sourceMeta, 'EffectTag', ""));
+    followUpMeta = resolveInferredAuraMetadata(window.Member, event.Action, followUpMeta);
     event.CombatMeta = followUpMeta;
 end
 
@@ -892,8 +1029,10 @@ function event = localBuildSyntheticEffectTickEvent(baseEvent, baseMeta, tickInd
     tickMeta.Action = event.Action;
     tickMeta.ActionClass = "FollowUp";
     tickMeta.ConsumesActiveWindow = false;
-    tickMeta.HitElement = event.HitElement;
-    tickMeta.ApplyElement = event.HitElement;
+    if strlength(string(getFieldOrDefault(driverSpec, 'Element', ""))) > 0
+        tickMeta.HitElement = string(getFieldOrDefault(driverSpec, 'Element', tickMeta.HitElement));
+        tickMeta.ApplyElement = tickMeta.HitElement;
+    end
     tickMeta.ApplyGauge = double(getFieldOrDefault(driverSpec, 'Gauge', getFieldOrDefault(baseMeta, 'EffectTickGauge', 0)));
     tickMeta.CanApplyAura = tickMeta.ApplyGauge > 0 && strlength(string(tickMeta.ApplyElement)) > 0;
     tickMeta.PreferredAura = string(getFieldOrDefault(driverSpec, 'PreferredAura', getFieldOrDefault(baseMeta, 'EffectTickPreferredAura', getFieldOrDefault(baseMeta, 'PreferredAura', ""))));
@@ -919,6 +1058,7 @@ function event = localBuildSyntheticEffectTickEvent(baseEvent, baseMeta, tickInd
     tickMeta.BackgroundDriverKind = string(getFieldOrDefault(driverSpec, 'DriverKind', "Autonomous"));
     tickMeta.BackgroundDriverMode = string(getFieldOrDefault(driverSpec, 'DriverMode', "AutonomousTick"));
     tickMeta.EffectTag = string(getFieldOrDefault(baseMeta, 'EffectTag', ""));
+    tickMeta = resolveInferredAuraMetadata(baseEvent.Member, event.Action, tickMeta);
     event.CombatMeta = tickMeta;
 end
 
@@ -1097,7 +1237,8 @@ function tableOut = localTimelineTable(rows)
 
     tableOut = cell2table(rows, 'VariableNames', { ...
         'Order', 'StartTime', 'EndTime', 'Character', 'ActiveCharacter', 'Role', 'Action', ...
-        'SourceType', 'ActionClass', 'HitElement', 'ApplyGauge', 'Reaction', 'AuraState', ...
+        'SourceType', 'ActionClass', 'HitElement', 'ApplyGauge', 'CanApplyAura', ...
+        'ApplyGaugeSource', 'ICDRule', 'ICDGroup', 'ICDSource', 'Reaction', 'AuraState', ...
         'QuickenGauge', 'FrozenGauge', 'DendroCoreCount', 'OwnerEnergyDelta', 'EffectTag', ...
         'ConsumesActiveWindow', 'BackgroundDriverKind', 'BackgroundDriverMode', ...
         'TriggerSourceType', 'TriggerSourceCharacter', 'TriggerSourceAction', 'TriggerPacketSource'});

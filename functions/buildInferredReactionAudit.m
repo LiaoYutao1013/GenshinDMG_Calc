@@ -39,8 +39,10 @@ function audit = buildInferredReactionAudit(member, actions, teamContext, rotati
             applyGaugeSourceCol(i) = applyGaugeSource;
             icdRuleCol(i) = icdRule;
             icdSourceCol(i) = icdSource;
-            lunarisAttackNameCol(i) = string(getFieldOrDefault(override, 'LunarisAttackName', ""));
-            lunarisDamageParamCol(i) = string(getFieldOrDefault(override, 'LunarisDamageParam', ""));
+            lunarisAttackNameCol(i) = string(getFieldOrDefault(override, 'LunarisAttackName', ...
+                getFieldOrDefault(meta, 'LunarisAttackName', "")));
+            lunarisDamageParamCol(i) = string(getFieldOrDefault(override, 'LunarisDamageParam', ...
+                getFieldOrDefault(meta, 'LunarisDamageParam', "")));
         end
 
         rows = table(actionCol, actionKeyCol, applyGaugeCol, applyGaugeSourceCol, ...
@@ -77,6 +79,9 @@ function [applyGauge, applyGaugeSource, icdRule, icdSource] = localResolveAuditM
     explicitApplyGaugeSource = string(getFieldOrDefault(override, 'ApplyGaugeSource', ""));
     explicitICDSource = string(getFieldOrDefault(override, 'ICDSource', ""));
     explicitICDRule = string(getFieldOrDefault(override, 'ICDRule', ""));
+    resolvedApplyGaugeSource = string(getFieldOrDefault(meta, 'ApplyGaugeSource', ""));
+    resolvedICDSource = string(getFieldOrDefault(meta, 'ICDSource', ""));
+    resolvedICDRule = string(getFieldOrDefault(meta, 'ICDRule', ""));
 
     forceReactionName = string(getFieldOrDefault(meta, 'ForceReactionName', ""));
     hitElement = string(getFieldOrDefault(meta, 'HitElement', ""));
@@ -90,6 +95,13 @@ function [applyGauge, applyGaugeSource, icdRule, icdSource] = localResolveAuditM
             applyGauge = nan;
         else
             applyGauge = double(getFieldOrDefault(override, 'ApplyGauge', inferredGauge));
+        end
+    elseif strlength(resolvedApplyGaugeSource) > 0
+        applyGaugeSource = resolvedApplyGaugeSource;
+        if applyGaugeSource == "not_applicable" || applyGaugeSource == "pending_verification"
+            applyGauge = nan;
+        else
+            applyGauge = inferredGauge;
         end
     elseif strlength(forceReactionName) > 0 || actionClass == "Reaction"
         applyGauge = nan;
@@ -107,6 +119,8 @@ function [applyGauge, applyGaugeSource, icdRule, icdSource] = localResolveAuditM
 
     if strlength(explicitICDSource) > 0
         icdSource = explicitICDSource;
+    elseif strlength(resolvedICDSource) > 0
+        icdSource = resolvedICDSource;
     elseif applyGaugeSource == "not_applicable"
         icdSource = "not_applicable";
     else
@@ -115,6 +129,8 @@ function [applyGauge, applyGaugeSource, icdRule, icdSource] = localResolveAuditM
 
     if strlength(explicitICDRule) > 0
         icdRule = explicitICDRule;
+    elseif strlength(resolvedICDRule) > 0
+        icdRule = resolvedICDRule;
     else
         icdRule = "";
     end
