@@ -1,0 +1,26 @@
+function validateAutoRotationMetadataRegression()
+    initProjectPaths();
+
+    gaming = auditCharacterReactionMetadata('Gaming');
+    hutaoC0 = auditCharacterReactionMetadata('Hutao');
+    hutaoC1 = auditCharacterReactionMetadata('Hutao', struct('Constellation', 1));
+
+    assert(isempty(gaming.Rows(gaming.Rows.ApplyGaugeFallback | gaming.Rows.ICDFallback, :)), ...
+        'Gaming AUTO rotation should resolve ApplyGauge and ICD metadata without fallback rows.');
+    assert(isequal(string(gaming.Rows.Action), ["Q"; "E"; "E"; "E"; "E"]), ...
+        'Gaming AUTO rotation should expand to the expected burst-plus-plunge loop.');
+
+    assert(isempty(hutaoC0.Rows(hutaoC0.Rows.ApplyGaugeFallback | hutaoC0.Rows.ICDFallback, :)), ...
+        'Hutao C0 AUTO rotation should resolve ApplyGauge and ICD metadata without fallback rows.');
+    assert(isequal(string(hutaoC0.Rows.Action), ...
+        ["E"; "N1"; "CA"; "N1"; "CA"; "N1"; "CA"; "N1"; "CA"; "N1"; "CA"; "Blossom"; "Blossom"; "Q"]), ...
+        'Hutao C0 AUTO rotation should expand to the expected C0 charge-attack loop.');
+
+    assert(isempty(hutaoC1.Rows(hutaoC1.Rows.ApplyGaugeFallback | hutaoC1.Rows.ICDFallback, :)), ...
+        'Hutao C1 AUTO rotation should resolve ApplyGauge and ICD metadata without fallback rows.');
+    assert(isequal(string(hutaoC1.Rows.Action), ...
+        ["E"; "N1"; "CA"; "N1"; "CA"; "N1"; "CA"; "N1"; "CA"; "N1"; "CA"; "N1"; "CA"; "Blossom"; "Blossom"; "Q"]), ...
+        'Hutao C1 AUTO rotation should expand to the expected extended charge-attack loop.');
+
+    disp('validateAutoRotationMetadataRegression passed');
+end
