@@ -168,6 +168,9 @@ function result = localResolveTransformativeReaction(result, directReaction, hit
     reactionName = string(directReaction.Name);
     reactionBonus = getFieldOrDefault(hitDescriptor, 'ReactionBonus', 0);
     customBase = localResolveCustomReactionBase(hitDescriptor, build, reactionName);
+    if localShouldConsumeAuraOnDirectTransformativeReaction(reactionName)
+        result.EnemyState = localConsumeAuraForDirectReaction(result.EnemyState, directReaction, applyGauge);
+    end
 
     switch lower(char(reactionName))
         case 'electrocharged'
@@ -578,6 +581,10 @@ function [enemyState, residualApplyGauge] = localConsumeAuraForAmplify(enemyStat
         enemyState.Auras(reaction.AuraIndex) = [];
     end
     enemyState = localRefreshFrozenState(enemyState);
+end
+
+function enemyState = localConsumeAuraForDirectReaction(enemyState, reaction, applyGauge)
+    [enemyState, ~] = localConsumeAuraForAmplify(enemyState, reaction, applyGauge);
 end
 
 function gauge = localApplyAuraTax(applyGauge)
@@ -1022,6 +1029,15 @@ function tf = localShouldDealDirectTransformativeDamage(reactionName, hitDescrip
 
     switch lower(char(string(reactionName)))
         case {'overload', 'superconduct', 'stellarconduct', 'swirl', 'lunarcharged', 'lunarbloom'}
+            tf = true;
+        otherwise
+            tf = false;
+    end
+end
+
+function tf = localShouldConsumeAuraOnDirectTransformativeReaction(reactionName)
+    switch lower(char(string(reactionName)))
+        case {'bloom', 'burning'}
             tf = true;
         otherwise
             tf = false;

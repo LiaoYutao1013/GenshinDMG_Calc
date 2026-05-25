@@ -101,6 +101,22 @@ function validateReactionEngineRegression()
         'Expected Bloom to trigger from Hydro on Dendro.');
     assert(numel(bloom.EnemyState.DendroCores) == 1, ...
         'Bloom should create one Dendro Core.');
+    assert(localAuraGauge(bloom.EnemyState, "Dendro") > 0 && localAuraGauge(bloom.EnemyState, "Dendro") < 1.0, ...
+        'Bloom should consume part of the existing Dendro aura instead of leaving it untouched.');
+
+    secondBloom = resolveReactionForHit(bloom.EnemyState, localMakeHit("Hydro", 1.0), build, teamContext, enemy, 0);
+    assert(strcmpi(char(secondBloom.PrimaryReaction), 'Bloom'), ...
+        'A second Hydro hit should still trigger Bloom while enough Dendro aura remains.');
+    assert(numel(secondBloom.EnemyState.DendroCores) == 2, ...
+        'A second Bloom should add a second Dendro Core while aura remains.');
+    assert(localAuraGauge(secondBloom.EnemyState, "Dendro") < localAuraGauge(bloom.EnemyState, "Dendro"), ...
+        'Repeated Bloom triggers should continue consuming the remaining Dendro aura.');
+
+    thirdBloom = resolveReactionForHit(secondBloom.EnemyState, localMakeHit("Hydro", 1.0), build, teamContext, enemy, 0);
+    assert(~strcmpi(char(thirdBloom.PrimaryReaction), 'Bloom'), ...
+        'Bloom should stop triggering once the original 1U Dendro aura has been consumed.');
+    assert(numel(thirdBloom.EnemyState.DendroCores) == 2, ...
+        'Bloom should not fabricate extra Dendro Cores after the Dendro aura is exhausted.');
 
     hyperbloom = resolveReactionForHit(bloom.EnemyState, localMakeHit("Electro", 1.0), build, teamContext, enemy, 0);
     assert(any(strcmpi(cellstr(string(hyperbloom.TriggeredReactions)), 'hyperbloom')) ...
@@ -118,6 +134,26 @@ function validateReactionEngineRegression()
         'Expected Burgeon to trigger from Pyro on a Bloom core.');
     assert(isempty(burgeon.EnemyState.DendroCores), ...
         'Burgeon should consume the available Dendro Core.');
+
+    burningState = createEnemyState(enemy, teamContext, "");
+    burningState = localApplyAuraOnly(burningState, "Dendro", 1.0, build, teamContext, enemy);
+    firstBurning = resolveReactionForHit(burningState, localMakeHit("Pyro", 1.0), build, teamContext, enemy, 0);
+    assert(strcmpi(char(firstBurning.PrimaryReaction), 'Burning'), ...
+        'Expected Burning to trigger from Pyro on Dendro.');
+    assert(logical(firstBurning.EnemyState.Burning.Active), ...
+        'Burning should activate its timed state.');
+    assert(localAuraGauge(firstBurning.EnemyState, "Dendro") > 0 && localAuraGauge(firstBurning.EnemyState, "Dendro") < 1.0, ...
+        'Burning should consume part of the existing Dendro aura instead of leaving it untouched.');
+
+    secondBurning = resolveReactionForHit(firstBurning.EnemyState, localMakeHit("Pyro", 1.0), build, teamContext, enemy, 0);
+    assert(strcmpi(char(secondBurning.PrimaryReaction), 'Burning'), ...
+        'A second Pyro hit should still refresh Burning while enough Dendro aura remains.');
+    assert(localAuraGauge(secondBurning.EnemyState, "Dendro") < localAuraGauge(firstBurning.EnemyState, "Dendro"), ...
+        'Repeated Burning refreshes should continue consuming the remaining Dendro aura.');
+
+    thirdBurning = resolveReactionForHit(secondBurning.EnemyState, localMakeHit("Pyro", 1.0), build, teamContext, enemy, 0);
+    assert(~strcmpi(char(thirdBurning.PrimaryReaction), 'Burning'), ...
+        'Burning should stop retriggering once the original 1U Dendro aura has been consumed.');
 
     [expiredState, packets] = advanceEnemyStateTime(bloom.EnemyState, 6.1, "", teamContext);
     packetNames = strings(0, 1);
