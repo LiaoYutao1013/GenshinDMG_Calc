@@ -81,7 +81,21 @@ function validateReactionEngineRegression()
     assert(strcmpi(char(frozen.PrimaryReaction), 'Frozen'), ...
         'Expected Frozen to trigger from Cryo on Hydro.');
     assert(logical(frozen.EnemyState.Frozen.Active), 'Frozen state should become active.');
+    assert(localAuraGauge(frozen.EnemyState, "Hydro") > 0 && localAuraGauge(frozen.EnemyState, "Hydro") < 1.0, ...
+        'Frozen should consume part of the existing Hydro aura instead of leaving it untouched.');
+    assert(localAuraGauge(frozen.EnemyState, "Cryo") > 0, ...
+        'Frozen should leave residual Cryo aura after the trigger is applied.');
     frozenGaugeBefore = double(frozen.EnemyState.Frozen.Gauge);
+
+    secondFrozen = resolveReactionForHit(frozen.EnemyState, localMakeHit("Cryo", 1.0), build, teamContext, enemy, 0);
+    assert(~strcmpi(char(secondFrozen.PrimaryReaction), 'Frozen'), ...
+        'A second Cryo hit should not repeatedly refreeze from the original 1U Hydro aura after the first Frozen already consumed it.');
+    assert(localAuraGauge(secondFrozen.EnemyState, "Hydro") <= localAuraGauge(frozen.EnemyState, "Hydro"), ...
+        'Follow-up Cryo hits should not restore Hydro aura after Frozen has already consumed it.');
+
+    thirdFrozen = resolveReactionForHit(secondFrozen.EnemyState, localMakeHit("Cryo", 1.0), build, teamContext, enemy, 0);
+    assert(~strcmpi(char(thirdFrozen.PrimaryReaction), 'Frozen'), ...
+        'Frozen should not keep retriggering from a single original 1U Hydro aura.');
 
     shatterHit = localMakeHit("Geo", 0);
     shatterHit.CanApplyAura = false;

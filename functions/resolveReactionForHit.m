@@ -112,6 +112,7 @@ function result = resolveReactionForHit(enemyState, hitDescriptor, build, teamCo
                 result.EnemyState, directReaction, applyGauge);
 
         case 'frozen'
+            result.EnemyState = localConsumeAuraForDirectReaction(result.EnemyState, directReaction, applyGauge);
             result.EnemyState = localActivateFrozen(result.EnemyState, applyGauge);
 
         case 'quicken'
@@ -898,6 +899,7 @@ function result = localApplySecondaryReaction( ...
             end
             [result.EnemyState, ~] = localConsumeAuraForAmplify(result.EnemyState, reaction, applyGauge);
         case 'frozen'
+            result.EnemyState = localConsumeAuraForDirectReaction(result.EnemyState, reaction, applyGauge);
             result.EnemyState = localActivateFrozen(result.EnemyState, applyGauge);
         case 'quicken'
             result.EnemyState = localActivateQuicken(result.EnemyState, applyGauge);
