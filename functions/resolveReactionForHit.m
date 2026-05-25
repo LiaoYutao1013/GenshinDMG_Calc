@@ -76,6 +76,7 @@ function result = resolveReactionForHit(enemyState, hitDescriptor, build, teamCo
     canTriggerReaction = logical(getFieldOrDefault(hitDescriptor, 'CanTriggerReaction', true));
     preferredAura = string(getFieldOrDefault(hitDescriptor, 'PreferredAura', ""));
     forceReaction = string(getFieldOrDefault(hitDescriptor, 'ForceReactionName', ""));
+    postReactionApplyGauge = applyGauge;
 
     if strlength(preferredAura) > 0 && localUsesApproximateSupportAura(result.EnemyState)
         result.EnemyState = localForceAura(result.EnemyState, preferredAura, getFieldOrDefault(result.EnemyState, 'SupportAuraGauge', 1.0));
@@ -106,7 +107,8 @@ function result = resolveReactionForHit(enemyState, hitDescriptor, build, teamCo
             if logical(getFieldOrDefault(hitDescriptor, 'AllowAmplify', false))
                 result.AmplifyMultiplier = localAmplifyMultiplier(directReaction.Name, hitElement, em, reactionBonus);
             end
-            result.EnemyState = localConsumeAuraForAmplify(result.EnemyState, directReaction, applyGauge);
+            [result.EnemyState, postReactionApplyGauge] = localConsumeAuraForAmplify( ...
+                result.EnemyState, directReaction, applyGauge);
 
         case 'frozen'
             result.EnemyState = localActivateFrozen(result.EnemyState, applyGauge);
@@ -153,7 +155,8 @@ function result = resolveReactionForHit(enemyState, hitDescriptor, build, teamCo
     end
 
     if canApplyAura && strlength(applyElement) > 0
-        result.EnemyState = localApplyPostReactionAura(result.EnemyState, applyElement, applyGauge, directReaction.Name);
+        result.EnemyState = localApplyPostReactionAura( ...
+            result.EnemyState, applyElement, postReactionApplyGauge, directReaction.Name);
     end
     result.EnemyState = localRefreshFrozenState(result.EnemyState);
     result.EnemyState.LastReaction = string(result.PrimaryReaction);
@@ -540,34 +543,66 @@ function auraIndex = localFindAuraIndex(enemyState, auraElement)
     end
 end
 
-function enemyState = localConsumeAuraForAmplify(enemyState, reaction, applyGauge)
+function [enemyState, residualApplyGauge] = localConsumeAuraForAmplify(enemyState, reaction, applyGauge)
+    residualApplyGauge = 0;
     if reaction.AuraIndex <= 0 || ~isfield(enemyState, 'Auras') || isempty(enemyState.Auras)
         return;
     end
 
     auraElement = lower(char(string(reaction.ConsumedAura)));
     reactionName = lower(char(string(reaction.Name)));
+    auraGauge = double(getFieldOrDefault(enemyState.Auras(reaction.AuraIndex), 'Gauge', 0));
+    reactionCoeff = localResolveReactionCoefficient(reactionName, auraElement);
+    taxedTriggerGauge = localApplyAuraTax(applyGauge);
+    residualApplyGauge = max(0, taxedTriggerGauge - auraGauge / max(reactionCoeff, eps));
+
     if strcmp(reactionName, 'vaporize')
         if strcmp(auraElement, 'pyro')
-            consumed = 0.5 * applyGauge;
+            consumed = 2.0 * taxedTriggerGauge;
         else
-            consumed = 2.0 * applyGauge;
+            consumed = 0.5 * taxedTriggerGauge;
         end
     elseif strcmp(reactionName, 'melt')
         if strcmp(auraElement, 'cryo')
-            consumed = 0.5 * applyGauge;
+            consumed = 2.0 * taxedTriggerGauge;
         else
-            consumed = 2.0 * applyGauge;
+            consumed = 0.5 * taxedTriggerGauge;
         end
     else
-        consumed = applyGauge;
+        consumed = reactionCoeff * taxedTriggerGauge;
     end
 
-    enemyState.Auras(reaction.AuraIndex).Gauge = max(0, enemyState.Auras(reaction.AuraIndex).Gauge - consumed);
+    enemyState.Auras(reaction.AuraIndex).Gauge = max(0, auraGauge - consumed);
     if enemyState.Auras(reaction.AuraIndex).Gauge <= 1e-6
         enemyState.Auras(reaction.AuraIndex) = [];
     end
     enemyState = localRefreshFrozenState(enemyState);
+end
+
+function gauge = localApplyAuraTax(applyGauge)
+    gauge = max(0, 0.8 * double(applyGauge));
+end
+
+function coeff = localResolveReactionCoefficient(reactionName, auraElement)
+    reactionName = lower(char(string(reactionName)));
+    auraElement = lower(char(string(auraElement)));
+
+    switch reactionName
+        case 'vaporize'
+            if strcmp(auraElement, 'pyro')
+                coeff = 2.0;
+            else
+                coeff = 0.5;
+            end
+        case 'melt'
+            if strcmp(auraElement, 'cryo')
+                coeff = 2.0;
+            else
+                coeff = 0.5;
+            end
+        otherwise
+            coeff = 1.0;
+    end
 end
 
 function enemyState = localActivateQuicken(enemyState, applyGauge)
@@ -597,6 +632,11 @@ function enemyState = localApplyPostReactionAura(enemyState, applyElement, apply
     directReactionName = lower(char(string(directReactionName)));
 
     switch directReactionName
+        case {'vaporize', 'melt'}
+            if strcmpi(char(applyElement), 'anemo') || strcmpi(char(applyElement), 'geo')
+                return;
+            end
+            enemyState = localAddOrReplaceAura(enemyState, applyElement, max(0, applyGauge));
         case {'vaporize', 'melt', 'overload', 'superconduct', 'stellarconduct', 'swirl', 'crystallize'}
             if strcmpi(char(applyElement), 'anemo') || strcmpi(char(applyElement), 'geo')
                 return;

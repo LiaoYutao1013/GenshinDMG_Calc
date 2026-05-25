@@ -11,6 +11,26 @@ function validateReactionEngineRegression()
     build = struct('EM', 0, 'ReactionDMGBonus', 0);
 
     state = createEnemyState(enemy, teamContext, "");
+    state = localApplyAuraOnly(state, "Pyro", 1.0, build, teamContext, enemy);
+    forwardVape = resolveReactionForHit(state, localMakeHit("Hydro", 1.0), build, teamContext, enemy, 0);
+    assert(strcmpi(char(forwardVape.PrimaryReaction), 'Vaporize'), ...
+        'Expected Vaporize to trigger from Hydro on Pyro.');
+    assert(localAuraGauge(forwardVape.EnemyState, "Pyro") == 0, ...
+        'Forward Vaporize should fully consume a 1U Pyro aura with a 1U Hydro trigger.');
+    assert(localAuraGauge(forwardVape.EnemyState, "Hydro") > 0, ...
+        'Forward Vaporize should leave a residual Hydro aura when the trigger over-consumes the aura.');
+
+    state = createEnemyState(enemy, teamContext, "");
+    state = localApplyAuraOnly(state, "Hydro", 1.0, build, teamContext, enemy);
+    reverseVape = resolveReactionForHit(state, localMakeHit("Pyro", 1.0), build, teamContext, enemy, 0);
+    assert(strcmpi(char(reverseVape.PrimaryReaction), 'Vaporize'), ...
+        'Expected Vaporize to trigger from Pyro on Hydro.');
+    assert(localAuraGauge(reverseVape.EnemyState, "Hydro") > 0, ...
+        'Reverse Vaporize should leave Hydro aura behind after the weaker aura tax.');
+    assert(localAuraGauge(reverseVape.EnemyState, "Pyro") == 0, ...
+        'Reverse Vaporize should not fabricate a residual Pyro aura when Hydro remains dominant.');
+
+    state = createEnemyState(enemy, teamContext, "");
     state = localApplyAuraOnly(state, "Hydro", 1.0, build, teamContext, enemy);
     electroCharged = resolveReactionForHit(state, localMakeHit("Electro", 1.0), build, teamContext, enemy, 0);
     assert(strcmpi(char(electroCharged.PrimaryReaction), 'ElectroCharged'), ...
