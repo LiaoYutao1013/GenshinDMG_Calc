@@ -198,6 +198,25 @@ function validateReactionEngineRegression()
     assert(abs(double(spread.EnemyState.Quicken.Gauge) - quickenGaugeBeforeAggravate) < 1e-9, ...
         'Spread should not consume the lingering Quicken gauge in the unified state model.');
 
+    pureQuickenState = firstQuicken.EnemyState;
+    pureQuickenState.Auras = pureQuickenState.Auras([]);
+
+    quickenBloom = resolveReactionForHit(pureQuickenState, localMakeHit("Hydro", 1.0), build, teamContext, enemy, 0);
+    assert(strcmpi(char(quickenBloom.PrimaryReaction), 'Bloom'), ...
+        'Hydro should still trigger Bloom when only the lingering Quicken state remains.');
+    assert(numel(quickenBloom.EnemyState.DendroCores) == 1, ...
+        'Pure Quicken -> Hydro should still create a Dendro Core.');
+    assert(double(quickenBloom.EnemyState.Quicken.Gauge) < quickenGaugeBeforeAggravate, ...
+        'Hydro-triggered Bloom should consume part of the lingering Quicken gauge.');
+
+    quickenBurning = resolveReactionForHit(pureQuickenState, localMakeHit("Pyro", 1.0), build, teamContext, enemy, 0);
+    assert(strcmpi(char(quickenBurning.PrimaryReaction), 'Burning'), ...
+        'Pyro should still trigger Burning when only the lingering Quicken state remains.');
+    assert(logical(quickenBurning.EnemyState.Burning.Active), ...
+        'Pure Quicken -> Pyro should activate Burning.');
+    assert(double(quickenBurning.EnemyState.Quicken.Gauge) < quickenGaugeBeforeAggravate, ...
+        'Pyro-triggered Burning should consume part of the lingering Quicken gauge.');
+
     [expiredState, packets] = advanceEnemyStateTime(bloom.EnemyState, 6.1, "", teamContext);
     packetNames = strings(0, 1);
     if ~isempty(packets)

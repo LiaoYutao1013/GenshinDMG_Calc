@@ -171,6 +171,9 @@ function result = localResolveTransformativeReaction(result, directReaction, hit
     if localShouldConsumeAuraOnDirectTransformativeReaction(reactionName)
         result.EnemyState = localConsumeAuraForDirectReaction(result.EnemyState, directReaction, applyGauge);
     end
+    if localShouldConsumeQuickenOnTransformativeReaction(reactionName, directReaction, result.EnemyState)
+        result.EnemyState = localConsumeQuickenForAuraReaction(result.EnemyState, applyGauge);
+    end
 
     switch lower(char(reactionName))
         case 'electrocharged'
@@ -428,6 +431,14 @@ function reaction = localResolvePrimaryReaction(enemyState, hitElement, forcedNa
         elseif strcmp(hitElement, 'dendro')
             reaction.Name = "Spread";
             return;
+        elseif (~isfield(enemyState, 'Auras') || isempty(enemyState.Auras)) && strcmp(hitElement, 'hydro')
+            reaction.Name = "Bloom";
+            reaction.ConsumedAura = "Quicken";
+            return;
+        elseif (~isfield(enemyState, 'Auras') || isempty(enemyState.Auras)) && strcmp(hitElement, 'pyro')
+            reaction.Name = "Burning";
+            reaction.ConsumedAura = "Quicken";
+            return;
         end
     end
 
@@ -585,6 +596,15 @@ end
 
 function enemyState = localConsumeAuraForDirectReaction(enemyState, reaction, applyGauge)
     [enemyState, ~] = localConsumeAuraForAmplify(enemyState, reaction, applyGauge);
+end
+
+function enemyState = localConsumeQuickenForAuraReaction(enemyState, applyGauge)
+    if ~getFieldOrDefault(getFieldOrDefault(enemyState, 'Quicken', struct()), 'Active', false)
+        return;
+    end
+
+    enemyState.Quicken.Gauge = max(0, double(getFieldOrDefault(enemyState.Quicken, 'Gauge', 0)) - localApplyAuraTax(applyGauge));
+    enemyState.Quicken.Active = enemyState.Quicken.Gauge > 1e-6;
 end
 
 function gauge = localApplyAuraTax(applyGauge)
@@ -1059,6 +1079,12 @@ function tf = localShouldConsumeAuraOnDirectTransformativeReaction(reactionName)
         otherwise
             tf = false;
     end
+end
+
+function tf = localShouldConsumeQuickenOnTransformativeReaction(reactionName, reaction, enemyState)
+    tf = any(strcmpi(char(string(reactionName)), {'bloom', 'burning'})) ...
+        && getFieldOrDefault(getFieldOrDefault(enemyState, 'Quicken', struct()), 'Active', false) ...
+        && strcmpi(char(string(getFieldOrDefault(reaction, 'ConsumedAura', ""))), 'quicken');
 end
 
 function state = localActivateTimedReactionState(state, applyGauge, reactionBonus, hitDescriptor, build, teamContext, reactionElement)
