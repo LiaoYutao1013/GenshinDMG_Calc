@@ -2,8 +2,8 @@
     % Venti explicit tap / hold E and burst script with approximation.
     % Tap and hold skill damage, burst DoT, and absorbed-element follow-up
     % are modeled as separate actions with constellation bonuses applied.
-    % Remaining approximation: absorbed element still resolves by initial
-    % aura override or team priority Pyro > Hydro > Electro > Cryo.
+    % Remaining approximation: approximate mode still falls back to team
+    % priority Pyro > Hydro > Electro > Cryo when no explicit aura exists.
     if nargin < 3 || isempty(seqFile)
         seqFile = fullfile(fileparts(mfilename('fullpath')), '..', '..', 'data', 'Venti', 'rotation_Venti.txt');
     end
@@ -55,12 +55,25 @@
 end
 
 function element = localResolveAbsorbedElement(teamContext, enemy)
+    enemyState = getFieldOrDefault(teamContext, 'EnemyState', []);
+    if ~localShouldIgnoreApproximateEnemyState(enemyState, enemy)
+        element = localResolveAuraPriorityElement(enemyState);
+        if strlength(element) > 0
+            return;
+        end
+    end
+
     if nargin >= 2 && isstruct(enemy)
         initialAura = string(getFieldOrDefault(enemy, 'InitialAuraElement', ""));
         if any(strcmpi(initialAura, ["Pyro", "Hydro", "Electro", "Cryo"]))
             element = initialAura;
             return;
         end
+    end
+
+    if ~localUsesApproximateAbsorptionFallback(teamContext, enemy)
+        element = "";
+        return;
     end
 
     priority = ["Pyro", "Hydro", "Electro", "Cryo"];
@@ -72,4 +85,56 @@ function element = localResolveAbsorbedElement(teamContext, enemy)
         end
     end
     element = "";
+end
+
+function tf = localUsesApproximateAbsorptionFallback(teamContext, enemy)
+    reactionMode = string(getFieldOrDefault(teamContext, 'ReactionMode', ""));
+    if nargin >= 2 && isstruct(enemy)
+        enemyMode = string(getFieldOrDefault(enemy, 'ReactionMode', ""));
+        if strlength(enemyMode) > 0
+            reactionMode = enemyMode;
+        end
+    end
+    tf = strcmpi(char(reactionMode), 'Approximate');
+end
+
+function tf = localShouldIgnoreApproximateEnemyState(enemyState, enemy)
+    reactionMode = string(getFieldOrDefault(enemyState, 'ReactionMode', ""));
+    autoSupport = logical(getFieldOrDefault(enemyState, 'AutoSupportAura', false));
+    hasExplicitInitialAura = false;
+    if nargin >= 2 && isstruct(enemy)
+        hasExplicitInitialAura = strlength(string(getFieldOrDefault(enemy, 'InitialAuraElement', ""))) > 0 ...
+            && getFieldOrDefault(enemy, 'InitialAuraGauge', 0) > 0;
+    end
+    tf = autoSupport && strcmpi(char(reactionMode), 'Approximate') && ~hasExplicitInitialAura;
+end
+
+function element = localResolveAuraPriorityElement(enemyState)
+    element = "";
+    if isempty(enemyState) || ~isfield(enemyState, 'Auras') || isempty(enemyState.Auras)
+        return;
+    end
+
+    priority = ["Pyro", "Hydro", "Electro", "Cryo"];
+    for i = 1:numel(priority)
+        if localHasAura(enemyState, priority(i))
+            element = priority(i);
+            return;
+        end
+    end
+end
+
+function tf = localHasAura(enemyState, auraElement)
+    tf = false;
+    if ~isfield(enemyState, 'Auras') || isempty(enemyState.Auras)
+        return;
+    end
+
+    for i = 1:numel(enemyState.Auras)
+        if strcmpi(char(enemyState.Auras(i).Element), char(string(auraElement))) ...
+                && getFieldOrDefault(enemyState.Auras(i), 'Gauge', 0) > 1e-6
+            tf = true;
+            return;
+        end
+    end
 end
