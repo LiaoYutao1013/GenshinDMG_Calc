@@ -17,6 +17,7 @@
     <param.output>${PROJECT_ROOT}</param.output>
     <param.guid>5b244adb-0911-427f-a63e-0f6328470c52</param.guid>
     <unset>
+      <param.authnamewatermark />
       <param.email />
       <param.company />
       <param.icon />
