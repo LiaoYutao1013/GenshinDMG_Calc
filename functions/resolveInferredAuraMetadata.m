@@ -271,6 +271,38 @@ function override = localResolveKnownAttackOverride(normalizedName, lowerAction)
                     override.AttackName = "ElementalArt_Second_Attack";
                     override.DamageParam = "ElementalArt_AvatarExplode_Uncharged";
             end
+
+        case 'varka'
+            switch lowerAction
+                case {'e', 'epress'}
+                    override.AttackName = "ElementalArt";
+                    override.DamageParam = "ElementalArt_Damage";
+                    override.ICDGroup = "Varka_ElementalArt";
+                case {'q', 'q1'}
+                    override.AttackName = "ElementalBurst";
+                    override.DamageParam = "ElementalBurst_Attack1";
+                    override.ICDGroup = "Varka_BurstLeadingSlash";
+                case 'q2'
+                    override.AttackName = "ElementalBurst";
+                    override.DamageParam = "ElementalBurst_Attack2";
+                    override.ICDGroup = "Varka_BurstFollowSlash";
+                case {'ascend', 'fourwindsright'}
+                    override.AttackName = "Special_ElementalArt";
+                    override.DamageParam = "Special_ElementalArt_01|_ABILITY_Avatar_Varka_ArtDamageUp_GV|MUL|Talent1_Rate|MUL";
+                    override.ICDGroup = "Varka_SpecialElement";
+                case {'fourwindsanemo', 'fourwindsc2'}
+                    override.AttackName = "Special_ElementalArt";
+                    override.DamageParam = "Special_ElementalArt_02|_ABILITY_Avatar_Varka_ArtDamageUp_GV|MUL|Talent1_Rate|MUL";
+                    override.ICDGroup = "Varka_SpecialAnemo";
+                case {'devour', 'azuredevourright1', 'azuredevourright2'}
+                    override.AttackName = "Special_ElementalArt";
+                    override.DamageParam = "Special_ElementalArt_01|_ABILITY_Avatar_Varka_ArtDamageUp_GV|MUL|Talent1_Rate|MUL";
+                    override.ICDGroup = "Varka_SpecialElement";
+                case {'azuredevouranemo1', 'azuredevouranemo2', 'azuredevourc2'}
+                    override.AttackName = "Special_ElementalArt";
+                    override.DamageParam = "Special_ElementalArt_02|_ABILITY_Avatar_Varka_ArtDamageUp_GV|MUL|Talent1_Rate|MUL";
+                    override.ICDGroup = "Varka_SpecialAnemo";
+            end
     end
 end
 

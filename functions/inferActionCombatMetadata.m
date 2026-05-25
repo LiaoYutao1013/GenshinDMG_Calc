@@ -141,6 +141,15 @@ function actionClass = localResolveActionClass(lowerAction)
         actionClass = "Reaction";
         return;
     end
+    if any(strcmp(lowerAction, {'ascend', 'fwa', 'fourwindsright', 'fourwindsanemo', 'fourwindsc2'}))
+        actionClass = "Skill";
+        return;
+    end
+    if any(strcmp(lowerAction, {'devour', 'ad', 'azuredevourright1', 'azuredevouranemo1', ...
+            'azuredevourright2', 'azuredevouranemo2', 'azuredevourc2'}))
+        actionClass = "Charged";
+        return;
+    end
     if strcmp(lowerAction, 'q') || strcmp(lowerAction, 'burst') ...
             || ~isempty(regexp(lowerAction, '^q\d+$', 'once')) ...
             || any(strcmp(lowerAction, {'qphysical', 'qpyro'}))
@@ -417,6 +426,217 @@ function meta = localApplyCharacterSpecificMetadata(meta, member, normalizedName
         case 'varesa'
             if strcmp(lowerAction, 'finisher')
                 meta.ConsumesActiveWindow = true;
+            end
+
+        case 'varka'
+            rightElement = localResolveVarkaRightHandElement(teamContext);
+            preferredAura = localResolveVarkaPreferredAura(rightElement, teamContext);
+            hasRightElement = strlength(rightElement) > 0;
+            isPublicNormal = any(strcmp(lowerAction, {'n1', 'n2', 'n3', 'n4', 'n5'}));
+            isInternalNormal = endsWith(lowerAction, "left") || endsWith(lowerAction, "right");
+            if strcmp(lowerAction, 'e')
+                meta.EffectDuration = 12.0;
+                meta.EffectTag = "VarkaSturmUndDrang";
+            elseif isPublicNormal
+                meta.ConsumesActiveWindow = true;
+                meta.HitElement = "";
+                meta.ApplyElement = "";
+                meta.ApplyGauge = 0.0;
+                meta.CanApplyAura = false;
+                meta.AllowAmplify = false;
+                meta.AllowCatalyze = false;
+                meta.ApplyGaugeSource = "not_applicable";
+                meta.ICDSource = "not_applicable";
+                meta.ICDRule = "";
+                meta.ICDGroup = "";
+            elseif endsWith(lowerAction, "left")
+                meta.ActionClass = "Normal";
+                meta.ConsumesActiveWindow = true;
+                meta.HitElement = "Anemo";
+                meta.ApplyElement = "Anemo";
+                meta.ApplyGauge = 1.0;
+                meta.CanApplyAura = true;
+                meta.AllowAmplify = false;
+                meta.AllowCatalyze = false;
+                meta.ICDRule = "Standard (3h/2.5s)";
+                meta.ICDGroup = localResolveVarkaNormalICDGroup(lowerAction);
+                meta.ICDSource = "explicit";
+                meta.StrikeType = "Blunt";
+            elseif endsWith(lowerAction, "right")
+                meta.ActionClass = "Normal";
+                meta.ConsumesActiveWindow = true;
+                if hasRightElement
+                    meta.HitElement = rightElement;
+                    meta.ApplyElement = rightElement;
+                    meta.ApplyGauge = 1.0;
+                    meta.CanApplyAura = true;
+                    meta.AllowAmplify = any(strcmpi(char(rightElement), {'Pyro', 'Hydro', 'Cryo'}));
+                    meta.AllowCatalyze = any(strcmpi(char(rightElement), {'Electro', 'Dendro'}));
+                    meta.PreferredAura = preferredAura;
+                    meta.ICDRule = "Standard (3h/2.5s)";
+                    meta.ICDGroup = localResolveVarkaNormalICDGroup(lowerAction);
+                    meta.ICDSource = "explicit";
+                    meta.StrikeType = "Blunt";
+                else
+                    meta.HitElement = "Physical";
+                    meta.ApplyElement = "";
+                    meta.ApplyGauge = 0.0;
+                    meta.CanApplyAura = false;
+                    meta.AllowAmplify = false;
+                    meta.AllowCatalyze = false;
+                    meta.ApplyGaugeSource = "not_applicable";
+                    meta.ICDSource = "not_applicable";
+                    meta.ICDRule = "";
+                    meta.ICDGroup = "";
+                    meta.PreferredAura = "";
+                end
+            elseif any(strcmp(lowerAction, {'ascend', 'fwa', 'fourwindsright'}))
+                meta.ActionClass = "Skill";
+                meta.ConsumesActiveWindow = true;
+                if hasRightElement
+                    meta.HitElement = rightElement;
+                    meta.ApplyElement = rightElement;
+                    meta.ApplyGauge = 1.0;
+                    meta.CanApplyAura = true;
+                    meta.AllowAmplify = any(strcmpi(char(rightElement), {'Pyro', 'Hydro', 'Cryo'}));
+                    meta.AllowCatalyze = any(strcmpi(char(rightElement), {'Electro', 'Dendro'}));
+                    meta.PreferredAura = preferredAura;
+                    meta.ICDRule = "Independent";
+                    meta.ICDGroup = "Varka_SpecialElement";
+                    meta.ICDSource = "explicit";
+                    meta.StrikeType = "Blunt";
+                else
+                    meta.HitElement = "";
+                    meta.ApplyElement = "";
+                    meta.ApplyGauge = 0.0;
+                    meta.CanApplyAura = false;
+                    meta.AllowAmplify = false;
+                    meta.AllowCatalyze = false;
+                    meta.ApplyGaugeSource = "not_applicable";
+                    meta.ICDSource = "not_applicable";
+                    meta.ICDRule = "";
+                    meta.ICDGroup = "";
+                end
+            elseif any(strcmp(lowerAction, {'fourwindsanemo', 'fourwindsc2'}))
+                meta.ActionClass = "FollowUp";
+                meta.ConsumesActiveWindow = false;
+                meta.HitElement = "Anemo";
+                meta.ApplyElement = "Anemo";
+                meta.ApplyGauge = 1.0;
+                meta.CanApplyAura = true;
+                meta.AllowAmplify = false;
+                meta.AllowCatalyze = false;
+                meta.ICDRule = "Independent";
+                meta.ICDGroup = "Varka_SpecialAnemo";
+                meta.ICDSource = "explicit";
+                meta.StrikeType = "Blunt";
+            elseif any(strcmp(lowerAction, {'devour', 'ad', 'azuredevourright1', 'azuredevourright2'}))
+                meta.ActionClass = "Charged";
+                meta.ConsumesActiveWindow = true;
+                if hasRightElement
+                    meta.HitElement = rightElement;
+                    meta.ApplyElement = rightElement;
+                    meta.ApplyGauge = 1.0;
+                    meta.CanApplyAura = true;
+                    meta.AllowAmplify = any(strcmpi(char(rightElement), {'Pyro', 'Hydro', 'Cryo'}));
+                    meta.AllowCatalyze = any(strcmpi(char(rightElement), {'Electro', 'Dendro'}));
+                    meta.PreferredAura = preferredAura;
+                    meta.ICDRule = "Independent";
+                    meta.ICDGroup = "Varka_SpecialElement";
+                    meta.ICDSource = "explicit";
+                    meta.StrikeType = "Blunt";
+                else
+                    meta.HitElement = "";
+                    meta.ApplyElement = "";
+                    meta.ApplyGauge = 0.0;
+                    meta.CanApplyAura = false;
+                    meta.AllowAmplify = false;
+                    meta.AllowCatalyze = false;
+                    meta.ApplyGaugeSource = "not_applicable";
+                    meta.ICDSource = "not_applicable";
+                    meta.ICDRule = "";
+                    meta.ICDGroup = "";
+                end
+            elseif any(strcmp(lowerAction, {'azuredevouranemo1', 'azuredevouranemo2', 'azuredevourc2'}))
+                meta.ActionClass = "FollowUp";
+                meta.ConsumesActiveWindow = false;
+                meta.HitElement = "Anemo";
+                meta.ApplyElement = "Anemo";
+                meta.ApplyGauge = 1.0;
+                meta.CanApplyAura = true;
+                meta.AllowAmplify = false;
+                meta.AllowCatalyze = false;
+                meta.ICDRule = "Independent";
+                meta.ICDGroup = "Varka_SpecialAnemo";
+                meta.ICDSource = "explicit";
+                meta.StrikeType = "Blunt";
+            elseif strcmp(lowerAction, 'q')
+                if hasRightElement
+                    meta.HitElement = rightElement;
+                    meta.ApplyElement = rightElement;
+                    meta.ApplyGauge = 1.0;
+                    meta.CanApplyAura = true;
+                    meta.AllowAmplify = any(strcmpi(char(rightElement), {'Pyro', 'Hydro', 'Cryo'}));
+                    meta.AllowCatalyze = any(strcmpi(char(rightElement), {'Electro', 'Dendro'}));
+                    meta.PreferredAura = preferredAura;
+                else
+                    meta.HitElement = "Anemo";
+                    meta.ApplyElement = "Anemo";
+                    meta.ApplyGauge = 1.0;
+                    meta.CanApplyAura = true;
+                    meta.AllowAmplify = false;
+                    meta.AllowCatalyze = false;
+                end
+                meta.ICDRule = "Independent";
+                meta.ICDGroup = "Varka_BurstLeadingSlash";
+                meta.ICDSource = "explicit";
+                meta.StrikeType = "Blunt";
+                meta.TriggeredFollowUpAction = "Q2";
+                meta.TriggeredFollowUpDelay = 0.08;
+                meta.TriggeredFollowUpGauge = 1.0;
+                meta.TriggeredFollowUpElement = "Anemo";
+                meta.TriggeredFollowUpInternalCooldown = 0;
+                meta.TriggeredFollowUpEligibleClasses = ["Burst"];
+                meta.TriggeredFollowUpForegroundOnly = false;
+                meta.TriggeredFollowUpMaxCount = 1;
+                meta.EffectDuration = 0.20;
+                meta.EffectTag = "VarkaBurstLink";
+            elseif strcmp(lowerAction, 'q1')
+                if hasRightElement
+                    meta.HitElement = rightElement;
+                    meta.ApplyElement = rightElement;
+                    meta.ApplyGauge = 1.0;
+                    meta.CanApplyAura = true;
+                    meta.AllowAmplify = any(strcmpi(char(rightElement), {'Pyro', 'Hydro', 'Cryo'}));
+                    meta.AllowCatalyze = any(strcmpi(char(rightElement), {'Electro', 'Dendro'}));
+                    meta.PreferredAura = preferredAura;
+                else
+                    meta.HitElement = "Anemo";
+                    meta.ApplyElement = "Anemo";
+                    meta.ApplyGauge = 1.0;
+                    meta.CanApplyAura = true;
+                    meta.AllowAmplify = false;
+                    meta.AllowCatalyze = false;
+                end
+                meta.ICDRule = "Independent";
+                meta.ICDGroup = "Varka_BurstLeadingSlash";
+                meta.ICDSource = "explicit";
+                meta.StrikeType = "Blunt";
+            elseif strcmp(lowerAction, 'q2')
+                meta.ActionClass = "FollowUp";
+                meta.ConsumesActiveWindow = false;
+                meta.HitElement = "Anemo";
+                meta.ApplyElement = "Anemo";
+                meta.ApplyGauge = 1.0;
+                meta.CanApplyAura = true;
+                meta.AllowAmplify = false;
+                meta.AllowCatalyze = false;
+                meta.ICDRule = "Independent";
+                meta.ICDGroup = "Varka_BurstFollowSlash";
+                meta.ICDSource = "explicit";
+                meta.StrikeType = "Blunt";
+            elseif isInternalNormal
+                meta.StrikeType = "Blunt";
             end
 
         case 'durin'
@@ -703,6 +923,53 @@ function aura = localResolveIfaPreferredAura(element, teamContext)
     end
 end
 
+function element = localResolveVarkaRightHandElement(teamContext)
+    priority = ["Pyro", "Hydro", "Electro", "Cryo"];
+    element = "";
+    for i = 1:numel(priority)
+        countField = priority(i) + "Count";
+        if getFieldOrDefault(teamContext, char(countField), 0) >= 1
+            element = priority(i);
+            return;
+        end
+    end
+end
+
+function group = localResolveVarkaNormalICDGroup(lowerAction)
+    action = string(lowerAction);
+    if endsWith(action, "left")
+        group = "Varka_SturmLeft";
+    else
+        group = "Varka_SturmRight";
+    end
+end
+
+function aura = localResolveVarkaPreferredAura(element, teamContext)
+    aura = "";
+    switch lower(char(string(element)))
+        case 'pyro'
+            if getFieldOrDefault(teamContext, 'HydroCount', 0) >= 1
+                aura = "Hydro";
+            elseif getFieldOrDefault(teamContext, 'CryoCount', 0) >= 1
+                aura = "Cryo";
+            end
+        case 'hydro'
+            if getFieldOrDefault(teamContext, 'PyroCount', 0) >= 1
+                aura = "Pyro";
+            end
+        case 'cryo'
+            if getFieldOrDefault(teamContext, 'PyroCount', 0) >= 1
+                aura = "Pyro";
+            end
+        case 'electro'
+            if getFieldOrDefault(teamContext, 'HydroCount', 0) >= 1
+                aura = "Hydro";
+            elseif getFieldOrDefault(teamContext, 'PyroCount', 0) >= 1
+                aura = "Pyro";
+            end
+    end
+end
+
 function [particles, orbs] = localResolveEnergyPacket(normalizedName, lowerAction, actionClass, hitElement)
     particles = 0;
     orbs = 0;
@@ -773,6 +1040,12 @@ function [particles, orbs] = localResolveEnergyPacket(normalizedName, lowerActio
         particles = 4;
     elseif normalizedName == "kukishinobu" && strcmp(lowerAction, 'e')
         particles = 3;
+    elseif normalizedName == "varka" && strcmp(lowerAction, 'e')
+        particles = 6;
+    elseif normalizedName == "varka" && any(strcmp(lowerAction, {'ascend', 'fwa', 'devour', 'ad', ...
+            'fourwindsright', 'fourwindsanemo', 'fourwindsc2', ...
+            'azuredevourright1', 'azuredevouranemo1', 'azuredevourright2', 'azuredevouranemo2', 'azuredevourc2'}))
+        particles = 0;
     end
 
     if strlength(string(hitElement)) == 0 || strcmpi(char(hitElement), 'physical')
@@ -878,6 +1151,11 @@ function [duration, tag, firstTickDelay, tickInterval, tickCount, tickAction, ti
             elseif any(strcmp(lowerAction, {'confirm', 'deny'}))
                 duration = 30.0;
                 tag = "DurinTransmutation";
+            end
+        case 'varka'
+            if strcmp(lowerAction, 'e')
+                duration = 12.0;
+                tag = "VarkaSturmUndDrang";
             end
         case 'nicole'
             if strcmp(lowerAction, 'q')

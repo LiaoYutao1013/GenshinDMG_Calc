@@ -98,8 +98,12 @@ function actions = localBuildActions(normalLevel, skillLevel, burstLevel, conste
         'Param', "SkillDMG", ...
         'DamageField', "SkillDMGBonus", ...
         'ActionElement', "Anemo", ...
+        'ApplyElement', "Anemo", ...
         'ApplyGauge', 1.0, ...
         'ICDRule', "Independent", ...
+        'ICDGroup', "Varka_ElementalArt", ...
+        'LunarisAttackName', "ElementalArt", ...
+        'LunarisDamageParam', "ElementalArt_Damage", ...
         'Note', "Windbound Execution");
 
     actions.EHold = struct( ...
@@ -139,6 +143,7 @@ function actions = localBuildActions(normalLevel, skillLevel, burstLevel, conste
             'BaseMultiplier', 0.50, ...
             'ApplyGauge', 0.0, ...
             'CanApplyAura', false, ...
+            'DisableLunarisLookup', true, ...
             'VarkaDualAttack', true, ...
             'VarkaLeftHand', isLeft, ...
             'VarkaRightHand', ~isLeft, ...
@@ -159,6 +164,7 @@ function actions = localBuildActions(normalLevel, skillLevel, burstLevel, conste
         'BaseMultiplier', 0.50, ...
         'ApplyGauge', 0.0, ...
         'CanApplyAura', false, ...
+        'DisableLunarisLookup', true, ...
         'VarkaDualAttack', true, ...
         'VarkaLeftHand', true, ...
         'VarkaRightHand', false, ...
@@ -175,6 +181,7 @@ function actions = localBuildActions(normalLevel, skillLevel, burstLevel, conste
         'BaseMultiplier', 0.50, ...
         'ApplyGauge', 0.0, ...
         'CanApplyAura', false, ...
+        'DisableLunarisLookup', true, ...
         'VarkaDualAttack', true, ...
         'VarkaLeftHand', false, ...
         'VarkaRightHand', true, ...
@@ -207,8 +214,12 @@ function actions = localBuildActions(normalLevel, skillLevel, burstLevel, conste
         'Param', "Skill1HitDMG", ...
         'DamageField', "BurstDMGBonus", ...
         'ActionElement', "Anemo", ...
+        'ApplyElement', "Anemo", ...
         'ApplyGauge', 1.0, ...
         'ICDRule', "Independent", ...
+        'ICDGroup', "Varka_BurstLeadingSlash", ...
+        'LunarisAttackName', "ElementalBurst", ...
+        'LunarisDamageParam', "ElementalBurst_Attack1", ...
         'VarkaBurstLeadingSlash', true, ...
         'Note', "Northwind Avatar slash 1");
     actions.Q2 = struct( ...
@@ -217,21 +228,39 @@ function actions = localBuildActions(normalLevel, skillLevel, burstLevel, conste
         'Param', "Skill2HitDMG", ...
         'DamageField', "BurstDMGBonus", ...
         'ActionElement', "Anemo", ...
+        'ApplyElement', "Anemo", ...
         'ApplyGauge', 1.0, ...
         'ICDRule', "Independent", ...
+        'ICDGroup', "Varka_BurstFollowSlash", ...
+        'LunarisAttackName', "ElementalBurst", ...
+        'LunarisDamageParam', "ElementalBurst_Attack2", ...
         'Note', "Northwind Avatar slash 2");
 end
 
 function action = localMakeSpecialAction(kind, component, skillLevel, talentGroup, paramName, damageField, baseMultiplier, isC2, isTerminal, note)
+    isAnemoComponent = contains(component, "Anemo") || contains(component, "C2");
+    if isAnemoComponent
+        lunarisDamageParam = "Special_ElementalArt_02|_ABILITY_Avatar_Varka_ArtDamageUp_GV|MUL|Talent1_Rate|MUL";
+        lunarisAttackName = "Special_ElementalArt";
+        icdGroup = "Varka_SpecialAnemo";
+    else
+        lunarisDamageParam = "Special_ElementalArt_01|_ABILITY_Avatar_Varka_ArtDamageUp_GV|MUL|Talent1_Rate|MUL";
+        lunarisAttackName = "Special_ElementalArt";
+        icdGroup = "Varka_SpecialElement";
+    end
     action = struct( ...
         'TalentGroup', string(talentGroup), ...
         'TalentLevelOverride', skillLevel, ...
         'Param', string(paramName), ...
         'DamageField', string(damageField), ...
         'ActionElement', "Anemo", ...
+        'ApplyElement', "Anemo", ...
         'BaseMultiplier', baseMultiplier, ...
         'ApplyGauge', 1.0, ...
         'ICDRule', "Independent", ...
+        'ICDGroup', icdGroup, ...
+        'LunarisAttackName', lunarisAttackName, ...
+        'LunarisDamageParam', lunarisDamageParam, ...
         'VarkaSpecialKind', string(kind), ...
         'VarkaSpecialComponent', string(component), ...
         'VarkaSpecialStart', any(strcmp(component, ["Right", "Right1"])), ...
@@ -272,25 +301,31 @@ function [actionSpec, note] = localConfigureDualAttack(actionSpec, note, state, 
         actionSpec.TalentLevelOverride = cfg.SkillLevel;
         actionSpec.Param = string(getFieldOrDefault(actionSpec, 'VarkaSturmParam', actionSpec.Param));
         actionSpec.ICDRule = "Standard (3h/2.5s)";
+        actionSpec.ICDGroup = localResolveDualAttackICDGroup(actionSpec);
         actionSpec.ApplyGauge = 1.0;
+        actionSpec.CanApplyAura = true;
+        actionSpec.CanTriggerReaction = true;
         actionSpec.BaseMultiplier = getFieldOrDefault(actionSpec, 'BaseMultiplier', 1.0) * cfg.SturmMultiplier;
+        actionSpec.DisableLunarisLookup = true;
+        actionSpec.LunarisAttackName = "";
+        actionSpec.LunarisDamageParam = "";
 
         if logical(getFieldOrDefault(actionSpec, 'VarkaLeftHand', false))
-            actionSpec.ActionElement = "Anemo";
-            actionSpec.ApplyElement = "Anemo";
+            actionSpec = localAssignElementReactionMetadata(actionSpec, "Anemo");
         else
             rightElement = cfg.RightHandElement;
             if strlength(rightElement) > 0
-                actionSpec.ActionElement = rightElement;
-                actionSpec.ApplyElement = rightElement;
-                actionSpec.PreferredAmplifyAura = localResolvePreferredAmplifyAura(rightElement);
-                actionSpec.AllowAmplify = double(strlength(actionSpec.PreferredAmplifyAura) > 0);
+                actionSpec = localAssignElementReactionMetadata(actionSpec, rightElement);
                 note = localAppendNote(note, "right=" + rightElement);
             else
                 actionSpec.ActionElement = cfg.RightHandFallback;
                 actionSpec.ApplyElement = "";
                 actionSpec.ApplyGauge = 0.0;
                 actionSpec.CanApplyAura = false;
+                actionSpec.CanTriggerReaction = false;
+                actionSpec.AllowAmplify = 0;
+                actionSpec.AllowCatalyze = 0;
+                actionSpec.ICDGroup = "";
                 note = localAppendNote(note, "right=Physical");
             end
         end
@@ -302,7 +337,13 @@ function [actionSpec, note] = localConfigureDualAttack(actionSpec, note, state, 
         actionSpec.ApplyElement = "";
         actionSpec.ApplyGauge = 0.0;
         actionSpec.CanApplyAura = false;
+        actionSpec.CanTriggerReaction = false;
         actionSpec.AllowAmplify = 0;
+        actionSpec.AllowCatalyze = 0;
+        actionSpec.ICDGroup = "";
+        actionSpec.DisableLunarisLookup = true;
+        actionSpec.LunarisAttackName = "";
+        actionSpec.LunarisDamageParam = "";
     end
 end
 
@@ -331,10 +372,13 @@ function [state, actionSpec, note] = localConfigureSpecialAttack(state, actionSp
             return;
         end
         actionSpec.MVOverride = 8.0;
-        actionSpec.ActionElement = "Anemo";
-        actionSpec.ApplyElement = "Anemo";
+        actionSpec = localAssignElementReactionMetadata(actionSpec, "Anemo");
         actionSpec.ApplyGauge = 1.0;
         actionSpec.ICDRule = "Independent";
+        actionSpec.ICDGroup = "Varka_SpecialC2";
+        actionSpec.DisableLunarisLookup = true;
+        actionSpec.LunarisAttackName = "";
+        actionSpec.LunarisDamageParam = "";
         note = localAppendNote(note, "C2");
         return;
     end
@@ -349,27 +393,27 @@ function [state, actionSpec, note] = localConfigureSpecialAttack(state, actionSp
             actionSpec = localInvalidateAction(actionSpec, localAppendNote(note, "no infused partner"));
             return;
         end
-        actionSpec.ActionElement = cfg.RightHandElement;
-        actionSpec.ApplyElement = cfg.RightHandElement;
-        actionSpec.PreferredAmplifyAura = localResolvePreferredAmplifyAura(cfg.RightHandElement);
-        actionSpec.AllowAmplify = double(strlength(actionSpec.PreferredAmplifyAura) > 0);
+        actionSpec = localAssignElementReactionMetadata(actionSpec, cfg.RightHandElement);
+        actionSpec.ICDGroup = "Varka_SpecialElement";
+        actionSpec.DisableLunarisLookup = false;
+        actionSpec.LunarisAttackName = "Special_ElementalArt";
+        actionSpec.LunarisDamageParam = "Special_ElementalArt_01";
         note = localAppendNote(note, "right=" + cfg.RightHandElement);
     else
-        actionSpec.ActionElement = "Anemo";
-        actionSpec.ApplyElement = "Anemo";
+        actionSpec = localAssignElementReactionMetadata(actionSpec, "Anemo");
+        actionSpec.ICDGroup = "Varka_SpecialAnemo";
+        actionSpec.DisableLunarisLookup = false;
+        actionSpec.LunarisAttackName = "Special_ElementalArt";
+        actionSpec.LunarisDamageParam = "Special_ElementalArt_02";
     end
 end
 
 function [actionSpec, note] = localConfigureBurstLeadingSlash(actionSpec, note, cfg)
     if strlength(cfg.RightHandElement) > 0
-        actionSpec.ActionElement = cfg.RightHandElement;
-        actionSpec.ApplyElement = cfg.RightHandElement;
-        actionSpec.PreferredAmplifyAura = localResolvePreferredAmplifyAura(cfg.RightHandElement);
-        actionSpec.AllowAmplify = double(strlength(actionSpec.PreferredAmplifyAura) > 0);
+        actionSpec = localAssignElementReactionMetadata(actionSpec, cfg.RightHandElement);
         note = localAppendNote(note, "slash1=" + cfg.RightHandElement);
     else
-        actionSpec.ActionElement = "Anemo";
-        actionSpec.ApplyElement = "Anemo";
+        actionSpec = localAssignElementReactionMetadata(actionSpec, "Anemo");
     end
 end
 
@@ -610,9 +654,16 @@ function actionSpec = localInvalidateAction(actionSpec, note)
     actionSpec.FlatDirectHPWeight = 0;
     actionSpec.FlatDirectDEFWeight = 0;
     actionSpec.FlatDirectEMWeight = 0;
+    actionSpec.ApplyElement = "";
     actionSpec.ApplyGauge = 0.0;
     actionSpec.CanApplyAura = false;
     actionSpec.CanTriggerReaction = false;
+    actionSpec.AllowAmplify = 0;
+    actionSpec.AllowCatalyze = 0;
+    actionSpec.ICDGroup = "";
+    actionSpec.DisableLunarisLookup = true;
+    actionSpec.LunarisAttackName = "";
+    actionSpec.LunarisDamageParam = "";
     actionSpec.Note = localAppendNote(string(getFieldOrDefault(actionSpec, 'Note', "")), note);
 end
 
@@ -765,6 +816,25 @@ function aura = localResolvePreferredAmplifyAura(element)
             aura = "Pyro";
         otherwise
             aura = "";
+    end
+end
+
+function actionSpec = localAssignElementReactionMetadata(actionSpec, element)
+    element = string(element);
+    actionSpec.ActionElement = element;
+    actionSpec.ApplyElement = element;
+    actionSpec.CanApplyAura = true;
+    actionSpec.CanTriggerReaction = true;
+    actionSpec.PreferredAmplifyAura = localResolvePreferredAmplifyAura(element);
+    actionSpec.AllowAmplify = double(strlength(actionSpec.PreferredAmplifyAura) > 0);
+    actionSpec.AllowCatalyze = double(strcmpi(char(element), 'Electro') || strcmpi(char(element), 'Dendro'));
+end
+
+function group = localResolveDualAttackICDGroup(actionSpec)
+    if logical(getFieldOrDefault(actionSpec, 'VarkaLeftHand', false))
+        group = "Varka_SturmLeft";
+    else
+        group = "Varka_SturmRight";
     end
 end
 

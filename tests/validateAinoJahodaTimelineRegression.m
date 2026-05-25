@@ -73,5 +73,27 @@ function validateAinoJahodaTimelineRegression()
     assert(damageC6 > damageC5, ...
         'Jahoda C6 should outdamage C5 once the Moonsign crit window is applied.');
 
+    varka = getDefaultCharacterConfig('Varka', struct('Constellation', 2));
+    jean = getDefaultCharacterConfig('Jean');
+    bennett = getDefaultCharacterConfig('Bennett');
+    xiangling = getDefaultCharacterConfig('Xiangling');
+    varka.RotationFile = writeTempRotationFile(tempDir, 'Varka', 3, sprintf('E\nAscend\nDevour\nQ\n'));
+    varkaPlan = struct('Members', { {varka, jean, bennett, xiangling} }, 'RotationDuration', 20, ...
+        'SharedBuffs', struct('ReactionMode', "Realistic"), ...
+        'PlanOptions', struct('DisableAutoPlan', true));
+    varkaTimeline = simulateTeamDPS(varkaPlan, enemy).TimelineTable;
+    varkaActions = string(varkaTimeline.Action);
+    varkaRows = varkaTimeline(string(varkaTimeline.Character) == "Varka", :);
+
+    assert(any(varkaActions == "FourWindsRight") && any(varkaActions == "FourWindsAnemo") ...
+        && any(varkaActions == "AzureDevourRight1") && any(varkaActions == "Q1") && any(varkaActions == "Q2"), ...
+        'Varka team timeline should expand public special tokens into the internal multi-hit action rows.');
+    assert(any(varkaRows.Action == "FourWindsRight" & varkaRows.HitElement == "Pyro" & varkaRows.ApplyGauge == 1), ...
+        'Varka Four Winds right-hand row should retain Pyro application in the team timeline.');
+    assert(any(varkaRows.Action == "FourWindsAnemo" & varkaRows.HitElement == "Anemo" & varkaRows.ApplyGauge == 1), ...
+        'Varka Four Winds anemo row should retain its Anemo follow-up hit in the team timeline.');
+    assert(any(varkaRows.Action == "Q2" & varkaRows.HitElement == "Anemo" & varkaRows.SourceType == "MemberAction"), ...
+        'Varka burst follow-up slash should be scheduled as an explicit timeline action row.');
+
     disp('validateAinoJahodaTimelineRegression passed');
 end

@@ -275,6 +275,7 @@ function actionEvents = localBuildActionEvents(members, rotationPlan, rotationDu
         if isempty(tokens)
             continue;
         end
+        tokens = localExpandCharacterActionTokens(tokens, members{i});
         disableRuntimeExpansion = localPlanHasExplicitFollowUpTokens(tokens);
 
         cursor = getFieldOrDefault(plan, 'StartTime', 0);
@@ -311,6 +312,50 @@ function actionEvents = localBuildActionEvents(members, rotationPlan, rotationDu
     end
     [~, order] = sort([actionEvents.StartTime]);
     actionEvents = actionEvents(order);
+end
+
+function tokens = localExpandCharacterActionTokens(tokens, member)
+    if nargin < 1 || isempty(tokens)
+        tokens = cell(0, 1);
+        return;
+    end
+    if nargin < 2
+        member = struct();
+    end
+
+    characterName = lower(char(string(getFieldOrDefault(member, 'Name', ""))));
+    constellation = double(getFieldOrDefault(member, 'Constellation', 0));
+    expanded = cell(0, 1);
+    for tokenIndex = 1:numel(tokens)
+        token = string(tokens{tokenIndex});
+        appendList = {char(token)};
+        switch characterName
+            case 'varka'
+                appendList = localExpandVarkaTimelineToken(token, constellation);
+        end
+        expanded = [expanded; appendList(:)]; %#ok<AGROW>
+    end
+    tokens = expanded;
+end
+
+function appendList = localExpandVarkaTimelineToken(token, constellation)
+    normalized = upper(strtrim(char(string(token))));
+    switch normalized
+        case {'ASCEND', 'FWA'}
+            appendList = {'FourWindsRight', 'FourWindsAnemo'};
+            if constellation >= 2
+                appendList{end + 1} = 'FourWindsC2'; %#ok<AGROW>
+            end
+        case {'DEVOUR', 'AD'}
+            appendList = {'AzureDevourRight1', 'AzureDevourAnemo1', 'AzureDevourRight2', 'AzureDevourAnemo2'};
+            if constellation >= 2
+                appendList{end + 1} = 'AzureDevourC2'; %#ok<AGROW>
+            end
+        case {'Q', 'BURST'}
+            appendList = {'Q1', 'Q2'};
+        otherwise
+            appendList = {char(token)};
+    end
 end
 
 function actionEvents = localExpandActionEventsWithBackgroundDrivers(actionEvents, rotationPlan, archetypeInfo, teamContext, rotationDuration)

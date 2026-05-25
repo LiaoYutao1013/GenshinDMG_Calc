@@ -8,7 +8,7 @@ function validateSpecializedAuditRegression()
         'ReactionMode', "Realistic", ...
         'AutoSupportAura', false);
 
-    cases = {'Amber', 'Chevreuse', 'Iansan', 'Xianyun', 'Varesa'};
+    cases = {'Amber', 'Chevreuse', 'Iansan', 'Xianyun', 'Varesa', 'Varka'};
     for i = 1:numel(cases)
         name = cases{i};
         cfg = getDefaultCharacterConfig(name);

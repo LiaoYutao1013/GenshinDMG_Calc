@@ -1040,6 +1040,9 @@ end
 
 function attackMeta = localResolveLunarisAttackMetadata(characterName, actionSpec, actionKey, paramName, actionElement, attackMetadata)
     attackMeta = struct();
+    if logical(getFieldOrDefault(actionSpec, 'DisableLunarisLookup', false))
+        return;
+    end
     if isempty(attackMetadata)
         return;
     end

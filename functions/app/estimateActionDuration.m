@@ -60,6 +60,26 @@ function duration = estimateActionDuration(characterName, action, fallbackDurati
             duration = 1.80;
         case {"debttick", "summon", "arkhe"}
             duration = 0.40;
+        case {"n1left", "n1right", "n2left", "n2right"}
+            duration = 0.18;
+        case {"n3left", "n3right"}
+            duration = 0.22;
+        case {"n4left", "n4right"}
+            duration = 0.24;
+        case {"n5left", "n5right"}
+            duration = 0.28;
+        case {"chargedleft", "chargedright"}
+            duration = 0.32;
+        case {"fourwindsright", "fourwindsanemo"}
+            duration = 0.22;
+        case {"azuredevourright1", "azuredevouranemo1", "azuredevourright2", "azuredevouranemo2"}
+            duration = 0.16;
+        case {"fourwindsc2", "azuredevourc2"}
+            duration = 0.08;
+        case "q1"
+            duration = 0.42;
+        case "q2"
+            duration = 0.34;
         otherwise
             % 针对少量角色动作 token 做额外修正。
             switch lower(char(string(characterName)))
