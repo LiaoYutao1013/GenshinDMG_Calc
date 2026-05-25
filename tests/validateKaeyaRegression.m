@@ -14,18 +14,36 @@ function validateKaeyaRegression()
     cfg6 = getDefaultCharacterConfig('Kaeya', struct('Constellation', 6, 'TalentLevel', 10));
     ctx0 = buildTeamContext({cfg0}, 20, struct('ReactionMode', "Realistic"), enemy);
     ctx6 = buildTeamContext({cfg6}, 20, struct('ReactionMode', "Realistic"), enemy);
+    shortRotation = [tempname, '.txt'];
+    cleanupShortRotation = onCleanup(@() localDeleteIfExists(shortRotation)); %#ok<NASGU>
+    fid = fopen(shortRotation, 'w');
+    assert(fid > 0, 'Failed to create temporary Kaeya regression rotation file.');
+    fprintf(fid, 'N1\nCA\n');
+    fclose(fid);
+    cryoAuraEnemy = enemy;
+    cryoAuraEnemy.InitialAuraElement = "Cryo";
+    cryoAuraEnemy.InitialAuraGauge = 1.0;
+    ctx6CryoAura = buildTeamContext({cfg6}, 20, struct('ReactionMode', "Realistic"), cryoAuraEnemy);
 
     [damage0, ~, breakdown0, rotationTime0, audit0] = simulateKaeyaDPS( ...
         cfg0.Build, enemy, cfg0.RotationFile, cfg0.TalentLevel, cfg0.Constellation, ctx0);
     [damage6, ~, breakdown6, rotationTime6, audit6] = simulateKaeyaDPS( ...
         cfg6.Build, enemy, cfg6.RotationFile, cfg6.TalentLevel, cfg6.Constellation, ctx6);
+    [damage6CryoAura, ~, breakdown6CryoAura] = simulateKaeyaDPS( ...
+        cfg6.Build, cryoAuraEnemy, shortRotation, cfg6.TalentLevel, cfg6.Constellation, ctx6CryoAura);
+    [damage6NoAura, ~, breakdown6NoAura] = simulateKaeyaDPS( ...
+        cfg6.Build, enemy, shortRotation, cfg6.TalentLevel, cfg6.Constellation, ctx6);
 
     actions0 = string(breakdown0.Action);
     q0 = breakdown0(actions0 == "Q", :);
     q6 = breakdown6(string(breakdown6.Action) == "Q", :);
     ca0 = breakdown0(actions0 == "CA", :);
+    notes6 = string(breakdown6.Note);
+    notes6CryoAura = string(breakdown6CryoAura.Note);
+    notes6NoAura = string(breakdown6NoAura.Note);
 
-    assert(damage0 > 0 && rotationTime0 > 0 && damage6 > 0 && rotationTime6 > 0, ...
+    assert(damage0 > 0 && rotationTime0 > 0 && damage6 > 0 && rotationTime6 > 0 ...
+        && damage6CryoAura > 0 && damage6NoAura > 0, ...
         'Kaeya regression should produce positive damage and rotation time for both C0 and C6.');
     assert(isequal(actions0', ["E", "Q", "N1", "N2", "N3", "CA"]), ...
         'Kaeya regression should preserve the Frostgnaw -> Glacial Waltz -> physical string order.');
@@ -37,9 +55,23 @@ function validateKaeyaRegression()
         'Kaeya charged attack regression should keep the 2-hit physical note.');
     assert(damage6 > damage0, ...
         'Kaeya C6 regression should outdamage the C0 script through the extra burst tick.');
+    assert(any(contains(notes6, "C1 cryo crit")), ...
+        'Kaeya default regression should preserve the self-applied Cryo aura before the physical follow-up string.');
+    assert(~any(contains(notes6NoAura, "C1 cryo crit")), ...
+        'Kaeya physical-only regression should not assume the C1 cryo crit bonus without an explicit Cryo/Frozen aura.');
+    assert(any(contains(notes6CryoAura, "C1 cryo crit")), ...
+        'Kaeya regression should expose the C1 cryo crit note once the enemy starts with an explicit Cryo aura.');
+    assert(damage6CryoAura > damage6NoAura, ...
+        'Kaeya regression should deal more damage when the explicit Cryo aura enables the C1 crit bonus in a physical-only string.');
     assert(~any(audit0.Rows.ApplyGaugeFallback | audit0.Rows.ICDFallback) ...
         && ~any(audit6.Rows.ApplyGaugeFallback | audit6.Rows.ICDFallback), ...
         'Kaeya regression should keep explicit gauge and ICD metadata for the scripted rotation.');
 
     disp('validateKaeyaRegression passed');
+end
+
+function localDeleteIfExists(path)
+    if exist(path, 'file') == 2
+        delete(path);
+    end
 end

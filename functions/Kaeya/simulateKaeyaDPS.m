@@ -1,9 +1,9 @@
 function [totalDMG, dps, breakdown, rotationTime, audit] = simulateKaeyaDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
-    % Kaeya explicit Frostgnaw / Glacial Waltz script with approximation.
+    % Kaeya explicit Frostgnaw / Glacial Waltz script.
     % E, Q, and the grounded string are modeled as separate actions with
-    % explicit C6 burst tick handling.
-    % Remaining approximation: the scripted physical string assumes Kaeya's
-    % C1 crit bonus is active and does not fabricate C2 kill extensions.
+    % explicit C1 cryo-aura crit gating and C6 burst tick handling.
+    % Remaining approximation: the script still does not fabricate C2 kill
+    % extensions without explicit enemy-defeat data.
     if nargin < 3 || isempty(seqFile)
         seqFile = fullfile(fileparts(mfilename('fullpath')), '..', '..', 'data', 'Kaeya', 'rotation_Kaeya.txt');
     end
@@ -42,10 +42,52 @@ function [totalDMG, dps, breakdown, rotationTime, audit] = simulateKaeyaDPS(buil
         'Element', "Cryo", ...
         'ScalingMode', "ATK", ...
         'DefaultActionTime', 0.70, ...
+        'BeforeActionFn', @localBeforeAction, ...
         'DefaultRotation', {{'E', 'Q', 'N1', 'N2', 'N3', 'CA'}}, ...
         'ActionTimeMap', struct('E', 0.60, 'Q', 1.00, 'N1', 0.35, 'N2', 0.40, 'N3', 0.48, 'CA', 0.72), ...
         'Actions', actions);
 
     [totalDMG, dps, breakdown, rotationTime, audit] = simulateSimpleCharacterDPS( ...
         'Kaeya', build, enemy, seqFile, talentLevel, constellation, teamContext, spec);
+end
+
+function [state, actionSpec, actionTime, note] = localBeforeAction( ...
+        state, actionKey, actionSpec, actionTime, note, hookContext) %#ok<INUSD>
+    if ~any(actionKey == ["N1", "N2", "N3", "CA"])
+        return;
+    end
+
+    enemyState = getFieldOrDefault(hookContext, 'EnemyState', struct());
+    if localHasCryoOrFrozen(enemyState)
+        note = localAppendNote(note, "C1 cryo crit");
+    else
+        actionSpec.CritRateBonus = max(0, getFieldOrDefault(actionSpec, 'CritRateBonus', 0) - 0.15);
+    end
+end
+
+function tf = localHasCryoOrFrozen(enemyState)
+    tf = false;
+    if getFieldOrDefault(getFieldOrDefault(enemyState, 'Frozen', struct()), 'Active', false)
+        tf = true;
+        return;
+    end
+    if ~isfield(enemyState, 'Auras') || isempty(enemyState.Auras)
+        return;
+    end
+
+    for i = 1:numel(enemyState.Auras)
+        if strcmpi(char(enemyState.Auras(i).Element), 'Cryo') ...
+                && getFieldOrDefault(enemyState.Auras(i), 'Gauge', 0) > 1e-6
+            tf = true;
+            return;
+        end
+    end
+end
+
+function note = localAppendNote(baseNote, suffix)
+    if strlength(string(baseNote)) == 0
+        note = string(suffix);
+    else
+        note = string(baseNote) + ", " + string(suffix);
+    end
 end
