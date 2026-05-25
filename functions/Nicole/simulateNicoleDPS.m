@@ -1,9 +1,9 @@
 function [totalDMG, dps, breakdown, rotationTime, audit] = simulateNicoleDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
-    % Nicole explicit shield / projection / unity script with approximation.
+    % Nicole explicit shield / projection / unity support script.
     % Skill shield, Grace and Guidance windows, burst projections, and
     % unity follow-ups are modeled as separate actions.
-    % Remaining approximation: team-shared Nicole support still enters via
-    % pre-injected approximate teamContext fields and owner fallbacks.
+    % Remaining approximation: projection owner damage still depends on
+    % fallback owner stats when the source build/config is incomplete.
     if nargin < 3 || isempty(seqFile)
         seqFile = fullfile(fileparts(mfilename('fullpath')), '..', '..', 'data', 'Nicole', 'rotation_Nicole.txt');
     end
@@ -23,7 +23,7 @@ function [totalDMG, dps, breakdown, rotationTime, audit] = simulateNicoleDPS(bui
     talent = readtable(fullfile(dataFolder, 'talents_Nicole.csv'));
     actions = localResolveRotation(seqFile);
 
-    localTeamContext = localRemoveNicoleSharedApprox(teamContext);
+    localTeamContext = localRemoveNicoleSharedContribution(teamContext);
     atk = (base.BaseATK(1) + getFieldOrDefault(build, 'WeaponATK', 0)) ...
         * (1 + getFieldOrDefault(build, 'AtkBonus', 0) + getFieldOrDefault(localTeamContext, 'ATKBonus', 0)) ...
         + getFieldOrDefault(build, 'FlatATK', 0) + getFieldOrDefault(localTeamContext, 'FlatATK', 0);
@@ -183,23 +183,31 @@ function actions = localResolveRotation(seqFile)
     actions = tokens;
 end
 
-function teamContext = localRemoveNicoleSharedApprox(teamContext)
+function teamContext = localRemoveNicoleSharedContribution(teamContext)
     teamContext.AllDMGBonus = getFieldOrDefault(teamContext, 'AllDMGBonus', 0) ...
-        - getFieldOrDefault(teamContext, 'NicoleApproxSharedAllDMGBonus', 0);
+        - localNicoleSharedValue(teamContext, 'AllDMGBonus');
     teamContext.FlatATK = getFieldOrDefault(teamContext, 'FlatATK', 0) ...
-        - getFieldOrDefault(teamContext, 'NicoleApproxSharedFlatATK', 0);
+        - localNicoleSharedValue(teamContext, 'FlatATK');
     teamContext.PyroResShred = getFieldOrDefault(teamContext, 'PyroResShred', 0) ...
-        - getFieldOrDefault(teamContext, 'NicoleApproxSharedPyroResShred', 0);
+        - localNicoleSharedValue(teamContext, 'PyroResShred');
     teamContext.HydroResShred = getFieldOrDefault(teamContext, 'HydroResShred', 0) ...
-        - getFieldOrDefault(teamContext, 'NicoleApproxSharedHydroResShred', 0);
+        - localNicoleSharedValue(teamContext, 'HydroResShred');
     teamContext.CryoResShred = getFieldOrDefault(teamContext, 'CryoResShred', 0) ...
-        - getFieldOrDefault(teamContext, 'NicoleApproxSharedCryoResShred', 0);
+        - localNicoleSharedValue(teamContext, 'CryoResShred');
     teamContext.ElectroResShred = getFieldOrDefault(teamContext, 'ElectroResShred', 0) ...
-        - getFieldOrDefault(teamContext, 'NicoleApproxSharedElectroResShred', 0);
+        - localNicoleSharedValue(teamContext, 'ElectroResShred');
     teamContext.DendroResShred = getFieldOrDefault(teamContext, 'DendroResShred', 0) ...
-        - getFieldOrDefault(teamContext, 'NicoleApproxSharedDendroResShred', 0);
+        - localNicoleSharedValue(teamContext, 'DendroResShred');
     teamContext.GeoResShred = getFieldOrDefault(teamContext, 'GeoResShred', 0) ...
-        - getFieldOrDefault(teamContext, 'NicoleApproxSharedGeoResShred', 0);
+        - localNicoleSharedValue(teamContext, 'GeoResShred');
+end
+
+function value = localNicoleSharedValue(teamContext, suffix)
+    value = getFieldOrDefault(teamContext, "NicoleShared" + suffix, NaN);
+    if isnumeric(value) && ~isnan(value)
+        return;
+    end
+    value = getFieldOrDefault(teamContext, "NicoleApproxShared" + suffix, 0);
 end
 
 function level = localSkillTalentLevel(talentLevel, constellation)
@@ -248,8 +256,8 @@ function [ownerATK, dmgBonus, resShred, critRate, critDMG] = localProjectionOwne
         return;
     end
 
-    fallbackBaseATK = localFallbackBaseATK(ownerConfig);
-    ownerATK = (fallbackBaseATK + getFieldOrDefault(ownerBuild, 'WeaponATK', 0)) ...
+    ownerBaseATK = localResolveOwnerBaseATK(ownerConfig, teamContext);
+    ownerATK = (ownerBaseATK + getFieldOrDefault(ownerBuild, 'WeaponATK', 0)) ...
         * (1 + getFieldOrDefault(ownerBuild, 'AtkBonus', 0) + getFieldOrDefault(teamContext, 'ATKBonus', 0)) ...
         + getFieldOrDefault(ownerBuild, 'FlatATK', 0) + getFieldOrDefault(teamContext, 'FlatATK', 0);
     critRate = getFieldOrDefault(ownerBuild, 'CritRate', getFieldOrDefault(build, 'CritRate', 0));
@@ -261,30 +269,19 @@ function [ownerATK, dmgBonus, resShred, critRate, critDMG] = localProjectionOwne
     resShred = localElementResShred(ownerElement, ownerBuild, teamContext);
 end
 
-function baseATK = localFallbackBaseATK(ownerConfig)
+function baseATK = localResolveOwnerBaseATK(ownerConfig, teamContext)
+    baseATK = getFieldOrDefault(teamContext, 'NicoleProjectionOwnerBaseATK', 0);
+    if baseATK > 0
+        return;
+    end
+
     resolvedATK = localResolveOwnerBaseATKFromData(ownerConfig);
     if resolvedATK > 0
         baseATK = resolvedATK;
         return;
     end
 
-    name = lower(char(string(getFieldOrDefault(ownerConfig, 'Name', ""))));
-    switch name
-        case 'nicole'
-            baseATK = 342;
-        case 'furina'
-            baseATK = 244;
-        case 'neuvillette'
-            baseATK = 208;
-        case 'citlali'
-            baseATK = 127;
-        case 'skirk'
-            baseATK = 359;
-        case 'escoffier'
-            baseATK = 332;
-        otherwise
-            baseATK = 300;
-    end
+    baseATK = 300;
 end
 
 function baseATK = localResolveOwnerBaseATKFromData(ownerConfig)
