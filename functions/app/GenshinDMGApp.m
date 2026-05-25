@@ -620,8 +620,8 @@ classdef GenshinDMGApp < handle
             resultPanel.Layout.Row = 1;
             resultPanel.Layout.Column = 3;
 
-            resultGrid = uigridlayout(resultPanel, [4 1]);
-            resultGrid.RowHeight = {156, 186, 90, '1x'};
+            resultGrid = uigridlayout(resultPanel, [3 1]);
+            resultGrid.RowHeight = {156, 230, '1x'};
             resultGrid.ColumnWidth = {'1x'};
             resultGrid.RowSpacing = 12;
             resultGrid.Padding = [12 12 12 12];
@@ -731,21 +731,8 @@ classdef GenshinDMGApp < handle
             obj.DashboardHTML.Layout.Column = 1;
             obj.DashboardHTML.Data = obj.buildDashboardData();
 
-            kpiGrid = uigridlayout(resultGrid, [1 3]);
-            kpiGrid.Layout.Row = 3;
-            kpiGrid.Layout.Column = 1;
-            kpiGrid.ColumnWidth = {'1x', '1x', '1x'};
-            kpiGrid.RowHeight = {'1x'};
-            kpiGrid.ColumnSpacing = 10;
-            kpiGrid.Padding = [0 0 0 0];
-            kpiGrid.BackgroundColor = [0.99 0.99 1.00];
-
-            [~, obj.TotalDamageValueLabel] = obj.createKpiCard(kpiGrid, 1, '总伤害', [0.89 0.68 0.36]);
-            [~, obj.TeamDPSValueLabel] = obj.createKpiCard(kpiGrid, 2, 'DPS', [0.34 0.68 0.72]);
-            [~, obj.RotationValueLabel] = obj.createKpiCard(kpiGrid, 3, '轮转时长', [0.74 0.57 0.76]);
-
             tabs = uitabgroup(resultGrid);
-            tabs.Layout.Row = 4;
+            tabs.Layout.Row = 3;
             tabs.Layout.Column = 1;
 
             summaryTab = uitab(tabs, 'Title', '成员汇总');
@@ -1497,9 +1484,6 @@ classdef GenshinDMGApp < handle
 
         function updateKpi(obj, totalDamage, dps, rotationTime)
             % 更新右侧 KPI 数字卡。
-            obj.TotalDamageValueLabel.Text = obj.formatLargeNumber(totalDamage);
-            obj.TeamDPSValueLabel.Text = obj.formatLargeNumber(dps);
-            obj.RotationValueLabel.Text = sprintf('%.2f s', rotationTime);
             obj.LastResultMetrics = struct( ...
                 'HasResult', true, ...
                 'TotalDamage', totalDamage, ...
@@ -1776,8 +1760,6 @@ classdef GenshinDMGApp < handle
             obj.StatusLabel.Text = obj.shortenText(message, 48);
             obj.StatusLabel.Tooltip = char(message);
             obj.syncDashboard();
-            % 更新状态栏文本。
-            obj.StatusLabel.Text = char(message);
         end
 
         function showSimulationError(obj, ME)
@@ -1788,7 +1770,6 @@ classdef GenshinDMGApp < handle
                 'RotationTime', NaN);
             obj.setStatus('模拟失败，请检查输入。');
             % 展示模拟错误，同时保留堆栈首条关键信息。
-            obj.setStatus('模拟失败，请检查输入。');
             detail = ME.message;
             if ~isempty(ME.stack)
                 detail = sprintf('%s\n\n发生位置：%s (line %d)', ...
@@ -2083,6 +2064,7 @@ classdef GenshinDMGApp < handle
             obj.refreshTimelinePreview();
             obj.setStatus('已重置当前角色为默认配置。');
         end
+
         function text = shortenText(obj, value, limit) %#ok<INUSD>
             if nargin < 3
                 limit = 48;
