@@ -232,17 +232,17 @@ function [totalDMG, dps, breakdown, rotationTime, audit] = simulateJahodaDPS(bui
 
     if conversionReady
         defaultRotation = {'FlaskFull'};
-    else
-        defaultRotation = {'FlaskPartial'};
-    end
-    if moonsignActive
-        defaultRotation{end + 1} = 'Meowball'; %#ok<AGROW>
-        if constellation >= 1
-            defaultRotation{end + 1} = 'MeowBounce'; %#ok<AGROW>
+        if moonsignActive
+            defaultRotation{end + 1} = 'Meowball'; %#ok<AGROW>
+            if constellation >= 1
+                defaultRotation{end + 1} = 'MeowBounce'; %#ok<AGROW>
+            end
         end
+        defaultRotation{end + 1} = 'Q'; %#ok<AGROW>
+        defaultRotation{end + 1} = 'Robot'; %#ok<AGROW>
+    else
+        defaultRotation = {'Smoke', 'FlaskPartial', 'Q'};
     end
-    defaultRotation{end + 1} = 'Q'; %#ok<AGROW>
-    defaultRotation{end + 1} = 'Robot'; %#ok<AGROW>
 
     spec = struct( ...
         'Element', "Anemo", ...
