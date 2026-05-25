@@ -82,6 +82,7 @@ function result = resolveReactionForHit(enemyState, hitDescriptor, build, teamCo
         result.EnemyState = localForceAura(result.EnemyState, preferredAura, getFieldOrDefault(result.EnemyState, 'SupportAuraGauge', 1.0));
     end
     result.EnemyState = localEnsureSupportAura(result.EnemyState, hitElement, teamContext);
+    preReactionEnemyState = result.EnemyState;
 
     if ~canTriggerReaction
         if canApplyAura && strlength(applyElement) > 0
@@ -148,7 +149,7 @@ function result = resolveReactionForHit(enemyState, hitDescriptor, build, teamCo
     end
 
     result = localResolveSupplementalReactions( ...
-        result, hitDescriptor, build, teamContext, enemy, applyGauge);
+        result, preReactionEnemyState, directReaction, hitDescriptor, build, teamContext, enemy, applyGauge);
 
     if result.PrimaryReaction ~= ""
         result.TriggeredReactions(end + 1, 1) = lower(string(result.PrimaryReaction)); %#ok<AGROW>
@@ -818,9 +819,87 @@ function element = localReactionElement(reactionName)
     end
 end
 
-function result = localResolveSupplementalReactions(result, hitDescriptor, build, teamContext, enemy, applyGauge)
+function result = localResolveSupplementalReactions(result, preReactionEnemyState, directReaction, hitDescriptor, build, teamContext, enemy, applyGauge)
+    result = localResolveCoexistingAuraSupplementalReactions( ...
+        result, preReactionEnemyState, directReaction, hitDescriptor, build, teamContext, enemy, applyGauge);
     result = localResolveShatterReaction(result, hitDescriptor, build, teamContext, enemy, applyGauge);
     result = localResolveCoreConversionReaction(result, hitDescriptor, build, teamContext, enemy);
+end
+
+function result = localResolveCoexistingAuraSupplementalReactions( ...
+        result, preReactionEnemyState, directReaction, hitDescriptor, build, teamContext, enemy, applyGauge)
+    if ~localHasCoexistingAura(preReactionEnemyState, "Hydro", "Electro")
+        return;
+    end
+
+    hitElement = lower(char(string(getFieldOrDefault(hitDescriptor, 'HitElement', ""))));
+    directReactionName = lower(char(string(getFieldOrDefault(directReaction, 'Name', ""))));
+    superconductName = localResolveSuperconductReactionName(teamContext);
+
+    switch hitElement
+        case 'pyro'
+            if ~strcmp(directReactionName, 'vaporize')
+                result = localApplySecondaryReaction( ...
+                    result, "Vaporize", "Hydro", hitDescriptor, build, teamContext, enemy, applyGauge);
+            end
+            if ~strcmp(directReactionName, 'overload')
+                result = localApplySecondaryReaction( ...
+                    result, "Overload", "Electro", hitDescriptor, build, teamContext, enemy, applyGauge);
+            end
+        case 'cryo'
+            if ~strcmp(directReactionName, 'frozen')
+                result = localApplySecondaryReaction( ...
+                    result, "Frozen", "Hydro", hitDescriptor, build, teamContext, enemy, applyGauge);
+            end
+            if ~strcmpi(directReactionName, char(superconductName))
+                result = localApplySecondaryReaction( ...
+                    result, superconductName, "Electro", hitDescriptor, build, teamContext, enemy, applyGauge);
+            end
+        case 'dendro'
+            if ~strcmp(directReactionName, 'bloom')
+                result = localApplySecondaryReaction( ...
+                    result, "Bloom", "Hydro", hitDescriptor, build, teamContext, enemy, applyGauge);
+            end
+            if ~strcmp(directReactionName, 'quicken')
+                result = localApplySecondaryReaction( ...
+                    result, "Quicken", "Electro", hitDescriptor, build, teamContext, enemy, applyGauge);
+            end
+    end
+end
+
+function result = localApplySecondaryReaction( ...
+        result, reactionName, consumedAura, hitDescriptor, build, teamContext, enemy, applyGauge)
+    reactionName = string(reactionName);
+    reaction = struct( ...
+        'Name', reactionName, ...
+        'ConsumedAura', string(consumedAura), ...
+        'AuraIndex', localFindAuraIndex(result.EnemyState, consumedAura));
+
+    switch lower(char(reactionName))
+        case {'vaporize', 'melt'}
+            if logical(getFieldOrDefault(hitDescriptor, 'AllowAmplify', false))
+                emOverride = getFieldOrDefault(hitDescriptor, 'ReactionEMOverride', []);
+                if isempty(emOverride)
+                    em = getFieldOrDefault(build, 'EM', 0) + getFieldOrDefault(teamContext, 'EMBonus', 0);
+                else
+                    em = double(emOverride);
+                end
+                reactionBonus = getFieldOrDefault(hitDescriptor, 'ReactionBonus', getFieldOrDefault(build, 'ReactionDMGBonus', 0));
+                result.AmplifyMultiplier = max( ...
+                    result.AmplifyMultiplier, ...
+                    localAmplifyMultiplier(reactionName, getFieldOrDefault(hitDescriptor, 'HitElement', ""), em, reactionBonus));
+            end
+            [result.EnemyState, ~] = localConsumeAuraForAmplify(result.EnemyState, reaction, applyGauge);
+        case 'frozen'
+            result.EnemyState = localActivateFrozen(result.EnemyState, applyGauge);
+        case 'quicken'
+            result.EnemyState = localActivateQuicken(result.EnemyState, applyGauge);
+        otherwise
+            result = localResolveTransformativeReaction( ...
+                result, reaction, hitDescriptor, build, teamContext, enemy, applyGauge);
+    end
+
+    result.TriggeredReactions(end + 1, 1) = lower(reactionName); %#ok<AGROW>
 end
 
 function result = localResolveShatterReaction(result, hitDescriptor, build, teamContext, enemy, applyGauge)
@@ -888,6 +967,11 @@ function enemyState = localConsumeFrozenState(enemyState, consumedGauge)
     enemyState = localConsumeAuraByElement(enemyState, "Hydro", 0.5 * consumedGauge);
     enemyState = localConsumeAuraByElement(enemyState, "Cryo", 0.5 * consumedGauge);
     enemyState = localRefreshFrozenState(enemyState);
+end
+
+function tf = localHasCoexistingAura(enemyState, firstElement, secondElement)
+    tf = localAuraGauge(enemyState, firstElement) > 1e-6 ...
+        && localAuraGauge(enemyState, secondElement) > 1e-6;
 end
 
 function enemyState = localConsumeAuraByElement(enemyState, auraElement, consumedGauge)
