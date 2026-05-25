@@ -155,6 +155,12 @@ function override = localResolveKnownAttackOverride(normalizedName, lowerAction)
                 case 'oztick'
                     override.AttackName = "Skill_S_Crow_AutoAttack_Hit_01";
                     override.ICDGroup = "Fischl_Oz";
+                case 'ozjointattack'
+                    override.AttackName = "Talent_D_Crow_NormalAttack_01";
+                    override.ICDGroup = "Fischl_Oz";
+                case 'oza4retribution'
+                    override.AttackName = "Talent_ElementReactionAttackThunder_Hit";
+                    override.ICDGroup = "Fischl_Oz";
             end
 
         case 'xingqiu'

@@ -138,7 +138,7 @@
             actionQueue = localSortActionEvents([actionQueue, runtimeActionEvents]);
         end
 
-        directReactionPackets = localBuildDirectReactionTriggerPackets(reactionResult, event.EndTime, event);
+        directReactionPackets = localBuildDirectReactionTriggerPackets(reactionResult, event.EndTime, event, meta);
         [runtimeReactionEvents, runtimeTriggeredWindows, runtimeTriggeredLastTriggerTimes] = ...
             localResolveBackgroundReactionTriggeredEvents( ...
             directReactionPackets, event.EndTime, runtimeTriggeredWindows, ...
@@ -615,6 +615,30 @@ function specs = localCollectBackgroundDriverSpecs(meta)
         spec.MaxTriggers = double(getFieldOrDefault(meta, 'TriggeredFollowUpMaxCount', inf));
         specs(end + 1) = spec; %#ok<AGROW>
     end
+
+    additionalProfiles = getFieldOrDefault(meta, 'AdditionalTriggeredFollowUpProfiles', repmat(localEmptyTriggeredFollowUpProfile(), 1, 0));
+    for profileIndex = 1:numel(additionalProfiles)
+        profile = additionalProfiles(profileIndex);
+        if strlength(string(getFieldOrDefault(profile, 'Action', ""))) == 0 || effectDuration <= 0
+            continue;
+        end
+        spec = localEmptyBackgroundDriverSpec();
+        spec.DriverKind = "Triggered";
+        spec.DriverMode = string(getFieldOrDefault(profile, 'DriverMode', localResolveTriggeredBackgroundDriverMode(meta)));
+        spec.Action = string(getFieldOrDefault(profile, 'Action', ""));
+        spec.Element = string(getFieldOrDefault(profile, 'Element', ""));
+        spec.PreferredAura = string(getFieldOrDefault(profile, 'PreferredAura', ""));
+        spec.FirstDelay = double(getFieldOrDefault(profile, 'Delay', 0));
+        spec.Gauge = double(getFieldOrDefault(profile, 'Gauge', 0));
+        spec.InternalCooldown = double(getFieldOrDefault(profile, 'InternalCooldown', 0));
+        spec.EligibleClasses = string(getFieldOrDefault(profile, 'EligibleClasses', strings(1, 0)));
+        spec.ForegroundOnly = logical(getFieldOrDefault(profile, 'ForegroundOnly', true));
+        spec.MaxTriggers = double(getFieldOrDefault(profile, 'MaxCount', inf));
+        spec.AllowedReactionNames = string(getFieldOrDefault(profile, 'AllowedReactionNames', strings(1, 0)));
+        spec.AllowedPacketSources = string(getFieldOrDefault(profile, 'AllowedPacketSources', strings(1, 0)));
+        spec.RequireForegroundTrigger = logical(getFieldOrDefault(profile, 'RequireForegroundTrigger', false));
+        specs(end + 1) = spec; %#ok<AGROW>
+    end
 end
 
 function mode = localResolveAutonomousBackgroundDriverMode(meta)
@@ -827,6 +851,19 @@ function [driverEvents, activeWindows, lastTriggerTimes] = localResolveBackgroun
             if isfinite(remainingTriggers) && remainingTriggers <= 0
                 continue;
             end
+            if logical(getFieldOrDefault(driverSpec, 'RequireForegroundTrigger', false)) ...
+                    && ~logical(getFieldOrDefault(packet, 'SourceConsumesActiveWindow', false))
+                continue;
+            end
+            allowedReactionNames = string(getFieldOrDefault(driverSpec, 'AllowedReactionNames', strings(1, 0)));
+            if ~isempty(allowedReactionNames) && ~any(strcmpi(char(reactionName), cellstr(allowedReactionNames(:))))
+                continue;
+            end
+            allowedPacketSources = string(getFieldOrDefault(driverSpec, 'AllowedPacketSources', strings(1, 0)));
+            packetSource = string(getFieldOrDefault(packet, 'PacketSource', ""));
+            if ~isempty(allowedPacketSources) && ~any(strcmpi(char(packetSource), cellstr(allowedPacketSources(:))))
+                continue;
+            end
             key = localBuildBackgroundTriggerKey(window, driverSpec);
             icd = double(getFieldOrDefault(driverSpec, 'InternalCooldown', 0));
             lastTime = -inf;
@@ -954,13 +991,16 @@ function activeWindows = localPruneExpiredActiveWindows(activeWindows, currentTi
     activeWindows = activeWindows(keepMask);
 end
 
-function packets = localBuildDirectReactionTriggerPackets(reactionResult, triggerTime, sourceEvent)
+function packets = localBuildDirectReactionTriggerPackets(reactionResult, triggerTime, sourceEvent, sourceMeta)
     packets = repmat(localEmptyReactionPacket(), 1, 0);
     if nargin < 2 || isempty(triggerTime) || ~isfinite(triggerTime)
         triggerTime = NaN;
     end
     if nargin < 3 || isempty(sourceEvent)
         sourceEvent = struct();
+    end
+    if nargin < 4 || isempty(sourceMeta)
+        sourceMeta = struct();
     end
 
     reactionNames = strings(0, 1);
@@ -985,6 +1025,7 @@ function packets = localBuildDirectReactionTriggerPackets(reactionResult, trigge
         packet.SourceType = string(getFieldOrDefault(sourceEvent, 'SourceType', "MemberAction"));
         packet.SourceCharacter = string(getFieldOrDefault(sourceEvent, 'Character', ""));
         packet.SourceAction = string(getFieldOrDefault(sourceEvent, 'Action', ""));
+        packet.SourceConsumesActiveWindow = logical(getFieldOrDefault(sourceMeta, 'ConsumesActiveWindow', true));
         packets(end + 1) = packet; %#ok<AGROW>
     end
 end
@@ -1041,6 +1082,7 @@ function event = localBuildTriggeredFollowUpEvent(window, sourceMeta, driverEven
     followUpMeta.TriggeredFollowUpEligibleClasses = strings(1, 0);
     followUpMeta.TriggeredFollowUpForegroundOnly = false;
     followUpMeta.TriggeredFollowUpMaxCount = inf;
+    followUpMeta.AdditionalTriggeredFollowUpProfiles = repmat(localEmptyTriggeredFollowUpProfile(), 1, 0);
     followUpMeta.BackgroundDriverKind = string(getFieldOrDefault(driverSpec, 'DriverKind', "Triggered"));
     followUpMeta.BackgroundDriverMode = string(getFieldOrDefault(driverSpec, 'DriverMode', "ForegroundAnyActionTrigger"));
     followUpMeta.EffectTag = string(getFieldOrDefault(sourceMeta, 'EffectTag', ""));
@@ -1100,6 +1142,7 @@ function event = localBuildSyntheticEffectTickEvent(baseEvent, baseMeta, tickInd
     tickMeta.TriggeredFollowUpEligibleClasses = strings(1, 0);
     tickMeta.TriggeredFollowUpForegroundOnly = false;
     tickMeta.TriggeredFollowUpMaxCount = inf;
+    tickMeta.AdditionalTriggeredFollowUpProfiles = repmat(localEmptyTriggeredFollowUpProfile(), 1, 0);
     tickMeta.BackgroundDriverKind = string(getFieldOrDefault(driverSpec, 'DriverKind', "Autonomous"));
     tickMeta.BackgroundDriverMode = string(getFieldOrDefault(driverSpec, 'DriverMode', "AutonomousTick"));
     tickMeta.EffectTag = string(getFieldOrDefault(baseMeta, 'EffectTag', ""));
@@ -1121,7 +1164,10 @@ function spec = localEmptyBackgroundDriverSpec()
         'InternalCooldown', 0, ...
         'EligibleClasses', strings(1, 0), ...
         'ForegroundOnly', true, ...
-        'MaxTriggers', inf);
+        'MaxTriggers', inf, ...
+        'AllowedReactionNames', strings(1, 0), ...
+        'AllowedPacketSources', strings(1, 0), ...
+        'RequireForegroundTrigger', false);
 end
 
 function packet = localEmptyReactionPacket()
@@ -1131,7 +1177,25 @@ function packet = localEmptyReactionPacket()
         'PacketSource', "", ...
         'SourceType', "", ...
         'SourceCharacter', "", ...
-        'SourceAction', "");
+        'SourceAction', "", ...
+        'SourceConsumesActiveWindow', false);
+end
+
+function profile = localEmptyTriggeredFollowUpProfile()
+    profile = struct( ...
+        'Action', "", ...
+        'Delay', 0.0, ...
+        'Gauge', 0.0, ...
+        'Element', "", ...
+        'PreferredAura', "", ...
+        'InternalCooldown', 0.0, ...
+        'EligibleClasses', strings(1, 0), ...
+        'ForegroundOnly', true, ...
+        'MaxCount', inf, ...
+        'DriverMode', "", ...
+        'AllowedReactionNames', strings(1, 0), ...
+        'AllowedPacketSources', strings(1, 0), ...
+        'RequireForegroundTrigger', false);
 end
 
 function priority = localEventSourcePriority(event)
