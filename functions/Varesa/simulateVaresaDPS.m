@@ -1,9 +1,7 @@
 function [totalDMG, dps, breakdown, rotationTime, audit] = simulateVaresaDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
-    % Varesa explicit rush / plunge / burst script with one approximation.
+    % Varesa explicit rush / plunge / burst script.
     % Rush, leap, plunge, burst, and finisher windows are modeled as
-    % separate stateful actions.
-    % Remaining approximation: plunge Electro-Charged splash still keys off
-    % teamContext.ElectroChargedReady instead of explicit aura ownership.
+    % separate stateful actions with explicit plunge aura checks.
     if nargin < 3 || isempty(seqFile)
         seqFile = fullfile(fileparts(mfilename('fullpath')), '..', '..', 'data', 'Varesa', 'rotation_Varesa.txt');
     end
@@ -33,6 +31,7 @@ function [totalDMG, dps, breakdown, rotationTime, audit] = simulateVaresaDPS(bui
     critDMG = getFieldOrDefault(build, 'CritDMG', 0) + 0.60 * double(constellation >= 6);
     electroResShred = getFieldOrDefault(build, 'ResShred', 0) + getFieldOrDefault(teamContext, 'ElectroResShred', 0);
     electroMult = calcDamageMultiplier(90, enemy, electroResShred);
+    enemyState = localResolveEnemyState(enemy, teamContext);
 
     % state 记录疾冲状态、落击强化层数与爆发终结准备。
     state = struct( ...
@@ -51,8 +50,10 @@ function [totalDMG, dps, breakdown, rotationTime, audit] = simulateVaresaDPS(bui
     for i = 1:numel(actions)
         action = actions{i};
         actionTime = localActionTime(action);
+        [enemyState, ~] = advanceEnemyStateTime(enemyState, actionTime, "Electro", teamContext);
         dmg = 0;
         note = "";
+        applyElectroAura = false;
 
         switch action
             case 'E'
@@ -64,6 +65,7 @@ function [totalDMG, dps, breakdown, rotationTime, audit] = simulateVaresaDPS(bui
                 state.PlungeStacks = 1;
                 state.OrbCount = min(3, state.OrbCount + 1);
                 note = "Rush state entered";
+                applyElectroAura = true;
 
             case 'Rush'
                 if state.RushTime > 0
@@ -76,6 +78,7 @@ function [totalDMG, dps, breakdown, rotationTime, audit] = simulateVaresaDPS(bui
                         getFieldOrDefault(build, 'SkillDMGBonus', 0), critRate, critDMG);
                     state.PlungeStacks = min(3 + double(constellation >= 1), state.PlungeStacks + 1);
                     note = sprintf('Rush impact, plunge stacks=%d', state.PlungeStacks);
+                    applyElectroAura = true;
                 else
                     note = "Rush state expired";
                 end
@@ -87,6 +90,7 @@ function [totalDMG, dps, breakdown, rotationTime, audit] = simulateVaresaDPS(bui
                     dmg = localDirectDamage(atk, mv * leapBonus, build, teamContext, state, electroMult, ...
                         getFieldOrDefault(build, 'SkillDMGBonus', 0), critRate, critDMG);
                     note = "Launch upward";
+                    applyElectroAura = true;
                 else
                     note = "Rush state expired";
                 end
@@ -108,7 +112,7 @@ function [totalDMG, dps, breakdown, rotationTime, audit] = simulateVaresaDPS(bui
                         plungeExtraBonus, critRate, critDMG);
                     dmg = dmg + getFieldOrDefault(teamContext, 'XianyunFlatPlungeBonus', 0);
 
-                    if getFieldOrDefault(teamContext, 'ElectroChargedReady', false)
+                    if localShouldTriggerElectroChargedSplash(enemyState)
                         reactionDMG = calcReactionDamage(getTalentValue(talent, 'Reaction', 'ElectroCharged', talentLevel), ...
                             em, enemy, electroResShred, 1.10 + getFieldOrDefault(build, 'ReactionDMGBonus', 0), critRate * 0.35, critDMG * 0.45);
                         totalDMG = totalDMG + reactionDMG;
@@ -116,6 +120,7 @@ function [totalDMG, dps, breakdown, rotationTime, audit] = simulateVaresaDPS(bui
                     end
                     state.OrbCount = min(5, state.OrbCount + 1);
                     note = sprintf('Empowered plunge, orb count=%d', state.OrbCount);
+                    applyElectroAura = true;
                 else
                     note = "No aerial window active";
                 end
@@ -130,6 +135,7 @@ function [totalDMG, dps, breakdown, rotationTime, audit] = simulateVaresaDPS(bui
                 state.FinisherReady = true;
                 state.PlungeStacks = max(state.PlungeStacks, 2 + double(constellation >= 4));
                 note = sprintf('Burst active, plunge stacks=%d', state.PlungeStacks);
+                applyElectroAura = true;
 
             case 'Finisher'
                 if state.FinisherReady
@@ -148,6 +154,7 @@ function [totalDMG, dps, breakdown, rotationTime, audit] = simulateVaresaDPS(bui
                     state.RushTime = 0;
                     state.PlungeStacks = 0;
                     note = "Burst finisher";
+                    applyElectroAura = true;
                 else
                     note = "No finisher prepared";
                 end
@@ -157,9 +164,14 @@ function [totalDMG, dps, breakdown, rotationTime, audit] = simulateVaresaDPS(bui
                 normalBonus = getFieldOrDefault(build, 'NormalDMGBonus', 0) + 0.05 * double(state.RushTime > 0);
                 dmg = localDirectDamage(atk, mv, build, teamContext, state, electroMult, normalBonus, critRate, critDMG);
                 note = "Normal attack";
+                applyElectroAura = true;
 
             otherwise
                 note = "Unknown action";
+        end
+
+        if applyElectroAura
+            enemyState = localApplyElectroAura(enemyState, teamContext);
         end
 
         totalDMG = totalDMG + dmg;
@@ -190,6 +202,21 @@ function level = localBurstTalentLevel(talentLevel, constellation)
     level = talentLevel + 3 * double(constellation >= 5);
 end
 
+function enemyState = localResolveEnemyState(enemy, teamContext)
+    enemyState = getFieldOrDefault(teamContext, 'EnemyState', []);
+    if isempty(enemyState) || localShouldRefreshApproximateEnemyState(enemyState, enemy)
+        enemyState = createEnemyState(enemy, teamContext, "Electro");
+    end
+end
+
+function tf = localShouldRefreshApproximateEnemyState(enemyState, enemy)
+    reactionMode = string(getFieldOrDefault(enemyState, 'ReactionMode', ""));
+    autoSupport = logical(getFieldOrDefault(enemyState, 'AutoSupportAura', false));
+    hasExplicitInitialAura = strlength(string(getFieldOrDefault(enemy, 'InitialAuraElement', ""))) > 0 ...
+        && getFieldOrDefault(enemy, 'InitialAuraGauge', 0) > 0;
+    tf = autoSupport && strcmpi(char(reactionMode), 'Approximate') && ~hasExplicitInitialAura;
+end
+
 function dmg = localDirectDamage(atk, mv, build, teamContext, state, electroMult, extraBonus, critRate, critDMG)
     % 统一处理瓦雷莎雷伤段的期望伤害。
     critMult = calcExpectedCritMultiplier(critRate, critDMG);
@@ -197,6 +224,36 @@ function dmg = localDirectDamage(atk, mv, build, teamContext, state, electroMult
         + getFieldOrDefault(teamContext, 'AllDMGBonus', 0) + extraBonus ...
         + 0.06 * double(state.BurstTime > 0);
     dmg = atk * mv * dmgBonus * critMult * electroMult;
+end
+
+function tf = localShouldTriggerElectroChargedSplash(enemyState)
+    tf = localHasAura(enemyState, "Hydro");
+end
+
+function enemyState = localApplyElectroAura(enemyState, teamContext)
+    hitDescriptor = struct( ...
+        'HitElement', "Electro", ...
+        'ApplyElement', "Electro", ...
+        'ApplyGauge', 1.0, ...
+        'CanApplyAura', true, ...
+        'CanTriggerReaction', false);
+    reactionResult = resolveReactionForHit(enemyState, hitDescriptor, struct(), teamContext, struct(), 0);
+    enemyState = reactionResult.EnemyState;
+end
+
+function tf = localHasAura(enemyState, auraElement)
+    tf = false;
+    if ~isfield(enemyState, 'Auras') || isempty(enemyState.Auras)
+        return;
+    end
+
+    for i = 1:numel(enemyState.Auras)
+        if strcmpi(char(enemyState.Auras(i).Element), char(string(auraElement))) ...
+                && getFieldOrDefault(enemyState.Auras(i), 'Gauge', 0) > 1e-6
+            tf = true;
+            return;
+        end
+    end
 end
 
 function state = localAdvanceState(state, actionTime)
