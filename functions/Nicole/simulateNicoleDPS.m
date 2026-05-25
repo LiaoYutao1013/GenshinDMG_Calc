@@ -2,8 +2,6 @@ function [totalDMG, dps, breakdown, rotationTime, audit] = simulateNicoleDPS(bui
     % Nicole explicit shield / projection / unity support script.
     % Skill shield, Grace and Guidance windows, burst projections, and
     % unity follow-ups are modeled as separate actions.
-    % Remaining approximation: projection owner damage still depends on
-    % fallback owner stats when the source build/config is incomplete.
     if nargin < 3 || isempty(seqFile)
         seqFile = fullfile(fileparts(mfilename('fullpath')), '..', '..', 'data', 'Nicole', 'rotation_Nicole.txt');
     end
@@ -242,9 +240,13 @@ function [dmg, note] = localProjectionDamage(nicoleATK, build, teamContext, enem
 end
 
 function [ownerATK, dmgBonus, resShred, critRate, critDMG] = localProjectionOwnerStats(nicoleATK, build, teamContext)
-    ownerConfig = getFieldOrDefault(teamContext, 'NicoleProjectionOwnerConfig', struct());
+    ownerConfig = localResolveProjectionOwnerConfig( ...
+        getFieldOrDefault(teamContext, 'NicoleProjectionOwnerConfig', struct()), teamContext);
     ownerBuild = getFieldOrDefault(ownerConfig, 'Build', struct());
-    ownerElement = string(getFieldOrDefault(teamContext, 'NicoleProjectionOwnerElement', "Pyro"));
+    ownerElement = string(getFieldOrDefault(teamContext, 'NicoleProjectionOwnerElement', ""));
+    if strlength(ownerElement) == 0
+        ownerElement = string(getFieldOrDefault(ownerConfig, 'Element', "Pyro"));
+    end
 
     if isfield(ownerConfig, 'Name') && string(ownerConfig.Name) == "Nicole"
         ownerATK = nicoleATK;
@@ -260,13 +262,46 @@ function [ownerATK, dmgBonus, resShred, critRate, critDMG] = localProjectionOwne
     ownerATK = (ownerBaseATK + getFieldOrDefault(ownerBuild, 'WeaponATK', 0)) ...
         * (1 + getFieldOrDefault(ownerBuild, 'AtkBonus', 0) + getFieldOrDefault(teamContext, 'ATKBonus', 0)) ...
         + getFieldOrDefault(ownerBuild, 'FlatATK', 0) + getFieldOrDefault(teamContext, 'FlatATK', 0);
-    critRate = getFieldOrDefault(ownerBuild, 'CritRate', getFieldOrDefault(build, 'CritRate', 0));
-    critDMG = getFieldOrDefault(ownerBuild, 'CritDMG', getFieldOrDefault(build, 'CritDMG', 0));
+    critRate = getFieldOrDefault(ownerBuild, 'CritRate', 0);
+    critDMG = getFieldOrDefault(ownerBuild, 'CritDMG', 0);
     dmgBonus = getFieldOrDefault(teamContext, 'AllDMGBonus', 0) + localElementBonusValue(ownerElement, ownerBuild);
     if getFieldOrDefault(teamContext, 'NicoleWeaponActiveDMGBonus', 0) > 0
         dmgBonus = dmgBonus + getFieldOrDefault(teamContext, 'NicoleWeaponActiveDMGBonus', 0);
     end
     resShred = localElementResShred(ownerElement, ownerBuild, teamContext);
+end
+
+function ownerConfig = localResolveProjectionOwnerConfig(ownerConfig, teamContext)
+    if nargin < 1 || isempty(ownerConfig)
+        ownerConfig = struct();
+    end
+    if nargin < 2 || isempty(teamContext)
+        teamContext = struct();
+    end
+
+    ownerName = string(getFieldOrDefault(ownerConfig, 'Name', ...
+        getFieldOrDefault(teamContext, 'NicoleProjectionOwnerName', "")));
+    if strlength(ownerName) == 0
+        return;
+    end
+
+    defaultConfig = struct('Name', ownerName, 'Build', struct(), 'Element', string(getCharacterElement(ownerName)));
+    try
+        defaultConfig = getDefaultCharacterConfig(char(ownerName));
+    catch
+    end
+
+    ownerBuildOverride = getFieldOrDefault(ownerConfig, 'Build', struct());
+    if isfield(ownerConfig, 'Build')
+        ownerConfig = rmfield(ownerConfig, 'Build');
+    end
+
+    ownerConfig = applyStructOverrides(defaultConfig, ownerConfig);
+    ownerConfig.Name = ownerName;
+    ownerConfig.Build = applyStructOverrides(getFieldOrDefault(defaultConfig, 'Build', struct()), ownerBuildOverride);
+    if strlength(string(getFieldOrDefault(ownerConfig, 'Element', ""))) == 0
+        ownerConfig.Element = string(getFieldOrDefault(defaultConfig, 'Element', getCharacterElement(ownerName)));
+    end
 end
 
 function baseATK = localResolveOwnerBaseATK(ownerConfig, teamContext)
@@ -281,6 +316,7 @@ function baseATK = localResolveOwnerBaseATK(ownerConfig, teamContext)
         return;
     end
 
+    % Unsupported custom projection owners still need an explicit base-ATK override.
     baseATK = 300;
 end
 

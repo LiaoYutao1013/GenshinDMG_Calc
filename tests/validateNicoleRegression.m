@@ -91,6 +91,23 @@ function validateNicoleRegression()
     assert(abs(customProjectionRows.Damage - expectedCustomProjectionDamage) < 1e-6 * max(1, expectedCustomProjectionDamage), ...
         'Nicole projection regression should honor an explicit owner base ATK override.');
 
+    implicitOwnerContext = projectionContext;
+    implicitOwnerContext = rmfield(implicitOwnerContext, 'NicoleProjectionOwnerConfig');
+    [~, ~, implicitOwnerBreakdown] = simulateNicoleDPS( ...
+        nicole.Build, enemy, projectionRotation, nicole.TalentLevel, nicole.Constellation, implicitOwnerContext);
+    implicitOwnerRows = implicitOwnerBreakdown(strcmpi(string(implicitOwnerBreakdown.Action), "Projection"), :);
+    jeanCfg = getDefaultCharacterConfig('Jean');
+    jeanBaseATK = double(getFieldOrDefault(jeanChars, 'BaseATK', 0));
+    jeanTotalATK = (jeanBaseATK + getFieldOrDefault(jeanCfg.Build, 'WeaponATK', 0)) ...
+        * (1 + getFieldOrDefault(jeanCfg.Build, 'AtkBonus', 0)) ...
+        + getFieldOrDefault(jeanCfg.Build, 'FlatATK', 0);
+    jeanExpectedCrit = calcExpectedCritMultiplier( ...
+        getFieldOrDefault(jeanCfg.Build, 'CritRate', 0), getFieldOrDefault(jeanCfg.Build, 'CritDMG', 0));
+    jeanExpectedProjectionDamage = jeanTotalATK * (1 + getFieldOrDefault(jeanCfg.Build, 'PyroDMGBonus', 0)) ...
+        * jeanExpectedCrit * calcDamageMultiplier(90, enemy, 0);
+    assert(abs(implicitOwnerRows.Damage - jeanExpectedProjectionDamage) < 1e-6 * max(1, jeanExpectedProjectionDamage), ...
+        'Nicole projection regression should restore the default owner build when only the owner name is available.');
+
     disp('validateNicoleRegression passed');
 end
 
