@@ -116,20 +116,20 @@ function result = resolveReactionForHit(enemyState, hitDescriptor, build, teamCo
             result.EnemyState = localActivateFrozen(result.EnemyState, applyGauge);
 
         case 'quicken'
-            result.EnemyState = localActivateQuicken(result.EnemyState, applyGauge);
+            [result.EnemyState, quickenGauge, postReactionApplyGauge] = localConsumeAuraForQuicken( ...
+                result.EnemyState, directReaction, applyGauge);
+            result.EnemyState = localActivateQuicken(result.EnemyState, quickenGauge);
             result.TriggeredReactions(end + 1, 1) = "quicken"; %#ok<AGROW>
 
         case 'aggravate'
             if logical(getFieldOrDefault(hitDescriptor, 'AllowCatalyze', false))
                 result.CatalyzeFlatDamage = localCatalyzeFlatDamage("Aggravate", em, reactionBonus);
             end
-            result.EnemyState = localConsumeQuickenGauge(result.EnemyState, applyGauge);
 
         case 'spread'
             if logical(getFieldOrDefault(hitDescriptor, 'AllowCatalyze', false))
                 result.CatalyzeFlatDamage = localCatalyzeFlatDamage("Spread", em, reactionBonus);
             end
-            result.EnemyState = localConsumeQuickenGauge(result.EnemyState, applyGauge);
 
         case {'electrocharged', 'overload', 'superconduct', 'stellarconduct', 'swirl', 'crystallize', 'bloom', 'burning', ...
                 'lunarcharged', 'lunarcrystallize', 'lunarbloom'}
@@ -143,7 +143,6 @@ function result = resolveReactionForHit(enemyState, hitDescriptor, build, teamCo
                 if strlength(catalyzeName) > 0
                     result.PrimaryReaction = catalyzeName;
                     result.CatalyzeFlatDamage = localCatalyzeFlatDamage(catalyzeName, em, reactionBonus);
-                    result.EnemyState = localConsumeQuickenGauge(result.EnemyState, applyGauge);
                     result.TriggeredReactions(end + 1, 1) = lower(catalyzeName); %#ok<AGROW>
                 end
             end
@@ -614,18 +613,33 @@ function coeff = localResolveReactionCoefficient(reactionName, auraElement)
     end
 end
 
-function enemyState = localActivateQuicken(enemyState, applyGauge)
-    enemyState.Quicken.Active = true;
-    enemyState.Quicken.Gauge = max(getFieldOrDefault(enemyState.Quicken, 'Gauge', 0), applyGauge + 0.8);
-    enemyState.Quicken.DecayPerSecond = 1 / 8.0;
-end
-
-function enemyState = localConsumeQuickenGauge(enemyState, applyGauge)
-    if ~getFieldOrDefault(enemyState.Quicken, 'Active', false)
+function [enemyState, quickenGauge, residualApplyGauge] = localConsumeAuraForQuicken(enemyState, reaction, applyGauge)
+    quickenGauge = 0;
+    residualApplyGauge = 0;
+    if reaction.AuraIndex <= 0 || ~isfield(enemyState, 'Auras') || isempty(enemyState.Auras)
         return;
     end
-    enemyState.Quicken.Gauge = max(0, enemyState.Quicken.Gauge - 0.5 * applyGauge);
-    enemyState.Quicken.Active = enemyState.Quicken.Gauge > 1e-6;
+
+    auraGauge = double(getFieldOrDefault(enemyState.Auras(reaction.AuraIndex), 'Gauge', 0));
+    taxedTriggerGauge = localApplyAuraTax(applyGauge);
+    quickenGauge = min(auraGauge, taxedTriggerGauge);
+    [enemyState, residualApplyGauge] = localConsumeAuraForAmplify(enemyState, reaction, applyGauge);
+end
+
+function enemyState = localActivateQuicken(enemyState, quickenGauge)
+    quickenGauge = max(0, double(quickenGauge));
+    if quickenGauge <= 1e-6
+        return;
+    end
+
+    existingGauge = double(getFieldOrDefault(enemyState.Quicken, 'Gauge', 0));
+    enemyState.Quicken.Active = true;
+    if quickenGauge > existingGauge + 1e-6
+        enemyState.Quicken.Gauge = quickenGauge;
+        enemyState.Quicken.DecayPerSecond = 1 / max(5 * quickenGauge + 6, 1.0);
+    else
+        enemyState.Quicken.Gauge = existingGauge;
+    end
 end
 
 function enemyState = localActivateFrozen(enemyState, applyGauge)
@@ -902,7 +916,8 @@ function result = localApplySecondaryReaction( ...
             result.EnemyState = localConsumeAuraForDirectReaction(result.EnemyState, reaction, applyGauge);
             result.EnemyState = localActivateFrozen(result.EnemyState, applyGauge);
         case 'quicken'
-            result.EnemyState = localActivateQuicken(result.EnemyState, applyGauge);
+            [result.EnemyState, quickenGauge] = localConsumeAuraForQuicken(result.EnemyState, reaction, applyGauge);
+            result.EnemyState = localActivateQuicken(result.EnemyState, quickenGauge);
         otherwise
             result = localResolveTransformativeReaction( ...
                 result, reaction, hitDescriptor, build, teamContext, enemy, applyGauge);

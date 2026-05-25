@@ -74,6 +74,8 @@ function validateReactionEngineRegression()
         'Dendro on coexisting Hydro and Electro should also trigger Quicken from the secondary Electro aura.');
     assert(numel(ecDendro.EnemyState.DendroCores) == 1 && logical(ecDendro.EnemyState.Quicken.Active), ...
         'Dendro on Electro-Charged should leave both a Bloom core and a Quicken state.');
+    assert(localAuraGauge(ecDendro.EnemyState, "Electro") > 0 && localAuraGauge(ecDendro.EnemyState, "Electro") < 1.0, ...
+        'The secondary Quicken trigger should consume part of the existing Electro aura instead of leaving it untouched.');
 
     state = createEnemyState(enemy, teamContext, "");
     state = localApplyAuraOnly(state, "Hydro", 1.0, build, teamContext, enemy);
@@ -168,6 +170,33 @@ function validateReactionEngineRegression()
     thirdBurning = resolveReactionForHit(secondBurning.EnemyState, localMakeHit("Pyro", 1.0), build, teamContext, enemy, 0);
     assert(~strcmpi(char(thirdBurning.PrimaryReaction), 'Burning'), ...
         'Burning should stop retriggering once the original 1U Dendro aura has been consumed.');
+
+    quickenState = createEnemyState(enemy, teamContext, "");
+    quickenState = localApplyAuraOnly(quickenState, "Dendro", 1.0, build, teamContext, enemy);
+    firstQuicken = resolveReactionForHit(quickenState, localMakeHit("Electro", 1.0), build, teamContext, enemy, 0);
+    assert(strcmpi(char(firstQuicken.PrimaryReaction), 'Quicken'), ...
+        'Expected Quicken to trigger from Electro on Dendro.');
+    assert(logical(firstQuicken.EnemyState.Quicken.Active), ...
+        'Quicken should activate its lingering catalyze state.');
+    assert(localAuraGauge(firstQuicken.EnemyState, "Dendro") > 0 && localAuraGauge(firstQuicken.EnemyState, "Dendro") < 1.0, ...
+        'Quicken should consume part of the existing Dendro aura instead of leaving it untouched.');
+    assert(localAuraGauge(firstQuicken.EnemyState, "Electro") == 0, ...
+        'Equal-gauge Quicken should not fabricate a residual Electro aura when the trigger is fully consumed into the catalyze state.');
+    assert(double(firstQuicken.EnemyState.Quicken.Gauge) > 0 && double(firstQuicken.EnemyState.Quicken.Gauge) < 1.0, ...
+        'Quicken should snapshot only the reacted portion of the original gauges.');
+    quickenGaugeBeforeAggravate = double(firstQuicken.EnemyState.Quicken.Gauge);
+
+    aggravate = resolveReactionForHit(firstQuicken.EnemyState, localMakeHit("Electro", 1.0), build, teamContext, enemy, 0);
+    assert(strcmpi(char(aggravate.PrimaryReaction), 'Aggravate'), ...
+        'Electro on an active Quicken state should trigger Aggravate.');
+    assert(abs(double(aggravate.EnemyState.Quicken.Gauge) - quickenGaugeBeforeAggravate) < 1e-9, ...
+        'Aggravate should not consume the lingering Quicken gauge in the unified state model.');
+
+    spread = resolveReactionForHit(firstQuicken.EnemyState, localMakeHit("Dendro", 1.0), build, teamContext, enemy, 0);
+    assert(strcmpi(char(spread.PrimaryReaction), 'Spread'), ...
+        'Dendro on an active Quicken state should trigger Spread.');
+    assert(abs(double(spread.EnemyState.Quicken.Gauge) - quickenGaugeBeforeAggravate) < 1e-9, ...
+        'Spread should not consume the lingering Quicken gauge in the unified state model.');
 
     [expiredState, packets] = advanceEnemyStateTime(bloom.EnemyState, 6.1, "", teamContext);
     packetNames = strings(0, 1);
