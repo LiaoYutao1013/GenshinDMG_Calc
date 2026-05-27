@@ -217,6 +217,42 @@ function validateReactionEngineRegression()
     assert(double(quickenBurning.EnemyState.Quicken.Gauge) < quickenGaugeBeforeAggravate, ...
         'Pyro-triggered Burning should consume part of the lingering Quicken gauge.');
 
+    quickenElectroState = firstQuicken.EnemyState;
+    quickenElectroState = localApplyAuraOnly(quickenElectroState, "Electro", 0.4, build, teamContext, enemy);
+    quickenElectroDendroGauge = localAuraGauge(quickenElectroState, "Dendro");
+
+    quickenElectroHydro = resolveReactionForHit(quickenElectroState, localMakeHit("Hydro", 1.0), build, teamContext, enemy, 0);
+    assert(strcmpi(char(quickenElectroHydro.PrimaryReaction), 'ElectroCharged'), ...
+        'Hydro on coexisting Electro + Quicken should still prioritize Electro-Charged from the explicit Electro aura.');
+    assert(any(strcmpi(cellstr(string(quickenElectroHydro.TriggeredReactions)), 'bloom')), ...
+        'Hydro on coexisting Electro + Quicken should also trigger Bloom from the lingering Dendro-side state.');
+    assert(numel(quickenElectroHydro.EnemyState.DendroCores) == 1, ...
+        'Hydro on coexisting Electro + Quicken should create one Dendro Core from the Dendro-side follow-up.');
+    assert(localAuraGauge(quickenElectroHydro.EnemyState, "Dendro") < quickenElectroDendroGauge, ...
+        'Hydro on coexisting Electro + Quicken should consume the explicit residual Dendro aura before it can keep triggering Bloom for free.');
+
+    quickenElectroPyro = resolveReactionForHit(quickenElectroState, localMakeHit("Pyro", 1.0), build, teamContext, enemy, 0);
+    assert(strcmpi(char(quickenElectroPyro.PrimaryReaction), 'Overload'), ...
+        'Pyro on coexisting Electro + Quicken should still prioritize Overload from the explicit Electro aura.');
+    assert(any(strcmpi(cellstr(string(quickenElectroPyro.TriggeredReactions)), 'burning')), ...
+        'Pyro on coexisting Electro + Quicken should also trigger Burning from the lingering Dendro-side state.');
+    assert(logical(quickenElectroPyro.EnemyState.Burning.Active), ...
+        'Pyro on coexisting Electro + Quicken should activate Burning.');
+    assert(localAuraGauge(quickenElectroPyro.EnemyState, "Dendro") < quickenElectroDendroGauge, ...
+        'Pyro on coexisting Electro + Quicken should consume the explicit residual Dendro aura before it can keep refreshing Burning for free.');
+
+    frozenElectroState = createEnemyState(enemy, teamContext, "");
+    frozenElectroState = localApplyAuraOnly(frozenElectroState, "Hydro", 1.0, build, teamContext, enemy);
+    frozenElectroState = resolveReactionForHit(frozenElectroState, localMakeHit("Cryo", 1.0), build, teamContext, enemy, 0).EnemyState;
+    frozenElectroState = localApplyAuraOnly(frozenElectroState, "Electro", 1.0, build, teamContext, enemy);
+    frozenElectroDendro = resolveReactionForHit(frozenElectroState, localMakeHit("Dendro", 1.0), build, teamContext, enemy, 0);
+    assert(any(strcmpi(cellstr(string(frozenElectroDendro.TriggeredReactions)), 'bloom')), ...
+        'Dendro on Frozen + Electro should still trigger Bloom from the Hydro side.');
+    assert(any(strcmpi(cellstr(string(frozenElectroDendro.TriggeredReactions)), 'quicken')), ...
+        'Dendro on Frozen + Electro should still trigger Quicken from the secondary Electro aura even when the primary aura pick falls through.');
+    assert(logical(frozenElectroDendro.EnemyState.Quicken.Active), ...
+        'Frozen + Electro -> Dendro should leave the Quicken state active after the secondary reaction.');
+
     [expiredState, packets] = advanceEnemyStateTime(bloom.EnemyState, 6.1, "", teamContext);
     packetNames = strings(0, 1);
     if ~isempty(packets)

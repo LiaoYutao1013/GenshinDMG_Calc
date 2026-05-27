@@ -870,6 +870,14 @@ end
 
 function result = localResolveCoexistingAuraSupplementalReactions( ...
         result, preReactionEnemyState, directReaction, hitDescriptor, build, teamContext, enemy, applyGauge)
+    result = localResolveHydroElectroSupplementalReactions( ...
+        result, preReactionEnemyState, directReaction, hitDescriptor, build, teamContext, enemy, applyGauge);
+    result = localResolveElectroDendroSupplementalReactions( ...
+        result, preReactionEnemyState, directReaction, hitDescriptor, build, teamContext, enemy, applyGauge);
+end
+
+function result = localResolveHydroElectroSupplementalReactions( ...
+        result, preReactionEnemyState, directReaction, hitDescriptor, build, teamContext, enemy, applyGauge)
     if ~localHasCoexistingAura(preReactionEnemyState, "Hydro", "Electro")
         return;
     end
@@ -906,6 +914,54 @@ function result = localResolveCoexistingAuraSupplementalReactions( ...
                 result = localApplySecondaryReaction( ...
                     result, "Quicken", "Electro", hitDescriptor, build, teamContext, enemy, applyGauge);
             end
+    end
+end
+
+function result = localResolveElectroDendroSupplementalReactions( ...
+        result, preReactionEnemyState, directReaction, hitDescriptor, build, teamContext, enemy, applyGauge)
+    hasElectroAura = localAuraGauge(preReactionEnemyState, "Electro") > 1e-6;
+    hasDendroAura = localAuraGauge(preReactionEnemyState, "Dendro") > 1e-6;
+    hasQuickenAura = getFieldOrDefault(getFieldOrDefault(preReactionEnemyState, 'Quicken', struct()), 'Active', false);
+    if ~hasElectroAura || (~hasDendroAura && ~hasQuickenAura)
+        return;
+    end
+
+    hitElement = lower(char(string(getFieldOrDefault(hitDescriptor, 'HitElement', ""))));
+    directReactionName = lower(char(string(getFieldOrDefault(directReaction, 'Name', ""))));
+    dendroReactionAura = localResolveDendroReactionSupplementalAura(preReactionEnemyState);
+    if strlength(dendroReactionAura) == 0
+        return;
+    end
+
+    switch hitElement
+        case 'hydro'
+            if ~strcmp(directReactionName, 'electrocharged')
+                result = localApplySecondaryReaction( ...
+                    result, "ElectroCharged", "Electro", hitDescriptor, build, teamContext, enemy, applyGauge);
+            end
+            if ~strcmp(directReactionName, 'bloom')
+                result = localApplySecondaryReaction( ...
+                    result, "Bloom", dendroReactionAura, hitDescriptor, build, teamContext, enemy, applyGauge);
+            end
+        case 'pyro'
+            if ~strcmp(directReactionName, 'overload')
+                result = localApplySecondaryReaction( ...
+                    result, "Overload", "Electro", hitDescriptor, build, teamContext, enemy, applyGauge);
+            end
+            if ~strcmp(directReactionName, 'burning')
+                result = localApplySecondaryReaction( ...
+                    result, "Burning", dendroReactionAura, hitDescriptor, build, teamContext, enemy, applyGauge);
+            end
+    end
+end
+
+function aura = localResolveDendroReactionSupplementalAura(enemyState)
+    if localAuraGauge(enemyState, "Dendro") > 1e-6
+        aura = "Dendro";
+    elseif getFieldOrDefault(getFieldOrDefault(enemyState, 'Quicken', struct()), 'Active', false)
+        aura = "Quicken";
+    else
+        aura = "";
     end
 end
 
