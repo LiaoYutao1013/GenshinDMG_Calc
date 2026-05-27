@@ -1,9 +1,7 @@
 function [totalDMG, dps, breakdown, rotationTime, audit] = simulateIansanDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
-    % Iansan explicit dash / burst support script with approximation.
+    % Iansan explicit dash / burst support script.
     % Dash entry, mark toss, burst window, and coordinated lightning are
     % modeled as separate actions.
-    % Remaining approximation: team attack-support value still depends on
-    % scripted movement and on-field rhythm heuristics.
     if nargin < 3 || isempty(seqFile)
         seqFile = fullfile(fileparts(mfilename('fullpath')), '..', '..', 'data', 'Iansan', 'rotation_Iansan.txt');
     end
