@@ -69,6 +69,8 @@ classdef GenshinDMGApp < handle
         DashboardHTML
         LastStatusMessage
         LastResultMetrics
+        LastSummaryRows
+        LastBreakdownRows
 
         RunSingleButton
         RunTeamButton
@@ -109,6 +111,8 @@ classdef GenshinDMGApp < handle
             obj.TempRotationDir = fullfile(tempdir, 'genshin_dmg_calc_rotations');
             obj.LastStatusMessage = "界面已加载，等待模拟。";
             obj.LastComparisonResults = table();
+            obj.LastSummaryRows = struct([]);
+            obj.LastBreakdownRows = struct([]);
             obj.LastResultMetrics = struct( ...
                 'HasResult', false, ...
                 'TotalDamage', NaN, ...
@@ -1101,6 +1105,9 @@ classdef GenshinDMGApp < handle
                 round(enemyLevel), enemyRes, enemyDef);
             data.statusMessage = char(obj.LastStatusMessage);
             data.lastMode = char(obj.LastSimulationMode);
+            data.summaryRows = obj.LastSummaryRows;
+            data.breakdownRows = obj.LastBreakdownRows;
+            data.chartRows = obj.buildHtmlChartRows(obj.LastSummaryRows);
         end
 
         function [durationValue, enemyLevel, enemyRes, enemyDef] = currentSimulationInputs(obj)
@@ -1155,9 +1162,31 @@ classdef GenshinDMGApp < handle
                 slotCards(i).talentSummary = sprintf('C%d / Lv.%d / R%d', ...
                     slot.Constellation, slot.TalentLevel, slot.WeaponRefinement);
                 slotCards(i).startTime = sprintf('%.1f s', slot.StartTime);
-                slotCards(i).portraitUrl = obj.localFileUrl(slot.PortraitPath);
-                slotCards(i).weaponBadgeUrl = obj.localFileUrl(slot.WeaponBadgePath);
-                slotCards(i).artifactBadgeUrl = obj.localFileUrl(slot.ArtifactBadgePath);
+                slotCards(i).portraitUrl = obj.localImageDataUri(slot.PortraitPath);
+                slotCards(i).weaponBadgeUrl = obj.localImageDataUri(slot.WeaponBadgePath);
+                slotCards(i).artifactBadgeUrl = obj.localImageDataUri(slot.ArtifactBadgePath);
+            end
+        end
+
+        function chartRows = buildHtmlChartRows(obj, summaryRows) %#ok<INUSD>
+            chartTemplate = struct('label', '', 'value', 0, 'valueLabel', '', 'width', 0);
+            chartRows = repmat(chartTemplate, 0, 1);
+            if isempty(summaryRows)
+                return;
+            end
+
+            values = [summaryRows.StandaloneDPS];
+            maxValue = max(values);
+            if isempty(maxValue) || maxValue <= 0
+                maxValue = 1;
+            end
+
+            chartRows = repmat(chartTemplate, 1, numel(summaryRows));
+            for i = 1:numel(summaryRows)
+                chartRows(i).label = summaryRows(i).Character;
+                chartRows(i).value = summaryRows(i).StandaloneDPS;
+                chartRows(i).valueLabel = obj.formatLargeNumber(summaryRows(i).StandaloneDPS);
+                chartRows(i).width = max(4, min(100, 100 * summaryRows(i).StandaloneDPS / maxValue));
             end
         end
 
@@ -1261,6 +1290,43 @@ classdef GenshinDMGApp < handle
                 fileUrl = ['file://' normalizedPath];
             end
             fileUrl = strrep(fileUrl, ' ', '%20');
+        end
+
+        function dataUri = localImageDataUri(obj, filePath) %#ok<INUSD>
+            dataUri = '';
+            filePath = string(filePath);
+            if strlength(filePath) == 0 || ~isfile(filePath)
+                return;
+            end
+
+            [~, ~, ext] = fileparts(filePath);
+            mimeType = obj.imageMimeType(ext);
+            if strlength(mimeType) == 0
+                return;
+            end
+
+            fid = fopen(filePath, 'r');
+            if fid < 0
+                return;
+            end
+            bytes = fread(fid, Inf, '*uint8')';
+            fclose(fid);
+            dataUri = ['data:' char(mimeType) ';base64,' matlab.net.base64encode(bytes)];
+        end
+
+        function mimeType = imageMimeType(obj, ext) %#ok<INUSD>
+            switch lower(char(string(ext)))
+                case '.png'
+                    mimeType = "image/png";
+                case {'.jpg', '.jpeg'}
+                    mimeType = "image/jpeg";
+                case '.gif'
+                    mimeType = "image/gif";
+                case '.webp'
+                    mimeType = "image/webp";
+                otherwise
+                    mimeType = "";
+            end
         end
 
         function onHtmlEvent(obj, event)
@@ -2659,6 +2725,8 @@ classdef GenshinDMGApp < handle
         function updateResultTables(obj, summaryTable, breakdownTable, energyTable, effectsTable)
             % 更新右侧结果表格。
             obj.SummaryTable.Data = summaryTable;
+            obj.LastSummaryRows = obj.tableToHtmlRows(summaryTable, 8);
+            obj.LastBreakdownRows = obj.tableToHtmlRows(breakdownTable, 10);
             if nargin < 4 || isempty(energyTable)
                 energyTable = table();
             end
@@ -2668,6 +2736,84 @@ classdef GenshinDMGApp < handle
             obj.EnergyTable.Data = energyTable;
             obj.BreakdownTable.Data = breakdownTable;
             obj.EffectsTable.Data = effectsTable;
+            obj.syncDashboard();
+        end
+
+        function rows = tableToHtmlRows(obj, sourceTable, maxRows) %#ok<INUSD>
+            if nargin < 3
+                maxRows = 8;
+            end
+
+            rowTemplate = struct('Character', '', 'TotalDMG', 0, 'TeamCycleDPS', 0, ...
+                'ActionTime', 0, 'StandaloneDPS', 0, 'Name', '', 'Value', '');
+            rows = repmat(rowTemplate, 0, 1);
+            if isempty(sourceTable) || height(sourceTable) == 0
+                return;
+            end
+
+            count = min(height(sourceTable), maxRows);
+            rows = repmat(rowTemplate, 1, count);
+            variableNames = string(sourceTable.Properties.VariableNames);
+            for i = 1:count
+                rows(i).Character = obj.tableCellAsText(sourceTable, i, variableNames, ["Character", "角色", "Name", "Action"]);
+                rows(i).TotalDMG = obj.tableCellAsNumber(sourceTable, i, variableNames, ["TotalDMG", "TotalDamage", "总伤害"]);
+                rows(i).TeamCycleDPS = obj.tableCellAsNumber(sourceTable, i, variableNames, ["TeamCycleDPS", "DPS"]);
+                rows(i).ActionTime = obj.tableCellAsNumber(sourceTable, i, variableNames, ["ActionTime", "RotationTime", "Time"]);
+                rows(i).StandaloneDPS = obj.tableCellAsNumber(sourceTable, i, variableNames, ["StandaloneDPS", "DPS"]);
+                rows(i).Name = obj.tableCellAsText(sourceTable, i, variableNames, variableNames);
+                rows(i).Value = obj.tableRowSummary(sourceTable, i, variableNames);
+            end
+        end
+
+        function value = tableCellAsText(obj, sourceTable, rowIndex, variableNames, candidates) %#ok<INUSD>
+            value = '';
+            idx = find(ismember(variableNames, string(candidates)), 1, 'first');
+            if isempty(idx)
+                return;
+            end
+            raw = sourceTable{rowIndex, char(variableNames(idx))};
+            if iscell(raw)
+                raw = raw{1};
+            end
+            value = char(string(raw));
+        end
+
+        function value = tableCellAsNumber(obj, sourceTable, rowIndex, variableNames, candidates) %#ok<INUSD>
+            value = 0;
+            idx = find(ismember(variableNames, string(candidates)), 1, 'first');
+            if isempty(idx)
+                return;
+            end
+            raw = sourceTable{rowIndex, char(variableNames(idx))};
+            if iscell(raw)
+                raw = raw{1};
+            end
+            if isnumeric(raw) || islogical(raw)
+                value = double(raw(1));
+            else
+                parsed = str2double(string(raw));
+                if ~isnan(parsed)
+                    value = parsed;
+                end
+            end
+        end
+
+        function value = tableRowSummary(obj, sourceTable, rowIndex, variableNames)
+            pieces = strings(0, 1);
+            limit = min(numel(variableNames), 4);
+            for j = 1:limit
+                raw = sourceTable{rowIndex, char(variableNames(j))};
+                if iscell(raw)
+                    raw = raw{1};
+                end
+                if isnumeric(raw) || islogical(raw)
+                    text = string(obj.formatLargeNumber(double(raw(1))));
+                else
+                    text = string(raw);
+                end
+                pieces(end + 1, 1) = variableNames(j) + ": " + text; %#ok<AGROW>
+            end
+            value = char(strjoin(pieces, " / "));
         end
 
         function updateKpi(obj, totalDamage, dps, rotationTime)

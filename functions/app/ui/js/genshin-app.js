@@ -25,7 +25,10 @@
     activeCount: 0,
     totalSlots: 4,
     lastMode: "未运行",
-    slots: []
+    slots: [],
+    summaryRows: [],
+    breakdownRows: [],
+    chartRows: []
   };
 
   let htmlComponent = null;
@@ -127,6 +130,10 @@
           <span class="tag">${escapeHtml(slot.startTime)}</span>
           <span class="tag">${escapeHtml(slot.enabled ? "启用" : "停用")}</span>
         </div>
+        <div class="slot-badges">
+          ${badgeHtml(slot.weaponBadgeUrl, "武器")}
+          ${badgeHtml(slot.artifactBadgeUrl, "圣遗物")}
+        </div>
         <div class="slot-actions">
           <button class="icon-btn" data-action="selectSlot" data-slot="${escapeHtml(slot.index)}" title="选择此槽位">编辑</button>
           <button class="icon-btn" data-action="toggleSlot" data-slot="${escapeHtml(slot.index)}" title="切换队伍计算状态">${slot.enabled ? "停用" : "启用"}</button>
@@ -148,6 +155,10 @@
             <div class="eyebrow">当前构筑</div>
             <div class="title">${escapeHtml(slot.displayName)}</div>
             <div class="subtle">${escapeHtml(slot.characterKey)} · ${escapeHtml(slot.enabled ? "参与整队" : "未参与整队")}</div>
+            <div class="equipment-badges">
+              ${badgeHtml(slot.weaponBadgeUrl, "武器")}
+              ${badgeHtml(slot.artifactBadgeUrl, "圣遗物")}
+            </div>
           </div>
           <div class="editor-actions">
             <button class="text-btn primary" data-action="runSingle" title="运行当前角色模拟">单人模拟</button>
@@ -174,6 +185,13 @@
         <div class="label">${escapeHtml(label)}</div>
         <div class="build-value" title="${escapeHtml(value)}">${escapeHtml(value)}</div>
       </div>`;
+  }
+
+  function badgeHtml(src, label) {
+    if (!src) {
+      return `<span class="badge fallback">${escapeHtml(label.slice(0, 1))}</span>`;
+    }
+    return `<span class="badge" title="${escapeHtml(label)}"><img src="${escapeHtml(src)}" alt=""></span>`;
   }
 
   function renderDashboard(root, currentData) {
@@ -205,6 +223,16 @@
           ${detailHtml("命座 / 天赋", currentData.talentSummary)}
           ${detailHtml("模式", currentData.modeSummary)}
         </section>
+        <section class="result-visuals" aria-label="结果可视化">
+          <article class="visual-card">
+            <div class="visual-title">成员 DPS</div>
+            ${chartRowsHtml(currentData.chartRows)}
+          </article>
+          <article class="visual-card">
+            <div class="visual-title">结果摘要</div>
+            ${summaryRowsHtml(currentData.summaryRows)}
+          </article>
+        </section>
       </section>`;
   }
 
@@ -223,6 +251,50 @@
         <div class="label">${escapeHtml(label)}</div>
         <div class="detail-value" title="${escapeHtml(value)}">${escapeHtml(value)}</div>
       </div>`;
+  }
+
+  function chartRowsHtml(rows) {
+    rows = Array.isArray(rows) ? rows : [];
+    if (!rows.length) {
+      return `<div class="empty-state">运行模拟后显示成员对比。</div>`;
+    }
+
+    return `<div class="bar-list">${rows.map(function (row) {
+      const width = Math.max(4, Math.min(100, Number(row.width || 0)));
+      return `
+        <div class="bar-row">
+          <div class="bar-label" title="${escapeHtml(row.label)}">${escapeHtml(row.label)}</div>
+          <div class="bar-track"><div class="bar-fill" style="width:${width}%"></div></div>
+          <div class="bar-value">${escapeHtml(row.valueLabel)}</div>
+        </div>`;
+    }).join("")}</div>`;
+  }
+
+  function summaryRowsHtml(rows) {
+    rows = Array.isArray(rows) ? rows : [];
+    if (!rows.length) {
+      return `<div class="empty-state">暂无计算结果。</div>`;
+    }
+
+    return `<div class="summary-list">${rows.map(function (row) {
+      return `
+        <div class="summary-row">
+          <div class="summary-name" title="${escapeHtml(row.Character || row.Name)}">${escapeHtml(row.Character || row.Name)}</div>
+          <div class="summary-value">${escapeHtml(formatNumber(row.TotalDMG))}</div>
+          <div class="summary-value">${escapeHtml(formatNumber(row.StandaloneDPS))}</div>
+        </div>`;
+    }).join("")}</div>`;
+  }
+
+  function formatNumber(value) {
+    const number = Number(value || 0);
+    if (Math.abs(number) >= 100000000) {
+      return (number / 100000000).toFixed(2) + " e8";
+    }
+    if (Math.abs(number) >= 10000) {
+      return (number / 10000).toFixed(2) + " 万";
+    }
+    return number.toFixed(0);
   }
 
   function bindActionButtons(root) {

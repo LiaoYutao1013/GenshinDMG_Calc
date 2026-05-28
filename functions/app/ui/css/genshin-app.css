@@ -197,6 +197,42 @@ button {
   gap: 5px;
 }
 
+.slot-badges,
+.equipment-badges {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.slot-badges {
+  justify-content: flex-end;
+}
+
+.equipment-badges {
+  margin-top: 8px;
+}
+
+.badge {
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  background: #eef3f9;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.badge img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
 .tag,
 .pill {
   max-width: 100%;
@@ -356,7 +392,7 @@ button {
   height: 100%;
   padding: 12px;
   display: grid;
-  grid-template-rows: auto 76px 1fr;
+  grid-template-rows: auto 76px auto 1fr;
   gap: 10px;
 }
 
@@ -453,10 +489,110 @@ button {
   font-weight: 800;
 }
 
+.result-visuals {
+  min-width: 0;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 8px;
+}
+
+.visual-card {
+  min-width: 0;
+  min-height: 0;
+  padding: 9px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+}
+
+.visual-title {
+  margin-bottom: 8px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--text);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.bar-list,
+.summary-list {
+  min-width: 0;
+  display: grid;
+  gap: 7px;
+}
+
+.bar-row {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: 76px 1fr 62px;
+  align-items: center;
+  gap: 8px;
+}
+
+.bar-label,
+.bar-value,
+.summary-name,
+.summary-value {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 11px;
+}
+
+.bar-label,
+.summary-name {
+  color: var(--text);
+  font-weight: 700;
+}
+
+.bar-value,
+.summary-value {
+  color: var(--muted);
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.bar-track {
+  height: 8px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #e7edf5;
+}
+
+.bar-fill {
+  height: 100%;
+  min-width: 4px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--blue), var(--cyan));
+}
+
+.summary-row {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: 1fr 72px 62px;
+  gap: 8px;
+  align-items: center;
+}
+
+.empty-state {
+  display: grid;
+  min-height: 78px;
+  place-items: center;
+  color: var(--muted);
+  font-size: 12px;
+  border: 1px dashed var(--line);
+  border-radius: 8px;
+  background: var(--panel-soft);
+}
+
 @media (max-width: 310px) {
   .slot-grid,
   .metrics,
   .details,
+  .result-visuals,
   .build-grid {
     grid-template-columns: 1fr;
   }
