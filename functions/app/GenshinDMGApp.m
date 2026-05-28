@@ -21,6 +21,8 @@ classdef GenshinDMGApp < handle
         SelectedSlot = 1
         LastTeamResult = struct()
         LastMemberResults = struct([])
+        LastComparisonMode = ""
+        LastComparisonResults
         LastSimulationMode = "未运行"
     end
 
@@ -62,6 +64,8 @@ classdef GenshinDMGApp < handle
         EnemyResField
         EnemyDefField
         StatusLabel
+        TeamHTML
+        EditorHTML
         DashboardHTML
         LastStatusMessage
         LastResultMetrics
@@ -81,6 +85,16 @@ classdef GenshinDMGApp < handle
         EffectsTable
         TimelineAxes
         BarAxes
+        ComparisonModeDropdown
+        ComparisonLimitSpinner
+        ComparisonImplementedOnlyCheckbox
+        ComparisonRunButton
+        ComparisonApplyBestButton
+        ComparisonStatusLabel
+        ComparisonTable
+        ComparisonAxes
+        ComparisonTabGroup
+        ComparisonPages
     end
 
     methods
@@ -94,6 +108,7 @@ classdef GenshinDMGApp < handle
             obj.PortraitCacheDir = fullfile(projectRoot, 'art', 'portraits');
             obj.TempRotationDir = fullfile(tempdir, 'genshin_dmg_calc_rotations');
             obj.LastStatusMessage = "界面已加载，等待模拟。";
+            obj.LastComparisonResults = table();
             obj.LastResultMetrics = struct( ...
                 'HasResult', false, ...
                 'TotalDamage', NaN, ...
@@ -127,6 +142,13 @@ classdef GenshinDMGApp < handle
         function refreshTimeline(obj)
             % 公开包装方法，便于脚本或自动化测试刷新输出轴预览。
             obj.refreshTimelinePreview();
+        end
+
+        function runComparison(obj, mode)
+            if nargin >= 2 && ~isempty(mode)
+                obj.setComparisonMode(mode);
+            end
+            obj.runComparisonAnalysis();
         end
     end
 
@@ -198,7 +220,32 @@ classdef GenshinDMGApp < handle
             teamPanel.Layout.Row = 1;
             teamPanel.Layout.Column = 1;
 
-            teamGrid = uigridlayout(teamPanel, [5 1]);
+            teamRootGrid = uigridlayout(teamPanel, [1 1]);
+            teamRootGrid.RowHeight = {'1x'};
+            teamRootGrid.ColumnWidth = {'1x'};
+            teamRootGrid.Padding = [8 8 8 8];
+
+            teamTabs = uitabgroup(teamRootGrid);
+            teamTabs.Layout.Row = 1;
+            teamTabs.Layout.Column = 1;
+            overviewTab = uitab(teamTabs, 'Title', 'HTML 队伍');
+            configTab = uitab(teamTabs, 'Title', '配置控件');
+            teamTabs.SelectedTab = overviewTab;
+
+            overviewGrid = uigridlayout(overviewTab, [1 1]);
+            overviewGrid.RowHeight = {'1x'};
+            overviewGrid.ColumnWidth = {'1x'};
+            overviewGrid.Padding = [0 0 0 0];
+
+            obj.TeamHTML = uihtml(overviewGrid, ...
+                'HTMLSource', obj.resolveUiHtmlSource('team-shell.html'), ...
+                'Tooltip', '队伍概览');
+            obj.TeamHTML.Layout.Row = 1;
+            obj.TeamHTML.Layout.Column = 1;
+            obj.TeamHTML.HTMLEventReceivedFcn = @(~, event) obj.onHtmlEvent(event);
+            obj.TeamHTML.Data = obj.buildAppShellData();
+
+            teamGrid = uigridlayout(configTab, [5 1]);
             teamGrid.RowHeight = {28, '1x', '1x', '1x', '1x'};
             teamGrid.ColumnWidth = {'1x'};
             teamGrid.RowSpacing = 10;
@@ -412,11 +459,36 @@ classdef GenshinDMGApp < handle
             obj.SelectedSlotLabel.Layout.Row = 1;
             obj.SelectedSlotLabel.Layout.Column = 1;
 
-            heroCard = uipanel(editorGrid, ...
+            editorTabs = uitabgroup(editorGrid);
+            editorTabs.Layout.Row = 2;
+            editorTabs.Layout.Column = 1;
+            editorOverviewTab = uitab(editorTabs, 'Title', 'HTML 概览');
+            editorConfigTab = uitab(editorTabs, 'Title', '配置控件');
+            editorTabs.SelectedTab = editorOverviewTab;
+
+            editorOverviewGrid = uigridlayout(editorOverviewTab, [1 1]);
+            editorOverviewGrid.RowHeight = {'1x'};
+            editorOverviewGrid.ColumnWidth = {'1x'};
+            editorOverviewGrid.Padding = [0 0 0 0];
+
+            obj.EditorHTML = uihtml(editorOverviewGrid, ...
+                'HTMLSource', obj.resolveUiHtmlSource('editor-shell.html'), ...
+                'Tooltip', '当前构筑概览');
+            obj.EditorHTML.Layout.Row = 1;
+            obj.EditorHTML.Layout.Column = 1;
+            obj.EditorHTML.HTMLEventReceivedFcn = @(~, event) obj.onHtmlEvent(event);
+            obj.EditorHTML.Data = obj.buildAppShellData();
+
+            editorConfigGrid = uigridlayout(editorConfigTab, [1 1]);
+            editorConfigGrid.RowHeight = {'1x'};
+            editorConfigGrid.ColumnWidth = {'1x'};
+            editorConfigGrid.Padding = [0 0 0 0];
+
+            heroCard = uipanel(editorConfigGrid, ...
                 'Title', '角色概览', ...
                 'BackgroundColor', [0.96 0.97 0.99], ...
                 'ForegroundColor', [0.28 0.34 0.44]);
-            heroCard.Layout.Row = 2;
+            heroCard.Layout.Row = 1;
             heroCard.Layout.Column = 1;
 
             heroGrid = uigridlayout(heroCard, [3 2]);
@@ -722,14 +794,14 @@ classdef GenshinDMGApp < handle
             obj.RefreshTimelineButton.Layout.Row = 3;
             obj.RefreshTimelineButton.Layout.Column = 6;
 
-            appFolder = fileparts(mfilename('fullpath'));
-            dashboardPath = fullfile(appFolder, 'GenshinDMGDashboard.html');
+            dashboardPath = obj.resolveDashboardHtmlSource();
             obj.DashboardHTML = uihtml(resultGrid, ...
                 'HTMLSource', dashboardPath, ...
                 'Tooltip', '伤害仪表盘');
             obj.DashboardHTML.Layout.Row = 2;
             obj.DashboardHTML.Layout.Column = 1;
-            obj.DashboardHTML.Data = obj.buildDashboardData();
+            obj.DashboardHTML.HTMLEventReceivedFcn = @(~, event) obj.onHtmlEvent(event);
+            obj.DashboardHTML.Data = obj.buildAppShellData();
 
             tabs = uitabgroup(resultGrid);
             tabs.Layout.Row = 3;
@@ -741,6 +813,8 @@ classdef GenshinDMGApp < handle
             effectsTab = uitab(tabs, 'Title', '持续效果');
             timelineTab = uitab(tabs, 'Title', '输出轴');
             chartTab = uitab(tabs, 'Title', '成员对比');
+
+            comparisonTab = uitab(tabs, 'Title', '对比分析');
 
             obj.SummaryTable = uitable(summaryTab, ...
                 'Position', [8 8 760 560], ...
@@ -768,6 +842,8 @@ classdef GenshinDMGApp < handle
             title(obj.BarAxes, '成员 DPS 对比');
             ylabel(obj.BarAxes, 'DPS');
             grid(obj.BarAxes, 'on');
+
+            obj.createComparisonTab(comparisonTab);
         end
 
         function [panel, valueLabel] = createKpiCard(obj, parent, columnIndex, titleText, accentColor) %#ok<INUSD>
@@ -800,6 +876,161 @@ classdef GenshinDMGApp < handle
                 'FontColor', [0.18 0.22 0.30]);
             valueLabel.Layout.Row = 2;
             valueLabel.Layout.Column = 1;
+        end
+
+        function createComparisonTab(obj, parent)
+            compareGrid = uigridlayout(parent, [2 1]);
+            compareGrid.RowHeight = {58, '1x'};
+            compareGrid.ColumnWidth = {'1x'};
+            compareGrid.RowSpacing = 8;
+            compareGrid.Padding = [8 8 8 8];
+
+            controlPanel = uipanel(compareGrid, ...
+                'Title', '对比设置', ...
+                'BackgroundColor', [0.96 0.97 0.99], ...
+                'ForegroundColor', [0.28 0.34 0.44]);
+            controlPanel.Layout.Row = 1;
+            controlPanel.Layout.Column = 1;
+
+            controlGrid = uigridlayout(controlPanel, [1 6]);
+            controlGrid.RowHeight = {30};
+            controlGrid.ColumnWidth = {64, 78, 132, 92, 92, '1x'};
+            controlGrid.ColumnSpacing = 8;
+            controlGrid.Padding = [8 6 8 6];
+            controlGrid.BackgroundColor = [0.96 0.97 0.99];
+
+            modeLabel = uilabel(controlGrid, 'Text', 'Top N', 'FontColor', [0.30 0.34 0.42]);
+            modeLabel.Layout.Row = 1;
+            modeLabel.Layout.Column = 1;
+
+            obj.ComparisonLimitSpinner = uispinner(controlGrid, ...
+                'Limits', [3 80], ...
+                'RoundFractionalValues', 'on', ...
+                'Step', 1, ...
+                'Value', 20);
+            obj.ComparisonLimitSpinner.Layout.Row = 1;
+            obj.ComparisonLimitSpinner.Layout.Column = 2;
+
+            obj.ComparisonImplementedOnlyCheckbox = uicheckbox(controlGrid, ...
+                'Text', '仅已建模套装', ...
+                'Value', true);
+            obj.ComparisonImplementedOnlyCheckbox.Layout.Row = 1;
+            obj.ComparisonImplementedOnlyCheckbox.Layout.Column = 3;
+
+            obj.ComparisonStatusLabel = uilabel(controlGrid, ...
+                'Text', '每个对比功能已拆分到下方独立标签页；百分比基准为该角色专武。', ...
+                'FontSize', 12, ...
+                'FontColor', [0.36 0.39 0.47]);
+            obj.ComparisonStatusLabel.Layout.Row = 1;
+            obj.ComparisonStatusLabel.Layout.Column = [4 6];
+
+            obj.ComparisonTabGroup = uitabgroup(compareGrid, ...
+                'SelectionChangedFcn', @(~, event) obj.setComparisonMode(event.NewValue.UserData));
+            obj.ComparisonTabGroup.Layout.Row = 2;
+            obj.ComparisonTabGroup.Layout.Column = 1;
+
+            obj.ComparisonPages = struct();
+            obj.ComparisonPages.weapon_single = obj.createComparisonPage( ...
+                obj.ComparisonTabGroup, 'weapon_single', '武器排名', ...
+                '当前角色分别装备同类型武器时的期望伤害排名。');
+            obj.ComparisonPages.artifact_single = obj.createComparisonPage( ...
+                obj.ComparisonTabGroup, 'artifact_single', '圣遗物排名', ...
+                '当前角色分别装备各 4 件套时的期望伤害排名。');
+            obj.ComparisonPages.artifact_team = obj.createComparisonPage( ...
+                obj.ComparisonTabGroup, 'artifact_team', '圣遗物进队', ...
+                '当前角色更换 4 件套后，在当前启用队伍中的总伤害排名。');
+            obj.ComparisonPages.artifact_constellation = obj.createComparisonPage( ...
+                obj.ComparisonTabGroup, 'artifact_constellation', '套装命座', ...
+                '当前角色在同一套圣遗物下 C0-C6 的期望伤害排名。');
+            obj.ComparisonPages.constellation_team_gain = obj.createComparisonPage( ...
+                obj.ComparisonTabGroup, 'constellation_team_gain', '命座团队提升', ...
+                '当前角色 C0-C6 对当前启用队伍总伤害的提升分布。');
+
+            obj.setComparisonMode('weapon_single');
+        end
+
+        function page = createComparisonPage(obj, parent, mode, titleText, description)
+            tab = uitab(parent, 'Title', titleText);
+            tab.UserData = char(string(mode));
+
+            pageGrid = uigridlayout(tab, [4 1]);
+            pageGrid.RowHeight = {36, 28, 34, '1x'};
+            pageGrid.ColumnWidth = {'1x'};
+            pageGrid.RowSpacing = 8;
+            pageGrid.Padding = [8 8 8 8];
+
+            header = uilabel(pageGrid, ...
+                'Text', description, ...
+                'FontSize', 12, ...
+                'FontWeight', 'bold', ...
+                'FontColor', [0.18 0.23 0.33]);
+            header.Layout.Row = 1;
+            header.Layout.Column = 1;
+
+            roleLabel = uilabel(pageGrid, ...
+                'Text', '角色：--', ...
+                'FontWeight', 'bold', ...
+                'FontColor', [0.24 0.29 0.38]);
+            roleLabel.Layout.Row = 2;
+            roleLabel.Layout.Column = 1;
+
+            actionGrid = uigridlayout(pageGrid, [1 3]);
+            actionGrid.Layout.Row = 3;
+            actionGrid.Layout.Column = 1;
+            actionGrid.ColumnWidth = {104, 118, '1x'};
+            actionGrid.RowHeight = {'1x'};
+            actionGrid.ColumnSpacing = 8;
+            actionGrid.Padding = [0 0 0 0];
+
+            runButton = uibutton(actionGrid, 'push', ...
+                'Text', '运行本页', ...
+                'BackgroundColor', [0.46 0.70 0.82], ...
+                'FontColor', [0.08 0.12 0.16], ...
+                'ButtonPushedFcn', @(~, ~) obj.runComparisonAnalysis(mode));
+            runButton.Layout.Row = 1;
+            runButton.Layout.Column = 1;
+
+            applyButton = uibutton(actionGrid, 'push', ...
+                'Text', '应用第 1 名', ...
+                'ButtonPushedFcn', @(~, ~) obj.applyBestComparisonCandidate(mode));
+            applyButton.Layout.Row = 1;
+            applyButton.Layout.Column = 2;
+
+            statusLabel = uilabel(actionGrid, ...
+                'Text', '等待计算。', ...
+                'FontColor', [0.36 0.39 0.47]);
+            statusLabel.Layout.Row = 1;
+            statusLabel.Layout.Column = 3;
+
+            contentGrid = uigridlayout(pageGrid, [1 2]);
+            contentGrid.Layout.Row = 4;
+            contentGrid.Layout.Column = 1;
+            contentGrid.ColumnWidth = {'1.15x', '1x'};
+            contentGrid.RowHeight = {'1x'};
+            contentGrid.ColumnSpacing = 8;
+            contentGrid.Padding = [0 0 0 0];
+
+            resultTable = uitable(contentGrid, 'RowName', {});
+            resultTable.Layout.Row = 1;
+            resultTable.Layout.Column = 1;
+
+            resultAxes = uiaxes(contentGrid);
+            resultAxes.Layout.Row = 1;
+            resultAxes.Layout.Column = 2;
+            title(resultAxes, titleText);
+            ylabel(resultAxes, '期望伤害');
+            grid(resultAxes, 'on');
+
+            page = struct( ...
+                'Mode', string(mode), ...
+                'Tab', tab, ...
+                'Table', resultTable, ...
+                'Axes', resultAxes, ...
+                'HeaderLabel', header, ...
+                'RoleLabel', roleLabel, ...
+                'StatusLabel', statusLabel, ...
+                'RunButton', runButton, ...
+                'ApplyBestButton', applyButton);
         end
 
         function data = buildDashboardData(obj)
@@ -852,12 +1083,193 @@ classdef GenshinDMGApp < handle
                 'modeSummary', sprintf('%s · %d/%d 启用', char(obj.LastSimulationMode), activeCount, totalSlots));
         end
 
+        function data = buildAppShellData(obj)
+            dashboard = obj.buildDashboardData();
+            slotCards = obj.buildSlotCardData();
+            selectedSlot = slotCards(obj.SelectedSlot);
+            [durationValue, enemyLevel, enemyRes, enemyDef] = obj.currentSimulationInputs();
+
+            data = dashboard;
+            data.dashboard = dashboard;
+            data.slots = slotCards;
+            data.selectedSlot = selectedSlot;
+            data.selectedSlotIndex = obj.SelectedSlot;
+            data.activeCount = nnz([obj.Slots.Enabled]);
+            data.totalSlots = numel(obj.Slots);
+            data.teamDuration = sprintf('%.1f s', durationValue);
+            data.enemySummary = sprintf('Lv.%d / 抗性 %.2f / 减防 %.2f', ...
+                round(enemyLevel), enemyRes, enemyDef);
+            data.statusMessage = char(obj.LastStatusMessage);
+            data.lastMode = char(obj.LastSimulationMode);
+        end
+
+        function [durationValue, enemyLevel, enemyRes, enemyDef] = currentSimulationInputs(obj)
+            durationValue = 20;
+            enemyLevel = obj.Enemy.Level;
+            enemyRes = obj.Enemy.Res;
+            enemyDef = obj.Enemy.DefReduct;
+
+            if ~isempty(obj.TeamDurationField) && isvalid(obj.TeamDurationField)
+                durationValue = obj.TeamDurationField.Value;
+            end
+            if ~isempty(obj.EnemyLevelField) && isvalid(obj.EnemyLevelField)
+                enemyLevel = obj.EnemyLevelField.Value;
+            end
+            if ~isempty(obj.EnemyResField) && isvalid(obj.EnemyResField)
+                enemyRes = obj.EnemyResField.Value;
+            end
+            if ~isempty(obj.EnemyDefField) && isvalid(obj.EnemyDefField)
+                enemyDef = obj.EnemyDefField.Value;
+            end
+        end
+
+        function slotCards = buildSlotCardData(obj)
+            slotTemplate = struct( ...
+                'index', 0, ...
+                'isSelected', false, ...
+                'enabled', false, ...
+                'displayName', '', ...
+                'characterKey', '', ...
+                'weaponName', '', ...
+                'artifactName', '', ...
+                'artifactMode', '', ...
+                'presetName', '', ...
+                'talentSummary', '', ...
+                'startTime', '', ...
+                'portraitUrl', '', ...
+                'weaponBadgeUrl', '', ...
+                'artifactBadgeUrl', '');
+            slotCards = repmat(slotTemplate, 1, numel(obj.Slots));
+
+            for i = 1:numel(obj.Slots)
+                slot = obj.Slots(i);
+                slotCards(i).index = i;
+                slotCards(i).isSelected = i == obj.SelectedSlot;
+                slotCards(i).enabled = logical(slot.Enabled);
+                slotCards(i).displayName = char(slot.DisplayName);
+                slotCards(i).characterKey = char(slot.CharacterKey);
+                slotCards(i).weaponName = char(slot.WeaponName);
+                slotCards(i).artifactName = char(slot.ArtifactSet1);
+                slotCards(i).artifactMode = char(obj.resolveArtifactModeLabel(slot));
+                slotCards(i).presetName = char(obj.lookupPresetLabel(slot));
+                slotCards(i).talentSummary = sprintf('C%d / Lv.%d / R%d', ...
+                    slot.Constellation, slot.TalentLevel, slot.WeaponRefinement);
+                slotCards(i).startTime = sprintf('%.1f s', slot.StartTime);
+                slotCards(i).portraitUrl = obj.localFileUrl(slot.PortraitPath);
+                slotCards(i).weaponBadgeUrl = obj.localFileUrl(slot.WeaponBadgePath);
+                slotCards(i).artifactBadgeUrl = obj.localFileUrl(slot.ArtifactBadgePath);
+            end
+        end
+
         function syncDashboard(obj)
-            if isempty(obj.DashboardHTML) || ~isvalid(obj.DashboardHTML)
+            data = obj.buildAppShellData();
+            htmlComponents = {obj.TeamHTML, obj.EditorHTML, obj.DashboardHTML};
+            for i = 1:numel(htmlComponents)
+                component = htmlComponents{i};
+                if ~isempty(component) && isvalid(component)
+                    component.Data = data;
+                end
+            end
+        end
+
+        function htmlSource = resolveDashboardHtmlSource(obj)
+            htmlSource = obj.resolveUiHtmlSource('dashboard-shell.html');
+        end
+
+        function htmlSource = resolveUiHtmlSource(obj, htmlName) %#ok<INUSD>
+            appFolder = fileparts(mfilename('fullpath'));
+            projectRoot = fileparts(fileparts(appFolder));
+            candidates = { ...
+                fullfile(appFolder, 'ui', 'html', htmlName), ...
+                fullfile(projectRoot, 'functions', 'app', 'ui', 'html', htmlName), ...
+                fullfile(projectRoot, 'app', 'ui', 'html', htmlName), ...
+                fullfile(ctfroot, 'functions', 'app', 'ui', 'html', htmlName), ...
+                fullfile(ctfroot, 'app', 'ui', 'html', htmlName), ...
+                fullfile(appFolder, 'GenshinDMGDashboard.html')};
+
+            for i = 1:numel(candidates)
+                if isfile(candidates{i})
+                    htmlSource = candidates{i};
+                    return;
+                end
+            end
+
+            htmlSource = ['<!doctype html><html><head><meta charset="utf-8">' ...
+                '<style>html,body{margin:0;width:100%;height:100%;font-family:Segoe UI,Arial,sans-serif;' ...
+                'background:#f6f8fb;color:#1f2937}.wrap{padding:14px}.card{background:#fff;border:1px solid #d9e1ec;' ...
+                'border-radius:8px;padding:12px}.label{font-size:12px;color:#667085}.value{margin-top:6px;font-size:22px;' ...
+                'font-weight:700}</style></head><body><div class="wrap"><div class="card">' ...
+                '<div class="label">GenshinDMG Simulator</div><div class="value">Dashboard unavailable</div>' ...
+                '<div class="label">The main simulator UI is still available.</div></div></div></body></html>'];
+        end
+
+        function fileUrl = localFileUrl(obj, filePath) %#ok<INUSD>
+            fileUrl = '';
+            if strlength(string(filePath)) == 0 || ~isfile(filePath)
                 return;
             end
 
-            obj.DashboardHTML.Data = obj.buildDashboardData();
+            normalizedPath = strrep(char(filePath), '\', '/');
+            if ispc
+                fileUrl = ['file:///' normalizedPath];
+            else
+                fileUrl = ['file://' normalizedPath];
+            end
+            fileUrl = strrep(fileUrl, ' ', '%20');
+        end
+
+        function onHtmlEvent(obj, event)
+            eventName = string(event.HTMLEventName);
+            eventData = event.HTMLEventData;
+
+            try
+                switch eventName
+                    case "selectSlot"
+                        slotIndex = obj.getHtmlEventNumber(eventData, 'slotIndex', obj.SelectedSlot);
+                        obj.selectSlot(max(1, min(numel(obj.Slots), round(slotIndex))));
+                    case "toggleSlot"
+                        slotIndex = obj.getHtmlEventNumber(eventData, 'slotIndex', obj.SelectedSlot);
+                        slotIndex = max(1, min(numel(obj.Slots), round(slotIndex)));
+                        obj.Slots(slotIndex).Enabled = ~logical(obj.Slots(slotIndex).Enabled);
+                        obj.refreshSlotCard(slotIndex);
+                        if obj.SelectedSlot == slotIndex
+                            obj.refreshEditorForSelectedSlot();
+                        end
+                        obj.refreshTimelinePreview();
+                    case "runSingle"
+                        obj.runSingleSimulation();
+                    case "runTeam"
+                        obj.runTeamSimulation();
+                    case "refreshTimeline"
+                        obj.refreshTimelinePreview();
+                    case "resetSlot"
+                        obj.onResetCurrentSlot();
+                    case "restoreRotation"
+                        obj.onRestoreDefaultRotation();
+                end
+            catch ME
+                obj.setStatus(sprintf('HTML 事件处理失败：%s', ME.message));
+            end
+        end
+
+        function value = getHtmlEventNumber(obj, eventData, fieldName, fallback) %#ok<INUSD>
+            value = fallback;
+            if isstruct(eventData) && isfield(eventData, fieldName)
+                value = eventData.(fieldName);
+            elseif isa(eventData, 'containers.Map') && isKey(eventData, fieldName)
+                value = eventData(fieldName);
+            end
+            if isstring(value) || ischar(value)
+                parsedValue = str2double(value);
+                if ~isnan(parsedValue)
+                    value = parsedValue;
+                else
+                    value = fallback;
+                end
+            end
+            if ~isnumeric(value) || isempty(value) || isnan(value)
+                value = fallback;
+            end
         end
 
         function label = statusToneLabel(obj, tone) %#ok<INUSD>
@@ -986,6 +1398,7 @@ classdef GenshinDMGApp < handle
             if strlength(slot.ArtifactBadgePath) > 0 && isfile(slot.ArtifactBadgePath)
                 obj.SlotArtifactBadges{slotIndex}.ImageSource = char(slot.ArtifactBadgePath);
             end
+            obj.syncDashboard();
         end
 
         function refreshSelectionVisuals(obj)
@@ -1382,6 +1795,24 @@ classdef GenshinDMGApp < handle
             memberCfg = getDefaultCharacterConfig(char(slot.CharacterKey), overrides);
         end
 
+        function memberCfg = buildComparisonMemberConfig(obj, slotIndex, slot)
+            rotationText = slot.RotationText;
+            if strlength(strtrim(rotationText)) == 0
+                rotationText = getCharacterDefaultRotationText(slot.CharacterKey);
+            end
+
+            tempRotationPath = writeTempRotationFile( ...
+                obj.TempRotationDir, slot.CharacterKey, slotIndex, rotationText);
+
+            overrides = struct( ...
+                'Constellation', slot.Constellation, ...
+                'TalentLevel', slot.TalentLevel, ...
+                'Build', slot.Build, ...
+                'StartTime', slot.StartTime, ...
+                'RotationFile', tempRotationPath);
+            memberCfg = getDefaultCharacterConfig(char(slot.CharacterKey), overrides);
+        end
+
         function enemy = buildEnemy(obj)
             % 由右侧参数区构造敌人配置。
             enemy = struct( ...
@@ -1397,6 +1828,17 @@ classdef GenshinDMGApp < handle
             for i = 1:numel(obj.Slots)
                 if obj.Slots(i).Enabled
                     members{end + 1} = obj.buildMemberConfig(i); %#ok<AGROW>
+                    slotIndices(end + 1) = i; %#ok<AGROW>
+                end
+            end
+        end
+
+        function [members, slotIndices] = buildEnabledMembersFromSlotCopies(obj, slots)
+            members = {};
+            slotIndices = [];
+            for i = 1:numel(slots)
+                if slots(i).Enabled
+                    members{end + 1} = obj.buildComparisonMemberConfig(i, slots(i)); %#ok<AGROW>
                     slotIndices(end + 1) = i; %#ok<AGROW>
                 end
             end
@@ -1466,6 +1908,707 @@ classdef GenshinDMGApp < handle
             catch ME
                 obj.showSimulationError(ME);
             end
+        end
+
+        function runComparisonAnalysis(obj, mode)
+            obj.saveSelectedSlotState();
+            if nargin < 2 || isempty(mode)
+                mode = obj.currentComparisonMode();
+            end
+            obj.runComparisonAnalysisForMode(mode);
+        end
+
+        function runComparisonAnalysisForMode(obj, mode)
+            mode = string(mode);
+            obj.setComparisonMode(mode);
+            page = obj.getComparisonPage(mode);
+            obj.LastComparisonMode = mode;
+            obj.ComparisonStatusLabel.Text = sprintf('Running: %s...', char(obj.comparisonModeTitle(mode)));
+            if ~isempty(page)
+                page.StatusLabel.Text = sprintf('Running %s...', char(obj.comparisonCharacterLabel()));
+                page.RoleLabel.Text = char(obj.comparisonCharacterLabel());
+                obj.updateComparisonPage(mode, page);
+            end
+            drawnow limitrate;
+
+            try
+                switch char(mode)
+                    case 'weapon_single'
+                        resultTable = obj.evaluateWeaponRanking();
+                    case 'artifact_single'
+                        resultTable = obj.evaluateArtifactRanking(false);
+                    case 'artifact_team'
+                        resultTable = obj.evaluateArtifactRanking(true);
+                    case 'artifact_constellation'
+                        resultTable = obj.evaluateConstellationRanking(false);
+                    case 'constellation_team_gain'
+                        resultTable = obj.evaluateConstellationRanking(true);
+                    otherwise
+                        error('Unknown comparison mode: %s', char(mode));
+                end
+
+                obj.LastComparisonResults = resultTable;
+                page = obj.getComparisonPage(mode);
+                if ~isempty(page)
+                    page.Table.Data = obj.displayComparisonTable(resultTable);
+                    page.Table.UserData = resultTable;
+                    obj.renderComparisonChart(page.Axes, resultTable, mode);
+                    page.StatusLabel.Text = obj.buildComparisonStatus(resultTable, mode);
+                    page.RoleLabel.Text = char(obj.comparisonCharacterLabel());
+                    obj.updateComparisonPage(mode, page);
+                    obj.ComparisonTable = page.Table;
+                    obj.ComparisonAxes = page.Axes;
+                end
+                obj.ComparisonStatusLabel.Text = sprintf('Done: %d candidates.', height(resultTable));
+                obj.setStatus(sprintf('Comparison done: %s, %d candidates.', char(mode), height(resultTable)));
+            catch ME
+                obj.ComparisonStatusLabel.Text = 'Comparison failed.';
+                if ~isempty(page)
+                    page.StatusLabel.Text = 'Comparison failed.';
+                    obj.updateComparisonPage(mode, page);
+                end
+                obj.showSimulationError(ME);
+            end
+        end
+
+        function mode = currentComparisonMode(obj)
+            mode = "weapon_single";
+            if ~isempty(obj.LastComparisonMode) && strlength(string(obj.LastComparisonMode)) > 0
+                mode = string(obj.LastComparisonMode);
+                return;
+            end
+            if ~isempty(obj.ComparisonTabGroup) && isvalid(obj.ComparisonTabGroup) ...
+                    && ~isempty(obj.ComparisonTabGroup.SelectedTab)
+                mode = string(obj.ComparisonTabGroup.SelectedTab.UserData);
+            end
+        end
+
+        function setComparisonMode(obj, mode)
+            mode = string(mode);
+            obj.LastComparisonMode = mode;
+            page = obj.getComparisonPage(mode);
+            if ~isempty(page)
+                if ~isempty(obj.ComparisonTabGroup) && isvalid(obj.ComparisonTabGroup)
+                    obj.ComparisonTabGroup.SelectedTab = page.Tab;
+                end
+                obj.ComparisonTable = page.Table;
+                obj.ComparisonAxes = page.Axes;
+                page.RoleLabel.Text = char(obj.comparisonCharacterLabel());
+                obj.updateComparisonPage(mode, page);
+            end
+        end
+
+        function page = getComparisonPage(obj, mode)
+            page = [];
+            if isempty(obj.ComparisonPages) || ~isstruct(obj.ComparisonPages)
+                return;
+            end
+            fieldName = char(string(mode));
+            if isfield(obj.ComparisonPages, fieldName)
+                page = obj.ComparisonPages.(fieldName);
+            end
+        end
+
+        function updateComparisonPage(obj, mode, page)
+            fieldName = char(string(mode));
+            if isempty(fieldName)
+                return;
+            end
+            obj.ComparisonPages.(fieldName) = page;
+        end
+
+        function titleText = comparisonModeTitle(obj, mode) %#ok<INUSL>
+            switch char(string(mode))
+                case 'weapon_single'
+                    titleText = "武器排名";
+                case 'artifact_single'
+                    titleText = "圣遗物排名";
+                case 'artifact_team'
+                    titleText = "圣遗物进队";
+                case 'artifact_constellation'
+                    titleText = "套装命座";
+                case 'constellation_team_gain'
+                    titleText = "命座团队提升";
+                otherwise
+                    titleText = string(mode);
+            end
+        end
+
+        function label = comparisonCharacterLabel(obj)
+            slot = obj.Slots(obj.SelectedSlot);
+            signatureWeapon = obj.getSignatureWeaponName(slot);
+            label = sprintf('当前角色：%s (%s) | 当前武器：%s | 百分比基准：%s', ...
+                char(slot.DisplayName), char(slot.CharacterKey), char(slot.WeaponName), char(signatureWeapon));
+        end
+
+        function weaponName = getSignatureWeaponName(obj, slot) %#ok<INUSL>
+            weaponName = string(getFieldOrDefault(slot.Build, 'Weapon', slot.WeaponName));
+            try
+                cfg = getDefaultCharacterConfig(char(slot.CharacterKey));
+                weaponName = string(getFieldOrDefault(cfg.Build, 'Weapon', weaponName));
+            catch
+            end
+            if strlength(weaponName) == 0
+                weaponName = string(slot.WeaponName);
+            end
+        end
+
+        function slot = applySignatureWeaponToSlot(obj, slot)
+            cfg = struct();
+            try
+                cfg = getDefaultCharacterConfig(char(slot.CharacterKey));
+            catch
+            end
+
+            weaponName = obj.getSignatureWeaponName(slot);
+            slot.WeaponName = weaponName;
+            slot.Build.Weapon = char(weaponName);
+            slot.Build.WeaponRefinement = slot.WeaponRefinement;
+
+            if isempty(slot.WeaponList)
+                slot.WeaponList = listWeaponsForCharacter(slot.CharacterKey);
+            end
+            if ~isempty(slot.WeaponList) && any(string(slot.WeaponList.Name) == weaponName)
+                slot.Build = obj.applyWeaponStatsToBuild( ...
+                    slot.Build, slot.WeaponList, weaponName, slot.WeaponRefinement);
+                return;
+            end
+
+            if isstruct(cfg) && isfield(cfg, 'Build')
+                slot.Build.WeaponATK = getFieldOrDefault(cfg.Build, 'WeaponATK', getFieldOrDefault(slot.Build, 'WeaponATK', 0));
+                slot.Build.WeaponSubStatType = getFieldOrDefault(cfg.Build, 'WeaponSubStatType', getFieldOrDefault(slot.Build, 'WeaponSubStatType', ""));
+                slot.Build.WeaponSubStatValue = getFieldOrDefault(cfg.Build, 'WeaponSubStatValue', getFieldOrDefault(slot.Build, 'WeaponSubStatValue', 0));
+            end
+        end
+
+        function slot = applyConstellationToSlot(obj, slot, constellation)
+            slot.Constellation = constellation;
+            try
+                cfg = getDefaultCharacterConfig(char(slot.CharacterKey));
+                defaultBuild = getFieldOrDefault(cfg, 'Build', struct());
+                currentBuild = slot.Build;
+                currentBuild.Constellation = constellation;
+                currentBuild.CharacterConstellation = constellation;
+                slot.Build = obj.copyMatchingBuildFields(defaultBuild, currentBuild, "C" + string(constellation));
+            catch
+                slot.Build.Constellation = constellation;
+                slot.Build.CharacterConstellation = constellation;
+            end
+        end
+
+        function target = copyMatchingBuildFields(obj, source, target, suffix) %#ok<INUSL>
+            if ~isstruct(source) || ~isstruct(target)
+                return;
+            end
+
+            sourceFields = string(fieldnames(source));
+            targetFields = string(fieldnames(target));
+            suffix = string(suffix);
+            for i = 1:numel(targetFields)
+                fieldName = targetFields(i);
+                sourceName = fieldName + suffix;
+                if any(sourceFields == sourceName)
+                    target.(char(fieldName)) = source.(char(sourceName));
+                end
+            end
+        end
+
+        function resultTable = evaluateWeaponRanking(obj)
+            slot = obj.Slots(obj.SelectedSlot);
+            if isempty(slot.WeaponList)
+                slot.WeaponList = listWeaponsForCharacter(slot.CharacterKey);
+            end
+            if isempty(slot.WeaponList) || height(slot.WeaponList) == 0
+                error('No weapons are available for %s.', char(slot.CharacterKey));
+            end
+
+            baselineSlot = obj.applySignatureWeaponToSlot(slot);
+            baseline = obj.simulateSingleSlotCandidate(baselineSlot);
+            baselineDPS = baseline.DPS;
+            baselineWeapon = obj.getSignatureWeaponName(slot);
+            rows = repmat(obj.emptyComparisonRow(), 0, 1);
+            weapons = slot.WeaponList;
+
+            for i = 1:height(weapons)
+                candidateSlot = slot;
+                weaponName = string(weapons.Name(i));
+                candidateSlot.WeaponName = weaponName;
+                candidateSlot.Build = obj.applyWeaponStatsToBuild( ...
+                    candidateSlot.Build, candidateSlot.WeaponList, weaponName, candidateSlot.WeaponRefinement);
+
+                row = obj.emptyComparisonRow();
+                row.Character = string(slot.DisplayName);
+                row.CharacterKey = string(slot.CharacterKey);
+                row.Candidate = weaponName;
+                row.CandidateType = "Weapon";
+                row.Weapon = weaponName;
+                row.BaselineWeapon = baselineWeapon;
+                row.ArtifactSet1 = string(candidateSlot.ArtifactSet1);
+                row.ArtifactSet2 = string(candidateSlot.ArtifactSet2);
+                row.ArtifactMode = string(obj.resolveArtifactMode(candidateSlot));
+                row.Constellation = candidateSlot.Constellation;
+                try
+                    result = obj.simulateSingleSlotCandidate(candidateSlot);
+                    row.TotalDMG = result.TotalDMG;
+                    row.DPS = result.DPS;
+                    row.MemberTotalDMG = result.TotalDMG;
+                    row.MemberDPS = result.DPS;
+                    row.MetricTotalDMG = result.TotalDMG;
+                    row.MetricDPS = result.DPS;
+                    row.ExpectedDMG = result.TotalDMG;
+                    row.ExpectedDPS = result.DPS;
+                    row.BaselineDPS = baselineDPS;
+                    row.GainPct = obj.safePercentGain(result.DPS, baselineDPS);
+                catch ME
+                    row.Message = string(ME.message);
+                end
+                rows(end + 1) = row; %#ok<AGROW>
+            end
+
+            resultTable = obj.rankComparisonRows(rows, false);
+        end
+
+        function resultTable = evaluateArtifactRanking(obj, useTeam)
+            slot = obj.Slots(obj.SelectedSlot);
+            registry = getArtifactSetRegistry();
+            keep = string({registry.Id}) ~= "None";
+            if obj.ComparisonImplementedOnlyCheckbox.Value
+                keep = keep & logical([registry.IsImplemented]);
+            end
+            registry = registry(keep);
+            if isempty(registry)
+                error('No artifact sets are available for comparison.');
+            end
+
+            rows = repmat(obj.emptyComparisonRow(), 0, 1);
+            baselineSlot = obj.applySignatureWeaponToSlot(slot);
+            baselineWeapon = obj.getSignatureWeaponName(slot);
+            if useTeam
+                baselineSlots = obj.Slots;
+                baselineSlots(obj.SelectedSlot) = baselineSlot;
+                baselineSlots(obj.SelectedSlot).Enabled = true;
+                [baselineTeam, baselineMembers, baselineSlotIndices] = obj.simulateTeamForSlotCopies(baselineSlots);
+                baselineDPS = baselineTeam.DPS;
+                [baselineMemberTotal, baselineMemberDPS] = obj.lookupSelectedMemberMetrics( ...
+                    baselineMembers, baselineSlotIndices, baselineTeam.RotationDuration);
+            else
+                baseline = obj.simulateSingleSlotCandidate(baselineSlot);
+                baselineDPS = baseline.DPS;
+                baselineMemberTotal = baseline.TotalDMG;
+                baselineMemberDPS = baseline.DPS;
+            end
+
+            for i = 1:numel(registry)
+                candidateSlot = obj.applyArtifactCandidateToSlot(baselineSlot, registry(i).Id);
+
+                row = obj.emptyComparisonRow();
+                row.Character = string(slot.DisplayName);
+                row.CharacterKey = string(slot.CharacterKey);
+                row.Candidate = string(registry(i).DisplayName) + " | " + string(registry(i).Id);
+                row.CandidateType = "Artifact4pc";
+                row.Weapon = string(candidateSlot.WeaponName);
+                row.BaselineWeapon = baselineWeapon;
+                row.ArtifactSet1 = string(candidateSlot.ArtifactSet1);
+                row.ArtifactSet2 = string(candidateSlot.ArtifactSet2);
+                row.ArtifactMode = string(obj.resolveArtifactMode(candidateSlot));
+                row.Constellation = candidateSlot.Constellation;
+                row.BaselineDPS = baselineDPS;
+
+                try
+                    if useTeam
+                        candidateSlots = obj.Slots;
+                        candidateSlots(obj.SelectedSlot) = candidateSlot;
+                        candidateSlots(obj.SelectedSlot).Enabled = true;
+                        [teamResult, memberResults, slotIndices] = obj.simulateTeamForSlotCopies(candidateSlots);
+                        [memberTotal, memberDPS] = obj.lookupSelectedMemberMetrics( ...
+                            memberResults, slotIndices, teamResult.RotationDuration);
+                        row.TotalDMG = teamResult.TotalDMG;
+                        row.DPS = teamResult.DPS;
+                        row.TeamTotalDMG = teamResult.TotalDMG;
+                        row.TeamDPS = teamResult.DPS;
+                        row.MemberTotalDMG = memberTotal;
+                        row.MemberDPS = memberDPS;
+                        row.MetricTotalDMG = teamResult.TotalDMG;
+                        row.MetricDPS = teamResult.DPS;
+                        row.ExpectedDMG = teamResult.TotalDMG;
+                        row.ExpectedDPS = teamResult.DPS;
+                        row.GainPct = obj.safePercentGain(teamResult.DPS, baselineDPS);
+                    else
+                        result = obj.simulateSingleSlotCandidate(candidateSlot);
+                        row.TotalDMG = result.TotalDMG;
+                        row.DPS = result.DPS;
+                        row.MemberTotalDMG = result.TotalDMG;
+                        row.MemberDPS = result.DPS;
+                        row.MetricTotalDMG = result.TotalDMG;
+                        row.MetricDPS = result.DPS;
+                        row.ExpectedDMG = result.TotalDMG;
+                        row.ExpectedDPS = result.DPS;
+                        row.GainPct = obj.safePercentGain(result.DPS, baselineDPS);
+                    end
+                catch ME
+                    row.Message = string(ME.message);
+                    if useTeam
+                        row.MemberTotalDMG = baselineMemberTotal;
+                        row.MemberDPS = baselineMemberDPS;
+                    end
+                end
+                rows(end + 1) = row; %#ok<AGROW>
+            end
+
+            resultTable = obj.rankComparisonRows(rows, false);
+        end
+
+        function resultTable = evaluateConstellationRanking(obj, useTeam)
+            slot = obj.Slots(obj.SelectedSlot);
+            rows = repmat(obj.emptyComparisonRow(), 0, 1);
+            grade = obj.lookupCharacterGrade(slot.CharacterKey);
+            if useTeam
+                if grade == 4
+                    baselineConstellation = 6;
+                else
+                    baselineConstellation = 0;
+                end
+            else
+                baselineConstellation = 0;
+            end
+
+            baselineSlot = obj.applySignatureWeaponToSlot(slot);
+            baselineSlot = obj.applyConstellationToSlot(baselineSlot, baselineConstellation);
+            baselineWeapon = obj.getSignatureWeaponName(slot);
+            if useTeam
+                baselineSlots = obj.Slots;
+                baselineSlots(obj.SelectedSlot) = baselineSlot;
+                baselineSlots(obj.SelectedSlot).Enabled = true;
+                [baselineTeam, ~, ~] = obj.simulateTeamForSlotCopies(baselineSlots);
+                baselineDPS = baselineTeam.DPS;
+            else
+                baseline = obj.simulateSingleSlotCandidate(baselineSlot);
+                baselineDPS = baseline.DPS;
+            end
+
+            for constellation = 0:6
+                candidateSlot = obj.applySignatureWeaponToSlot(slot);
+                candidateSlot = obj.applyConstellationToSlot(candidateSlot, constellation);
+
+                row = obj.emptyComparisonRow();
+                row.Character = string(slot.DisplayName);
+                row.CharacterKey = string(slot.CharacterKey);
+                row.Candidate = "C" + string(constellation);
+                row.CandidateType = "Constellation";
+                row.Weapon = string(candidateSlot.WeaponName);
+                row.BaselineWeapon = baselineWeapon;
+                row.ArtifactSet1 = string(candidateSlot.ArtifactSet1);
+                row.ArtifactSet2 = string(candidateSlot.ArtifactSet2);
+                row.ArtifactMode = string(obj.resolveArtifactMode(candidateSlot));
+                row.Constellation = constellation;
+                row.BaselineConstellation = baselineConstellation;
+                row.BaselineDPS = baselineDPS;
+
+                try
+                    if useTeam
+                        candidateSlots = obj.Slots;
+                        candidateSlots(obj.SelectedSlot) = candidateSlot;
+                        candidateSlots(obj.SelectedSlot).Enabled = true;
+                        [teamResult, memberResults, slotIndices] = obj.simulateTeamForSlotCopies(candidateSlots);
+                        [memberTotal, memberDPS] = obj.lookupSelectedMemberMetrics( ...
+                            memberResults, slotIndices, teamResult.RotationDuration);
+                        row.TotalDMG = teamResult.TotalDMG;
+                        row.DPS = teamResult.DPS;
+                        row.TeamTotalDMG = teamResult.TotalDMG;
+                        row.TeamDPS = teamResult.DPS;
+                        row.MemberTotalDMG = memberTotal;
+                        row.MemberDPS = memberDPS;
+                        row.MetricTotalDMG = teamResult.TotalDMG;
+                        row.MetricDPS = teamResult.DPS;
+                        row.ExpectedDMG = teamResult.TotalDMG;
+                        row.ExpectedDPS = teamResult.DPS;
+                        row.GainPct = obj.safePercentGain(teamResult.DPS, baselineDPS);
+                    else
+                        result = obj.simulateSingleSlotCandidate(candidateSlot);
+                        row.TotalDMG = result.TotalDMG;
+                        row.DPS = result.DPS;
+                        row.MemberTotalDMG = result.TotalDMG;
+                        row.MemberDPS = result.DPS;
+                        row.MetricTotalDMG = result.TotalDMG;
+                        row.MetricDPS = result.DPS;
+                        row.ExpectedDMG = result.TotalDMG;
+                        row.ExpectedDPS = result.DPS;
+                        row.GainPct = obj.safePercentGain(result.DPS, baselineDPS);
+                    end
+                catch ME
+                    row.Message = string(ME.message);
+                end
+                rows(end + 1) = row; %#ok<AGROW>
+            end
+
+            resultTable = obj.rankComparisonRows(rows, useTeam);
+            if useTeam
+                resultTable = sortrows(resultTable, 'Constellation', 'ascend');
+            end
+        end
+
+        function result = simulateSingleSlotCandidate(obj, slot)
+            memberCfg = obj.buildComparisonMemberConfig(obj.SelectedSlot, slot);
+            result = simulateCharacterDPS(memberCfg, obj.buildEnemy());
+        end
+
+        function [teamResult, memberResults, slotIndices] = simulateTeamForSlotCopies(obj, slots)
+            [members, slotIndices] = obj.buildEnabledMembersFromSlotCopies(slots);
+            if isempty(members)
+                error('Team comparison requires at least one enabled slot.');
+            end
+
+            teamSpec = struct( ...
+                'Members', {members}, ...
+                'RotationDuration', obj.TeamDurationField.Value, ...
+                'SharedBuffs', struct());
+            [teamResult, memberResults] = simulateTeamDPS(teamSpec, obj.buildEnemy());
+        end
+
+        function slot = applyArtifactCandidateToSlot(obj, slot, artifactSetId)
+            slot.ArtifactSet1 = string(artifactSetId);
+            slot.ArtifactSet1Pieces = 4;
+            slot.ArtifactSet2 = "None";
+            slot.ArtifactSet2Pieces = 0;
+            slot.ArtifactSet4Active = 1;
+            slot.Build = obj.applyArtifactSelectionToBuild(slot.Build, slot);
+        end
+
+        function row = emptyComparisonRow(obj) %#ok<MANU>
+            row = struct( ...
+                'Rank', NaN, ...
+                'Character', "", ...
+                'CharacterKey', "", ...
+                'Candidate', "", ...
+                'CandidateType', "", ...
+                'Weapon', "", ...
+                'BaselineWeapon', "", ...
+                'ArtifactSet1', "", ...
+                'ArtifactSet2', "", ...
+                'ArtifactMode', "", ...
+                'Constellation', NaN, ...
+                'BaselineConstellation', NaN, ...
+                'TotalDMG', NaN, ...
+                'DPS', NaN, ...
+                'TeamTotalDMG', NaN, ...
+                'TeamDPS', NaN, ...
+                'MemberTotalDMG', NaN, ...
+                'MemberDPS', NaN, ...
+                'MetricTotalDMG', NaN, ...
+                'MetricDPS', NaN, ...
+                'ExpectedDMG', NaN, ...
+                'ExpectedDPS', NaN, ...
+                'BaselineDPS', NaN, ...
+                'GainPct', NaN, ...
+                'Message', "");
+        end
+
+        function resultTable = rankComparisonRows(obj, rows, keepDistributionOrder) %#ok<INUSL>
+            if isempty(rows)
+                resultTable = struct2table(repmat(obj.emptyComparisonRow(), 0, 1));
+                return;
+            end
+
+            resultTable = struct2table(rows);
+            valid = ~isnan(resultTable.MetricDPS);
+            validTable = resultTable(valid, :);
+            invalidTable = resultTable(~valid, :);
+            if ~isempty(validTable)
+                validTable = sortrows(validTable, 'MetricDPS', 'descend');
+                validTable.Rank = (1:height(validTable)).';
+            end
+            if ~isempty(invalidTable)
+                invalidTable.Rank = NaN(height(invalidTable), 1);
+            end
+            resultTable = [validTable; invalidTable];
+            if keepDistributionOrder && ismember('Constellation', resultTable.Properties.VariableNames)
+                rankByConstellation = resultTable(:, {'Constellation', 'Rank'});
+                resultTable = sortrows(resultTable, 'Constellation', 'ascend');
+                [~, loc] = ismember(resultTable.Constellation, rankByConstellation.Constellation);
+                resultTable.Rank = rankByConstellation.Rank(loc);
+            end
+        end
+
+        function [memberTotal, memberDPS] = lookupSelectedMemberMetrics(obj, memberResults, slotIndices, rotationDuration)
+            memberTotal = NaN;
+            memberDPS = NaN;
+            idx = find(slotIndices == obj.SelectedSlot, 1, 'first');
+            if isempty(idx) || isempty(memberResults) || numel(memberResults) < idx
+                return;
+            end
+            memberTotal = memberResults(idx).TotalDMG;
+            memberDPS = memberTotal / rotationDuration;
+        end
+
+        function gainPct = safePercentGain(obj, value, baseline) %#ok<INUSL>
+            if isnan(value) || isnan(baseline) || baseline == 0
+                gainPct = NaN;
+            else
+                gainPct = (value - baseline) ./ abs(baseline) .* 100;
+            end
+        end
+
+        function grade = lookupCharacterGrade(obj, characterKey)
+            grade = NaN;
+            if isempty(obj.Registry) || ~isfield(obj.Registry, 'Grade')
+                return;
+            end
+            idx = find(string({obj.Registry.Key}) == string(characterKey), 1, 'first');
+            if ~isempty(idx)
+                grade = obj.Registry(idx).Grade;
+            end
+        end
+
+        function displayTable = displayComparisonTable(obj, resultTable) %#ok<INUSL>
+            if isempty(resultTable) || height(resultTable) == 0
+                displayTable = table();
+                return;
+            end
+
+            displayTable = resultTable(:, {'Rank', 'Character', 'Candidate', 'ExpectedDMG', ...
+                'ExpectedDPS', 'GainPct', 'BaselineWeapon', 'Weapon', 'ArtifactSet1', ...
+                'Constellation', 'Message'});
+            displayTable.Properties.VariableNames = {'排名', '角色', '候选方案', '期望总伤害', ...
+                '期望DPS', '相对专武%', '基准武器', '候选武器', '圣遗物套装', '命座', '备注'};
+        end
+
+        function statusText = buildComparisonStatus(obj, resultTable, mode)
+            if isempty(resultTable) || height(resultTable) == 0
+                statusText = '无可展示结果。';
+                return;
+            end
+
+            if string(mode) == "constellation_team_gain"
+                bestRow = resultTable(find(~isnan(resultTable.MetricDPS), 1, 'first'), :);
+                if isempty(bestRow)
+                    statusText = sprintf('已完成 %d 条命座分布。', height(resultTable));
+                    return;
+                end
+                statusText = sprintf('已完成 %d 条命座分布；最高为 C%d，队伍期望 DPS %.0f，相对基线 %+0.1f%%。', ...
+                    height(resultTable), bestRow.Constellation, bestRow.MetricDPS, bestRow.GainPct);
+                return;
+            end
+
+            bestIdx = find(resultTable.Rank == 1, 1, 'first');
+            if isempty(bestIdx)
+                statusText = sprintf('已完成 %d 个候选方案，无有效排名。', height(resultTable));
+                return;
+            end
+
+            bestRow = resultTable(bestIdx, :);
+            statusText = sprintf('已完成 %d 个候选方案；第 1 名：%s，期望 DPS %.0f，相对 %s %+0.1f%%。', ...
+                height(resultTable), char(string(bestRow.Candidate)), bestRow.ExpectedDPS, ...
+                char(string(bestRow.BaselineWeapon)), bestRow.GainPct);
+        end
+
+        function renderComparisonChart(obj, axesHandle, resultTable, mode)
+            cla(axesHandle);
+            if isempty(resultTable) || height(resultTable) == 0
+                title(axesHandle, '暂无对比结果');
+                xlabel(axesHandle, '候选方案');
+                ylabel(axesHandle, '期望 DPS');
+                grid(axesHandle, 'on');
+                return;
+            end
+
+            topN = min(height(resultTable), round(obj.ComparisonLimitSpinner.Value));
+            if string(mode) == "constellation_team_gain"
+                chartTable = sortrows(resultTable, 'Constellation', 'ascend');
+                labels = "C" + string(chartTable.Constellation);
+                values = chartTable.MetricDPS;
+                pctValues = chartTable.GainPct;
+                chartTitle = sprintf('%s | %s', char(obj.comparisonModeTitle(mode)), char(obj.comparisonCharacterLabel()));
+                yLabelText = '队伍期望 DPS';
+            else
+                chartTable = resultTable(1:topN, :);
+                labels = string(chartTable.Candidate);
+                values = chartTable.ExpectedDPS;
+                pctValues = chartTable.GainPct;
+                chartTitle = sprintf('%s | %s', char(obj.comparisonModeTitle(mode)), char(obj.comparisonCharacterLabel()));
+                yLabelText = '期望 DPS';
+            end
+
+            x = 1:numel(values);
+            bar(axesHandle, x, values, 'FaceColor', [0.35 0.63 0.76], 'EdgeColor', [0.24 0.46 0.60]);
+            axesHandle.XTick = x;
+            axesHandle.XTickLabel = cellstr(obj.shortenComparisonLabels(labels, 24));
+            axesHandle.XTickLabelRotation = 35;
+            xlabel(axesHandle, '候选方案');
+            ylabel(axesHandle, yLabelText);
+            title(axesHandle, chartTitle);
+            grid(axesHandle, 'on');
+
+            yMax = max(values, [], 'omitnan');
+            if isempty(yMax) || isnan(yMax) || yMax <= 0
+                yMax = 1;
+            end
+            ylim(axesHandle, [0, yMax * 1.18]);
+
+            for i = 1:numel(values)
+                if isnan(values(i))
+                    continue;
+                end
+                text(axesHandle, x(i), values(i), sprintf('%.0f\n%+.1f%%', values(i), pctValues(i)), ...
+                    'HorizontalAlignment', 'center', 'VerticalAlignment', 'bottom', ...
+                    'FontSize', 8, 'Color', [0.20 0.24 0.30]);
+            end
+        end
+
+        function labels = shortenComparisonLabels(obj, labels, limit) %#ok<INUSL>
+            labels = string(labels);
+            for i = 1:numel(labels)
+                if strlength(labels(i)) > limit
+                    labels(i) = extractBefore(labels(i), limit) + "...";
+                end
+            end
+        end
+
+        function applyBestComparisonCandidate(obj, mode)
+            if nargin < 2 || isempty(mode)
+                resultTable = obj.LastComparisonResults;
+            else
+                page = obj.getComparisonPage(mode);
+                resultTable = table();
+                if ~isempty(page)
+                    resultTable = page.Table.UserData;
+                end
+                if isempty(resultTable)
+                    resultTable = obj.LastComparisonResults;
+                end
+            end
+
+            if isempty(resultTable) || height(resultTable) == 0
+                uialert(obj.Figure, 'Run a comparison first.', 'No comparison result');
+                return;
+            end
+
+            idx = find(resultTable.Rank == 1, 1, 'first');
+            if isempty(idx)
+                uialert(obj.Figure, 'No valid ranked candidate is available.', 'No valid candidate');
+                return;
+            end
+
+            row = resultTable(idx, :);
+            slot = obj.Slots(obj.SelectedSlot);
+            switch char(string(row.CandidateType))
+                case 'Weapon'
+                    slot.WeaponName = string(row.Weapon);
+                    slot.Build = obj.applyWeaponStatsToBuild(slot.Build, slot.WeaponList, slot.WeaponName, slot.WeaponRefinement);
+                case {'Artifact4pc'}
+                    slot = obj.applyArtifactCandidateToSlot(slot, string(row.ArtifactSet1));
+                case 'Constellation'
+                    slot.Constellation = round(row.Constellation);
+                otherwise
+                    uialert(obj.Figure, 'This comparison result cannot be applied automatically.', 'Apply candidate');
+                    return;
+            end
+
+            [slot.ArtifactBadgePath, slot.WeaponBadgePath] = obj.resolveEquipmentBadgePaths(slot);
+            obj.Slots(obj.SelectedSlot) = slot;
+            obj.refreshSlotCard(obj.SelectedSlot);
+            obj.refreshEditorForSelectedSlot();
+            obj.refreshTimelinePreview();
+            obj.setStatus(sprintf('Applied ranked candidate: %s.', char(string(row.Candidate))));
         end
 
         function updateResultTables(obj, summaryTable, breakdownTable, energyTable, effectsTable)
