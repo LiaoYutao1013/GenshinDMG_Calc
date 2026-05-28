@@ -47,6 +47,8 @@ function validateFurinaRegression()
     sharedApproxBonus = getFieldOrDefault(teamContext, 'ApproxFurinaBonus', 0);
     assert(sharedApproxBonus > 0, ...
         'Furina team context should still expose an approximate shared burst bonus for teammates.');
+    assert(abs(sharedApproxBonus - 0.60) > 1e-6, ...
+        'Furina team context should now derive the shared burst bonus from timeline behavior instead of the legacy fixed C0 constant.');
 
     normalRotation = [tempname, '.txt'];
     normalCleanup = onCleanup(@() localDeleteIfExists(normalRotation)); %#ok<NASGU>
@@ -84,6 +86,13 @@ function validateFurinaRegression()
     assert(height(n1Rows) == 1, 'Furina normal regression should isolate one N1 row.');
     assert(abs(n1Rows.Damage - expectedN1Damage) < 1e-6 * max(1, expectedN1Damage), ...
         'Furina N1 should now use the physical ATK-based path instead of the old HP-based Hydro approximation.');
+
+    barbara = getDefaultCharacterConfig('Barbara');
+    lisa = getDefaultCharacterConfig('Lisa');
+    furinaTeam = buildTeamContext({cfg, barbara, lisa}, 20, struct('ReactionMode', "Realistic"), enemy);
+    soloFurinaTeam = buildTeamContext({cfg}, 20, struct('ReactionMode', "Realistic"), enemy);
+    assert(getFieldOrDefault(furinaTeam, 'ApproxFurinaBonus', 0) > getFieldOrDefault(soloFurinaTeam, 'ApproxFurinaBonus', 0), ...
+        'Furina timeline-derived team bonus should increase when a more realistic multi-member rotation can build better HP rhythm and burst coverage.');
 
     disp('validateFurinaRegression passed');
 end

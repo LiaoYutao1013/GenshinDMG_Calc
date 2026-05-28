@@ -43,16 +43,18 @@ function teamContext = buildTeamContext(members, rotationDuration, sharedBuffs, 
 
     sharedAllDMGBonus = getFieldOrDefault(sharedBuffs, 'AllDMGBonus', 0);
     sharedArtifactBuffs = localCollectArtifactTeamBuffs(members);
+    baseAllDMGBonus = sharedAllDMGBonus + getFieldOrDefault(sharedArtifactBuffs, 'AllDMGBonus', 0);
     furinaApproxBonus = getFieldOrDefault(sharedBuffs, 'ApproxFurinaBonus', []);
     furinaIndex = find(memberNames == "Furina", 1, 'first');
     if isempty(furinaApproxBonus)
         if ~isempty(furinaIndex)
-            furinaApproxBonus = localApproxFurinaBonus(memberConstellations(furinaIndex));
+            furinaApproxBonus = localApproxFurinaBonus( ...
+                members, rotationDuration, sharedBuffs, enemy, furinaIndex, baseAllDMGBonus);
         else
             furinaApproxBonus = 0;
         end
     end
-    allDMGBonus = sharedAllDMGBonus + furinaApproxBonus + getFieldOrDefault(sharedArtifactBuffs, 'AllDMGBonus', 0);
+    allDMGBonus = baseAllDMGBonus + furinaApproxBonus;
     pyroDMGBonus = getFieldOrDefault(sharedBuffs, 'PyroDMGBonus', 0) + getFieldOrDefault(sharedArtifactBuffs, 'PyroDMGBonus', 0);
     hydroDMGBonus = getFieldOrDefault(sharedBuffs, 'HydroDMGBonus', 0) + getFieldOrDefault(sharedArtifactBuffs, 'HydroDMGBonus', 0);
     cryoDMGBonus = getFieldOrDefault(sharedBuffs, 'CryoDMGBonus', 0) + getFieldOrDefault(sharedArtifactBuffs, 'CryoDMGBonus', 0);
@@ -770,13 +772,100 @@ function dominantReaction = localResolveDominantLunarReaction(memberNames, hasLa
     end
 end
 
-function bonus = localApproxFurinaBonus(constellation)
-    if constellation >= 2
-        bonus = 1.00;
-    elseif constellation >= 1
-        bonus = 0.82;
+function bonus = localApproxFurinaBonus(members, rotationDuration, sharedBuffs, enemy, furinaIndex, baseAllDMGBonus)
+    if nargin < 6 || isempty(baseAllDMGBonus)
+        baseAllDMGBonus = 0;
+    end
+    if nargin < 5 || isempty(furinaIndex) || furinaIndex < 1 || furinaIndex > numel(members)
+        bonus = 0;
+        return;
+    end
+    if nargin < 4 || isempty(enemy)
+        enemy = struct();
+    end
+    if nargin < 3 || isempty(sharedBuffs)
+        sharedBuffs = struct();
+    end
+    if nargin < 2 || isempty(rotationDuration) || ~isfinite(rotationDuration) || rotationDuration <= 0
+        rotationDuration = 20;
+    end
+
+    furinaMember = members{furinaIndex};
+    constellation = getFieldOrDefault(furinaMember, 'Constellation', 0);
+
+    timelineSharedBuffs = sharedBuffs;
+    timelineSharedBuffs.ApproxFurinaBonus = 0;
+    timelineContext = struct( ...
+        'RotationDuration', rotationDuration, ...
+        'ReactionMode', getFieldOrDefault(sharedBuffs, 'ReactionMode', localResolveReactionMode(sharedBuffs, enemy)), ...
+        'AllDMGBonus', baseAllDMGBonus, ...
+        'ApproxFurinaBonus', 0, ...
+        'MemberCount', numel(members));
+
+    try
+        rotationPlan = planTeamRotation(members, rotationDuration, enemy, timelineSharedBuffs, struct());
+        timelineResult = simulateTeamTimeline(members, rotationPlan, timelineContext, enemy, struct());
+        timelineSummary = getFieldOrDefault(timelineResult, 'TimelineSummary', struct());
+        energySummary = getFieldOrDefault(timelineResult, 'EnergySummary', table());
+        memberTimeline = getFieldOrDefault(timelineResult, 'MemberTimelineSummary', table());
+    catch
+        bonus = localFallbackFurinaBonus(constellation);
+        return;
+    end
+
+    if isempty(memberTimeline) || ~istable(memberTimeline)
+        bonus = localFallbackFurinaBonus(constellation);
+        return;
+    end
+
+    furinaName = string(getFieldOrDefault(furinaMember, 'DisplayName', furinaMember.Name));
+    furinaTimelineRow = memberTimeline(string(memberTimeline.Character) == furinaName, :);
+    if isempty(furinaTimelineRow)
+        furinaTimelineRow = memberTimeline(string(memberTimeline.Character) == "Furina", :);
+    end
+
+    if isempty(furinaTimelineRow)
+        bonus = localFallbackFurinaBonus(constellation);
+        return;
+    end
+
+    furinaScheduledTime = max(0, double(furinaTimelineRow.ScheduledActionTime(1)));
+    furinaBackgroundTime = max(0, double(furinaTimelineRow.BackgroundEventTime(1)));
+    partyOccupancy = max(0, double(getFieldOrDefault(timelineSummary, 'MemberOccupiedTime', 0)));
+    swapTime = max(0, double(getFieldOrDefault(timelineSummary, 'SwapTime', 0)));
+    onFieldShare = min(1, furinaScheduledTime / max(rotationDuration, 1e-6));
+    supportShare = min(1, furinaBackgroundTime / max(rotationDuration, 1e-6));
+    actionDensity = min(1, (partyOccupancy + swapTime) / max(rotationDuration, 1e-6));
+
+    if isempty(energySummary) || ~istable(energySummary)
+        furinaLoopReady = 0;
     else
-        bonus = 0.60;
+        furinaEnergyRow = energySummary(string(energySummary.Character) == furinaName, :);
+        if isempty(furinaEnergyRow)
+            furinaEnergyRow = energySummary(string(energySummary.Character) == "Furina", :);
+        end
+        if isempty(furinaEnergyRow)
+            furinaLoopReady = double(getFieldOrDefault(timelineResult, 'LoopReadiness', 0));
+        else
+            furinaLoopReady = min(1, double(furinaEnergyRow.EndEnergy(1)) / max(1, double(furinaEnergyRow.BurstCost(1))));
+        end
+    end
+
+    rotationCoverage = 0.55 + 0.25 * actionDensity + 0.20 * furinaLoopReady;
+    salonCoverage = min(1, 0.40 + 0.80 * supportShare + 0.30 * onFieldShare);
+    teamHPRhythm = min(1, 0.60 + 0.25 * actionDensity + 0.15 * min(1, max(0, numel(members) - 1) / 3));
+    baseCap = 0.75 + 0.15 * double(constellation >= 1) + 0.18 * double(constellation >= 2);
+    bonus = baseCap * rotationCoverage * salonCoverage * teamHPRhythm;
+    bonus = max(0.20, bonus);
+end
+
+function bonus = localFallbackFurinaBonus(constellation)
+    if constellation >= 2
+        bonus = 0.92;
+    elseif constellation >= 1
+        bonus = 0.76;
+    else
+        bonus = 0.56;
     end
 end
 
