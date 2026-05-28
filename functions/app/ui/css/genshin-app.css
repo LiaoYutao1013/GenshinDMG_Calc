@@ -392,7 +392,7 @@ button {
   height: 100%;
   padding: 12px;
   display: grid;
-  grid-template-rows: auto 76px auto 1fr;
+  grid-template-rows: auto 70px auto 1fr 104px;
   gap: 10px;
 }
 
@@ -586,6 +586,84 @@ button {
   border: 1px dashed var(--line);
   border-radius: 8px;
   background: var(--panel-soft);
+}
+
+.timeline-card {
+  min-width: 0;
+  min-height: 0;
+  padding: 9px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+}
+
+.timeline {
+  min-width: 0;
+  display: grid;
+  gap: 6px;
+}
+
+.timeline-row {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: 78px 1fr;
+  align-items: center;
+  gap: 8px;
+}
+
+.timeline-label {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--text);
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.timeline-track {
+  position: relative;
+  height: 16px;
+  overflow: hidden;
+  border-radius: 7px;
+  background: #e7edf5;
+}
+
+.timeline-block {
+  position: absolute;
+  top: 2px;
+  bottom: 2px;
+  overflow: hidden;
+  border-radius: 6px;
+  color: #ffffff;
+  font-size: 10px;
+  line-height: 12px;
+  font-weight: 800;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.timeline-block span {
+  display: block;
+  overflow: hidden;
+  padding: 0 5px;
+  text-overflow: ellipsis;
+}
+
+.timeline-block.tone-1 {
+  background: #2d6cdf;
+}
+
+.timeline-block.tone-2 {
+  background: #0d9488;
+}
+
+.timeline-block.tone-3 {
+  background: #b87913;
+}
+
+.timeline-block.tone-4 {
+  background: #c2415b;
 }
 
 @media (max-width: 310px) {

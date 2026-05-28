@@ -697,7 +697,7 @@ classdef GenshinDMGApp < handle
             resultPanel.Layout.Column = 3;
 
             resultGrid = uigridlayout(resultPanel, [3 1]);
-            resultGrid.RowHeight = {156, 230, '1x'};
+            resultGrid.RowHeight = {156, 360, '1x'};
             resultGrid.ColumnWidth = {'1x'};
             resultGrid.RowSpacing = 12;
             resultGrid.Padding = [12 12 12 12];
@@ -1108,6 +1108,7 @@ classdef GenshinDMGApp < handle
             data.summaryRows = obj.LastSummaryRows;
             data.breakdownRows = obj.LastBreakdownRows;
             data.chartRows = obj.buildHtmlChartRows(obj.LastSummaryRows);
+            [data.timelineRows, data.timelineBlocks] = obj.buildHtmlTimelineData();
         end
 
         function [durationValue, enemyLevel, enemyRes, enemyDef] = currentSimulationInputs(obj)
@@ -1187,6 +1188,69 @@ classdef GenshinDMGApp < handle
                 chartRows(i).value = summaryRows(i).StandaloneDPS;
                 chartRows(i).valueLabel = obj.formatLargeNumber(summaryRows(i).StandaloneDPS);
                 chartRows(i).width = max(4, min(100, 100 * summaryRows(i).StandaloneDPS / maxValue));
+            end
+        end
+
+        function [timelineRows, timelineBlocks] = buildHtmlTimelineData(obj)
+            rowTemplate = struct('rowIndex', 0, 'slotIndex', 0, 'label', '');
+            blockTemplate = struct('rowIndex', 0, 'label', '', 'left', 0, 'width', 0, 'tone', 1);
+            timelineRows = repmat(rowTemplate, 0, 1);
+            timelineBlocks = repmat(blockTemplate, 0, 1);
+
+            slotIndices = find([obj.Slots.Enabled]);
+            if isempty(slotIndices)
+                slotIndices = obj.SelectedSlot;
+            end
+
+            [durationValue, ~, ~, ~] = obj.currentSimulationInputs();
+            durationValue = max(1, durationValue);
+            timelineRows = repmat(rowTemplate, 1, numel(slotIndices));
+
+            for rowIndex = 1:numel(slotIndices)
+                slotIndex = slotIndices(rowIndex);
+                slot = obj.Slots(slotIndex);
+                timelineRows(rowIndex).rowIndex = rowIndex;
+                timelineRows(rowIndex).slotIndex = slotIndex;
+                timelineRows(rowIndex).label = char(slot.DisplayName);
+
+                actions = parseRotationTextTokens(slot.RotationText);
+                resultRotationTime = obj.lookupResultRotationTime(rowIndex);
+                [durations, labels] = obj.estimateTimelineBlocks(slot, actions, resultRotationTime);
+                if isempty(durations)
+                    durations = 1.0;
+                    labels = {char(slot.CharacterKey)};
+                end
+
+                currentTime = slot.StartTime;
+                for j = 1:numel(durations)
+                    startTime = currentTime;
+                    endTime = currentTime + durations(j);
+                    visibleStart = max(0, startTime);
+                    visibleEnd = min(durationValue, endTime);
+                    currentTime = endTime;
+                    if visibleEnd <= visibleStart
+                        continue;
+                    end
+
+                    block = blockTemplate;
+                    block.rowIndex = rowIndex;
+                    block.label = labels{j};
+                    block.left = 100 * visibleStart / durationValue;
+                    block.width = max(2, 100 * (visibleEnd - visibleStart) / durationValue);
+                    block.tone = mod(rowIndex - 1, 4) + 1;
+                    timelineBlocks(end + 1) = block; %#ok<AGROW>
+                end
+            end
+        end
+
+        function rotationTime = lookupResultRotationTime(obj, resultIndex)
+            rotationTime = [];
+            if isempty(obj.LastMemberResults) || ~isstruct(obj.LastMemberResults)
+                return;
+            end
+            if numel(obj.LastMemberResults) >= resultIndex ...
+                    && isfield(obj.LastMemberResults(resultIndex), 'RotationTime')
+                rotationTime = obj.LastMemberResults(resultIndex).RotationTime;
             end
         end
 

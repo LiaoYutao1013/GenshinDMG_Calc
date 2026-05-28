@@ -28,7 +28,9 @@
     slots: [],
     summaryRows: [],
     breakdownRows: [],
-    chartRows: []
+    chartRows: [],
+    timelineRows: [],
+    timelineBlocks: []
   };
 
   let htmlComponent = null;
@@ -233,6 +235,10 @@
             ${summaryRowsHtml(currentData.summaryRows)}
           </article>
         </section>
+        <section class="timeline-card" aria-label="输出轴">
+          <div class="visual-title">输出轴预览</div>
+          ${timelineHtml(currentData.timelineRows, currentData.timelineBlocks)}
+        </section>
       </section>`;
   }
 
@@ -295,6 +301,40 @@
       return (number / 10000).toFixed(2) + " 万";
     }
     return number.toFixed(0);
+  }
+
+  function timelineHtml(rows, blocks) {
+    rows = Array.isArray(rows) ? rows : [];
+    blocks = Array.isArray(blocks) ? blocks : [];
+    if (!rows.length) {
+      return `<div class="empty-state">暂无输出轴。</div>`;
+    }
+
+    return `
+      <div class="timeline">
+        ${rows.map(function (row) {
+          const rowBlocks = blocks.filter(function (block) {
+            return Number(block.rowIndex) === Number(row.rowIndex);
+          });
+          return `
+            <div class="timeline-row">
+              <div class="timeline-label" title="${escapeHtml(row.label)}">${escapeHtml(row.label)}</div>
+              <div class="timeline-track">
+                ${rowBlocks.map(timelineBlockHtml).join("")}
+              </div>
+            </div>`;
+        }).join("")}
+      </div>`;
+  }
+
+  function timelineBlockHtml(block) {
+    const left = Math.max(0, Math.min(100, Number(block.left || 0)));
+    const width = Math.max(2, Math.min(100 - left, Number(block.width || 0)));
+    const tone = Math.max(1, Math.min(4, Number(block.tone || 1)));
+    return `
+      <div class="timeline-block tone-${tone}" style="left:${left}%;width:${width}%;" title="${escapeHtml(block.label)}">
+        <span>${escapeHtml(block.label)}</span>
+      </div>`;
   }
 
   function bindActionButtons(root) {
