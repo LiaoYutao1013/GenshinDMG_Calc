@@ -1,0 +1,1825 @@
+{
+  "info": {
+    "name": "Amber",
+    "description": "Always energetic and full of life, Amber's the best — albeit only — Outrider of the Knights of Favonius.",
+    "rarity": "QUALITY_PURPLE",
+    "weapon": "WEAPON_BOW",
+    "birthday": "10/8",
+    "element": "Pyro",
+    "title": "Gliding Champion",
+    "constellation": "Lepus",
+    "affiliation": "Knights of Favonius",
+    "cv": {
+      "EN": "Kelly Baskin",
+      "CHS": "蔡书瑾",
+      "JP": "石見舞菜香",
+      "KR": "Kim Yeon-woo"
+    },
+    "attributes": [
+      {
+        "level": 1,
+        "ascension": 0,
+        "hp": 793,
+        "atk": 19,
+        "def": 50,
+        "ATK_": "0"
+      },
+      {
+        "level": 2,
+        "ascension": 0,
+        "hp": 859,
+        "atk": 20,
+        "def": 55,
+        "ATK_": "0"
+      },
+      {
+        "level": 3,
+        "ascension": 0,
+        "hp": 924,
+        "atk": 22,
+        "def": 59,
+        "ATK_": "0"
+      },
+      {
+        "level": 4,
+        "ascension": 0,
+        "hp": 990,
+        "atk": 23,
+        "def": 63,
+        "ATK_": "0"
+      },
+      {
+        "level": 5,
+        "ascension": 0,
+        "hp": 1055,
+        "atk": 25,
+        "def": 67,
+        "ATK_": "0"
+      },
+      {
+        "level": 6,
+        "ascension": 0,
+        "hp": 1121,
+        "atk": 26,
+        "def": 71,
+        "ATK_": "0"
+      },
+      {
+        "level": 7,
+        "ascension": 0,
+        "hp": 1186,
+        "atk": 28,
+        "def": 75,
+        "ATK_": "0"
+      },
+      {
+        "level": 8,
+        "ascension": 0,
+        "hp": 1252,
+        "atk": 30,
+        "def": 79,
+        "ATK_": "0"
+      },
+      {
+        "level": 9,
+        "ascension": 0,
+        "hp": 1318,
+        "atk": 31,
+        "def": 84,
+        "ATK_": "0"
+      },
+      {
+        "level": 10,
+        "ascension": 0,
+        "hp": 1383,
+        "atk": 33,
+        "def": 88,
+        "ATK_": "0"
+      },
+      {
+        "level": 11,
+        "ascension": 0,
+        "hp": 1448,
+        "atk": 34,
+        "def": 92,
+        "ATK_": "0"
+      },
+      {
+        "level": 12,
+        "ascension": 0,
+        "hp": 1514,
+        "atk": 36,
+        "def": 96,
+        "ATK_": "0"
+      },
+      {
+        "level": 13,
+        "ascension": 0,
+        "hp": 1579,
+        "atk": 37,
+        "def": 100,
+        "ATK_": "0"
+      },
+      {
+        "level": 14,
+        "ascension": 0,
+        "hp": 1644,
+        "atk": 39,
+        "def": 104,
+        "ATK_": "0"
+      },
+      {
+        "level": 15,
+        "ascension": 0,
+        "hp": 1710,
+        "atk": 40,
+        "def": 109,
+        "ATK_": "0"
+      },
+      {
+        "level": 16,
+        "ascension": 0,
+        "hp": 1776,
+        "atk": 42,
+        "def": 113,
+        "ATK_": "0"
+      },
+      {
+        "level": 17,
+        "ascension": 0,
+        "hp": 1841,
+        "atk": 43,
+        "def": 117,
+        "ATK_": "0"
+      },
+      {
+        "level": 18,
+        "ascension": 0,
+        "hp": 1907,
+        "atk": 45,
+        "def": 121,
+        "ATK_": "0"
+      },
+      {
+        "level": 19,
+        "ascension": 0,
+        "hp": 1972,
+        "atk": 46,
+        "def": 125,
+        "ATK_": "0"
+      },
+      {
+        "level": 20,
+        "ascension": 0,
+        "hp": 2038,
+        "atk": 48,
+        "def": 129,
+        "ATK_": "0"
+      },
+      {
+        "level": 21,
+        "ascension": 1,
+        "hp": 2696,
+        "atk": 64,
+        "def": 171,
+        "ATK_": "0"
+      },
+      {
+        "level": 22,
+        "ascension": 1,
+        "hp": 2761,
+        "atk": 65,
+        "def": 175,
+        "ATK_": "0"
+      },
+      {
+        "level": 23,
+        "ascension": 1,
+        "hp": 2827,
+        "atk": 67,
+        "def": 179,
+        "ATK_": "0"
+      },
+      {
+        "level": 24,
+        "ascension": 1,
+        "hp": 2892,
+        "atk": 68,
+        "def": 184,
+        "ATK_": "0"
+      },
+      {
+        "level": 25,
+        "ascension": 1,
+        "hp": 2958,
+        "atk": 70,
+        "def": 188,
+        "ATK_": "0"
+      },
+      {
+        "level": 26,
+        "ascension": 1,
+        "hp": 3023,
+        "atk": 71,
+        "def": 192,
+        "ATK_": "0"
+      },
+      {
+        "level": 27,
+        "ascension": 1,
+        "hp": 3089,
+        "atk": 73,
+        "def": 196,
+        "ATK_": "0"
+      },
+      {
+        "level": 28,
+        "ascension": 1,
+        "hp": 3154,
+        "atk": 74,
+        "def": 200,
+        "ATK_": "0"
+      },
+      {
+        "level": 29,
+        "ascension": 1,
+        "hp": 3220,
+        "atk": 76,
+        "def": 204,
+        "ATK_": "0"
+      },
+      {
+        "level": 30,
+        "ascension": 1,
+        "hp": 3285,
+        "atk": 77,
+        "def": 209,
+        "ATK_": "0"
+      },
+      {
+        "level": 31,
+        "ascension": 1,
+        "hp": 3351,
+        "atk": 79,
+        "def": 213,
+        "ATK_": "0"
+      },
+      {
+        "level": 32,
+        "ascension": 1,
+        "hp": 3417,
+        "atk": 81,
+        "def": 217,
+        "ATK_": "0"
+      },
+      {
+        "level": 33,
+        "ascension": 1,
+        "hp": 3482,
+        "atk": 82,
+        "def": 221,
+        "ATK_": "0"
+      },
+      {
+        "level": 34,
+        "ascension": 1,
+        "hp": 3547,
+        "atk": 84,
+        "def": 225,
+        "ATK_": "0"
+      },
+      {
+        "level": 35,
+        "ascension": 1,
+        "hp": 3613,
+        "atk": 85,
+        "def": 229,
+        "ATK_": "0"
+      },
+      {
+        "level": 36,
+        "ascension": 1,
+        "hp": 3678,
+        "atk": 87,
+        "def": 234,
+        "ATK_": "0"
+      },
+      {
+        "level": 37,
+        "ascension": 1,
+        "hp": 3743,
+        "atk": 88,
+        "def": 238,
+        "ATK_": "0"
+      },
+      {
+        "level": 38,
+        "ascension": 1,
+        "hp": 3809,
+        "atk": 90,
+        "def": 242,
+        "ATK_": "0"
+      },
+      {
+        "level": 39,
+        "ascension": 1,
+        "hp": 3875,
+        "atk": 91,
+        "def": 246,
+        "ATK_": "0"
+      },
+      {
+        "level": 40,
+        "ascension": 1,
+        "hp": 3940,
+        "atk": 93,
+        "def": 250,
+        "ATK_": "0"
+      },
+      {
+        "level": 41,
+        "ascension": 2,
+        "hp": 4427,
+        "atk": 104,
+        "def": 281,
+        "ATK_": "6"
+      },
+      {
+        "level": 42,
+        "ascension": 2,
+        "hp": 4492,
+        "atk": 106,
+        "def": 285,
+        "ATK_": "6"
+      },
+      {
+        "level": 43,
+        "ascension": 2,
+        "hp": 4558,
+        "atk": 107,
+        "def": 289,
+        "ATK_": "6"
+      },
+      {
+        "level": 44,
+        "ascension": 2,
+        "hp": 4623,
+        "atk": 109,
+        "def": 293,
+        "ATK_": "6"
+      },
+      {
+        "level": 45,
+        "ascension": 2,
+        "hp": 4689,
+        "atk": 111,
+        "def": 298,
+        "ATK_": "6"
+      },
+      {
+        "level": 46,
+        "ascension": 2,
+        "hp": 4755,
+        "atk": 112,
+        "def": 302,
+        "ATK_": "6"
+      },
+      {
+        "level": 47,
+        "ascension": 2,
+        "hp": 4820,
+        "atk": 114,
+        "def": 306,
+        "ATK_": "6"
+      },
+      {
+        "level": 48,
+        "ascension": 2,
+        "hp": 4886,
+        "atk": 115,
+        "def": 310,
+        "ATK_": "6"
+      },
+      {
+        "level": 49,
+        "ascension": 2,
+        "hp": 4951,
+        "atk": 117,
+        "def": 314,
+        "ATK_": "6"
+      },
+      {
+        "level": 50,
+        "ascension": 2,
+        "hp": 5016,
+        "atk": 118,
+        "def": 318,
+        "ATK_": "6"
+      },
+      {
+        "level": 51,
+        "ascension": 3,
+        "hp": 5643,
+        "atk": 133,
+        "def": 358,
+        "ATK_": "12"
+      },
+      {
+        "level": 52,
+        "ascension": 3,
+        "hp": 5709,
+        "atk": 135,
+        "def": 362,
+        "ATK_": "12"
+      },
+      {
+        "level": 53,
+        "ascension": 3,
+        "hp": 5775,
+        "atk": 136,
+        "def": 367,
+        "ATK_": "12"
+      },
+      {
+        "level": 54,
+        "ascension": 3,
+        "hp": 5840,
+        "atk": 138,
+        "def": 371,
+        "ATK_": "12"
+      },
+      {
+        "level": 55,
+        "ascension": 3,
+        "hp": 5905,
+        "atk": 139,
+        "def": 375,
+        "ATK_": "12"
+      },
+      {
+        "level": 56,
+        "ascension": 3,
+        "hp": 5971,
+        "atk": 141,
+        "def": 379,
+        "ATK_": "12"
+      },
+      {
+        "level": 57,
+        "ascension": 3,
+        "hp": 6036,
+        "atk": 142,
+        "def": 383,
+        "ATK_": "12"
+      },
+      {
+        "level": 58,
+        "ascension": 3,
+        "hp": 6101,
+        "atk": 144,
+        "def": 387,
+        "ATK_": "12"
+      },
+      {
+        "level": 59,
+        "ascension": 3,
+        "hp": 6167,
+        "atk": 145,
+        "def": 392,
+        "ATK_": "12"
+      },
+      {
+        "level": 60,
+        "ascension": 3,
+        "hp": 6233,
+        "atk": 147,
+        "def": 396,
+        "ATK_": "12"
+      },
+      {
+        "level": 61,
+        "ascension": 4,
+        "hp": 6719,
+        "atk": 158,
+        "def": 427,
+        "ATK_": "12"
+      },
+      {
+        "level": 62,
+        "ascension": 4,
+        "hp": 6785,
+        "atk": 160,
+        "def": 431,
+        "ATK_": "12"
+      },
+      {
+        "level": 63,
+        "ascension": 4,
+        "hp": 6850,
+        "atk": 161,
+        "def": 435,
+        "ATK_": "12"
+      },
+      {
+        "level": 64,
+        "ascension": 4,
+        "hp": 6916,
+        "atk": 163,
+        "def": 439,
+        "ATK_": "12"
+      },
+      {
+        "level": 65,
+        "ascension": 4,
+        "hp": 6981,
+        "atk": 165,
+        "def": 443,
+        "ATK_": "12"
+      },
+      {
+        "level": 66,
+        "ascension": 4,
+        "hp": 7047,
+        "atk": 166,
+        "def": 447,
+        "ATK_": "12"
+      },
+      {
+        "level": 67,
+        "ascension": 4,
+        "hp": 7113,
+        "atk": 168,
+        "def": 452,
+        "ATK_": "12"
+      },
+      {
+        "level": 68,
+        "ascension": 4,
+        "hp": 7178,
+        "atk": 169,
+        "def": 456,
+        "ATK_": "12"
+      },
+      {
+        "level": 69,
+        "ascension": 4,
+        "hp": 7244,
+        "atk": 171,
+        "def": 460,
+        "ATK_": "12"
+      },
+      {
+        "level": 70,
+        "ascension": 4,
+        "hp": 7309,
+        "atk": 172,
+        "def": 464,
+        "ATK_": "12"
+      },
+      {
+        "level": 71,
+        "ascension": 5,
+        "hp": 7795,
+        "atk": 184,
+        "def": 495,
+        "ATK_": "18"
+      },
+      {
+        "level": 72,
+        "ascension": 5,
+        "hp": 7861,
+        "atk": 185,
+        "def": 499,
+        "ATK_": "18"
+      },
+      {
+        "level": 73,
+        "ascension": 5,
+        "hp": 7926,
+        "atk": 187,
+        "def": 503,
+        "ATK_": "18"
+      },
+      {
+        "level": 74,
+        "ascension": 5,
+        "hp": 7992,
+        "atk": 188,
+        "def": 507,
+        "ATK_": "18"
+      },
+      {
+        "level": 75,
+        "ascension": 5,
+        "hp": 8057,
+        "atk": 190,
+        "def": 511,
+        "ATK_": "18"
+      },
+      {
+        "level": 76,
+        "ascension": 5,
+        "hp": 8123,
+        "atk": 191,
+        "def": 516,
+        "ATK_": "18"
+      },
+      {
+        "level": 77,
+        "ascension": 5,
+        "hp": 8188,
+        "atk": 193,
+        "def": 520,
+        "ATK_": "18"
+      },
+      {
+        "level": 78,
+        "ascension": 5,
+        "hp": 8254,
+        "atk": 195,
+        "def": 524,
+        "ATK_": "18"
+      },
+      {
+        "level": 79,
+        "ascension": 5,
+        "hp": 8319,
+        "atk": 196,
+        "def": 528,
+        "ATK_": "18"
+      },
+      {
+        "level": 80,
+        "ascension": 5,
+        "hp": 8385,
+        "atk": 198,
+        "def": 532,
+        "ATK_": "18"
+      },
+      {
+        "level": 81,
+        "ascension": 6,
+        "hp": 8872,
+        "atk": 209,
+        "def": 563,
+        "ATK_": "24"
+      },
+      {
+        "level": 82,
+        "ascension": 6,
+        "hp": 8937,
+        "atk": 211,
+        "def": 567,
+        "ATK_": "24"
+      },
+      {
+        "level": 83,
+        "ascension": 6,
+        "hp": 9003,
+        "atk": 212,
+        "def": 572,
+        "ATK_": "24"
+      },
+      {
+        "level": 84,
+        "ascension": 6,
+        "hp": 9068,
+        "atk": 214,
+        "def": 576,
+        "ATK_": "24"
+      },
+      {
+        "level": 85,
+        "ascension": 6,
+        "hp": 9134,
+        "atk": 215,
+        "def": 580,
+        "ATK_": "24"
+      },
+      {
+        "level": 86,
+        "ascension": 6,
+        "hp": 9199,
+        "atk": 217,
+        "def": 584,
+        "ATK_": "24"
+      },
+      {
+        "level": 87,
+        "ascension": 6,
+        "hp": 9264,
+        "atk": 218,
+        "def": 588,
+        "ATK_": "24"
+      },
+      {
+        "level": 88,
+        "ascension": 6,
+        "hp": 9329,
+        "atk": 220,
+        "def": 592,
+        "ATK_": "24"
+      },
+      {
+        "level": 89,
+        "ascension": 6,
+        "hp": 9395,
+        "atk": 221,
+        "def": 596,
+        "ATK_": "24"
+      },
+      {
+        "level": 90,
+        "ascension": 6,
+        "hp": 9461,
+        "atk": 223,
+        "def": 601,
+        "ATK_": "24"
+      },
+      {
+        "level": 95,
+        "ascension": 6,
+        "hp": 9788,
+        "atk": 251,
+        "def": 621,
+        "ATK_": "24"
+      },
+      {
+        "level": 100,
+        "ascension": 6,
+        "hp": 10116,
+        "atk": 280,
+        "def": 642,
+        "ATK_": "24"
+      }
+    ]
+  },
+  "icons": {
+    "forward": "UI_AvatarIcon_Ambor",
+    "coop_img": "UI_CoopImg_Ambor"
+  },
+  "ascension": {
+    "x202": 7.0499E+6,
+    "exp": {
+      "x104001": 2,
+      "x104003": 418
+    },
+    "speciality": {
+      "x100055": 168
+    },
+    "elemental": {
+      "x104111": 1,
+      "x104112": 9,
+      "x104113": 9,
+      "x104114": 6
+    },
+    "worldmonster": {
+      "x112011": 18,
+      "x112012": 30,
+      "x112013": 36
+    },
+    "elitemonster": {
+      "x113011": 46
+    }
+  },
+  "skills": {
+    "normalattack": {
+      "name": "Sharpshooter",
+      "icon": "Skill_A_02",
+      "multipliers": {
+        "x1_HitDMG": [
+          "36.12%",
+          "39.06%",
+          "42%",
+          "46.2%",
+          "49.14%",
+          "52.5%",
+          "57.12%",
+          "61.74%",
+          "66.36%",
+          "71.4%",
+          "76.44%",
+          "81.48%",
+          "86.52%",
+          "91.56%",
+          "96.6%"
+        ],
+        "x2_HitDMG": [
+          "36.12%",
+          "39.06%",
+          "42%",
+          "46.2%",
+          "49.14%",
+          "52.5%",
+          "57.12%",
+          "61.74%",
+          "66.36%",
+          "71.4%",
+          "76.44%",
+          "81.48%",
+          "86.52%",
+          "91.56%",
+          "96.6%"
+        ],
+        "x3_HitDMG": [
+          "46.44%",
+          "50.22%",
+          "54%",
+          "59.4%",
+          "63.18%",
+          "67.5%",
+          "73.44%",
+          "79.38%",
+          "85.32%",
+          "91.8%",
+          "98.28%",
+          "104.76%",
+          "111.24%",
+          "117.72%",
+          "124.2%"
+        ],
+        "x4_HitDMG": [
+          "47.3%",
+          "51.15%",
+          "55%",
+          "60.5%",
+          "64.35%",
+          "68.75%",
+          "74.8%",
+          "80.85%",
+          "86.9%",
+          "93.5%",
+          "100.1%",
+          "106.7%",
+          "113.3%",
+          "119.9%",
+          "126.5%"
+        ],
+        "x5_HitDMG": [
+          "59.34%",
+          "64.17%",
+          "69%",
+          "75.9%",
+          "80.73%",
+          "86.25%",
+          "93.84%",
+          "101.43%",
+          "109.02%",
+          "117.3%",
+          "125.58%",
+          "133.86%",
+          "142.14%",
+          "150.42%",
+          "158.7%"
+        ],
+        "AimedShot": [
+          "43.86%",
+          "47.43%",
+          "51%",
+          "56.1%",
+          "59.67%",
+          "63.75%",
+          "69.36%",
+          "74.97%",
+          "80.58%",
+          "86.7%",
+          "92.82%",
+          "98.94%",
+          "105.06%",
+          "111.18%",
+          "117.3%"
+        ],
+        "Fully_ChargedAimedShot": [
+          "124%",
+          "133.3%",
+          "142.6%",
+          "155%",
+          "164.3%",
+          "173.6%",
+          "186%",
+          "198.4%",
+          "210.8%",
+          "223.2%",
+          "235.6%",
+          "248%",
+          "263.5%",
+          "279%",
+          "294.5%"
+        ],
+        "PlungeDMG": [
+          "56.83%",
+          "61.45%",
+          "66.08%",
+          "72.69%",
+          "77.31%",
+          "82.6%",
+          "89.87%",
+          "97.14%",
+          "104.41%",
+          "112.34%",
+          "120.27%",
+          "128.2%",
+          "136.12%",
+          "144.05%",
+          "151.98%"
+        ],
+        "Low_HighPlungeDMG": [
+          "113.63%/141.93%",
+          "122.88%/153.49%",
+          "132.13%/165.04%",
+          "145.35%/181.54%",
+          "154.59%/193.1%",
+          "165.16%/206.3%",
+          "179.7%/224.45%",
+          "194.23%/242.61%",
+          "208.77%/260.76%",
+          "224.62%/280.57%",
+          "240.48%/300.37%",
+          "256.34%/320.18%",
+          "272.19%/339.98%",
+          "288.05%/359.79%",
+          "303.9%/379.59%"
+        ]
+      },
+      "description": "<color=#FFD780FF>Normal Attack</color>\\nPerforms up to 5 consecutive shots with a bow.\\n\\n<color=#FFD780FF>Charged Attack</color>\\nPerforms a more precise <color=#FFD780FF>Aimed Shot</color> with increased DMG.\\nWhile aiming, flames will accumulate on the arrowhead. A fully charged flaming arrow will deal <color=#FF9999FF>Pyro DMG</color>.\\n\\n<color=#FFD780FF>Plunging Attack</color>\\nFires off a shower of arrows in mid-air before falling and striking the ground, dealing AoE DMG upon impact."
+    },
+    "elementalskill": {
+      "name": "Explosive Puppet",
+      "icon": "Skill_S_Ambor_01",
+      "multipliers": {
+        "InheritedHP": [
+          "41.36%",
+          "44.46%",
+          "47.56%",
+          "51.7%",
+          "54.8%",
+          "57.9%",
+          "62.04%",
+          "66.18%",
+          "70.31%",
+          "74.45%",
+          "78.58%",
+          "82.72%",
+          "87.89%",
+          "93.06%",
+          "98.23%"
+        ],
+        "ExplosionDMG": [
+          "123.2%",
+          "132.44%",
+          "141.68%",
+          "154%",
+          "163.24%",
+          "172.48%",
+          "184.8%",
+          "197.12%",
+          "209.44%",
+          "221.76%",
+          "234.08%",
+          "246.4%",
+          "261.8%",
+          "277.2%",
+          "292.6%"
+        ],
+        "CD": [
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s"
+        ]
+      },
+      "description": "The ever-reliable Baron Bunny takes the stage.\\n\\n<color=#FFD780FF>Baron Bunny</color>\\n·Continuously taunts the enemy, drawing their fire.\\n·Baron Bunny's HP scales with Amber's Max HP.\\n·When destroyed or when its timer expires, Baron Bunny explodes, dealing <color=#FF9999FF>AoE Pyro DMG</color>.\\n\\n<color=#FFD780FF>Hold</color>\\nAdjusts the throwing direction of Baron Bunny.\\nThe longer the button is held, the further the throw.\\n\\n<i>Baron Bunny hails from a storied lineage, but Amber has stopped keeping count since Baron Bunny the 893rd.</i>"
+    },
+    "elementalburst": {
+      "name": "Fiery Rain",
+      "icon": "Skill_E_Ambor",
+      "multipliers": {
+        "FieryRainDMGPerWave": [
+          "28.08%",
+          "30.19%",
+          "32.29%",
+          "35.1%",
+          "37.21%",
+          "39.31%",
+          "42.12%",
+          "44.93%",
+          "47.74%",
+          "50.54%",
+          "53.35%",
+          "56.16%",
+          "59.67%",
+          "63.18%",
+          "66.69%"
+        ],
+        "TotalFieryRainDMG": [
+          "505.44%",
+          "543.35%",
+          "581.26%",
+          "631.8%",
+          "669.71%",
+          "707.62%",
+          "758.16%",
+          "808.7%",
+          "859.25%",
+          "909.79%",
+          "960.34%",
+          "1010.88%",
+          "1074.06%",
+          "1137.24%",
+          "1200.42%"
+        ],
+        "Duration": [
+          "2s",
+          "2s",
+          "2s",
+          "2s",
+          "2s",
+          "2s",
+          "2s",
+          "2s",
+          "2s",
+          "2s",
+          "2s",
+          "2s",
+          "2s",
+          "2s",
+          "2s"
+        ],
+        "CD": [
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s"
+        ],
+        "EnergyCost": [
+          "40",
+          "40",
+          "40",
+          "40",
+          "40",
+          "40",
+          "40",
+          "40",
+          "40",
+          "40",
+          "40",
+          "40",
+          "40",
+          "40",
+          "40"
+        ]
+      },
+      "description": "Fires off a shower of arrows, dealing continuous <color=#FF9999FF>AoE Pyro DMG</color>.\\n\\n<i>Amber's passion truly burns hot.</i>"
+    },
+    "leveling": {
+      "books": {
+        "x104301": 9,
+        "x104302": 63,
+        "x104303": 114
+      },
+      "crown": {
+        "x104319": 3
+      },
+      "worldmonster": {
+        "x112011": 18,
+        "x112012": 66,
+        "x112013": 93
+      },
+      "weekly": {
+        "x113005": 18
+      }
+    }
+  },
+  "passives": {
+    "p1": {
+      "name": "Every Arrow Finds Its Target",
+      "description": "Increases the CRIT Rate of <color=#FFD780FF>Fiery Rain</color> by 10% and widens its AoE by 30%.",
+      "icon": "UI_Talent_S_Ambor_05"
+    },
+    "p2": {
+      "name": "Precise Shot",
+      "description": "Aimed Shot hits on weak points increase ATK by 15% for 10s.",
+      "icon": "UI_Talent_S_Ambor_06"
+    },
+    "p3": {
+      "name": "Gliding Champion",
+      "description": "Decreases gliding Stamina consumption for your own party members by 20%.\\nNot stackable with Passive Talents that provide the exact same effects.",
+      "icon": "UI_Talent_Explosion_Glide"
+    },
+    "p4": ""
+  },
+  "constellations": {
+    "const1": {
+      "name": "One Arrow to Rule Them All",
+      "description": "Fires 2 arrows per <color=#FFD780FF>Aimed Shot</color>. The second arrow deals 20% of the first arrow's DMG.",
+      "icon": "UI_Talent_S_Ambor_01"
+    },
+    "const2": {
+      "name": "Bunny Triggered",
+      "description": "Baron Bunny, new and improved! Hitting Baron Bunny's foot with a fully-charged Aimed Shot manually detonates it.\\nExplosion via manual detonation deals 200% additional DMG.",
+      "icon": "UI_Talent_S_Ambor_02"
+    },
+    "const3": {
+      "name": "It Burns!",
+      "description": "Increases the Level of <color=#FFD780FF>Fiery Rain</color> by 3.\\nMaximum upgrade level is 15.",
+      "icon": "UI_Talent_U_Ambor_02"
+    },
+    "const4": {
+      "name": "It's Not Just Any Doll...",
+      "description": "Decreases <color=#FFD780FF>Explosive Puppet</color>'s CD by 20%. Adds 1 additional charge.",
+      "icon": "UI_Talent_S_Ambor_03"
+    },
+    "const5": {
+      "name": "It's Baron Bunny!",
+      "description": "Increases the Level of <color=#FFD780FF>Explosive Puppet</color> by 3.\\nMaximum upgrade level is 15.",
+      "icon": "UI_Talent_U_Ambor_01"
+    },
+    "const6": {
+      "name": "Wildfire",
+      "description": "<color=#FFD780FF>Fiery Rain</color> increases all party members' Movement SPD by 15% and ATK by 15% for 10s.",
+      "icon": "UI_Talent_S_Ambor_04"
+    }
+  },
+  "hyperlinks": [],
+  "stories": {
+    "x10201": {
+      "storyTitle": "Character Details",
+      "storyText": "Amber is an Outrider of the Knights of Favonius. In an age where Outriders are becoming obsolete, she continues on with her responsibilities.\\nIt takes a newcomer only a few days to feel right at home with this passionate girl.\\nWhether it's before the Good Hunter's signboard, the banks of Cider Lake, or the tree tops at Windrise, one can find traces of this vigilant Outrider in red anywhere. \\nOnce spotted by her, no suspicious individual can ever escape her interrogation.",
+      "unlockConds": []
+    },
+    "x10202": {
+      "storyTitle": "Character Story 1",
+      "storyText": "From a young age, Amber has always had boundless energy and a positive outlook on life.\\nEach day, she burns with a fiery enthusiasm that sees her go about her life like a whirlwind, smashing through any obstacle that stands in her way.\\nAt times, however, her excessive energy can make her quite the troublemaker.\\nNeedless to say, she was quite a handful when she was young. Her infamous deeds include accidentally dropping a bird's nest on her grandpa's head while trying to steal the eggs from it and setting a Dendro Slime's leaves on fire, causing it to scurry about like a wild animal. These minor offenses gained her some notoriety among hunters' camps.\\nSomehow, Amber was always able to escape the scene of the crime whenever she caused an incident, and not even a veteran Outrider could catch up with her. Invariably, it was Amber's grandpa who ended up on damage control duty each time his granddaughter's misbehavior caused yet another incident.\\nTo Amber, her grandpa's silent, unconditional love was like a warm breeze that wrapped around her like a blanket. She knew that it was because of this love that he accepted her and took responsibility for her deeds, and she embraced it silently.\\nBut it was only on the day that her grandpa resigned from the Knights of Favonius that she finally understood the full extent of the responsibility he had borne all those years.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 2
+      }
+    },
+    "x10203": {
+      "storyTitle": "Character Story 2",
+      "storyText": "Amber's grandpa was once the leader of a mercenary group. He came from Liyue Harbor and was tasked with protecting merchant caravans as they traversed Teyvat. One day, on a routine escort job, the caravan fell prey to a savage monster attack. He was the only survivor, saved by a doctor from the Knights of Favonius.\\nToo ashamed to return home and anxious to repay the debt, Amber's grandpa joined the Knights of Favonius.\\nBefore long, he single-handedly founded the Outriders, trained each one of them personally, and began leading them on missions.\\nIt also wasn't long before he found love in the foreign land of Mondstadt and started a family.\\nYears later, Amber was born into that family. During the day, she would crouch by the window and secretly watch him training the Outriders. At night, she would sneak into the yard and practice the moves he had taught that day.\\nAmber's grandpa was touched by her enthusiasm, and decided to teach her everything he knew.\\n\"When Mondstadt accepted me, it became my homeland. Then, I decided to watch over this new home of mine. Maybe one day, you will inherit this responsibility... Hah, but then, who knows what the future holds?\"\\nAs the coarse skin of her grandpa's palm rubbed against her head, a bewildered but earnest Amber nodded energetically in response.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 3
+      }
+    },
+    "x10204": {
+      "storyTitle": "Character Story 3",
+      "storyText": "Something happened one day four years ago that profoundly changed Amber.\\nThat day, her grandpa left his coat of arms and sword in his office and simply disappeared, leaving no note and telling no one he was leaving.\\nHe had been the beating heart and the backbone of the Outrider division, and without his leadership they rapidly became undisciplined and lost their edge.\\nA few failed operations later, the Outrider division was facing obsoletion. In the end, it was preserved as a part of the Knights' organization, but in name only. Experienced members either transferred to another detachment or resigned, and so few outriders stayed that they simply did not have enough people to fulfill their daily patrol duties.\\nOn top of this, rumors that Amber's grandpa had defected made recovery even more difficult for the struggling Outrider division.\\nAmber personally experienced this entire episode, having just been admitted to the Outriders before it all began. With the decline of her squad, she experienced true loss and disappointment for the first time in her life. No longer her carefree former self, she was filled with a new determination: She was going to grow up and become a true outrider as quickly as possible, no matter what it took.\\nShe had never made an actual plan before, and lacked the maturity to know where to start. But what she did have was confidence and courage — and lots of it.\\nShe wanted to show she had inherited her grandpa's determination, and she wanted to find out where he had gone.\\nBut more importantly, she wanted to inherit her grandpa's former role and become a loyal protector of her homeland.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 4
+      }
+    },
+    "x10205": {
+      "storyTitle": "Character Story 4",
+      "storyText": "Life in the Knights of Favonius was not easy for Amber in the beginning.\\nBeing as young as she was and having just lived through the trauma of losing her grandpa, the senior knights made a point of taking special care of her.\\nHowever, for a girl as desperate to excel as she was, being taken care of by others implied that she wasn't yet mature enough to stand on her own two feet.\\nAccordingly, she voraciously sought out extra responsibilities and made this as visible as possible to her seniors.\\nFinally, during an intense engagement with some monsters, the seniors noticed her bravery and resourcefulness in the heat of battle.\\nThat was the moment when they realized that their little girl was growing up.\\nAs she matured, she also became more at ease with herself. Whatever feedback she met with, be it praise, rebuke, silence, or taunting, her response was always the same.\\n\"For sure, I may still have a way to go before I catch up with my seniors. But one day, I'm gonna be the best Outrider ever!\"\\nAmber is not prone to too much deliberation, preferring instead to speak her mind, truthfully and frankly, at every occasion.\\nShe firmly believes that she will not disappoint her grandpa.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 5
+      }
+    },
+    "x10206": {
+      "storyTitle": "Character Story 5",
+      "storyText": "Today, Amber is still the firecracker she always was, burning with endless passion and energy.\\nNow that she's all grown up, Amber holds firm to her grandpa's teachings as she spreads her Wind Glider's wings and watches over the City of Freedom with the eye of an eagle and the cautious cunning of rabbit.\\nThe \"Crimson Knight\" is known throughout Mondstadt.\\nThe people are delighted to see the mischievous little girl they remember growing up to be a guardian they can rely on.\\n\"Never fear, Outrider Amber is here!\"\\nHer self-confidence is simply unshakable:\\n\"I am Outrider Amber, the one and only Outrider — which makes me the best one out there!\"",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 6
+      }
+    },
+    "x10207": {
+      "storyTitle": "Amber's Journal",
+      "storyText": "Amber doesn't make writing a daily diary a habit, only electing to write special or memorable events down in her journal.\\n\"I finally caught that magical bird! It's called a Rami... something. I don't remember. But I've been chasing it for three days, and I've only been able to sit down for a proper meal today. That magical bird was a really cunning one, burrowing in the thick forest like that. Good thing I didn't give up! Best of all, Master Jean gave me special permission to pluck a feather plume from it as my reward. Hehe, I'll wear it at my side every single day!\"\\n\"I'm sure I followed the cookbook to the letter and grilled the meat for six minutes. But while the outside is charred, the inside isn't cooked yet... Did I not control the heat properly? But I really am hungry, so I'll just have to try again tomorrow. One day, I'll make the best steak, and I'll call it... the Outrider's Champion Steak!\"\\n\"I met a strange outlander today. I was suspicious at first, but as it turns out, this outlander is both reliable and capable. Ugh, come to think of it, what would I do if an enemy that strong showed up? ...I musn't fall behind. I must train harder!\"",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 4
+      }
+    },
+    "x10208": {
+      "storyTitle": "Vision",
+      "storyText": "Amber once believed that if she took on her grandpa's post, she would understand why he left Mondstadt.\\nHowever, even when she officially became an Outrider, she was no closer to unraveling the mystery behind his wordless departure.\\nHer grandpa had left nothing for her to find either, indicating that she would have to forge her own path.\\nAmber floundered for a while, until she flipped through an old book of fables that she would eventually come to treasure.\\n\"What you lacked was not wind, but courage. It is courage that has allowed you to become the first flying birds of this world.\"\\nAmber realized that she shouldn't wait for directions from someone else, but that she should be like those courageous birds that spread their wings and flew into the blue skies.\\n\"There must be something that only I can do. There must be.\"\\nThe moment she realized this, a Vision began to shine brightly at her hip.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 6
+      }
+    }
+  },
+  "quotes": {
+    "x10100": {
+      "quoteTitle": "Hello",
+      "quoteText": "Outrider Amber reporting for duty! Just say the word if you ever need my help!",
+      "unlockConds": []
+    },
+    "x10101": {
+      "quoteTitle": "Chat: Hobbies",
+      "quoteText": "I feel like running.",
+      "unlockConds": []
+    },
+    "x10102": {
+      "quoteTitle": "Chat: Longings",
+      "quoteText": "Jean will be upset if she catches us lazing around like this.",
+      "unlockConds": []
+    },
+    "x10103": {
+      "quoteTitle": "Chat: New Discoveries",
+      "quoteText": "Hey, there's something strange over there... C'mon, let's take a look!",
+      "unlockConds": []
+    },
+    "x10104": {
+      "quoteTitle": "When It Rains: Worries",
+      "quoteText": "Oh no, it's raining... now my uniform will get all wet...",
+      "unlockConds": []
+    },
+    "x10105": {
+      "quoteTitle": "When It Rains: Reminder",
+      "quoteText": "It's raining again... This will hinder our vision, we must remain vigilant!",
+      "unlockConds": []
+    },
+    "x10106": {
+      "quoteTitle": "After the Rain",
+      "quoteText": "Wow~ This weather is awesome!",
+      "unlockConds": []
+    },
+    "x10107": {
+      "quoteTitle": "When the Sun Is Out",
+      "quoteText": "If only the wind was a little stronger...",
+      "unlockConds": []
+    },
+    "x10108": {
+      "quoteTitle": "When It's Windy: Pleasant",
+      "quoteText": "This breeze... so refreshing!",
+      "unlockConds": []
+    },
+    "x10109": {
+      "quoteTitle": "When It's Windy: Relax",
+      "quoteText": "I love this kind of weather, ahh... so relaxing~",
+      "unlockConds": []
+    },
+    "x10110": {
+      "quoteTitle": "Good Morning",
+      "quoteText": "Morning! Want to go on a jog?",
+      "unlockConds": []
+    },
+    "x10111": {
+      "quoteTitle": "Good Afternoon",
+      "quoteText": "Can I get lunch with you?",
+      "unlockConds": []
+    },
+    "x10112": {
+      "quoteTitle": "Good Evening",
+      "quoteText": "It's getting late, should I light a torch?",
+      "unlockConds": []
+    },
+    "x10113": {
+      "quoteTitle": "Good Night",
+      "quoteText": "Agreed, getting rest is essential! Let's meet here tomorrow then. See ya!",
+      "unlockConds": []
+    },
+    "x10114": {
+      "quoteTitle": "About Amber",
+      "quoteText": "Mondstadt Gliding Champion, yep, that's me! Gliding Champion!",
+      "unlockConds": []
+    },
+    "x10115": {
+      "quoteTitle": "About Us: Contests",
+      "quoteText": "Remember that I don't go easy on anyone, even you!",
+      "unlockConds": []
+    },
+    "x10116": {
+      "quoteTitle": "About Us: Gliding",
+      "quoteText": "When I'm teaching you to glide, I feel like I can go even faster than usual... Huh? What are you laughing at? I'll prove it! We can race — right now!",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 6"
+      ]
+    },
+    "x10117": {
+      "quoteTitle": "About the Vision",
+      "quoteText": "My Vision... Is a sign that the Archons believe in me. Yes, I must become the best Outrider I can possibly be!",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x10118": {
+      "quoteTitle": "Something to Share",
+      "quoteText": "The view from the Cathedral's clock tower is amazing! You should check it out.",
+      "unlockConds": []
+    },
+    "x10119": {
+      "quoteTitle": "Interesting Things",
+      "quoteText": "Look, there's a pigeon over there! *giggle* I wish I could fly alongside them.",
+      "unlockConds": []
+    },
+    "x10120": {
+      "quoteTitle": "About Jean: Help",
+      "quoteText": "After the Grand Master left on his expedition, all the affairs of the Knights of Favonius, both big and small, have been left up to Jean. If only there was more I could do to help her...",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x10121": {
+      "quoteTitle": "About Jean: Care",
+      "quoteText": "Jean might still be working? We should invite her for coffee... Let's go.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x10122": {
+      "quoteTitle": "About Lisa: Listening to Stories",
+      "quoteText": "When you have time, we should go see Lisa! Last time I saw her, she was telling me about a story involving a treasure in the Dragonspine area. But, we got cut off before she could finish. I can't wait to hear the rest of her story!",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x10123": {
+      "quoteTitle": "About Lisa: Admiration",
+      "quoteText": "If Lisa's not sleeping, she'll be reading! I don't know how she does it, I wouldn't be able to sit still for that long.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x10124": {
+      "quoteTitle": "About Kaeya: Concerns",
+      "quoteText": "...I'm feeling uneasy all of a sudden! Was that Kaeya with you earlier? Did he give you any trouble?",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x10125": {
+      "quoteTitle": "About Kaeya: Culprit",
+      "quoteText": "There's something weird-looking about the dandelions in the garden... Hmm, I bet Kaeya had something to do with this!",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x10126": {
+      "quoteTitle": "About Bennett",
+      "quoteText": "Hmm? Bennett... I feel like I've heard that name before... Oh! Yes, he's that hot-blooded guy from the Adventurers' Guild, right! I tend to come across him way out in the wild from time to time, he seems to really love treasure hunting.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x10127": {
+      "quoteTitle": "About Klee",
+      "quoteText": "Klee? She can be a bit cheeky sometimes, but everyone in the Knights of Favonius likes her. Although... I really ought to keep a closer eye on her if I wanna keep her from getting put in confinement by Jean again.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x10128": {
+      "quoteTitle": "About Albedo",
+      "quoteText": "Albedo spends most of his time in his workshop, tinkering away with all of his awesome stuff. But, when you see him in person, you can never quite tell what he is thinking, not a clue at all.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x10129": {
+      "quoteTitle": "About Noelle",
+      "quoteText": "You wanna know about Noelle? She's super resilient. Still, since she's younger than us, we should look out for her.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x10130": {
+      "quoteTitle": "About Eula",
+      "quoteText": "Eula is a great friend of mine! You just need to get used to her sense of humor and you'll get along fine! The only reason she's misunderstood by so many people is her family name. How can I get them to see her for who she really is?",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x10131": {
+      "quoteTitle": "More About Amber: I",
+      "quoteText": "I'm a pro at hunting, you know! How about I show you some of my skills? Or even better... how about a little competition?",
+      "unlockConds": []
+    },
+    "x10132": {
+      "quoteTitle": "More About Amber: II",
+      "quoteText": "I'll share my ultimate Gliding Champion secret with you! The most important thing to remember, is to have courage!",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 3"
+      ]
+    },
+    "x10133": {
+      "quoteTitle": "More About Amber: III",
+      "quoteText": "I'm really not that good with riddles. I always try to avoid the riddles stand during Ludi Harpastum... What about you?",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x10134": {
+      "quoteTitle": "More About Amber: IV",
+      "quoteText": "I joined the Knights because of my grandpa, I stayed because of Jean. And now, you're the one that showed me the world beyond Mondstadt. I couldn't be happier.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 5"
+      ]
+    },
+    "x10135": {
+      "quoteTitle": "More About Amber: V",
+      "quoteText": "I would like to explore the other worlds beyond. I wanna see how deep the rabbit hole goes! You'll keep me company, right?",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 6"
+      ]
+    },
+    "x10136": {
+      "quoteTitle": "Amber's Hobbies",
+      "quoteText": "Baron Bunny, today is another squeaky clean day!",
+      "unlockConds": []
+    },
+    "x10137": {
+      "quoteTitle": "Amber's Troubles",
+      "quoteText": "Oh... Do you have any idea how to make a decent Moon Pie?",
+      "unlockConds": []
+    },
+    "x10138": {
+      "quoteTitle": "Favorite Food",
+      "quoteText": "Jean makes the most amazing cup of coffee! You'll have to try it sometime.",
+      "unlockConds": []
+    },
+    "x10139": {
+      "quoteTitle": "Least Favorite Food",
+      "quoteText": "I can handle anything and everything! As long as it isn't cold Wolfhook juice... Ugh, yuck...",
+      "unlockConds": []
+    },
+    "x10140": {
+      "quoteTitle": "Birthday",
+      "quoteText": "Hey, happy birthday! Here, I have a gift for you: an exclusive, custom-made version of Baron Bunny that I sewed for you myself. Uh... don't worry, \"custom-made\" means that it won't explode!",
+      "unlockConds": []
+    },
+    "x10141": {
+      "quoteTitle": "Feelings About Ascension: Intro",
+      "quoteText": "Yeah! As fast as riding the wind!",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 1"
+      ]
+    },
+    "x10142": {
+      "quoteTitle": "Feelings About Ascension: Building Up",
+      "quoteText": "At this speed, no one can keep up with me!",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 2"
+      ]
+    },
+    "x10143": {
+      "quoteTitle": "Feelings About Ascension: Climax",
+      "quoteText": "The skies over Mondstadt seem to have gotten smaller... or is it that my sight reaches further than ever before?",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 4"
+      ]
+    },
+    "x10144": {
+      "quoteTitle": "Feelings About Ascension: Conclusion",
+      "quoteText": "It seems that now... I've improved so much compared to when we first met! Hehe, thank you so much! Let me treat you to a Sticky Honey Roast! Let's go, let's go!",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 6"
+      ]
+    },
+    "x10145": {
+      "quoteTitle": "Elemental Skill: I",
+      "quoteText": "Get them!",
+      "unlockConds": []
+    },
+    "x10146": {
+      "quoteTitle": "Elemental Skill: II",
+      "quoteText": "Go go Baron Bunny!",
+      "unlockConds": []
+    },
+    "x10147": {
+      "quoteTitle": "Elemental Skill: III",
+      "quoteText": "♪Hmm~ hmm~ hmm~ hmm~ hmm~",
+      "unlockConds": []
+    },
+    "x10148": {
+      "quoteTitle": "Elemental Burst: I",
+      "quoteText": "No one escapes my sights!",
+      "unlockConds": []
+    },
+    "x10149": {
+      "quoteTitle": "Elemental Burst: II",
+      "quoteText": "Let it rain!",
+      "unlockConds": []
+    },
+    "x10150": {
+      "quoteTitle": "Elemental Burst: III",
+      "quoteText": "No escape!",
+      "unlockConds": []
+    },
+    "x10151": {
+      "quoteTitle": "Sprint Start: I",
+      "quoteText": "I'll race you there!",
+      "unlockConds": []
+    },
+    "x10152": {
+      "quoteTitle": "Sprint Start: II",
+      "quoteText": "Betcha can't keep up with me!",
+      "unlockConds": []
+    },
+    "x10153": {
+      "quoteTitle": "Sprint End: I",
+      "quoteText": "Told you I'd win.",
+      "unlockConds": []
+    },
+    "x10154": {
+      "quoteTitle": "Sprint End: II",
+      "quoteText": "That's more like it!",
+      "unlockConds": []
+    },
+    "x10155": {
+      "quoteTitle": "Deploying Wind Glider: I",
+      "quoteText": "Get ready for the Gliding Champion of Mondstadt!",
+      "unlockConds": []
+    },
+    "x10156": {
+      "quoteTitle": "Deploying Wind Glider: II",
+      "quoteText": "I won't let you down!",
+      "unlockConds": []
+    },
+    "x10159": {
+      "quoteTitle": "Opening Treasure Chest: I",
+      "quoteText": "Opening a chest is like unwrapping a gift!",
+      "unlockConds": []
+    },
+    "x10160": {
+      "quoteTitle": "Opening Treasure Chest: II",
+      "quoteText": "Another target tracked down by Outrider Amber!",
+      "unlockConds": []
+    },
+    "x10161": {
+      "quoteTitle": "Opening Treasure Chest: III",
+      "quoteText": "Wow, these will come in handy!",
+      "unlockConds": []
+    },
+    "x10162": {
+      "quoteTitle": "Low HP: I",
+      "quoteText": "I'll never surrender!",
+      "unlockConds": []
+    },
+    "x10163": {
+      "quoteTitle": "Low HP: II",
+      "quoteText": "Ouch! Meanie...",
+      "unlockConds": []
+    },
+    "x10164": {
+      "quoteTitle": "Low HP: III",
+      "quoteText": "*panting* Ugh... You'll... pay for that!",
+      "unlockConds": []
+    },
+    "x10165": {
+      "quoteTitle": "Ally at Low HP: I",
+      "quoteText": "Take cover!",
+      "unlockConds": []
+    },
+    "x10166": {
+      "quoteTitle": "Ally at Low HP: II",
+      "quoteText": "Hey... Need some help?",
+      "unlockConds": []
+    },
+    "x10167": {
+      "quoteTitle": "Fallen: I",
+      "quoteText": "Tired...",
+      "unlockConds": []
+    },
+    "x10168": {
+      "quoteTitle": "Fallen: II",
+      "quoteText": "Must keep... training...",
+      "unlockConds": []
+    },
+    "x10169": {
+      "quoteTitle": "Fallen: III",
+      "quoteText": "You got me...",
+      "unlockConds": []
+    },
+    "x10170": {
+      "quoteTitle": "Light Hit Taken: I",
+      "quoteText": "Hey!",
+      "unlockConds": []
+    },
+    "x10171": {
+      "quoteTitle": "Heavy Hit Taken: I",
+      "quoteText": "Ugh, not so hard!",
+      "unlockConds": []
+    },
+    "x10172": {
+      "quoteTitle": "Heavy Hit Taken: II",
+      "quoteText": "That's cheating!",
+      "unlockConds": []
+    },
+    "x10173": {
+      "quoteTitle": "Joining Party: I",
+      "quoteText": "Leave it to me!",
+      "unlockConds": []
+    },
+    "x10174": {
+      "quoteTitle": "Joining Party: II",
+      "quoteText": "At the ready!",
+      "unlockConds": []
+    },
+    "x10175": {
+      "quoteTitle": "Joining Party: III",
+      "quoteText": "Outrider Amber, reporting!",
+      "unlockConds": []
+    },
+    "x10176": {
+      "quoteTitle": "Receiving a Gift: I",
+      "quoteText": "Wow! This is delicious, you're an amazing cook!",
+      "unlockConds": []
+    },
+    "x10177": {
+      "quoteTitle": "Receiving a Gift: II",
+      "quoteText": "I wish I was as good at cooking as you...",
+      "unlockConds": []
+    },
+    "x10178": {
+      "quoteTitle": "Receiving a Gift: III",
+      "quoteText": "Uh, I'm just not used to this taste, sorry! Nothing to do with you of course!",
+      "unlockConds": []
+    },
+    "x10179": {
+      "quoteTitle": "About Collei",
+      "quoteText": "Collei wrote to me saying that her Eleazar has been completely cured... I'm so happy for her! I wish I could fly to her side right now and give her the biggest hug! She also said she misses everyone in Mondstadt, and that once she's ready, she'll come visit us in person and tell us all about her progress... Oh, it would be great if she could make it in time for the next Ludi Harpastum. Aaah I can't wait to see her again!",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4",
+        "Complete \"Akasha Pulses, the Kalpa Flame Rises\""
+      ]
+    },
+    "x10180": {
+      "quoteTitle": "About Mika",
+      "quoteText": "Oh! Mika's a veteran of Eula's team. When he first arrived, it was always \"Yes, Commander!\" every time he spoke to me — I guess it must have been because he saw how close I was with Eula. But then, even after I told him I was actually an Outrider, he still called me \"Ma'am\"... It was so embarrassing. We have completely different responsibilities, after all. I definitely could never match his expertise in cartography.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    }
+  },
+  "energy": {
+    "source": "DummyElementBall_Base",
+    "particles": "4",
+    "chance": "100%",
+    "cd": "Instant"
+  },
+  "attacks": [
+    {
+      "name": "Test_ShootAimingArrow_Fire_Fx",
+      "icd_source": "Grp: Ambor (Tag Miss)",
+      "icd_rule": "3 hits / 1s",
+      "gauge": "2U",
+      "poise": "LV2/20",
+      "element": "Fire",
+      "attackType": "Default",
+      "strikeType": "Pierce",
+      "damageParam": "Ambor_ProudSkill31_P7_ChargeFireDamage_Percentage"
+    },
+    {
+      "name": "Test_ShootAimingArrow_Fire_Fx",
+      "icd_source": "Grp: Ambor (Tag Miss)",
+      "icd_rule": "3 hits / 1s",
+      "gauge": "4U",
+      "poise": "LV2/10",
+      "element": "-",
+      "attackType": "Default",
+      "strikeType": "Pierce",
+      "damageParam": "Ambor_ProudSkill31_P6_ChargeNoFireDamage_Percentage"
+    },
+    {
+      "name": "AimingArrow_WithoutFire_Material",
+      "icd_source": "Grp: Ambor (Tag Miss)",
+      "icd_rule": "3 hits / 1s",
+      "gauge": "4U",
+      "poise": "LV2/10",
+      "element": "-",
+      "attackType": "Default",
+      "strikeType": "Pierce",
+      "damageParam": "Ambor_ProudSkill31_P6_ChargeNoFireDamage_Percentage"
+    },
+    {
+      "name": "Talent212_DoubleArrow",
+      "icd_source": "Grp: Ambor (Tag Miss)",
+      "icd_rule": "3 hits / 1s",
+      "gauge": "1U",
+      "poise": "LV2/4",
+      "element": "Fire",
+      "attackType": "Default",
+      "strikeType": "Pierce",
+      "damageParam": "Ambor_ProudSkill31_P7_ChargeFireDamage_Percentage|Ambor_Talent212_P1_Damage_Percentage|MUL"
+    },
+    {
+      "name": "Talent212_DoubleArrow",
+      "icd_source": "Grp: Ambor (Tag Miss)",
+      "icd_rule": "3 hits / 1s",
+      "gauge": "4U",
+      "poise": "LV2/2",
+      "element": "-",
+      "attackType": "Default",
+      "strikeType": "Pierce",
+      "damageParam": "Ambor_ProudSkill31_P6_ChargeNoFireDamage_Percentage|Ambor_Talent212_P1_Damage_Percentage|MUL"
+    },
+    {
+      "name": "Talent212_DoubleArrow_WithoutFire_Material",
+      "icd_source": "Grp: Ambor (Tag Miss)",
+      "icd_rule": "3 hits / 1s",
+      "gauge": "4U",
+      "poise": "LV2/2",
+      "element": "-",
+      "attackType": "Default",
+      "strikeType": "Pierce",
+      "damageParam": "Ambor_Talent212_P1_Damage_Percentage|Ambor_ProudSkill31_P6_ChargeNoFireDamage_Percentage|MUL"
+    },
+    {
+      "name": "DummyDropBall",
+      "icd_source": "Tag: Elemental_Art (!)",
+      "icd_rule": "Independent",
+      "gauge": "2U",
+      "poise": "LV5/260",
+      "element": "Fire",
+      "attackType": "Default",
+      "strikeType": "Blunt",
+      "damageParam": "Ambor_ProudSkill32_P2_Damage_Percentage"
+    },
+    {
+      "name": "ArrowRainField",
+      "icd_source": "Grp: Ambor (Tag Miss)",
+      "icd_rule": "3 hits / 1s",
+      "gauge": "1U",
+      "poise": "LV2/7",
+      "element": "Fire",
+      "attackType": "Default",
+      "strikeType": "Pierce",
+      "damageParam": "Ambor_ProudSkill33_P1_Damage|OneHitDamgeRate|MUL"
+    },
+    {
+      "name": "ArrowRainField",
+      "icd_source": "Grp: Ambor (Tag Miss)",
+      "icd_rule": "3 hits / 1s",
+      "gauge": "1U",
+      "poise": "LV0/7",
+      "element": "Fire",
+      "attackType": "Default",
+      "strikeType": "Pierce",
+      "damageParam": "Ambor_ProudSkill33_P1_Damage|OneHitDamgeRate|MUL"
+    },
+    {
+      "name": "ArrowRainField",
+      "icd_source": "Grp: Ambor (Tag Miss)",
+      "icd_rule": "3 hits / 1s",
+      "gauge": "1U",
+      "poise": "LV0/7",
+      "element": "Fire",
+      "attackType": "Default",
+      "strikeType": "Pierce",
+      "damageParam": "Ambor_ProudSkill33_P1_Damage|OneHitDamgeRate|MUL"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "0U",
+      "poise": "LV2/10",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Pierce",
+      "damageParam": "FallingAnthem_Normal_Loop_Damage"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV2/50",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Pierce",
+      "damageParam": "FallingAnthem_Normal_Rank_1_Damage"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV3/100",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Pierce",
+      "damageParam": "FallingAnthem_Normal_Rank_2_Damage"
+    }
+  ],
+  "endure": []
+}

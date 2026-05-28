@@ -1,0 +1,15 @@
+﻿{
+    "Id":  15010,
+    "SetId":  15010,
+    "EnName":  "Prayers for Destiny",
+    "QualityType":  "QUALITY_PURPLE",
+    "SetIcon":  "UI_RelicIcon_15010_3",
+    "Effect2Pc":  null,
+    "Effect4Pc":  null,
+    "Pieces":  {
+                   "circlet":  {
+                                   "icon":  "UI_RelicIcon_15010_3",
+                                   "name":  "Tiara of Torrents"
+                               }
+               }
+}

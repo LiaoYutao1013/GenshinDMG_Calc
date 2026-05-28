@@ -1,0 +1,31 @@
+﻿{
+    "Id":  15031,
+    "SetId":  15031,
+    "EnName":  "Marechaussee Hunter",
+    "QualityType":  "QUALITY_ORANGE",
+    "SetIcon":  "UI_RelicIcon_15031_4",
+    "Effect2Pc":  "Normal and Charged Attack DMG +15%",
+    "Effect4Pc":  "When current HP increases or decreases, CRIT Rate will be increased by 12% for 5s. Max 3 stacks.",
+    "Pieces":  {
+                   "circlet":  {
+                                   "icon":  "UI_RelicIcon_15031_3",
+                                   "name":  "Veteran\u0027s Visage"
+                               },
+                   "flower":  {
+                                  "icon":  "UI_RelicIcon_15031_4",
+                                  "name":  "Hunter\u0027s Brooch"
+                              },
+                   "goblet":  {
+                                  "icon":  "UI_RelicIcon_15031_1",
+                                  "name":  "Forgotten Vessel"
+                              },
+                   "plume":  {
+                                 "icon":  "UI_RelicIcon_15031_2",
+                                 "name":  "Masterpiece\u0027s Overture"
+                             },
+                   "sands":  {
+                                 "icon":  "UI_RelicIcon_15031_5",
+                                 "name":  "Moment of Judgment"
+                             }
+               }
+}

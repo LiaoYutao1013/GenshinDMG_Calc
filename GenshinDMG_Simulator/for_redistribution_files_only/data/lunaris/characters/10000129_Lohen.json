@@ -1,0 +1,1996 @@
+{
+  "info": {
+    "name": "Lohen",
+    "description": "",
+    "rarity": "QUALITY_ORANGE",
+    "weapon": "WEAPON_POLE",
+    "birthday": "3/4",
+    "element": "Cryo",
+    "title": "Sharpened Arrowhead",
+    "constellation": "Lepus Miles",
+    "affiliation": "Knights of Favonius",
+    "cv": {
+      "EN": "???",
+      "CHS": "???",
+      "JP": "???",
+      "KR": "???"
+    },
+    "attributes": [
+      {
+        "level": 1,
+        "ascension": 0,
+        "hp": 1001,
+        "atk": 27,
+        "def": 61,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 2,
+        "ascension": 0,
+        "hp": 1084,
+        "atk": 29,
+        "def": 66,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 3,
+        "ascension": 0,
+        "hp": 1167,
+        "atk": 31,
+        "def": 71,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 4,
+        "ascension": 0,
+        "hp": 1251,
+        "atk": 34,
+        "def": 76,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 5,
+        "ascension": 0,
+        "hp": 1334,
+        "atk": 36,
+        "def": 81,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 6,
+        "ascension": 0,
+        "hp": 1418,
+        "atk": 38,
+        "def": 86,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 7,
+        "ascension": 0,
+        "hp": 1501,
+        "atk": 40,
+        "def": 92,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 8,
+        "ascension": 0,
+        "hp": 1586,
+        "atk": 42,
+        "def": 97,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 9,
+        "ascension": 0,
+        "hp": 1670,
+        "atk": 45,
+        "def": 102,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 10,
+        "ascension": 0,
+        "hp": 1753,
+        "atk": 47,
+        "def": 107,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 11,
+        "ascension": 0,
+        "hp": 1837,
+        "atk": 49,
+        "def": 112,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 12,
+        "ascension": 0,
+        "hp": 1921,
+        "atk": 51,
+        "def": 117,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 13,
+        "ascension": 0,
+        "hp": 2005,
+        "atk": 54,
+        "def": 122,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 14,
+        "ascension": 0,
+        "hp": 2090,
+        "atk": 56,
+        "def": 127,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 15,
+        "ascension": 0,
+        "hp": 2174,
+        "atk": 58,
+        "def": 133,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 16,
+        "ascension": 0,
+        "hp": 2258,
+        "atk": 60,
+        "def": 138,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 17,
+        "ascension": 0,
+        "hp": 2343,
+        "atk": 63,
+        "def": 143,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 18,
+        "ascension": 0,
+        "hp": 2427,
+        "atk": 65,
+        "def": 148,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 19,
+        "ascension": 0,
+        "hp": 2512,
+        "atk": 67,
+        "def": 153,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 20,
+        "ascension": 0,
+        "hp": 2597,
+        "atk": 70,
+        "def": 158,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 21,
+        "ascension": 1,
+        "hp": 3540,
+        "atk": 95,
+        "def": 216,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 22,
+        "ascension": 1,
+        "hp": 3625,
+        "atk": 97,
+        "def": 221,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 23,
+        "ascension": 1,
+        "hp": 3710,
+        "atk": 99,
+        "def": 226,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 24,
+        "ascension": 1,
+        "hp": 3795,
+        "atk": 102,
+        "def": 231,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 25,
+        "ascension": 1,
+        "hp": 3880,
+        "atk": 104,
+        "def": 237,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 26,
+        "ascension": 1,
+        "hp": 3966,
+        "atk": 106,
+        "def": 242,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 27,
+        "ascension": 1,
+        "hp": 4051,
+        "atk": 109,
+        "def": 247,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 28,
+        "ascension": 1,
+        "hp": 4136,
+        "atk": 111,
+        "def": 252,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 29,
+        "ascension": 1,
+        "hp": 4223,
+        "atk": 113,
+        "def": 257,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 30,
+        "ascension": 1,
+        "hp": 4308,
+        "atk": 115,
+        "def": 263,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 31,
+        "ascension": 1,
+        "hp": 4394,
+        "atk": 118,
+        "def": 268,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 32,
+        "ascension": 1,
+        "hp": 4480,
+        "atk": 120,
+        "def": 273,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 33,
+        "ascension": 1,
+        "hp": 4566,
+        "atk": 122,
+        "def": 278,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 34,
+        "ascension": 1,
+        "hp": 4651,
+        "atk": 125,
+        "def": 284,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 35,
+        "ascension": 1,
+        "hp": 4737,
+        "atk": 127,
+        "def": 289,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 36,
+        "ascension": 1,
+        "hp": 4824,
+        "atk": 129,
+        "def": 294,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 37,
+        "ascension": 1,
+        "hp": 4910,
+        "atk": 132,
+        "def": 299,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 38,
+        "ascension": 1,
+        "hp": 4996,
+        "atk": 134,
+        "def": 305,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 39,
+        "ascension": 1,
+        "hp": 5082,
+        "atk": 136,
+        "def": 310,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 40,
+        "ascension": 1,
+        "hp": 5170,
+        "atk": 138,
+        "def": 315,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 41,
+        "ascension": 2,
+        "hp": 5865,
+        "atk": 157,
+        "def": 358,
+        "CRITDMG_": "9.6"
+      },
+      {
+        "level": 42,
+        "ascension": 2,
+        "hp": 5952,
+        "atk": 159,
+        "def": 363,
+        "CRITDMG_": "9.6"
+      },
+      {
+        "level": 43,
+        "ascension": 2,
+        "hp": 6040,
+        "atk": 162,
+        "def": 368,
+        "CRITDMG_": "9.6"
+      },
+      {
+        "level": 44,
+        "ascension": 2,
+        "hp": 6126,
+        "atk": 164,
+        "def": 373,
+        "CRITDMG_": "9.6"
+      },
+      {
+        "level": 45,
+        "ascension": 2,
+        "hp": 6213,
+        "atk": 166,
+        "def": 379,
+        "CRITDMG_": "9.6"
+      },
+      {
+        "level": 46,
+        "ascension": 2,
+        "hp": 6300,
+        "atk": 169,
+        "def": 384,
+        "CRITDMG_": "9.6"
+      },
+      {
+        "level": 47,
+        "ascension": 2,
+        "hp": 6387,
+        "atk": 171,
+        "def": 389,
+        "CRITDMG_": "9.6"
+      },
+      {
+        "level": 48,
+        "ascension": 2,
+        "hp": 6474,
+        "atk": 173,
+        "def": 395,
+        "CRITDMG_": "9.6"
+      },
+      {
+        "level": 49,
+        "ascension": 2,
+        "hp": 6562,
+        "atk": 176,
+        "def": 400,
+        "CRITDMG_": "9.6"
+      },
+      {
+        "level": 50,
+        "ascension": 2,
+        "hp": 6649,
+        "atk": 178,
+        "def": 405,
+        "CRITDMG_": "9.6"
+      },
+      {
+        "level": 51,
+        "ascension": 3,
+        "hp": 7549,
+        "atk": 202,
+        "def": 460,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 52,
+        "ascension": 3,
+        "hp": 7637,
+        "atk": 205,
+        "def": 466,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 53,
+        "ascension": 3,
+        "hp": 7725,
+        "atk": 207,
+        "def": 471,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 54,
+        "ascension": 3,
+        "hp": 7813,
+        "atk": 209,
+        "def": 476,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 55,
+        "ascension": 3,
+        "hp": 7901,
+        "atk": 212,
+        "def": 482,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 56,
+        "ascension": 3,
+        "hp": 7989,
+        "atk": 214,
+        "def": 487,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 57,
+        "ascension": 3,
+        "hp": 8077,
+        "atk": 216,
+        "def": 492,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 58,
+        "ascension": 3,
+        "hp": 8165,
+        "atk": 219,
+        "def": 498,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 59,
+        "ascension": 3,
+        "hp": 8253,
+        "atk": 221,
+        "def": 503,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 60,
+        "ascension": 3,
+        "hp": 8341,
+        "atk": 223,
+        "def": 509,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 61,
+        "ascension": 4,
+        "hp": 9039,
+        "atk": 242,
+        "def": 551,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 62,
+        "ascension": 4,
+        "hp": 9127,
+        "atk": 244,
+        "def": 556,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 63,
+        "ascension": 4,
+        "hp": 9216,
+        "atk": 247,
+        "def": 562,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 64,
+        "ascension": 4,
+        "hp": 9304,
+        "atk": 249,
+        "def": 567,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 65,
+        "ascension": 4,
+        "hp": 9393,
+        "atk": 252,
+        "def": 573,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 66,
+        "ascension": 4,
+        "hp": 9482,
+        "atk": 254,
+        "def": 578,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 67,
+        "ascension": 4,
+        "hp": 9571,
+        "atk": 256,
+        "def": 583,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 68,
+        "ascension": 4,
+        "hp": 9660,
+        "atk": 259,
+        "def": 589,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 69,
+        "ascension": 4,
+        "hp": 9749,
+        "atk": 261,
+        "def": 594,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 70,
+        "ascension": 4,
+        "hp": 9838,
+        "atk": 264,
+        "def": 600,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 71,
+        "ascension": 5,
+        "hp": 10537,
+        "atk": 282,
+        "def": 642,
+        "CRITDMG_": "28.8"
+      },
+      {
+        "level": 72,
+        "ascension": 5,
+        "hp": 10627,
+        "atk": 285,
+        "def": 648,
+        "CRITDMG_": "28.8"
+      },
+      {
+        "level": 73,
+        "ascension": 5,
+        "hp": 10716,
+        "atk": 287,
+        "def": 653,
+        "CRITDMG_": "28.8"
+      },
+      {
+        "level": 74,
+        "ascension": 5,
+        "hp": 10805,
+        "atk": 289,
+        "def": 659,
+        "CRITDMG_": "28.8"
+      },
+      {
+        "level": 75,
+        "ascension": 5,
+        "hp": 10895,
+        "atk": 292,
+        "def": 664,
+        "CRITDMG_": "28.8"
+      },
+      {
+        "level": 76,
+        "ascension": 5,
+        "hp": 10984,
+        "atk": 294,
+        "def": 670,
+        "CRITDMG_": "28.8"
+      },
+      {
+        "level": 77,
+        "ascension": 5,
+        "hp": 11074,
+        "atk": 297,
+        "def": 675,
+        "CRITDMG_": "28.8"
+      },
+      {
+        "level": 78,
+        "ascension": 5,
+        "hp": 11164,
+        "atk": 299,
+        "def": 681,
+        "CRITDMG_": "28.8"
+      },
+      {
+        "level": 79,
+        "ascension": 5,
+        "hp": 11254,
+        "atk": 301,
+        "def": 686,
+        "CRITDMG_": "28.8"
+      },
+      {
+        "level": 80,
+        "ascension": 5,
+        "hp": 11345,
+        "atk": 304,
+        "def": 692,
+        "CRITDMG_": "28.8"
+      },
+      {
+        "level": 81,
+        "ascension": 6,
+        "hp": 12044,
+        "atk": 323,
+        "def": 734,
+        "CRITDMG_": "38.4"
+      },
+      {
+        "level": 82,
+        "ascension": 6,
+        "hp": 12134,
+        "atk": 325,
+        "def": 740,
+        "CRITDMG_": "38.4"
+      },
+      {
+        "level": 83,
+        "ascension": 6,
+        "hp": 12225,
+        "atk": 327,
+        "def": 745,
+        "CRITDMG_": "38.4"
+      },
+      {
+        "level": 84,
+        "ascension": 6,
+        "hp": 12315,
+        "atk": 330,
+        "def": 751,
+        "CRITDMG_": "38.4"
+      },
+      {
+        "level": 85,
+        "ascension": 6,
+        "hp": 12405,
+        "atk": 332,
+        "def": 756,
+        "CRITDMG_": "38.4"
+      },
+      {
+        "level": 86,
+        "ascension": 6,
+        "hp": 12496,
+        "atk": 335,
+        "def": 762,
+        "CRITDMG_": "38.4"
+      },
+      {
+        "level": 87,
+        "ascension": 6,
+        "hp": 12586,
+        "atk": 337,
+        "def": 767,
+        "CRITDMG_": "38.4"
+      },
+      {
+        "level": 88,
+        "ascension": 6,
+        "hp": 12677,
+        "atk": 340,
+        "def": 773,
+        "CRITDMG_": "38.4"
+      },
+      {
+        "level": 89,
+        "ascension": 6,
+        "hp": 12768,
+        "atk": 342,
+        "def": 778,
+        "CRITDMG_": "38.4"
+      },
+      {
+        "level": 90,
+        "ascension": 6,
+        "hp": 12858,
+        "atk": 344,
+        "def": 784,
+        "CRITDMG_": "38.4"
+      },
+      {
+        "level": 95,
+        "ascension": 6,
+        "hp": 13315,
+        "atk": 383,
+        "def": 812,
+        "CRITDMG_": "38.4"
+      },
+      {
+        "level": 100,
+        "ascension": 6,
+        "hp": 13772,
+        "atk": 422,
+        "def": 840,
+        "CRITDMG_": "38.4"
+      }
+    ]
+  },
+  "icons": {
+    "forward": "UI_AvatarIcon_Lohen",
+    "coop_img": "UI_CoopImg_Lohen"
+  },
+  "ascension": {
+    "x202": 7.0499E+6,
+    "exp": {
+      "x104001": 2,
+      "x104003": 418
+    },
+    "speciality": {
+      "x101272": 168
+    },
+    "elemental": {
+      "x104161": 1,
+      "x104162": 9,
+      "x104163": 9,
+      "x104164": 6
+    },
+    "worldmonster": {
+      "x112011": 18,
+      "x112012": 30,
+      "x112013": 36
+    },
+    "elitemonster": {
+      "x113085": 46
+    }
+  },
+  "skills": {
+    "normalattack": {
+      "name": "Spear of Favonius — Broken Oath",
+      "icon": "Skill_A_03",
+      "multipliers": {
+        "x1_HitDMG": [
+          "53.99%",
+          "58.39%",
+          "62.78%",
+          "69.06%",
+          "73.45%",
+          "78.48%",
+          "85.38%",
+          "92.29%",
+          "99.19%",
+          "106.73%",
+          "114.26%",
+          "121.8%",
+          "129.33%",
+          "136.86%",
+          "144.4%"
+        ],
+        "x2_HitDMG": [
+          "56.44%",
+          "61.04%",
+          "65.63%",
+          "72.19%",
+          "76.79%",
+          "82.04%",
+          "89.26%",
+          "96.48%",
+          "103.7%",
+          "111.57%",
+          "119.45%",
+          "127.32%",
+          "135.2%",
+          "143.08%",
+          "150.95%"
+        ],
+        "x3_HitDMG": [
+          "25.42%×3",
+          "27.49%×3",
+          "29.56%×3",
+          "32.51%×3",
+          "34.58%×3",
+          "36.95%×3",
+          "40.2%×3",
+          "43.45%×3",
+          "46.7%×3",
+          "50.25%×3",
+          "53.8%×3",
+          "57.34%×3",
+          "60.89%×3",
+          "64.44%×3",
+          "67.98%×3"
+        ],
+        "x4_HitDMG": [
+          "75.23%",
+          "81.35%",
+          "87.47%",
+          "96.22%",
+          "102.34%",
+          "109.34%",
+          "118.96%",
+          "128.58%",
+          "138.21%",
+          "148.7%",
+          "159.2%",
+          "169.7%",
+          "180.19%",
+          "190.69%",
+          "201.19%"
+        ],
+        "x5_HitDMG": [
+          "36.86%+55.29%",
+          "39.86%+59.79%",
+          "42.86%+64.29%",
+          "47.14%+70.72%",
+          "50.14%+75.22%",
+          "53.57%+80.36%",
+          "58.29%+87.43%",
+          "63%+94.5%",
+          "67.72%+101.57%",
+          "72.86%+109.29%",
+          "78%+117%",
+          "83.14%+124.72%",
+          "88.29%+132.43%",
+          "93.43%+140.15%",
+          "98.57%+147.86%"
+        ],
+        "ChargedAttackDMG": [
+          "65.88%×2",
+          "71.24%×2",
+          "76.6%×2",
+          "84.26%×2",
+          "89.62%×2",
+          "95.75%×2",
+          "104.18%×2",
+          "112.6%×2",
+          "121.03%×2",
+          "130.22%×2",
+          "139.41%×2",
+          "148.6%×2",
+          "157.8%×2",
+          "166.99%×2",
+          "176.18%×2"
+        ],
+        "ChargedAttackStaminaCost": [
+          "25",
+          "25",
+          "25",
+          "25",
+          "25",
+          "25",
+          "25",
+          "25",
+          "25",
+          "25",
+          "25",
+          "25",
+          "25",
+          "25",
+          "25"
+        ],
+        "PlungeDMG": [
+          "63.93%",
+          "69.14%",
+          "74.34%",
+          "81.77%",
+          "86.98%",
+          "92.93%",
+          "101.1%",
+          "109.28%",
+          "117.46%",
+          "126.38%",
+          "135.3%",
+          "144.22%",
+          "153.14%",
+          "162.06%",
+          "170.98%"
+        ],
+        "Low_HighPlungeDMG": [
+          "127.84%/159.68%",
+          "138.24%/172.67%",
+          "148.65%/185.67%",
+          "163.51%/204.24%",
+          "173.92%/217.23%",
+          "185.81%/232.09%",
+          "202.16%/252.51%",
+          "218.51%/272.93%",
+          "234.86%/293.36%",
+          "252.7%/315.64%",
+          "270.54%/337.92%",
+          "288.38%/360.2%",
+          "306.22%/382.48%",
+          "324.05%/404.76%",
+          "341.89%/427.04%"
+        ]
+      },
+      "description": "<color=#FFD780FF>Normal Attack</color>\\nPerforms up to 5 consecutive strikes.\\n\\n<color=#FFD780FF>Charged Attack</color>\\nConsumes a certain amount of Stamina to perform a forward thrust.\\n\\n<color=#FFD780FF>Plunging Attack</color>\\nPlunges from mid-air to strike the ground below, damaging opponents along the path and dealing AoE DMG upon impact."
+    },
+    "elementalskill": {
+      "name": "Unforeseen Strike",
+      "icon": "Skill_S_Lohen_01",
+      "multipliers": {
+        "x1_HitDMG": [
+          "80.99%",
+          "87.58%",
+          "94.17%",
+          "103.59%",
+          "110.18%",
+          "117.71%",
+          "128.07%",
+          "138.43%",
+          "148.79%",
+          "160.09%",
+          "171.39%",
+          "182.69%",
+          "193.99%",
+          "205.29%",
+          "216.59%"
+        ],
+        "x2_HitDMG": [
+          "84.66%",
+          "91.56%",
+          "98.45%",
+          "108.29%",
+          "115.18%",
+          "123.06%",
+          "133.89%",
+          "144.72%",
+          "155.55%",
+          "167.36%",
+          "179.17%",
+          "190.99%",
+          "202.8%",
+          "214.61%",
+          "226.43%"
+        ],
+        "x3_HitDMG": [
+          "38.13%×3",
+          "41.23%×3",
+          "44.34%×3",
+          "48.77%×3",
+          "51.87%×3",
+          "55.42%×3",
+          "60.3%×3",
+          "65.18%×3",
+          "70.05%×3",
+          "75.37%×3",
+          "80.69%×3",
+          "86.01%×3",
+          "91.33%×3",
+          "96.65%×3",
+          "101.98%×3"
+        ],
+        "x4_HitDMG": [
+          "112.84%",
+          "122.02%",
+          "131.21%",
+          "144.33%",
+          "153.51%",
+          "164.01%",
+          "178.44%",
+          "192.88%",
+          "207.31%",
+          "223.05%",
+          "238.8%",
+          "254.54%",
+          "270.29%",
+          "286.03%",
+          "301.78%"
+        ],
+        "x5_HitDMG": [
+          "55.29%+82.93%",
+          "59.79%+89.68%",
+          "64.29%+96.43%",
+          "70.72%+106.07%",
+          "75.22%+112.82%",
+          "80.36%+120.54%",
+          "87.43%+131.15%",
+          "94.5%+141.75%",
+          "101.57%+152.36%",
+          "109.29%+163.93%",
+          "117%+175.5%",
+          "124.72%+187.08%",
+          "132.43%+198.65%",
+          "140.15%+210.22%",
+          "147.86%+221.79%"
+        ],
+        "ChargedAttackDMG": [
+          "98.81%×2",
+          "106.86%×2",
+          "114.9%×2",
+          "126.39%×2",
+          "134.43%×2",
+          "143.62%×2",
+          "156.26%×2",
+          "168.9%×2",
+          "181.54%×2",
+          "195.33%×2",
+          "209.12%×2",
+          "222.91%×2",
+          "236.69%×2",
+          "250.48%×2",
+          "264.27%×2"
+        ],
+        "ChargedAttackStaminaCost": [
+          "10",
+          "10",
+          "10",
+          "10",
+          "10",
+          "10",
+          "10",
+          "10",
+          "10",
+          "10",
+          "10",
+          "10",
+          "10",
+          "10",
+          "10"
+        ],
+        "PlungeDMG": [
+          "63.93%",
+          "69.14%",
+          "74.34%",
+          "81.77%",
+          "86.98%",
+          "92.93%",
+          "101.1%",
+          "109.28%",
+          "117.46%",
+          "126.38%",
+          "135.3%",
+          "144.22%",
+          "153.14%",
+          "162.06%",
+          "170.98%"
+        ],
+        "Low_HighPlungeDMG": [
+          "127.84%/159.68%",
+          "138.24%/172.67%",
+          "148.65%/185.67%",
+          "163.51%/204.24%",
+          "173.92%/217.23%",
+          "185.81%/232.09%",
+          "202.16%/252.51%",
+          "218.51%/272.93%",
+          "234.86%/293.36%",
+          "252.7%/315.64%",
+          "270.54%/337.92%",
+          "288.38%/360.2%",
+          "306.22%/382.48%",
+          "324.05%/404.76%",
+          "341.89%/427.04%"
+        ],
+        "Masterstroke": [
+          "13s",
+          "13s",
+          "13s",
+          "13s",
+          "13s",
+          "13s",
+          "13s",
+          "13s",
+          "13s",
+          "13s",
+          "13s",
+          "13s",
+          "13s",
+          "13s",
+          "13s"
+        ],
+        "EtchedIntoBoneAndSoulDMG": [
+          "60%×4",
+          "64.5%×4",
+          "69%×4",
+          "75%×4",
+          "79.5%×4",
+          "84%×4",
+          "90%×4",
+          "96%×4",
+          "102%×4",
+          "108%×4",
+          "114%×4",
+          "120%×4",
+          "127.5%×4",
+          "135%×4",
+          "142.5%×4"
+        ],
+        "DMGIncreaseFromWillToWin": [
+          "0.4%/Point",
+          "0.4%/Point",
+          "0.4%/Point",
+          "0.4%/Point",
+          "0.4%/Point",
+          "0.4%/Point",
+          "0.4%/Point",
+          "0.4%/Point",
+          "0.4%/Point",
+          "0.4%/Point",
+          "0.4%/Point",
+          "0.4%/Point",
+          "0.4%/Point",
+          "0.4%/Point",
+          "0.4%/Point"
+        ],
+        "CD": [
+          "18s",
+          "18s",
+          "18s",
+          "18s",
+          "18s",
+          "18s",
+          "18s",
+          "18s",
+          "18s",
+          "18s",
+          "18s",
+          "18s",
+          "18s",
+          "18s",
+          "18s"
+        ]
+      },
+      "description": "As he searches for weaknesses, Lohen switches to {LINK#N11290001}<color=#FFD780FF>Masterstroke</color>{/LINK} mode. While in this state:\\n· Lohen can actively accumulate {LINK#N11290003}<color=#FFD780FF>Joy</color>{/LINK}, using it to unleash the special Elemental Skill {LINK#N11290002}<color=#FFD780FF>Etched Into Bone and Soul</color>{/LINK}.\\n· Nearby party members can accumulate {LINK#N11290004}<color=#FFD780FF>Will to Win</color>{/LINK} for Lohen, increasing the DMG dealt by <color=#FFD780FF>Etched Into Bone and Soul</color>.\\nLohen can unleash <color=#FFD780FF>Etched Into Bone and Soul</color> up to 3 times while in <color=#FFD780FF>Masterstroke</color> mode, after which, he will no longer be able to accumulate <color=#FFD780FF>Joy</color>.\\n\\n<i>\"Chivalry? Hah, what better way to bait the trap? When an enemy dreams of an honorable victory, they inevitably fail to suspect the 'pleasant surprise' that awaits them.\"</i>"
+    },
+    "elementalburst": {
+      "name": "Manifest Judgment",
+      "icon": "Skill_E_Lohen_01",
+      "multipliers": {
+        "SkillDMG": [
+          "118.8%×6",
+          "127.71%×6",
+          "136.62%×6",
+          "148.5%×6",
+          "157.41%×6",
+          "166.32%×6",
+          "178.2%×6",
+          "190.08%×6",
+          "201.96%×6",
+          "213.84%×6",
+          "225.72%×6",
+          "237.6%×6",
+          "252.45%×6",
+          "267.3%×6",
+          "282.15%×6"
+        ],
+        "DMGIncreaseFromWillToWin": [
+          "0.4%/Point",
+          "0.4%/Point",
+          "0.4%/Point",
+          "0.4%/Point",
+          "0.4%/Point",
+          "0.4%/Point",
+          "0.4%/Point",
+          "0.4%/Point",
+          "0.4%/Point",
+          "0.4%/Point",
+          "0.4%/Point",
+          "0.4%/Point",
+          "0.4%/Point",
+          "0.4%/Point",
+          "0.4%/Point"
+        ],
+        "CD": [
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s"
+        ],
+        "EnergyCost": [
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60"
+        ]
+      },
+      "description": "Performs a swift series of forward strikes, consuming all {LINK#N11290004}<color=#FFD780FF>Will to Win</color>{/LINK} and dealing <color=#99FFFFFF>Cryo DMG</color>. This DMG will be increased based on the amount of <color=#FFD780FF>Will to Win</color> consumed. If Lohen is in {LINK#N11290001}<color=#FFD780FF>Masterstroke</color>{/LINK} mode when this is performed, the duration of <color=#FFD780FF>Masterstroke</color> will be extended by 1.65s.\\n\\n<i>\"So quick to cave? What a pity, I was just starting to enjoy myself...\"</i>"
+    },
+    "leveling": {
+      "books": {
+        "x104304": 9,
+        "x104305": 63,
+        "x104306": 114
+      },
+      "crown": {
+        "x104319": 3
+      },
+      "worldmonster": {
+        "x112011": 18,
+        "x112012": 66,
+        "x112013": 93
+      },
+      "weekly": {
+        "x113073": 18
+      }
+    }
+  },
+  "passives": {
+    "p1": {
+      "name": "Moratorium on Questioning",
+      "description": "When nearby party members accumulate {LINK#N11290004}<color=#FFD780FF>Will to Win</color>{/LINK} for Lohen by dealing DMG while he is in {LINK#N11290001}<color=#FFD780FF>Masterstroke</color>{/LINK} mode, if that DMG is not less than 3,000% of Lohen's Base ATK, it will accumulate an extra 60 <color=#FFD780FF>Will to Win</color>.",
+      "icon": "UI_Talent_S_Lohen_05"
+    },
+    "p2": {
+      "name": "Flippant Masterpiece",
+      "description": "While in {LINK#N11290001}<color=#FFD780FF>Masterstroke</color>{/LINK} mode, for 8s after another nearby party member triggers a <color=#99FFFFFF>Cryo Reaction</color>, that character's ATK is increased by 15%, while Lohen's ATK is increased by 15%.",
+      "icon": "UI_Talent_S_Lohen_06"
+    },
+    "p3": {
+      "name": "When the Mood Strikes",
+      "description": "Lohen gains \"High Spirits\" for 9s after he unleashes the Elemental Skill <color=#FFD780FF>Unforeseen Strike</color>: Increases the Skill Level of <color=#FFD780FF>Unforeseen Strike</color> by 1.\\nWhen unleashing an Elemental Skill, if the Skill Level of any other party member's Normal Attack, Elemental Skill, or Elemental Burst is not lower than Lohen's Elemental Skill Level, the duration of this instance of High Spirits will be increased by an additional 6s.\\nHigh Spirits can be gained once every 18s.",
+      "icon": "UI_Talent_S_Lohen_08"
+    },
+    "p4": {
+      "name": "Witch's Eve Rite: Unhealing Thorn",
+      "description": "After completing <color=#FFD780FF>Witch's Homework: Of Various Foes</color>, Lohen becomes a <color=#FFD780FF>Hexerei</color> character. When the party includes at least 2 Hexerei characters, you gain the <color=#FFD780FF>Hexerei: Secret Rite</color> effect, which enhances Hexerei characters.\\n\\n<color=#FFD780FF>Hexerei: Secret Rite</color>\\nWhen Lohen unleashes the special Elemental Skill {LINK#N11290002}<color=#FFD780FF>Etched Into Bone and Soul</color>{/LINK} or the Elemental Burst <color=#FFD780FF>Manifest Judgment</color>, if his {LINK#N11290004}<color=#FFD780FF>Will to Win</color>{/LINK} is at 50% or more of its max limit, his Normal Attack and Charged Attack DMG will be increased by 40% for 6s.",
+      "icon": "UI_Talent_S_Lohen_07"
+    }
+  },
+  "constellations": {
+    "const1": {
+      "name": "O Breezes, That So Oft Bear Sorrowful Lament",
+      "description": "Lohen's maximum {LINK#N11290004}<color=#FFD780FF>Will to Win</color>{/LINK} limit is increased to 300% of its original value.\\nAdditionally, when other nearby party members deal DMG while Lohen is in {LINK#N11290001}<color=#FFD780FF>Masterstroke</color>{/LINK} mode, they accumulate 500% as much <color=#FFD780FF>Will to Win</color> for him than they originally would have.",
+      "icon": "UI_Talent_S_Lohen_01"
+    },
+    "const2": {
+      "name": "In Flight, I Strike Whatever Flies",
+      "description": "When in {LINK#N11290001}<color=#FFD780FF>Masterstroke</color>{/LINK} mode, after the special Elemental Skill {LINK#N11290002}<color=#FFD780FF>Etched Into Bone and Soul</color>{/LINK} hits an opponent or the Elemental Burst <color=#FFD780FF>Manifest Judgment</color> is unleashed, Lohen gains \"Evilsbane Blade\" for 4s: The next time Lohen hits an opponent with a Normal or Charged Attack while in Masterstroke mode, he will follow up with an additional strike that deals <color=#99FFFFFF>AoE Cryo DMG</color> equal to 300% of his ATK, and increase the Elemental Mastery of other nearby party members by 200 for 8s. Evilsbane Blade can be triggered once every 4s.",
+      "icon": "UI_Talent_S_Lohen_02"
+    },
+    "const3": {
+      "name": "Only the Spear That Wounds Can Heal",
+      "description": "Increases the Level of <color=#FFD780FF>{LINK#S11292}Unforeseen Strike{/LINK}</color> by 3.\\nMaximum upgrade level is 15.",
+      "icon": "UI_Talent_U_Lohen_01"
+    },
+    "const4": {
+      "name": "Radiant Love, Laughing Death",
+      "description": "When Lohen unleashes the Elemental Burst <color=#FFD780FF>Manifest Judgment</color> while in {LINK#N11290001}<color=#FFD780FF>Masterstroke</color>{/LINK} mode, his {LINK#N11290004}<color=#FFD780FF>Will to Win</color>{/LINK} will be maxed out, causing this instance of his Elemental Burst to gain the maximum possible DMG increase.\\n\\nAdditionally, when Lohen switches to <color=#FFD780FF>Masterstroke</color> mode, the following will occur depending on how much Elemental Energy he has:\\n· When Elemental Energy is not full: Lohen recovers 15 Elemental Energy.\\n· When Elemental Energy is full: If, during the next 15s, Lohen unleashes the Elemental Burst <color=#FFD780FF>Manifest Judgment</color>, he will recover 15 Elemental Energy.",
+      "icon": "UI_Talent_S_Lohen_03"
+    },
+    "const5": {
+      "name": "Never Ask, Nor Trouble You to Know",
+      "description": "Increases the Level of <color=#FFD780FF>{LINK#S11295}Manifest Judgment{/LINK}</color> by 3.\\nMaximum upgrade level is 15.",
+      "icon": "UI_Talent_U_Lohen_02"
+    },
+    "const6": {
+      "name": "To Drown, to Sink, Unconscious — Supreme Joy",
+      "description": "Using the special Elemental Skill {LINK#N11290002}<color=#FFD780FF>Etched Into Bone and Soul</color>{/LINK} or, while {LINK#N11290001}<color=#FFD780FF>Masterstroke</color>{/LINK} mode is active, unleashing the Elemental Burst <color=#FFD780FF>Manifest Judgment</color>, will not consume any {LINK#N11290004}<color=#FFD780FF>Will to Win</color>{/LINK}. Instead, Lohen's {LINK#N11290003}<color=#FFD780FF>Joy</color>{/LINK} will be maxed out, and if he hits an opponent the next time he uses the special Elemental Skill <color=#FFD780FF>Etched Into Bone and Soul</color>, the duration of this instance of <color=#FFD780FF>Masterstroke</color> will be extended by 1.25s. This effect can be triggered once every 7s.\\nAdditionally, the CRIT DMG of all the DMG described above is increased by 175%, and the number of times Lohen can unleash <color=#FFD780FF>Etched Into Bone and Soul</color> during this instance of <color=#FFD780FF>Masterstroke</color> is increased by 2.",
+      "icon": "UI_Talent_S_Lohen_04"
+    }
+  },
+  "hyperlinks": [
+    {
+      "id": 1.1290001E+7,
+      "name": "Masterstroke",
+      "description": "Lohen switches to this mode after he unleashes the Elemental Skill Unforeseen Strike. Masterstroke mode has the following characteristics:\\n· DMG dealt by Lohen's Normal Attacks, Charged Attacks, and Plunging Attacks are converted to Cryo DMG that cannot be overridden by other infusions.\\n· When Lohen hits an opponent with a Normal Attack or Charged Attack, he accumulates Joy that can be used to unleash the special Elemental Skill Etched Into Bone and Soul. Lohen can unleash Etched Into Bone and Soul up to 3 times while in Masterstroke mode, after which, he will no longer be able to accumulate Joy.\\n· When nearby party members deal DMG, they also accumulate Will to Win for Lohen that can be used to increase the DMG dealt by Etched Into Bone and Soul.\\n· Masterstroke mode ends when Lohen leaves the field. When Masterstroke mode ends, Joy and Will to Win will be reset to zero.",
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": 1.1290002E+7,
+      "name": "Etched Into Bone and Soul",
+      "description": "A special Elemental Skill that Lohen can use after his Joy reaches the max limit.\\nAfter hitting an opponent, consumes all Joy and Will to Win to deal Cryo DMG. This DMG increases based on the amount of Will to Win consumed.",
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": 1.1290003E+7,
+      "name": "Joy",
+      "description": "when Lohen hits opponents with a Normal Attack or Charged Attack while in Masterstroke mode, he will accumulate 17 Joy. Up to 100 Joy may be accumulated at any one time.\\nJoy can be accumulated once every 0.1s. Once Joy reaches its max limit, Lohen's Elemental Skill Unforeseen Strike will be replaced with the special Elemental Skill Etched Into Bone and Soul.",
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": 1.1290004E+7,
+      "name": "Will to Win",
+      "description": "A special resource accumulated when other nearby party members deal DMG while Lohen is in Masterstroke mode. Up to 100 Will to Win may be accumulated at any one time.\\nWhile Masterstroke mode is active, when other nearby party members deal DMG, if that DMG is not less than 1000% of Lohen's Base ATK, he accumulates 20 Will to Win, otherwise, he accumulates 1 Will to Win.\\nEach character can accumulate Will to Win for Lohen once every 0.1s.",
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    }
+  ],
+  "stories": {
+    "x129200": {
+      "storyTitle": "???",
+      "storyText": "???",
+      "unlockConds": []
+    },
+    "x129201": {
+      "storyTitle": "???",
+      "storyText": "???",
+      "unlockConds": []
+    },
+    "x129202": {
+      "storyTitle": "???",
+      "storyText": "???",
+      "unlockConds": []
+    },
+    "x129203": {
+      "storyTitle": "???",
+      "storyText": "???",
+      "unlockConds": []
+    },
+    "x129204": {
+      "storyTitle": "???",
+      "storyText": "???",
+      "unlockConds": []
+    },
+    "x129205": {
+      "storyTitle": "???",
+      "storyText": "???",
+      "unlockConds": []
+    },
+    "x129206": {
+      "storyTitle": "???",
+      "storyText": "???",
+      "unlockConds": []
+    },
+    "x129207": {
+      "storyTitle": "???",
+      "storyText": "???",
+      "unlockConds": []
+    }
+  },
+  "quotes": {
+    "x129000": {
+      "quoteTitle": "???",
+      "quoteText": "???",
+      "unlockConds": []
+    },
+    "x129001": {
+      "quoteTitle": "???",
+      "quoteText": "???",
+      "unlockConds": []
+    },
+    "x129002": {
+      "quoteTitle": "???",
+      "quoteText": "???",
+      "unlockConds": []
+    },
+    "x129003": {
+      "quoteTitle": "???",
+      "quoteText": "???",
+      "unlockConds": []
+    },
+    "x129004": {
+      "quoteTitle": "???",
+      "quoteText": "???",
+      "unlockConds": []
+    },
+    "x129005": {
+      "quoteTitle": "???",
+      "quoteText": "???",
+      "unlockConds": []
+    },
+    "x129006": {
+      "quoteTitle": "???",
+      "quoteText": "???",
+      "unlockConds": []
+    },
+    "x129007": {
+      "quoteTitle": "???",
+      "quoteText": "???",
+      "unlockConds": []
+    },
+    "x129008": {
+      "quoteTitle": "???",
+      "quoteText": "???",
+      "unlockConds": []
+    },
+    "x129009": {
+      "quoteTitle": "???",
+      "quoteText": "???",
+      "unlockConds": []
+    },
+    "x129010": {
+      "quoteTitle": "???",
+      "quoteText": "???",
+      "unlockConds": []
+    },
+    "x129011": {
+      "quoteTitle": "???",
+      "quoteText": "???",
+      "unlockConds": []
+    },
+    "x129012": {
+      "quoteTitle": "???",
+      "quoteText": "???",
+      "unlockConds": []
+    },
+    "x129013": {
+      "quoteTitle": "???",
+      "quoteText": "???",
+      "unlockConds": []
+    },
+    "x129014": {
+      "quoteTitle": "???",
+      "quoteText": "???",
+      "unlockConds": []
+    },
+    "x129015": {
+      "quoteTitle": "???",
+      "quoteText": "???",
+      "unlockConds": []
+    },
+    "x129016": {
+      "quoteTitle": "???",
+      "quoteText": "???",
+      "unlockConds": []
+    },
+    "x129017": {
+      "quoteTitle": "???",
+      "quoteText": "???",
+      "unlockConds": []
+    },
+    "x129018": {
+      "quoteTitle": "???",
+      "quoteText": "???",
+      "unlockConds": []
+    },
+    "x129019": {
+      "quoteTitle": "???",
+      "quoteText": "???",
+      "unlockConds": []
+    },
+    "x129020": {
+      "quoteTitle": "???",
+      "quoteText": "???",
+      "unlockConds": []
+    },
+    "x129021": {
+      "quoteTitle": "???",
+      "quoteText": "???",
+      "unlockConds": []
+    },
+    "x129022": {
+      "quoteTitle": "???",
+      "quoteText": "???",
+      "unlockConds": []
+    },
+    "x129023": {
+      "quoteTitle": "???",
+      "quoteText": "???",
+      "unlockConds": []
+    },
+    "x129024": {
+      "quoteTitle": "???",
+      "quoteText": "???",
+      "unlockConds": []
+    },
+    "x129025": {
+      "quoteTitle": "???",
+      "quoteText": "???",
+      "unlockConds": []
+    },
+    "x129026": {
+      "quoteTitle": "???",
+      "quoteText": "???",
+      "unlockConds": []
+    },
+    "x129027": {
+      "quoteTitle": "???",
+      "quoteText": "???",
+      "unlockConds": []
+    },
+    "x129028": {
+      "quoteTitle": "???",
+      "quoteText": "???",
+      "unlockConds": []
+    },
+    "x129029": {
+      "quoteTitle": "???",
+      "quoteText": "???",
+      "unlockConds": []
+    },
+    "x129030": {
+      "quoteTitle": "???",
+      "quoteText": "???",
+      "unlockConds": []
+    },
+    "x129031": {
+      "quoteTitle": "???",
+      "quoteText": "???",
+      "unlockConds": []
+    },
+    "x129032": {
+      "quoteTitle": "???",
+      "quoteText": "???",
+      "unlockConds": []
+    },
+    "x129033": {
+      "quoteTitle": "???",
+      "quoteText": "???",
+      "unlockConds": []
+    },
+    "x129034": {
+      "quoteTitle": "???",
+      "quoteText": "???",
+      "unlockConds": []
+    },
+    "x129035": {
+      "quoteTitle": "???",
+      "quoteText": "???",
+      "unlockConds": []
+    },
+    "x129036": {
+      "quoteTitle": "???",
+      "quoteText": "???",
+      "unlockConds": []
+    },
+    "x129037": {
+      "quoteTitle": "???",
+      "quoteText": "???",
+      "unlockConds": []
+    },
+    "x129038": {
+      "quoteTitle": "???",
+      "quoteText": "???",
+      "unlockConds": []
+    },
+    "x129039": {
+      "quoteTitle": "???",
+      "quoteText": "???",
+      "unlockConds": []
+    },
+    "x129040": {
+      "quoteTitle": "???",
+      "quoteText": "???",
+      "unlockConds": []
+    },
+    "x129041": {
+      "quoteTitle": "???",
+      "quoteText": "???",
+      "unlockConds": []
+    },
+    "x129042": {
+      "quoteTitle": "???",
+      "quoteText": "???",
+      "unlockConds": []
+    },
+    "x129043": {
+      "quoteTitle": "???",
+      "quoteText": "???",
+      "unlockConds": []
+    },
+    "x129044": {
+      "quoteTitle": "???",
+      "quoteText": "???",
+      "unlockConds": []
+    },
+    "x129045": {
+      "quoteTitle": "???",
+      "quoteText": "???",
+      "unlockConds": []
+    },
+    "x129046": {
+      "quoteTitle": "???",
+      "quoteText": "???",
+      "unlockConds": []
+    },
+    "x129047": {
+      "quoteTitle": "???",
+      "quoteText": "???",
+      "unlockConds": []
+    },
+    "x129048": {
+      "quoteTitle": "???",
+      "quoteText": "???",
+      "unlockConds": []
+    },
+    "x129049": {
+      "quoteTitle": "???",
+      "quoteText": "???",
+      "unlockConds": []
+    },
+    "x129050": {
+      "quoteTitle": "???",
+      "quoteText": "???",
+      "unlockConds": []
+    },
+    "x129051": {
+      "quoteTitle": "???",
+      "quoteText": "???",
+      "unlockConds": []
+    },
+    "x129052": {
+      "quoteTitle": "???",
+      "quoteText": "???",
+      "unlockConds": []
+    },
+    "x129053": {
+      "quoteTitle": "???",
+      "quoteText": "???",
+      "unlockConds": []
+    },
+    "x129054": {
+      "quoteTitle": "???",
+      "quoteText": "???",
+      "unlockConds": []
+    },
+    "x129055": {
+      "quoteTitle": "???",
+      "quoteText": "???",
+      "unlockConds": []
+    },
+    "x129056": {
+      "quoteTitle": "???",
+      "quoteText": "???",
+      "unlockConds": []
+    },
+    "x129057": {
+      "quoteTitle": "???",
+      "quoteText": "???",
+      "unlockConds": []
+    },
+    "x129058": {
+      "quoteTitle": "???",
+      "quoteText": "???",
+      "unlockConds": []
+    },
+    "x129059": {
+      "quoteTitle": "???",
+      "quoteText": "???",
+      "unlockConds": []
+    },
+    "x129060": {
+      "quoteTitle": "???",
+      "quoteText": "???",
+      "unlockConds": []
+    },
+    "x129061": {
+      "quoteTitle": "???",
+      "quoteText": "???",
+      "unlockConds": []
+    },
+    "x129062": {
+      "quoteTitle": "???",
+      "quoteText": "???",
+      "unlockConds": []
+    },
+    "x129063": {
+      "quoteTitle": "???",
+      "quoteText": "???",
+      "unlockConds": []
+    },
+    "x129064": {
+      "quoteTitle": "???",
+      "quoteText": "???",
+      "unlockConds": []
+    },
+    "x129065": {
+      "quoteTitle": "???",
+      "quoteText": "???",
+      "unlockConds": []
+    },
+    "x129066": {
+      "quoteTitle": "???",
+      "quoteText": "???",
+      "unlockConds": []
+    },
+    "x129067": {
+      "quoteTitle": "???",
+      "quoteText": "???",
+      "unlockConds": []
+    },
+    "x129068": {
+      "quoteTitle": "???",
+      "quoteText": "???",
+      "unlockConds": []
+    },
+    "x129069": {
+      "quoteTitle": "???",
+      "quoteText": "???",
+      "unlockConds": []
+    },
+    "x129070": {
+      "quoteTitle": "???",
+      "quoteText": "???",
+      "unlockConds": []
+    },
+    "x129071": {
+      "quoteTitle": "???",
+      "quoteText": "???",
+      "unlockConds": []
+    },
+    "x129072": {
+      "quoteTitle": "???",
+      "quoteText": "???",
+      "unlockConds": []
+    },
+    "x129073": {
+      "quoteTitle": "???",
+      "quoteText": "???",
+      "unlockConds": []
+    },
+    "x129074": {
+      "quoteTitle": "???",
+      "quoteText": "???",
+      "unlockConds": []
+    },
+    "x129075": {
+      "quoteTitle": "???",
+      "quoteText": "???",
+      "unlockConds": []
+    }
+  },
+  "energy": {
+    "source": "ElementalBall_GenerateEnergy",
+    "particles": "1",
+    "chance": "100%",
+    "cd": "2s"
+  },
+  "attacks": [
+    {
+      "name": "ElementalArt",
+      "icd_source": "Tag: Lohen_Constellation_2 (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV2/30",
+      "element": "Ice",
+      "attackType": "Default",
+      "strikeType": "-",
+      "damageParam": "Constellation_2_Attack"
+    },
+    {
+      "name": "ElementalArt_Raid",
+      "icd_source": "Tag: Elemental_Art_Raid (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV2/35",
+      "element": "Ice",
+      "attackType": "Melee",
+      "strikeType": "Spear",
+      "damageParam": "Raid_Damage|Lohen_AnswerLevel_DamageExtraRatio|MUL"
+    },
+    {
+      "name": "ElementalArt_Raid",
+      "icd_source": "Tag: Elemental_Art_Raid (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV2/35",
+      "element": "Ice",
+      "attackType": "Melee",
+      "strikeType": "Spear",
+      "damageParam": "Raid_Damage|Lohen_AnswerLevel_DamageExtraRatio|MUL"
+    },
+    {
+      "name": "ElementalArt_Raid",
+      "icd_source": "Tag: Elemental_Art_Raid (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV2/35",
+      "element": "Ice",
+      "attackType": "Melee",
+      "strikeType": "Spear",
+      "damageParam": "Raid_Damage|Lohen_AnswerLevel_DamageExtraRatio|MUL"
+    },
+    {
+      "name": "ElementalArt_Raid",
+      "icd_source": "Tag: Elemental_Art_Raid (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV5/35",
+      "element": "Ice",
+      "attackType": "Melee",
+      "strikeType": "Spear",
+      "damageParam": "Raid_Damage|Lohen_AnswerLevel_DamageExtraRatio|MUL"
+    },
+    {
+      "name": "Bullet_ElementalArt_Raid_QuestSneakLE",
+      "icd_source": "Tag: SneakLE (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV2/200",
+      "element": "Ice",
+      "attackType": "Range",
+      "strikeType": "-",
+      "damageParam": "1.000000"
+    },
+    {
+      "name": "SkillObj_ElementalBurst_Gadget",
+      "icd_source": "Tag: Elemental_Burst (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV2/40",
+      "element": "Ice",
+      "attackType": "Default",
+      "strikeType": "-",
+      "damageParam": "Burst02_Damage|Lohen_AnswerLevel_DamageExtraRatio|MUL"
+    },
+    {
+      "name": "SkillObj_ElementalBurst_Gadget",
+      "icd_source": "Tag: Elemental_Burst (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV2/40",
+      "element": "Ice",
+      "attackType": "Default",
+      "strikeType": "-",
+      "damageParam": "Burst01_Damage|Lohen_AnswerLevel_DamageExtraRatio|MUL"
+    },
+    {
+      "name": "SkillObj_ElementalBurst_Gadget",
+      "icd_source": "Tag: Elemental_Burst (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV7/40",
+      "element": "Ice",
+      "attackType": "Default",
+      "strikeType": "-",
+      "damageParam": "Burst03_Damage|Lohen_AnswerLevel_DamageExtraRatio|MUL"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "0U",
+      "poise": "LV2/25",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Slash",
+      "damageParam": "FallingAnthem_Normal_Loop_Damage"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "0U",
+      "poise": "LV2/25",
+      "element": "Ice",
+      "attackType": "Melee",
+      "strikeType": "Slash",
+      "damageParam": "FallingAnthem_Normal_Loop_Damage_Ice"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "0U",
+      "poise": "LV2/25",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Spear",
+      "damageParam": "FallingAnthem_Normal_Loop_Damage"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "0U",
+      "poise": "LV2/25",
+      "element": "Ice",
+      "attackType": "Melee",
+      "strikeType": "Spear",
+      "damageParam": "FallingAnthem_Normal_Loop_Damage_Ice"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV4/100",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Blunt",
+      "damageParam": "FallingAnthem_Normal_Rank_1_Damage"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV7/150",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Blunt",
+      "damageParam": "FallingAnthem_Normal_Rank_2_Damage"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV4/100",
+      "element": "Ice",
+      "attackType": "Melee",
+      "strikeType": "Blunt",
+      "damageParam": "FallingAnthem_Normal_Rank_1_Damage_Ice"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV7/150",
+      "element": "Ice",
+      "attackType": "Melee",
+      "strikeType": "Blunt",
+      "damageParam": "FallingAnthem_Normal_Rank_2_Damage_Ice"
+    }
+  ],
+  "endure": {
+    "ability": "ElementalArt",
+    "handler": "UNIQUE_ElementalArt_Enhanced",
+    "Actor_EndureDelta": 0.5
+  }
+}

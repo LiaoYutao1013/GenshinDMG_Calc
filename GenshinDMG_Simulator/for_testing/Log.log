@@ -1,0 +1,11 @@
+Error: File: C:\Users\ASUS\AppData\Local\MathWorks\MatlabRuntimeCache\R2024b\Genshi1\GenshinDMG_S\functions\getDefaultCharacterConfig.m Line: 1 Column: 1
+Invalid text character. Check for unsupported symbol, invisible character, or pasting of non-ASCII characters.
+
+Error in GenshinDMGApp/loadCharacterIntoSlot (line 908)
+
+Error in GenshinDMGApp/initializeSlots (line 141)
+
+Error in GenshinDMGApp (line 103)
+
+Error in launchGenshinDMGApp (line 7)
+

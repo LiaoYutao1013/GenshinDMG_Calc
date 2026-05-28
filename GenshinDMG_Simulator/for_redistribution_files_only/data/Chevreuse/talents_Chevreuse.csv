@@ -1,0 +1,9 @@
+Skill,Param,ScalingType,Level10
+Skill,ShotATK,ATK,2.45
+Skill,LoadedShotATK,ATK,3.35
+Burst,GrenadeATK,ATK,4.65
+Burst,SecondaryGrenadeATK,ATK,2.05
+Heal,HealHP,MaxHP,0.075
+Reaction,Overload,FLAT,1900
+Support,PyroElectroShred,DMG,0.40
+Support,ATKBonus,DMG,0.40

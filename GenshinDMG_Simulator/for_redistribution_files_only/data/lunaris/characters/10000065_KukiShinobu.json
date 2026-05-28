@@ -1,0 +1,1800 @@
+{
+  "info": {
+    "name": "Kuki Shinobu",
+    "description": "The capable and reliable Arataki Gang deputy leader. Please note: capable and reliable are not appellations for the \"Arataki Gang,\" but for their deputy leader in specific.",
+    "rarity": "QUALITY_PURPLE",
+    "weapon": "WEAPON_SWORD_ONE_HAND",
+    "birthday": "27/7",
+    "element": "Electro",
+    "title": "Mender of Tribulations",
+    "constellation": "Tribulatio Demptio",
+    "affiliation": "Arataki Gang",
+    "cv": {
+      "EN": "Kira Buckland",
+      "CHS": "杨凝",
+      "JP": "水橋かおり",
+      "KR": "Kim Yool"
+    },
+    "attributes": [
+      {
+        "level": 1,
+        "ascension": 0,
+        "hp": 1030,
+        "atk": 18,
+        "def": 63,
+        "HP_": "0"
+      },
+      {
+        "level": 2,
+        "ascension": 0,
+        "hp": 1116,
+        "atk": 19,
+        "def": 68,
+        "HP_": "0"
+      },
+      {
+        "level": 3,
+        "ascension": 0,
+        "hp": 1200,
+        "atk": 21,
+        "def": 73,
+        "HP_": "0"
+      },
+      {
+        "level": 4,
+        "ascension": 0,
+        "hp": 1286,
+        "atk": 22,
+        "def": 79,
+        "HP_": "0"
+      },
+      {
+        "level": 5,
+        "ascension": 0,
+        "hp": 1370,
+        "atk": 24,
+        "def": 84,
+        "HP_": "0"
+      },
+      {
+        "level": 6,
+        "ascension": 0,
+        "hp": 1456,
+        "atk": 25,
+        "def": 89,
+        "HP_": "0"
+      },
+      {
+        "level": 7,
+        "ascension": 0,
+        "hp": 1540,
+        "atk": 27,
+        "def": 94,
+        "HP_": "0"
+      },
+      {
+        "level": 8,
+        "ascension": 0,
+        "hp": 1626,
+        "atk": 28,
+        "def": 99,
+        "HP_": "0"
+      },
+      {
+        "level": 9,
+        "ascension": 0,
+        "hp": 1711,
+        "atk": 30,
+        "def": 105,
+        "HP_": "0"
+      },
+      {
+        "level": 10,
+        "ascension": 0,
+        "hp": 1796,
+        "atk": 31,
+        "def": 110,
+        "HP_": "0"
+      },
+      {
+        "level": 11,
+        "ascension": 0,
+        "hp": 1881,
+        "atk": 33,
+        "def": 115,
+        "HP_": "0"
+      },
+      {
+        "level": 12,
+        "ascension": 0,
+        "hp": 1966,
+        "atk": 34,
+        "def": 120,
+        "HP_": "0"
+      },
+      {
+        "level": 13,
+        "ascension": 0,
+        "hp": 2051,
+        "atk": 35,
+        "def": 125,
+        "HP_": "0"
+      },
+      {
+        "level": 14,
+        "ascension": 0,
+        "hp": 2136,
+        "atk": 37,
+        "def": 130,
+        "HP_": "0"
+      },
+      {
+        "level": 15,
+        "ascension": 0,
+        "hp": 2221,
+        "atk": 38,
+        "def": 136,
+        "HP_": "0"
+      },
+      {
+        "level": 16,
+        "ascension": 0,
+        "hp": 2307,
+        "atk": 40,
+        "def": 141,
+        "HP_": "0"
+      },
+      {
+        "level": 17,
+        "ascension": 0,
+        "hp": 2391,
+        "atk": 41,
+        "def": 146,
+        "HP_": "0"
+      },
+      {
+        "level": 18,
+        "ascension": 0,
+        "hp": 2477,
+        "atk": 43,
+        "def": 151,
+        "HP_": "0"
+      },
+      {
+        "level": 19,
+        "ascension": 0,
+        "hp": 2561,
+        "atk": 44,
+        "def": 156,
+        "HP_": "0"
+      },
+      {
+        "level": 20,
+        "ascension": 0,
+        "hp": 2647,
+        "atk": 46,
+        "def": 162,
+        "HP_": "0"
+      },
+      {
+        "level": 21,
+        "ascension": 1,
+        "hp": 3501,
+        "atk": 61,
+        "def": 214,
+        "HP_": "0"
+      },
+      {
+        "level": 22,
+        "ascension": 1,
+        "hp": 3587,
+        "atk": 62,
+        "def": 219,
+        "HP_": "0"
+      },
+      {
+        "level": 23,
+        "ascension": 1,
+        "hp": 3672,
+        "atk": 63,
+        "def": 224,
+        "HP_": "0"
+      },
+      {
+        "level": 24,
+        "ascension": 1,
+        "hp": 3757,
+        "atk": 65,
+        "def": 230,
+        "HP_": "0"
+      },
+      {
+        "level": 25,
+        "ascension": 1,
+        "hp": 3842,
+        "atk": 66,
+        "def": 235,
+        "HP_": "0"
+      },
+      {
+        "level": 26,
+        "ascension": 1,
+        "hp": 3927,
+        "atk": 68,
+        "def": 240,
+        "HP_": "0"
+      },
+      {
+        "level": 27,
+        "ascension": 1,
+        "hp": 4012,
+        "atk": 69,
+        "def": 245,
+        "HP_": "0"
+      },
+      {
+        "level": 28,
+        "ascension": 1,
+        "hp": 4097,
+        "atk": 71,
+        "def": 250,
+        "HP_": "0"
+      },
+      {
+        "level": 29,
+        "ascension": 1,
+        "hp": 4182,
+        "atk": 72,
+        "def": 256,
+        "HP_": "0"
+      },
+      {
+        "level": 30,
+        "ascension": 1,
+        "hp": 4267,
+        "atk": 74,
+        "def": 261,
+        "HP_": "0"
+      },
+      {
+        "level": 31,
+        "ascension": 1,
+        "hp": 4352,
+        "atk": 75,
+        "def": 266,
+        "HP_": "0"
+      },
+      {
+        "level": 32,
+        "ascension": 1,
+        "hp": 4438,
+        "atk": 77,
+        "def": 271,
+        "HP_": "0"
+      },
+      {
+        "level": 33,
+        "ascension": 1,
+        "hp": 4522,
+        "atk": 78,
+        "def": 276,
+        "HP_": "0"
+      },
+      {
+        "level": 34,
+        "ascension": 1,
+        "hp": 4608,
+        "atk": 80,
+        "def": 282,
+        "HP_": "0"
+      },
+      {
+        "level": 35,
+        "ascension": 1,
+        "hp": 4692,
+        "atk": 81,
+        "def": 287,
+        "HP_": "0"
+      },
+      {
+        "level": 36,
+        "ascension": 1,
+        "hp": 4778,
+        "atk": 83,
+        "def": 292,
+        "HP_": "0"
+      },
+      {
+        "level": 37,
+        "ascension": 1,
+        "hp": 4862,
+        "atk": 84,
+        "def": 297,
+        "HP_": "0"
+      },
+      {
+        "level": 38,
+        "ascension": 1,
+        "hp": 4948,
+        "atk": 86,
+        "def": 302,
+        "HP_": "0"
+      },
+      {
+        "level": 39,
+        "ascension": 1,
+        "hp": 5033,
+        "atk": 87,
+        "def": 308,
+        "HP_": "0"
+      },
+      {
+        "level": 40,
+        "ascension": 1,
+        "hp": 5118,
+        "atk": 88,
+        "def": 313,
+        "HP_": "0"
+      },
+      {
+        "level": 41,
+        "ascension": 2,
+        "hp": 5750,
+        "atk": 99,
+        "def": 351,
+        "HP_": "6"
+      },
+      {
+        "level": 42,
+        "ascension": 2,
+        "hp": 5835,
+        "atk": 101,
+        "def": 356,
+        "HP_": "6"
+      },
+      {
+        "level": 43,
+        "ascension": 2,
+        "hp": 5920,
+        "atk": 102,
+        "def": 362,
+        "HP_": "6"
+      },
+      {
+        "level": 44,
+        "ascension": 2,
+        "hp": 6005,
+        "atk": 104,
+        "def": 367,
+        "HP_": "6"
+      },
+      {
+        "level": 45,
+        "ascension": 2,
+        "hp": 6090,
+        "atk": 105,
+        "def": 372,
+        "HP_": "6"
+      },
+      {
+        "level": 46,
+        "ascension": 2,
+        "hp": 6176,
+        "atk": 107,
+        "def": 377,
+        "HP_": "6"
+      },
+      {
+        "level": 47,
+        "ascension": 2,
+        "hp": 6260,
+        "atk": 108,
+        "def": 382,
+        "HP_": "6"
+      },
+      {
+        "level": 48,
+        "ascension": 2,
+        "hp": 6346,
+        "atk": 110,
+        "def": 388,
+        "HP_": "6"
+      },
+      {
+        "level": 49,
+        "ascension": 2,
+        "hp": 6430,
+        "atk": 111,
+        "def": 393,
+        "HP_": "6"
+      },
+      {
+        "level": 50,
+        "ascension": 2,
+        "hp": 6516,
+        "atk": 113,
+        "def": 398,
+        "HP_": "6"
+      },
+      {
+        "level": 51,
+        "ascension": 3,
+        "hp": 7329,
+        "atk": 127,
+        "def": 448,
+        "HP_": "12"
+      },
+      {
+        "level": 52,
+        "ascension": 3,
+        "hp": 7415,
+        "atk": 128,
+        "def": 453,
+        "HP_": "12"
+      },
+      {
+        "level": 53,
+        "ascension": 3,
+        "hp": 7500,
+        "atk": 130,
+        "def": 458,
+        "HP_": "12"
+      },
+      {
+        "level": 54,
+        "ascension": 3,
+        "hp": 7585,
+        "atk": 131,
+        "def": 463,
+        "HP_": "12"
+      },
+      {
+        "level": 55,
+        "ascension": 3,
+        "hp": 7670,
+        "atk": 133,
+        "def": 469,
+        "HP_": "12"
+      },
+      {
+        "level": 56,
+        "ascension": 3,
+        "hp": 7755,
+        "atk": 134,
+        "def": 474,
+        "HP_": "12"
+      },
+      {
+        "level": 57,
+        "ascension": 3,
+        "hp": 7840,
+        "atk": 136,
+        "def": 479,
+        "HP_": "12"
+      },
+      {
+        "level": 58,
+        "ascension": 3,
+        "hp": 7925,
+        "atk": 137,
+        "def": 484,
+        "HP_": "12"
+      },
+      {
+        "level": 59,
+        "ascension": 3,
+        "hp": 8010,
+        "atk": 138,
+        "def": 489,
+        "HP_": "12"
+      },
+      {
+        "level": 60,
+        "ascension": 3,
+        "hp": 8096,
+        "atk": 140,
+        "def": 495,
+        "HP_": "12"
+      },
+      {
+        "level": 61,
+        "ascension": 4,
+        "hp": 8727,
+        "atk": 151,
+        "def": 533,
+        "HP_": "12"
+      },
+      {
+        "level": 62,
+        "ascension": 4,
+        "hp": 8813,
+        "atk": 152,
+        "def": 538,
+        "HP_": "12"
+      },
+      {
+        "level": 63,
+        "ascension": 4,
+        "hp": 8897,
+        "atk": 154,
+        "def": 544,
+        "HP_": "12"
+      },
+      {
+        "level": 64,
+        "ascension": 4,
+        "hp": 8983,
+        "atk": 155,
+        "def": 549,
+        "HP_": "12"
+      },
+      {
+        "level": 65,
+        "ascension": 4,
+        "hp": 9067,
+        "atk": 157,
+        "def": 554,
+        "HP_": "12"
+      },
+      {
+        "level": 66,
+        "ascension": 4,
+        "hp": 9153,
+        "atk": 158,
+        "def": 559,
+        "HP_": "12"
+      },
+      {
+        "level": 67,
+        "ascension": 4,
+        "hp": 9238,
+        "atk": 160,
+        "def": 564,
+        "HP_": "12"
+      },
+      {
+        "level": 68,
+        "ascension": 4,
+        "hp": 9323,
+        "atk": 161,
+        "def": 570,
+        "HP_": "12"
+      },
+      {
+        "level": 69,
+        "ascension": 4,
+        "hp": 9408,
+        "atk": 163,
+        "def": 575,
+        "HP_": "12"
+      },
+      {
+        "level": 70,
+        "ascension": 4,
+        "hp": 9493,
+        "atk": 164,
+        "def": 580,
+        "HP_": "12"
+      },
+      {
+        "level": 71,
+        "ascension": 5,
+        "hp": 10125,
+        "atk": 175,
+        "def": 619,
+        "HP_": "18"
+      },
+      {
+        "level": 72,
+        "ascension": 5,
+        "hp": 10210,
+        "atk": 176,
+        "def": 624,
+        "HP_": "18"
+      },
+      {
+        "level": 73,
+        "ascension": 5,
+        "hp": 10295,
+        "atk": 178,
+        "def": 629,
+        "HP_": "18"
+      },
+      {
+        "level": 74,
+        "ascension": 5,
+        "hp": 10381,
+        "atk": 179,
+        "def": 634,
+        "HP_": "18"
+      },
+      {
+        "level": 75,
+        "ascension": 5,
+        "hp": 10465,
+        "atk": 181,
+        "def": 639,
+        "HP_": "18"
+      },
+      {
+        "level": 76,
+        "ascension": 5,
+        "hp": 10551,
+        "atk": 182,
+        "def": 645,
+        "HP_": "18"
+      },
+      {
+        "level": 77,
+        "ascension": 5,
+        "hp": 10635,
+        "atk": 184,
+        "def": 650,
+        "HP_": "18"
+      },
+      {
+        "level": 78,
+        "ascension": 5,
+        "hp": 10721,
+        "atk": 185,
+        "def": 655,
+        "HP_": "18"
+      },
+      {
+        "level": 79,
+        "ascension": 5,
+        "hp": 10805,
+        "atk": 187,
+        "def": 660,
+        "HP_": "18"
+      },
+      {
+        "level": 80,
+        "ascension": 5,
+        "hp": 10891,
+        "atk": 188,
+        "def": 665,
+        "HP_": "18"
+      },
+      {
+        "level": 81,
+        "ascension": 6,
+        "hp": 11523,
+        "atk": 199,
+        "def": 704,
+        "HP_": "24"
+      },
+      {
+        "level": 82,
+        "ascension": 6,
+        "hp": 11608,
+        "atk": 201,
+        "def": 709,
+        "HP_": "24"
+      },
+      {
+        "level": 83,
+        "ascension": 6,
+        "hp": 11693,
+        "atk": 202,
+        "def": 714,
+        "HP_": "24"
+      },
+      {
+        "level": 84,
+        "ascension": 6,
+        "hp": 11778,
+        "atk": 204,
+        "def": 720,
+        "HP_": "24"
+      },
+      {
+        "level": 85,
+        "ascension": 6,
+        "hp": 11863,
+        "atk": 205,
+        "def": 725,
+        "HP_": "24"
+      },
+      {
+        "level": 86,
+        "ascension": 6,
+        "hp": 11948,
+        "atk": 207,
+        "def": 730,
+        "HP_": "24"
+      },
+      {
+        "level": 87,
+        "ascension": 6,
+        "hp": 12033,
+        "atk": 208,
+        "def": 735,
+        "HP_": "24"
+      },
+      {
+        "level": 88,
+        "ascension": 6,
+        "hp": 12118,
+        "atk": 209,
+        "def": 740,
+        "HP_": "24"
+      },
+      {
+        "level": 89,
+        "ascension": 6,
+        "hp": 12203,
+        "atk": 211,
+        "def": 746,
+        "HP_": "24"
+      },
+      {
+        "level": 90,
+        "ascension": 6,
+        "hp": 12289,
+        "atk": 212,
+        "def": 751,
+        "HP_": "24"
+      },
+      {
+        "level": 95,
+        "ascension": 6,
+        "hp": 12713,
+        "atk": 239,
+        "def": 777,
+        "HP_": "24"
+      },
+      {
+        "level": 100,
+        "ascension": 6,
+        "hp": 13139,
+        "atk": 267,
+        "def": 803,
+        "HP_": "24"
+      }
+    ]
+  },
+  "icons": {
+    "forward": "UI_AvatarIcon_Shinobu",
+    "coop_img": "UI_CoopImg_Shinobu"
+  },
+  "ascension": {
+    "x202": 7.0499E+6,
+    "exp": {
+      "x104001": 2,
+      "x104003": 418
+    },
+    "speciality": {
+      "x101205": 168
+    },
+    "elemental": {
+      "x104141": 1,
+      "x104142": 9,
+      "x104143": 9,
+      "x104144": 6
+    },
+    "worldmonster": {
+      "x112053": 18,
+      "x112054": 30,
+      "x112055": 36
+    },
+    "elitemonster": {
+      "x113035": 46
+    }
+  },
+  "skills": {
+    "normalattack": {
+      "name": "Shinobu's Shadowsword",
+      "icon": "Skill_A_01",
+      "multipliers": {
+        "x1_HitDMG": [
+          "48.76%",
+          "52.73%",
+          "56.7%",
+          "62.37%",
+          "66.34%",
+          "70.88%",
+          "77.11%",
+          "83.35%",
+          "89.59%",
+          "96.39%",
+          "103.19%",
+          "110%",
+          "116.8%",
+          "123.61%",
+          "130.41%"
+        ],
+        "x2_HitDMG": [
+          "44.55%",
+          "48.17%",
+          "51.8%",
+          "56.98%",
+          "60.61%",
+          "64.75%",
+          "70.45%",
+          "76.15%",
+          "81.84%",
+          "88.06%",
+          "94.28%",
+          "100.49%",
+          "106.71%",
+          "112.92%",
+          "119.14%"
+        ],
+        "x3_HitDMG": [
+          "59.34%",
+          "64.17%",
+          "69%",
+          "75.9%",
+          "80.73%",
+          "86.25%",
+          "93.84%",
+          "101.43%",
+          "109.02%",
+          "117.3%",
+          "125.58%",
+          "133.86%",
+          "142.14%",
+          "150.42%",
+          "158.7%"
+        ],
+        "x4_HitDMG": [
+          "76.11%",
+          "82.31%",
+          "88.5%",
+          "97.35%",
+          "103.54%",
+          "110.63%",
+          "120.36%",
+          "130.1%",
+          "139.83%",
+          "150.45%",
+          "161.07%",
+          "171.69%",
+          "182.31%",
+          "192.93%",
+          "203.55%"
+        ],
+        "ChargedAttackDMG": [
+          "55.63%+66.77%",
+          "60.16%+72.2%",
+          "64.69%+77.63%",
+          "71.16%+85.4%",
+          "75.69%+90.83%",
+          "80.86%+97.04%",
+          "87.98%+105.58%",
+          "95.09%+114.12%",
+          "102.21%+122.66%",
+          "109.97%+131.98%",
+          "117.74%+141.29%",
+          "125.5%+150.61%",
+          "133.26%+159.93%",
+          "141.02%+169.24%",
+          "148.79%+178.56%"
+        ],
+        "ChargedAttackStaminaCost": [
+          "20",
+          "20",
+          "20",
+          "20",
+          "20",
+          "20",
+          "20",
+          "20",
+          "20",
+          "20",
+          "20",
+          "20",
+          "20",
+          "20",
+          "20"
+        ],
+        "PlungeDMG": [
+          "63.93%",
+          "69.14%",
+          "74.34%",
+          "81.77%",
+          "86.98%",
+          "92.93%",
+          "101.1%",
+          "109.28%",
+          "117.46%",
+          "126.38%",
+          "135.3%",
+          "144.22%",
+          "153.14%",
+          "162.06%",
+          "170.98%"
+        ],
+        "Low_HighPlungeDMG": [
+          "127.84%/159.68%",
+          "138.24%/172.67%",
+          "148.65%/185.67%",
+          "163.51%/204.24%",
+          "173.92%/217.23%",
+          "185.81%/232.09%",
+          "202.16%/252.51%",
+          "218.51%/272.93%",
+          "234.86%/293.36%",
+          "252.7%/315.64%",
+          "270.54%/337.92%",
+          "288.38%/360.2%",
+          "306.22%/382.48%",
+          "324.05%/404.76%",
+          "341.89%/427.04%"
+        ]
+      },
+      "description": "<color=#FFD780FF>Normal Attack</color>\\nPerforms up to 4 rapid strikes.\\n\\n<color=#FFD780FF>Charged Attack</color>\\nConsumes a certain amount of Stamina to unleash 2 rapid sword strikes.\\n\\n<color=#FFD780FF>Plunging Attack</color>\\nPlunges from mid-air to strike the ground below, damaging opponents along the path and dealing AoE DMG upon impact."
+    },
+    "elementalskill": {
+      "name": "Sanctifying Ring",
+      "icon": "Skill_S_Shinobu_01",
+      "multipliers": {
+        "SkillDMG": [
+          "75.71%",
+          "81.39%",
+          "87.07%",
+          "94.64%",
+          "100.32%",
+          "106%",
+          "113.57%",
+          "121.14%",
+          "128.71%",
+          "136.28%",
+          "143.85%",
+          "151.42%",
+          "160.89%",
+          "170.35%",
+          "179.82%"
+        ],
+        "GrassRingOfSanctificationHealing": [
+          "3% Max HP+289",
+          "3.22% Max HP+318",
+          "3.45% Max HP+349",
+          "3.75% Max HP+383",
+          "3.97% Max HP+419",
+          "4.2% Max HP+457",
+          "4.5% Max HP+498",
+          "4.8% Max HP+542",
+          "5.1% Max HP+587",
+          "5.4% Max HP+636",
+          "5.7% Max HP+686",
+          "6% Max HP+739",
+          "6.37% Max HP+795",
+          "6.75% Max HP+852",
+          "7.12% Max HP+913"
+        ],
+        "GrassRingOfSanctificationDMG": [
+          "25.24%",
+          "27.13%",
+          "29.03%",
+          "31.55%",
+          "33.44%",
+          "35.34%",
+          "37.86%",
+          "40.38%",
+          "42.91%",
+          "45.43%",
+          "47.96%",
+          "50.48%",
+          "53.64%",
+          "56.79%",
+          "59.94%"
+        ],
+        "ActivationCost": [
+          "30% Current HP",
+          "30% Current HP",
+          "30% Current HP",
+          "30% Current HP",
+          "30% Current HP",
+          "30% Current HP",
+          "30% Current HP",
+          "30% Current HP",
+          "30% Current HP",
+          "30% Current HP",
+          "30% Current HP",
+          "30% Current HP",
+          "30% Current HP",
+          "30% Current HP",
+          "30% Current HP"
+        ],
+        "Duration": [
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s"
+        ],
+        "CD": [
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s"
+        ]
+      },
+      "description": "Creates a Grass Ring of Sanctification at the cost of part of her HP, dealing <color=#FFACFFFF>Electro DMG</color> to nearby opponents.\\n\\n<color=#FFD780FF>Grass Ring of Sanctification</color>\\nFollows your current active character around. Deals <color=#FFACFFFF>Electro DMG</color> to nearby opponents every 1.5s and restores HP for active character(s) within the ring's AoE based on Kuki Shinobu's Max HP.\\n\\nThe HP consumption from using this skill can only bring her to 20% HP.\\n\\n\"<i>Band the Naku Weed into a loop around your waist, and it shall exorcise evil.</i>\""
+    },
+    "elementalburst": {
+      "name": "Gyoei Narukami Kariyama Rite",
+      "icon": "Skill_E_Shinobu_01",
+      "multipliers": {
+        "SingleInstanceDMG": [
+          "3.6% Max HP",
+          "3.88% Max HP",
+          "4.15% Max HP",
+          "4.51% Max HP",
+          "4.78% Max HP",
+          "5.05% Max HP",
+          "5.41% Max HP",
+          "5.77% Max HP",
+          "6.13% Max HP",
+          "6.49% Max HP",
+          "6.85% Max HP",
+          "7.21% Max HP",
+          "7.66% Max HP",
+          "8.11% Max HP",
+          "8.56% Max HP"
+        ],
+        "TotalDMG": [
+          "25.23%/43.26% Max HP",
+          "27.13%/46.5% Max HP",
+          "29.02%/49.75% Max HP",
+          "31.54%/54.07% Max HP",
+          "33.43%/57.32% Max HP",
+          "35.33%/60.56% Max HP",
+          "37.85%/64.89% Max HP",
+          "40.37%/69.21% Max HP",
+          "42.9%/73.54% Max HP",
+          "45.42%/77.86% Max HP",
+          "47.94%/82.19% Max HP",
+          "50.47%/86.52% Max HP",
+          "53.62%/91.92% Max HP",
+          "56.78%/97.33% Max HP",
+          "59.93%/102.74% Max HP"
+        ],
+        "Duration": [
+          "2s/3.5s",
+          "2s/3.5s",
+          "2s/3.5s",
+          "2s/3.5s",
+          "2s/3.5s",
+          "2s/3.5s",
+          "2s/3.5s",
+          "2s/3.5s",
+          "2s/3.5s",
+          "2s/3.5s",
+          "2s/3.5s",
+          "2s/3.5s",
+          "2s/3.5s",
+          "2s/3.5s",
+          "2s/3.5s"
+        ],
+        "CD": [
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s"
+        ],
+        "EnergyCost": [
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60"
+        ]
+      },
+      "description": "Stabs an evil-excoriating blade into the ground, creating a field that cleanses the area of all that is foul, dealing continuous <color=#FFACFFFF>Electro DMG</color> to opponents within its AoE based on Shinobu's Max HP.\\nIf Shinobu's HP is less than or equal to 50% when this skill is used, the field will last longer.\\n\\n<i>This was originally a technique used in weeding and in ritual prayers for the yearly harvest, but Shinobu has not forgotten it, though her career as a shrine maiden may have ended.</i>"
+    },
+    "leveling": {
+      "crown": {
+        "x104319": 3
+      },
+      "books": {
+        "x104323": 9,
+        "x104324": 63,
+        "x104325": 114
+      },
+      "worldmonster": {
+        "x112053": 18,
+        "x112054": 66,
+        "x112055": 93
+      },
+      "weekly": {
+        "x113033": 18
+      }
+    }
+  },
+  "passives": {
+    "p1": {
+      "name": "Breaking Free",
+      "description": "When Shinobu's HP is not higher than 50%, her Healing Bonus is increased by 15%.",
+      "icon": "UI_Talent_S_Shinobu_05"
+    },
+    "p2": {
+      "name": "Heart's Repose",
+      "description": "<color=#FFD780FF>Sanctifying Ring</color>'s abilities will be boosted based on Shinobu's Elemental Mastery:\\n·Healing amount will be increased by 75% of Elemental Mastery.\\n·DMG dealt is increased by 25% of Elemental Mastery.",
+      "icon": "UI_Talent_S_Shinobu_06"
+    },
+    "p3": {
+      "name": "Protracted Prayers",
+      "description": "Gains 25% more rewards when dispatched on an Inazuma Expedition for 20 hours.",
+      "icon": "UI_Talent_S_Shinobu_07"
+    },
+    "p4": ""
+  },
+  "constellations": {
+    "const1": {
+      "name": "To Cloister Compassion",
+      "description": "<color=#FFD780FF>Gyoei Narukami Kariyama Rite</color>'s AoE is increased by 50%.",
+      "icon": "UI_Talent_S_Shinobu_01"
+    },
+    "const2": {
+      "name": "To Forsake Fortune",
+      "description": "<color=#FFD780FF>Grass Ring of Sanctification</color>'s duration is increased by 3s.",
+      "icon": "UI_Talent_S_Shinobu_02"
+    },
+    "const3": {
+      "name": "To Sequester Sorrow",
+      "description": "Increases the Level of <color=#FFD780FF>Sanctifying Ring</color> by 3.\\nMaximum upgrade level is 15.",
+      "icon": "UI_Talent_U_Shinobu_01"
+    },
+    "const4": {
+      "name": "To Sever Sealing",
+      "description": "When the Normal, Charged, or Plunging Attacks of the character affected by Shinobu's <color=#FFD780FF>Grass Ring of Sanctification</color> hit opponents, a Thundergrass Mark will land on the opponent's position and deal <color=#FFACFFFF>AoE Electro DMG</color> based on 9.7% of Shinobu's Max HP.\\nThis effect can occur once every 5s.",
+      "icon": "UI_Talent_S_Shinobu_03"
+    },
+    "const5": {
+      "name": "To Cease Courtesies",
+      "description": "Increases the Level of <color=#FFD780FF>Gyoei Narukami Kariyama Rite</color> by 3.\\nMaximum upgrade level is 15.",
+      "icon": "UI_Talent_U_Shinobu_02"
+    },
+    "const6": {
+      "name": "To Ward Weakness",
+      "description": "When Kuki Shinobu takes lethal DMG, this instance of DMG will not take her down. This effect will automatically trigger when her HP reaches 1 and will trigger once every 60s.\\nWhen Shinobu's HP drops below 25%, she will gain 150 Elemental Mastery for 15s. This effect will trigger once every 60s.",
+      "icon": "UI_Talent_S_Shinobu_04"
+    }
+  },
+  "hyperlinks": [],
+  "stories": {
+    "x65200": {
+      "storyTitle": "Character Details",
+      "storyText": "In the Arataki Gang, where swaggering commotion is something of an aesthetic, the ever-masked and low-key Kuki Shinobu, the gang's second-in-command, stands out all the more against the backdrop of the other, more clamorous members.\\nNo matter what sort of mess the others have gotten themselves into, this deputy is often able to solve their problems in a manner that is both professional and highly efficient.\\nMaking some snacks for children who had theirs snatched away, giving scratched lacquerware a new coat of paint, and serving as an advocate for detained comrades...\\nSuch are her skills that onlookers often wonder if there is anything that she cannot do.\\n\"I wouldn't say that I'm certified for everything. There are some industries that just don't have standardized assessments, so there's no way to sit for any such tests.\"\\nHer displeasure finds eloquent expression even behind her mask.\\n\"Also, how can there be lines of work where you can find employment without the right qualifications? It boggles the mind.\"\\nEqually mind-boggling, perhaps, is the fact that her deep puzzlement is just as contagious.",
+      "unlockConds": []
+    },
+    "x65201": {
+      "storyTitle": "Character Story 1",
+      "storyText": "People often say that a namecard is one's door into society.\\nOf course, the act of embroidering such cards in gold and silver confounds comprehension, but it is true that giving another party a small card that contains your name, position, and contact details is a very efficient thing to do.\\nWhen Kuki Shinobu first entered society, the details of her namecard were a matter of serious concern.\\nEx-Grand Narukami Shrine Maiden? She strangled that thought in its mental crib the moment it was born.\\nJust \"Kuki Shinobu\"? No, no, that would make her seem like some unemployed bum with neither skill in word or deed.\\nPerhaps she should go get a certification, then. That was common wisdom, after all.\\nCertifications serve as excellent proof of one's efforts, and are convincing ways of scoring points upon introduction — very useful things indeed.\\nAfter easily getting a couple of such certificates, Shinobu finally reckoned that she could add a little color to her presently-blank namecard.\\nUnfortunately, this process proved to feature pitfalls of its own: out of curiosity and in an effort to test herself, she had gotten a whole load of certifications in one go, causing the prefix section of her namecard to balloon uncontrollably.\\n\"Junior Chef, Tailor, Actuary, Health Manager, Human Resource Manager...\"\\nHaving lots of skills is not a bad thing, but there is such a thing of having too many skills, lest one struggle in the snare of figuring out one's titles, like Shinobu did.\\nTo this day, Shinobu cannot remember how many namecards she has made.\\nBut ever since she joined the Arataki Gang, her very first title has always been \"Deputy.\"",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 2
+      }
+    },
+    "x65202": {
+      "storyTitle": "Character Story 2",
+      "storyText": "After tasting Kuki Shinobu's very own Roasted Lavender Melon, the Arataki Gang all wept and exclaimed that they never knew that Lavender Melons could be so delicious when roasted.\\nAnd the flavor, too, was most different from that which had been produced by any other method they had ever tried. Could it be that high-class culinary exams also taught people how to cook Lavender Melons a certain way?\\nFaced with such a question, Shinobu put the melon she was grilling down before slowly telling a story.\\nAt that time, she had gone to far-off Liyue to study law, and would visit this place known as Wanmin Restaurant in her free time.\\nThe food there was incredibly diverse and made in unique ways, with ingenious ideas that surprised her, despite the fact that she had already obtained a high-level culinary license at the time.\\nFrom slivers of stir-fried meat immersed in sauce to boiled cabbage with the fragrance of chicken soup... Indeed, the world was wide and full of wonders.\\nAnd though one might be acquainted with every profession and be certified highly in every one, it is never wise to rest on one's laurels. Indeed, it is only by daring to try and make breakthroughs that one can surpass the limits set down by those who came before.\\nThe Arataki Gang did not understand this in full, but they cheered all the same, for there was no harm in that — and their cheers certainly did the melons' flavor little harm.\\nSeeing how they greatly enjoyed their meals, Shinobu kept the ending of the story to herself.\\nBack then, the sous chef of Wanmin Restaurant had heard her say these words, and had urged Chef Mao to bring out the Salt and Pepper Slime...\\nSuch food, she knew, would never appear in any culinary exam anywhere in the world.\\nNor would the Arataki Gang want to learn that Shinobu had slathered slime ooze onto Lavender Melons as sauce before grilling them...",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 3
+      }
+    },
+    "x65203": {
+      "storyTitle": "Character Story 3",
+      "storyText": "The Kuki Clan is a family of shrine maidens, a tradition that spans generations. Members of that family regard service to Narukami as a great honor.\\nThis too was the case with her generation. After her sister Miyuki was sent to the Grand Shrine, she was also sent there from a young age as an understudy.\\nOf course, a great store of rules and regulations came with this time-honored tradition: for example, how many days to fast to show one's sincerity and resolve, or how many ablutions were to be performed to avoid profaning the divine...\\nNo one ever explained where these rules had come from or how they had been decided. She was simply told that they had existed since way back, and thus were to be followed.\\nWhen Shinobu first arrived at the shrine, she would sometimes catch a chill from staying on the mountain at night. At this time, her family lived far from the shrine and her sister was out on an errand far afield.\\nA strong-willed child, she did not ask the other shrine maidens for help, but would instead pluck thorned plants one by one, alone, before twining them around her body.\\nAccording to a traditional saying, this deed would earn you the protection of Narukami and remove the illness from you. So she went on twining that loop of thorns, even as she whispered prayers to Narukami for protection deep into the night, shivering all the while.\\nHowever, when the night was over, her chill was not cured. All she had earned instead was a tingling red mark around herself.\\nAs the days passed, Shinobu would find again and again that the rules were not as foolproof as the ancients might have made them out to be, nor was the role of a shrine maiden quite as indispensable as they had claimed back home.\\nWell then, didn't that mean that the very necessity of the Kuki Clan to become shrine maidens was also up for renegotiation?\\nSome years later, Shinobu had already left the shrine for some time now, and with time to kill, she would flip through a book on herbology.\\nWithin its pages, she found that it clearly, indeed vividly, described how the mountainous thorns had paralytic properties that could render birds and beasts unable to move, and that it was this property that led the ancients to include them into medicine to ameliorate topical aches and pains.\\nShe was, well... speechless.\\nShinobu thought to herself that yes, perhaps rules did have rhyme or reason behind them, but to treat the rules as reason in themselves must be treated as an obsolete practice.\\nOn further reflection, she could not help but feel that she was happier living her current life.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 4
+      }
+    },
+    "x65204": {
+      "storyTitle": "Character Story 4",
+      "storyText": "To find work through which she might truly have freedom, Kuki Shinobu once declined all manner of respectable job offers, only agreeing to being hired as part-time outsourced staff.\\nOne of these commissions came from an old lacquerware professional who had accidentally thrown his hip out of whack. The job itself was no challenge to Shinobu, bearer of an advanced certification in this field, but the address of the client was... well, a little special.\\nWhen she brought the newly-maintained figurine to the Police Station, she ran into a petty thief who was making their escape from that site who, fleeing at all speed as they were, rammed right into her, sending the doll sailing into the air.\\nSeeing that several days' work was about to go down the gutter, Shinobu struck out like lightning, seizing the figurine with one hand before whirling about and tripping the suspect.\\nAll at once the surrounding people surged forward, subduing the crook. Afterward, Kujou Sara — seemingly the person who had placed this order — would come and thank her personally.\\nAs for the goods, they were perfectly unharmed, much to Sara's surprise — to think that someone in the lacquerware business could have such martial skill!\\nAfter learning of Shinobu's circumstances and her desire to \"find a job that gives her real freedom,\" Sara would consider for a moment before inviting Shinobu to join the Tenryou Commission.\\n\"Hmm... No, I think I'll pass. The civil service seems a bit too limiting for me...\" At this point, Shinobu hesitated. \"But if those legal lectures and martial arts training could be done part-time, I will definitely consider the offer.\"\\nFrom that day on, Shinobu would begin a new slew of part-time work.\\nOne thing did surprise her, though — the general of the Tenryou Commission would always attend her lectures and demonstrations.\\n\"It is only right that those who enforce the law should better understand it,\" so Sara said with perfect earnestness.\\n\"The opportunity to test myself against similarly-skilled warriors is also not one I get often,\" Shinobu replied.\\nSara's straightforward personality and decisive behavior were things Shinobu greatly approved of, and it was through this — and through Sara hiring her often to maintain figurines — that the two would quickly become friends.\\nSara would also repeat her offer of employment several times, only for Shinobu to decline each time. Yet, this \"job that brings true freedom\" was not something she would find, either.\\nThat is, until one day, when Sara wound up arriving late to the izakaya where they had arranged, as they often did, to meet and have figurines change hands, leaving Shinobu to drink till midnight.\\n\"That's unexpected. I didn't think you could be late at all, Sara.\"\\n\"Sorry. I was held up by a really rowdy gang...\"\\n\"A gang? And what gang could have troubled you that much?\"\\n\"Well, I wouldn't call them 'trouble' exactly. They call themselves the Arataki Gang...\"",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 5
+      }
+    },
+    "x65205": {
+      "storyTitle": "Character Story 5",
+      "storyText": "The news that the Arataki Gang now had a second-in-command raised a decent (though ultimately small) stir in Hanamizaka.\\nIt was rumored that this deputy was well-versed in etiquette, law, and was quite the dab hand physically as well, bringing the other members to heel within a few days of arriving.\\nThose who had witnessed this deputy's actions first hand were full of praise for them, saying that at long last, the Arataki Gang had someone polite and reasonable added to their ranks.\\nSome did worry about this development, however: the Arataki Gang was, after all, not a proper organization by any measure.\\nThe little hullabaloos they had caused in the past were nothing, really, but with the arrival of someone who could be the \"brains\" of the organization, who might put some discipline into them... Could this not also be the harbinger of worse incidents to come?\\nNot to mention the Gang's daily operations... Other than logistics and transportation, home repair, and performance, they now added tax agency, legal consultation, event management and various other operations that both involved sizable capital investments and a not-insignificant air of danger to them.\\nSurely they weren't intending to do all these things without the right licenses... right?\\nAnd never mind the licenses, first — if they were to commit fraud in any of these newly-added businesses, they would surely be arrested by the Tenryou Commission!\\nHowever, these wild guesses and ill-omened rumors would quickly be dispelled. The Arataki Gang's actions afterward were more than enough to show that they were still a gang of their word.\\nThose who have attempted to enlist their new financial services have indeed seen their situations turned right around, and the transparency and uprightness of their processes have been stunning.\\nOf course, it is also a pity that the Gang remains the Gang. The children of Hanamizaka still live in fear of Arataki Itto coming to win their snacks off them come dinner time, and often still return to their homes fuming.\\nIn any case, it seems that even this legendary second-in-command will take a long time to reform the Arataki Gang's more... unbound ways.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 6
+      }
+    },
+    "x65206": {
+      "storyTitle": "Oni Mask",
+      "storyText": "Kuki Shinobu had yet to wear her mask when she first joined the Arataki Gang.\\nWhile pursuing a certain business prospect, Shinobu was busy engaging in some serious talks. The other members of the gang were arrayed behind her in a single row, hands behind their backs and unsmiling.\\n\"Just stay like that and don't say anything,\" Shinobu had instructed them to do so on short notice. \"This is the most effective way of negotiating... For you guys, anyway.\"\\nThe talks were going exactly as Shinobu expected, until a passing child suddenly pointed at her, exclaiming:\\n\"Mama, mama, look! That's the shrine maiden who never smiled back at the Grand Shrine! Wow, she looks so cool!\"\\nThe child was whisked away by her panicked mother, but the quick departure did not change the mottled embarrassment and resignation on her face, as if she could not wait to flee for the hills and forests right that instant.\\nAs for Itto's face, it was as if two onikabuto were wrestling for dominance upon it. Genta and the others, try as they might, ultimately lost their poker faces amidst gales of guffaws.\\nThe next martial demonstration would, of course, see their faces beaten so hard that they were redder than Shinobu's was at that moment. If only they had known their fate, perhaps they might not have laughed quite so hard.\\nFrom that day on, Shinobu would sport that mask. Pitch-black and claws bared, it lent her a positively demonic aspect.\\nBy the way, it was also that martial demonstration that served as the origin of her moniker \"the demonic deputy\".",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 4
+      }
+    },
+    "x65207": {
+      "storyTitle": "Vision",
+      "storyText": "The day she left the shrine, Kuki Shinobu left all the things that she possessed while serving as a shrine maiden behind at home, starting over from the most basic of belongings.\\nAs such, she knew immediately that the bag she lifted was not the right weight. Hadn't she only left towels inside it?\\nReaching into the bag and fishing about, she pulled out, of all things, a glittering Vision, its loveliness so striking such that her sister, Miyuki, could not help but gasp.\\nAn irony it was indeed that the shrine maiden who was fleeing her duties would receive a Vision for doing just that.\\nThis, of course, was the very first \"certification\" that Shinobu would receive — from a god, certifying her freedom.\\nIndeed, Miyuki, who had intended to stop her at first, had a change of heart upon witnessing this sign, agreeing to help convince their parents.\\n...It was also due to this that she would willingly surrender her Vision while the Vision Hunt Decree was ongoing.\\nFor one thing, she did not intend to make life difficult for her friend in the Tenryou Commission, but for the other, the Vision was but one of her many, many certificates.\\nMost things in life could, in any case, be settled without the use of a Vision, nor could the truly obdurate problems be dismissed simply by the dint of that device.\\nRemoving generations worth of prejudice, for example, or searching for true, unbound freedom.\\n...Or, you know, stopping those dolts in the Arataki Gang from chomping at the bit to \"help\" her win her Vision back.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 6
+      }
+    }
+  },
+  "quotes": {
+    "x65000": {
+      "quoteTitle": "Hello",
+      "quoteText": "Oh... Hey there! I'm Kuki Shinobu, deputy leader of the Arataki Gang. We offer a wide range of services, including but not limited to transport and logistics, security, home repair, and musical performances. Please feel free to contact me if you need anything. Here's my card.",
+      "unlockConds": []
+    },
+    "x65001": {
+      "quoteTitle": "Chat: In a Pinch",
+      "quoteText": "Just let me know if you ever find yourself in a pinch. I can help you out.",
+      "unlockConds": []
+    },
+    "x65002": {
+      "quoteTitle": "Chat: Certificates",
+      "quoteText": "The criteria for certificate exams are straightforward enough, what it really comes down to is whether you are willing to put in the time. If you study and practice, then it's really not all that difficult.",
+      "unlockConds": []
+    },
+    "x65003": {
+      "quoteTitle": "Chat: The Arataki Gang",
+      "quoteText": "If the Arataki Gang stirs up any trouble, I'll drag every last one of them back to apologize.",
+      "unlockConds": []
+    },
+    "x65004": {
+      "quoteTitle": "When It Rains",
+      "quoteText": "We don't need an umbrella, just pick up the pace.",
+      "unlockConds": []
+    },
+    "x65005": {
+      "quoteTitle": "When Thunder Strikes",
+      "quoteText": "Be careful. No one wants to get struck by lightning.",
+      "unlockConds": []
+    },
+    "x65006": {
+      "quoteTitle": "When It Snows",
+      "quoteText": "Let's just finish the job and leave. There's no need to waste time.",
+      "unlockConds": []
+    },
+    "x65007": {
+      "quoteTitle": "When the Sun Is Out",
+      "quoteText": "It's a nice day, but I can't seem to shake this strange feeling... Huh, let's just hope it's my imagination.",
+      "unlockConds": []
+    },
+    "x65008": {
+      "quoteTitle": "When the Wind Is Blowing",
+      "quoteText": "Hmm... what a pleasant breeze.",
+      "unlockConds": []
+    },
+    "x65009": {
+      "quoteTitle": "Good Morning",
+      "quoteText": "Morning. Going out to train? Huh, I didn't know you were so diligent.",
+      "unlockConds": []
+    },
+    "x65010": {
+      "quoteTitle": "Good Afternoon",
+      "quoteText": "Hey, what would you like to eat? I've been saving up lately, so lunch is on me.",
+      "unlockConds": []
+    },
+    "x65011": {
+      "quoteTitle": "Good Evening",
+      "quoteText": "Some commissions are better done by night. I can't trust the gang with such tasks though, so I usually do them myself.",
+      "unlockConds": []
+    },
+    "x65012": {
+      "quoteTitle": "Good Night",
+      "quoteText": "Go ahead and take a rest if you need. Don't worry about me.",
+      "unlockConds": []
+    },
+    "x65013": {
+      "quoteTitle": "About Kuki Shinobu: Gang's Deputy Leader",
+      "quoteText": "My primary responsibilities are to bring in business and maintain a stable team... uh, as well as bailing out the gang from the Police Station, returning snacks and toys to kids, and catching anyone secretly slacking off during a job... I guess you could say all this extra work comes with being part of the Arataki Gang. I suppose that leaders of other groups wouldn't have to put up with that kind of stuff. But then again, no one else could do the job like me.",
+      "unlockConds": []
+    },
+    "x65014": {
+      "quoteTitle": "About Kuki Shinobu: Backup Plan",
+      "quoteText": "Hmm? What would happen if the gang ever disbanded? First of all, that would never happen. Secondly, even if that did happen, I've got nothing to worry about. I've always got a way to make ends meet.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x65015": {
+      "quoteTitle": "About Us: Notes",
+      "quoteText": "Come find me if you ever suddenly want to become certified in anything. I'll lend you all my notes for the exam. Believe me, my notes are detailed enough to help anybody pass.",
+      "unlockConds": []
+    },
+    "x65016": {
+      "quoteTitle": "About Us: Cleaning Up the Mess",
+      "quoteText": "Whether you are in the Arataki Gang or not, I'll never treat you as an outsider. Just go ahead and leave the logistics and planning to me. Trust me, I'm an expert. I can handle anything, no matter how complicated it might seem. Huh? You're concerned about my safety? Hehe, don't worry, all these years of experience aren't just for show.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 6"
+      ]
+    },
+    "x65017": {
+      "quoteTitle": "About the Vision",
+      "quoteText": "Just like a certificate, this Vision is solid proof of my capabilities. The only difference is that I'm still not certain about a Vision's assessment criteria.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x65018": {
+      "quoteTitle": "Something to Share: Face Mask",
+      "quoteText": "I wear a mask because I don't want to be recognized by anybody, especially when I'm working with the Arataki Gang. If someone I know manages to recognize me, they're sure to make a big fuss about it... It gives me a headache just thinking about it. I won't ever let it happen again! Ahem, never mind...",
+      "unlockConds": []
+    },
+    "x65019": {
+      "quoteTitle": "Something to Share: Gang Bylaws",
+      "quoteText": "I came up with the Gang Bylaws so everyone would have a set of guidelines to follow. Huh? Why are they willing to follow my rules? Because both my words and my fists are very persuasive.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x65020": {
+      "quoteTitle": "Interesting Things",
+      "quoteText": "There is a saying circulating among the shrines claiming that if you weave Naku Weed into a ring and wrap it around your body, it can dispel disaster and bring good fortune. So, do you believe that? I, however, personally find the plant's paralyzing effect a little more practical.",
+      "unlockConds": []
+    },
+    "x65021": {
+      "quoteTitle": "About the Raiden Shogun",
+      "quoteText": "After the Sakoku Decree was lifted, the Raiden Shogun issued many decrees aimed at supporting the development of various industries. All those certificates I received during the Sakoku Decree are coming in real handy now, and the gang is finally out of the red... Fate really does have its ways. Who would've thought after all that, I'd still have her to thank?",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4",
+        "Complete \"Transient Dreams\""
+      ]
+    },
+    "x65022": {
+      "quoteTitle": "About Kujou Sara",
+      "quoteText": "Madam Kujou? Yes, she's a friend of mine. Hmm? You're surprised that I know her? Oh, you must've misunderstood, I knew her from before I joined the Arataki Gang. Heh, in fact, it's hard to tell who's the winner whenever we spar.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x65023": {
+      "quoteTitle": "About Yae Miko",
+      "quoteText": "You can't imagine how boring it is to be a shrine maiden. Even Lady Guuji from the Grand Narukami Shrine has her publishing gig to break up the monotony. I will never go back to being a shrine maiden. Never.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x65024": {
+      "quoteTitle": "About Arataki Itto",
+      "quoteText": "The boss has a lot of unpleasant memories from his past, but he still manages to stay positive. I'd say that kind of resilience is pretty rare. He treats us well and his character has a good effect on everyone in the gang. Of course, it's never an excuse for him to run amok with no consideration for others. Just let me know if he ever causes you any trouble and I'll be sure to make him regret ever being rude to you.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x65025": {
+      "quoteTitle": "About Yanfei",
+      "quoteText": "Back then I had an argument with my family and I only wanted to run away as far as I could. So, I went to study law in Liyue, but thanks to this experience, I got to meet Yanfei. She's like a walking law encyclopedia. Huh? Me? I have a certificate but there are a lot of restrictions for practicing law... It's not really the right field for me.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x65026": {
+      "quoteTitle": "About Shikanoin Heizou",
+      "quoteText": "He's different from the other Doushin of the Tenryou Commission. I have yet to see him on patrol or apprehend anyone, and he occasionally comes to me to buy intelligence. In exchange, I asked him to put in a good word for me whenever I'm bailing people out of the Police Station. He gladly agreed. I'd say that's a pretty good deal... After all, getting the boys to keep their eyes and ears open on the streets is easy enough.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x65027": {
+      "quoteTitle": "More About Kuki Shinobu: I",
+      "quoteText": "I've worked many different jobs and I'm certified in a variety of fields. In terms of management, I've led a small team and have been responsible for delegating tasks and allocating resources according to... Uh, sorry, don't mind me... Sometimes I still slip into interview mode.",
+      "unlockConds": []
+    },
+    "x65028": {
+      "quoteTitle": "More About Kuki Shinobu: II",
+      "quoteText": "I come from a family of shrine maidens but I'm not cut out for that kind of work at all. When I ran away from home, I immediately thought I should learn as much as possible to support myself. I studied everything from cooking, tailoring, and fighting, to legal consulting, publishing, and editing... It wasn't until I really settled into society that I realized I've learned everything I need.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 3"
+      ]
+    },
+    "x65029": {
+      "quoteTitle": "More About Kuki Shinobu: III",
+      "quoteText": "Hmm? You think I've got good social skills? Well, you could say I've seen a lot of the world by now. I've learned how to read people based on their expressions and body language. Besides, nine times out of ten, it's the gang getting in trouble. I don't mind putting on a face to get us out of a sticky predicament, but I still prefer not to smile.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x65030": {
+      "quoteTitle": "More About Kuki Shinobu: IV",
+      "quoteText": "When I first joined the Arataki Gang, the boss told me to teach the others how to fight. So the first thing I did was beat them up, one by one. I was a little surprised that even in their bruised and swollen state they still respectfully called me Shinobu and asked me to lead them. Hmph, at that moment, I knew they really were a big bunch of idiots... But that's fine, even a group like this won't slow me down, I'll just take care of everything myself.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 5"
+      ]
+    },
+    "x65031": {
+      "quoteTitle": "More About Kuki Shinobu: V",
+      "quoteText": "It's my own decision to stay in the Arataki Gang. It can be pretty annoying having to clean up their mess all the time, but in return, they treat me with a sincerity that is irreplaceable... They always save the best things for me and never leave me feeling down. When I announced my decision to stay in the gang, they all cheered for me. I know outsiders don't think very highly of the Arataki Gang, and the members themselves don't really care what others think. But, I still want to strive to change the impression we leave. I might complain about them from time to time as my family, but I'll never let anyone badmouth them.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 6"
+      ]
+    },
+    "x65032": {
+      "quoteTitle": "Kuki Shinobu's Hobbies",
+      "quoteText": "Being in the gang means having lots of free time. I often finish reading a whole book or even pass a certificate exam before I even realize it. Kinda nice, wouldn't you agree? When my family asks about me, at least I can tell them I don't waste my time, and when I go job hunting, I have lots of qualifications to rely on. In this ultra-competitive society, a misfit like myself with all these certificates will never go hungry.",
+      "unlockConds": []
+    },
+    "x65033": {
+      "quoteTitle": "Kuki Shinobu's Troubles",
+      "quoteText": "Back then, I wanted to avoid getting dragged back to the shrine at all cost, so I had to find a way to stand on my own two feet. So far, I think I'm doing alright.",
+      "unlockConds": []
+    },
+    "x65034": {
+      "quoteTitle": "Favorite Food",
+      "quoteText": "Even after eating something really filling like ramen or gyoza, I still always want to finish my meal with a small bowl of rice. Rice is just delicious, that's all. Is there a problem with that?",
+      "unlockConds": []
+    },
+    "x65035": {
+      "quoteTitle": "Least Favorite Food",
+      "quoteText": "There's a saying I heard in Liyue: \"There is no bad food, only bad cooks.\" After getting my license as a chef, I became even more convinced that this is absolutely true.",
+      "unlockConds": []
+    },
+    "x65036": {
+      "quoteTitle": "Birthday",
+      "quoteText": "Happy birthday! Here, take this special dart made from Naku Weed. Be careful, yep, that's the way to hold it... Make sure you predict the trajectory before you throw it... Hehe, I'm happy that you like it. Oh, don't treat it like a toy, it's still quite dangerous. If you want to practice a little more, I can teach you.",
+      "unlockConds": []
+    },
+    "x65037": {
+      "quoteTitle": "Feelings About Ascension: Intro",
+      "quoteText": "If you haven't mastered the basics, then there's no point in even trying to discuss it. That's the purpose of a basic-level certificate, to show you actually know something.",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 1"
+      ]
+    },
+    "x65038": {
+      "quoteTitle": "Feelings About Ascension: Building Up",
+      "quoteText": "I have an intermediate certificate, which means that I'm qualified to handle most problems. Is there anything I can help you with?",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 2"
+      ]
+    },
+    "x65039": {
+      "quoteTitle": "Feelings About Ascension: Climax",
+      "quoteText": "Earning an advanced certificate is not easy, it requires both talent and actual combat experience.",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 4"
+      ]
+    },
+    "x65040": {
+      "quoteTitle": "Feelings About Ascension: Conclusion",
+      "quoteText": "Certificates are useful for judging professional skills but they fail to measure the amount of effort or emotional investment involved. Our friendship has gone beyond something that can be expressed with a simple \"thank you.\" Let me express my feelings by always giving the very best of my abilities.",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 6"
+      ]
+    },
+    "x65041": {
+      "quoteTitle": "Elemental Skill: I",
+      "quoteText": "Our bond is strong!",
+      "unlockConds": []
+    },
+    "x65042": {
+      "quoteTitle": "Elemental Skill: II",
+      "quoteText": "Dissipate!",
+      "unlockConds": []
+    },
+    "x65043": {
+      "quoteTitle": "Elemental Skill: III",
+      "quoteText": "Stand with me.",
+      "unlockConds": []
+    },
+    "x65044": {
+      "quoteTitle": "Elemental Burst: I",
+      "quoteText": "I'll settle this!",
+      "unlockConds": []
+    },
+    "x65045": {
+      "quoteTitle": "Elemental Burst: II",
+      "quoteText": "Lightning... purifies!",
+      "unlockConds": []
+    },
+    "x65046": {
+      "quoteTitle": "Elemental Burst: III",
+      "quoteText": "Out of my way.",
+      "unlockConds": []
+    },
+    "x65047": {
+      "quoteTitle": "Opening Treasure Chest: I",
+      "quoteText": "Every little bit counts.",
+      "unlockConds": []
+    },
+    "x65048": {
+      "quoteTitle": "Opening Treasure Chest: II",
+      "quoteText": "Alright, this'll do.",
+      "unlockConds": []
+    },
+    "x65049": {
+      "quoteTitle": "Opening Treasure Chest: III",
+      "quoteText": "It's all yours.",
+      "unlockConds": []
+    },
+    "x65050": {
+      "quoteTitle": "Low HP: I",
+      "quoteText": "Stop right there.",
+      "unlockConds": []
+    },
+    "x65051": {
+      "quoteTitle": "Low HP: II",
+      "quoteText": "Now I'm mad...",
+      "unlockConds": []
+    },
+    "x65052": {
+      "quoteTitle": "Low HP: III",
+      "quoteText": "Alright, it's my turn...",
+      "unlockConds": []
+    },
+    "x65053": {
+      "quoteTitle": "Ally at Low HP: I",
+      "quoteText": "I'll clean this up.",
+      "unlockConds": []
+    },
+    "x65054": {
+      "quoteTitle": "Ally at Low HP: II",
+      "quoteText": "I'm qualified to handle this.",
+      "unlockConds": []
+    },
+    "x65055": {
+      "quoteTitle": "Fallen: I",
+      "quoteText": "Sorry... for the trouble...",
+      "unlockConds": []
+    },
+    "x65056": {
+      "quoteTitle": "Fallen: II",
+      "quoteText": "Take care of... the gang...",
+      "unlockConds": []
+    },
+    "x65057": {
+      "quoteTitle": "Fallen: III",
+      "quoteText": "What a humiliation...",
+      "unlockConds": []
+    },
+    "x65058": {
+      "quoteTitle": "Light Hit Taken: I",
+      "quoteText": "Again.",
+      "unlockConds": []
+    },
+    "x65059": {
+      "quoteTitle": "Heavy Hit Taken: I",
+      "quoteText": "Just you wait!",
+      "unlockConds": []
+    },
+    "x65060": {
+      "quoteTitle": "Heavy Hit Taken: II",
+      "quoteText": "Looking for a fight?",
+      "unlockConds": []
+    },
+    "x65061": {
+      "quoteTitle": "Joining Party: I",
+      "quoteText": "Wait for my signal.",
+      "unlockConds": []
+    },
+    "x65062": {
+      "quoteTitle": "Joining Party: II",
+      "quoteText": "What'd they do this time?",
+      "unlockConds": []
+    },
+    "x65063": {
+      "quoteTitle": "Joining Party: III",
+      "quoteText": "Don't tell me they did it again...",
+      "unlockConds": []
+    },
+    "x65064": {
+      "quoteTitle": "Receiving a Gift: I",
+      "quoteText": "This is truly exceptional. Ehem... I'll just have another bite.",
+      "unlockConds": []
+    },
+    "x65065": {
+      "quoteTitle": "Receiving a Gift: II",
+      "quoteText": "Did you make this? Hmm... you're more than qualified to be a chef.",
+      "unlockConds": []
+    },
+    "x65066": {
+      "quoteTitle": "Receiving a Gift: III",
+      "quoteText": "Honestly, did you use the wrong seasonings?",
+      "unlockConds": []
+    }
+  },
+  "energy": {
+    "source": "ElementalArt_ElemBall",
+    "particles": "1",
+    "chance": "44%",
+    "cd": "0.2s"
+  },
+  "attacks": [
+    {
+      "name": "ElementalArt",
+      "icd_source": "Tag: Elemental_Art (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV4/30",
+      "element": "Electric",
+      "attackType": "Melee",
+      "strikeType": "Blunt",
+      "damageParam": "ElementalArt_OnceAttack_Damage"
+    },
+    {
+      "name": "ElementalArt_TickLogic",
+      "icd_source": "Tag: Elemental_Art (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV3/10",
+      "element": "Electric",
+      "attackType": "Default",
+      "strikeType": "-",
+      "damageParam": "Elemental_Art_TickDamage"
+    },
+    {
+      "name": "Constellation_AddAttack",
+      "icd_source": "Tag: Elemental_Art (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV2/20",
+      "element": "Electric",
+      "attackType": "Default",
+      "strikeType": "-",
+      "damageParam": "-"
+    },
+    {
+      "name": "ElementalBurst_Gadget",
+      "icd_source": "Tag: Elemental_Burst (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV2/20",
+      "element": "Electric",
+      "attackType": "Default",
+      "strikeType": "-",
+      "damageParam": "-"
+    },
+    {
+      "name": "ElementalBurst_Gadget",
+      "icd_source": "Tag: Elemental_Burst (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV1/20",
+      "element": "Electric",
+      "attackType": "Default",
+      "strikeType": "-",
+      "damageParam": "-"
+    },
+    {
+      "name": "ElementalBurst_Gadget",
+      "icd_source": "Tag: Elemental_Burst (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV2/20",
+      "element": "Electric",
+      "attackType": "Default",
+      "strikeType": "-",
+      "damageParam": "-"
+    },
+    {
+      "name": "ElementalBurst_Gadget",
+      "icd_source": "Tag: Elemental_Burst (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV1/20",
+      "element": "Electric",
+      "attackType": "Default",
+      "strikeType": "-",
+      "damageParam": "-"
+    },
+    {
+      "name": "ElementalBurst_Gadget",
+      "icd_source": "Tag: Elemental_Burst (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV2/20",
+      "element": "Electric",
+      "attackType": "Default",
+      "strikeType": "-",
+      "damageParam": "-"
+    },
+    {
+      "name": "ElementalBurst_Gadget",
+      "icd_source": "Tag: Elemental_Burst (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV1/20",
+      "element": "Electric",
+      "attackType": "Default",
+      "strikeType": "-",
+      "damageParam": "-"
+    },
+    {
+      "name": "ElementalBurst_Gadget",
+      "icd_source": "Tag: Elemental_Burst (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV2/20",
+      "element": "Electric",
+      "attackType": "Default",
+      "strikeType": "-",
+      "damageParam": "-"
+    },
+    {
+      "name": "ElementalBurst_Gadget",
+      "icd_source": "Tag: Elemental_Burst (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV1/20",
+      "element": "Electric",
+      "attackType": "Default",
+      "strikeType": "-",
+      "damageParam": "-"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "0U",
+      "poise": "LV2/25",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Slash",
+      "damageParam": "FallingAnthem_Normal_Loop_Damage"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV4/100",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Blunt",
+      "damageParam": "FallingAnthem_Normal_Rank_1_Damage"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV7/150",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Blunt",
+      "damageParam": "FallingAnthem_Normal_Rank_2_Damage"
+    }
+  ],
+  "endure": []
+}

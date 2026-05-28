@@ -1,0 +1,31 @@
+﻿{
+    "Id":  14003,
+    "SetId":  14003,
+    "EnName":  "Lavawalker",
+    "QualityType":  "QUALITY_ORANGE",
+    "SetIcon":  "UI_RelicIcon_14003_4",
+    "Effect2Pc":  "Pyro RES increased by 40%.",
+    "Effect4Pc":  "Increases DMG against opponents affected by Pyro by 35%.",
+    "Pieces":  {
+                   "circlet":  {
+                                   "icon":  "UI_RelicIcon_14003_3",
+                                   "name":  "Lavawalker\u0027s Wisdom"
+                               },
+                   "flower":  {
+                                  "icon":  "UI_RelicIcon_14003_4",
+                                  "name":  "Lavawalker\u0027s Resolution"
+                              },
+                   "goblet":  {
+                                  "icon":  "UI_RelicIcon_14003_1",
+                                  "name":  "Lavawalker\u0027s Epiphany"
+                              },
+                   "plume":  {
+                                 "icon":  "UI_RelicIcon_14003_2",
+                                 "name":  "Lavawalker\u0027s Salvation"
+                             },
+                   "sands":  {
+                                 "icon":  "UI_RelicIcon_14003_5",
+                                 "name":  "Lavawalker\u0027s Torment"
+                             }
+               }
+}

@@ -1,0 +1,2238 @@
+{
+  "info": {
+    "name": "Zhongli",
+    "description": "A mysterious expert contracted by the Wangsheng Funeral Parlor. Extremely knowledgeable in all things.",
+    "rarity": "QUALITY_ORANGE",
+    "weapon": "WEAPON_POLE",
+    "birthday": "31/12",
+    "element": "Geo",
+    "title": "Vago Mundo",
+    "constellation": "Lapis Dei",
+    "affiliation": "Liyue Harbor",
+    "cv": {
+      "EN": "Keith Silverstein",
+      "CHS": "彭博",
+      "JP": "前野智昭",
+      "KR": "Pyo Young-jae"
+    },
+    "attributes": [
+      {
+        "level": 1,
+        "ascension": 0,
+        "hp": 1144,
+        "atk": 20,
+        "def": 57,
+        "Geo_": "0"
+      },
+      {
+        "level": 2,
+        "ascension": 0,
+        "hp": 1239,
+        "atk": 21,
+        "def": 62,
+        "Geo_": "0"
+      },
+      {
+        "level": 3,
+        "ascension": 0,
+        "hp": 1334,
+        "atk": 23,
+        "def": 67,
+        "Geo_": "0"
+      },
+      {
+        "level": 4,
+        "ascension": 0,
+        "hp": 1430,
+        "atk": 24,
+        "def": 72,
+        "Geo_": "0"
+      },
+      {
+        "level": 5,
+        "ascension": 0,
+        "hp": 1525,
+        "atk": 26,
+        "def": 77,
+        "Geo_": "0"
+      },
+      {
+        "level": 6,
+        "ascension": 0,
+        "hp": 1621,
+        "atk": 28,
+        "def": 81,
+        "Geo_": "0"
+      },
+      {
+        "level": 7,
+        "ascension": 0,
+        "hp": 1716,
+        "atk": 29,
+        "def": 86,
+        "Geo_": "0"
+      },
+      {
+        "level": 8,
+        "ascension": 0,
+        "hp": 1812,
+        "atk": 31,
+        "def": 91,
+        "Geo_": "0"
+      },
+      {
+        "level": 9,
+        "ascension": 0,
+        "hp": 1908,
+        "atk": 33,
+        "def": 96,
+        "Geo_": "0"
+      },
+      {
+        "level": 10,
+        "ascension": 0,
+        "hp": 2003,
+        "atk": 34,
+        "def": 101,
+        "Geo_": "0"
+      },
+      {
+        "level": 11,
+        "ascension": 0,
+        "hp": 2099,
+        "atk": 36,
+        "def": 105,
+        "Geo_": "0"
+      },
+      {
+        "level": 12,
+        "ascension": 0,
+        "hp": 2195,
+        "atk": 38,
+        "def": 110,
+        "Geo_": "0"
+      },
+      {
+        "level": 13,
+        "ascension": 0,
+        "hp": 2291,
+        "atk": 39,
+        "def": 115,
+        "Geo_": "0"
+      },
+      {
+        "level": 14,
+        "ascension": 0,
+        "hp": 2389,
+        "atk": 41,
+        "def": 120,
+        "Geo_": "0"
+      },
+      {
+        "level": 15,
+        "ascension": 0,
+        "hp": 2485,
+        "atk": 42,
+        "def": 125,
+        "Geo_": "0"
+      },
+      {
+        "level": 16,
+        "ascension": 0,
+        "hp": 2581,
+        "atk": 44,
+        "def": 130,
+        "Geo_": "0"
+      },
+      {
+        "level": 17,
+        "ascension": 0,
+        "hp": 2678,
+        "atk": 46,
+        "def": 134,
+        "Geo_": "0"
+      },
+      {
+        "level": 18,
+        "ascension": 0,
+        "hp": 2774,
+        "atk": 47,
+        "def": 139,
+        "Geo_": "0"
+      },
+      {
+        "level": 19,
+        "ascension": 0,
+        "hp": 2871,
+        "atk": 49,
+        "def": 144,
+        "Geo_": "0"
+      },
+      {
+        "level": 20,
+        "ascension": 0,
+        "hp": 2967,
+        "atk": 51,
+        "def": 149,
+        "Geo_": "0"
+      },
+      {
+        "level": 21,
+        "ascension": 1,
+        "hp": 4046,
+        "atk": 69,
+        "def": 203,
+        "Geo_": "0"
+      },
+      {
+        "level": 22,
+        "ascension": 1,
+        "hp": 4143,
+        "atk": 71,
+        "def": 208,
+        "Geo_": "0"
+      },
+      {
+        "level": 23,
+        "ascension": 1,
+        "hp": 4240,
+        "atk": 72,
+        "def": 213,
+        "Geo_": "0"
+      },
+      {
+        "level": 24,
+        "ascension": 1,
+        "hp": 4337,
+        "atk": 74,
+        "def": 218,
+        "Geo_": "0"
+      },
+      {
+        "level": 25,
+        "ascension": 1,
+        "hp": 4435,
+        "atk": 76,
+        "def": 223,
+        "Geo_": "0"
+      },
+      {
+        "level": 26,
+        "ascension": 1,
+        "hp": 4533,
+        "atk": 77,
+        "def": 228,
+        "Geo_": "0"
+      },
+      {
+        "level": 27,
+        "ascension": 1,
+        "hp": 4630,
+        "atk": 79,
+        "def": 232,
+        "Geo_": "0"
+      },
+      {
+        "level": 28,
+        "ascension": 1,
+        "hp": 4727,
+        "atk": 81,
+        "def": 237,
+        "Geo_": "0"
+      },
+      {
+        "level": 29,
+        "ascension": 1,
+        "hp": 4826,
+        "atk": 82,
+        "def": 242,
+        "Geo_": "0"
+      },
+      {
+        "level": 30,
+        "ascension": 1,
+        "hp": 4923,
+        "atk": 84,
+        "def": 247,
+        "Geo_": "0"
+      },
+      {
+        "level": 31,
+        "ascension": 1,
+        "hp": 5021,
+        "atk": 86,
+        "def": 252,
+        "Geo_": "0"
+      },
+      {
+        "level": 32,
+        "ascension": 1,
+        "hp": 5120,
+        "atk": 87,
+        "def": 257,
+        "Geo_": "0"
+      },
+      {
+        "level": 33,
+        "ascension": 1,
+        "hp": 5218,
+        "atk": 89,
+        "def": 262,
+        "Geo_": "0"
+      },
+      {
+        "level": 34,
+        "ascension": 1,
+        "hp": 5315,
+        "atk": 91,
+        "def": 267,
+        "Geo_": "0"
+      },
+      {
+        "level": 35,
+        "ascension": 1,
+        "hp": 5414,
+        "atk": 93,
+        "def": 272,
+        "Geo_": "0"
+      },
+      {
+        "level": 36,
+        "ascension": 1,
+        "hp": 5513,
+        "atk": 94,
+        "def": 277,
+        "Geo_": "0"
+      },
+      {
+        "level": 37,
+        "ascension": 1,
+        "hp": 5612,
+        "atk": 96,
+        "def": 282,
+        "Geo_": "0"
+      },
+      {
+        "level": 38,
+        "ascension": 1,
+        "hp": 5710,
+        "atk": 98,
+        "def": 287,
+        "Geo_": "0"
+      },
+      {
+        "level": 39,
+        "ascension": 1,
+        "hp": 5808,
+        "atk": 99,
+        "def": 292,
+        "Geo_": "0"
+      },
+      {
+        "level": 40,
+        "ascension": 1,
+        "hp": 5908,
+        "atk": 101,
+        "def": 297,
+        "Geo_": "0"
+      },
+      {
+        "level": 41,
+        "ascension": 2,
+        "hp": 6703,
+        "atk": 115,
+        "def": 337,
+        "Geo_": "7.2"
+      },
+      {
+        "level": 42,
+        "ascension": 2,
+        "hp": 6803,
+        "atk": 116,
+        "def": 342,
+        "Geo_": "7.2"
+      },
+      {
+        "level": 43,
+        "ascension": 2,
+        "hp": 6902,
+        "atk": 118,
+        "def": 347,
+        "Geo_": "7.2"
+      },
+      {
+        "level": 44,
+        "ascension": 2,
+        "hp": 7001,
+        "atk": 120,
+        "def": 351,
+        "Geo_": "7.2"
+      },
+      {
+        "level": 45,
+        "ascension": 2,
+        "hp": 7100,
+        "atk": 121,
+        "def": 356,
+        "Geo_": "7.2"
+      },
+      {
+        "level": 46,
+        "ascension": 2,
+        "hp": 7200,
+        "atk": 123,
+        "def": 361,
+        "Geo_": "7.2"
+      },
+      {
+        "level": 47,
+        "ascension": 2,
+        "hp": 7299,
+        "atk": 125,
+        "def": 366,
+        "Geo_": "7.2"
+      },
+      {
+        "level": 48,
+        "ascension": 2,
+        "hp": 7399,
+        "atk": 126,
+        "def": 371,
+        "Geo_": "7.2"
+      },
+      {
+        "level": 49,
+        "ascension": 2,
+        "hp": 7500,
+        "atk": 128,
+        "def": 377,
+        "Geo_": "7.2"
+      },
+      {
+        "level": 50,
+        "ascension": 2,
+        "hp": 7599,
+        "atk": 130,
+        "def": 382,
+        "Geo_": "7.2"
+      },
+      {
+        "level": 51,
+        "ascension": 3,
+        "hp": 8628,
+        "atk": 147,
+        "def": 433,
+        "Geo_": "14.4"
+      },
+      {
+        "level": 52,
+        "ascension": 3,
+        "hp": 8728,
+        "atk": 149,
+        "def": 438,
+        "Geo_": "14.4"
+      },
+      {
+        "level": 53,
+        "ascension": 3,
+        "hp": 8828,
+        "atk": 151,
+        "def": 443,
+        "Geo_": "14.4"
+      },
+      {
+        "level": 54,
+        "ascension": 3,
+        "hp": 8929,
+        "atk": 153,
+        "def": 448,
+        "Geo_": "14.4"
+      },
+      {
+        "level": 55,
+        "ascension": 3,
+        "hp": 9029,
+        "atk": 154,
+        "def": 453,
+        "Geo_": "14.4"
+      },
+      {
+        "level": 56,
+        "ascension": 3,
+        "hp": 9130,
+        "atk": 156,
+        "def": 458,
+        "Geo_": "14.4"
+      },
+      {
+        "level": 57,
+        "ascension": 3,
+        "hp": 9231,
+        "atk": 158,
+        "def": 463,
+        "Geo_": "14.4"
+      },
+      {
+        "level": 58,
+        "ascension": 3,
+        "hp": 9331,
+        "atk": 159,
+        "def": 469,
+        "Geo_": "14.4"
+      },
+      {
+        "level": 59,
+        "ascension": 3,
+        "hp": 9432,
+        "atk": 161,
+        "def": 474,
+        "Geo_": "14.4"
+      },
+      {
+        "level": 60,
+        "ascension": 3,
+        "hp": 9533,
+        "atk": 163,
+        "def": 479,
+        "Geo_": "14.4"
+      },
+      {
+        "level": 61,
+        "ascension": 4,
+        "hp": 10330,
+        "atk": 177,
+        "def": 519,
+        "Geo_": "14.4"
+      },
+      {
+        "level": 62,
+        "ascension": 4,
+        "hp": 10431,
+        "atk": 178,
+        "def": 524,
+        "Geo_": "14.4"
+      },
+      {
+        "level": 63,
+        "ascension": 4,
+        "hp": 10533,
+        "atk": 180,
+        "def": 529,
+        "Geo_": "14.4"
+      },
+      {
+        "level": 64,
+        "ascension": 4,
+        "hp": 10633,
+        "atk": 182,
+        "def": 534,
+        "Geo_": "14.4"
+      },
+      {
+        "level": 65,
+        "ascension": 4,
+        "hp": 10735,
+        "atk": 183,
+        "def": 539,
+        "Geo_": "14.4"
+      },
+      {
+        "level": 66,
+        "ascension": 4,
+        "hp": 10837,
+        "atk": 185,
+        "def": 544,
+        "Geo_": "14.4"
+      },
+      {
+        "level": 67,
+        "ascension": 4,
+        "hp": 10938,
+        "atk": 187,
+        "def": 549,
+        "Geo_": "14.4"
+      },
+      {
+        "level": 68,
+        "ascension": 4,
+        "hp": 11040,
+        "atk": 189,
+        "def": 554,
+        "Geo_": "14.4"
+      },
+      {
+        "level": 69,
+        "ascension": 4,
+        "hp": 11141,
+        "atk": 190,
+        "def": 559,
+        "Geo_": "14.4"
+      },
+      {
+        "level": 70,
+        "ascension": 4,
+        "hp": 11243,
+        "atk": 192,
+        "def": 564,
+        "Geo_": "14.4"
+      },
+      {
+        "level": 71,
+        "ascension": 5,
+        "hp": 12042,
+        "atk": 206,
+        "def": 605,
+        "Geo_": "21.6"
+      },
+      {
+        "level": 72,
+        "ascension": 5,
+        "hp": 12145,
+        "atk": 208,
+        "def": 610,
+        "Geo_": "21.6"
+      },
+      {
+        "level": 73,
+        "ascension": 5,
+        "hp": 12247,
+        "atk": 209,
+        "def": 615,
+        "Geo_": "21.6"
+      },
+      {
+        "level": 74,
+        "ascension": 5,
+        "hp": 12349,
+        "atk": 211,
+        "def": 620,
+        "Geo_": "21.6"
+      },
+      {
+        "level": 75,
+        "ascension": 5,
+        "hp": 12451,
+        "atk": 213,
+        "def": 625,
+        "Geo_": "21.6"
+      },
+      {
+        "level": 76,
+        "ascension": 5,
+        "hp": 12553,
+        "atk": 215,
+        "def": 630,
+        "Geo_": "21.6"
+      },
+      {
+        "level": 77,
+        "ascension": 5,
+        "hp": 12656,
+        "atk": 216,
+        "def": 635,
+        "Geo_": "21.6"
+      },
+      {
+        "level": 78,
+        "ascension": 5,
+        "hp": 12759,
+        "atk": 218,
+        "def": 641,
+        "Geo_": "21.6"
+      },
+      {
+        "level": 79,
+        "ascension": 5,
+        "hp": 12862,
+        "atk": 220,
+        "def": 646,
+        "Geo_": "21.6"
+      },
+      {
+        "level": 80,
+        "ascension": 5,
+        "hp": 12965,
+        "atk": 222,
+        "def": 651,
+        "Geo_": "21.6"
+      },
+      {
+        "level": 81,
+        "ascension": 6,
+        "hp": 13765,
+        "atk": 235,
+        "def": 691,
+        "Geo_": "28.8"
+      },
+      {
+        "level": 82,
+        "ascension": 6,
+        "hp": 13868,
+        "atk": 237,
+        "def": 696,
+        "Geo_": "28.8"
+      },
+      {
+        "level": 83,
+        "ascension": 6,
+        "hp": 13971,
+        "atk": 239,
+        "def": 701,
+        "Geo_": "28.8"
+      },
+      {
+        "level": 84,
+        "ascension": 6,
+        "hp": 14074,
+        "atk": 241,
+        "def": 707,
+        "Geo_": "28.8"
+      },
+      {
+        "level": 85,
+        "ascension": 6,
+        "hp": 14177,
+        "atk": 242,
+        "def": 712,
+        "Geo_": "28.8"
+      },
+      {
+        "level": 86,
+        "ascension": 6,
+        "hp": 14281,
+        "atk": 244,
+        "def": 717,
+        "Geo_": "28.8"
+      },
+      {
+        "level": 87,
+        "ascension": 6,
+        "hp": 14384,
+        "atk": 246,
+        "def": 722,
+        "Geo_": "28.8"
+      },
+      {
+        "level": 88,
+        "ascension": 6,
+        "hp": 14488,
+        "atk": 248,
+        "def": 727,
+        "Geo_": "28.8"
+      },
+      {
+        "level": 89,
+        "ascension": 6,
+        "hp": 14592,
+        "atk": 249,
+        "def": 733,
+        "Geo_": "28.8"
+      },
+      {
+        "level": 90,
+        "ascension": 6,
+        "hp": 14695,
+        "atk": 251,
+        "def": 738,
+        "Geo_": "28.8"
+      },
+      {
+        "level": 95,
+        "ascension": 6,
+        "hp": 15217,
+        "atk": 279,
+        "def": 764,
+        "Geo_": "28.8"
+      },
+      {
+        "level": 100,
+        "ascension": 6,
+        "hp": 15740,
+        "atk": 308,
+        "def": 790,
+        "Geo_": "28.8"
+      }
+    ]
+  },
+  "icons": {
+    "forward": "UI_AvatarIcon_Zhongli",
+    "coop_img": "UI_CoopImg_Zhongli"
+  },
+  "ascension": {
+    "x202": 7.0499E+6,
+    "exp": {
+      "x104001": 2,
+      "x104003": 418
+    },
+    "speciality": {
+      "x100058": 168
+    },
+    "elemental": {
+      "x104171": 1,
+      "x104172": 9,
+      "x104173": 9,
+      "x104174": 6
+    },
+    "worldmonster": {
+      "x112002": 18,
+      "x112003": 30,
+      "x112004": 36
+    },
+    "elitemonster": {
+      "x113009": 46
+    }
+  },
+  "skills": {
+    "normalattack": {
+      "name": "Rain of Stone",
+      "icon": "Skill_A_03",
+      "multipliers": {
+        "x1_HitDMG": [
+          "30.77%",
+          "33.27%",
+          "35.78%",
+          "39.36%",
+          "41.86%",
+          "44.72%",
+          "48.66%",
+          "52.59%",
+          "56.53%",
+          "60.82%",
+          "65.74%",
+          "71.53%",
+          "77.31%",
+          "83.1%",
+          "89.41%"
+        ],
+        "x2_HitDMG": [
+          "31.15%",
+          "33.69%",
+          "36.22%",
+          "39.85%",
+          "42.38%",
+          "45.28%",
+          "49.26%",
+          "53.25%",
+          "57.23%",
+          "61.58%",
+          "66.56%",
+          "72.42%",
+          "78.27%",
+          "84.13%",
+          "90.52%"
+        ],
+        "x3_HitDMG": [
+          "38.58%",
+          "41.72%",
+          "44.86%",
+          "49.34%",
+          "52.48%",
+          "56.07%",
+          "61%",
+          "65.94%",
+          "70.87%",
+          "76.26%",
+          "82.42%",
+          "89.68%",
+          "96.93%",
+          "104.18%",
+          "112.1%"
+        ],
+        "x4_HitDMG": [
+          "42.94%",
+          "46.43%",
+          "49.93%",
+          "54.92%",
+          "58.42%",
+          "62.41%",
+          "67.9%",
+          "73.4%",
+          "78.89%",
+          "84.88%",
+          "91.74%",
+          "99.82%",
+          "107.89%",
+          "115.97%",
+          "124.77%"
+        ],
+        "x5_HitDMG": [
+          "10.75%×4",
+          "11.63%×4",
+          "12.5%×4",
+          "13.75%×4",
+          "14.62%×4",
+          "15.62%×4",
+          "17%×4",
+          "18.38%×4",
+          "19.75%×4",
+          "21.25%×4",
+          "22.97%×4",
+          "24.99%×4",
+          "27.01%×4",
+          "29.03%×4",
+          "31.24%×4"
+        ],
+        "x6_HitDMG": [
+          "54.5%",
+          "58.93%",
+          "63.37%",
+          "69.7%",
+          "74.14%",
+          "79.21%",
+          "86.18%",
+          "93.15%",
+          "100.12%",
+          "107.73%",
+          "116.44%",
+          "126.69%",
+          "136.93%",
+          "147.18%",
+          "158.36%"
+        ],
+        "ChargedAttackDMG": [
+          "111.03%",
+          "120.06%",
+          "129.1%",
+          "142.01%",
+          "151.05%",
+          "161.37%",
+          "175.58%",
+          "189.78%",
+          "203.98%",
+          "219.47%",
+          "237.22%",
+          "258.1%",
+          "278.97%",
+          "299.85%",
+          "322.62%"
+        ],
+        "ChargedAttackStaminaCost": [
+          "25",
+          "25",
+          "25",
+          "25",
+          "25",
+          "25",
+          "25",
+          "25",
+          "25",
+          "25",
+          "25",
+          "25",
+          "25",
+          "25",
+          "25"
+        ],
+        "PlungeDMG": [
+          "63.93%",
+          "69.14%",
+          "74.34%",
+          "81.77%",
+          "86.98%",
+          "92.93%",
+          "101.1%",
+          "109.28%",
+          "117.46%",
+          "126.38%",
+          "135.3%",
+          "144.22%",
+          "153.14%",
+          "162.06%",
+          "170.98%"
+        ],
+        "Low_HighPlungeDMG": [
+          "127.84%/159.68%",
+          "138.24%/172.67%",
+          "148.65%/185.67%",
+          "163.51%/204.24%",
+          "173.92%/217.23%",
+          "185.81%/232.09%",
+          "202.16%/252.51%",
+          "218.51%/272.93%",
+          "234.86%/293.36%",
+          "252.7%/315.64%",
+          "270.54%/337.92%",
+          "288.38%/360.2%",
+          "306.22%/382.48%",
+          "324.05%/404.76%",
+          "341.89%/427.04%"
+        ]
+      },
+      "description": "<color=#FFD780FF>Normal Attack</color>\\nPerforms up to 6 consecutive spear strikes.\\n\\n<color=#FFD780FF>Charged Attack</color>\\nConsumes a certain amount of Stamina to lunge forward, causing stone spears to fall along his path.\\n\\n<color=#FFD780FF>Plunging Attack</color>\\nPlunges from mid-air to strike the ground below, damaging opponents along the path and dealing AoE DMG upon impact."
+    },
+    "elementalskill": {
+      "name": "Dominus Lapidis",
+      "icon": "Skill_S_Zhongli_01",
+      "multipliers": {
+        "StoneStele_ResonanceDMG": [
+          "16%/32%",
+          "17.2%/34.4%",
+          "18.4%/36.8%",
+          "20%/40%",
+          "21.2%/42.4%",
+          "22.4%/44.8%",
+          "24%/48%",
+          "25.6%/51.2%",
+          "27.2%/54.4%",
+          "28.8%/57.6%",
+          "30.4%/60.8%",
+          "32%/64%",
+          "34%/68%",
+          "36%/72%",
+          "38%/76%"
+        ],
+        "PressCD": [
+          "4s",
+          "4s",
+          "4s",
+          "4s",
+          "4s",
+          "4s",
+          "4s",
+          "4s",
+          "4s",
+          "4s",
+          "4s",
+          "4s",
+          "4s",
+          "4s",
+          "4s"
+        ],
+        "HoldDMG": [
+          "80%",
+          "86%",
+          "92%",
+          "100%",
+          "106%",
+          "112%",
+          "120%",
+          "128%",
+          "136%",
+          "144%",
+          "152%",
+          "160%",
+          "170%",
+          "180%",
+          "190%"
+        ],
+        "ShieldBaseAbsorption": [
+          "1232",
+          "1356",
+          "1489",
+          "1633",
+          "1787",
+          "1951",
+          "2126",
+          "2311",
+          "2506",
+          "2712",
+          "2927",
+          "3153",
+          "3389",
+          "3636",
+          "3893"
+        ],
+        "AdditionalShieldAbsorption": [
+          "12.8% Max HP",
+          "13.76% Max HP",
+          "14.72% Max HP",
+          "16% Max HP",
+          "16.96% Max HP",
+          "17.92% Max HP",
+          "19.2% Max HP",
+          "20.48% Max HP",
+          "21.76% Max HP",
+          "23.04% Max HP",
+          "24.32% Max HP",
+          "25.6% Max HP",
+          "27.2% Max HP",
+          "28.8% Max HP",
+          "30.4% Max HP"
+        ],
+        "ShieldDuration": [
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s"
+        ],
+        "HoldCD": [
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s"
+        ]
+      },
+      "description": "#Every mountain, rock and inch of land is filled with the power of Geo, but those who can wield such powers freely are few and far between.\\n\\n<color=#FFD780FF>Press</color>\\nCommands the power of earth to create a Stone Stele.\\n\\n<color=#FFD780FF>Hold</color>\\nCauses nearby Geo energy to explode, causing the following effects:\\n·If their maximum number hasn't been reached, creates a Stone Stele.\\n·Creates a shield of jade. The shield's DMG Absorption scales based on Zhongli's Max HP.\\n·Deals <color=#FFE699FF>AoE Geo DMG</color>.\\n·If there are nearby targets with the <color=#FFE699FF>Geo element</color>, it will drain a large amount of <color=#FFE699FF>Geo element</color> from a maximum of 2 such targets. This effect does not cause DMG.\\n\\n<color=#FFD780FF>Stone Stele</color>\\nWhen created, deals <color=#FFE699FF>AoE Geo DMG</color>.\\nAdditionally, it will intermittently resonate with other nearby <color=#FFE699FF>Geo constructs</color>, dealing <color=#FFE699FF>Geo DMG</color> to nearby opponents.\\nThe Stone Stele is considered a <color=#FFE699FF>Geo construct</color> that can both be climbed and used to block attacks.\\nOnly one Stele created by Zhongli himself may initially exist at any one time.\\n\\n<color=#FFD780FF>Jade Shield</color>\\nPossesses 150% DMG Absorption against all Elemental and Physical DMG.\\nCharacters protected by the Jade Shield will decrease the Elemental RES and Physical RES of opponents in a small AoE by 20%. This effect cannot be stacked.\\n\\n<i>A true master of stone may carve jade and shape gold.</i>"
+    },
+    "elementalburst": {
+      "name": "Planet Befall",
+      "icon": "Skill_E_Zhongli_01",
+      "multipliers": {
+        "SkillDMG": [
+          "401.08%",
+          "444.44%",
+          "487.8%",
+          "542%",
+          "590.78%",
+          "639.56%",
+          "704.6%",
+          "769.64%",
+          "834.68%",
+          "899.72%",
+          "964.76%",
+          "1029.8%",
+          "1084%",
+          "1138.2%",
+          "1192.4%"
+        ],
+        "PetrificationDuration": [
+          "3.1s",
+          "3.2s",
+          "3.3s",
+          "3.4s",
+          "3.5s",
+          "3.6s",
+          "3.7s",
+          "3.8s",
+          "3.9s",
+          "4s",
+          "4s",
+          "4s",
+          "4s",
+          "4s",
+          "4s"
+        ],
+        "CD": [
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s"
+        ],
+        "EnergyCost": [
+          "40",
+          "40",
+          "40",
+          "40",
+          "40",
+          "40",
+          "40",
+          "40",
+          "40",
+          "40",
+          "40",
+          "40",
+          "40",
+          "40",
+          "40"
+        ]
+      },
+      "description": "Brings a falling meteor down to earth, dealing massive <color=#FFE699FF>Geo DMG</color> to opponents caught in its AoE and applying the <color=#FFE699FF>Petrification</color> status to them.\\n\\n<color=#FFD780FF>Petrification</color>\\nOpponents affected by the <color=#FFE699FF>Petrification</color> status cannot move.\\n\\n<i>The falling meteor punishes the unjust.</i>"
+    },
+    "leveling": {
+      "books": {
+        "x104316": 9,
+        "x104317": 63,
+        "x104318": 114
+      },
+      "crown": {
+        "x104319": 3
+      },
+      "worldmonster": {
+        "x112002": 18,
+        "x112003": 66,
+        "x112004": 93
+      },
+      "weekly": {
+        "x113013": 18
+      }
+    }
+  },
+  "passives": {
+    "p1": {
+      "name": "Resonant Waves",
+      "description": "When the Jade Shield takes DMG, it will Fortify:\\n·Fortified characters have 5% increased Shield Strength.\\nCan stack up to 5 times, and lasts until the Jade Shield disappears.",
+      "icon": "UI_Talent_S_Zhongli_05"
+    },
+    "p2": {
+      "name": "Dominance of Earth",
+      "description": "Zhongli deals bonus DMG based on his Max HP:\\n·Normal Attack, Charged Attack, and Plunging Attack DMG is increased by 1.39% of Max HP.\\n·<color=#FFD780FF>Dominus Lapidis'</color> Stone Stele, resonance, and hold DMG is increased by 1.9% of Max HP.\\n·<color=#FFD780FF>Planet Befall's</color> DMG is increased by 33% of Max HP.",
+      "icon": "UI_Talent_S_Zhongli_06"
+    },
+    "p3": {
+      "name": "Arcanum of Crystal",
+      "description": "Refunds 15% of the ore used when crafting Polearm-type weapons.",
+      "icon": "UI_Talent_Forge_Pole"
+    },
+    "p4": ""
+  },
+  "constellations": {
+    "const1": {
+      "name": "Rock, the Backbone of Earth",
+      "description": "Increases the maximum number of Stone Steles created by <color=#FFD780FF>Dominus Lapidis</color> that may exist simultaneously to 2.",
+      "icon": "UI_Talent_S_Zhongli_01"
+    },
+    "const2": {
+      "name": "Stone, the Cradle of Jade",
+      "description": "<color=#FFD780FF>Planet Befall</color> grants nearby characters on the field a Jade Shield when it descends.",
+      "icon": "UI_Talent_S_Zhongli_02"
+    },
+    "const3": {
+      "name": "Jade, Shimmering through Darkness",
+      "description": "Increases the Level of <color=#FFD780FF>Dominus Lapidis</color> by 3.\\nMaximum upgrade level is 15.",
+      "icon": "UI_Talent_U_Zhongli_01"
+    },
+    "const4": {
+      "name": "Topaz, Unbreakable and Fearless",
+      "description": "Increases <color=#FFD780FF>Planet Befall</color>'s AoE by 20% and increases the duration of Planet Befall's Petrification effect by 2s.",
+      "icon": "UI_Talent_S_Zhongli_03"
+    },
+    "const5": {
+      "name": "Lazuli, Herald of the Order",
+      "description": "Increases the Level of <color=#FFD780FF>Planet Befall</color> by 3.\\nMaximum upgrade level is 15.",
+      "icon": "UI_Talent_U_Zhongli_02"
+    },
+    "const6": {
+      "name": "Chrysos, Bounty of Dominator",
+      "description": "When the Jade Shield takes DMG, 40% of that incoming DMG is converted to HP for the current character.\\nA single instance of regeneration cannot exceed 8% of that character's Max HP.",
+      "icon": "UI_Talent_S_Zhongli_04"
+    }
+  },
+  "hyperlinks": [],
+  "stories": {
+    "x172001": {
+      "storyTitle": "Character Details",
+      "storyText": "In Liyue's traditional customs, \"receiving adepti\" and \"sending adepti off\" are equally important.\\nThe Hus of the Wangsheng Funeral Parlor, who have been in this business for 77 generations, are the masters of handling funerals. However, Hu Tao, the current owner of Wangsheng Funeral Parlor, primarily focuses on the art of sending mortals on their way.\\nFor the various ceremonies for sending adepti off, Hu Tao usually employs the help of a friend in more or less the same business. That person's name is Zhongli. The adepti have been with Liyue for millennia, but only a handful have ascended in the past three thousand years, which means that everything regarding the traditions now only exists in texts. This is not something one would likely witness twice in their entire lifetime.\\nNot even the most particular and learned of researchers or scholars could find one fault in Wangsheng Funeral Parlor's ceremonies for sending adepti off.\\nEverything must be perfect, from the costumes, the time, the place, the items, the weather, the scheduled length, the size of the permitted audience, to the stature, profession, and age of said audience. Nothing can be overlooked.\\nWhen folk describe Zhongli as \"living history,\" the latter usually only smiles and sighs.\\n\"I... just have a good memory.\"",
+      "unlockConds": []
+    },
+    "x172002": {
+      "storyTitle": "Character Story 1",
+      "storyText": "In Liyue, if a person pays great attention to details, and has insuperable criteria by which they judge certain matters, then they are called \"particular.\"\\nIn truth, everyone is \"particular\" about something. Some people hate spicy food, others don't eat fish, and some want their tofu served sweet...\\nBut as for Zhongli, he is particular about everything.\\nHe attends operas performed by only the most celebrated stars, takes only the most luxuriant thrushes out for walks, and he goes into the kitchen personally to instruct the cooks as to the ratio of shrimp and fish required to make the most authentic Fullmoon Egg.\\nZhongli has expertise in all manner of things, from fashion to daily essentials, to fine wines and delicacies, to teas and spices, and to flora and fauna. He is also more than capable of participating in discussions on commerce, politics, and international relations.\\nBut on a typical day, all you will glean from him is a few pieces of useless trivia, because he particularly enjoys sharing these fun tidbits with you.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 2
+      }
+    },
+    "x172003": {
+      "storyTitle": "Character Story 2",
+      "storyText": "When making a purchase, look to haggle.\\nThis is a common understanding among the people of Liyue. No matter what high heavens the store owner praises their product to, no matter its ancient history or classical value, prices are always flexible. Half the stated cost is a good place to start.\\nBut when Zhongli pays up (or rather, calls for someone else to pay up on his behalf), he never looks at the price tag. As long as it catches his eye, Zhongli will pay as much as the owner asks. Indeed, he will even buy it at a premium sometimes.\\nBut for some reason, Zhongli always forgets to bring money.\\nFor small purchases, he has friends to help him out, and large bills he somehow finds ways to have written off.\\nTo those merchants who secretly pride themselves on their powers of flattery, Zhongli is a man of strange proclivities: in truth, he knows a great deal about the value of money and finance, and he also understands the suffering of the people. However, he seems to not understand that poverty is part of the human condition.\\nOr perhaps it might be said that he cannot imagine himself being poor.\\nHow has such a person not died of hunger yet?",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 3
+      }
+    },
+    "x172004": {
+      "storyTitle": "Character Story 3",
+      "storyText": "There is no way Zhongli can starve.\\nSuch concerns as profit and loss are beneath his notice. The Seven Nations and the world itself are where his efforts are directed.\\nAs for wealth... He is wealth itself.\\nHe is Morax, the overlord Rex Lapis who rules Liyue, and the Geo Archon of the Seven Archons. The very money that circulates throughout Teyvat, Mora, is named after him.\\nWhen night falls and bustling Liyue begins to slumber, he will sometimes stand atop the towering mountains and gaze upon this city, which he made with his own hands.\\nTo the people of Liyue, Rex Lapis has many divine titles.\\nWhen he laid down Liyue's laws by his divine might, he was the God of Contracts. When he minted the first Mora and made Liyue strong by dint of commerce, the merchants revered him as the God of Commerce.\\nHe has lived through countless years and is the eldest of the Seven, and so historians call him the God of History.\\nThousands of years ago, the forebears of the citizens of Liyue Harbor struck stones together to start fires and used piled stones to create stoves. These blessings derived from the Geo element led the Geo Archon to gain the title of God of the Stove.\\nPeople from other lands tend to call him Morax, though the people of Liyue prefer to use the term Rex Lapis.\\nBut in the hearts of lovers of opera and children, Morax's on-stage aspect, the all-conquering defender of Liyue — the Warrior God — is the most fascinating.\\nThe delicacies that Rex Lapis discovered while lost in the streets, the plaques inscribed with his handwriting, a famous opera that he once starred in, playing the part of a warrior... Many stories and tales of Liyue are, when studied closely, stories of people visited by their deity at some point — and the citizens of Liyue are most proud indeed of that history.",
+      "unlockConds": [
+        {
+          "type": "FETTER_COND_FETTER_LEVEL",
+          "value": 4
+        },
+        {
+          "type": "FETTER_COND_FINISH_QUEST",
+          "value": 102510
+        }
+      ]
+    },
+    "x172005": {
+      "storyTitle": "Character Story 4",
+      "storyText": "As the founder of Liyue Harbor, \"contracts\" are the most important thing to Morax.\\nFrom simple monetary exchange and agreements between merchants to the ancient laws that Morax himself laid down, there is no part of city life untouched by \"contracts.\"\\nTo merchants, \"contracts\" are the most important standard to which they hold themselves: deadlines, invoices, shipping destinations... Only a refined and strict order can sustain vibrant commerce, which is itself the lifeblood of Liyue Harbor.\\nThus the Qixing punish violators of such laws unceasingly, not only to uphold the divine rulings of Morax but also to allow Liyue to maintain its vitality.\\nThrough the millennia, every generation of the Liyue Qixing commits to interpreting the law, including subtle amendments to plug loopholes found in the law. Any loopholes that remain undiscovered are seen by the merchants as \"permissible if unaddressed,\" and they make killings off such holes until they are discovered and patched up by the Liyue Qixing.\\nAmid this game of cat-and-mouse, the book that collates such amendments has reached a whopping 279 pages thick.\\nThe person currently responsible for maintaining this book, the Tianquan Ningguang, is secretly (and humorously) referred to as the \"Tailor of Liyue,\" in honor of her speed in patching these laws up, and for her sharpness of eye.\\nBut no matter how complicated or tangled mortal laws become, one of these stands above all others in the eyes of Rex Lapis.\\n\"The one who reneges on their words shall suffer the Wrath of the Rock.\"",
+      "unlockConds": [
+        {
+          "type": "FETTER_COND_FETTER_LEVEL",
+          "value": 5
+        },
+        {
+          "type": "FETTER_COND_FINISH_QUEST",
+          "value": 102510
+        }
+      ]
+    },
+    "x172006": {
+      "storyTitle": "Character Story 5",
+      "storyText": "Rex Lapis, most ancient of The Seven, has lived far too long.\\nRex Lapis still remembers that moment when the final archon took their divine seat, thus ending the Archon War and the era of warring gods. The Seven were a diverse lot and dispersed far and wide, but they all shouldered the burden of guiding humanity.\\nAs time passed, many of The Seven's titles changed hands, and only two remain of the first Seven: Rex Lapis and the Anemo Archon.\\nThe carefree Barbatos, the Anemo Archon, is the second eldest of The Seven.\\nWhen Barbatos first came to Liyue, Rex Lapis believed his fellow archon to have encountered some terrible crisis in pursuit of their duties, thus requiring his aid.\\nSo when Barbatos descended in a gust of wind, the Geo Archon had already prepared himself to receive this neighboring deity and lend what help he may.\\nBut as he looked, the Anemo Archon tossed a wine bottle at him.\\n\"Here's some wine from Mondstadt. Care for a taste?\"\\nTo forsake one's duty to deliver a single bottle of wine — what a preposterous notion!\\nYet the Anemo Archon kept coming to visit, to explore Liyue Harbor, all sorts of strange questions on his lips. The Anemo Archon's questions knew as little limits as the wine in his hands.\\nFrom then on, the first Seven would often gather in Liyue.\\nRex Lapis still remembers how those wines tasted.\\nThe world has changed much since then, and all that was once familiar has faded into memory.\\nThe seven seats changed and again were changed, till five of the seven at the table were all departed.\\nNor would the duty of guiding humanity be honored by the new archons.\\nEven the hardest rocks may be worn down after three thousand years.\\nNor would the wind ever return again.\\nOne drizzly day, the ancient ruler was strolling about Liyue Harbor, and overheard a merchant telling one of his workers,\\n\"You've finished your duties, go ahead and call it a day.\"\\nLong did he stand amidst the milling crowd.\\n\"Have I... already finished my duties?\"",
+      "unlockConds": [
+        {
+          "type": "FETTER_COND_FETTER_LEVEL",
+          "value": 6
+        },
+        {
+          "type": "FETTER_COND_FINISH_QUEST",
+          "value": 102510
+        }
+      ]
+    },
+    "x172007": {
+      "storyTitle": "That Which Rises From the Sea",
+      "storyText": "During the Archon Wars, every corner of Teyvat was consumed in the fires of conflict. Not only did gods fight amongst themselves, but countless wicked things also sought to expand their domains.\\nOne such type of creature caused no end of woe for the Geo Archon, long before he took that title along with his place among The Seven.\\nThese foul creatures, straight from the murky depths of the ocean abyss, had a squishy exterior, and possessed agile tentacles that would live on even after being cut off, even secreting some thick and revolting fluid in the process.\\nThis alone would have been enough to make them the most monstrous of all creatures, and still it was not the pinnacle of their monstrosity.\\nWhat made them so truly terrible was their small size, which gave them the ability to duck into unimaginably small nooks and crannies.\\nNo space was too narrow for them, neither the wooden boards of tables and chairs, nor the seams of windows and doors and curtain folds, nor even books and brushes.\\nMany a poor soul had, on at least one occasion, unwittingly outstretched their hand, only to quickly retract it in horror with a blood-curdling scream at the sensation of something cold, clammy and damp, while one or more of these despicable creatures came crawling up their arm, leaving a shiny trail behind them...\\nAt the behest of the people of Liyue, Morax agreed to wipe these creatures out. But these parasites upon civilization could not be destroyed like enemies on a battlefield, by simply summoning a storm of stone spears that would shatter the earth and churn the soil...\\nStill, he was the God of Contracts. His word had to be his bond.\\nSo, he went through the town from house to house with prisons of stone, seizing these creatures one by one and locking them away for good...\\nThis long campaign of pest extermination taught Morax the true meaning of \"a burden lifted.\"\\nThe grueling campaign itself, and the terrible smell of those ocean creatures' secretions, left a lasting impression on the deity.\\nToday, even when he goes out incognito as the mortal man, Zhongli, Morax gives those living, squirming seafood products a wide berth.\\n...Well, except for dishes where said seafood products have been sliced and diced into oblivion, such as seafood tofu. He'll quite happily eat those.",
+      "unlockConds": [
+        {
+          "type": "FETTER_COND_FETTER_LEVEL",
+          "value": 4
+        },
+        {
+          "type": "FETTER_COND_FINISH_QUEST",
+          "value": 102510
+        }
+      ]
+    },
+    "x172008": {
+      "storyTitle": "Vision",
+      "storyText": "Once the Rite of Parting, of which Zhongli was both director and star, was over, the Fatui Harbinger named Signora appeared before him.\\nBy prior contract, she was here to claim the Geo Archon Morax's Gnosis.\\nBefore the Traveler and the two Fatui Harbingers, Zhongli related the truth that he had established a contract with the Cryo Archon.\\nIn his own words, this was his final \"Contract to End All Contracts.\"\\nYet no matter how one looks at it, the loss of his divine ability to defend Liyue was too great a price to pay.\\nEven amongst mortals, the basis of a contract is \"equivalent exchange.\"\\nAnd for the God of Contracts, who must have established countless such agreements in his long years of existence, such an important contract must have come with its benefits.\\nNow, the Geo Archon has given away his Gnosis as his part of the deal.\\nWhat, then, must the Cryo Archon have wagered to balance the scales?",
+      "unlockConds": [
+        {
+          "type": "FETTER_COND_FETTER_LEVEL",
+          "value": 6
+        },
+        {
+          "type": "FETTER_COND_FINISH_QUEST",
+          "value": 102510
+        }
+      ]
+    }
+  },
+  "quotes": {
+    "x17100": {
+      "quoteTitle": "Hello",
+      "quoteText": "A new contract? Okay. I'm still on leave, but I can accompany you for a while. What name should I use on the contract? I have a great many names, though when on leave I tend to go by Zhongli. And you, Traveler? What name will you be signing on this contract?",
+      "unlockConds": []
+    },
+    "x17101": {
+      "quoteTitle": "Chat: Journeys",
+      "quoteText": "Every journey has its final day. Don't rush.",
+      "unlockConds": []
+    },
+    "x17102": {
+      "quoteTitle": "Chat: Tours",
+      "quoteText": "Where do you want to go next? If you'd like to see Liyue's tourist spots, I have a few references.",
+      "unlockConds": []
+    },
+    "x17103": {
+      "quoteTitle": "Chat: Liyue",
+      "quoteText": "Boats are made for transferring commodities back and forth, and those that come across Liyue tend to stay a while, so it is where many things come to settle.",
+      "unlockConds": []
+    },
+    "x17104": {
+      "quoteTitle": "Chat: Reminiscing",
+      "quoteText": "Osmanthus wine tastes the same as I remember... But where are those who share the memory?",
+      "unlockConds": []
+    },
+    "x17105": {
+      "quoteTitle": "After the Rain",
+      "quoteText": "Violetgrass is a plant that enjoys a moist environment and is best picked after it rains. If you should choose to pick any, be sure to store them appropriately.",
+      "unlockConds": []
+    },
+    "x17106": {
+      "quoteTitle": "When It Snows",
+      "quoteText": "We should look for a place to take shelter. I'll be fine, but we don't want you catching a cold.",
+      "unlockConds": []
+    },
+    "x17107": {
+      "quoteTitle": "When the Wind Is Blowing",
+      "quoteText": "This weather is no good for being on vacation. We should go and take in an opera.",
+      "unlockConds": []
+    },
+    "x17108": {
+      "quoteTitle": "Good Morning",
+      "quoteText": "I hope today too shall be prosperous.",
+      "unlockConds": []
+    },
+    "x17109": {
+      "quoteTitle": "Good Afternoon",
+      "quoteText": "Want a quick meal to pick us back up? I know a good place in Chihu Rock.",
+      "unlockConds": []
+    },
+    "x17110": {
+      "quoteTitle": "Good Evening",
+      "quoteText": "By this time of night, we will have already missed Ms. Yun's play, but Liyue is full of interesting places to explore, even at night.",
+      "unlockConds": []
+    },
+    "x17111": {
+      "quoteTitle": "Good Night",
+      "quoteText": "The market is closed and the port has settled. Go get some rest.",
+      "unlockConds": []
+    },
+    "x17112": {
+      "quoteTitle": "About Zhongli",
+      "quoteText": "Nothing can be accomplished without rules or standards. No matter if it is mortals or adepti, everyone has their place. This rule is what keeps Liyue in peace.",
+      "unlockConds": [
+        "Complete \"A New Star Approaches\""
+      ]
+    },
+    "x17113": {
+      "quoteTitle": "About Us: Gold",
+      "quoteText": "Gold is Liyue's treasure. It is the blood that runs through her heart. As for whether your own heart shines like gold — we will have to wait and see.",
+      "unlockConds": []
+    },
+    "x17114": {
+      "quoteTitle": "About Us: Contracts",
+      "quoteText": "You and I have a contract, so feel free to discuss anything at all within the scope of said contract.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 6"
+      ]
+    },
+    "x17115": {
+      "quoteTitle": "About Us: Fairness",
+      "quoteText": "We can discuss matters that fall outside of our contract, too. After all, I have been on this land for a time, and have come to know a thing or two. Of course, I do hope you can do some things for me as well. That would only be fair.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 6",
+        "Complete \"A New Star Approaches\""
+      ]
+    },
+    "x17116": {
+      "quoteTitle": "About Us: Confusion",
+      "quoteText": "Contracts cannot be used to define friendship, nor measure sentiment. So just what can we use to measure the weight of our emotions? Do you know the answer, friend?",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 6"
+      ]
+    },
+    "x17117": {
+      "quoteTitle": "About the Vision",
+      "quoteText": "Visions... are also a type of contract. You should know that all power comes at a price. For every bit of power you gain, so too do you gain more responsibility.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x17118": {
+      "quoteTitle": "Something to Share",
+      "quoteText": "Trade relies on both contracts and fairness. There is one thing you must never forget when making and abiding by a contract: if fairness is lost, then the contract shall become proof of one's deception.",
+      "unlockConds": []
+    },
+    "x17119": {
+      "quoteTitle": "Interesting Things",
+      "quoteText": "If you're heading to Jueyun Karst, please bring me back a bunch of Qingxin. Just one bunch is enough. Travel expenses...? Ah, I almost forgot. During the effective period of our contract, travel expenses are to be paid for by yourself. Sorry to bother you.",
+      "unlockConds": []
+    },
+    "x17120": {
+      "quoteTitle": "About Xiao",
+      "quoteText": "You speak of the young adeptus of Guili Plains... *sigh* Still fulfilling his duty to this very day. Please, give this Remedium Tertiorum to him on my behalf. Oh, yes... be sure not to let Paimon eat them. Nothing of this world can withstand the power of this medicine.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4",
+        "Complete \"A New Star Approaches\""
+      ]
+    },
+    "x17121": {
+      "quoteTitle": "About Venti",
+      "quoteText": "*sniff* Tsk... It reeks of wine. That bard has just been through here, hasn't he? That drunkard is a disgrace to the arts. Oh... Has he tricked you into getting drunk? You're slurring a little. Wait a moment, I'll brew a pot of sobering tea. It'll be ready in only six hours, so just wait a moment.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4",
+        "Complete \"A New Star Approaches\""
+      ]
+    },
+    "x17122": {
+      "quoteTitle": "About Ningguang",
+      "quoteText": "Despite the multitude of affairs that she deals with in a day, Ningguang always continues to press on. A rare gem indeed. I'm reminded of the time that she used to walk barefoot from Yaoguang Shoal to the south wharf, trying to sell her wares as she went. Time is cruel to humans.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4",
+        "Complete \"A New Star Approaches\""
+      ]
+    },
+    "x17123": {
+      "quoteTitle": "About Hu Tao",
+      "quoteText": "The current overseer of the funeral parlor? Ahem. I cannot deal with that child.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x17124": {
+      "quoteTitle": "About Tartaglia: Composed",
+      "quoteText": "That rascal from Snezhnaya has yet to depart from Liyue? Heh, no matter. Just let me know if he gives you any trouble. I shall deal with the matter swiftly.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x17125": {
+      "quoteTitle": "About Tartaglia: Drinks",
+      "quoteText": "It's said that Childe and his reputation have yet again stirred up waves among the inner ranks of the Fatui. Knowing his type, he will be sure to swiftly depose anyone who dares to challenge his actions. Hmm... Come to think of it, there will be a lot of interesting news to be heard the next time we gather for drinks. Care to join me when the time comes, Traveler?",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4",
+        "Complete \"A New Star Approaches\""
+      ]
+    },
+    "x17126": {
+      "quoteTitle": "About Ganyu",
+      "quoteText": "Liyue's prosperity has not merely been built on Rex Lapis' oracles or wisdom. It is also thanks to the countless servants of the Geo Archon who have honored their end of the contract. Of them, Ganyu is the one who has served for the longest time. If you want to know about her past... You should ask her about it. I fear my wording would not be delicate enough to receive her approval.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4",
+        "Complete \"A New Star Approaches\""
+      ]
+    },
+    "x17127": {
+      "quoteTitle": "About Keqing",
+      "quoteText": "She is the most impious of the Qixing — but I actually find the conviction of such people quite endearing. The only reason I was able to consider taking a step back from such overarching management of Liyue was because there are people like her. People who speak up when they believe themselves to be right, and then go and do something decisive about it.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4",
+        "Complete \"A New Star Approaches\""
+      ]
+    },
+    "x17128": {
+      "quoteTitle": "About Yanfei",
+      "quoteText": "Despite never having signed a contract with me, she upholds order within many strata of Liyue society in her own way, dispelling misconceptions and correcting biases... Should her father one day return from his travels, I imagine that he would be even more delighted than I.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4",
+        "Complete \"A New Star Approaches\""
+      ]
+    },
+    "x17129": {
+      "quoteTitle": "More About Zhongli: I",
+      "quoteText": "Why is it that once you finally get a break, rather than taking a rest, you instead come to me? Is it that you want to hear one of my stories?",
+      "unlockConds": []
+    },
+    "x17130": {
+      "quoteTitle": "More About Zhongli: II",
+      "quoteText": "Have you heard of the origin of the Blackcliff Forge? In the past, they would mine the ore veins of Mt. Tianheng, and then replace the cavities with factory equipment. Tunnels run in all directions throughout the mountain — some even run to the ruins deep within the earth. I doubt there is a person today who could map out all the tunnels.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 3"
+      ]
+    },
+    "x17131": {
+      "quoteTitle": "More About Zhongli: III",
+      "quoteText": "Have you heard of the origins of the Lantern Rite? In a war, long ago, the people of Liyue would release lanterns to remind their soldiers of the way home, and to never lose sight of themselves. Though in this day and age, I doubt there are any that remember.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x17132": {
+      "quoteTitle": "More About Zhongli: IV",
+      "quoteText": "The God of Contracts. Have you heard of him? He has an impressive memory. He remembers the name of every person he comes across, and the date that every ship built in Liyue sets sail. After all, only in being able to do so can he memorize all of the contracts he holds. With that said, not every memory is a happy one...",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 5",
+        "Complete \"A New Star Approaches\""
+      ]
+    },
+    "x17133": {
+      "quoteTitle": "More About Zhongli: V",
+      "quoteText": "For those that live too long, the friends of days gone by and scenes from their adventures live on in their memories. As such, I have no regrets in meeting you, friend. Should the day ever come that we are not together, you will continue to shine like gold in my memories.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 6",
+        "Complete \"A New Star Approaches\""
+      ]
+    },
+    "x17134": {
+      "quoteTitle": "Zhongli's Hobbies",
+      "quoteText": "I enjoy partaking in walks through the city — when time permits. I find it very calming. Yes... Just when did this feeling begin...?",
+      "unlockConds": []
+    },
+    "x17135": {
+      "quoteTitle": "Zhongli's Troubles",
+      "quoteText": "To get people to abide by a contract and act in accordance with the guidelines set out within is simply to ask them to respect the concept of fairness. It is not a large request. How are there those who still do not understand such simplicity?",
+      "unlockConds": [
+        "Complete \"A New Star Approaches\""
+      ]
+    },
+    "x17136": {
+      "quoteTitle": "Favorite Food",
+      "quoteText": "There was once a drink I used to enjoy with friends — long ago... Is it because the climate has changed? A shame I will never be able to relish in its smooth flavor again.",
+      "unlockConds": []
+    },
+    "x17137": {
+      "quoteTitle": "Least Favorite Food",
+      "quoteText": "I don't like seafood. Just seeing it reminds me of that... slimy texture, and that scent that just won't wash off. As for why I hate it... *sigh* It's a long story, so let's just say my memory is a little too good.",
+      "unlockConds": []
+    },
+    "x17138": {
+      "quoteTitle": "Birthday",
+      "quoteText": "Happy birthday. This is a dried Glaze Lily that came into bloom on the day of your birth. Long ago, the people of Liyue would say that this flower blooms bearing the weight of the beautiful memories and prayers of the land. I believe this to have applied on the day you were born as well.",
+      "unlockConds": []
+    },
+    "x17139": {
+      "quoteTitle": "Feelings About Ascension: Intro",
+      "quoteText": "It seems my strength is returning. Not a lot, but enough.",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 1"
+      ]
+    },
+    "x17140": {
+      "quoteTitle": "Feelings About Ascension: Building Up",
+      "quoteText": "My power is growing, and so with it grows the burden on my body... I'm okay. My structure is not the same as that of normal people. Please, do not worry yourself.",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 2",
+        "Complete \"A New Star Approaches\""
+      ]
+    },
+    "x17141": {
+      "quoteTitle": "Feelings About Ascension: Climax",
+      "quoteText": "I see. Using a Vision harnesses elements. As far as the common folk are concerned, this is no small feat. So... back then... they were aware of this as they stood beside me...",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 4",
+        "Complete \"A New Star Approaches\""
+      ]
+    },
+    "x17142": {
+      "quoteTitle": "Feelings About Ascension: Conclusion",
+      "quoteText": "After letting go of my Gnosis, I never expected to see a day like this again. Thank you, friend. Ah, yes, I have a new contract here. Care to take a look at it together?",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 6",
+        "Complete \"A New Star Approaches\""
+      ]
+    },
+    "x17143": {
+      "quoteTitle": "Elemental Skill: I",
+      "quoteText": "Rise!",
+      "unlockConds": []
+    },
+    "x17144": {
+      "quoteTitle": "Elemental Skill: II",
+      "quoteText": "Quake!",
+      "unlockConds": []
+    },
+    "x17145": {
+      "quoteTitle": "Elemental Skill: III",
+      "quoteText": "Crumble!",
+      "unlockConds": []
+    },
+    "x17146": {
+      "quoteTitle": "Elemental Skill: IV",
+      "quoteText": "Gather.",
+      "unlockConds": []
+    },
+    "x17147": {
+      "quoteTitle": "Elemental Skill: V",
+      "quoteText": "Stabilize.",
+      "unlockConds": []
+    },
+    "x17148": {
+      "quoteTitle": "Elemental Skill: VI",
+      "quoteText": "Solidify.",
+      "unlockConds": []
+    },
+    "x17149": {
+      "quoteTitle": "Elemental Burst: I",
+      "quoteText": "Order guide you.",
+      "unlockConds": []
+    },
+    "x17150": {
+      "quoteTitle": "Elemental Burst: II",
+      "quoteText": "This is order.",
+      "unlockConds": []
+    },
+    "x17151": {
+      "quoteTitle": "Elemental Burst: III",
+      "quoteText": "I will have order!",
+      "unlockConds": []
+    },
+    "x17152": {
+      "quoteTitle": "Opening Treasure Chest: I",
+      "quoteText": "One man's stone is another man's gem...",
+      "unlockConds": []
+    },
+    "x17153": {
+      "quoteTitle": "Opening Treasure Chest: II",
+      "quoteText": "Unsolicited... and all the more valuable for it.",
+      "unlockConds": []
+    },
+    "x17154": {
+      "quoteTitle": "Opening Treasure Chest: III",
+      "quoteText": "Certainly worth the extra mile.",
+      "unlockConds": []
+    },
+    "x17155": {
+      "quoteTitle": "Low HP: I",
+      "quoteText": "I see your power.",
+      "unlockConds": []
+    },
+    "x17156": {
+      "quoteTitle": "Low HP: II",
+      "quoteText": "Ha, this is getting interesting.",
+      "unlockConds": []
+    },
+    "x17157": {
+      "quoteTitle": "Low HP: III",
+      "quoteText": "Emergency countermeasures aren't my thing.",
+      "unlockConds": []
+    },
+    "x17158": {
+      "quoteTitle": "Ally at Low HP: I",
+      "quoteText": "Don't try to rush your enemy.",
+      "unlockConds": []
+    },
+    "x17159": {
+      "quoteTitle": "Ally at Low HP: II",
+      "quoteText": "Take a rest. Leave it to me.",
+      "unlockConds": []
+    },
+    "x17160": {
+      "quoteTitle": "Fallen: I",
+      "quoteText": "Ugh... I'm feeling a little... off...",
+      "unlockConds": []
+    },
+    "x17161": {
+      "quoteTitle": "Fallen: II",
+      "quoteText": "You shouldn't see me like this...",
+      "unlockConds": []
+    },
+    "x17162": {
+      "quoteTitle": "Fallen: III",
+      "quoteText": "Even bedrock can be turned to dust...",
+      "unlockConds": []
+    },
+    "x17163": {
+      "quoteTitle": "Heavy Hit Taken: I",
+      "quoteText": "Careless...",
+      "unlockConds": []
+    },
+    "x17164": {
+      "quoteTitle": "Heavy Hit Taken: II",
+      "quoteText": "Nothing to fear.",
+      "unlockConds": []
+    },
+    "x17165": {
+      "quoteTitle": "Joining Party: I",
+      "quoteText": "Sure.",
+      "unlockConds": []
+    },
+    "x17166": {
+      "quoteTitle": "Joining Party: II",
+      "quoteText": "A walk would be nice.",
+      "unlockConds": []
+    },
+    "x17167": {
+      "quoteTitle": "Joining Party: III",
+      "quoteText": "What shall we do?",
+      "unlockConds": []
+    },
+    "x17168": {
+      "quoteTitle": "About Baal",
+      "quoteText": "Time tempers all volition. Yet she would give up everyone for her beliefs. Perhaps it is for this very reason that she has come to where she stands today... Should the chance come by me, I too would like to learn of the Eternity for which she so earnestly endeavors.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x17169": {
+      "quoteTitle": "Receiving a Gift: I",
+      "quoteText": "The finest ingredients cooked with true expertise. This is no small feat.",
+      "unlockConds": []
+    },
+    "x17170": {
+      "quoteTitle": "Receiving a Gift: II",
+      "quoteText": "The art of gastronomy is a fascinating one. That it appeals to you comes as no surprise.",
+      "unlockConds": []
+    },
+    "x17171": {
+      "quoteTitle": "Receiving a Gift: III",
+      "quoteText": "Since you seem to have some time on your hands, why don't we find a quiet place and I'll share one of my stories with you.",
+      "unlockConds": []
+    },
+    "x17172": {
+      "quoteTitle": "About Buer",
+      "quoteText": "As well as ruling over all of Sumeru, the God of Wisdom, Buer, has a duty to guard Irminsul. Only one who possesses great wisdom could hope to shoulder these responsibilities. All life in Teyvat owes her gratitude for saving Irminsul.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4",
+        "Complete \"Akasha Pulses, the Kalpa Flame Rises\""
+      ]
+    },
+    "x17173": {
+      "quoteTitle": "About Furina",
+      "quoteText": "She made a contract with her own self to save the nation, strictly adhered to it for over five centuries without once wavering, and even fooled the Heavenly Principles in the end... I have great respect for approaches to justice that place exacting demands not only on others, but also on the self. Though her divinity has vanished and the throne of the Archon is no more, Furina will go down in Fontaine's history as a God of Justice worthy of recognition.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4",
+        "Complete \"Masquerade of the Guilty\""
+      ]
+    },
+    "x17174": {
+      "quoteTitle": "About Xianyun",
+      "quoteText": "I hear many merchants of Liyue tell tales of a Ms. Xianyun. By most accounts, she appears proud and taciturn upon first glance, yet in conversation, people find her to be forthright and fair-minded, and they are pleased to make her acquaintance. I am glad to hear this. But... I have also heard a great many accounts lauding her readiness to part with large sums of Mora...",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4",
+        "Complete \"A Thousand Moonlit Miles\""
+      ]
+    },
+    "x17175": {
+      "quoteTitle": "About Haborym",
+      "quoteText": "Natlan's long history of struggle fueled its warriors to overcome the Abyss and transcend fate to forge a new future. Behind this triumph stands a leader who wields both time and history as her weapons, with a level of strength that rivals the gods. She is impressive indeed.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4",
+        "Complete \"Incandescent Ode of Resurrection\""
+      ]
+    },
+    "x17176": {
+      "quoteTitle": "About the White Horse Adeptus",
+      "quoteText": "The white horse... An old acquaintance, and one I haven't met in a very long time... One laments spring nights, how short they last, and autumn days that quickly pass. A steed that bolts and swiftly flees, a candle shivering in the breeze.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    }
+  },
+  "energy": {
+    "source": "UNIQUE_ElementBall_Extra",
+    "particles": "1",
+    "chance": "50%",
+    "cd": "1.5s"
+  },
+  "attacks": [
+    {
+      "name": "SkillObj_PrimoPillar",
+      "icd_source": "Tag: Elemental_Art (!)",
+      "icd_rule": "Independent",
+      "gauge": "2U",
+      "poise": "LV4/200",
+      "element": "Rock",
+      "attackType": "Melee",
+      "strikeType": "Blunt",
+      "damageParam": "PillarDamage1"
+    },
+    {
+      "name": "SkillObj_PrimoPillar",
+      "icd_source": "Tag: Elemental_Art (!)",
+      "icd_rule": "Independent",
+      "gauge": "2U",
+      "poise": "LV4/200",
+      "element": "Rock",
+      "attackType": "Melee",
+      "strikeType": "Blunt",
+      "damageParam": "PillarDamage1"
+    },
+    {
+      "name": "SkillObj_PrimoPillar",
+      "icd_source": "Tag: Elemental_Art (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV1/0",
+      "element": "Rock",
+      "attackType": "Melee",
+      "strikeType": "Blunt",
+      "damageParam": "PillarDamage2"
+    },
+    {
+      "name": "SkillObj_PrimoPillar",
+      "icd_source": "Tag: Elemental_Art (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV1/0",
+      "element": "Rock",
+      "attackType": "Melee",
+      "strikeType": "Blunt",
+      "damageParam": "PillarDamage2"
+    },
+    {
+      "name": "SkillObj_PrimoPillar",
+      "icd_source": "Tag: Elemental_Art (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV1/0",
+      "element": "Rock",
+      "attackType": "Melee",
+      "strikeType": "Blunt",
+      "damageParam": "PillarDamage2"
+    },
+    {
+      "name": "SkillObj_PrimoPillar",
+      "icd_source": "Tag: Elemental_Art (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV1/0",
+      "element": "Rock",
+      "attackType": "Melee",
+      "strikeType": "Blunt",
+      "damageParam": "PillarDamage2"
+    },
+    {
+      "name": "RockShield",
+      "icd_source": "Tag: Elemental_Art (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV4/142",
+      "element": "Rock",
+      "attackType": "Range",
+      "strikeType": "Blunt",
+      "damageParam": "Damage"
+    },
+    {
+      "name": "RockShield",
+      "icd_source": "Tag: Elemental_Art (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV4/142",
+      "element": "Rock",
+      "attackType": "Range",
+      "strikeType": "Blunt",
+      "damageParam": "Damage"
+    },
+    {
+      "name": "GeoOrder",
+      "icd_source": "Tag: Elemental_Burst (!)",
+      "icd_rule": "Independent",
+      "gauge": "4U",
+      "poise": "LV2/500",
+      "element": "Rock",
+      "attackType": "Range",
+      "strikeType": "Blunt",
+      "damageParam": "Damage"
+    },
+    {
+      "name": "GeoOrder",
+      "icd_source": "Tag: Elemental_Burst (!)",
+      "icd_rule": "Independent",
+      "gauge": "4U",
+      "poise": "LV2/500",
+      "element": "Rock",
+      "attackType": "Range",
+      "strikeType": "Blunt",
+      "damageParam": "Damage"
+    },
+    {
+      "name": "GeoOrder",
+      "icd_source": "Grp: default",
+      "icd_rule": "Standard (3h/2.5s)",
+      "gauge": "4U",
+      "poise": "-/400",
+      "element": "-",
+      "attackType": "Default",
+      "strikeType": "None",
+      "damageParam": "-"
+    },
+    {
+      "name": "NormalAttack",
+      "icd_source": "Tag: NormalAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV3/33",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Spear",
+      "damageParam": "Attack01"
+    },
+    {
+      "name": "NormalAttack",
+      "icd_source": "Tag: NormalAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV3/33",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Spear",
+      "damageParam": "Attack01"
+    },
+    {
+      "name": "NormalAttack",
+      "icd_source": "Tag: NormalAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV3/33",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Spear",
+      "damageParam": "Attack01"
+    },
+    {
+      "name": "NormalAttack",
+      "icd_source": "Tag: NormalAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV3/33",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Spear",
+      "damageParam": "Attack01"
+    },
+    {
+      "name": "NormalAttack",
+      "icd_source": "Tag: NormalAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV4/33",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Spear",
+      "damageParam": "Attack01"
+    },
+    {
+      "name": "NormalAttack",
+      "icd_source": "Tag: NormalAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV4/33",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Spear",
+      "damageParam": "Attack01"
+    },
+    {
+      "name": "NormalAttack",
+      "icd_source": "Tag: NormalAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV3/34",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Slash",
+      "damageParam": "Attack02"
+    },
+    {
+      "name": "NormalAttack",
+      "icd_source": "Tag: NormalAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV3/34",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Slash",
+      "damageParam": "Attack02"
+    },
+    {
+      "name": "NormalAttack",
+      "icd_source": "Tag: NormalAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV3/42",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Spear",
+      "damageParam": "Attack03"
+    },
+    {
+      "name": "NormalAttack",
+      "icd_source": "Tag: NormalAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV3/42",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Spear",
+      "damageParam": "Attack03"
+    },
+    {
+      "name": "NormalAttack",
+      "icd_source": "Tag: NormalAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV4/45",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Spear",
+      "damageParam": "Attack04"
+    },
+    {
+      "name": "NormalAttack",
+      "icd_source": "Tag: NormalAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV4/45",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Spear",
+      "damageParam": "Attack04"
+    },
+    {
+      "name": "NormalAttack",
+      "icd_source": "Tag: NormalAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV6/61",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Spear",
+      "damageParam": "Attack06"
+    },
+    {
+      "name": "NormalAttack",
+      "icd_source": "Tag: NormalAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV6/61",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Spear",
+      "damageParam": "Attack06"
+    },
+    {
+      "name": "SkillObj_Attack05",
+      "icd_source": "Tag: NormalAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV2/11",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Slash",
+      "damageParam": "Attack05"
+    },
+    {
+      "name": "SkillObj_Attack05",
+      "icd_source": "Tag: NormalAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV2/11",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Slash",
+      "damageParam": "Attack05"
+    },
+    {
+      "name": "SkillObj_ExtraAttack",
+      "icd_source": "Grp: Avatar_Pole_ExtraAttack (Tag Miss)",
+      "icd_rule": "24 hits / 0.5s",
+      "gauge": "1U",
+      "poise": "-/103",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Spear",
+      "damageParam": "ExtraAttack"
+    },
+    {
+      "name": "SkillObj_ExtraAttack",
+      "icd_source": "Grp: Avatar_Pole_ExtraAttack (Tag Miss)",
+      "icd_rule": "24 hits / 0.5s",
+      "gauge": "1U",
+      "poise": "-/103",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Spear",
+      "damageParam": "ExtraAttack"
+    },
+    {
+      "name": "SkillObj_ExtraAttack",
+      "icd_source": "Grp: Avatar_Pole_ExtraAttack (Tag Miss)",
+      "icd_rule": "24 hits / 0.5s",
+      "gauge": "1U",
+      "poise": "-/103",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Spear",
+      "damageParam": "ExtraAttack"
+    },
+    {
+      "name": "SkillObj_ExtraAttack",
+      "icd_source": "Grp: Avatar_Pole_ExtraAttack (Tag Miss)",
+      "icd_rule": "24 hits / 0.5s",
+      "gauge": "1U",
+      "poise": "-/103",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Spear",
+      "damageParam": "ExtraAttack"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "0U",
+      "poise": "LV2/25",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Slash",
+      "damageParam": "FallingAnthem_Normal_Loop_Damage"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "0U",
+      "poise": "LV2/25",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Slash",
+      "damageParam": "FallingAnthem_Normal_Loop_Damage"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "0U",
+      "poise": "LV2/25",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Slash",
+      "damageParam": "FallingAnthem_Normal_Loop_Damage"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "0U",
+      "poise": "LV2/25",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Slash",
+      "damageParam": "FallingAnthem_Normal_Loop_Damage"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV4/100",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Blunt",
+      "damageParam": "FallingAnthem_Normal_Rank_1_Damage"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV4/100",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Blunt",
+      "damageParam": "FallingAnthem_Normal_Rank_1_Damage"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV7/150",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Blunt",
+      "damageParam": "FallingAnthem_Normal_Rank_2_Damage"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV7/150",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Blunt",
+      "damageParam": "FallingAnthem_Normal_Rank_2_Damage"
+    }
+  ],
+  "endure": [
+    {
+      "ability": "RockShield",
+      "handler": "UNIQUE_RockShield_Child_Heal",
+      "Actor_EndureDelta": 0
+    },
+    {
+      "ability": "RockShield",
+      "handler": "UNIQUE_RockShield_Child_NoHeal",
+      "Actor_EndureDelta": 0
+    }
+  ]
+}

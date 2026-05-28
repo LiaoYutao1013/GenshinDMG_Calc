@@ -1,0 +1,31 @@
+﻿{
+    "Id":  15040,
+    "SetId":  15040,
+    "EnName":  "Finale of the Deep Galleries",
+    "QualityType":  "QUALITY_ORANGE",
+    "SetIcon":  "UI_RelicIcon_15040_4",
+    "Effect2Pc":  "Cryo DMG Bonus +15%",
+    "Effect4Pc":  "When the equipping character has 0 Elemental Energy, Normal Attack DMG is increased by 60% and Elemental Burst DMG is increased by 60%. After the equipping character deals Normal Attack DMG, the aforementioned Elemental Burst effect will stop applying for 6s. After the equipping character deals Elemental Burst DMG, the aforementioned Normal Attack effect will stop applying for 6s. This effect can trigger even if the equipping character is off the field.",
+    "Pieces":  {
+                   "circlet":  {
+                                   "icon":  "UI_RelicIcon_15040_3",
+                                   "name":  "Deep Gallery\u0027s Lost Crown"
+                               },
+                   "flower":  {
+                                  "icon":  "UI_RelicIcon_15040_4",
+                                  "name":  "Deep Gallery\u0027s Echoing Song"
+                              },
+                   "goblet":  {
+                                  "icon":  "UI_RelicIcon_15040_1",
+                                  "name":  "Deep Gallery\u0027s Bestowed Banquet"
+                              },
+                   "plume":  {
+                                 "icon":  "UI_RelicIcon_15040_2",
+                                 "name":  "Deep Gallery\u0027s Distant Pact"
+                             },
+                   "sands":  {
+                                 "icon":  "UI_RelicIcon_15040_5",
+                                 "name":  "Deep Gallery\u0027s Moment of Oblivion"
+                             }
+               }
+}

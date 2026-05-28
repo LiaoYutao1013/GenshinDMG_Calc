@@ -1,0 +1,2 @@
+Weapon,WeaponATK,WeaponSubStatType,WeaponSubStatValue,WeaponRefinement,AtkBonus,FlatATK,ER,EM,CritRate,CritDMG,AnemoDMGBonus,SkillDMGBonus,BurstDMGBonus,ArtifactSet1,ArtifactSet1Pieces,ArtifactSet2,ArtifactSet2Pieces,ArtifactSet4Active
+ElegyForTheEnd,608,ER,0.551,1,0.46,120,1.8,220,0.55,1.4,0.466,0,0,ViridescentVenerer,4,None,0,1

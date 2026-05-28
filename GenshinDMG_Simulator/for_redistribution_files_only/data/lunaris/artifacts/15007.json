@@ -1,0 +1,31 @@
+﻿{
+    "Id":  15007,
+    "SetId":  15007,
+    "EnName":  "Noblesse Oblige",
+    "QualityType":  "QUALITY_ORANGE",
+    "SetIcon":  "UI_RelicIcon_15007_4",
+    "Effect2Pc":  "Elemental Burst DMG +20%",
+    "Effect4Pc":  "Using an Elemental Burst increases all party members\u0027 ATK by 20% for 12s. This effect cannot stack.",
+    "Pieces":  {
+                   "circlet":  {
+                                   "icon":  "UI_RelicIcon_15007_3",
+                                   "name":  "Royal Masque"
+                               },
+                   "flower":  {
+                                  "icon":  "UI_RelicIcon_15007_4",
+                                  "name":  "Royal Flora"
+                              },
+                   "goblet":  {
+                                  "icon":  "UI_RelicIcon_15007_1",
+                                  "name":  "Royal Silver Urn"
+                              },
+                   "plume":  {
+                                 "icon":  "UI_RelicIcon_15007_2",
+                                 "name":  "Royal Plume"
+                             },
+                   "sands":  {
+                                 "icon":  "UI_RelicIcon_15007_5",
+                                 "name":  "Royal Pocket Watch"
+                             }
+               }
+}

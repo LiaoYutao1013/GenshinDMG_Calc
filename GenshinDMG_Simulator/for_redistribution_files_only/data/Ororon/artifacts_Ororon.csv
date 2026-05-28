@@ -1,0 +1,2 @@
+Weapon,WeaponATK,WeaponSubStatType,WeaponSubStatValue,WeaponRefinement,AtkBonus,FlatATK,EM,ER,CritRate,CritDMG,ElectroDMGBonus,SkillDMGBonus,BurstDMGBonus,ResShred,ArtifactSet1,ArtifactSet1Pieces,ArtifactSet2,ArtifactSet2Pieces,ArtifactSet4Active
+The Stringless,510,EM,165,5,0.7,311,200,1.35,0.72,1.88,0.466,0.3,0.3,0,GoldenTroupe,4,None,0,1

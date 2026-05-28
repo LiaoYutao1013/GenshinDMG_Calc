@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    :root {
+      --bg: #f6f8fb;
+      --panel: #ffffff;
+      --text: #1f2937;
+      --muted: #667085;
+      --line: #d9e1ec;
+      --blue: #2563eb;
+      --teal: #0f9f8f;
+      --amber: #c47b12;
+      --violet: #7c3aed;
+      --green-bg: #eaf7f1;
+      --green-text: #146c43;
+      --blue-bg: #edf4ff;
+      --blue-text: #174a8b;
+      --amber-bg: #fff6e5;
+      --amber-text: #8a5a00;
+      --red-bg: #fff0f0;
+      --red-text: #9f1d1d;
+      --gray-bg: #eef2f7;
+      --gray-text: #475569;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      overflow: hidden;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+    }
+
+    .dashboard {
+      width: 100%;
+      height: 100%;
+      padding: 12px;
+      display: grid;
+      grid-template-rows: auto 74px 1fr;
+      gap: 10px;
+      background: var(--bg);
+    }
+
+    .header {
+      min-width: 0;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: start;
+      gap: 12px;
+    }
+
+    .eyebrow {
+      margin-bottom: 2px;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--muted);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 18px;
+      line-height: 1.2;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .subtitle {
+      margin: 3px 0 0;
+      min-width: 0;
+      max-width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .pill {
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: var(--gray-bg);
+      color: var(--gray-text);
+      font-size: 12px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .pill.success {
+      background: var(--green-bg);
+      color: var(--green-text);
+      border-color: #bfe5d0;
+    }
+
+    .pill.warn {
+      background: var(--amber-bg);
+      color: var(--amber-text);
+      border-color: #f0d69b;
+    }
+
+    .pill.error {
+      background: var(--red-bg);
+      color: var(--red-text);
+      border-color: #f2c6c6;
+    }
+
+    .pill.ready {
+      background: var(--blue-bg);
+      color: var(--blue-text);
+      border-color: #cbdffb;
+    }
+
+    .metrics,
+    .details {
+      min-width: 0;
+      display: grid;
+      gap: 8px;
+    }
+
+    .metrics {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .details {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .metric,
+    .detail {
+      min-width: 0;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: 0 6px 14px rgba(31, 41, 55, 0.05);
+    }
+
+    .metric {
+      position: relative;
+      overflow: hidden;
+      padding: 9px 10px 8px 12px;
+    }
+
+    .metric::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: 4px;
+      background: var(--blue);
+    }
+
+    .metric.dps::before {
+      background: var(--teal);
+    }
+
+    .metric.time::before {
+      background: var(--amber);
+    }
+
+    .metric.slot::before {
+      background: var(--violet);
+    }
+
+    .label {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .metric .value {
+      margin-top: 5px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      font-variant-numeric: tabular-nums;
+      font-size: 22px;
+      line-height: 1;
+      font-weight: 800;
+      color: var(--text);
+    }
+
+    .note {
+      margin-top: 7px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .detail {
+      padding: 7px 9px;
+    }
+
+    .detail .value {
+      margin-top: 4px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      font-size: 13px;
+      line-height: 1.15;
+      font-weight: 700;
+      color: var(--text);
+    }
+  </style>
+</head>
+<body>
+  <div class="dashboard">
+    <header class="header">
+      <div>
+        <div class="eyebrow">结果面板</div>
+        <h1 id="headline">伤害仪表盘</h1>
+        <p id="subtitle" class="subtitle">等待模拟。</p>
+      </div>
+      <div id="statusPill" class="pill ready">就绪</div>
+    </header>
+
+    <section class="metrics" aria-label="核心指标">
+      <article class="metric total">
+        <div class="label">总伤害</div>
+        <div id="totalDamageValue" class="value">--</div>
+        <div id="totalDamageNote" class="note">尚未运行</div>
+      </article>
+      <article class="metric dps">
+        <div class="label">DPS</div>
+        <div id="dpsValue" class="value">--</div>
+        <div id="dpsNote" class="note">--</div>
+      </article>
+      <article class="metric time">
+        <div class="label">循环时长</div>
+        <div id="rotationValue" class="value">--</div>
+        <div id="rotationNote" class="note">--</div>
+      </article>
+      <article class="metric slot">
+        <div class="label">当前槽位</div>
+        <div id="slotValue" class="value">--</div>
+        <div id="slotNote" class="note">--</div>
+      </article>
+    </section>
+
+    <section class="details" aria-label="构筑摘要">
+      <div class="detail">
+        <div class="label">角色</div>
+        <div id="characterName" class="value">--</div>
+      </div>
+      <div class="detail">
+        <div class="label">武器</div>
+        <div id="weaponName" class="value">--</div>
+      </div>
+      <div class="detail">
+        <div class="label">圣遗物</div>
+        <div id="artifactName" class="value">--</div>
+      </div>
+      <div class="detail">
+        <div class="label">预设</div>
+        <div id="presetName" class="value">--</div>
+      </div>
+      <div class="detail">
+        <div class="label">命座 / 天赋</div>
+        <div id="talentSummary" class="value">--</div>
+      </div>
+      <div class="detail">
+        <div class="label">模式</div>
+        <div id="modeSummary" class="value">--</div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    function setup(htmlComponent) {
+      const defaults = {
+        headline: "伤害仪表盘",
+        subtitle: "等待模拟。",
+        statusTone: "ready",
+        statusLabel: "就绪",
+        totalDamageValue: "--",
+        totalDamageNote: "尚未运行",
+        dpsValue: "--",
+        dpsNote: "--",
+        rotationValue: "--",
+        rotationNote: "--",
+        slotValue: "--",
+        slotNote: "--",
+        characterName: "--",
+        weaponName: "--",
+        artifactName: "--",
+        presetName: "--",
+        talentSummary: "--",
+        modeSummary: "--"
+      };
+
+      const fields = [
+        "headline",
+        "subtitle",
+        "totalDamageValue",
+        "totalDamageNote",
+        "dpsValue",
+        "dpsNote",
+        "rotationValue",
+        "rotationNote",
+        "slotValue",
+        "slotNote",
+        "characterName",
+        "weaponName",
+        "artifactName",
+        "presetName",
+        "talentSummary",
+        "modeSummary"
+      ];
+
+      function textOf(data, key) {
+        const value = data[key];
+        if (value === undefined || value === null || value === "") {
+          return defaults[key];
+        }
+        return String(value);
+      }
+
+      function setText(id, value) {
+        const element = document.getElementById(id);
+        if (element) {
+          element.textContent = value;
+          element.title = value;
+        }
+      }
+
+      function render() {
+        const data = Object.assign({}, defaults, htmlComponent.Data || {});
+        fields.forEach(function (key) {
+          setText(key, textOf(data, key));
+        });
+
+        const allowedTones = ["success", "warn", "error", "ready", "idle"];
+        let tone = textOf(data, "statusTone");
+        if (allowedTones.indexOf(tone) < 0) {
+          tone = "idle";
+        }
+
+        const pill = document.getElementById("statusPill");
+        pill.className = "pill " + tone;
+        pill.textContent = textOf(data, "statusLabel");
+        pill.title = textOf(data, "subtitle");
+      }
+
+      htmlComponent.addEventListener("DataChanged", render);
+      render();
+    }
+  </script>
+</body>
+</html>

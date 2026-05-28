@@ -1,0 +1,31 @@
+﻿{
+    "Id":  10009,
+    "SetId":  10009,
+    "EnName":  "The Exile",
+    "QualityType":  "QUALITY_PURPLE",
+    "SetIcon":  "UI_RelicIcon_10009_4",
+    "Effect2Pc":  "Energy Recharge +20%",
+    "Effect4Pc":  "Using an Elemental Burst regenerates 2 Energy for all party members (excluding the wearer) every 2s for 6s. This effect cannot stack.",
+    "Pieces":  {
+                   "circlet":  {
+                                   "icon":  "UI_RelicIcon_10009_3",
+                                   "name":  "Exile\u0027s Circlet"
+                               },
+                   "flower":  {
+                                  "icon":  "UI_RelicIcon_10009_4",
+                                  "name":  "Exile\u0027s Flower"
+                              },
+                   "goblet":  {
+                                  "icon":  "UI_RelicIcon_10009_1",
+                                  "name":  "Exile\u0027s Goblet"
+                              },
+                   "plume":  {
+                                 "icon":  "UI_RelicIcon_10009_2",
+                                 "name":  "Exile\u0027s Feather"
+                             },
+                   "sands":  {
+                                 "icon":  "UI_RelicIcon_10009_5",
+                                 "name":  "Exile\u0027s Pocket Watch"
+                             }
+               }
+}

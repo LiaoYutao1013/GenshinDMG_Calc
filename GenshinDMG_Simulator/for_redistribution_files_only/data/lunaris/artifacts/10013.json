@@ -1,0 +1,31 @@
+﻿{
+    "Id":  10013,
+    "SetId":  10013,
+    "EnName":  "Traveling Doctor",
+    "QualityType":  "QUALITY_BLUE",
+    "SetIcon":  "UI_RelicIcon_10013_4",
+    "Effect2Pc":  "Increases incoming healing by 20%.",
+    "Effect4Pc":  "Using Elemental Burst restores 20% HP.",
+    "Pieces":  {
+                   "circlet":  {
+                                   "icon":  "UI_RelicIcon_10013_3",
+                                   "name":  "Traveling Doctor\u0027s Handkerchief"
+                               },
+                   "flower":  {
+                                  "icon":  "UI_RelicIcon_10013_4",
+                                  "name":  "Traveling Doctor\u0027s Silver Lotus"
+                              },
+                   "goblet":  {
+                                  "icon":  "UI_RelicIcon_10013_1",
+                                  "name":  "Traveling Doctor\u0027s Medicine Pot"
+                              },
+                   "plume":  {
+                                 "icon":  "UI_RelicIcon_10013_2",
+                                 "name":  "Traveling Doctor\u0027s Owl Feather"
+                             },
+                   "sands":  {
+                                 "icon":  "UI_RelicIcon_10013_5",
+                                 "name":  "Traveling Doctor\u0027s Pocket Watch"
+                             }
+               }
+}

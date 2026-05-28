@@ -1,0 +1,6 @@
+Skill,Param,ScalingType,Level10
+Skill,CastATK,ATK,2.65
+Skill,BlazeATK,ATK,1.55
+Burst,CastATK,ATK,4.85
+Burst,SunfallATK,ATK,2.40
+Burst,FightingSpirit,DMG,0.08

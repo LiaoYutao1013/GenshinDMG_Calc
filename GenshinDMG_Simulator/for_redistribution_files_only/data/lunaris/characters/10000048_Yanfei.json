@@ -1,0 +1,1786 @@
+{
+  "info": {
+    "name": "Yanfei",
+    "description": "A well-known legal adviser active in Liyue Harbor. A brilliant young lady in whose veins runs the blood of an illuminated beast.",
+    "rarity": "QUALITY_PURPLE",
+    "weapon": "WEAPON_CATALYST",
+    "birthday": "28/7",
+    "element": "Pyro",
+    "title": "Wise Innocence",
+    "constellation": "Bestia Iustitia",
+    "affiliation": "Yanfei Legal Consultancy",
+    "cv": {
+      "EN": "Lizzie Freeman",
+      "CHS": "苏子芜",
+      "JP": "花守ゆみり",
+      "KR": "Jo Kyeong-i"
+    },
+    "attributes": [
+      {
+        "level": 1,
+        "ascension": 0,
+        "hp": 784,
+        "atk": 20,
+        "def": 49,
+        "Pyro_": "0"
+      },
+      {
+        "level": 2,
+        "ascension": 0,
+        "hp": 849,
+        "atk": 22,
+        "def": 53,
+        "Pyro_": "0"
+      },
+      {
+        "level": 3,
+        "ascension": 0,
+        "hp": 914,
+        "atk": 23,
+        "def": 57,
+        "Pyro_": "0"
+      },
+      {
+        "level": 4,
+        "ascension": 0,
+        "hp": 979,
+        "atk": 25,
+        "def": 61,
+        "Pyro_": "0"
+      },
+      {
+        "level": 5,
+        "ascension": 0,
+        "hp": 1043,
+        "atk": 27,
+        "def": 65,
+        "Pyro_": "0"
+      },
+      {
+        "level": 6,
+        "ascension": 0,
+        "hp": 1108,
+        "atk": 28,
+        "def": 70,
+        "Pyro_": "0"
+      },
+      {
+        "level": 7,
+        "ascension": 0,
+        "hp": 1172,
+        "atk": 30,
+        "def": 74,
+        "Pyro_": "0"
+      },
+      {
+        "level": 8,
+        "ascension": 0,
+        "hp": 1237,
+        "atk": 32,
+        "def": 78,
+        "Pyro_": "0"
+      },
+      {
+        "level": 9,
+        "ascension": 0,
+        "hp": 1302,
+        "atk": 33,
+        "def": 82,
+        "Pyro_": "0"
+      },
+      {
+        "level": 10,
+        "ascension": 0,
+        "hp": 1367,
+        "atk": 35,
+        "def": 86,
+        "Pyro_": "0"
+      },
+      {
+        "level": 11,
+        "ascension": 0,
+        "hp": 1432,
+        "atk": 37,
+        "def": 90,
+        "Pyro_": "0"
+      },
+      {
+        "level": 12,
+        "ascension": 0,
+        "hp": 1496,
+        "atk": 38,
+        "def": 94,
+        "Pyro_": "0"
+      },
+      {
+        "level": 13,
+        "ascension": 0,
+        "hp": 1561,
+        "atk": 40,
+        "def": 98,
+        "Pyro_": "0"
+      },
+      {
+        "level": 14,
+        "ascension": 0,
+        "hp": 1626,
+        "atk": 42,
+        "def": 102,
+        "Pyro_": "0"
+      },
+      {
+        "level": 15,
+        "ascension": 0,
+        "hp": 1691,
+        "atk": 43,
+        "def": 106,
+        "Pyro_": "0"
+      },
+      {
+        "level": 16,
+        "ascension": 0,
+        "hp": 1756,
+        "atk": 45,
+        "def": 110,
+        "Pyro_": "0"
+      },
+      {
+        "level": 17,
+        "ascension": 0,
+        "hp": 1820,
+        "atk": 47,
+        "def": 114,
+        "Pyro_": "0"
+      },
+      {
+        "level": 18,
+        "ascension": 0,
+        "hp": 1885,
+        "atk": 48,
+        "def": 118,
+        "Pyro_": "0"
+      },
+      {
+        "level": 19,
+        "ascension": 0,
+        "hp": 1949,
+        "atk": 50,
+        "def": 122,
+        "Pyro_": "0"
+      },
+      {
+        "level": 20,
+        "ascension": 0,
+        "hp": 2014,
+        "atk": 52,
+        "def": 126,
+        "Pyro_": "0"
+      },
+      {
+        "level": 21,
+        "ascension": 1,
+        "hp": 2665,
+        "atk": 68,
+        "def": 167,
+        "Pyro_": "0"
+      },
+      {
+        "level": 22,
+        "ascension": 1,
+        "hp": 2730,
+        "atk": 70,
+        "def": 171,
+        "Pyro_": "0"
+      },
+      {
+        "level": 23,
+        "ascension": 1,
+        "hp": 2795,
+        "atk": 72,
+        "def": 175,
+        "Pyro_": "0"
+      },
+      {
+        "level": 24,
+        "ascension": 1,
+        "hp": 2859,
+        "atk": 73,
+        "def": 179,
+        "Pyro_": "0"
+      },
+      {
+        "level": 25,
+        "ascension": 1,
+        "hp": 2924,
+        "atk": 75,
+        "def": 184,
+        "Pyro_": "0"
+      },
+      {
+        "level": 26,
+        "ascension": 1,
+        "hp": 2988,
+        "atk": 77,
+        "def": 188,
+        "Pyro_": "0"
+      },
+      {
+        "level": 27,
+        "ascension": 1,
+        "hp": 3053,
+        "atk": 78,
+        "def": 192,
+        "Pyro_": "0"
+      },
+      {
+        "level": 28,
+        "ascension": 1,
+        "hp": 3118,
+        "atk": 80,
+        "def": 196,
+        "Pyro_": "0"
+      },
+      {
+        "level": 29,
+        "ascension": 1,
+        "hp": 3183,
+        "atk": 82,
+        "def": 200,
+        "Pyro_": "0"
+      },
+      {
+        "level": 30,
+        "ascension": 1,
+        "hp": 3247,
+        "atk": 83,
+        "def": 204,
+        "Pyro_": "0"
+      },
+      {
+        "level": 31,
+        "ascension": 1,
+        "hp": 3312,
+        "atk": 85,
+        "def": 208,
+        "Pyro_": "0"
+      },
+      {
+        "level": 32,
+        "ascension": 1,
+        "hp": 3377,
+        "atk": 87,
+        "def": 212,
+        "Pyro_": "0"
+      },
+      {
+        "level": 33,
+        "ascension": 1,
+        "hp": 3442,
+        "atk": 88,
+        "def": 216,
+        "Pyro_": "0"
+      },
+      {
+        "level": 34,
+        "ascension": 1,
+        "hp": 3507,
+        "atk": 90,
+        "def": 220,
+        "Pyro_": "0"
+      },
+      {
+        "level": 35,
+        "ascension": 1,
+        "hp": 3571,
+        "atk": 92,
+        "def": 224,
+        "Pyro_": "0"
+      },
+      {
+        "level": 36,
+        "ascension": 1,
+        "hp": 3636,
+        "atk": 93,
+        "def": 228,
+        "Pyro_": "0"
+      },
+      {
+        "level": 37,
+        "ascension": 1,
+        "hp": 3700,
+        "atk": 95,
+        "def": 232,
+        "Pyro_": "0"
+      },
+      {
+        "level": 38,
+        "ascension": 1,
+        "hp": 3765,
+        "atk": 97,
+        "def": 236,
+        "Pyro_": "0"
+      },
+      {
+        "level": 39,
+        "ascension": 1,
+        "hp": 3831,
+        "atk": 98,
+        "def": 240,
+        "Pyro_": "0"
+      },
+      {
+        "level": 40,
+        "ascension": 1,
+        "hp": 3895,
+        "atk": 100,
+        "def": 244,
+        "Pyro_": "0"
+      },
+      {
+        "level": 41,
+        "ascension": 2,
+        "hp": 4376,
+        "atk": 112,
+        "def": 275,
+        "Pyro_": "6"
+      },
+      {
+        "level": 42,
+        "ascension": 2,
+        "hp": 4440,
+        "atk": 114,
+        "def": 279,
+        "Pyro_": "6"
+      },
+      {
+        "level": 43,
+        "ascension": 2,
+        "hp": 4506,
+        "atk": 116,
+        "def": 283,
+        "Pyro_": "6"
+      },
+      {
+        "level": 44,
+        "ascension": 2,
+        "hp": 4570,
+        "atk": 117,
+        "def": 287,
+        "Pyro_": "6"
+      },
+      {
+        "level": 45,
+        "ascension": 2,
+        "hp": 4635,
+        "atk": 119,
+        "def": 291,
+        "Pyro_": "6"
+      },
+      {
+        "level": 46,
+        "ascension": 2,
+        "hp": 4700,
+        "atk": 121,
+        "def": 295,
+        "Pyro_": "6"
+      },
+      {
+        "level": 47,
+        "ascension": 2,
+        "hp": 4764,
+        "atk": 122,
+        "def": 299,
+        "Pyro_": "6"
+      },
+      {
+        "level": 48,
+        "ascension": 2,
+        "hp": 4829,
+        "atk": 124,
+        "def": 303,
+        "Pyro_": "6"
+      },
+      {
+        "level": 49,
+        "ascension": 2,
+        "hp": 4894,
+        "atk": 126,
+        "def": 307,
+        "Pyro_": "6"
+      },
+      {
+        "level": 50,
+        "ascension": 2,
+        "hp": 4959,
+        "atk": 127,
+        "def": 311,
+        "Pyro_": "6"
+      },
+      {
+        "level": 51,
+        "ascension": 3,
+        "hp": 5578,
+        "atk": 143,
+        "def": 350,
+        "Pyro_": "12"
+      },
+      {
+        "level": 52,
+        "ascension": 3,
+        "hp": 5643,
+        "atk": 145,
+        "def": 354,
+        "Pyro_": "12"
+      },
+      {
+        "level": 53,
+        "ascension": 3,
+        "hp": 5708,
+        "atk": 146,
+        "def": 358,
+        "Pyro_": "12"
+      },
+      {
+        "level": 54,
+        "ascension": 3,
+        "hp": 5773,
+        "atk": 148,
+        "def": 362,
+        "Pyro_": "12"
+      },
+      {
+        "level": 55,
+        "ascension": 3,
+        "hp": 5838,
+        "atk": 150,
+        "def": 366,
+        "Pyro_": "12"
+      },
+      {
+        "level": 56,
+        "ascension": 3,
+        "hp": 5902,
+        "atk": 151,
+        "def": 370,
+        "Pyro_": "12"
+      },
+      {
+        "level": 57,
+        "ascension": 3,
+        "hp": 5967,
+        "atk": 153,
+        "def": 374,
+        "Pyro_": "12"
+      },
+      {
+        "level": 58,
+        "ascension": 3,
+        "hp": 6031,
+        "atk": 155,
+        "def": 379,
+        "Pyro_": "12"
+      },
+      {
+        "level": 59,
+        "ascension": 3,
+        "hp": 6096,
+        "atk": 156,
+        "def": 383,
+        "Pyro_": "12"
+      },
+      {
+        "level": 60,
+        "ascension": 3,
+        "hp": 6161,
+        "atk": 158,
+        "def": 387,
+        "Pyro_": "12"
+      },
+      {
+        "level": 61,
+        "ascension": 4,
+        "hp": 6642,
+        "atk": 170,
+        "def": 417,
+        "Pyro_": "12"
+      },
+      {
+        "level": 62,
+        "ascension": 4,
+        "hp": 6707,
+        "atk": 172,
+        "def": 421,
+        "Pyro_": "12"
+      },
+      {
+        "level": 63,
+        "ascension": 4,
+        "hp": 6771,
+        "atk": 174,
+        "def": 425,
+        "Pyro_": "12"
+      },
+      {
+        "level": 64,
+        "ascension": 4,
+        "hp": 6836,
+        "atk": 175,
+        "def": 429,
+        "Pyro_": "12"
+      },
+      {
+        "level": 65,
+        "ascension": 4,
+        "hp": 6901,
+        "atk": 177,
+        "def": 433,
+        "Pyro_": "12"
+      },
+      {
+        "level": 66,
+        "ascension": 4,
+        "hp": 6966,
+        "atk": 179,
+        "def": 437,
+        "Pyro_": "12"
+      },
+      {
+        "level": 67,
+        "ascension": 4,
+        "hp": 7031,
+        "atk": 180,
+        "def": 441,
+        "Pyro_": "12"
+      },
+      {
+        "level": 68,
+        "ascension": 4,
+        "hp": 7095,
+        "atk": 182,
+        "def": 445,
+        "Pyro_": "12"
+      },
+      {
+        "level": 69,
+        "ascension": 4,
+        "hp": 7160,
+        "atk": 184,
+        "def": 449,
+        "Pyro_": "12"
+      },
+      {
+        "level": 70,
+        "ascension": 4,
+        "hp": 7225,
+        "atk": 185,
+        "def": 453,
+        "Pyro_": "12"
+      },
+      {
+        "level": 71,
+        "ascension": 5,
+        "hp": 7706,
+        "atk": 198,
+        "def": 484,
+        "Pyro_": "18"
+      },
+      {
+        "level": 72,
+        "ascension": 5,
+        "hp": 7770,
+        "atk": 199,
+        "def": 488,
+        "Pyro_": "18"
+      },
+      {
+        "level": 73,
+        "ascension": 5,
+        "hp": 7835,
+        "atk": 201,
+        "def": 492,
+        "Pyro_": "18"
+      },
+      {
+        "level": 74,
+        "ascension": 5,
+        "hp": 7900,
+        "atk": 203,
+        "def": 496,
+        "Pyro_": "18"
+      },
+      {
+        "level": 75,
+        "ascension": 5,
+        "hp": 7965,
+        "atk": 204,
+        "def": 500,
+        "Pyro_": "18"
+      },
+      {
+        "level": 76,
+        "ascension": 5,
+        "hp": 8030,
+        "atk": 206,
+        "def": 504,
+        "Pyro_": "18"
+      },
+      {
+        "level": 77,
+        "ascension": 5,
+        "hp": 8094,
+        "atk": 208,
+        "def": 508,
+        "Pyro_": "18"
+      },
+      {
+        "level": 78,
+        "ascension": 5,
+        "hp": 8159,
+        "atk": 209,
+        "def": 512,
+        "Pyro_": "18"
+      },
+      {
+        "level": 79,
+        "ascension": 5,
+        "hp": 8223,
+        "atk": 211,
+        "def": 516,
+        "Pyro_": "18"
+      },
+      {
+        "level": 80,
+        "ascension": 5,
+        "hp": 8289,
+        "atk": 213,
+        "def": 520,
+        "Pyro_": "18"
+      },
+      {
+        "level": 81,
+        "ascension": 6,
+        "hp": 8770,
+        "atk": 225,
+        "def": 550,
+        "Pyro_": "24"
+      },
+      {
+        "level": 82,
+        "ascension": 6,
+        "hp": 8834,
+        "atk": 227,
+        "def": 554,
+        "Pyro_": "24"
+      },
+      {
+        "level": 83,
+        "ascension": 6,
+        "hp": 8899,
+        "atk": 228,
+        "def": 559,
+        "Pyro_": "24"
+      },
+      {
+        "level": 84,
+        "ascension": 6,
+        "hp": 8963,
+        "atk": 230,
+        "def": 563,
+        "Pyro_": "24"
+      },
+      {
+        "level": 85,
+        "ascension": 6,
+        "hp": 9029,
+        "atk": 232,
+        "def": 567,
+        "Pyro_": "24"
+      },
+      {
+        "level": 86,
+        "ascension": 6,
+        "hp": 9093,
+        "atk": 233,
+        "def": 571,
+        "Pyro_": "24"
+      },
+      {
+        "level": 87,
+        "ascension": 6,
+        "hp": 9158,
+        "atk": 235,
+        "def": 575,
+        "Pyro_": "24"
+      },
+      {
+        "level": 88,
+        "ascension": 6,
+        "hp": 9222,
+        "atk": 237,
+        "def": 579,
+        "Pyro_": "24"
+      },
+      {
+        "level": 89,
+        "ascension": 6,
+        "hp": 9287,
+        "atk": 238,
+        "def": 583,
+        "Pyro_": "24"
+      },
+      {
+        "level": 90,
+        "ascension": 6,
+        "hp": 9352,
+        "atk": 240,
+        "def": 587,
+        "Pyro_": "24"
+      },
+      {
+        "level": 95,
+        "ascension": 6,
+        "hp": 9675,
+        "atk": 271,
+        "def": 607,
+        "Pyro_": "24"
+      },
+      {
+        "level": 100,
+        "ascension": 6,
+        "hp": 9999,
+        "atk": 301,
+        "def": 628,
+        "Pyro_": "24"
+      }
+    ]
+  },
+  "icons": {
+    "forward": "UI_AvatarIcon_Feiyan",
+    "coop_img": "UI_CoopImg_Feiyan"
+  },
+  "ascension": {
+    "x202": 7.0499E+6,
+    "exp": {
+      "x104001": 2,
+      "x104003": 418
+    },
+    "speciality": {
+      "x100028": 168
+    },
+    "elemental": {
+      "x104111": 1,
+      "x104112": 9,
+      "x104113": 9,
+      "x104114": 6
+    },
+    "worldmonster": {
+      "x112035": 18,
+      "x112036": 30,
+      "x112037": 36
+    },
+    "elitemonster": {
+      "x113016": 46
+    }
+  },
+  "skills": {
+    "normalattack": {
+      "name": "Seal of Approval",
+      "icon": "Skill_A_Catalyst_MD",
+      "multipliers": {
+        "x1_HitDMG": [
+          "58.34%",
+          "62.72%",
+          "67.09%",
+          "72.93%",
+          "77.3%",
+          "81.68%",
+          "87.51%",
+          "93.35%",
+          "99.18%",
+          "105.01%",
+          "110.85%",
+          "116.68%",
+          "123.98%",
+          "131.27%",
+          "138.56%"
+        ],
+        "x2_HitDMG": [
+          "52.13%",
+          "56.04%",
+          "59.94%",
+          "65.16%",
+          "69.07%",
+          "72.98%",
+          "78.19%",
+          "83.4%",
+          "88.61%",
+          "93.83%",
+          "99.04%",
+          "104.25%",
+          "110.77%",
+          "117.28%",
+          "123.8%"
+        ],
+        "x3_HitDMG": [
+          "76.01%",
+          "81.71%",
+          "87.41%",
+          "95.02%",
+          "100.72%",
+          "106.42%",
+          "114.02%",
+          "121.62%",
+          "129.22%",
+          "136.82%",
+          "144.42%",
+          "152.03%",
+          "161.53%",
+          "171.03%",
+          "180.53%"
+        ],
+        "ChargedAttack": [
+          "98.23%/115.56%/132.9%/150.23%/167.57%",
+          "104.11%/122.48%/140.86%/159.23%/177.6%",
+          "109.99%/129.4%/148.81%/168.23%/187.64%",
+          "117.64%/138.4%/159.16%/179.92%/200.68%",
+          "123.52%/145.32%/167.12%/188.92%/210.71%",
+          "129.4%/152.24%/175.08%/197.91%/220.75%",
+          "137.05%/161.24%/185.42%/209.61%/233.79%",
+          "144.7%/170.23%/195.77%/221.3%/246.84%",
+          "152.34%/179.23%/206.11%/233%/259.88%",
+          "159.99%/188.22%/216.46%/244.69%/272.92%",
+          "167.64%/197.22%/226.8%/256.39%/285.97%",
+          "175.28%/206.22%/237.15%/268.08%/299.01%",
+          "182.93%/215.21%/247.49%/279.78%/312.06%",
+          "190.58%/224.21%/257.84%/291.47%/325.1%",
+          "198.22%/233.2%/268.18%/303.17%/338.15%"
+        ],
+        "ChargedAttackStaminaCost": [
+          "50",
+          "50",
+          "50",
+          "50",
+          "50",
+          "50",
+          "50",
+          "50",
+          "50",
+          "50",
+          "50",
+          "50",
+          "50",
+          "50",
+          "50"
+        ],
+        "ScarletSealStaminaConsumptionDecrease": [
+          "15% Per Seal",
+          "15% Per Seal",
+          "15% Per Seal",
+          "15% Per Seal",
+          "15% Per Seal",
+          "15% Per Seal",
+          "15% Per Seal",
+          "15% Per Seal",
+          "15% Per Seal",
+          "15% Per Seal",
+          "15% Per Seal",
+          "15% Per Seal",
+          "15% Per Seal",
+          "15% Per Seal",
+          "15% Per Seal"
+        ],
+        "ScarletSealDuration": [
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s"
+        ],
+        "PlungeDMG": [
+          "56.83%",
+          "61.45%",
+          "66.08%",
+          "72.69%",
+          "77.31%",
+          "82.6%",
+          "89.87%",
+          "97.14%",
+          "104.41%",
+          "112.34%",
+          "120.27%",
+          "128.2%",
+          "136.12%",
+          "144.05%",
+          "151.98%"
+        ],
+        "Low_HighPlungeDMG": [
+          "113.63%/141.93%",
+          "122.88%/153.49%",
+          "132.13%/165.04%",
+          "145.35%/181.54%",
+          "154.59%/193.1%",
+          "165.16%/206.3%",
+          "179.7%/224.45%",
+          "194.23%/242.61%",
+          "208.77%/260.76%",
+          "224.62%/280.57%",
+          "240.48%/300.37%",
+          "256.34%/320.18%",
+          "272.19%/339.98%",
+          "288.05%/359.79%",
+          "303.9%/379.59%"
+        ]
+      },
+      "description": "<color=#FFD780FF>Normal Attack</color>\\nShoots fireballs that deal up to three counts of <color=#FF9999FF>Pyro DMG</color>.\\nWhen Yanfei's Normal Attacks hit enemies, they will grant her a single Scarlet Seal. Yanfei may possess a maximum of 3 Scarlet Seals, and each time this effect is triggered, the duration of currently possessed Scarlet Seals will refresh.\\nEach Scarlet Seal will decrease Yanfei's Stamina consumption and will disappear when she leaves the field.\\n\\n<color=#FFD780FF>Charged Attack</color>\\nConsumes Stamina and all Scarlet Seals before dealing <color=#FF9999FF>AoE Pyro DMG</color> to opponents after a short casting time.\\nThis Charged Attack's AoE and DMG will increase according to the amount of Scarlet Seals consumed.\\n\\n<color=#FFD780FF>Plunging Attack</color>\\nGathering the power of Pyro, Yanfei plunges towards the ground from mid-air, damaging all opponents in her path. Deals <color=#FF9999FF>AoE Pyro DMG</color> upon impact with the ground."
+    },
+    "elementalskill": {
+      "name": "Signed Edict",
+      "icon": "Skill_S_Feiyan_01",
+      "multipliers": {
+        "SkillDMG": [
+          "169.6%",
+          "182.32%",
+          "195.04%",
+          "212%",
+          "224.72%",
+          "237.44%",
+          "254.4%",
+          "271.36%",
+          "288.32%",
+          "305.28%",
+          "322.24%",
+          "339.2%",
+          "360.4%",
+          "381.6%",
+          "402.8%"
+        ],
+        "CD": [
+          "9s",
+          "9s",
+          "9s",
+          "9s",
+          "9s",
+          "9s",
+          "9s",
+          "9s",
+          "9s",
+          "9s",
+          "9s",
+          "9s",
+          "9s",
+          "9s",
+          "9s"
+        ]
+      },
+      "description": "Summons blistering flames that deal <color=#FF9999FF>AoE Pyro DMG</color>.\\nOpponents hit by the flames will grant Yanfei the maximum number of Scarlet Seals.\\n\\n<i>Apart from their legal uses, Yanfei's seals also come with her customized additional terms and conditions. Well, it's not as if the Ministry of Civil Affairs can change the laws of nature.</i>"
+    },
+    "elementalburst": {
+      "name": "Done Deal",
+      "icon": "Skill_E_Feiyan_01",
+      "multipliers": {
+        "SkillDMG": [
+          "182.4%",
+          "196.08%",
+          "209.76%",
+          "228%",
+          "241.68%",
+          "255.36%",
+          "273.6%",
+          "291.84%",
+          "310.08%",
+          "328.32%",
+          "346.56%",
+          "364.8%",
+          "387.6%",
+          "410.4%",
+          "433.2%"
+        ],
+        "ScarletSealGrantInterval": [
+          "1s",
+          "1s",
+          "1s",
+          "1s",
+          "1s",
+          "1s",
+          "1s",
+          "1s",
+          "1s",
+          "1s",
+          "1s",
+          "1s",
+          "1s",
+          "1s",
+          "1s"
+        ],
+        "ChargedAttackDMGBonus": [
+          "33.4%",
+          "35.4%",
+          "37.4%",
+          "40%",
+          "42%",
+          "44%",
+          "46.6%",
+          "49.2%",
+          "51.8%",
+          "54.4%",
+          "57%",
+          "59.6%",
+          "62.2%",
+          "64.8%",
+          "67.4%"
+        ],
+        "Duration": [
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s"
+        ],
+        "CD": [
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s"
+        ],
+        "EnergyCost": [
+          "80",
+          "80",
+          "80",
+          "80",
+          "80",
+          "80",
+          "80",
+          "80",
+          "80",
+          "80",
+          "80",
+          "80",
+          "80",
+          "80",
+          "80"
+        ]
+      },
+      "description": "Triggers a spray of intense flames that rush at nearby opponents, dealing <color=#FF9999FF>AoE Pyro DMG</color>, granting Yanfei the maximum number of Scarlet Seals, and applying Brilliance to her.\\n\\n<color=#FFD780FF>Brilliance</color>\\nHas the following effects:\\n·Grants Yanfei a Scarlet Seal at fixed intervals.\\n·Increases the DMG dealt by her Charged Attacks.\\nThe effects of Brilliance will end if Yanfei leaves the field or falls in battle.\\n\\n<i>\"Here are the full terms for this matter of life and death — by which I mean my life and your death!\"</i>"
+    },
+    "leveling": {
+      "books": {
+        "x104316": 9,
+        "x104317": 63,
+        "x104318": 114
+      },
+      "crown": {
+        "x104319": 3
+      },
+      "worldmonster": {
+        "x112035": 18,
+        "x112036": 66,
+        "x112037": 93
+      },
+      "weekly": {
+        "x113018": 18
+      }
+    }
+  },
+  "passives": {
+    "p1": {
+      "name": "Proviso",
+      "description": "When Yanfei consumes Scarlet Seals by using a Charged Attack, each Scarlet Seal will increase Yanfei's <color=#FF9999FF>Pyro DMG Bonus</color> by 5%. This effect lasts for 6s. When a Charged Attack is used again during the effect's duration, it will dispel the previous effect.",
+      "icon": "UI_Talent_S_Feiyan_05"
+    },
+    "p2": {
+      "name": "Blazing Eye",
+      "description": "When Yanfei's Charged Attack deals a CRIT Hit to opponents, she will deal an additional instance of <color=#FF9999FF>AoE Pyro DMG</color> equal to 80% of her ATK. This DMG counts as Charged Attack DMG.",
+      "icon": "UI_Talent_S_Feiyan_06"
+    },
+    "p3": {
+      "name": "Encyclopedic Expertise",
+      "description": "Displays the location of nearby <color=#FFD780FF>resources unique to Liyue</color> on the mini-map.",
+      "icon": "UI_Talent_Collect_Local_Liyue"
+    },
+    "p4": ""
+  },
+  "constellations": {
+    "const1": {
+      "name": "The Law Knows No Kindness",
+      "description": "When Yanfei uses her Charged Attack, each existing Scarlet Seal additionally reduces the stamina cost of this Charged Attack by 10% and increases resistance against interruption during its release.",
+      "icon": "UI_Talent_S_Feiyan_01"
+    },
+    "const2": {
+      "name": "Right of Final Interpretation",
+      "description": "Increases Yanfei's Charged Attack CRIT Rate by 20% against enemies below 50% HP.",
+      "icon": "UI_Talent_S_Feiyan_02"
+    },
+    "const3": {
+      "name": "Samadhi Fire-Forged",
+      "description": "Increases the Level of <color=#FFD780FF>Signed Edict</color> by 3.\\nMaximum upgrade level is 15.",
+      "icon": "UI_Talent_U_Feiyan_01"
+    },
+    "const4": {
+      "name": "Supreme Amnesty",
+      "description": "When <color=#FFD780FF>Done Deal</color> is used:\\nCreates a shield that absorbs up to 45% of Yanfei's Max HP for 15s.\\nThis shield absorbs <color=#FF9999FF>Pyro DMG</color> 250% more effectively.",
+      "icon": "UI_Talent_S_Feiyan_03"
+    },
+    "const5": {
+      "name": "Abiding Affidavit",
+      "description": "Increases the Level of <color=#FFD780FF>Done Deal</color> by 3.\\nMaximum upgrade level is 15.",
+      "icon": "UI_Talent_U_Feiyan_02"
+    },
+    "const6": {
+      "name": "Extra Clause",
+      "description": "Increases the maximum number of Scarlet Seals by 1.",
+      "icon": "UI_Talent_S_Feiyan_04"
+    }
+  },
+  "hyperlinks": [],
+  "stories": {
+    "x38201": {
+      "storyTitle": "Character Details",
+      "storyText": "Liyue is a port that prizes contracts and trade, and it is a place where wealth accumulates.\\nMerchants from various nations are active here, which has contributed to Liyue's abundance, but has also brought up many disagreements. The Tianquan, Ningguang, has written a very comprehensive compendium of laws to deal with this, but not everyone has the patience to study them.\\nThus was born the role of the legal adviser in Liyue society. Highly familiar with Liyue's laws, they help those in need to navigate any contradictions, earning recompense for their efforts.\\nYanfei is the premier legal adviser in Liyue Harbor.\\nShe is always able to obtain the most benefits for her clients, insofar as the law will allow. Some even call her \"the law that walks.\"\\nBut in truth, what Yanfei — one of the few half-illuminated-beasts who have yet to sign a contract with Rex Lapis — really wants to do is live a free and happy life.\\nAs for the copy of \"The General Law of Liyue\" that she carries around on her person, Yanfei has this to say:\\n\"If you don't wish to be bound by the rules, you have to first understand them all.\"",
+      "unlockConds": []
+    },
+    "x38202": {
+      "storyTitle": "Character Story 1",
+      "storyText": "As the most sought-after legal adviser in Liyue Harbor, Yanfei's rates are also top-of-the-line.\\nEven so, she never lacks for people coming to seek appointments. After all, merchants are not stingy about mediation fees, but are very picky indeed about the mediator.\\n\"Money is no object — we must have Yanfei come and settle this matter for us.\"\\nMany rate Yanfei in this fashion, not only for her quick-thinking or her masterful oratory, but also because she very greatly emphasizes the cornerstone of the law — \"fairness.\"\\nHer mediations often end in win-win situations, and even merchants with daggers drawn will temporarily set their prejudices aside.\\nThough she is unbound by a contract, Yanfei has made her own contribution to the peace and prosperity of Liyue.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 2
+      }
+    },
+    "x38203": {
+      "storyTitle": "Character Story 2",
+      "storyText": "As a legal adviser, Yanfei does have her fair share of weaknesses. An example is the mediation of civil disputes that involve emotions and relationships.\\nDivorces, inheritances, custody disputes, senior care, severances... The list continues.\\nIt is said that upright officials are hapless in household affairs, and so it also is with Yanfei, who grew up surrounded by love — these matters fall right into her blind corner.\\nSometimes, she will find that both sides have reason on their side, and other times she will find them to both be unreasonable. Child custody disputes are the absolute worst, as no matter how she settles them, the settlement will have a great psychological impact on the innocent children. Even if Yanfei chooses to soldier on, she will only tire herself out.\\n\"Hopefully, everyone can meet the right person and be spared this particular grief.\"",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 3
+      }
+    },
+    "x38204": {
+      "storyTitle": "Character Story 3",
+      "storyText": "As a result of her greatly tolerant nature, Yanfei has a wide variety of personal relationships throughout Liyue.\\nThere is no need to worry about rubbing a sore spot, and you'll be able to get along with her whether you're an avid conversationalist or not.\\nOf course, this is true as long as you don't attempt to debate with her or start a conversation about the legal profession... Yanfei in work mode is a completely different beast to deal with.\\nAdditionally, Yanfei has cultivated the habit of being overly rigorous from her long years of studying the law. When chatting, Yanfei will vigorously eliminate any ambiguity or loopholes present in the discourse and can seem like a bit of a chatterbox. When she realizes this, Yanfei is wont to knock herself on the head with a book in irritation.\\nHowever, so long as she constantly bathes in a sea of legal literature, this habit will probably be quite hard to break.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 4
+      }
+    },
+    "x38205": {
+      "storyTitle": "Character Story 4",
+      "storyText": "When investigating the law, Yanfei's habit is to look past the cold letters of the law to perceive their point of origin.\\nAs such, she is also something of a master of \"reading comprehension\" in her relationships.\\nOnce, the Traveler met Yanfei by chance and said, \"Huh. Didn't expect to see you here.\"\\nThis should have been a line that one might hear just about anywhere, but it wound up holding a completely different meaning for Yanfei.\\n\"Didn't expect to meet you here\" implied that the Traveler had at least thought about a scenario in which they would meet. Then why the use of \"didn't expect\"? One could only postulate that the Traveler had some expectation of where she might appear, and that her current location was not such a place. But whence came the expectation? Could it be that the Traveler had always been paying attention to her in secret?\\n\"Does this mean that the Traveler...?\"\\nYanfei tossed and turned in bed that night, unable to sleep.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 5
+      }
+    },
+    "x38206": {
+      "storyTitle": "Character Story 5",
+      "storyText": "Yanfei's most prized possession is the steelyard balance that her father gave her.\\nIt is said that this balance was a treasure given by Rex Lapis that can be used to measure the value of all things. For convenience, Yanfei tends to use Mora to balance the scales, which is to say that she uses Mora to evaluate objects.\\nThe prices of many objects have slowly changed over the years, but weighing an object with this balance only gives its value at the time Mora was created, leaving the rest to Yanfei to exercise her own wisdom and judgment.\\nAcross the measurements of countless objects, Yanfei is able to see the changes in Liyue. Some objects that were once common have become vanishingly rare, and some exotic objects of the past have been rendered pedestrian today.\\nThis steelyard balance reminds her that many things cannot be valued by the standards of the world.\\nYanfei once tried to weigh the value of a Vision, but no matter how much Mora she added, the scales would not be balanced.\\nIn frustration, she placed on the scale the box at her waist, which contained her heavy, handwritten legal notations. Only then did the weights at last even out.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 6
+      }
+    },
+    "x38207": {
+      "storyTitle": "Codex Finalem",
+      "storyText": "This is the most special of the many legal treatises that Yanfei collects.\\nAs opposed to the codices that grow heavier and more complicated with time, this book is unbelievably light and thin.\\nAfter opening it and getting past the prologue, one will find naught but the most basic few principles of the law inscribed.\\nAs Yanfei sees it, this is the final form of the law. In the far future, the law will have entered into the people's hearts. All people will be amiable, modest, and live happily in this world. The halls of judgment will lie empty and the mountains of legalese shall be caked in years of dust.\\nThough this may sound like something very far off, for someone like Yanfei, in whom flows the blood of an illuminated beast, living till that day is hardly a great accomplishment.\\n\"Hmm, but if I think about it more deeply, I'd be out of a job then, wouldn't I?\"\\nAfter encountering one of Xinyan's performances by chance, Yanfei was quite taken by this new wave of performance art.\\nThat said, learning an instrument from scratch proved to be a bit difficult, so after consulting a great many resources, Yanfei came to what she considered to be a decent backup plan.\\nIf such a day were to arrive, she would just become a rapper.\\nFor someone who can recite tens of thousands of words' worth of Liyue law from front to back within an hour, speed at least should be no challenge.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 4
+      }
+    },
+    "x38208": {
+      "storyTitle": "Vision",
+      "storyText": "Yanfei's father is an illuminated beast, while her mother is an ordinary mortal merchant. Born into peaceful times, Yanfei did not sign a contract with Rex Lapis, but instead has one with her parents to \"live happily.\"\\nAs Liyue's leading legal exegete, she is no stranger to exploiting some existing loopholes in the law — at times for herself, and sometimes for others.\\nIt has been made clear often enough that Yanfei is not a stickler for the rules and has no wish to be shackled by strictures.\\nStill, she contributes to the betterment of Liyue as she seeks her own pleasure, and will not use these loopholes for ill.\\nWhen making amendments to legal loopholes each year, Ningguang the Tianquan will often study Yanfei's doings, as if she were Liyue's unofficial legal troubleshooter.\\nIn a sense, one could argue that Yanfei makes the laws better at the lowest possible price... This principle is also the reason why she has never been convicted of exploiting any such loopholes.\\nYanfei believes in \"no structure without laws,\" and what she wishes for is to \"live as one pleases without overstepping.\"\\nEveryone in Liyue, adeptus or mortal, protects it in their own way.\\nThat is why Yanfei possesses a Vision, one that is of equal weight to her principles.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 6
+      }
+    }
+  },
+  "quotes": {
+    "x38009": {
+      "quoteTitle": "Hello",
+      "quoteText": "My name is Yanfei, top legal expert in Liyue — and for the avoidance of doubt, no one else comes close! From commercial litigation, to civil mediation, to criminal lawsuits, I'm fully versed in every area of the law, and I guarantee you a swift and satisfactory conclusion to your case! My contact details... Where should I write this down? ...Hmm, paper will just get lost, and it'll only rub off if I write it on the back of your hand, so... Aha! I know, I'll just write it here, on the clothes of this... whatever this thing is that follows you around.",
+      "unlockConds": []
+    },
+    "x38010": {
+      "quoteTitle": "Chat: The Law",
+      "quoteText": "I'll remind you again: The law can be both a help and a hindrance.",
+      "unlockConds": []
+    },
+    "x38011": {
+      "quoteTitle": "Chat: Work",
+      "quoteText": "Sometimes the law is compatible with human nature, but sometimes the two conflict. Balancing the two is a discipline in its own right...",
+      "unlockConds": []
+    },
+    "x38012": {
+      "quoteTitle": "Chat: Reading",
+      "quoteText": "The case before us... is a strange and unprecedented one indeed.",
+      "unlockConds": []
+    },
+    "x38013": {
+      "quoteTitle": "When It Rains",
+      "quoteText": "Rain! Oh, Lord of Geo, please, do us a favor and clear this up at your earliest convenience... I submit that we cannot afford for the codices to get damp...",
+      "unlockConds": []
+    },
+    "x38014": {
+      "quoteTitle": "When It Snows",
+      "quoteText": "What the... What kind of injurious weather is this!? It's c—cold... Achoo...",
+      "unlockConds": []
+    },
+    "x38015": {
+      "quoteTitle": "When the Sun Is Out",
+      "quoteText": "Ah, this weather's got me in the mood for reciting some laws. Let's see... \"Commercial Law of Liyue,\" Chapter 27, Section 6, Article 3 stipulates that— Wait, what was it...? Oh my goodness, I've completely forgotten! What is wrong with me today...?",
+      "unlockConds": []
+    },
+    "x38016": {
+      "quoteTitle": "Good Morning",
+      "quoteText": "I have to head out this morning to meet a client about a creditor dispute, but I also have to follow up on a consultation from last week by noon... Alright, time to get to work!",
+      "unlockConds": []
+    },
+    "x38017": {
+      "quoteTitle": "Good Afternoon",
+      "quoteText": "*yawn* I'm a little sleepy... I know, a vigorous debate should wake me up! And I've got just the topic: \"The Northland Bank's presence in Liyue does more harm than good for our economy.\" ...So, are you for or against?",
+      "unlockConds": []
+    },
+    "x38018": {
+      "quoteTitle": "Good Evening",
+      "quoteText": "The night market? Hmm... I was planning on organizing some files this evening, but if you're going, I can join you. Oh, I should mention — lots of vendors go for the hard sell in the evenings, because they want to be able to start with fresh produce the next day, but also don't want to lose profit on what they have left today.\\nSo, leave the negotiating to me. And... If you have any leftovers, those can be my fee.",
+      "unlockConds": []
+    },
+    "x38019": {
+      "quoteTitle": "Good Night",
+      "quoteText": "Need a cure for insomnia? Let me read you the history of the development of Liyue's legal system! None of my friends have ever lasted longer than 20 minutes... Oh, you want something more fast-acting? Then I'll recite from the legal codices! Let me know in the morning which section I got to before you fell asleep! Okay, here I go...",
+      "unlockConds": []
+    },
+    "x38020": {
+      "quoteTitle": "About Yanfei: Atmosphere",
+      "quoteText": "You think I come across as quite imposing when I'm reading through case files? Huh. Well, that's only when I'm in work mode. It's like... I have an invisible switch, flick it one way and I'm in normal mode, flick it the other way and I switch to work mode. Surely you must have a switch like that, too?",
+      "unlockConds": []
+    },
+    "x38021": {
+      "quoteTitle": "About Yanfei: Weakness",
+      "quoteText": "Civil cases are the ones I dread the most. Divorces, custody disputes... It's a thankless task trying to unpack these kinds of cases with logic and reason. You have to be kind, courteous, and patient with your clients, even though half the time they are completely incapable of participating in a constructive discussion. *sigh* I know I advertise myself as being fully versed in every area of the law, but honestly, if it were up to me, I'd rather everyone could just get along, so we wouldn't have so many of these cases.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x38022": {
+      "quoteTitle": "About Us: Rates",
+      "quoteText": "You want legal advice from me? Sure. For legal opinions, I charge a flat rate of 6,000 Mora, for advisory services, my hourly rate is 180,000 Mora, and for commercial law, I charge 710,000 Mora per case — final quote and commission rate depending on the details of your case. Not a bad deal, right?",
+      "unlockConds": []
+    },
+    "x38023": {
+      "quoteTitle": "About Us: Relationships",
+      "quoteText": "If you're concerned about what kind of complicated issues you might get tied up in during your travels, your best bet is to bring someone with you who knows and understands the law. Someone like me, for example, whose expertise goes beyond just the law of Liyue... Well, actually, having said that, Fontaine's law is notoriously complicated... Though, with my level of intelligence, getting acquainted with it should be no problem! Anyway... My point is, you can always rely on me!",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 6"
+      ]
+    },
+    "x38024": {
+      "quoteTitle": "About the Vision",
+      "quoteText": "Visions appear in response to strong desire, so as someone with ideals, it's only natural that I should have received one. Because, above all, I wish for all people to live honest lives and abide by the law. But some people will always insist on playing by their own rules and causing havoc for everyone else... Hah, those people can expect to be prosecuted so hard, they won't know what hit them!",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x38025": {
+      "quoteTitle": "Something to Share: Balance",
+      "quoteText": "This steelyard balance was a gift from my father. It weighs objects to determine their value. I usually use Mora for the weight, but it can only give the original price. For example, a thousand years ago, Liyue was covered in Glaze Lilies, and they weren't worth anything in monetary terms. Then, when they suddenly declined in number, the price shot up in response, but the value shown by this steelyard wasn't updated. It still shows them as their original value... in other words, dirt cheap.\\nSo, most of the time, this isn't a very useful tool for work purposes... Hmm? You want to try weighing something? How about... We could weigh your little friend here, will that do?",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x38026": {
+      "quoteTitle": "Something to Share: The Rule of Law",
+      "quoteText": "I have a self-defense method that I call \"Wrath of the Flame,\" based on a punishment called the \"Wrath of the Rock,\" which is detailed in the ancient work \"The Comprehensive Compendium of Liyue Law.\" The Lord of Geo is the God of Contracts, and contracts, too, can be seen as a way of restraining people. Haha, ergo, Liyue Harbor has been the City of Contracts since time immemorial.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x38027": {
+      "quoteTitle": "Interesting Things",
+      "quoteText": "The Historia Naturalis Liyue has an entry about a waterborne plant called the Horsetail. It claims that \"The Horsetail is a medicinal herb that stands alone on the banks of Dihua Marsh. Its color is that of the clouds at sunset.\" Apparently, if you grind it into a powder and mix it into your ink, it makes your writing water-resistant. But it's a shame, I've been to Dihua Marsh at least a hundred times, and each time I end up with baskets and baskets of the common purple variety, but not a single one of the kind that the book describes.",
+      "unlockConds": []
+    },
+    "x38028": {
+      "quoteTitle": "About Qiqi",
+      "quoteText": "I heard that little herb gatherer has written out a whole set of behavioral rules for herself. She may be small, but boy, has she got her head screwed on! She's definitely destined for greatness...\\n\"The young of today shall outperform us tomorrow,\" as they say. I must admit, she has my respect.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x38029": {
+      "quoteTitle": "About Ganyu",
+      "quoteText": "Ganyu is kind and thoughtful, it's just a shame she's so busy all the time. Most of the time, she's buried in an endless pile of paperwork — the only exception being her nap at noon. Don't get me wrong, I have to put in some hours at work, too. But I'm happy with the job I've chosen, and it's certainly a lot less taxing than hers.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x38030": {
+      "quoteTitle": "About Xingqiu",
+      "quoteText": "The Feiyun Commerce Guild is one of my oldest clients. Their approach to business is meticulous and thorough, and every business meeting I've had with them has always been attended by the head of the house himself. Last time, though, I happened to meet their youngest, Xingqiu. To my complete surprise, the lad had no trouble whatsoever keeping up with my train of thought. He was very eloquent, too, and had excellent manners. Mm, definitely not a simpleton.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x38031": {
+      "quoteTitle": "About Hu Tao",
+      "quoteText": "I always hear people saying that the director of the Wangsheng Funeral Parlor has an unorthodox approach to business. They think she's gone a little non compos mentis after being in the funeral business so long... What are these people talking about? The Wangsheng Funeral Parlor provides a legitimate and necessary service, which is the cornerstone of any successful enterprise. Work is just work — there are no good and bad jobs, or lucky and unlucky jobs, just jobs that need doing.\\nIf I had one gripe, it would be that the director rarely comes to me for legal advice, hmph...",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x38032": {
+      "quoteTitle": "About Zhongli",
+      "quoteText": "Mr. Zhongli has so much in-depth knowledge on so many topics, he's like a walking library, you know what I mean? He's a total savant, though he never flaunts it. I could tell just by looking at him. People like him rarely shy away from taking on complex problems alone, so in my estimation he's certainly not a potential client.\\nAnd yet, somehow, I can't help but think I know him from somewhere, it's hard to describe the feeling... I asked my father about it, and he just said something to the effect of he didn't know either, though he seemed a little evasive. It was so strange... Anyway, makes me wonder if my father is hiding something from me. Hmph, alright then — if he won't tell me what's going on, I'll just have to find out for myself...",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x38033": {
+      "quoteTitle": "About Ningguang",
+      "quoteText": "You must have heard of the Tianquan, Ningguang? She's the highest authority where the law is concerned, and often makes amendments to the legal codices. Every round of additions, retractions, and revisions generates mountains of material. Why, the latest edition of the legal codices contained three new laws, 121 revised legal annotations, and an array of new legal precedents. Archons know how long it's going to take me to commit them to memory...\\nHmph... still, she's a businesswoman at heart, I'm not about to let her beat me when it comes to the law. Once I've finished memorizing these, I need to step up my productivity...",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x38034": {
+      "quoteTitle": "About Keqing",
+      "quoteText": "The Yuheng doesn't deal with matters of the law, and thank goodness... Knowing Keqing's attitude toward work and ruthless efficiency, I'd end up losing a lot of work. Although... No, surely it wouldn't come to that. She's a stickler for doing things the right way — no doubt she'd offend people... but if she had someone like me as her legal assistant... No way! Why should an eminent legal expert such as myself be relegated to the role of assistant!? If she needs legal counsel, she can come and find me.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x38035": {
+      "quoteTitle": "About Eula",
+      "quoteText": "Eula saved me once, and we've kept up correspondence ever since. She's very familiar with the Knights of Favonius' legislation, but has never been one to be bound by convention. She uses cunning logic to deal with problems flexibly... Perhaps the reason we get along so easily is that I'm a similar type myself. Still, I'll never acquire that carefree spirit of hers. We are in very different professions, after all.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x38036": {
+      "quoteTitle": "About Yelan",
+      "quoteText": "Yelan is an employee of the Ministry of Civil Affairs — she once helped me crack a tough accounting fraud case. I treated her to dinner afterward. The only thing is... I feel like she's able to read my mind at any given moment when talking to her... Yes, in the future, I need to make absolutely sure I don't get on the wrong side of her.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x38037": {
+      "quoteTitle": "About Kuki Shinobu",
+      "quoteText": "Shinobu? I remember her, she's the Inazuman girl that came to Liyue as an exchange student to specialize in law. When she was doing her coursework, she used to meet with me to discuss some cases, and after we were done, she'd always bow and thank me, which would always make me a little embarrassed. I always felt like she was going to make an excellent lawyer in the future. Thinking about it, Inazuma went into lockdown right around the time she would have graduated. I wonder how she's been doing since she went back...",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x38038": {
+      "quoteTitle": "More About Yanfei: I",
+      "quoteText": "A client? Very pleased to meet you, here's my card. I'm afraid I can't leave my desk today, if it's a dispute we're dealing with then please bring the relevant parties here to see me. Let me just give you a breakdown of my fees — one moment...\\nHuh? You came just to chat? Uh... no fee necessary then. So just to clarify... you came to chat as friends with a legal expert that you've never met before... care to explain?",
+      "unlockConds": []
+    },
+    "x38039": {
+      "quoteTitle": "More About Yanfei: II",
+      "quoteText": "These antlers? Oh... well my father is an adeptus, so I have adeptus blood myself. Still, I was born during peacetime here in Liyue — I never signed a contract with Rex Lapis. Naturally, I don't have to concern myself with adeptal affairs — I'm free to focus on the life I want to live. Works for me! Hee-hee.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 3"
+      ]
+    },
+    "x38040": {
+      "quoteTitle": "More About Yanfei: III",
+      "quoteText": "Contracts of that magnitude — lifelong commitments... I've only ever signed one with my father. Uh... it's about living happily, I suppose. That's the kind of person he is. I'm proud of him for that. If he'd wanted me to sign a different contract, say... one about working myself into the ground, or stepping on others to achieve success... I would've ran away by now!",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x38041": {
+      "quoteTitle": "More About Yanfei: IV",
+      "quoteText": "Sometimes, the commercial disputes I handle don't end very pleasantly. The other party might win compensation way in excess of the damages, or pay damages far exceeding the costs... Such is the price of violating a contract. Some people say I'm pretty terrifying, others try to avoid me altogether, but I don't need to explain myself to anyone. Since the very beginning, the welfare of Liyue has been my primary concern!\\nThink about it — the origin of disputes can be traced back to the violation of contracts. People are a lot less likely to violate contracts when they see the fallout. Making sure that people realize the importance of contracts is a crucial part of my work!",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 5"
+      ]
+    },
+    "x38042": {
+      "quoteTitle": "More About Yanfei: V",
+      "quoteText": "Most of the time, I feel that I have a happy and laid back existence. I have a successful career, clothes on my back, and the freedom to go wherever I please. I've also got quite a way with words — nobody can beat me in a debate. And yet, there is no law or standard that can define a happy life.\\nFor me... interesting people and engaging affairs, knowing where to go and which path to choose... these are all enough to bring me happiness. And on that note, you too are a source of happiness for me.\\nIn any case, whatever the life you live, the most important thing is to respect and understand the law. After all, as soon as you stray from the law, the world begins to fall to ruin.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 6"
+      ]
+    },
+    "x38043": {
+      "quoteTitle": "Yanfei's Hobbies",
+      "quoteText": "My hobbies are reading and appraisal. Reading begets knowledge, appraisal improves judgment. As such, I read everything and appraise anything. If you don't believe me, bring something over sometime. If there's a market for it, my estimate won't be far off. Take this stone for example... must be... 600 Mora.",
+      "unlockConds": []
+    },
+    "x38044": {
+      "quoteTitle": "Yanfei's Troubles",
+      "quoteText": "My friends from the Communications Office often get me to go fishing with them. They say it's to exchange angling tips, but deep down everyone's keen to show off. I've gotten the better of everyone a hundred different ways, but they continue to scrutinize my business... After so much success, it's gotten a little embarrassing... So every time, I end up taking advantage of my ingenious acting skills to make myself seem humble, you know? What's with the face — are you doubting me?",
+      "unlockConds": []
+    },
+    "x38045": {
+      "quoteTitle": "Favorite Food",
+      "quoteText": "Oh! On that note, let me recommend my one true love. Tofu — tofu all the way! Light in flavor, tender in texture, not to mention smooth and nourishing. It goes well with all manner of soups and dishes, and more importantly — it's available throughout the seasons! Beauty over complexity... tofu dishes are my kind of flavor.",
+      "unlockConds": []
+    },
+    "x38046": {
+      "quoteTitle": "Least Favorite Food",
+      "quoteText": "I don't like cold dishes... maybe it's because I rarely eat them. When I would get home late, my father used to keep a lantern lit for me. He'd hear me coming and ask me if I was hungry. In his words: \"The best dishes are served hot.\"",
+      "unlockConds": []
+    },
+    "x38047": {
+      "quoteTitle": "Birthday",
+      "quoteText": "Happy birthday! Here, this is for you. I've collated legislation from all the nations — you're planning to go traveling, right? It will serve you well to familiarize yourself with the law of the different lands.\\nDon't study too hard mind you, or else... I won't be of any use to you.",
+      "unlockConds": []
+    },
+    "x38048": {
+      "quoteTitle": "Feelings About Ascension: Intro",
+      "quoteText": "\"Do not seek to emulate the past, for there is no law that can suffice for all time\"... This is a lesson I must always bear in mind.",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 1"
+      ]
+    },
+    "x38049": {
+      "quoteTitle": "Feelings About Ascension: Building Up",
+      "quoteText": "Only by adhering to the law can the people solve life's myriad of problems.",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 2"
+      ]
+    },
+    "x38050": {
+      "quoteTitle": "Feelings About Ascension: Climax",
+      "quoteText": "Studying the law allows one to have grounded conversations, whilst learning martial arts allows one to prevail against groundless violence. Hey, wait a minute... does this count as martial arts...?",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 4"
+      ]
+    },
+    "x38051": {
+      "quoteTitle": "Feelings About Ascension: Conclusion",
+      "quoteText": "Well, I guess I've mastered both the pen and the sword! I've been lucky to have you with me through to the end of my training. Compensation? Uhh... a twenty-four-hour specialist personal advisor? Sounds good... But no haggling!",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 6"
+      ]
+    },
+    "x38052": {
+      "quoteTitle": "Elemental Skill: I",
+      "quoteText": "Boom boom!",
+      "unlockConds": []
+    },
+    "x38053": {
+      "quoteTitle": "Elemental Skill: II",
+      "quoteText": "Incinerate!",
+      "unlockConds": []
+    },
+    "x38054": {
+      "quoteTitle": "Elemental Skill: III",
+      "quoteText": "Motion to compel!",
+      "unlockConds": []
+    },
+    "x38055": {
+      "quoteTitle": "Elemental Burst: I",
+      "quoteText": "Time for your arraignment!",
+      "unlockConds": []
+    },
+    "x38056": {
+      "quoteTitle": "Elemental Burst: II",
+      "quoteText": "Wrath of the Flame!",
+      "unlockConds": []
+    },
+    "x38057": {
+      "quoteTitle": "Elemental Burst: III",
+      "quoteText": "Inadmissible evidence!",
+      "unlockConds": []
+    },
+    "x38058": {
+      "quoteTitle": "Opening Treasure Chest: I",
+      "quoteText": "Ooh, we can definitely write this off as \"incidental gains.\"",
+      "unlockConds": []
+    },
+    "x38059": {
+      "quoteTitle": "Opening Treasure Chest: II",
+      "quoteText": "Remarkable condition!",
+      "unlockConds": []
+    },
+    "x38060": {
+      "quoteTitle": "Opening Treasure Chest: III",
+      "quoteText": "Huh, let's appraise the value on this...",
+      "unlockConds": []
+    },
+    "x38061": {
+      "quoteTitle": "Low HP: I",
+      "quoteText": "Objection!",
+      "unlockConds": []
+    },
+    "x38062": {
+      "quoteTitle": "Low HP: II",
+      "quoteText": "Keep within the law...",
+      "unlockConds": []
+    },
+    "x38063": {
+      "quoteTitle": "Low HP: III",
+      "quoteText": "But my defense was watertight...",
+      "unlockConds": []
+    },
+    "x38064": {
+      "quoteTitle": "Ally at Low HP: I",
+      "quoteText": "Hey, leave it to me!",
+      "unlockConds": []
+    },
+    "x38065": {
+      "quoteTitle": "Ally at Low HP: II",
+      "quoteText": "The verdict is... emergency measures!",
+      "unlockConds": []
+    },
+    "x38066": {
+      "quoteTitle": "Fallen: I",
+      "quoteText": "It's a... hung jury...",
+      "unlockConds": []
+    },
+    "x38067": {
+      "quoteTitle": "Fallen: II",
+      "quoteText": "The law... has loopholes...",
+      "unlockConds": []
+    },
+    "x38068": {
+      "quoteTitle": "Fallen: III",
+      "quoteText": "I... object...",
+      "unlockConds": []
+    },
+    "x38069": {
+      "quoteTitle": "Heavy Hit Taken: I",
+      "quoteText": "Ugh...",
+      "unlockConds": []
+    },
+    "x38070": {
+      "quoteTitle": "Joining Party: I",
+      "quoteText": "Next time, be sure to make a proper appointment.",
+      "unlockConds": []
+    },
+    "x38071": {
+      "quoteTitle": "Joining Party: II",
+      "quoteText": "I charge a higher rate to meet outside the office.",
+      "unlockConds": []
+    },
+    "x38072": {
+      "quoteTitle": "Joining Party: III",
+      "quoteText": "Ready for trial.",
+      "unlockConds": []
+    },
+    "x38073": {
+      "quoteTitle": "Receiving a Gift: I",
+      "quoteText": "Tastes pretty great! Seems like you did your homework when it comes to the unwritten Law of Tofu.",
+      "unlockConds": []
+    },
+    "x38074": {
+      "quoteTitle": "Receiving a Gift: II",
+      "quoteText": "There's a saying in Liyue: \"Food is life.\" I gotta admit, the supporting evidence is pretty compelling.",
+      "unlockConds": []
+    },
+    "x38075": {
+      "quoteTitle": "Receiving a Gift: III",
+      "quoteText": "...I got it! I'll put it back on the fire for a bit, that'll do the trick.",
+      "unlockConds": []
+    }
+  },
+  "energy": {
+    "source": "Ball",
+    "particles": "3",
+    "chance": "100%",
+    "cd": "0.2s"
+  },
+  "attacks": [
+    {
+      "name": "Avatar_FeiyanGadgetSkill_NormalAttackDamage01",
+      "icd_source": "Tag: Feiyan_Fire_Damage (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV2/10",
+      "element": "Fire",
+      "attackType": "Range",
+      "strikeType": "-",
+      "damageParam": "Feiyan_NormalAttack_01_DamagePercentage"
+    },
+    {
+      "name": "Avatar_FeiyanGadgetSkill_NormalAttackDamage02",
+      "icd_source": "Tag: Feiyan_Fire_Damage (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV2/9",
+      "element": "Fire",
+      "attackType": "Default",
+      "strikeType": "-",
+      "damageParam": "Feiyan_NormalAttack_02_DamagePercentage"
+    },
+    {
+      "name": "Avatar_FeiyanGadgetSkill_NormalAttackDamage03",
+      "icd_source": "Tag: Feiyan_Fire_Damage (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV2/14",
+      "element": "Fire",
+      "attackType": "Default",
+      "strikeType": "-",
+      "damageParam": "Feiyan_NormalAttack_03_DamagePercentage"
+    },
+    {
+      "name": "ExtraAttack_DoAttack",
+      "icd_source": "Tag: ExtraAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV2/50",
+      "element": "Fire",
+      "attackType": "Range",
+      "strikeType": "-",
+      "damageParam": "Feiyan_Talent_CriticalAttack_Damage"
+    },
+    {
+      "name": "Avatar_FeiyanGadgetSkill_ExtraAttack_Damage",
+      "icd_source": "Tag: ExtraAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV3/80",
+      "element": "Fire",
+      "attackType": "Default",
+      "strikeType": "Blunt",
+      "damageParam": "Feiyan_ExtraAttack_Weight_Damage_Lv00"
+    },
+    {
+      "name": "Avatar_FeiyanGadgetSkill_ExtraAttack_Damage",
+      "icd_source": "Tag: ExtraAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV3/80",
+      "element": "Fire",
+      "attackType": "Default",
+      "strikeType": "Blunt",
+      "damageParam": "Feiyan_ExtraAttack_Weight_Damage_Lv01"
+    },
+    {
+      "name": "Avatar_FeiyanGadgetSkill_ExtraAttack_Damage",
+      "icd_source": "Tag: ExtraAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV4/80",
+      "element": "Fire",
+      "attackType": "Default",
+      "strikeType": "Blunt",
+      "damageParam": "Feiyan_ExtraAttack_Weight_Damage_Lv02"
+    },
+    {
+      "name": "Avatar_FeiyanGadgetSkill_ExtraAttack_Damage",
+      "icd_source": "Tag: ExtraAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV5/80",
+      "element": "Fire",
+      "attackType": "Default",
+      "strikeType": "Blunt",
+      "damageParam": "Feiyan_ExtraAttack_Weight_Damage_Lv03"
+    },
+    {
+      "name": "Avatar_FeiyanGadgetSkill_ExtraAttack_Damage",
+      "icd_source": "Tag: ExtraAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV5/80",
+      "element": "Fire",
+      "attackType": "Default",
+      "strikeType": "Blunt",
+      "damageParam": "Feiyan_ExtraAttack_Weight_Damage_Lv04"
+    },
+    {
+      "name": "ElementalArt",
+      "icd_source": "Tag: Elemental_Art (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV3/120",
+      "element": "Fire",
+      "attackType": "Default",
+      "strikeType": "Blunt",
+      "damageParam": "Feiyan_ElementalArt_DamagePercentage"
+    },
+    {
+      "name": "ElementalBurst",
+      "icd_source": "Tag: Elemental_Burst (!)",
+      "icd_rule": "Independent",
+      "gauge": "2U",
+      "poise": "LV3/200",
+      "element": "Fire",
+      "attackType": "Range",
+      "strikeType": "Blunt",
+      "damageParam": "Feiyan_ElementalBurst_DamagePercentage"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "0U",
+      "poise": "LV2/5",
+      "element": "Fire",
+      "attackType": "Default",
+      "strikeType": "-",
+      "damageParam": "FallingAnthem_Normal_Loop_Damage"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV3/50",
+      "element": "Fire",
+      "attackType": "Default",
+      "strikeType": "-",
+      "damageParam": "FallingAnthem_Normal_Rank_1_Damage"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV4/100",
+      "element": "Fire",
+      "attackType": "Default",
+      "strikeType": "-",
+      "damageParam": "FallingAnthem_Normal_Rank_2_Damage"
+    }
+  ],
+  "endure": [
+    {
+      "ability": "ElementalBurst",
+      "handler": "UNIQUE_ElementalBurst_Talent_FireShield_Child",
+      "Actor_EndureDelta": 0
+    },
+    {
+      "ability": "ElementalBurst",
+      "handler": "UNIQUE_ElementalBurst_Talent_FireShield_Team",
+      "Actor_EndureDelta": 0
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+﻿{
+    "Id":  14002,
+    "SetId":  14002,
+    "EnName":  "Thundersoother",
+    "QualityType":  "QUALITY_ORANGE",
+    "SetIcon":  "UI_RelicIcon_14002_4",
+    "Effect2Pc":  "Electro RES increased by 40%.",
+    "Effect4Pc":  "Increases DMG against opponents affected by Electro by 35%.",
+    "Pieces":  {
+                   "circlet":  {
+                                   "icon":  "UI_RelicIcon_14002_3",
+                                   "name":  "Thundersoother\u0027s Diadem"
+                               },
+                   "flower":  {
+                                  "icon":  "UI_RelicIcon_14002_4",
+                                  "name":  "Thundersoother\u0027s Heart"
+                              },
+                   "goblet":  {
+                                  "icon":  "UI_RelicIcon_14002_1",
+                                  "name":  "Thundersoother\u0027s Goblet"
+                              },
+                   "plume":  {
+                                 "icon":  "UI_RelicIcon_14002_2",
+                                 "name":  "Thundersoother\u0027s Plume"
+                             },
+                   "sands":  {
+                                 "icon":  "UI_RelicIcon_14002_5",
+                                 "name":  "Hour of Soothing Thunder"
+                             }
+               }
+}

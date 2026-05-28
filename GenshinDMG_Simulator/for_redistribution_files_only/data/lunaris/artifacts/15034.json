@@ -1,0 +1,31 @@
+﻿{
+    "Id":  15034,
+    "SetId":  15034,
+    "EnName":  "Nighttime Whispers in the Echoing Woods",
+    "QualityType":  "QUALITY_ORANGE",
+    "SetIcon":  "UI_RelicIcon_15034_4",
+    "Effect2Pc":  "ATK +18%.",
+    "Effect4Pc":  "After using an Elemental Skill, gain a 20% Geo DMG Bonus for 10s. When under a shield granted by the Crystallize reaction, or when Moondrifts formed by Lunar-Crystallize reactions are nearby, the above effect is increased by 150%. When these conditions are no longer met, this additional increase disappears after 1s.",
+    "Pieces":  {
+                   "circlet":  {
+                                   "icon":  "UI_RelicIcon_15034_3",
+                                   "name":  "Compassionate Ladies\u0027 Hat"
+                               },
+                   "flower":  {
+                                  "icon":  "UI_RelicIcon_15034_4",
+                                  "name":  "Selfless Floral Accessory"
+                              },
+                   "goblet":  {
+                                  "icon":  "UI_RelicIcon_15034_1",
+                                  "name":  "Magnanimous Ink Bottle"
+                              },
+                   "plume":  {
+                                 "icon":  "UI_RelicIcon_15034_2",
+                                 "name":  "Honest Quill"
+                             },
+                   "sands":  {
+                                 "icon":  "UI_RelicIcon_15034_5",
+                                 "name":  "Faithful Hourglass"
+                             }
+               }
+}

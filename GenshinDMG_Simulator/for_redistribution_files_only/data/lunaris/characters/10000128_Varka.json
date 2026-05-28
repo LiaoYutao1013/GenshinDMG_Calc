@@ -1,0 +1,2110 @@
+{
+  "info": {
+    "name": "Varka",
+    "description": "Grand Master of the Knights of Favonius. Knight of Boreas, protector of Mondstadt.",
+    "rarity": "QUALITY_ORANGE",
+    "weapon": "WEAPON_CLAYMORE",
+    "birthday": "17/2",
+    "element": "Anemo",
+    "title": "Knight of Boreas",
+    "constellation": "Lupus Majoris",
+    "affiliation": "Knights of Favonius",
+    "cv": {
+      "EN": "Joseph May",
+      "CHS": "郝祥海",
+      "JP": "杉田智和",
+      "KR": "Park Sang-hoon"
+    },
+    "attributes": [
+      {
+        "level": 1,
+        "ascension": 0,
+        "hp": 982,
+        "atk": 27,
+        "def": 62,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 2,
+        "ascension": 0,
+        "hp": 1063,
+        "atk": 30,
+        "def": 67,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 3,
+        "ascension": 0,
+        "hp": 1145,
+        "atk": 32,
+        "def": 72,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 4,
+        "ascension": 0,
+        "hp": 1227,
+        "atk": 34,
+        "def": 77,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 5,
+        "ascension": 0,
+        "hp": 1309,
+        "atk": 37,
+        "def": 83,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 6,
+        "ascension": 0,
+        "hp": 1391,
+        "atk": 39,
+        "def": 88,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 7,
+        "ascension": 0,
+        "hp": 1473,
+        "atk": 41,
+        "def": 93,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 8,
+        "ascension": 0,
+        "hp": 1555,
+        "atk": 44,
+        "def": 98,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 9,
+        "ascension": 0,
+        "hp": 1638,
+        "atk": 46,
+        "def": 103,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 10,
+        "ascension": 0,
+        "hp": 1719,
+        "atk": 48,
+        "def": 108,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 11,
+        "ascension": 0,
+        "hp": 1802,
+        "atk": 50,
+        "def": 114,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 12,
+        "ascension": 0,
+        "hp": 1884,
+        "atk": 53,
+        "def": 119,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 13,
+        "ascension": 0,
+        "hp": 1967,
+        "atk": 55,
+        "def": 124,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 14,
+        "ascension": 0,
+        "hp": 2050,
+        "atk": 57,
+        "def": 129,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 15,
+        "ascension": 0,
+        "hp": 2133,
+        "atk": 60,
+        "def": 134,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 16,
+        "ascension": 0,
+        "hp": 2215,
+        "atk": 62,
+        "def": 140,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 17,
+        "ascension": 0,
+        "hp": 2299,
+        "atk": 64,
+        "def": 145,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 18,
+        "ascension": 0,
+        "hp": 2381,
+        "atk": 67,
+        "def": 150,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 19,
+        "ascension": 0,
+        "hp": 2465,
+        "atk": 69,
+        "def": 155,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 20,
+        "ascension": 0,
+        "hp": 2547,
+        "atk": 71,
+        "def": 161,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 21,
+        "ascension": 1,
+        "hp": 3472,
+        "atk": 97,
+        "def": 219,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 22,
+        "ascension": 1,
+        "hp": 3556,
+        "atk": 99,
+        "def": 224,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 23,
+        "ascension": 1,
+        "hp": 3639,
+        "atk": 102,
+        "def": 230,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 24,
+        "ascension": 1,
+        "hp": 3723,
+        "atk": 104,
+        "def": 235,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 25,
+        "ascension": 1,
+        "hp": 3806,
+        "atk": 106,
+        "def": 240,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 26,
+        "ascension": 1,
+        "hp": 3891,
+        "atk": 109,
+        "def": 245,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 27,
+        "ascension": 1,
+        "hp": 3974,
+        "atk": 111,
+        "def": 251,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 28,
+        "ascension": 1,
+        "hp": 4058,
+        "atk": 113,
+        "def": 256,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 29,
+        "ascension": 1,
+        "hp": 4142,
+        "atk": 116,
+        "def": 261,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 30,
+        "ascension": 1,
+        "hp": 4226,
+        "atk": 118,
+        "def": 266,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 31,
+        "ascension": 1,
+        "hp": 4310,
+        "atk": 121,
+        "def": 272,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 32,
+        "ascension": 1,
+        "hp": 4394,
+        "atk": 123,
+        "def": 277,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 33,
+        "ascension": 1,
+        "hp": 4479,
+        "atk": 125,
+        "def": 282,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 34,
+        "ascension": 1,
+        "hp": 4562,
+        "atk": 128,
+        "def": 288,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 35,
+        "ascension": 1,
+        "hp": 4647,
+        "atk": 130,
+        "def": 293,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 36,
+        "ascension": 1,
+        "hp": 4732,
+        "atk": 132,
+        "def": 298,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 37,
+        "ascension": 1,
+        "hp": 4817,
+        "atk": 135,
+        "def": 304,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 38,
+        "ascension": 1,
+        "hp": 4901,
+        "atk": 137,
+        "def": 309,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 39,
+        "ascension": 1,
+        "hp": 4986,
+        "atk": 139,
+        "def": 314,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 40,
+        "ascension": 1,
+        "hp": 5071,
+        "atk": 142,
+        "def": 320,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 41,
+        "ascension": 2,
+        "hp": 5754,
+        "atk": 161,
+        "def": 363,
+        "CRITDMG_": "9.6"
+      },
+      {
+        "level": 42,
+        "ascension": 2,
+        "hp": 5839,
+        "atk": 163,
+        "def": 368,
+        "CRITDMG_": "9.6"
+      },
+      {
+        "level": 43,
+        "ascension": 2,
+        "hp": 5925,
+        "atk": 166,
+        "def": 374,
+        "CRITDMG_": "9.6"
+      },
+      {
+        "level": 44,
+        "ascension": 2,
+        "hp": 6009,
+        "atk": 168,
+        "def": 379,
+        "CRITDMG_": "9.6"
+      },
+      {
+        "level": 45,
+        "ascension": 2,
+        "hp": 6094,
+        "atk": 170,
+        "def": 384,
+        "CRITDMG_": "9.6"
+      },
+      {
+        "level": 46,
+        "ascension": 2,
+        "hp": 6180,
+        "atk": 173,
+        "def": 390,
+        "CRITDMG_": "9.6"
+      },
+      {
+        "level": 47,
+        "ascension": 2,
+        "hp": 6265,
+        "atk": 175,
+        "def": 395,
+        "CRITDMG_": "9.6"
+      },
+      {
+        "level": 48,
+        "ascension": 2,
+        "hp": 6351,
+        "atk": 178,
+        "def": 401,
+        "CRITDMG_": "9.6"
+      },
+      {
+        "level": 49,
+        "ascension": 2,
+        "hp": 6437,
+        "atk": 180,
+        "def": 406,
+        "CRITDMG_": "9.6"
+      },
+      {
+        "level": 50,
+        "ascension": 2,
+        "hp": 6523,
+        "atk": 182,
+        "def": 411,
+        "CRITDMG_": "9.6"
+      },
+      {
+        "level": 51,
+        "ascension": 3,
+        "hp": 7406,
+        "atk": 207,
+        "def": 467,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 52,
+        "ascension": 3,
+        "hp": 7492,
+        "atk": 210,
+        "def": 472,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 53,
+        "ascension": 3,
+        "hp": 7577,
+        "atk": 212,
+        "def": 478,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 54,
+        "ascension": 3,
+        "hp": 7664,
+        "atk": 214,
+        "def": 483,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 55,
+        "ascension": 3,
+        "hp": 7750,
+        "atk": 217,
+        "def": 489,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 56,
+        "ascension": 3,
+        "hp": 7837,
+        "atk": 219,
+        "def": 494,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 57,
+        "ascension": 3,
+        "hp": 7923,
+        "atk": 222,
+        "def": 500,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 58,
+        "ascension": 3,
+        "hp": 8009,
+        "atk": 224,
+        "def": 505,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 59,
+        "ascension": 3,
+        "hp": 8096,
+        "atk": 226,
+        "def": 511,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 60,
+        "ascension": 3,
+        "hp": 8182,
+        "atk": 229,
+        "def": 516,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 61,
+        "ascension": 4,
+        "hp": 8867,
+        "atk": 248,
+        "def": 559,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 62,
+        "ascension": 4,
+        "hp": 8953,
+        "atk": 250,
+        "def": 565,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 63,
+        "ascension": 4,
+        "hp": 9041,
+        "atk": 253,
+        "def": 570,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 64,
+        "ascension": 4,
+        "hp": 9127,
+        "atk": 255,
+        "def": 576,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 65,
+        "ascension": 4,
+        "hp": 9214,
+        "atk": 258,
+        "def": 581,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 66,
+        "ascension": 4,
+        "hp": 9302,
+        "atk": 260,
+        "def": 587,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 67,
+        "ascension": 4,
+        "hp": 9388,
+        "atk": 263,
+        "def": 592,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 68,
+        "ascension": 4,
+        "hp": 9476,
+        "atk": 265,
+        "def": 598,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 69,
+        "ascension": 4,
+        "hp": 9563,
+        "atk": 267,
+        "def": 603,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 70,
+        "ascension": 4,
+        "hp": 9650,
+        "atk": 270,
+        "def": 609,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 71,
+        "ascension": 5,
+        "hp": 10336,
+        "atk": 289,
+        "def": 652,
+        "CRITDMG_": "28.8"
+      },
+      {
+        "level": 72,
+        "ascension": 5,
+        "hp": 10424,
+        "atk": 292,
+        "def": 657,
+        "CRITDMG_": "28.8"
+      },
+      {
+        "level": 73,
+        "ascension": 5,
+        "hp": 10512,
+        "atk": 294,
+        "def": 663,
+        "CRITDMG_": "28.8"
+      },
+      {
+        "level": 74,
+        "ascension": 5,
+        "hp": 10599,
+        "atk": 296,
+        "def": 668,
+        "CRITDMG_": "28.8"
+      },
+      {
+        "level": 75,
+        "ascension": 5,
+        "hp": 10688,
+        "atk": 299,
+        "def": 674,
+        "CRITDMG_": "28.8"
+      },
+      {
+        "level": 76,
+        "ascension": 5,
+        "hp": 10775,
+        "atk": 301,
+        "def": 680,
+        "CRITDMG_": "28.8"
+      },
+      {
+        "level": 77,
+        "ascension": 5,
+        "hp": 10863,
+        "atk": 304,
+        "def": 685,
+        "CRITDMG_": "28.8"
+      },
+      {
+        "level": 78,
+        "ascension": 5,
+        "hp": 10952,
+        "atk": 306,
+        "def": 691,
+        "CRITDMG_": "28.8"
+      },
+      {
+        "level": 79,
+        "ascension": 5,
+        "hp": 11040,
+        "atk": 309,
+        "def": 696,
+        "CRITDMG_": "28.8"
+      },
+      {
+        "level": 80,
+        "ascension": 5,
+        "hp": 11128,
+        "atk": 311,
+        "def": 702,
+        "CRITDMG_": "28.8"
+      },
+      {
+        "level": 81,
+        "ascension": 6,
+        "hp": 11815,
+        "atk": 330,
+        "def": 745,
+        "CRITDMG_": "38.4"
+      },
+      {
+        "level": 82,
+        "ascension": 6,
+        "hp": 11903,
+        "atk": 333,
+        "def": 751,
+        "CRITDMG_": "38.4"
+      },
+      {
+        "level": 83,
+        "ascension": 6,
+        "hp": 11992,
+        "atk": 335,
+        "def": 756,
+        "CRITDMG_": "38.4"
+      },
+      {
+        "level": 84,
+        "ascension": 6,
+        "hp": 12080,
+        "atk": 338,
+        "def": 762,
+        "CRITDMG_": "38.4"
+      },
+      {
+        "level": 85,
+        "ascension": 6,
+        "hp": 12168,
+        "atk": 340,
+        "def": 767,
+        "CRITDMG_": "38.4"
+      },
+      {
+        "level": 86,
+        "ascension": 6,
+        "hp": 12258,
+        "atk": 343,
+        "def": 773,
+        "CRITDMG_": "38.4"
+      },
+      {
+        "level": 87,
+        "ascension": 6,
+        "hp": 12346,
+        "atk": 345,
+        "def": 779,
+        "CRITDMG_": "38.4"
+      },
+      {
+        "level": 88,
+        "ascension": 6,
+        "hp": 12436,
+        "atk": 348,
+        "def": 784,
+        "CRITDMG_": "38.4"
+      },
+      {
+        "level": 89,
+        "ascension": 6,
+        "hp": 12525,
+        "atk": 350,
+        "def": 790,
+        "CRITDMG_": "38.4"
+      },
+      {
+        "level": 90,
+        "ascension": 6,
+        "hp": 12613,
+        "atk": 353,
+        "def": 795,
+        "CRITDMG_": "38.4"
+      },
+      {
+        "level": 95,
+        "ascension": 6,
+        "hp": 13061,
+        "atk": 392,
+        "def": 824,
+        "CRITDMG_": "38.4"
+      },
+      {
+        "level": 100,
+        "ascension": 6,
+        "hp": 13510,
+        "atk": 432,
+        "def": 852,
+        "CRITDMG_": "38.4"
+      }
+    ]
+  },
+  "icons": {
+    "forward": "UI_AvatarIcon_Varka",
+    "coop_img": "UI_CoopImg_Varka"
+  },
+  "ascension": {
+    "x202": 7.0499E+6,
+    "exp": {
+      "x104001": 2,
+      "x104003": 418
+    },
+    "speciality": {
+      "x100021": 168
+    },
+    "elemental": {
+      "x104151": 1,
+      "x104152": 9,
+      "x104153": 9,
+      "x104154": 6
+    },
+    "worldmonster": {
+      "x112122": 18,
+      "x112123": 30,
+      "x112124": 36
+    },
+    "elitemonster": {
+      "x113085": 46
+    }
+  },
+  "skills": {
+    "normalattack": {
+      "name": "Favonius Bladework: Dancing Radiance",
+      "icon": "Skill_A_04",
+      "multipliers": {
+        "x1_HitDMG": [
+          "65.46%",
+          "70.79%",
+          "76.12%",
+          "83.73%",
+          "89.06%",
+          "95.14%",
+          "103.52%",
+          "111.89%",
+          "120.26%",
+          "129.4%",
+          "138.53%",
+          "147.66%",
+          "156.8%",
+          "165.93%",
+          "175.07%"
+        ],
+        "x2_HitDMG": [
+          "23.99%+44.55%",
+          "25.94%+48.18%",
+          "27.89%+51.8%",
+          "30.68%+56.98%",
+          "32.64%+60.61%",
+          "34.87%+64.75%",
+          "37.94%+70.45%",
+          "41%+76.15%",
+          "44.07%+81.85%",
+          "47.42%+88.06%",
+          "50.77%+94.28%",
+          "54.11%+100.5%",
+          "57.46%+106.71%",
+          "60.81%+112.93%",
+          "64.16%+119.15%"
+        ],
+        "x3_HitDMG": [
+          "32.44%+60.24%",
+          "35.08%+65.14%",
+          "37.72%+70.05%",
+          "41.49%+77.05%",
+          "44.13%+81.95%",
+          "47.15%+87.56%",
+          "51.29%+95.26%",
+          "55.44%+102.97%",
+          "59.59%+110.67%",
+          "64.12%+119.08%",
+          "68.64%+127.48%",
+          "73.17%+135.89%",
+          "77.7%+144.29%",
+          "82.22%+152.7%",
+          "86.75%+161.1%"
+        ],
+        "x4_HitDMG": [
+          "55.43%+29.85%",
+          "59.94%+32.28%",
+          "64.46%+34.71%",
+          "70.9%+38.18%",
+          "75.41%+40.61%",
+          "80.57%+43.38%",
+          "87.66%+47.2%",
+          "94.75%+51.02%",
+          "101.84%+54.84%",
+          "109.57%+59%",
+          "117.31%+63.17%",
+          "125.04%+67.33%",
+          "132.78%+71.5%",
+          "140.51%+75.66%",
+          "148.25%+79.83%"
+        ],
+        "x5_HitDMG": [
+          "69.75%+37.56%",
+          "75.43%+40.61%",
+          "81.1%+43.67%",
+          "89.21%+48.04%",
+          "94.89%+51.1%",
+          "101.38%+54.59%",
+          "110.3%+59.39%",
+          "119.22%+64.2%",
+          "128.15%+69%",
+          "137.88%+74.24%",
+          "147.61%+79.48%",
+          "157.34%+84.72%",
+          "167.08%+89.96%",
+          "176.81%+95.2%",
+          "186.54%+100.44%"
+        ],
+        "ChargedAttackDMG": [
+          "85.64%+46.11%",
+          "92.61%+49.87%",
+          "99.58%+53.62%",
+          "109.54%+58.98%",
+          "116.51%+62.74%",
+          "124.48%+67.02%",
+          "135.43%+72.92%",
+          "146.38%+78.82%",
+          "157.34%+84.72%",
+          "169.29%+91.15%",
+          "181.24%+97.59%",
+          "193.19%+104.02%",
+          "205.13%+110.46%",
+          "217.08%+116.89%",
+          "229.03%+123.33%"
+        ],
+        "ChargedAttackStaminaCost": [
+          "50",
+          "50",
+          "50",
+          "50",
+          "50",
+          "50",
+          "50",
+          "50",
+          "50",
+          "50",
+          "50",
+          "50",
+          "50",
+          "50",
+          "50"
+        ],
+        "PlungeDMG": [
+          "74.59%",
+          "80.66%",
+          "86.73%",
+          "95.4%",
+          "101.47%",
+          "108.41%",
+          "117.95%",
+          "127.49%",
+          "137.03%",
+          "147.44%",
+          "157.85%",
+          "168.26%",
+          "178.66%",
+          "189.07%",
+          "199.48%"
+        ],
+        "Low_HighPlungeDMG": [
+          "149.14%/186.29%",
+          "161.28%/201.45%",
+          "173.42%/216.62%",
+          "190.77%/238.28%",
+          "202.91%/253.44%",
+          "216.78%/270.77%",
+          "235.86%/294.6%",
+          "254.93%/318.42%",
+          "274.01%/342.25%",
+          "294.82%/368.25%",
+          "315.63%/394.24%",
+          "336.44%/420.23%",
+          "357.25%/446.23%",
+          "378.06%/472.22%",
+          "398.87%/498.21%"
+        ]
+      },
+      "description": "<color=#FFD780FF>Normal Attack</color>\\nImitating an ancient knightly war-dance, Varka wields dual claymores to perform up to 5 consecutive strikes.\\n\\n<color=#FFD780FF>Charged Attack</color>\\nConsumes a certain amount of Stamina to charge forward and perform an especially powerful dual blade slash toward the front.\\n\\n<color=#FFD780FF>Plunging Attack</color>\\nPlunges from mid-air to strike the ground below, damaging opponents along the path and dealing AoE DMG upon impact."
+    },
+    "elementalskill": {
+      "name": "Windbound Execution",
+      "icon": "Skill_S_Varka_01",
+      "multipliers": {
+        "SkillDMG": [
+          "278.4%",
+          "299.28%",
+          "320.16%",
+          "348%",
+          "368.88%",
+          "389.76%",
+          "417.6%",
+          "445.44%",
+          "473.28%",
+          "501.12%",
+          "528.96%",
+          "556.8%",
+          "591.6%",
+          "626.4%",
+          "661.2%"
+        ],
+        "PressCD": [
+          "16s",
+          "16s",
+          "16s",
+          "16s",
+          "16s",
+          "16s",
+          "16s",
+          "16s",
+          "16s",
+          "16s",
+          "16s",
+          "16s",
+          "16s",
+          "16s",
+          "16s"
+        ],
+        "HoldCD": [
+          "8s",
+          "8s",
+          "8s",
+          "8s",
+          "8s",
+          "8s",
+          "8s",
+          "8s",
+          "8s",
+          "8s",
+          "8s",
+          "8s",
+          "8s",
+          "8s",
+          "8s"
+        ],
+        "SturmUndDrangDuration": [
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s"
+        ],
+        "SturmUndDrang1_HitDMG": [
+          "81.82%",
+          "88.48%",
+          "95.14%",
+          "104.66%",
+          "111.32%",
+          "118.93%",
+          "129.4%",
+          "139.86%",
+          "150.33%",
+          "161.75%",
+          "173.16%",
+          "184.58%",
+          "196%",
+          "207.42%",
+          "218.83%"
+        ],
+        "SturmUndDrang2_HitDMG": [
+          "29.99%+55.69%",
+          "32.43%+60.22%",
+          "34.87%+64.75%",
+          "38.35%+71.23%",
+          "40.79%+75.76%",
+          "43.58%+80.94%",
+          "47.42%+88.06%",
+          "51.25%+95.19%",
+          "55.09%+102.31%",
+          "59.27%+110.08%",
+          "63.46%+117.85%",
+          "67.64%+125.62%",
+          "71.83%+133.39%",
+          "76.01%+141.16%",
+          "80.19%+148.93%"
+        ],
+        "SturmUndDrang3_HitDMG": [
+          "40.55%+75.3%",
+          "43.85%+81.43%",
+          "47.15%+87.56%",
+          "51.86%+96.31%",
+          "55.16%+102.44%",
+          "58.93%+109.45%",
+          "64.12%+119.08%",
+          "69.3%+128.71%",
+          "74.49%+138.34%",
+          "80.15%+148.85%",
+          "85.81%+159.35%",
+          "91.46%+169.86%",
+          "97.12%+180.37%",
+          "102.78%+190.87%",
+          "108.44%+201.38%"
+        ],
+        "SturmUndDrang4_HitDMG": [
+          "69.29%+37.31%",
+          "74.93%+40.35%",
+          "80.57%+43.38%",
+          "88.63%+47.72%",
+          "94.27%+50.76%",
+          "100.71%+54.23%",
+          "109.57%+59%",
+          "118.44%+63.77%",
+          "127.3%+68.55%",
+          "136.97%+73.75%",
+          "146.64%+78.96%",
+          "156.3%+84.16%",
+          "165.97%+89.37%",
+          "175.64%+94.58%",
+          "185.31%+99.78%"
+        ],
+        "SturmUndDrang5_HitDMG": [
+          "87.19%+46.95%",
+          "94.28%+50.77%",
+          "101.38%+54.59%",
+          "111.52%+60.05%",
+          "118.62%+63.87%",
+          "126.73%+68.24%",
+          "137.88%+74.24%",
+          "149.03%+80.25%",
+          "160.18%+86.25%",
+          "172.35%+92.8%",
+          "184.51%+99.35%",
+          "196.68%+105.9%",
+          "208.84%+112.45%",
+          "221.01%+119.01%",
+          "233.18%+125.56%"
+        ],
+        "SturmUndDrangChargedAttackDMG": [
+          "107.05%+57.64%",
+          "115.76%+62.33%",
+          "124.48%+67.02%",
+          "136.92%+73.73%",
+          "145.64%+78.42%",
+          "155.59%+83.78%",
+          "169.29%+91.15%",
+          "182.98%+98.53%",
+          "196.67%+105.9%",
+          "211.61%+113.94%",
+          "226.54%+121.99%",
+          "241.48%+130.03%",
+          "256.42%+138.07%",
+          "271.36%+146.11%",
+          "286.29%+154.16%"
+        ],
+        "FourWinds_AscensionDMG": [
+          "175.76%+94.64%",
+          "188.94%+101.74%",
+          "202.12%+108.84%",
+          "219.7%+118.3%",
+          "232.88%+125.4%",
+          "246.06%+132.5%",
+          "263.64%+141.96%",
+          "281.22%+151.42%",
+          "298.79%+160.89%",
+          "316.37%+170.35%",
+          "333.94%+179.82%",
+          "351.52%+189.28%",
+          "373.49%+201.11%",
+          "395.46%+212.94%",
+          "417.43%+224.77%"
+        ],
+        "AzureDevourDMG": [
+          "93.6%×2+50.4%×2",
+          "100.62%×2+54.18%×2",
+          "107.64%×2+57.96%×2",
+          "117%×2+63%×2",
+          "124.02%×2+66.78%×2",
+          "131.04%×2+70.56%×2",
+          "140.4%×2+75.6%×2",
+          "149.76%×2+80.64%×2",
+          "159.12%×2+85.68%×2",
+          "168.48%×2+90.72%×2",
+          "177.84%×2+95.76%×2",
+          "187.2%×2+100.8%×2",
+          "198.9%×2+107.1%×2",
+          "210.6%×2+113.4%×2",
+          "222.3%×2+119.7%×2"
+        ],
+        "FourWinds_AscensionCD": [
+          "11s",
+          "11s",
+          "11s",
+          "11s",
+          "11s",
+          "11s",
+          "11s",
+          "11s",
+          "11s",
+          "11s",
+          "11s",
+          "11s",
+          "11s",
+          "11s",
+          "11s"
+        ]
+      },
+      "description": "Manifest the true essence of Favonius Bladework with absolute power. Produces different effects depending on whether the skill is Tapped or Held.\\n\\n<color=#FFD780FF>Tap</color>\\nLeap forward and slash in one fluid motion, dealing <color=#80FFD7FF>AoE Anemo DMG</color> and switching to {LINK#N11280001}<color=#FFD780FF>Sturm und Drang</color>{/LINK} mode.\\nWhile in <color=#FFD780FF>Sturm und Drang</color>, Varka's Normal Attack and Charged Attack DMG is increased, and he cannot perform Plunging Attacks. Also, when performing Normal or Charged Attacks, Varka's dual-wielded claymores will deal corresponding Elemental DMG based on the Elemental Types of the characters in the party, respectively. This Elemental DMG cannot be overridden by infusions.\\nAdditionally, when in <color=#FFD780FF>Sturm und Drang</color>, if there are <color=#FF9999FF>Pyro</color>, <color=#80C0FFFF>Hydro</color>, <color=#FFACFFFF>Electro</color> or <color=#99FFFFFF>Cryo</color> characters in the party, Varka's Elemental Skill <color=#FFD780FF>Windbound Execution</color> will be converted to the special Elemental Skill, {LINK#N11280002}<color=#FFD780FF>Four Winds' Ascension</color>{/LINK}, dealing corresponding Elemental DMG and <color=#80FFD7FF>Anemo DMG</color>. Additionally, Varka can also expend uses of the special Elemental Skill <color=#FFD780FF>Four Winds' Ascension</color> to perform a special Charged Attack, <color=#FFD780FF>Azure Devour</color>, that does not consume stamina to deal corresponding Elemental DMG and <color=#80FFD7FF>Anemo DMG</color>.\\n\\n<color=#FFD780FF>Hold</color>\\nAfter charging for a while, leap forward. The duration of the charge will increase the distance of the leap.\n\\n\\n<i>\"The wind knows no dread of tomorrow, nor does it suffer the bite of chains. Prisons and high walls cannot confine the wind, nor can they silence those who sing for freedom.\"\\n\"Well said. But that interpretation does not authorize you to slip out of solitary confinement and reward yourself with drinks at The Cat's Tail after Jean grounds you, Grand Master Varka.\"</i>"
+    },
+    "elementalburst": {
+      "name": "Northwind Avatar",
+      "icon": "Skill_E_Varka_01",
+      "multipliers": {
+        "Skill1_HitDMG": [
+          "336.96%",
+          "362.23%",
+          "387.5%",
+          "421.2%",
+          "446.47%",
+          "471.74%",
+          "505.44%",
+          "539.14%",
+          "572.83%",
+          "606.53%",
+          "640.22%",
+          "673.92%",
+          "716.04%",
+          "758.16%",
+          "800.28%"
+        ],
+        "Skill2_HitDMG": [
+          "181.44%",
+          "195.05%",
+          "208.66%",
+          "226.8%",
+          "240.41%",
+          "254.02%",
+          "272.16%",
+          "290.3%",
+          "308.45%",
+          "326.59%",
+          "344.74%",
+          "362.88%",
+          "385.56%",
+          "408.24%",
+          "430.92%"
+        ],
+        "CD": [
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s"
+        ],
+        "EnergyCost": [
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60"
+        ]
+      },
+      "description": "In the name of the mightiest Knight of Boreas, unleash a powerful double slash attack toward the front, dealing 2 instances of <color=#80FFD7FF>Anemo DMG</color>.\\nIf there are <color=#FF9999FF>Pyro</color>, <color=#80C0FFFF>Hydro</color>, <color=#FFACFFFF>Electro</color> or <color=#99FFFFFF>Cryo</color> characters in the party, the first slash will be converted to deal corresponding Elemental DMG according to the aforementioned priority order of Elemental Types.\n\\n\\n<i>\"Hey, Seamus, have you ever thought it weird that I, the Knight of Boreas, North of Mondstadt's Four Winds, am the Grand Master of the Knights of Favonius, the West of Mondstadt's Four Winds? If, let's say, I want to threaten the enemy with some harsh words... Should I say 'I am the North Wind' or 'I am the West Wind'? Or better yet, 'I am the Northwest Wind'?\"\\n\"Firstly, the Wild Hunt cannot understand what you're saying. Secondly, they're less than three hundred meters away from us right now. Please focus on more pressing matters, Grand Master Varka.\"</i>"
+    },
+    "leveling": {
+      "books": {
+        "x104301": 9,
+        "x104302": 63,
+        "x104303": 114
+      },
+      "crown": {
+        "x104319": 3
+      },
+      "worldmonster": {
+        "x112122": 18,
+        "x112123": 66,
+        "x112124": 93
+      },
+      "weekly": {
+        "x113074": 18
+      }
+    }
+  },
+  "passives": {
+    "p1": {
+      "name": "Dawn Wind's March",
+      "description": "When there are <color=#FF9999FF>Pyro</color>, <color=#80C0FFFF>Hydro</color>, <color=#FFACFFFF>Electro</color> or <color=#99FFFFFF>Cryo</color> characters in the party, according to the aforementioned priority order of Elemental Types, every 1,000 points of Varka's ATK will grant Varka a 10% <color=#80FFD7FF>Anemo DMG Bonus</color> and corresponding Elemental DMG Bonus (among the aforementioned Elemental Types, only one element can gain bonus DMG this way). Up to 25% bonus DMG can be gained this way. \\n\\nAdditionally, if there are at least 2 <color=#80FFD7FF>Anemo</color> characters, or at least 2 characters of the same Element among <color=#FF9999FF>Pyro</color>, <color=#80C0FFFF>Hydro</color>, <color=#FFACFFFF>Electro</color> or <color=#99FFFFFF>Cryo</color> in the party, the Normal Attacks, Charged Attacks, Special Charged Attack <color=#FFD780FF>Azure Devour</color> and the special Elemental Skill {LINK#N11280002}<color=#FFD780FF>Four Winds' Ascension</color>{/LINK} that Varka deals or unleashes while in the {LINK#N11280001}<color=#FFD780FF>Sturm und Drang</color>{/LINK} mode will deal 140% of their original DMG. If there are at least 2 <color=#80FFD7FF>Anemo</color> characters and at least 2 other characters of the same element among <color=#FF9999FF>Pyro</color>, <color=#80C0FFFF>Hydro</color>, <color=#FFACFFFF>Electro</color> or <color=#99FFFFFF>Cryo</color> present in the party at the same time, the aforementioned effect will be increased to 220%.",
+      "icon": "UI_Talent_S_Varka_06"
+    },
+    "p2": {
+      "name": "Wind's Vanguard",
+      "description": "When nearby party members trigger Swirl reaction(s), Varka gains one stack of <color=#FFD780FF>Azure Fang's Oath</color>, increasing the DMG dealt by his Normal Attacks, Charged Attacks, special Charged Attack <color=#FFD780FF>Azure Devour</color> and special Elemental Skill {LINK#N11280002}<color=#FFD780FF>Four Winds' Ascension</color>{/LINK} by 7.5% for 8s. Max 4 stacks. Each character can grant Varka with 1 stack of <color=#FFD780FF>Azure Fang's Oath</color> every second this way.",
+      "icon": "UI_Talent_S_Varka_05"
+    },
+    "p3": {
+      "name": "Homebound Wind's Paean",
+      "description": "For every party member from Mondstadt, the Hold version of Varka's Elemental Skill <color=#FFD780FF>Windbound Execution</color>'s CD is decreased by 5%.\\nThis effect does not trigger in Domains, Trounce Domains, or the Spiral Abyss.",
+      "icon": "UI_Talent_S_Varka_07"
+    },
+    "p4": {
+      "name": "Witch's Eve Rite: Dawn's Return",
+      "description": "After completing <color=#FFD780FF>Witch's Homework: The Untitled Question</color>, Varka will become a <color=#FFD780FF>Hexerei</color> character. When the party includes at least 2 Hexerei characters, you will gain the <color=#FFD780FF>Hexerei: Secret Rite</color> effect, which enhances Hexerei characters.\\n\\n<color=#FFD780FF>Hexerei: Secret Rite</color>\\nEnhances the special Elemental Skill {LINK#N11280002}<color=#FFD780FF>Four Winds' Ascension</color>{/LINK}: When Varka hits an opponent with Normal Attack(s) in {LINK#N11280001}<color=#FFD780FF>Sturm und Drang</color>{/LINK}, the CD of <color=#FFD780FF>Four Winds' Ascension</color> will be reduced by 1s.",
+      "icon": "UI_Talent_S_Varka_08"
+    }
+  },
+  "constellations": {
+    "const1": {
+      "name": "\"Come, Friend, Let Us Dance Beneath the Moon's Soft Glow\"",
+      "description": "When Varka switches to {LINK#N11280001}<color=#FFD780FF>Sturm und Drang</color>{/LINK}, he will obtain an additional use of the special Elemental Skill {LINK#N11280002}<color=#FFD780FF>Four Winds' Ascension</color>{/LINK}.\\nAdditionally, after switching to <color=#FFD780FF>Sturm und Drang</color>, Varka will gain the <color=#FFD780FF>Lyrical Libation</color> effect: When unleashing the special Elemental Skill <color=#FFD780FF>Four Winds' Ascension</color>, or when performing the special Charged Attack <color=#FFD780FF>Azure Devour</color>, Varka will consume this effect to deal 200% of the original DMG dealt by <color=#FFD780FF>Four Winds' Ascension</color> or <color=#FFD780FF>Azure Devour</color>.",
+      "icon": "UI_Talent_S_Varka_01"
+    },
+    "const2": {
+      "name": "\"When Dawn Breaks, Our Journey Shall Take Flight\"",
+      "description": "When unleashing the special Elemental Skill {LINK#N11280002}<color=#FFD780FF>Four Winds' Ascension</color>{/LINK}, or when performing the special Charged Attack <color=#FFD780FF>Azure Devour</color>, Varka will perform an additional strike, dealing <color=#80FFD7FF>AoE Anemo DMG</color> equal to 800% of Varka's ATK.",
+      "icon": "UI_Talent_S_Varka_02"
+    },
+    "const3": {
+      "name": "\"O Friend, Quaff Not the Bitter Wine That Brings Tears of Woe\"",
+      "description": "Increases Elemental Skill <color=#FFD780FF>{LINK#S11282}Windbound Execution{/LINK}</color> Level by 3.\\nMaximum upgrade level is 15.",
+      "icon": "UI_Talent_U_Varka_01"
+    },
+    "const4": {
+      "name": "\"For None May Take From Us Our Freedom of Song\"",
+      "description": "When Varka triggers a Swirl reaction, based on the Elemental Types involved in the reaction, all nearby party members gain a 20% <color=#80FFD7FF>Anemo DMG Bonus</color> and the corresponding Elemental DMG Bonus for 10s.",
+      "icon": "UI_Talent_S_Varka_03"
+    },
+    "const5": {
+      "name": "\"Fill High the Cup With Fine Wine, for Tyrants Come and Go\"",
+      "description": "Increases Elemental Burst <color=#FFD780FF>{LINK#S11285}Northwind Avatar{/LINK}</color> Level by 3.\\n Maximum upgrade level is 15.",
+      "icon": "UI_Talent_U_Varka_02"
+    },
+    "const6": {
+      "name": "\"Beloved Mondstadt, Steadfast You Shall Shine\"",
+      "description": "{LINK#N11280001}<color=#FFD780FF>Sturm und Drang</color>{/LINK} is enhanced:\\n· For a short time after unleashing the special Elemental Skill {LINK#N11280002}<color=#FFD780FF>Four Winds' Ascension</color>{/LINK}, Tapping on Varka's Elemental Skill or Holding his Normal Attack will not expend any uses of Four Winds' Ascension, and will perform one additional instance of the special Charged Attack, <color=#FFD780FF>Azure Devour</color>.\\n· For a short time after performing the special Charged Attack <color=#FFD780FF>Azure Devour</color>, tap on Varka's Elemental Skill to unleash an additional instance of <color=#FFD780FF>Four Winds' Ascension</color> without expending any uses of Four Winds' Ascension.\\nWhen triggering an additional special Charged Attack, Azure Devour, or unleashing an additional special Elemental Skill, Four Winds' Ascension, in this manner, the above effect cannot be triggered.\\n\\nAdditionally, the <color=#FFD780FF>Azure Fang's Oath</color> effect in Ascension Talent <color=#FFD780FF>{LINK#P1282201}Wind's Vanguard{/LINK}</color> is enhanced: Every stack of <color=#FFD780FF>Azure Fang's Oath</color> will increase Varka's CRIT DMG by 20%.",
+      "icon": "UI_Talent_S_Varka_04"
+    }
+  },
+  "hyperlinks": [
+    {
+      "id": 1.1280001E+7,
+      "name": "Sturm und Drang",
+      "description": "Tap to unleash Elemental Skill Windbound Execution for Varka to switch to this mode.\\nWhile in this mode, Varka's Normal Attacks and Charged Attacks deal increased DMG, and he cannot perform Plunging Attacks. When Varka executes Normal or Charged Attacks, his dual-wielded claymores will deal corresponding Elemental DMG based on the Elemental Types of the characters in the party respectively:\\n· DMG dealt by the claymore wielded in his left hand will be converted to Anemo DMG that cannot be overridden by other infusions.\\n· When there are Pyro, Hydro, Electro or Cryo characters in the party, the claymore wielded in his right hand deals corresponding Elemental DMG that cannot be overridden by infusions, following the aforementioned priority order of Elemental Types.\\n\\nAdditionally, while in this mode, if there are Pyro, Hydro, Electro or Cryo characters in the party, Varka's Elemental Skill Windbound Execution will be converted to the special Elemental Skill, Four Winds' Ascension.",
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": 1.1280002E+7,
+      "name": "Four Winds' Ascension",
+      "description": "Varka's special Elemental Skill. Deals AoE Elemental DMG that cannot be overridden by infusions corresponding to the element of the claymore wielded in Varka's right hand, and AoE Anemo DMG to opponents.\\nStarts on cooldown and has 2 maximum uses.\\nWhen Varka is in Sturm und Drang mode and his Normal Attack hits an opponent, the CD of Four Winds' Ascension will be reduced by 0.5s. Every time Varka switches to the Sturm und Drang mode, this effect can be triggered up to 15 times.\\nAdditionally, Varka can expend uses of Four Winds' Ascension to perform a special Charged Attack, Azure Devour, that consumes no Stamina, dealing 2 instances of Elemental DMG corresponding to the element of the claymore wielded in his right hand, which cannot be overridden by infusions, and 2 instances of Anemo DMG.",
+      "params": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    }
+  ],
+  "stories": {
+    "x128200": {
+      "storyTitle": "Character Details",
+      "storyText": "It is in bustling taverns that the grand tales of Varka are told, and they almost always begin with the extraordinary story of his birth.\\nSome claim that, when he was still in his swaddling clothes, two venomous serpents sought to slay the hero he was to be. Yet the infant, not a full month old, seized them, one in each hand, and tossed them from his cradle as if they were mere playthings. And thus, 'tis said, he grasped the secret to wielding twin blades!\\nSome say that, upon the very hour of his birth, a bitter north wind, the likes of which had not scourged Mondstadt in a century, tore through the sunlit skies. And from the depths of Wolvendom rose a chorus of wolf cries, one answering another. 'Twas a declaration that the \"North Wind\" would rise again to reclaim his place as the mightiest of the Four Winds!\\nSome whisper that he was born to be a knight, a favored child of fate, destined for greatness since his first breath... Such whispers, of course, are but the idle stuff of tavern tales.\\nIn Mondstadt, there are no fell serpents that single out infants as targets for their venom, nor packs of wolves that howl for no rhyme or reason.\\nThese tales are naught but the beguiling babble of tavern bards, who, with much ado, weave epics of high destiny and doom for entertainment.\\nNot all legends are born of legendary beginnings, nor must every myth be guided by a god's own hand.\\nOn a perfectly ordinary day, without a breath of wind or drop of rain, in a home neither poor nor prosperous, Varka came into the world in the most ordinary way.\\nNo peril arose, no omen struck. In the days that followed, he grew up no differently from any other ordinary child in Mondstadt.\\nListening to the bards' tales of knights and gods, he dreamed of the day he might charge across a battlefield, just like the heroes of those very tales.\\nYet, when the tales were over, and the children departed in twos and threes, he would always linger, clinging on with ceaseless questions...\\n—Why is it that the heroes are always born of some ancient bloodline, or blessed by the favor of gods long past?\\nThe bards could only offer an awkward smile and reply, \"That's how the stories have always been told.\"\\n—Then who founded those ancient bloodlines? Who blessed the gods before their divinity?\\nAt this juncture, most bards would fall silent. A handful would point towards the Knights of Favonius's library.\\n—One cannot look to \"stories\" for these answers; one must look to \"history.\"\\nAnd fewer still, wearied by such questions, would point towards the boundless wilderness beyond the city walls...\\n—What do I know? I'm just a bard! Ask Barbatos!\\n...\\nMany years later, when Varka had at last become a \"Legendary Knight\" of the new generation and the hero of his own tale, he finally understood the bards' predicament.\\nReality requires no justification, yet a tale must earn the credence of its audience.\\nAnd for the ordinary listener, it is nearly impossible to conceive: Without ancient bloodlines or divine favor, with nothing but ceaseless effort and unyielding will, how could a mortal forge a legend?",
+      "unlockConds": []
+    },
+    "x128201": {
+      "storyTitle": "Character Story 1",
+      "storyText": "When a younger Varka first participated in the Knights' prep exams, he floored every single examiner. That is to say, he literally bowled them over.\\nJust as he was brimming with confidence, ready to receive his formal appointment as a knight, a letter of rejection arrived, shattering every last one of his dreams.\\n\"To Varka: First and foremost, we would like to express our sincere appreciation for your participation in this assessment. Your capabilities and your aspiration to become a knight have left a lasting impression on us.\"\\n\"However, after careful consideration and thorough review, we regret to inform you that...\"\\nBefore he could even finish the rest of the letter, Varka scrunched it into a ball and threw it into the wastebasket. Then, he reached for a scrap of paper to plan his next move.\\nThat very night, as Valentine, former Grand Master and the previous Lionfang Knight, was making his way home after a drink, he was ambushed by an assailant.\\nWith all his attendants laid out, Valentine was left to face the attacker alone, both impressed and speechless.\\nImpressed, because the assailant was much more capable than he had imagined, and his ability to conceive and execute the ambush in under half a day was nothing short of astonishing.\\nSpeechless, because the assailant's absurd declaration left him in bewildered silence: If the Knights of Favonius can't even protect their own Grand Master, how can they protect Mondstadt? They might as well hand the job to him!\\n\"Did you... not finish reading the letter I wrote you?\" \"Hmm? Who reads a rejection letter to the end?\" \"I always put the important part in the postscript.\"\\nFortunately, Valentine had already intended to speak to Varka in person, as noted in his postscript. But Varka's speed in turning thought into action had advanced their meeting by a wide margin.\\nSo, after shaking the attendants awake and apologizing to each one in turn, Varka followed Valentine for a second round of drinks and to hear the reasons behind his rejection.\\nOver drinks, the two spoke at length. But it all boiled down to something quite simple: The wind, born free, should not be caged within city walls too soon.\\nValentine believed that, instead of standing guard in Mondstadt or patrolling its outskirts, Varka should venture out to distant nations and uncharted frontiers.\\nJust as the adage holds: only by practicing a thousand melodies can the bard strike an extraordinary chord; only by studying a thousand blades can the smith forge a legendary weapon.\\n\"Not to mention, if we actually made you sit in an office for three years... No, three months, you'd be handing in your resignation!\"\\nConfronted by Valentine's piercing observation, Varka gave a noncommittal laugh, swallowing his \"three days, give or take\" with a gulp of wine.\\n\"What I really want is for you to find your own reason for being a knight,\" Valentine said, his smile turning serious. \"And it shouldn't be your starry-eyed fantasies, nor something you heard from a bard's tale. Once you've found that reason, come back to Mondstadt.\"\\nThe very next day, Varka set out on his journey to discover what could make the free wind content to remain within city walls... and become a \"knight.\"\\n\"...Even if the day should come when, for the sake of being a knight, you find yourself doing the work you loathe, day after day.\"\\nBorne by the salt-tinged breeze of Dornman Port, the young man narrowed his eyes against the rising sun and recalled the old knight's solemn counsel once more.\\n\"...Even if the day should come when, for the sake of that very same title, you must surrender the glory and pride you hold dearest.\"",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 2
+      }
+    },
+    "x128202": {
+      "storyTitle": "Character Story 2",
+      "storyText": "No homeland was, 'til other lands defined its frame.\\nNo longing was, 'til farewell spoke its name.\\n...\\nWhile Seamus Pegg wrote that short verse into his notebook, Varka crouched by the campfire, warming a pot of wine.\\n\"If you ask me, you should really come to Mondstadt. With your gifts for song and words, you'd be a sensation!\"\\n\"We'll see.\" Seamus accepted the cup from Varka and shrugged noncommittally. \"...At least that dandelion wine you mentioned sounds worth a try.\"\\nOn a winter night in a distant land, two up-and-coming adventurers, far from their respective homelands, crossed paths by chance.\\nBy then, Varka had already journeyed through many nations.\\nHe had witnessed the most monstrous of creatures prowling the mountain peaks and churning oceans into towering waves. He had seen the bravest of men, armed with little more than crude spears and cloth armor, standing their ground against hordes of enemies. The Millelith, the Gardes... Different people from different lands, called by different names, sharing the very same spirit.\\nYet, it felt as though a veil still hung between him and the answer he so desperately sought. As the years abroad slipped by, his longing for home was the only thing that stayed.\\n\"I wonder... Did young master Crepus go back to take over the winery, or did he finally achieve his dream of becoming a knight?\"\\n\"And what of Frederica, who never had a good word for anyone? Has hell finally frozen over? Has she taken a shine to some lucky fellow?\"\\n\"What about Eroch? He was always so quick to point out how I fell short of the chivalric code. Has he grown more forgiving with time?\"\\n\"I wonder if the wine back home still tastes the same as I remember. I wonder if my family misses me as often as I miss them...\"\\n\"If you're so curious, why not just go back?\" Bluntly, Seamus interrupted Varka's incessant rambling. \"You're not like me. I don't have anyone left to miss in Nod-Krai.\"\\n\"Go back? But I still haven't found my answer...\"\\n\"Those people you were just rambling about... Why can't they be your answer?\"\\nVarka fell silent, his cup frozen halfway to his lips. It was as though a veil in his heart had been torn away.\\n\"Home\" was never some nebulous concept. Likewise, the reason for becoming a \"knight\" never required the burden of a grand, noble purpose.\\nOnly... How could such a simple truth take so many years to click? If he went back now, wouldn't those guys back home laugh themselves hoarse?\\nShouldn't a hero's awakening come in a moment of legend, followed by a triumphant return at an epic hour? This isn't how it goes in the bards' tales!\\nStill, perhaps the truth isn't nearly as simple as people think. After all, one has to leave home before one can learn to miss it...\\nSensing the turmoil in Varka's thoughts, Seamus cleared his throat and snapped his notebook shut.\\n\"Ahem... Fine, if you need a reason that badly, then consider it your job to get me to Mondstadt. Besides, I want to see this Freder— I mean, this dandelion wine you keep talking about! I want to see if it's really as impressive as you say!\"",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 3
+      }
+    },
+    "x128203": {
+      "storyTitle": "Character Story 3",
+      "storyText": "Since formally inheriting the title of the Knight of Boreas, Varka remained undefeated across every campaign he led.\\nIf Lionfang is a blessing of abundance for the earth, then Boreas is the indomitable spirit behind a formidable strength. Be they vile outlaws or monstrous terrors that ravage the realm, or even the creeping darkness of the Abyss, all shatter beneath a blade that bears the North Wind's biting chill.\\nFollowing a series of campaigns, any remnant danger within the territory was utterly purged, and Mondstadt entered a golden age of peace as none had seen before.\\nPeace arrived with such apparent ease that people began to view it as the natural order of things. A sentiment arose that, in this age of tranquility, the Knights should hang up their swords and spend their days finding lost cats or wrangling misbehaving dogs...\\nAfter becoming Grand Master, Varka drowned out these noises and pushed forward with the next expedition.\\nHis early years as an adventurer served as a constant reminder: the peace that they were enjoying was but a happy accident. The absence of a visible threat did not mean that the danger had vanished.\\nThe Abyss still festered in the North, monsters still lurked beneath the waves; Durin still resided in the snowy mountains, Ursa was only deep in slumber... Any of these could shatter the fragile peace they had fought so hard to secure.\\nThe seniors who had paved his path had grown old: Lionfang Knight Valentine, Calvary Captain Feroux, Captain of the Ranged Company Adorno... And yet, the knights of the new generation still had much to learn.\\nVarka knew all too well that his own prime would eventually wither with age.\\nAs Grand Master, he sought to buy more time for the next generation. As a warrior in his own right, he wanted to test his mettle against the mightiest of enemies before his best years began to fade.\\nAnd so, after entrusting Mondstadt's affairs to the veteran knights and Inspector Eroch, Varka set out once more on another expedition.\\n...But this time, Varka suffered a most devastating defeat.\\nIn his own blinding brilliance, the knight remained blind to the shadow he cast, where jealousy and malice had begun to spawn.\\nVarka never realized that, from the day he returned to Mondstadt and joined the Knights of Favonius, a twisted seed had already taken root in Eroch's heart.\\nAnd when The Doctor's Segment whispered to the man of power and authority beyond all measure, the darkness within Eroch surged forth like a flood.\\n—A wanderer who spends his days idling abroad, hailed as the strongest Knight of Boreas in history?\\n—A lawless maniac who flouts every code of chivalry, yet lays down the law for the other knights?\\nWarped obsessions and the passage of time can turn friends into foes as easily as the wind changes its course.\\nThe Inspector, who was meant to safeguard order in Varka's stead, trampled upon every principle of justice instead.\\nEroch, the man solemnly entrusted with the security of the seal, roused an ancient horror from its slumber, plotting to lay claim to the power of the heavens alongside The Doctor.\\nEven as Varka was once again striking down formidable foes beyond the borders, holding the line for Mondstadt at the frontiers, devastating news arrived from home — his old friend Crepus had died in combat, and Inspector Eroch had turned traitor.\\nVarka returned in haste, immediately setting to work uprooting those who had colluded with the turncoat. But Eroch had inflicted too many wounds upon Mondstadt in the intervening years.\\nCornered by Varka with no way out, he took his own life amidst peals of manic laughter.\\nThat laughter held no words, yet every note rang with a clear, biting mockery of the Invincible Knight of Boreas, the Grand Master Who Rivals the Gods.\\n—Behold. You've stumbled. You've failed.\\n—You are only human, after all.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 4
+      }
+    },
+    "x128204": {
+      "storyTitle": "Character Story 4",
+      "storyText": "No matter how formidable a single person's power may be, even if that power rivals the divine, they cannot protect all things.\\nThere are corners in this vast world that will always remain unseen, schemes in this unpredictable life that will always remain unforeseen.\\nMondstadt's freedom and peace were won at a great cost, and safeguarding them is a task far beyond the reach of a single man, or a single god. One can never be too prepared.\\nAnd so, the Knights of Favonius must keep up with the times.\\nThe Ranged Company must be outfitted with new firearms to bolster their stopping power, while the Support Company must develop modern fortifications to adapt to the changing face of the battlefield...\\nThere is no need to rely solely on the brilliance of a few outstanding heroes. The evolution of tactics and equipment can tangibly improve the combat effectiveness and survival rate of every single knight.\\nAnd so, the Knights of Favonius must nurture a legacy that endures.\\nA new generation of knights, whom he had watched grow up, was now coming into its own. Many are already serving as the organization's new backbone.\\nYet, there are still those who have not truly grasped what it means to be a knight, nor are they ready to shoulder the weight of that title — just as Varka was in his youth.\\nAnd so, Mondstadt must have resolute and reliable allies.\\nUnder the mediation of the Anemo Archon, Varka took his place at the Tripartite Conference. With cunning charm and a silver tongue, he sought to win over a mage who walked beyond the world's common logic.\\n\"I never expected a knight to have such a way with words... It almost makes one wonder if Barbatos might be whispering lines into his ear.\" Such was Alice's assessment of Varka's display.\\nAt last, the mages set their names upon the pact. Perhaps they were unmoved by his words... Perhaps they had motives of their own.\\nIn any case, with this pact in place, Mondstadt had secured one more safeguard for its future.\\n...\\nIn accordance with the pact, the trial forged by the combined power of the mages was finally completed. Varka, who hadn't let loose in ages, could at last set all worldly duties aside and lose himself in a truly exhilarating fight.\\nAt the end of the trial, the mages asked the knight to make a wish, but the knight had nothing to ask for. The city he sought to protect was safe, and the power he desired, he would seize with his own hands.\\nAnd so, on a whim, Varka asked if he might steal a glance at Barbeloth's scryglass. Just to satisfy the sudden spark of curiosity.\\nBefore the thrill of the battle could even fade, Varka caught a glimpse of fate's design reflected in the scryglass.\\nWhat the water mirrored was at once a vision of boundless glory and endless suffering.\\nHe saw the legends he had idolized since childhood locked in a struggle against real dragons. He saw them surpass their own limits in the heat of blood-soaked battle, becoming the heroes of dreams amidst cheers of jubilation.\\nBut he also saw a dark calamity creeping across the lands of Nod-Krai and Snezhnaya, and heard the wails of strangers echoing from the depths of the snowfields.\\nWhy become a knight? In his younger years, Varka had given himself an answer — to protect those he loved, and protect those who loved him in return.\\nNow, fate greeted him with a colder, more cutting question: Would a knight still fight for those who might not even know his name?\\nIf fate was bold enough to show its hand, why not play the hand he was dealt? If the storm has yet to reach Mondstadt's shores, why cast aside his dreams now to go chasing shadows in the North?\\nThere was no need for hesitation. The unruly North Wind has never followed anything but its own whims. And every child of Mondstadt, born into freedom, carries the same answer in their heart.\\n\"We will not bow before any tyrant, even if that tyrant is fate itself!\"",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 5
+      }
+    },
+    "x128205": {
+      "storyTitle": "Character Story 5",
+      "storyText": "There are numerous ways to enjoy Tabletop Troupe, a game popular across many nations. Even the expeditionary force makes use of it, hosting games during their leisure hours to help broaden the knights' strategic thinking.\\nTraditionalists insist that roleplaying and narrative are the heart of the game. But every game has its rules, and so long as there are rules, there will be players looking to push them to their absolute limit.\\n\"My 'Character' is a righteous and honorable knight, but I once crossed paths with a cursed blade! To suppress its fury, I have no choice but to carry it with me at all times...\"\\n\"And while I am merely an ordinary bard, the rumors I've picked up in countryside taverns have taught me many a secret regarding the hidden depths of magic...\"\\nBeyond that, you'll find the people who insist on pitting these \"Characters\" against each other to see who comes out on top.\\n\"A high-level Master of Qi can attack five times in one turn? And leap onto rooftops in a single bound? That's way too strong!\"\\n\"But what happens when they run into magic? They'd be sitting ducks! Magic casters are obviously superior, they can reshape the world itself.\"\\n\"No, no, look at this. A heroic bard can cast spells while attacking, and if they've dabbled in these other trades... Not only can they cast spells, but they can also hit their target twenty times over in a single turn!\"\\n\"You're just exploiting a loophole!\" \"But that's exactly how it's written in the rulebook!\"\\nWhenever such a stalemate arose over the expeditionary force's sand table, all the bickering would end with one thing:\\n\"Grand Master, what's your call?\"\\nAs Grand Master and Game Master, Varka's response was very blunt.\\n\"Ekbert, your Master of Qi is trapped within six invisible walls.\" \"Ugh...!\"\\n\"Winfried, a Bathysmal Vishap has dragged you underwater. You can't cast spells now.\" \"Uh...\"\\n\"Leifhelm... According to the rules, you can cast spells while attacking.\" \"Ha! Told you I'm the strongest!\"\\n\"In that case, you are now facing a behemoth that deflects those very spells. Take your time.\"\\nAfter a few rounds of wailing, all three knights' characters were tragically \"Wiped Out.\"\\n\"...A single person can only be so strong. The dangers out there never end. Luckily, we're only playing tabletop games right now, and not standing before the Abyss.\"\\nVarka flicked over the last chess piece representing a character without hesitation.\\n\"Next time, remember to scope out the enemy and assign roles before charging into battle! Even Lohen knows that Tabletop Troupe isn't a solo game!\"\\n...\\nWith the fleeting years and scant wisdom of a human life, no man is an island, especially against the myriad foes of this world.\\nOnly when scattered embers are drawn together, each kindling the space before it, shall their light mingle and thus rival the stars and moon.\\n\"To you, the soul of a God is no gift. It is a lethal poison. The strength of mankind is bought by bitter toil. Are you certain you wish to do this?\"\\nOn the eve of the expeditionary force's departure, the Dominator of Wolves posed this very question to the visiting knight.\\n\"I am certainly not the only one capable of slaying the God of the North Wind.\"\\nVarka grinned as he always did, as if nothing more than a common errand lay ahead.\\n\"But throughout history, the only ones who can truly 'answer' the God of the North Wind have been the Knights of Boreas. Am I wrong?\"\\n\"...You've changed, it seems.\"\\nThe Wolf of the North closed his eyes. For a moment, it was as if he could see that brash young knight once more, a young man who had challenged him time and again in a relentless pursuit of the pinnacle of power.\\n\"In the past, you never would have squandered your own power like this.\"\\n\"I've found something far more precious than mere power. Something I would defend more dearly.\"\\nThe morning light filtered through the mist and tangled boughs of Wolvendom, scattering across the knight's armor. Whether a trick of the senses or something more, the wild breeze carried echoes of the distant city.\\nThe playful shouts of children, the good-natured grumbling of elders. The rhythmic strike of hammer on anvil, the clink of glasses over fine wine. The banners snapped in the wind; the knights stood in rank and file.\\n\"Besides, as for this 'power' of mine...\"\\nVarka ran his hand over his battle-scarred greatsword, then hoisted it onto his shoulder one more time.\\n\"—It is every person at my back.\"",
+      "unlockConds": [
+        {
+          "type": "FETTER_COND_FETTER_LEVEL",
+          "value": 6
+        },
+        {
+          "type": "FETTER_COND_FINISH_QUEST",
+          "value": 1.601112E+6
+        }
+      ]
+    },
+    "x128206": {
+      "storyTitle": "Wolf's Homecoming Song",
+      "storyText": "Word is that the first knight to be known as Boreas would hum the same song in the tavern every time he returned from a monster hunt.\\nThe origins of that song, much like the knight's own name, was lost to the ages. Perhaps it was a lingering echo he brought back from a distant land, or a melody he happened to catch drifting on the wind. Or, it might have been a little ditty composed by a destitute musician in place of payment after being rescued by the knight.\\nIn any case, the tune clearly won the knight's heart. He hummed it thousands of times without ever growing weary of it. And since he always hummed the melody upon his return, it eventually became a signal to all. Whenever the tavern patrons heard that song, they knew the knight had returned in triumph. And whenever the townspeople heard it, they knew the monsters beyond the walls had finally been slain.\\nLater, the knight's companion remained forever in the land of wind, while the knight himself set out on a new journey. Since then, the melody seemed to have faded from all memory.\\nYears later, the blacksmith's son, Ravenwood, took up the heavy claymore under the name of Boreas once more. As the crowds cheered, they joined their voices in the knight's homecoming hymn once again.\\nAnd so, the melody would forever endure in Mondstadt alongside the title of Boreas. Passed down through generations by the bards, it has since been woven into countless versions and a multitude of legends.\\nLegend has it that the troops of Arundolyn, the Lion of Light, once sang a rousing anthem of victory as they swept across the north, purging the calamities that plagued the land.\\nLegend tells of how Rostam, the \"Wolf Pup,\" once listened to a tender nocturne beneath the starlight, drifting peacefully into the land of dreams.\\nAnd so, the lyrics of the song grew longer and longer with each passing year, as if it were a heroic epic that could never truly reach its end.\\n...\\nIt was Varka's first expedition since becoming the Grand Master. Keeping with tradition, the knights gathered on the training grounds, singing ancient songs to pray for victory and a safe return.\\nAfter concluding the rally with a brief speech, Varka pushed open the door to his office, only to find that someone had left a long, wide gift box upon his desk.\\n\"The off-hand sword you've been using is beyond repair, right? You might as well replace it with a new one right now.\"\\n\"With the way you swing a blade, even the finest sword is nothing more than a consumable... I hope this one lasts a bit longer in your hands.\"\\n\"Also, happy birthday. You may have forgotten, but we certainly haven't.\"\\nTurning the letter over, he found the signatures and a postscript scrawled on the back.\\n\"Seamus, Frederica, Valentine, and all the Knights of Favonius.\"\\n\"P.S. We argued about what to name this sword for the longest time. Unfortunately, we could not agree on anything, so we figured we'd just leave it up to its master to decide.\"\\nOn the training grounds, the knights' singing had yet to cease. Even through several thick stone walls, their voices remained clearly audible.\\nGripping the cold steel of the hilt, he pointed the blade toward the distant moonlight shimmering outside the window. A never-ending surge of poetry and song swelled in Varka's heart, echoing resoundingly:\\nTriumph! For justice, and chivalry indomitable!",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 4
+      }
+    },
+    "x128207": {
+      "storyTitle": "Vision",
+      "storyText": "Even without the favor of a Vision, mankind is still capable of monumental feats.\\nIn Natlan, the human king led heroes toward the divine throne. In Fontaine, a genius once mapped the world's fate through numerology. And in Liyue, the grandmaster of spear and blade swept across the lands, unrivaled.\\nAcross vast spans of time, through the endless tides of humanity, there will always emerge those variables who defy the common order of things.\\nIn Mondstadt, too, there was once a knight who was never blessed with a Vision. He reached the pinnacle of strength through sheer power and speed, wielding a claymore in one hand and a longsword in the other, performing a blade dance that verged on the divine.\\nBut a wild card of such raw talent was a mere stroke of luck. Since the Lion of Light's passing, Mondstadt was left without an heir to his genius. Even the one hailed as the \"Perfect Knight,\" the great hope of both the Wolf Pup and the Lion of Light, was lost to a blood-stained crusade before he could ever master the dance.\\nAmong the knights of later generations, many have mastered both the claymore and the longsword. Yet none have ever matched the original, wielding both blades as extensions of their own arms.\\n...\\nWhen this problem was laid before Varka, even he was stumped.\\nHe certainly didn't lack the raw physical strength to rival the Lion of Light. However, he soon discovered that dual-wielding required not just brute power, but also masterful technique. Without it, even his most forceful attempts left him strained and unsteady, each move offsetting the last. For him, it proved far less effective than the sheer, single-minded speed of a solitary sword.\\nWithin the Knights' records, studies of that blade dance contain no description of its technique. Evidently, Varka's predecessors were so focused on its ferocity that they underestimated its finesse.\\nBut that was of little consequence. While the complete form of the blade dance had already faded from human memory, there was one in Wolvendom who might have witnessed the Lion of Light at the height of his glory.\\nBack then, the young and brash knight was the type to act on impulse. So, with a jug of wine in one hand and two blades strapped to his back, he marched off into the hills.\\n...\\nOne day passed, then two. The Great Wolf King of the North howled and roared, and Varka was thrashed until he was howling right along with him.\\nThree days, then four. The howling and roaring began to fade, replaced by the increasingly clear, sharp ring of steel clashing against fang and claw.\\nEven across thousands of years, as far as Lupus Boreas could recall, challengers like this were few and far between.\\nThough the trial was long won, he continued to charge over and over again. He had won the favor of a god, yet he remained his own harshest critic.\\nBut... Another question gnawed at Lupus Boreas.\\nAfter yet another clash that ended in a stalemate, he turned his gaze to the knight, who was tossing back a jug of hard liquor.\\n\"Human... Your strength is absolute, your conviction a raging fire... In this age, the title of Boreas is rightfully yours.\" Lupus Boreas fell silent for a moment. \"...Then why has the gaze of the heavens not yet fallen upon you?\"\\n\"The gaze of the heavens? ...Oh, are you talking about my Vision? It's right here.\"\\nWith a nonchalant shrug, Varka unveiled a brilliant, glowing jewel he had tucked behind his waist.\\n\"I think it just appeared in my cup while I was drinking one day... Or maybe I found it amongst the spoils I gained after an adventure?\"\\n\"The eye of heaven has been upon you all this time? Then why do you not draw upon its power?\"\\n\"Well, if Arundolyn could create his blade dance without a Vision, then it's only right that I recreate it under the same conditions.\"\\nGetting to his feet unhurriedly, Varka shook out his arms and settled his grip on his swords once again.\\n\"As for what happens next... Caught your breath yet, O Great Wolf King?\"\\nHis swords crossed. For the first time in forever, the Vision at his waist flared with a brilliant, blinding light.\\n\"—Now, I'm going to surpass him!\"\\nTo learn, to inherit, and then to transcend.\\nThis is what humanity has always done best.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 6
+      }
+    }
+  },
+  "quotes": {
+    "x128000": {
+      "quoteTitle": "Chat: Drinking",
+      "quoteText": "I like to drink on occasion... any and every occasion. Ha! Haha, good one.",
+      "unlockConds": []
+    },
+    "x128001": {
+      "quoteTitle": "Chat: Weapons",
+      "quoteText": "Weapons need regular maintenance. Take good care of them, and they'll take care of you when it matters most.",
+      "unlockConds": []
+    },
+    "x128002": {
+      "quoteTitle": "Chat: Rest",
+      "quoteText": "*sigh* Sure feels good to get away from my desk. Now, where's a good spot for a nap?",
+      "unlockConds": []
+    },
+    "x128003": {
+      "quoteTitle": "Hello",
+      "quoteText": "Allow me to introduce myself again, though you're probably bored of hearing it by now. I am Varka, Grand Master of the Knights of Favonius, Mondstadt's Knight of Boreas. I'm here to fulfill the Favonian pledge: I swear by my sword, you shall not fall while I stand.",
+      "unlockConds": []
+    },
+    "x128004": {
+      "quoteTitle": "After the Rain",
+      "quoteText": "The rain's stopped. We march on.",
+      "unlockConds": []
+    },
+    "x128005": {
+      "quoteTitle": "When It Snows",
+      "quoteText": "Seeing the snow fall always reminds me of places I've been through on past expeditions...",
+      "unlockConds": []
+    },
+    "x128006": {
+      "quoteTitle": "When the Wind Is Blowing",
+      "quoteText": "Whoa, that's a strong wind! Trying to knock me down, huh?",
+      "unlockConds": []
+    },
+    "x128007": {
+      "quoteTitle": "Good Morning",
+      "quoteText": "Morning! ...Huh, you're looking pretty groggy. How about a drink to perk you up?",
+      "unlockConds": []
+    },
+    "x128008": {
+      "quoteTitle": "Good Afternoon",
+      "quoteText": "Afternoon! We got some down time. Make sure to get some rest, or your afternoon's gonna be a real grind.",
+      "unlockConds": []
+    },
+    "x128009": {
+      "quoteTitle": "Good Evening",
+      "quoteText": "Evening! Long day, huh? How 'bout a nightcap to help you sleep?",
+      "unlockConds": []
+    },
+    "x128010": {
+      "quoteTitle": "Good Night",
+      "quoteText": "Night. Even the wind needs to rest sometimes. I'll keep watch outside the tent. ...Don't need a night watch? Oh.... right, yeah — we're not sleeping rough. Hah, old habits...",
+      "unlockConds": []
+    },
+    "x128011": {
+      "quoteTitle": "About Varka: Knight of Boreas",
+      "quoteText": "The Knight of Boreas serves as a bridge between humans and Lupus Boreas. But only a handful of us have truly managed to earn the wolf lord's recognition over the past millennium... Me? Hahaha, oh yeah. You'd better believe I'm one of them.",
+      "unlockConds": []
+    },
+    "x128012": {
+      "quoteTitle": "About Varka: The Expedition",
+      "quoteText": "I've been on many expeditions to keep the peace around Mondstadt, although none of them hold a candle to this one... One time, we cleared out Dadaupa Gorge. Another, we joined forces with the Millelith to pacify Stone Gate. And once, we set out from Falcon Coast to intercept some sea monsters offshore... Hmm? No wonder you've never run into any strong foes in those areas? ...Really? I was sure I left a few here and there for people to practice on...",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x128013": {
+      "quoteTitle": "About Us: Outlander",
+      "quoteText": "Mondstadt is the city of freedom. It's a place that anyone can call home — whether you're the child of a sinner, a wandering god, or a traveler from afar. So, no need to stand on ceremony with me — you're the Honorary Knight, after all!",
+      "unlockConds": [
+        "Complete \"Song of the Dragon and Freedom\""
+      ]
+    },
+    "x128014": {
+      "quoteTitle": "About Us: Catching the Wind",
+      "quoteText": "\"Focus on a single thought within the thousand winds, capture that unique wisp before it blows away.\"\\nThat's what Barbatos said to me when he explained how to reverse the assimilation process. Unless you separate yourself out from Lupus Boreas, there's no way to avoid merging with the Ley Lines... I didn't understand his words at the time, but after experiencing it firsthand... Nope, I still don't really get it, haha! At least I won't have to go through that again.\\nCome to think of it, I still haven't properly thanked you since I returned from the Ley Lines. Well, now's as good a time as any. Ahem...\\nYou caught me, \"Outlander Who Caught the Wind.\"",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 6",
+        "Complete \"To Those Who Embark on the Expedition\""
+      ]
+    },
+    "x128015": {
+      "quoteTitle": "About the Vision",
+      "quoteText": "I remember the day I got my Vision well. I was still a reckless young hothead back then. Boy, was I thrilled that the Anemo Archon had noticed me... Until I actually got to know Barbatos for myself, and realized that wasn't what it meant at all. Another youthful dream shattered! But the power it gave me, and the aspirations that brought it my way... those will never change.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x128016": {
+      "quoteTitle": "Something to Share: The Four Winds",
+      "quoteText": "You know, I've never really understood the logic behind \"The Four Winds.\" I mean, the Dragon of the East, Falcon of the West, Lion of the South — they're pretty clear cut, right? But \"Wolf of the North\" could refer to either Boreas or me. And the \"Knights of Favonius\" includes both the Lionfang Knight and the Knight of Boreas, which means the Favonian \"West Wind\" actually includes both the \"South\" and the \"North.\" How does that make any sense?\\nHmm? You think some bard picked the number four to make it sound cool? ...Yeah, actually, that tracks...",
+      "unlockConds": []
+    },
+    "x128017": {
+      "quoteTitle": "Interesting Things: Cats and Dogs",
+      "quoteText": "Mondstadt once had a debate between \"cat people\" and \"dog people.\" You'd think the Knight of Boreas should probably lean towards dogs, right? But truth be told, I've kinda got a soft spot for cats too, you know? Puppies are real cute with their energy and all, but a nice, quiet cat also makes a great companion, too. Ah... If I had the chance to adopt... Yeah, I'd have to take 'em all!",
+      "unlockConds": []
+    },
+    "x128018": {
+      "quoteTitle": "About Venti",
+      "quoteText": "Barbatos? He may seem carefree and easy-breezy at first glance, but when things get serious, so does he. And I've gotta give him credit, the man's got taste when it comes to drinking — truly a god worthy of Mondstadt! ...Hmm? Sounds like I'm talking about myself...? Hahahaha, you flatter me! I'm nothing next to the Anemo Archon himself!",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x128019": {
+      "quoteTitle": "About Razor",
+      "quoteText": "Back when I first met Razor, he was only a few inches taller than the wolf pups of Wolvendom. Heh, he could barely lift a greatsword! But even then, teaching him how to use it was easier than learning how to talk with him. Must've taken me at least half a year to get the hang of it. All these years later, and he's made so many friends of his own... How time flies.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x128020": {
+      "quoteTitle": "About Rosaria",
+      "quoteText": "Uh... I'll keep my lips sealed where she's concerned. Don't wanna get scolded for being a blabbermouth. There's ice in that glare of hers... If there's anything you wanna know, you're better off asking her yourself. I think that by now... she should be ready to talk about the past with you.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x128021": {
+      "quoteTitle": "About Diluc",
+      "quoteText": "So, he still won't return to the Knights? Haha, fair enough — the wind in Mondstadt has always been free to come and go as it pleases. He has the freedom to not come back, and by the same token, I have the freedom to keep pestering him to rejoin. Still, I probably shouldn't push my luck... If I nag him too much, he could put me on Dawn Winery's blacklist. Now that would be a real crisis!",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x128022": {
+      "quoteTitle": "About Kaeya",
+      "quoteText": "I know how much Master Crepus meant to Kaeya. That tragic incident was no less devastating for him than for his adoptive brother. But even after enduring such injustice and fraternal strife... he still chose to remain with the Knights. Ended up playing a key role in exposing Eroch's corruption, too. Since he chose to trust us, I also choose to trust him, no matter what lies in his past.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4",
+        "Complete \"To Those Who Embark on the Expedition\""
+      ]
+    },
+    "x128023": {
+      "quoteTitle": "About Jean",
+      "quoteText": "Y'know, I've always felt that Jean's got the talent and temperament to be a way better Grand Master than I am. But no matter how hard I try to convince her, she always insists that she's not qualified enough. Heh, her and me both! I was pretty young myself when I took up the mantle. Honorary Knight, if you get the chance, could you try talking her round... Hmm? You think I'm trying to dump all my work onto Jean? Absolutely not, perish the thought, I would never! Really! ...Swear on a glass of wine? Uh, there's no need for that, is there...?",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4",
+        "Complete \"Song of the Dragon and Freedom\""
+      ]
+    },
+    "x128024": {
+      "quoteTitle": "About Noelle",
+      "quoteText": "Even I was surprised by her innate strength. I heard she's learning the sword from Jean now. After she's mastered both single- and two-handed sword styles, I wonder if she might be able to inherit my... Huh? She chucked her sword straight up into the ceiling last time? Alright then... Guess we need to schedule a few more training sessions for her.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x128025": {
+      "quoteTitle": "About Lohen",
+      "quoteText": "Feels like every other day that that rascal's causing some kind of ruckus... I used to think he was like a younger me — eager to fight strong foes and win glory... Turns out, he's just into the fighting part, couldn't care less about the glory. *sigh* Well, at least when he's fighting the enemy, it keeps him busy. Otherwise, he'll be digging traps to ambush me out of boredom.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x128026": {
+      "quoteTitle": "About Mika",
+      "quoteText": "When you're lost in life, you need a mentor to guide you, and when you're lost on a march, you need a map. By that logic, you could say Mika's my mentor, haha! ...I tried telling that joke to Mika, but uh, he went pale as a sheet... Honestly, he should have more confidence in himself. After all, not everyone could be a knight!",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x128027": {
+      "quoteTitle": "About Eula",
+      "quoteText": "I'd been planning to send someone to Dornman Port to receive the troops, but Eula told me she had already arranged it. I reviewed the schedule, and everything was handled perfectly. I hadn't expected her to be so thorough, and this time she never mentioned vengeance even once. Haha, nothing makes me happier than seeing our knights grow.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x128028": {
+      "quoteTitle": "About Amber",
+      "quoteText": "She's a ball of energy, isn't she? As our Outrider and Gliding Champion, she's usually active around the outskirts of Mondstadt, helping those in need. She's the first Knight of Favonius most visitors will meet, meaning she's practically the public face of the organization. Hmm? She was the first Knight you met, too? Haha, that's our Amber!",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x128029": {
+      "quoteTitle": "About Albedo",
+      "quoteText": "When Albedo first arrived in Mondstadt, he struck me as one of those model kids that all parents wish their own children were more like. So modest, so well-mannered... But to put it another way, he seemed quite reserved and cautious. I was hoping he'd learn to loosen up a bit. After all, how can you call yourself the City of Freedom if people aren't comfortable just being themselves? Well, I may have gotten more than I bargained for, 'cause these days he'll even rib me about my painting skills! Hahahaha!",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x128030": {
+      "quoteTitle": "About Durin",
+      "quoteText": "I'm not gonna lie, when I first got reports about Durin's resurgence, my heart skipped a beat. I was about to send a crack team back home to defend Mondstadt... Thankfully, the new Durin is nothing like the old Durin, and what was once one of the greatest threats to Mondstadt is now one of our most reliable allies... Fate sure is an unpredictable force, huh? You never know which way the wind will blow next.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x128031": {
+      "quoteTitle": "About Klee",
+      "quoteText": "Our Spark Knight is getting better and better at escaping the solitary confinement room, isn't she? Seems like she's been taking my \"teachings\" to heart. Maybe I could even learn a thing or two from her... Uh, I mean, uhh... Y'know, forget I said that! I was talking about, uh... painting techniques, yeah. *sigh* You're not gonna tell Jean or Albedo about this, are you? Um... Oh, please don't tell Alice, either. Thanks.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x128032": {
+      "quoteTitle": "About Alice",
+      "quoteText": "Of all the titles Alice holds, the one I envy most is \"Adventurer of Many Worlds.\" I traveled plenty in my youth, but when I hear her describe the things she's seen, most of it is beyond my ability to even imagine. I wonder if I'll get a chance to broaden my horizons after I step down as Grand Master... Though it's an open question if I'll still have the energy for it by then, haha!",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x128033": {
+      "quoteTitle": "About Nicole",
+      "quoteText": "There's a lot of things I'd like to learn from Nicole. With her incredible sense of direction, I'd never have to worry about getting lost on an expedition. And that telepathic communication ability would be really handy for sending covert messages across the battlefield... What's that? Waste of an angel's powers? Hey, they're very practical applications!",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x128034": {
+      "quoteTitle": "About Barbeloth",
+      "quoteText": "I once glimpsed a reflection of the future in Barbeloth's Scryglass. She said it was a vision that fate itself was trying to show me... But did fate also foresee that I would try to change it? And did it predict the way things would finally turn out?\\nHmph... My answer is that there's no need to dwell on it. Overthinking things will only slow my sword. Whatever fate shows me, I'll still do whatever I believe is right.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4",
+        "Complete \"To Those Who Embark on the Expedition\""
+      ]
+    },
+    "x128035": {
+      "quoteTitle": "About Aino",
+      "quoteText": "When I first met Aino, I was worried about her. Didn't seem right for such a young child to grow up on her own in Nod-Krai... Only later did I realize I had it all wrong. She's not alone, and she definitely doesn't need anyone to worry about her. Every child finds their own way to grow up, and worrying about them because of our preconceived ideas won't do them any good.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x128036": {
+      "quoteTitle": "About Ineffa",
+      "quoteText": "When I asked her to deliver that letter to you, I had no idea about everything she'd been through. A soul born in captivity, who ultimately surmounted her curse and secured her freedom... I'm telling you, when her story reaches Mondstadt, it'll go down as one of the great epics! Whether it's Lady Vennessa or the Flower-Feather Clan, people are always inspired by tales of breaking free of your shackles in pursuit of freedom.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4",
+        "Complete \"The Journey Home\""
+      ]
+    },
+    "x128037": {
+      "quoteTitle": "About Flins",
+      "quoteText": "People often confuse chivalry with the aristocratic code. Now, given how the aristocracy of Old Mondstadt conducted themselves, there was a time when I wouldn't have let ideas like that slide... But if all aristocrats were like Flins? Haha, I'd be happy to share a drink with them any day of the week!",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4",
+        "Complete \"Elegy of Dust and Lamplight\""
+      ]
+    },
+    "x128038": {
+      "quoteTitle": "About Nefer",
+      "quoteText": "The Northern Intelligence Network was a great help to our expeditionary force when we arrived in Nod-Krai. I intend to maintain our fruitful collaboration going forward — even thought of a codename for myself: \"Lupus Majoris\"! Huh? Pretty cool, right?",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4",
+        "Complete \"An Elegy for Faded Moonlight\""
+      ]
+    },
+    "x128039": {
+      "quoteTitle": "About Jahoda",
+      "quoteText": "She may gripe a lot, but once she gets to work, she's ruthlessly efficient. You know someone's got true grit when they can make a name for themselves as treasure hunter in a rough-and-tumble place like Nod-Krai! I've half a mind to recruit her to the Knights, but that would mean poaching her from her current boss, and... she probably wouldn't want to switch jobs anyway. Haha, I was even thinking of offering to double her pay, but it's probably better not to ask.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x128040": {
+      "quoteTitle": "About Mavuika",
+      "quoteText": "Whether as a human or as a god, the Pyro Archon is a formidable warrior worthy of respect. If I'd been born in Natlan, I wonder if I'd have had the chance to cross blades with her while she was still human... Hmm, but then I wouldn't be able to protect Mondstadt, would I? No, that wouldn't do... *sigh* I suppose it's just as well.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x128041": {
+      "quoteTitle": "About The Captain",
+      "quoteText": "I only met him once, but... Really? A knight of Khaenri'ah... \"Sentinel Knight\" Thrain, huh... Sounds like he took his destiny into his own hands.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4",
+        "Complete \"Incandescent Ode of Resurrection\""
+      ]
+    },
+    "x128042": {
+      "quoteTitle": "More About Varka: I",
+      "quoteText": "Huh? Me? ...What do you mean, what're you curious about? ...Hold on, there's a book in the library called \"100 Things You Never Knew About Varka\"? Okay, now I'm curious too. I didn't even know that was a thing. Right, let's fact-check it.",
+      "unlockConds": []
+    },
+    "x128043": {
+      "quoteTitle": "More About Varka: II",
+      "quoteText": "\"No Knight of Boreas has ever claimed to be the mightiest of all time, for both humility and honesty are knightly virtues — until Varka. Because when he claims this, he is being both humble and truthful.\" I uh... I don't know...",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 3"
+      ]
+    },
+    "x128044": {
+      "quoteTitle": "More About Varka: III",
+      "quoteText": "\"The Four Winds of Mondstadt once referred to Varka's main sword, off-hand sword, left flying kick, and right fist. But nobody witnessed the full set and lived to tell the tale, so only the current version of the phrase remains.\" ...Well, that's going a bit far. No way could I handle all the work of The Four Winds alone.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x128045": {
+      "quoteTitle": "More About Varka: IV",
+      "quoteText": "Maybe put that book away, it's a little ridiculous... Probably written by some drunk fool. As you can see, the real-life Varka is just a regular human like everyone else. I feel pain, I bleed, I age... So, just like any other friend, you'll learn more about me through a catch-up at the tavern than you will by listening to tall tales and rumors. What do you say, shall we grab a drink?",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 5"
+      ]
+    },
+    "x128046": {
+      "quoteTitle": "More About Varka: V",
+      "quoteText": "Drink up! Another round! Hahaha... Oh, where was I? Oh, yeah — this scar here is from scrapping with Boreas. That old wolf clawed me good! I almost howled louder than him... And this one's from when I solo'd the Hexenzirkel trials... If a mortal wants to protect everything, they have to be prepared to sacrifice everything. That's how I became the \"Mightiest Knight of Boreas\"... Yeah... That's how it happened...",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 6"
+      ]
+    },
+    "x128047": {
+      "quoteTitle": "Varka's Hobbies",
+      "quoteText": "I guess I used to be something of an adventurer myself. Heading for new horizons, facing new foes... it always gets you fired up, doesn't it? But nowadays... Well, there are more important things in life. Things that I need to protect.",
+      "unlockConds": []
+    },
+    "x128048": {
+      "quoteTitle": "Varka's Troubles",
+      "quoteText": "Let's see... Building our stronghold in Nod-Krai, allocating defense personnel for Dornman Port, organizing the return of the expeditionary forces, drawing up an itemized budget breakdown for the Knights of Favonius's expenses... Uggghhhhhhh... Why does it feel like the real torture begins after the expedition ends?",
+      "unlockConds": []
+    },
+    "x128049": {
+      "quoteTitle": "Favorite Food",
+      "quoteText": "Of course it's— Huh? You mean, other than alcohol... Wait, do wine-fermented sweet rice balls and chocolate liqueurs count? No? Uh... well... Hmm. I guess it'd have to be big slabs of meat seared over a high flame, some nice appetizers, cheese and nuts... hahaha...",
+      "unlockConds": []
+    },
+    "x128050": {
+      "quoteTitle": "Least Favorite Food",
+      "quoteText": "There are some drinks out there that look alcoholic, smell alcoholic, but then you drink 'em... and there's not a drop of alcohol in there at all! That's gotta count as fraud, surely!?",
+      "unlockConds": []
+    },
+    "x128051": {
+      "quoteTitle": "Receiving a Gift: I",
+      "quoteText": "Wow... What a masterpiece! This is the kind of food worth pairing with a bottle of the finest Dandelion Wine.",
+      "unlockConds": []
+    },
+    "x128052": {
+      "quoteTitle": "Receiving a Gift: II",
+      "quoteText": "Now these are some good rations. The logistics team could stand to learn a thing or two from you.",
+      "unlockConds": []
+    },
+    "x128053": {
+      "quoteTitle": "Receiving a Gift: III",
+      "quoteText": "Is this, uh... the kind of stuff you usually eat? Man. You adventurers have it just as rough as we do on our expeditions... Let's go get you some real food.",
+      "unlockConds": []
+    },
+    "x128054": {
+      "quoteTitle": "Birthday",
+      "quoteText": "Happy Birthday! Don't go anywhere, the Knights of Favonius are getting ready to give you a birthday chorus. To be clear, this isn't an abuse of authority. They're the ones who suggested it! I just helped organize things and set up the venue. You do know how much we all adore our Honorary Knight, don't you? Now come on, everyone's waiting for the birthday star and lead singer!",
+      "unlockConds": []
+    },
+    "x128055": {
+      "quoteTitle": "Feelings About Ascension: Intro",
+      "quoteText": "The first knightly virtue is \"humility.\" Only by letting go of your ego and being willing to learn can you grow day by day.",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 1"
+      ]
+    },
+    "x128056": {
+      "quoteTitle": "Feelings About Ascension: Building Up",
+      "quoteText": "The second knightly virtue is \"honesty.\" Deceitful and cunning words might win you the upper hand in the moment, but a victory won by the blade never lies.",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 2"
+      ]
+    },
+    "x128057": {
+      "quoteTitle": "Feelings About Ascension: Climax",
+      "quoteText": "The third knightly virtue is \"integrity.\" Every knight must live by their own conscience and walk their own path. Walk yours with steely resolve, and never waver.",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 4"
+      ]
+    },
+    "x128058": {
+      "quoteTitle": "Feelings About Ascension: Conclusion",
+      "quoteText": "Remember the three knightly virtues? Good — now forget 'em all. Whatever kind of knight we wanna be, whatever path we choose to take, it's up to us!",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 6"
+      ]
+    },
+    "x128059": {
+      "quoteTitle": "Charged Attack: I",
+      "quoteText": "Shred 'em!",
+      "unlockConds": []
+    },
+    "x128060": {
+      "quoteTitle": "Charged Attack: II",
+      "quoteText": "Slash!",
+      "unlockConds": []
+    },
+    "x128061": {
+      "quoteTitle": "Elemental Skill: I",
+      "quoteText": "Surge!",
+      "unlockConds": []
+    },
+    "x128062": {
+      "quoteTitle": "Elemental Skill: II",
+      "quoteText": "Burn!",
+      "unlockConds": []
+    },
+    "x128063": {
+      "quoteTitle": "Elemental Skill: III",
+      "quoteText": "Freeze!",
+      "unlockConds": []
+    },
+    "x128064": {
+      "quoteTitle": "Elemental Skill: IV",
+      "quoteText": "Fry!",
+      "unlockConds": []
+    },
+    "x128065": {
+      "quoteTitle": "Elemental Skill: V",
+      "quoteText": "Storm wind!",
+      "unlockConds": []
+    },
+    "x128066": {
+      "quoteTitle": "Elemental Skill: VI",
+      "quoteText": "Sunder!",
+      "unlockConds": []
+    },
+    "x128067": {
+      "quoteTitle": "Elemental Skill: VII",
+      "quoteText": "Up the ante!",
+      "unlockConds": []
+    },
+    "x128068": {
+      "quoteTitle": "Elemental Skill: VIII",
+      "quoteText": "Hah!",
+      "unlockConds": []
+    },
+    "x128069": {
+      "quoteTitle": "Elemental Skill: IX",
+      "quoteText": "Try to keep up!",
+      "unlockConds": []
+    },
+    "x128070": {
+      "quoteTitle": "Elemental Burst: I",
+      "quoteText": "HRAAAAH!",
+      "unlockConds": []
+    },
+    "x128071": {
+      "quoteTitle": "Elemental Burst: II",
+      "quoteText": "Boreas, sweeping in!",
+      "unlockConds": []
+    },
+    "x128072": {
+      "quoteTitle": "Elemental Burst: III",
+      "quoteText": "Chaaarge!",
+      "unlockConds": []
+    },
+    "x128073": {
+      "quoteTitle": "Opening Treasure Chest: I",
+      "quoteText": "Any booze in there? Pour me a cup.",
+      "unlockConds": []
+    },
+    "x128074": {
+      "quoteTitle": "Opening Treasure Chest: II",
+      "quoteText": "If you want it, it's yours.",
+      "unlockConds": []
+    },
+    "x128075": {
+      "quoteTitle": "Opening Treasure Chest: III",
+      "quoteText": "To the adventurer go the spoils. This loot's all yours.",
+      "unlockConds": []
+    },
+    "x128076": {
+      "quoteTitle": "Low HP: I",
+      "quoteText": "Hah... Time to get serious!",
+      "unlockConds": []
+    },
+    "x128077": {
+      "quoteTitle": "Low HP: II",
+      "quoteText": "A worthy adversary!",
+      "unlockConds": []
+    },
+    "x128078": {
+      "quoteTitle": "Low HP: III",
+      "quoteText": "Got a bit too cocky...",
+      "unlockConds": []
+    },
+    "x128079": {
+      "quoteTitle": "Ally at Low HP: I",
+      "quoteText": "It's a knight's duty to defend his allies!",
+      "unlockConds": []
+    },
+    "x128080": {
+      "quoteTitle": "Ally at Low HP: II",
+      "quoteText": "Fall back, I'll take it from here.",
+      "unlockConds": []
+    },
+    "x128081": {
+      "quoteTitle": "Fallen: I",
+      "quoteText": "Boreas... can't end here...",
+      "unlockConds": []
+    },
+    "x128082": {
+      "quoteTitle": "Fallen: II",
+      "quoteText": "Huh... Turns out I can die...",
+      "unlockConds": []
+    },
+    "x128083": {
+      "quoteTitle": "Fallen: III",
+      "quoteText": "Look after... Mondstadt for me...",
+      "unlockConds": []
+    },
+    "x128084": {
+      "quoteTitle": "Light Hit Taken: I",
+      "quoteText": "Just a flesh wound!",
+      "unlockConds": []
+    },
+    "x128085": {
+      "quoteTitle": "Light Hit Taken: II",
+      "quoteText": "It's nothing!",
+      "unlockConds": []
+    },
+    "x128086": {
+      "quoteTitle": "Heavy Hit Taken: I",
+      "quoteText": "That's gonna leave a scar.",
+      "unlockConds": []
+    },
+    "x128087": {
+      "quoteTitle": "Joining Party: I",
+      "quoteText": "Alright, let's move out!",
+      "unlockConds": []
+    },
+    "x128088": {
+      "quoteTitle": "Joining Party: II",
+      "quoteText": "Which way will Boreas blow today?",
+      "unlockConds": []
+    },
+    "x128089": {
+      "quoteTitle": "Joining Party: III",
+      "quoteText": "Knight of Boreas, falling in.",
+      "unlockConds": []
+    },
+    "x128090": {
+      "quoteTitle": "Sprint Start: I",
+      "quoteText": "On me!",
+      "unlockConds": []
+    }
+  },
+  "energy": {
+    "source": "Ball",
+    "particles": "6",
+    "chance": "100%",
+    "cd": "0.3s"
+  },
+  "attacks": [
+    {
+      "name": "ElementalArt",
+      "icd_source": "Tag: Elemental_Art (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV5/100",
+      "element": "Wind",
+      "attackType": "Melee",
+      "strikeType": "Blunt",
+      "damageParam": "ElementalArt_Damage"
+    },
+    {
+      "name": "Special_ElementalArt",
+      "icd_source": "Tag: Elemental_Art (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV4/65",
+      "element": "Fire",
+      "attackType": "Melee",
+      "strikeType": "Blunt",
+      "damageParam": "Special_ElementalArt_01|_ABILITY_Avatar_Varka_ArtDamageUp_GV|MUL|Talent1_Rate|MUL"
+    },
+    {
+      "name": "Special_ElementalArt",
+      "icd_source": "Tag: Elemental_Art (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV4/65",
+      "element": "Water",
+      "attackType": "Melee",
+      "strikeType": "Blunt",
+      "damageParam": "Special_ElementalArt_01|_ABILITY_Avatar_Varka_ArtDamageUp_GV|MUL|Talent1_Rate|MUL"
+    },
+    {
+      "name": "Special_ElementalArt",
+      "icd_source": "Tag: Elemental_Art (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV4/65",
+      "element": "Electric",
+      "attackType": "Melee",
+      "strikeType": "Blunt",
+      "damageParam": "Special_ElementalArt_01|_ABILITY_Avatar_Varka_ArtDamageUp_GV|MUL|Talent1_Rate|MUL"
+    },
+    {
+      "name": "Special_ElementalArt",
+      "icd_source": "Tag: Elemental_Art (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV4/65",
+      "element": "Ice",
+      "attackType": "Melee",
+      "strikeType": "Blunt",
+      "damageParam": "Special_ElementalArt_01|_ABILITY_Avatar_Varka_ArtDamageUp_GV|MUL|Talent1_Rate|MUL"
+    },
+    {
+      "name": "Special_ElementalArt",
+      "icd_source": "Tag: Elemental_Art (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV4/35",
+      "element": "Wind",
+      "attackType": "Melee",
+      "strikeType": "Blunt",
+      "damageParam": "Special_ElementalArt_02|_ABILITY_Avatar_Varka_ArtDamageUp_GV|MUL|Talent1_Rate|MUL"
+    },
+    {
+      "name": "Special_ElementalArt",
+      "icd_source": "Tag: Elemental_Art (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "-/35",
+      "element": "Wind",
+      "attackType": "Melee",
+      "strikeType": "Blunt",
+      "damageParam": "Special_ElementalArt_02|_ABILITY_Avatar_Varka_ArtDamageUp_GV|MUL|Talent1_Rate|MUL"
+    },
+    {
+      "name": "ElementalBurst",
+      "icd_source": "Tag: Elemental_Burst (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV7/130",
+      "element": "Wind",
+      "attackType": "Melee",
+      "strikeType": "Blunt",
+      "damageParam": "ElementalBurst_Attack1"
+    },
+    {
+      "name": "ElementalBurst",
+      "icd_source": "Tag: Elemental_Burst (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV7/130",
+      "element": "Fire",
+      "attackType": "Melee",
+      "strikeType": "Blunt",
+      "damageParam": "ElementalBurst_Attack1"
+    },
+    {
+      "name": "ElementalBurst",
+      "icd_source": "Tag: Elemental_Burst (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV7/130",
+      "element": "Water",
+      "attackType": "Melee",
+      "strikeType": "Blunt",
+      "damageParam": "ElementalBurst_Attack1"
+    },
+    {
+      "name": "ElementalBurst",
+      "icd_source": "Tag: Elemental_Burst (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV7/130",
+      "element": "Electric",
+      "attackType": "Melee",
+      "strikeType": "Blunt",
+      "damageParam": "ElementalBurst_Attack1"
+    },
+    {
+      "name": "ElementalBurst",
+      "icd_source": "Tag: Elemental_Burst (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV7/130",
+      "element": "Ice",
+      "attackType": "Melee",
+      "strikeType": "Blunt",
+      "damageParam": "ElementalBurst_Attack1"
+    },
+    {
+      "name": "ElementalBurst",
+      "icd_source": "Tag: Elemental_Burst (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV4/70",
+      "element": "Wind",
+      "attackType": "Melee",
+      "strikeType": "Blunt",
+      "damageParam": "ElementalBurst_Attack2"
+    }
+  ],
+  "endure": {
+    "ability": "ElementalArt",
+    "handler": "UNIQUE_DoubleBlade_Handler",
+    "Actor_EndureDelta": 0.5
+  }
+}

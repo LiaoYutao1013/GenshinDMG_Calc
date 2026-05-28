@@ -1,0 +1,8 @@
+Skill,Param,ScalingType,Level10
+Skill,DashATK,ATK,2.38
+Skill,SprintATK,ATK,2.96
+Skill,ThrowATK,ATK,2.10
+Burst,CastATK,ATK,4.55
+Burst,BoltATK,ATK,1.88
+Reaction,LunarCharged,FLAT,1780
+Support,ATKShare,DMG,0.28

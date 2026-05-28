@@ -1,0 +1,2 @@
+Weapon,WeaponATK,WeaponSubStatType,WeaponSubStatValue,WeaponRefinement,DEFBonus,FlatDEF,ER,CritRate,CritDMG,GeoDMGBonus,SkillDMGBonus,BurstDMGBonus,ResShred,ArtifactSet1,ArtifactSet1Pieces,ArtifactSet2,ArtifactSet2Pieces,ArtifactSet4Active
+FavoniusLance,565,ER,0.306,1,0.58,120,1.95,0.45,1.1,0.466,0.18,0.18,0,HuskOfOpulentDreams,4,None,0,1

@@ -1,0 +1,15 @@
+﻿{
+    "Id":  15011,
+    "SetId":  15011,
+    "EnName":  "Prayers for Wisdom",
+    "QualityType":  "QUALITY_PURPLE",
+    "SetIcon":  "UI_RelicIcon_15011_3",
+    "Effect2Pc":  null,
+    "Effect4Pc":  null,
+    "Pieces":  {
+                   "circlet":  {
+                                   "icon":  "UI_RelicIcon_15011_3",
+                                   "name":  "Tiara of Thunder"
+                               }
+               }
+}

@@ -1,0 +1,31 @@
+﻿{
+    "Id":  15032,
+    "SetId":  15032,
+    "EnName":  "Golden Troupe",
+    "QualityType":  "QUALITY_ORANGE",
+    "SetIcon":  "UI_RelicIcon_15032_4",
+    "Effect2Pc":  "Increases Elemental Skill DMG by 20%.",
+    "Effect4Pc":  "Increases Elemental Skill DMG by 25%. Additionally, when not on the field, Elemental Skill DMG will be further increased by 25%. This effect will be cleared 2s after taking the field.",
+    "Pieces":  {
+                   "circlet":  {
+                                   "icon":  "UI_RelicIcon_15032_3",
+                                   "name":  "Golden Troupe\u0027s Reward"
+                               },
+                   "flower":  {
+                                  "icon":  "UI_RelicIcon_15032_4",
+                                  "name":  "Golden Song\u0027s Variation"
+                              },
+                   "goblet":  {
+                                  "icon":  "UI_RelicIcon_15032_1",
+                                  "name":  "Golden Night\u0027s Bustle"
+                              },
+                   "plume":  {
+                                 "icon":  "UI_RelicIcon_15032_2",
+                                 "name":  "Golden Bird\u0027s Shedding"
+                             },
+                   "sands":  {
+                                 "icon":  "UI_RelicIcon_15032_5",
+                                 "name":  "Golden Era\u0027s Prelude"
+                             }
+               }
+}

@@ -1,0 +1,1825 @@
+{
+  "info": {
+    "name": "Kamisato Ayaka",
+    "description": "Daughter of the Yashiro Commission's Kamisato Clan. Dignified and elegant, as well as wise and strong.",
+    "rarity": "QUALITY_ORANGE",
+    "weapon": "WEAPON_SWORD_ONE_HAND",
+    "birthday": "28/9",
+    "element": "Cryo",
+    "title": "Frostflake Heron",
+    "constellation": "Grus Nivis",
+    "affiliation": "Yashiro Commission",
+    "cv": {
+      "EN": "Erica Mendez",
+      "CHS": "小N",
+      "JP": "早見沙織",
+      "KR": "Lee Yoo-ri"
+    },
+    "attributes": [
+      {
+        "level": 1,
+        "ascension": 0,
+        "hp": 1001,
+        "atk": 27,
+        "def": 61,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 2,
+        "ascension": 0,
+        "hp": 1084,
+        "atk": 29,
+        "def": 66,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 3,
+        "ascension": 0,
+        "hp": 1167,
+        "atk": 31,
+        "def": 71,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 4,
+        "ascension": 0,
+        "hp": 1251,
+        "atk": 33,
+        "def": 76,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 5,
+        "ascension": 0,
+        "hp": 1334,
+        "atk": 35,
+        "def": 81,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 6,
+        "ascension": 0,
+        "hp": 1418,
+        "atk": 38,
+        "def": 86,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 7,
+        "ascension": 0,
+        "hp": 1501,
+        "atk": 40,
+        "def": 92,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 8,
+        "ascension": 0,
+        "hp": 1586,
+        "atk": 42,
+        "def": 97,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 9,
+        "ascension": 0,
+        "hp": 1670,
+        "atk": 44,
+        "def": 102,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 10,
+        "ascension": 0,
+        "hp": 1753,
+        "atk": 47,
+        "def": 107,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 11,
+        "ascension": 0,
+        "hp": 1837,
+        "atk": 49,
+        "def": 112,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 12,
+        "ascension": 0,
+        "hp": 1921,
+        "atk": 51,
+        "def": 117,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 13,
+        "ascension": 0,
+        "hp": 2005,
+        "atk": 53,
+        "def": 122,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 14,
+        "ascension": 0,
+        "hp": 2090,
+        "atk": 56,
+        "def": 127,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 15,
+        "ascension": 0,
+        "hp": 2174,
+        "atk": 58,
+        "def": 133,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 16,
+        "ascension": 0,
+        "hp": 2258,
+        "atk": 60,
+        "def": 138,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 17,
+        "ascension": 0,
+        "hp": 2343,
+        "atk": 62,
+        "def": 143,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 18,
+        "ascension": 0,
+        "hp": 2427,
+        "atk": 65,
+        "def": 148,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 19,
+        "ascension": 0,
+        "hp": 2512,
+        "atk": 67,
+        "def": 153,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 20,
+        "ascension": 0,
+        "hp": 2597,
+        "atk": 69,
+        "def": 158,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 21,
+        "ascension": 1,
+        "hp": 3540,
+        "atk": 94,
+        "def": 216,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 22,
+        "ascension": 1,
+        "hp": 3625,
+        "atk": 96,
+        "def": 221,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 23,
+        "ascension": 1,
+        "hp": 3710,
+        "atk": 99,
+        "def": 226,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 24,
+        "ascension": 1,
+        "hp": 3795,
+        "atk": 101,
+        "def": 231,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 25,
+        "ascension": 1,
+        "hp": 3880,
+        "atk": 103,
+        "def": 237,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 26,
+        "ascension": 1,
+        "hp": 3966,
+        "atk": 106,
+        "def": 242,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 27,
+        "ascension": 1,
+        "hp": 4051,
+        "atk": 108,
+        "def": 247,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 28,
+        "ascension": 1,
+        "hp": 4136,
+        "atk": 110,
+        "def": 252,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 29,
+        "ascension": 1,
+        "hp": 4223,
+        "atk": 112,
+        "def": 257,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 30,
+        "ascension": 1,
+        "hp": 4308,
+        "atk": 115,
+        "def": 263,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 31,
+        "ascension": 1,
+        "hp": 4394,
+        "atk": 117,
+        "def": 268,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 32,
+        "ascension": 1,
+        "hp": 4480,
+        "atk": 119,
+        "def": 273,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 33,
+        "ascension": 1,
+        "hp": 4566,
+        "atk": 121,
+        "def": 278,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 34,
+        "ascension": 1,
+        "hp": 4651,
+        "atk": 124,
+        "def": 284,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 35,
+        "ascension": 1,
+        "hp": 4737,
+        "atk": 126,
+        "def": 289,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 36,
+        "ascension": 1,
+        "hp": 4824,
+        "atk": 128,
+        "def": 294,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 37,
+        "ascension": 1,
+        "hp": 4910,
+        "atk": 131,
+        "def": 299,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 38,
+        "ascension": 1,
+        "hp": 4996,
+        "atk": 133,
+        "def": 305,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 39,
+        "ascension": 1,
+        "hp": 5082,
+        "atk": 135,
+        "def": 310,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 40,
+        "ascension": 1,
+        "hp": 5170,
+        "atk": 138,
+        "def": 315,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 41,
+        "ascension": 2,
+        "hp": 5865,
+        "atk": 156,
+        "def": 358,
+        "CRITDMG_": "9.6"
+      },
+      {
+        "level": 42,
+        "ascension": 2,
+        "hp": 5952,
+        "atk": 158,
+        "def": 363,
+        "CRITDMG_": "9.6"
+      },
+      {
+        "level": 43,
+        "ascension": 2,
+        "hp": 6040,
+        "atk": 161,
+        "def": 368,
+        "CRITDMG_": "9.6"
+      },
+      {
+        "level": 44,
+        "ascension": 2,
+        "hp": 6126,
+        "atk": 163,
+        "def": 373,
+        "CRITDMG_": "9.6"
+      },
+      {
+        "level": 45,
+        "ascension": 2,
+        "hp": 6213,
+        "atk": 165,
+        "def": 379,
+        "CRITDMG_": "9.6"
+      },
+      {
+        "level": 46,
+        "ascension": 2,
+        "hp": 6300,
+        "atk": 168,
+        "def": 384,
+        "CRITDMG_": "9.6"
+      },
+      {
+        "level": 47,
+        "ascension": 2,
+        "hp": 6387,
+        "atk": 170,
+        "def": 389,
+        "CRITDMG_": "9.6"
+      },
+      {
+        "level": 48,
+        "ascension": 2,
+        "hp": 6474,
+        "atk": 172,
+        "def": 395,
+        "CRITDMG_": "9.6"
+      },
+      {
+        "level": 49,
+        "ascension": 2,
+        "hp": 6562,
+        "atk": 175,
+        "def": 400,
+        "CRITDMG_": "9.6"
+      },
+      {
+        "level": 50,
+        "ascension": 2,
+        "hp": 6649,
+        "atk": 177,
+        "def": 405,
+        "CRITDMG_": "9.6"
+      },
+      {
+        "level": 51,
+        "ascension": 3,
+        "hp": 7549,
+        "atk": 201,
+        "def": 460,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 52,
+        "ascension": 3,
+        "hp": 7637,
+        "atk": 203,
+        "def": 466,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 53,
+        "ascension": 3,
+        "hp": 7725,
+        "atk": 205,
+        "def": 471,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 54,
+        "ascension": 3,
+        "hp": 7813,
+        "atk": 208,
+        "def": 476,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 55,
+        "ascension": 3,
+        "hp": 7901,
+        "atk": 210,
+        "def": 482,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 56,
+        "ascension": 3,
+        "hp": 7989,
+        "atk": 212,
+        "def": 487,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 57,
+        "ascension": 3,
+        "hp": 8077,
+        "atk": 215,
+        "def": 492,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 58,
+        "ascension": 3,
+        "hp": 8165,
+        "atk": 217,
+        "def": 498,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 59,
+        "ascension": 3,
+        "hp": 8253,
+        "atk": 220,
+        "def": 503,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 60,
+        "ascension": 3,
+        "hp": 8341,
+        "atk": 222,
+        "def": 509,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 61,
+        "ascension": 4,
+        "hp": 9039,
+        "atk": 240,
+        "def": 551,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 62,
+        "ascension": 4,
+        "hp": 9127,
+        "atk": 243,
+        "def": 556,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 63,
+        "ascension": 4,
+        "hp": 9216,
+        "atk": 245,
+        "def": 562,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 64,
+        "ascension": 4,
+        "hp": 9304,
+        "atk": 247,
+        "def": 567,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 65,
+        "ascension": 4,
+        "hp": 9393,
+        "atk": 250,
+        "def": 573,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 66,
+        "ascension": 4,
+        "hp": 9482,
+        "atk": 252,
+        "def": 578,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 67,
+        "ascension": 4,
+        "hp": 9571,
+        "atk": 255,
+        "def": 583,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 68,
+        "ascension": 4,
+        "hp": 9660,
+        "atk": 257,
+        "def": 589,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 69,
+        "ascension": 4,
+        "hp": 9749,
+        "atk": 259,
+        "def": 594,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 70,
+        "ascension": 4,
+        "hp": 9838,
+        "atk": 262,
+        "def": 600,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 71,
+        "ascension": 5,
+        "hp": 10537,
+        "atk": 280,
+        "def": 642,
+        "CRITDMG_": "28.8"
+      },
+      {
+        "level": 72,
+        "ascension": 5,
+        "hp": 10627,
+        "atk": 283,
+        "def": 648,
+        "CRITDMG_": "28.8"
+      },
+      {
+        "level": 73,
+        "ascension": 5,
+        "hp": 10716,
+        "atk": 285,
+        "def": 653,
+        "CRITDMG_": "28.8"
+      },
+      {
+        "level": 74,
+        "ascension": 5,
+        "hp": 10805,
+        "atk": 287,
+        "def": 659,
+        "CRITDMG_": "28.8"
+      },
+      {
+        "level": 75,
+        "ascension": 5,
+        "hp": 10895,
+        "atk": 290,
+        "def": 664,
+        "CRITDMG_": "28.8"
+      },
+      {
+        "level": 76,
+        "ascension": 5,
+        "hp": 10984,
+        "atk": 292,
+        "def": 670,
+        "CRITDMG_": "28.8"
+      },
+      {
+        "level": 77,
+        "ascension": 5,
+        "hp": 11074,
+        "atk": 295,
+        "def": 675,
+        "CRITDMG_": "28.8"
+      },
+      {
+        "level": 78,
+        "ascension": 5,
+        "hp": 11164,
+        "atk": 297,
+        "def": 681,
+        "CRITDMG_": "28.8"
+      },
+      {
+        "level": 79,
+        "ascension": 5,
+        "hp": 11254,
+        "atk": 299,
+        "def": 686,
+        "CRITDMG_": "28.8"
+      },
+      {
+        "level": 80,
+        "ascension": 5,
+        "hp": 11345,
+        "atk": 302,
+        "def": 692,
+        "CRITDMG_": "28.8"
+      },
+      {
+        "level": 81,
+        "ascension": 6,
+        "hp": 12044,
+        "atk": 320,
+        "def": 734,
+        "CRITDMG_": "38.4"
+      },
+      {
+        "level": 82,
+        "ascension": 6,
+        "hp": 12134,
+        "atk": 323,
+        "def": 740,
+        "CRITDMG_": "38.4"
+      },
+      {
+        "level": 83,
+        "ascension": 6,
+        "hp": 12225,
+        "atk": 325,
+        "def": 745,
+        "CRITDMG_": "38.4"
+      },
+      {
+        "level": 84,
+        "ascension": 6,
+        "hp": 12315,
+        "atk": 328,
+        "def": 751,
+        "CRITDMG_": "38.4"
+      },
+      {
+        "level": 85,
+        "ascension": 6,
+        "hp": 12405,
+        "atk": 330,
+        "def": 756,
+        "CRITDMG_": "38.4"
+      },
+      {
+        "level": 86,
+        "ascension": 6,
+        "hp": 12496,
+        "atk": 332,
+        "def": 762,
+        "CRITDMG_": "38.4"
+      },
+      {
+        "level": 87,
+        "ascension": 6,
+        "hp": 12586,
+        "atk": 335,
+        "def": 767,
+        "CRITDMG_": "38.4"
+      },
+      {
+        "level": 88,
+        "ascension": 6,
+        "hp": 12677,
+        "atk": 337,
+        "def": 773,
+        "CRITDMG_": "38.4"
+      },
+      {
+        "level": 89,
+        "ascension": 6,
+        "hp": 12768,
+        "atk": 340,
+        "def": 778,
+        "CRITDMG_": "38.4"
+      },
+      {
+        "level": 90,
+        "ascension": 6,
+        "hp": 12858,
+        "atk": 342,
+        "def": 784,
+        "CRITDMG_": "38.4"
+      },
+      {
+        "level": 95,
+        "ascension": 6,
+        "hp": 13315,
+        "atk": 381,
+        "def": 812,
+        "CRITDMG_": "38.4"
+      },
+      {
+        "level": 100,
+        "ascension": 6,
+        "hp": 13772,
+        "atk": 419,
+        "def": 840,
+        "CRITDMG_": "38.4"
+      }
+    ]
+  },
+  "icons": {
+    "forward": "UI_AvatarIcon_Ayaka",
+    "coop_img": "UI_CoopImg_Ayaka"
+  },
+  "ascension": {
+    "x202": 7.0499E+6,
+    "exp": {
+      "x104001": 2,
+      "x104003": 418
+    },
+    "speciality": {
+      "x101202": 168
+    },
+    "elemental": {
+      "x104161": 1,
+      "x104162": 9,
+      "x104163": 9,
+      "x104164": 6
+    },
+    "worldmonster": {
+      "x112044": 18,
+      "x112045": 30,
+      "x112046": 36
+    },
+    "elitemonster": {
+      "x113023": 46
+    }
+  },
+  "skills": {
+    "normalattack": {
+      "name": "Kamisato Art: Kabuki",
+      "icon": "Skill_A_01",
+      "multipliers": {
+        "x1_HitDMG": [
+          "45.73%",
+          "49.45%",
+          "53.17%",
+          "58.49%",
+          "62.21%",
+          "66.46%",
+          "72.31%",
+          "78.16%",
+          "84.01%",
+          "90.39%",
+          "96.77%",
+          "103.15%",
+          "109.53%",
+          "115.91%",
+          "122.29%"
+        ],
+        "x2_HitDMG": [
+          "48.68%",
+          "52.65%",
+          "56.61%",
+          "62.27%",
+          "66.23%",
+          "70.76%",
+          "76.99%",
+          "83.22%",
+          "89.44%",
+          "96.24%",
+          "103.03%",
+          "109.82%",
+          "116.62%",
+          "123.41%",
+          "130.2%"
+        ],
+        "x3_HitDMG": [
+          "62.62%",
+          "67.72%",
+          "72.82%",
+          "80.1%",
+          "85.19%",
+          "91.02%",
+          "99.03%",
+          "107.04%",
+          "115.05%",
+          "123.79%",
+          "132.53%",
+          "141.26%",
+          "150%",
+          "158.74%",
+          "167.48%"
+        ],
+        "x4_HitDMG": [
+          "22.65%×3",
+          "24.49%×3",
+          "26.33%×3",
+          "28.97%×3",
+          "30.81%×3",
+          "32.92%×3",
+          "35.81%×3",
+          "38.71%×3",
+          "41.61%×3",
+          "44.77%×3",
+          "47.93%×3",
+          "51.09%×3",
+          "54.25%×3",
+          "57.41%×3",
+          "60.57%×3"
+        ],
+        "x5_HitDMG": [
+          "78.18%",
+          "84.55%",
+          "90.91%",
+          "100%",
+          "106.36%",
+          "113.64%",
+          "123.64%",
+          "133.64%",
+          "143.64%",
+          "154.55%",
+          "165.45%",
+          "176.36%",
+          "187.27%",
+          "198.18%",
+          "209.09%"
+        ],
+        "ChargedAttackDMG": [
+          "55.13%×3",
+          "59.61%×3",
+          "64.1%×3",
+          "70.51%×3",
+          "75%×3",
+          "80.12%×3",
+          "87.18%×3",
+          "94.23%×3",
+          "101.28%×3",
+          "108.97%×3",
+          "116.66%×3",
+          "124.35%×3",
+          "132.05%×3",
+          "139.74%×3",
+          "147.43%×3"
+        ],
+        "ChargedAttackStaminaCost": [
+          "20",
+          "20",
+          "20",
+          "20",
+          "20",
+          "20",
+          "20",
+          "20",
+          "20",
+          "20",
+          "20",
+          "20",
+          "20",
+          "20",
+          "20"
+        ],
+        "PlungeDMG": [
+          "63.93%",
+          "69.14%",
+          "74.34%",
+          "81.77%",
+          "86.98%",
+          "92.93%",
+          "101.1%",
+          "109.28%",
+          "117.46%",
+          "126.38%",
+          "135.3%",
+          "144.22%",
+          "153.14%",
+          "162.06%",
+          "170.98%"
+        ],
+        "Low_HighPlungeDMG": [
+          "127.84%/159.68%",
+          "138.24%/172.67%",
+          "148.65%/185.67%",
+          "163.51%/204.24%",
+          "173.92%/217.23%",
+          "185.81%/232.09%",
+          "202.16%/252.51%",
+          "218.51%/272.93%",
+          "234.86%/293.36%",
+          "252.7%/315.64%",
+          "270.54%/337.92%",
+          "288.38%/360.2%",
+          "306.22%/382.48%",
+          "324.05%/404.76%",
+          "341.89%/427.04%"
+        ]
+      },
+      "description": "<color=#FFD780FF>Normal Attack</color>\\nPerforms up to 5 rapid strikes.\\n\\n<color=#FFD780FF>Charged Attack</color>\\nConsumes a certain amount of Stamina to unleash a flurry of sword ki.\\n\\n<color=#FFD780FF>Plunging Attack</color>\\nPlunges from mid-air to strike the ground below, damaging enemies along the path and dealing AoE DMG upon impact."
+    },
+    "elementalskill": {
+      "name": "Kamisato Art: Hyouka",
+      "icon": "Skill_S_Ayaka_01",
+      "multipliers": {
+        "SkillDMG": [
+          "239.2%",
+          "257.14%",
+          "275.08%",
+          "299%",
+          "316.94%",
+          "334.88%",
+          "358.8%",
+          "382.72%",
+          "406.64%",
+          "430.56%",
+          "454.48%",
+          "478.4%",
+          "508.3%",
+          "538.2%",
+          "568.1%"
+        ],
+        "CD": [
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s"
+        ]
+      },
+      "description": "Summons blooming ice to launch nearby opponents, dealing <color=#99FFFFFF>AoE Cryo DMG</color>.\\n\\n<i>\"Clouds shroud the moonlit night. Longing descends like a fog, filling the one detained with wanderlust.\"</i>"
+    },
+    "elementalburst": {
+      "name": "Kamisato Art: Soumetsu",
+      "icon": "Skill_E_Ayaka",
+      "multipliers": {
+        "CuttingDMG": [
+          "112.3%",
+          "120.72%",
+          "129.15%",
+          "140.37%",
+          "148.8%",
+          "157.22%",
+          "168.45%",
+          "179.68%",
+          "190.91%",
+          "202.14%",
+          "213.37%",
+          "224.6%",
+          "238.64%",
+          "252.68%",
+          "266.71%"
+        ],
+        "BloomDMG": [
+          "168.45%",
+          "181.08%",
+          "193.72%",
+          "210.56%",
+          "223.2%",
+          "235.83%",
+          "252.68%",
+          "269.52%",
+          "286.37%",
+          "303.21%",
+          "320.06%",
+          "336.9%",
+          "357.96%",
+          "379.01%",
+          "400.07%"
+        ],
+        "Duration": [
+          "5s",
+          "5s",
+          "5s",
+          "5s",
+          "5s",
+          "5s",
+          "5s",
+          "5s",
+          "5s",
+          "5s",
+          "5s",
+          "5s",
+          "5s",
+          "5s",
+          "5s"
+        ],
+        "CD": [
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s"
+        ],
+        "EnergyCost": [
+          "80",
+          "80",
+          "80",
+          "80",
+          "80",
+          "80",
+          "80",
+          "80",
+          "80",
+          "80",
+          "80",
+          "80",
+          "80",
+          "80",
+          "80"
+        ]
+      },
+      "description": "Summons forth a snowstorm with flawless poise, unleashing a Frostflake Seki no To that moves forward continuously.\\n\\n<color=#FFD780FF>Frostflake Seki no To</color>\\n·A storm of whirling icy winds that slashes repeatedly at every enemy it touches, dealing <color=#99FFFFFF>Cryo DMG</color>.\\n·The snowstorm explodes after its duration ends, dealing <color=#99FFFFFF>AoE Cryo DMG</color>.\\n\\n<i>\"The blizzard veils the heron's thoughts, pity heavy in its heart.\"</i>"
+    },
+    "leveling": {
+      "crown": {
+        "x104319": 3
+      },
+      "books": {
+        "x104323": 9,
+        "x104324": 63,
+        "x104325": 114
+      },
+      "worldmonster": {
+        "x112044": 18,
+        "x112045": 66,
+        "x112046": 93
+      },
+      "weekly": {
+        "x113018": 18
+      }
+    }
+  },
+  "passives": {
+    "p1": {
+      "name": "Amatsumi Kunitsumi Sanctification",
+      "description": "After using <color=#FFD780FF>Kamisato Art: Hyouka</color>, Kamisato Ayaka's Normal and Charged Attacks deal 30% increased DMG for 6s.",
+      "icon": "UI_Talent_S_Ayaka_05"
+    },
+    "p2": {
+      "name": "Kanten Senmyou Blessing",
+      "description": "When the Cryo application at the end of <color=#FFD780FF>Kamisato Art: Senho</color> hits an opponent, Kamisato Ayaka gains the following effects:\\n·Restores 10 Stamina\\n·Gains 18% <color=#99FFFFFF>Cryo DMG Bonus</color> for 10s.",
+      "icon": "UI_Talent_S_Ayaka_06"
+    },
+    "p3": {
+      "name": "Fruits of Shinsa",
+      "description": "When Ayaka crafts Weapon Ascension Materials, she has a 10% chance to receive double the product.",
+      "icon": "UI_Talent_Combine_Weapon_Double"
+    },
+    "p4": ""
+  },
+  "constellations": {
+    "const1": {
+      "name": "Snowswept Sakura",
+      "description": "When Kamisato Ayaka's Normal or Charged Attacks deal <color=#99FFFFFF>Cryo DMG</color> to opponents, it has a 50% chance of decreasing the CD of <color=#FFD780FF>Kamisato Art: Hyouka</color> by 0.3s. This effect can occur once every 0.1s.",
+      "icon": "UI_Talent_S_Ayaka_01"
+    },
+    "const2": {
+      "name": "Blizzard Blade Seki no To",
+      "description": "When casting <color=#FFD780FF>Kamisato Art: Soumetsu</color>, unleashes 2 smaller additional Frostflake Seki no To, each dealing 20% of the original storm's DMG.",
+      "icon": "UI_Talent_S_Ayaka_02"
+    },
+    "const3": {
+      "name": "Frostbloom Kamifubuki",
+      "description": "Increases the Level of <color=#FFD780FF>Kamisato Art: Soumetsu</color> by 3.\\nMaximum upgrade level is 15.",
+      "icon": "UI_Talent_U_Ayaka_02"
+    },
+    "const4": {
+      "name": "Ebb and Flow",
+      "description": "Opponents damaged by <color=#FFD780FF>Kamisato Art: Soumetsu</color>'s Frostflake Seki no To will have their DEF decreased by 30% for 6s.",
+      "icon": "UI_Talent_S_Ayaka_03"
+    },
+    "const5": {
+      "name": "Blossom Cloud Irutsuki",
+      "description": "Increases the Level of <color=#FFD780FF>Kamisato Art: Hyouka</color> by 3.\\nMaximum upgrade level is 15.",
+      "icon": "UI_Talent_U_Ayaka_01"
+    },
+    "const6": {
+      "name": "Dance of Suigetsu",
+      "description": "Kamisato Ayaka gains Usurahi Butou every 10s, increasing her Charged Attack DMG by 298%. This buff will be cleared 0.5s after Ayaka's Charged ATK hits an opponent, after which the timer for this ability will restart.",
+      "icon": "UI_Talent_S_Ayaka_04"
+    }
+  },
+  "hyperlinks": [],
+  "stories": {
+    "x3201": {
+      "storyTitle": "Character Details",
+      "storyText": "A pair of siblings have inherited the Kamisato Clan, one of the three most respected and prestigious clans in Inazuma City.\\nThe elder brother, Ayato, is the head of the clan and is in charge of government affairs. While his younger sister, Ayaka, known by all as the Princess, takes care of the clan's internal and external affairs.\\nAyaka often appears at social occasions and has more interactions with the common folk. As such, she is better known by the people and has gained a higher reputation than her elder brother. This has earned her the elegant title of Shirasagi Himegimi.\\nAs is known to all, Ayaka, the daughter of the Kamisato family, is a figure greatly admired by the people for her beauty, dignified demeanor, and noble character.",
+      "unlockConds": []
+    },
+    "x3202": {
+      "storyTitle": "Character Story 1",
+      "storyText": "Across Inazuma, all affairs of state that do not go up to the Raiden Shogun are largely handled by the Triarchal Council.\\nThe Council's executive powers are, in turn, divided amongst three groups known as the Tri-Commission: the Yashiro Commission, the Tenryou Commission, and the Kanjou Commission.\\nThe three clans that hold power over these Commissions are as follows: Kamisato, Kujou, and Hiiragi. These three great clans are known throughout Inazuma.\\nKamisato Ayaka is the young lady of the Yashiro Commission's Kamisato Clan, known far and wide as the Shirasagi Himegimi.\\nWhen asked the whys and wherefores of such a nickname, many Inazumans have their own explanations...\\n\"Lady Ayaka is as graceful and pure as an egret. And just look at her elegance, her clever yet proper speech — why should she not be named a Princess?\"\\n\"Lady Ayaka may be of noble birth, but she is gentle and polite to us. She is kind, loyal, and is willing to help others. She even went against the opinions of others and took in that commoner, Thoma.\"\\nThere are as many opinions concerning this as there are people, but none can say where the \"Shirasagi Himegimi\" nickname actually originated.\\nStill, Ayaka's popularity amongst the people is quite plain to see.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 2
+      }
+    },
+    "x3203": {
+      "storyTitle": "Character Story 2",
+      "storyText": "As the daughter of the Yashiro Commission's Kamisato Clan, Ayaka always has to remain alert to the jostling for power between noble families.\\nBeing young, yet already famed throughout the land, she has been the inevitable target of provocation on the part of other noble scions who have grown jealous of the Kamisato siblings.\\nThe creation and maintenance of a public image may be a formality, but for a house of standing like the Kamisato Clan, even meaningless routine has social significance.\\nFailing to take part in the tangled web of Inazuman political relations risks their position as head of the Yashiro Commission. As such, the two siblings came to an accord.\\nThe elder brother, Ayato, preferring not to show his face too often, would busy himself with government affairs, while the act of maintaining the clan's image would be the responsibility of the elegant, socially-adroit younger sister, Ayaka.\\nThrough her dignified, demure, and polite posture, Ayaka has very much secured a place for herself in the social arena. Whether she is negotiating with potential partners or dealing with difficult nobles, her actions are all well-founded and beyond reproach.\\nThe internal clan affairs are also in her care. Indeed, their estates may have descended into chaos already, if not for her.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 3
+      }
+    },
+    "x3204": {
+      "storyTitle": "Character Story 3",
+      "storyText": "One autumn afternoon, Ayaka was on her way home from completing certain minor affairs when she happened to hear an old voice singing from within an old house.\\nWithin was an old woman, blind in both eyes, whose stick-thin fingers produced music like flowing water as they plucked at her instrument's strings.\\nPerhaps it was due to her sharp ears, but the old lady heard Ayaka's footsteps and inquired as to who was outside. Not wishing to trouble the old lady, Ayaka replied that she was a nearby resident who had gotten lost and entered this place.\\nAs a member of the Yashiro Commission, Ayaka was well-acquainted with the people's lives and quickly recognized this solitary old lady as the very same person who busked in the city streets when the weather was good.\\nThe tune was outdated, and so was the song. As one who could not see, this lady had long fallen out of step with the times. Even in the nation that pursues eternity, some still endured such hard lives.\\nOut of the goodness of her heart, Ayaka, thusly incognito, spent a long time chatting with the old lady. Taking Ayaka for an ordinary maiden, the old lady spoke of the method of making and playing the koto, and even gave her some tea leaves that she had kept stored up.\\nCompared to the exquisite leaves that the Kamisato Clan had in stock, these rough leaves may as well have been grass, but Ayaka accepted them while profusely thanking her.\\nThat day, she thought of her parents many times. Had they been around, would they not have grown this old someday?\\nReturning home, she spoke of her encounter with her brother, and the two siblings shared the rustic tea gifted to her by the old lady.\\nAfterward, Ayaka would come to see that old lady again every few days, each time posing as a person living nearby, and each time bringing with her some daily necessities that were well-loved by the common folk.\\n\"The sakura trees in the streets have bloomed again,\" Ayaka said to the old lady with a smile, \"and they are as lovely as your music.\"",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 4
+      }
+    },
+    "x3205": {
+      "storyTitle": "Character Story 4",
+      "storyText": "In people's imagination, the nobility's living expenses are orders of magnitude above the common folk. So for someone as noble as Kamisato Ayaka, surely she too must lead a life of wanton luxury.\\nThis statement is only half right, however.\\nAyaka does ostensibly live in a much more particular manner than the ordinary citizen.\\nThe costs of studying flower arrangement and tea ceremony, sampling fine teas, and enjoying exotic flowers daily are also by no means small. However, these are all skills that she must master as a young lady of a noble house — such commitments can hardly be called \"wanton.\"\\nThe things that can truly make Ayaka smile are, in fact, ordinary things that even the common folk can enjoy.\\nThe making of snacks, fishing for goldfish by the ponds, squirreling herself away to read the latest novels from Yae Publishing House... Each one of these is but a tiny matter.\\nAt such times, she is not the adored Shirasagi Himegimi, or Lady Ayaka, mistress of the great Kamisato estates. She is just \"Ayaka,\" an ordinary girl like any other.\\nHere, she sets her dignified externalized persona aside and sets her true, casual self free. Only as \"Ayaka\" can she lay down her heavy burdens and do the things that ordinary girls can do.\\nWhen hungry at night, she sneaks past the servants into the kitchen and makes herself some chazuke while humming a little tune. During tea ceremony classes, she might surreptitiously try to use the tea leaves to indulge in some romance-related astrology... The list of her little escapades goes on.\\nThough she has never told anyone this, Ayaka treasures her time as an ordinary girl above all else, for these moments of freedom are things she rarely ever has.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 5
+      }
+    },
+    "x3206": {
+      "storyTitle": "Character Story 5",
+      "storyText": "The tutors who guide Ayaka in her various arts once used to say: whether in tea ceremony, chess, the art of the sword, or all other affairs of elegance, Ayaka is already a master.\\nShe is clearly already a noble lady of superb bearing, skilled with both the pen and the sword. To be able to teach such a pupil is a teacher's pride and joy.\\nStill, Ayaka thinks quietly to herself, does she truly have no regrets?\\nThe essence of tea is peace and quiet.\\nThe heart of the sword is the keenest edge.\\nThe soul of chess is the wisdom to grasp the bigger picture.\\nThese three she has grasped indeed, and the spirit of true friendship also.\\nAnd yet, Ayaka is still waiting for a friend to emerge who can walk alongside her on equal footing and stand by her side.\\nThat person cannot see her as a member of the Yashiro Commission, or as the Shirasagi Himegimi, nor will their conduct towards her be bound by decorum or status. And if possible, they might also be well-versed in a great many fields of study, and have witnessed all manner of interesting things... and perhaps they might even be able to tell her a story in a pinch.\\nOnly such a person might become Ayaka's bosom friend.\\n\"Surely, this is not too much to ask... But where might I find such a person?\"",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 6
+      }
+    },
+    "x3207": {
+      "storyTitle": "Moriwakamaru",
+      "storyText": "\"Come, come, come,\"\\n\"Let's play Temari!\"\\n\"1, 2, 1, 2, 3,\"\\n\"The Temari goes up the Sacred Sakura Tree.\"\\n\"4, 5, 4, 5, 6,\"\\n\"Woosh, and over Mt. Yougou it flicks!\"\\n\"7, 8, 7, 8, 9,\"\\n\"The Temari returns into these hands of mine.\"\\n\"Yes, into little~ Ayaka's~ hands~!\"\\nThis was Ayaka's favorite nursery rhyme back in the day.\\nBack then, she gave her favorite Temari the name \"Moriwakamaru,\" and she would dribble the multi-colored Moriwakamaru about while humming this very song.\\nHearing her song, her parents and brother would be unable to stop themselves from smiling. Indeed, they would often join in the fun, tossing the Temari between them as a family.\\nBut that was a long time ago, and Ayaka no longer plays games of Temari.\\nShe has become an independent, powerful figure in her own right — and Moriwakamaru, the symbol of her childhood and the bearer of her precious memories, has also been stored away within Ayaka's cabinet.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 4
+      }
+    },
+    "x3208": {
+      "storyTitle": "Vision",
+      "storyText": "Some years ago, the Clan underwent a huge change, and a heavy burden fell upon Ayato's shoulders. At that time, Ayaka was not yet the mature and capable person she is now.\\nShe was originally a playful child, one who knew nothing of the clan's duties, and thus lacked the skill and experience needed for dealing with various kinds of people altogether.\\nBut seeing her mother on her sickbed and her brother hard at work, Ayaka sensed that she too had to grow up.\\nSo she decided to take up her long-disused sword arts and poetry, both staples of nobility. If she could master these two, she could at least pass for a decent lady of the Kamisato Clan, and thus help her brother show up at some festivals, alleviating his burden.\\nTruth be told, Ayaka was not preternaturally gifted and would spend much time being troubled by her inability to memorize poetry, write elegantly, or brandish her sword.\\nYet she did not waver — a poem she failed to memorize once would be memorized fifty times, a poorly-written word would be written fifty times over, and a sword technique that failed would be swung fifty times more.\\n\"None may deflect a swing that has been practiced a thousand times.\" — This was something her mother told her.\\nWhen her mother left this world, Ayaka was no longer \"Little Ayaka.\" She was now Kamisato Ayaka, the young lady of the Kamisato Clan, one of the Shogun's three great clans.\\nSword art training thus became part of her daily life and has remained so to this day without pause.\\nOn one particular day, Ayaka, at last, defeated an opponent in a single strike. In that instant, as she stood in the middle of the dojo, icy flowers condensed all about her. And there, upon the tip of her sword, now hung a Vision, icy and bright.\\n\"None may deflect a swing that has been practiced a thousand times\" indeed — and even the gods may thus be moved.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 6
+      }
+    }
+  },
+  "quotes": {
+    "x3100": {
+      "quoteTitle": "Hello",
+      "quoteText": "Master of Inazuma Kamisato Art Tachi Jutsu — Kamisato Ayaka, present!\\nDelighted to make your acquaintance.",
+      "unlockConds": []
+    },
+    "x3101": {
+      "quoteTitle": "Chat: Stability",
+      "quoteText": "I only wish life could be as leisurely as this a little more often... How greedy of me.",
+      "unlockConds": []
+    },
+    "x3102": {
+      "quoteTitle": "Chat: Sword",
+      "quoteText": "A blade is like a tea-leaf. Only those who sample it many times can appreciate its true qualities.",
+      "unlockConds": []
+    },
+    "x3103": {
+      "quoteTitle": "Chat: Zoning Out",
+      "quoteText": "So this is a day in the life of the Traveler... Hehe, I'm learning more about you all the time.",
+      "unlockConds": []
+    },
+    "x3104": {
+      "quoteTitle": "Chat: Famous Sword",
+      "quoteText": "A blade embraces its duty as a jeweler cherishes their gems.",
+      "unlockConds": []
+    },
+    "x3105": {
+      "quoteTitle": "When It Rains",
+      "quoteText": "Come with me, let us find shelter from the rain.",
+      "unlockConds": []
+    },
+    "x3106": {
+      "quoteTitle": "When Thunder Strikes",
+      "quoteText": "Her Excellency... What is she trying to communicate?",
+      "unlockConds": []
+    },
+    "x3107": {
+      "quoteTitle": "When It Snows",
+      "quoteText": "\"Snow that once adorned the world in silver, thaws to reveal the gleam of the fruit upon frost-laden branches.\" *sigh* How picturesque! Only some tea would make this setting more complete.",
+      "unlockConds": []
+    },
+    "x3108": {
+      "quoteTitle": "When the Sun Is Out",
+      "quoteText": "There's a pleasant breeze and glorious sunshine... So, where shall we go for a walk?",
+      "unlockConds": []
+    },
+    "x3109": {
+      "quoteTitle": "When It's Windy",
+      "quoteText": "Close your eyes and face the wind... It feels wonderful, doesn't it?",
+      "unlockConds": []
+    },
+    "x3110": {
+      "quoteTitle": "Good Morning",
+      "quoteText": "Oh, good morning, Traveler. ...Whenever I see you in the morning, somehow, it makes me feel like... today is going to be a good day.",
+      "unlockConds": []
+    },
+    "x3111": {
+      "quoteTitle": "Good Afternoon",
+      "quoteText": "Good afternoon. It is normal to feel drowsy after lunch, might I interest you in a game of Go to stimulate the mind?",
+      "unlockConds": []
+    },
+    "x3112": {
+      "quoteTitle": "Good Evening",
+      "quoteText": "Greetings. An auspicious breeze blows this evening. Tonight will be peaceful.",
+      "unlockConds": []
+    },
+    "x3113": {
+      "quoteTitle": "Good Night",
+      "quoteText": "\"Was it one's thoughts that drew him to my dreams? Had I known it a dream, one would not have awakened.\" Hehe, I love that poem.",
+      "unlockConds": []
+    },
+    "x3114": {
+      "quoteTitle": "About Kamisato Ayaka: Yashiro Commission",
+      "quoteText": "\"Inazuma Shogunate, Yashiro Commission, Kamisato Clan.\" Widely known as one of the most distinguished clans in all of Inazuma, it is the branch of the Tri-Commission that manages ceremonial and cultural affairs. Since my parents passed, Brother and I assumed responsibility for all clan matters, big and small.",
+      "unlockConds": []
+    },
+    "x3115": {
+      "quoteTitle": "About Kamisato Ayaka: Position",
+      "quoteText": "Many look up to me as the Shirasagi Himegimi and as the daughter of the Kamisato Clan. But the object of their respect has everything to do with my position, and nothing at all to do with me, Ayaka. It makes me think that... maybe, there is only one person I know who is truly able to get close to me...",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x3116": {
+      "quoteTitle": "About Kamisato Ayaka: Aspiration",
+      "quoteText": "Today, as in the past, I aspire to be somebody whom everyone can trust. But what motivates me is no longer the responsibilities I shoulder, or the expectations of other people. Rather, it is the fact that you are this kind of person, too.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 6"
+      ]
+    },
+    "x3117": {
+      "quoteTitle": "About Us: Teahouse",
+      "quoteText": "If you've got time, shall we take a walk to Komore Teahouse? To chat about the art of tea on a pleasant day like this seems like the sophisticated thing to do.",
+      "unlockConds": []
+    },
+    "x3118": {
+      "quoteTitle": "About Us: Festivals",
+      "quoteText": "If I ever have the chance, I would very much like to experience the festivities of another nation with you one day. Though, I will need some guidance on local customs and etiquette, and advice on what gifts to bring... Could I trouble you to give me some guidance?",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 6",
+        "Complete \"The Whispers of the Crane and the White Rabbit\""
+      ]
+    },
+    "x3119": {
+      "quoteTitle": "About the Vision",
+      "quoteText": "Visions are a seal of approval for those who are most ambitious. As for my own ambitions, they shall remain private for now. It is nothing more than an insignificant dream.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x3120": {
+      "quoteTitle": "Something to Share",
+      "quoteText": "It is said that \"the flavor of Zen is that of tea,\" and it is also said that \"the power of Zen is that of the blade.\" One might then ask: What does that say about the relationship between tea and the blade?",
+      "unlockConds": []
+    },
+    "x3121": {
+      "quoteTitle": "Interesting Things",
+      "quoteText": "Have you ever noticed the withering sakura tree in the city? For me, there is a beauty to the withering, it brings back fond memories of the spring. Most people don't agree — sakura trees that will never bloom again are removed. But when I look at a tree, all I want is to see it blossom again... just one more time...",
+      "unlockConds": []
+    },
+    "x3122": {
+      "quoteTitle": "About Thoma",
+      "quoteText": "Thoma is a dear friend. He always lifts my spirits with his sunny disposition. In a sense, I think of him as another brother, and as a full member of the Kamisato Clan.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x3123": {
+      "quoteTitle": "About Kujou Sara",
+      "quoteText": "Kujou Sara of the Tenryou Commission is... not known to smile, and I have had my fair share of disputes with her. She is, however, a loyal servant to Inazuma, there is no question about that.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x3124": {
+      "quoteTitle": "About Shikanoin Heizou",
+      "quoteText": "Mr. Shikanoin belongs to the Tenryou Commission, just like Miss Kujou. He is very... principled, sometimes even more determinedly so than Miss Kujou. The only thing is, when it comes to the question of which matters should be governed by his principles, I believe only Mr. Shikanoin himself knows the answer...",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x3125": {
+      "quoteTitle": "About Sayu",
+      "quoteText": "Ah, little Sayu. She hasn't been causing you any trouble lately, has she? Hehe, if you ever notice her slacking off, please let me know.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x3126": {
+      "quoteTitle": "About the Raiden Shogun: Guesswork",
+      "quoteText": "The Almighty Shogun? It would be improper of me to comment, given that I am one of her subjects. All I will say is that... I think that Her Excellency must get lonely on the road to eternity.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x3127": {
+      "quoteTitle": "About the Raiden Shogun: Standpoint",
+      "quoteText": "To witness the Musou no Hitotachi and live to tell the tale is quite a remarkable feat. Even though I recognize her as our true deity with the power to change Inazuma's fate at will, if there is conflict between the two of you, then... I shall choose to side with you.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 6",
+        "Complete \"Omnipresence Over Mortals\""
+      ]
+    },
+    "x3128": {
+      "quoteTitle": "About Yae Miko",
+      "quoteText": "I have always greatly enjoyed working with Guuji Yae. Organizing festival affairs generally takes a lot of effort and doesn't generate much income, but Guuji Yae's events always come off both elegant and profitable.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x3129": {
+      "quoteTitle": "About Kamisato Ayato",
+      "quoteText": "As the head of the Kamisato Clan, brother always has a full schedule of places he needs to be. I do try my best to share his load, but there is no changing the pressure he is subjected to all year round, and the toll it takes upon him. *sigh* If you see him, remind him to take care of himself, for his sister's sake...",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x3130": {
+      "quoteTitle": "About Yoimiya",
+      "quoteText": "The Yashiro Commission and the shrine maidens are responsible for festival affairs, and Yoimiya, as a fireworks expert, knows how to create an atmosphere. So we have become well acquainted with her over the years.\\nHmm? Public order and fire prevention? We factor these concerns in well in advance during the planning stage. To deny people the chance to see fireworks simply for these reasons would leave them feeling very disappointed.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x3131": {
+      "quoteTitle": "More About Kamisato Ayaka: I",
+      "quoteText": "Your request is quite unusual for me. Since I see you as a friend, it would only be fair to be open and honest with you, but if this means sharing secrets of the Kamisato Clan... I would ask that you keep anything I tell you in strict confidence.",
+      "unlockConds": [
+        "Complete \"Stillness, the Sublimation of Shadow\""
+      ]
+    },
+    "x3132": {
+      "quoteTitle": "More About Kamisato Ayaka: II",
+      "quoteText": "The Kamisato Clan once suffered a major blow when we failed to protect a swordsmith of national significance. We were harassed by the Fatui, we lost many of our people, and we received a great deal of criticism. It all aged Father greatly, and severely damaged the Kamisato Clan's standing within the Shogunate. Brother has worked tirelessly to reverse the trend since he assumed leadership, but although our clan's position is now restored and the Yashiro Commission is unified once more, we still rely on Brother to make the decisions on all matters of any importance.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 3",
+        "Complete \"Stillness, the Sublimation of Shadow\""
+      ]
+    },
+    "x3133": {
+      "quoteTitle": "More About Kamisato Ayaka: III",
+      "quoteText": "The art of blade forging taught by the Shogun varies based on astrology, application, materials used, the furnace conditions, individual personalities, and elemental changes. These differences between smiths is what gave rise to the Raiden Gokaden. Swordsmiths capable of forging renowned blades are seen as spiritual personnel with sacred abilities, and as such they should be managed by the Yashiro Commission, which oversees all cultural, artistic, and ceremonial affairs. So naturally, the swordsmith's betrayal is the fault of ineffectual management by the Kamisato Clan.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4",
+        "Complete \"Stillness, the Sublimation of Shadow\""
+      ]
+    },
+    "x3134": {
+      "quoteTitle": "More About Kamisato Ayaka: IV",
+      "quoteText": "My mother was the most incredible person. She was always so dignified and elegant, always smiling, no matter what situation she might be facing. She had so much to deal with in the clan on so many levels, but she took it all in stride — it was like nothing could ever faze her. Everything about her was perfect, and I say that without exaggerating. *sigh* But the moment she passed away, I realized... I couldn't hide behind my mother any longer. I wasn't little Ayaka any more.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 5",
+        "Complete \"Stillness, the Sublimation of Shadow\""
+      ]
+    },
+    "x3135": {
+      "quoteTitle": "More About Kamisato Ayaka: V",
+      "quoteText": "What I want to say next is perhaps not befitting of a member of the Inazuma Shogunate, Yashiro Commission, Kamisato Clan, but... unless I am mistaken, I trust that you will not take issue with this slight departure from convention on my part...\\nThat is to say... I'm a little tired, may I rest my head on your shoulder? Just for a moment.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 6",
+        "Complete \"Stillness, the Sublimation of Shadow\""
+      ]
+    },
+    "x3136": {
+      "quoteTitle": "Kamisato Ayaka's Hobbies",
+      "quoteText": "I have great affection for the arts: music, song, poetry, shougi, and dancing. And you?",
+      "unlockConds": []
+    },
+    "x3137": {
+      "quoteTitle": "Kamisato Ayaka's Troubles: Concerns",
+      "quoteText": "Troubles? Well, I mean... that's life, isn't it? There will always be things that don't go one's way. But I do not wish to worry those around me on account of things that are my concern alone... so, it is best if I keep them to myself.",
+      "unlockConds": []
+    },
+    "x3138": {
+      "quoteTitle": "Kamisato Ayaka's Troubles: Desires",
+      "quoteText": "Openness is something I find very difficult. I constantly have to remind myself that as a lady of the Kamisato Clan, there are countless people watching and countless expectations to live up to. I must be a model of exemplary conduct at all times. But even so, shouldn't I still follow my dreams? Shouldn't I... share my true feelings with you?",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 6"
+      ]
+    },
+    "x3139": {
+      "quoteTitle": "Favorite Food",
+      "quoteText": "I'm fascinated by food from overseas. Though I don't get to try it very often... So, if I had to choose something from Inazuma, then probably... Chazuke. But not when anybody else is watching... So I tell you that in confidence.",
+      "unlockConds": []
+    },
+    "x3140": {
+      "quoteTitle": "Least Favorite Food",
+      "quoteText": "Though I do not eschew animal fat and organs entirely, they are far from my first choice.",
+      "unlockConds": []
+    },
+    "x3141": {
+      "quoteTitle": "Birthday",
+      "quoteText": "Come with me! We're not going far away — I promise it won't delay you too much.\\nI managed to find out when your birthday was well in advance, so I could prepare in good time. Hopefully this wasn't assuming too much, but I guessed you might prefer this to an expensive gift.\\nIn honor of your birthday, please allow me to perform a fan dance for you.",
+      "unlockConds": []
+    },
+    "x3142": {
+      "quoteTitle": "Feelings About Ascension: Intro",
+      "quoteText": "Thank you very much. It has been richly rewarding to learn from you so far, and I believe my skills with the blade can go even further still.",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 1"
+      ]
+    },
+    "x3143": {
+      "quoteTitle": "Feelings About Ascension: Building Up",
+      "quoteText": "Thank you for your guidance. With your assistance, I am gaining a more thorough understanding of my capabilities.",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 2"
+      ]
+    },
+    "x3144": {
+      "quoteTitle": "Feelings About Ascension: Climax",
+      "quoteText": "I feel more competent now than ever before. I even have the time outside my work for the Yashiro Commission to try some new things. Would you like to try one of my home-made snacks? I just learned how to make them recently.",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 4"
+      ]
+    },
+    "x3145": {
+      "quoteTitle": "Feelings About Ascension: Conclusion",
+      "quoteText": "\"Though I cling to that which has given me the strength to hold on, the weight of letting go is ever-foreboding.\"\\nMy apologies, it should be a happy occasion, and yet it is such a sad phrase that comes to mind. Our time together has been so pleasant that I am fearful of losing what I have gained. I'm sorry, I must compose myself.",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 6"
+      ]
+    },
+    "x3146": {
+      "quoteTitle": "Elemental Skill: I",
+      "quoteText": "Take flight.",
+      "unlockConds": []
+    },
+    "x3147": {
+      "quoteTitle": "Elemental Skill: II",
+      "quoteText": "My apologies.",
+      "unlockConds": []
+    },
+    "x3148": {
+      "quoteTitle": "Elemental Skill: III",
+      "quoteText": "Whirling snow.",
+      "unlockConds": []
+    },
+    "x3149": {
+      "quoteTitle": "Elemental Burst: I",
+      "quoteText": "Embrace the ice.",
+      "unlockConds": []
+    },
+    "x3150": {
+      "quoteTitle": "Elemental Burst: II",
+      "quoteText": "Sakura swirl.",
+      "unlockConds": []
+    },
+    "x3151": {
+      "quoteTitle": "Elemental Burst: III",
+      "quoteText": "Kamisato Art: Soumetsu!",
+      "unlockConds": []
+    },
+    "x3152": {
+      "quoteTitle": "Opening Treasure Chest: I",
+      "quoteText": "Collecting rare and exquisite treasures... Yes, this seems suitably sophisticated.",
+      "unlockConds": []
+    },
+    "x3153": {
+      "quoteTitle": "Opening Treasure Chest: II",
+      "quoteText": "Hehe... Today is a lucky day.",
+      "unlockConds": []
+    },
+    "x3154": {
+      "quoteTitle": "Opening Treasure Chest: III",
+      "quoteText": "I shall treasure this good fortune.",
+      "unlockConds": []
+    },
+    "x3155": {
+      "quoteTitle": "Low HP: I",
+      "quoteText": "I will not stand for this.",
+      "unlockConds": []
+    },
+    "x3156": {
+      "quoteTitle": "Low HP: II",
+      "quoteText": "A worthy opponent...",
+      "unlockConds": []
+    },
+    "x3157": {
+      "quoteTitle": "Low HP: III",
+      "quoteText": "We ought to end this!",
+      "unlockConds": []
+    },
+    "x3158": {
+      "quoteTitle": "Ally at Low HP: I",
+      "quoteText": "Do not overdo it.",
+      "unlockConds": []
+    },
+    "x3159": {
+      "quoteTitle": "Ally at Low HP: II",
+      "quoteText": "Take care!",
+      "unlockConds": []
+    },
+    "x3160": {
+      "quoteTitle": "Fallen: I",
+      "quoteText": "Pardon my indiscretion...",
+      "unlockConds": []
+    },
+    "x3161": {
+      "quoteTitle": "Fallen: II",
+      "quoteText": "Much remains... unfinished...",
+      "unlockConds": []
+    },
+    "x3162": {
+      "quoteTitle": "Fallen: III",
+      "quoteText": "I have dishonored... our clan...",
+      "unlockConds": []
+    },
+    "x3163": {
+      "quoteTitle": "Heavy Hit Taken: I",
+      "quoteText": "So rude!",
+      "unlockConds": []
+    },
+    "x3164": {
+      "quoteTitle": "Heavy Hit Taken: II",
+      "quoteText": "Unthinkable...",
+      "unlockConds": []
+    },
+    "x3165": {
+      "quoteTitle": "Joining Party: I",
+      "quoteText": "Kamisato Ayaka, present.",
+      "unlockConds": []
+    },
+    "x3166": {
+      "quoteTitle": "Joining Party: II",
+      "quoteText": "I await your instruction.",
+      "unlockConds": []
+    },
+    "x3167": {
+      "quoteTitle": "Joining Party: III",
+      "quoteText": "A pleasure to be working with you.",
+      "unlockConds": []
+    },
+    "x3168": {
+      "quoteTitle": "Receiving a Gift: I",
+      "quoteText": "Mmm... Yes, I am truly fortunate...",
+      "unlockConds": []
+    },
+    "x3169": {
+      "quoteTitle": "Receiving a Gift: II",
+      "quoteText": "Thank you for the opportunity to try this dish. I will always savor it.",
+      "unlockConds": []
+    },
+    "x3170": {
+      "quoteTitle": "Receiving a Gift: III",
+      "quoteText": "Hmm... It's a bit greasy for my taste.",
+      "unlockConds": []
+    }
+  },
+  "energy": [
+    {
+      "source": "DropBall_Base",
+      "particles": "1",
+      "chance": "50%",
+      "cd": "0.3s"
+    },
+    {
+      "source": "DropBall_Base",
+      "particles": "1",
+      "chance": "50%",
+      "cd": "0.3s"
+    }
+  ],
+  "attacks": [
+    {
+      "name": "ExtraAttack_Damage_Gadget",
+      "icd_source": "Grp: Ayaka_ExtraAttack (Tag Miss)",
+      "icd_rule": "27 hits / 0.5s",
+      "gauge": "1U",
+      "poise": "LV2/40",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Slash",
+      "damageParam": "Ayaka_ExtraAttack_Damage"
+    },
+    {
+      "name": "ExtraAttack_Damage_Gadget",
+      "icd_source": "Grp: Ayaka_ExtraAttack (Tag Miss)",
+      "icd_rule": "27 hits / 0.5s",
+      "gauge": "1U",
+      "poise": "LV3/40",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Slash",
+      "damageParam": "Ayaka_ExtraAttack_Damage"
+    },
+    {
+      "name": "ExtraAttack_Damage_Gadget",
+      "icd_source": "Grp: Ayaka_ExtraAttack (Tag Miss)",
+      "icd_rule": "27 hits / 0.5s",
+      "gauge": "1U",
+      "poise": "LV2/40",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Slash",
+      "damageParam": "Ayaka_ExtraAttack_Damage"
+    },
+    {
+      "name": "NormalAttack05_Bullet",
+      "icd_source": "Grp: Avatar_Pole_ExtraAttack (Tag Miss)",
+      "icd_rule": "24 hits / 0.5s",
+      "gauge": "1U",
+      "poise": "LV7/74",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Slash",
+      "damageParam": "0.730000"
+    },
+    {
+      "name": "NormalAttack05_Bullet",
+      "icd_source": "Grp: Avatar_Pole_ExtraAttack (Tag Miss)",
+      "icd_rule": "24 hits / 0.5s",
+      "gauge": "1U",
+      "poise": "LV7/74",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Slash",
+      "damageParam": "0.730000"
+    },
+    {
+      "name": "LiquidStrike",
+      "icd_source": "Tag: Ice_Bloom (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV2/0",
+      "element": "Ice",
+      "attackType": "Default",
+      "strikeType": "None",
+      "damageParam": "-"
+    },
+    {
+      "name": "LiquidStrike_YayoiKaeshi",
+      "icd_source": "Tag: ExtraAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV7/300",
+      "element": "Ice",
+      "attackType": "Default",
+      "strikeType": "Slash",
+      "damageParam": "FatalStrike_Damage"
+    },
+    {
+      "name": "Icespine_Strike_New",
+      "icd_source": "Tag: Elemental_Art (!)",
+      "icd_rule": "Independent",
+      "gauge": "2U",
+      "poise": "LV7/110",
+      "element": "Ice",
+      "attackType": "Default",
+      "strikeType": "-",
+      "damageParam": "Icespine_Damage"
+    },
+    {
+      "name": "FrozenWindmillDamage",
+      "icd_source": "Tag: Elemental_Burst (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV4/30",
+      "element": "Ice",
+      "attackType": "Default",
+      "strikeType": "Slash",
+      "damageParam": "FrozenWindmill_SliceDamage"
+    },
+    {
+      "name": "FrozenWindmillDissipate",
+      "icd_source": "Tag: Elemental_Burst (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV5/30",
+      "element": "Ice",
+      "attackType": "Default",
+      "strikeType": "None",
+      "damageParam": "FrozenWindmill_BlastDamage"
+    },
+    {
+      "name": "FrozenWindmill_Sub_Damage",
+      "icd_source": "Tag: Elemental_Burst (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV3/30",
+      "element": "Ice",
+      "attackType": "Default",
+      "strikeType": "Slash",
+      "damageParam": "FrozenWindmill_SliceDamage|FrozenWindmill_SubFactor|MUL"
+    },
+    {
+      "name": "FrozenWindmill_Sub_Damage",
+      "icd_source": "Tag: Elemental_Burst (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV0/0",
+      "element": "Ice",
+      "attackType": "Default",
+      "strikeType": "None",
+      "damageParam": "-"
+    },
+    {
+      "name": "FrozenWindmill_Sub_Dissipate",
+      "icd_source": "Tag: Elemental_Burst (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV5/30",
+      "element": "Ice",
+      "attackType": "Default",
+      "strikeType": "None",
+      "damageParam": "FrozenWindmill_BlastDamage|FrozenWindmill_SubFactor|MUL"
+    },
+    {
+      "name": "FrozenButterfly_Area",
+      "icd_source": "Grp: default",
+      "icd_rule": "Standard (3h/2.5s)",
+      "gauge": "1U",
+      "poise": "LV0/0",
+      "element": "Ice",
+      "attackType": "Default",
+      "strikeType": "-",
+      "damageParam": "-"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "0U",
+      "poise": "LV2/25",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Slash",
+      "damageParam": "FallingAnthem_Normal_Loop_Damage"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV4/100",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Blunt",
+      "damageParam": "FallingAnthem_Normal_Rank_1_Damage"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV7/150",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Blunt",
+      "damageParam": "FallingAnthem_Normal_Rank_2_Damage"
+    }
+  ],
+  "endure": []
+}

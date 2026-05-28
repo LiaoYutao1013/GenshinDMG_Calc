@@ -1,0 +1,99 @@
+function [totalDMG, dps, breakdown, rotationTime, audit] = simulateDehyaDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
+    % Dehya simulator reconstructing mixed ATK/HP field and burst punches from imported Lunaris totals.
+    if nargin < 3 || isempty(seqFile)
+        seqFile = fullfile(fileparts(mfilename('fullpath')), '..', '..', 'data', 'Dehya', 'rotation_Dehya.txt');
+    end
+    if nargin < 4 || isempty(talentLevel)
+        talentLevel = 10;
+    end
+    if nargin < 5 || isempty(constellation)
+        constellation = 0;
+    end
+    if nargin < 6 || isempty(teamContext)
+        teamContext = buildTeamContext({struct('Name', 'Dehya', 'Constellation', constellation, 'Build', build)}, 20, struct());
+    end
+
+    talentPath = fullfile(fileparts(mfilename('fullpath')), '..', '..', 'data', 'Dehya', 'talents_Dehya.csv');
+    talent = readtable(talentPath);
+    skillLevel = talentLevel + 3 * double(constellation >= 3);
+    burstLevel = talentLevel + 3 * double(constellation >= 5);
+    allowAmplify = double(getFieldOrDefault(teamContext, 'HydroCount', 0) >= 1 || getFieldOrDefault(teamContext, 'CryoCount', 0) >= 1);
+
+    workBuild = build;
+    if constellation >= 1
+        workBuild.HPBonus = getFieldOrDefault(workBuild, 'HPBonus', 0) + 0.20;
+    end
+
+    mixRatio = 0.0171;
+    fieldTotal = getTalentValue(talent, 'Skill', 'FieldDMG', skillLevel);
+    fistTotal = getTalentValue(talent, 'Burst', 'FlameManesFistDMG', burstLevel);
+    driveTotal = getTalentValue(talent, 'Burst', 'IncinerationDriveDMG', burstLevel);
+    fieldATKMV = fieldTotal / (1 + mixRatio);
+    fistATKMV = fistTotal / (1 + mixRatio);
+    driveATKMV = driveTotal / (1 + mixRatio);
+
+    indomitableMV = getTalentValue(talent, 'Skill', 'IndomitableFlameDMG', skillLevel);
+    rangingMV = getTalentValue(talent, 'Skill', 'RangingFlameDMG', skillLevel);
+    skillHPWeight = 0;
+    burstHPWeight = 0;
+    if constellation >= 1
+        if indomitableMV > 0
+            skillHPWeight = 0.036 / indomitableMV;
+        end
+        if fistATKMV > 0
+            burstHPWeight = 0.060 / fistATKMV;
+        end
+        fieldATKMV = fieldATKMV;
+    end
+
+    fieldHPWeight = mixRatio + 0.036 / max(fieldATKMV, 1e-6) * double(constellation >= 1);
+    fistHPWeight = mixRatio + burstHPWeight;
+    driveHPWeight = mixRatio + 0.060 / max(driveATKMV, 1e-6) * double(constellation >= 1);
+    fieldPostHitCount = 3 + 2 * double(constellation >= 2);
+    burstHitCount = 10 + 5 * double(constellation >= 6);
+    burstCritRateBonus = 0.10 * double(constellation >= 6);
+    burstCritDMGBonus = 0.60 * double(constellation >= 6);
+
+    actions = struct();
+    actions.E1 = struct('TalentGroup', "Skill", 'Param', "IndomitableFlameDMG", 'DamageField', "SkillDMGBonus", ...
+        'ActionElement', "Pyro", 'BaseMultiplier', 1.00, 'HPWeight', skillHPWeight, 'ApplyGauge', 1.0, ...
+        'LunarisAttackName', "ElementalArt_Insert", 'LunarisDamageParam', "Insert_Dmg", 'ICDRule', "Independent", ...
+        'AllowAmplify', allowAmplify, 'Note', "Molten Inferno cast");
+    actions.FieldPre = struct('TalentGroup', "Skill", 'Param', "FieldDMG", 'MVOverride', fieldATKMV, 'ActionScalingMode', "ATK", ...
+        'DamageField', "SkillDMGBonus", 'ActionElement', "Pyro", 'HPWeight', fieldHPWeight, 'HitCount', 3, ...
+        'ApplyGauge', 1.0, 'LunarisAttackName', "Gadget_ElementalArt_Grave", 'LunarisDamageParam', "Grave_Dmg", ...
+        'ICDRule', "Independent", 'HitIntervals', 2.5 * ones(1, 2), ...
+        'AllowAmplify', allowAmplify, 'Note', "Fiery Sanctum coordinated attacks");
+    actions.QFist = struct('TalentGroup', "Burst", 'Param', "FlameManesFistDMG", 'MVOverride', fistATKMV, 'ActionScalingMode', "ATK", ...
+        'DamageField', "BurstDMGBonus", 'ActionElement', "Pyro", 'HPWeight', fistHPWeight, ...
+        'HitCount', burstHitCount, 'ApplyGauge', 1.0, 'LunarisAttackName', "ElementalBurst_Controller", 'LunarisDamageParam', "Burst_Loop_Dmg", ...
+        'ICDRule', "Independent", 'HitIntervals', 0.4 * ones(1, max(0, burstHitCount - 1)), ...
+        'CritRateBonus', burstCritRateBonus, 'CritDMGBonus', burstCritDMGBonus, ...
+        'AllowAmplify', allowAmplify, 'Note', "Flame-Mane's Fist");
+    actions.Drive = struct('TalentGroup', "Burst", 'Param', "IncinerationDriveDMG", 'MVOverride', driveATKMV, 'ActionScalingMode', "ATK", ...
+        'DamageField', "BurstDMGBonus", 'ActionElement', "Pyro", 'HPWeight', driveHPWeight, ...
+        'ApplyGauge', 1.0, 'LunarisAttackName', "ElementalBurst", 'LunarisDamageParam', "Burst_End_Dmg", 'ICDRule', "Independent", ...
+        'CritRateBonus', burstCritRateBonus, 'CritDMGBonus', burstCritDMGBonus, ...
+        'AllowAmplify', allowAmplify, 'Note', "Incineration Drive");
+    actions.E2 = struct('TalentGroup', "Skill", 'Param', "RangingFlameDMG", 'DamageField', "SkillDMGBonus", ...
+        'ActionElement', "Pyro", 'BaseMultiplier', 1.00, 'HPWeight', 0.036 / max(rangingMV, 1e-6) * double(constellation >= 1), ...
+        'ApplyGauge', 1.0, 'LunarisAttackName', "ElementalArt_Recycle", 'LunarisDamageParam', "Recycle_Dmg", 'ICDRule', "Independent", ...
+        'AllowAmplify', allowAmplify, 'Note', "Ranging Flame");
+    actions.FieldPost = struct('TalentGroup', "Skill", 'Param', "FieldDMG", 'MVOverride', fieldATKMV, 'ActionScalingMode', "ATK", ...
+        'DamageField', "SkillDMGBonus", 'ActionElement', "Pyro", 'HPWeight', fieldHPWeight, ...
+        'HitCount', fieldPostHitCount, 'BaseMultiplier', 1.00, 'ApplyGauge', 1.0, ...
+        'LunarisAttackName', "Gadget_ElementalArt_Grave", 'LunarisDamageParam', "Grave_Dmg", 'ICDRule', "Independent", ...
+        'HitIntervals', 2.5 * ones(1, max(0, fieldPostHitCount - 1)), 'AllowAmplify', allowAmplify, 'Note', "Recreated Fiery Sanctum");
+
+    spec = struct( ...
+        'Element', "Pyro", ...
+        'ScalingMode', "ATK", ...
+        'DefaultActionTime', 0.90, ...
+        'DefaultRotation', {{'E1', 'FieldPre', 'QFist', 'Drive', 'E2', 'FieldPost'}}, ...
+        'ActionTimeMap', struct('E1', 0.75, 'FieldPre', 5.50, 'QFist', 4.00, 'Drive', 0.20, 'E2', 0.80, 'FieldPost', 6.00), ...
+        'Actions', actions);
+
+    [totalDMG, dps, breakdown, rotationTime, audit] = simulateSimpleCharacterDPS( ...
+        'Dehya', workBuild, enemy, seqFile, talentLevel, constellation, teamContext, spec);
+end
+

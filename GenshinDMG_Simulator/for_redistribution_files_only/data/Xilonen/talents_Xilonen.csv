@@ -1,0 +1,6 @@
+Skill,Param,ScalingType,Level10
+Skill,RollerDEF,DEF,2.10
+Skill,SourceDEF,DEF,1.20
+Burst,CastDEF,DEF,3.85
+Burst,HealDEF,DEF,0.48
+Support,ResShred,DMG,0.36

@@ -1,0 +1,1982 @@
+{
+  "info": {
+    "name": "Keqing",
+    "description": "The Yuheng of the Liyue Qixing. Keqing has much to say about Rex Lapis's unilateral approach to policymaking in Liyue — but in truth, gods admire skeptics such as her quite a lot.",
+    "rarity": "QUALITY_ORANGE",
+    "weapon": "WEAPON_SWORD_ONE_HAND",
+    "birthday": "20/11",
+    "element": "Electro",
+    "title": "Driving Thunder",
+    "constellation": "Trulla Cementarii",
+    "affiliation": "Liyue Qixing",
+    "cv": {
+      "EN": "Rosie Day",
+      "CHS": "谢莹",
+      "JP": "喜多村英梨",
+      "KR": "Lee Bo-hee"
+    },
+    "attributes": [
+      {
+        "level": 1,
+        "ascension": 0,
+        "hp": 1020,
+        "atk": 25,
+        "def": 62,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 2,
+        "ascension": 0,
+        "hp": 1105,
+        "atk": 27,
+        "def": 67,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 3,
+        "ascension": 0,
+        "hp": 1189,
+        "atk": 29,
+        "def": 73,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 4,
+        "ascension": 0,
+        "hp": 1275,
+        "atk": 31,
+        "def": 78,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 5,
+        "ascension": 0,
+        "hp": 1360,
+        "atk": 34,
+        "def": 83,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 6,
+        "ascension": 0,
+        "hp": 1445,
+        "atk": 36,
+        "def": 88,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 7,
+        "ascension": 0,
+        "hp": 1530,
+        "atk": 38,
+        "def": 93,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 8,
+        "ascension": 0,
+        "hp": 1616,
+        "atk": 40,
+        "def": 99,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 9,
+        "ascension": 0,
+        "hp": 1701,
+        "atk": 42,
+        "def": 104,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 10,
+        "ascension": 0,
+        "hp": 1786,
+        "atk": 44,
+        "def": 109,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 11,
+        "ascension": 0,
+        "hp": 1872,
+        "atk": 46,
+        "def": 114,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 12,
+        "ascension": 0,
+        "hp": 1957,
+        "atk": 48,
+        "def": 119,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 13,
+        "ascension": 0,
+        "hp": 2043,
+        "atk": 50,
+        "def": 125,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 14,
+        "ascension": 0,
+        "hp": 2130,
+        "atk": 52,
+        "def": 130,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 15,
+        "ascension": 0,
+        "hp": 2216,
+        "atk": 55,
+        "def": 135,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 16,
+        "ascension": 0,
+        "hp": 2301,
+        "atk": 57,
+        "def": 140,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 17,
+        "ascension": 0,
+        "hp": 2388,
+        "atk": 59,
+        "def": 146,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 18,
+        "ascension": 0,
+        "hp": 2474,
+        "atk": 61,
+        "def": 151,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 19,
+        "ascension": 0,
+        "hp": 2560,
+        "atk": 63,
+        "def": 156,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 20,
+        "ascension": 0,
+        "hp": 2646,
+        "atk": 65,
+        "def": 161,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 21,
+        "ascension": 1,
+        "hp": 3607,
+        "atk": 89,
+        "def": 220,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 22,
+        "ascension": 1,
+        "hp": 3694,
+        "atk": 91,
+        "def": 225,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 23,
+        "ascension": 1,
+        "hp": 3781,
+        "atk": 93,
+        "def": 231,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 24,
+        "ascension": 1,
+        "hp": 3867,
+        "atk": 95,
+        "def": 236,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 25,
+        "ascension": 1,
+        "hp": 3954,
+        "atk": 97,
+        "def": 241,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 26,
+        "ascension": 1,
+        "hp": 4042,
+        "atk": 100,
+        "def": 247,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 27,
+        "ascension": 1,
+        "hp": 4129,
+        "atk": 102,
+        "def": 252,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 28,
+        "ascension": 1,
+        "hp": 4215,
+        "atk": 104,
+        "def": 257,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 29,
+        "ascension": 1,
+        "hp": 4303,
+        "atk": 106,
+        "def": 262,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 30,
+        "ascension": 1,
+        "hp": 4390,
+        "atk": 108,
+        "def": 268,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 31,
+        "ascension": 1,
+        "hp": 4477,
+        "atk": 110,
+        "def": 273,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 32,
+        "ascension": 1,
+        "hp": 4565,
+        "atk": 112,
+        "def": 278,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 33,
+        "ascension": 1,
+        "hp": 4653,
+        "atk": 115,
+        "def": 284,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 34,
+        "ascension": 1,
+        "hp": 4740,
+        "atk": 117,
+        "def": 289,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 35,
+        "ascension": 1,
+        "hp": 4827,
+        "atk": 119,
+        "def": 294,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 36,
+        "ascension": 1,
+        "hp": 4916,
+        "atk": 121,
+        "def": 300,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 37,
+        "ascension": 1,
+        "hp": 5004,
+        "atk": 123,
+        "def": 305,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 38,
+        "ascension": 1,
+        "hp": 5091,
+        "atk": 125,
+        "def": 311,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 39,
+        "ascension": 1,
+        "hp": 5179,
+        "atk": 128,
+        "def": 316,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 40,
+        "ascension": 1,
+        "hp": 5268,
+        "atk": 130,
+        "def": 321,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 41,
+        "ascension": 2,
+        "hp": 5977,
+        "atk": 147,
+        "def": 365,
+        "CRITDMG_": "9.6"
+      },
+      {
+        "level": 42,
+        "ascension": 2,
+        "hp": 6066,
+        "atk": 149,
+        "def": 370,
+        "CRITDMG_": "9.6"
+      },
+      {
+        "level": 43,
+        "ascension": 2,
+        "hp": 6155,
+        "atk": 152,
+        "def": 375,
+        "CRITDMG_": "9.6"
+      },
+      {
+        "level": 44,
+        "ascension": 2,
+        "hp": 6242,
+        "atk": 154,
+        "def": 381,
+        "CRITDMG_": "9.6"
+      },
+      {
+        "level": 45,
+        "ascension": 2,
+        "hp": 6331,
+        "atk": 156,
+        "def": 386,
+        "CRITDMG_": "9.6"
+      },
+      {
+        "level": 46,
+        "ascension": 2,
+        "hp": 6420,
+        "atk": 158,
+        "def": 392,
+        "CRITDMG_": "9.6"
+      },
+      {
+        "level": 47,
+        "ascension": 2,
+        "hp": 6509,
+        "atk": 160,
+        "def": 397,
+        "CRITDMG_": "9.6"
+      },
+      {
+        "level": 48,
+        "ascension": 2,
+        "hp": 6597,
+        "atk": 163,
+        "def": 402,
+        "CRITDMG_": "9.6"
+      },
+      {
+        "level": 49,
+        "ascension": 2,
+        "hp": 6687,
+        "atk": 165,
+        "def": 408,
+        "CRITDMG_": "9.6"
+      },
+      {
+        "level": 50,
+        "ascension": 2,
+        "hp": 6776,
+        "atk": 167,
+        "def": 413,
+        "CRITDMG_": "9.6"
+      },
+      {
+        "level": 51,
+        "ascension": 3,
+        "hp": 7693,
+        "atk": 190,
+        "def": 469,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 52,
+        "ascension": 3,
+        "hp": 7783,
+        "atk": 192,
+        "def": 475,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 53,
+        "ascension": 3,
+        "hp": 7872,
+        "atk": 194,
+        "def": 480,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 54,
+        "ascension": 3,
+        "hp": 7961,
+        "atk": 196,
+        "def": 486,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 55,
+        "ascension": 3,
+        "hp": 8051,
+        "atk": 198,
+        "def": 491,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 56,
+        "ascension": 3,
+        "hp": 8141,
+        "atk": 201,
+        "def": 497,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 57,
+        "ascension": 3,
+        "hp": 8231,
+        "atk": 203,
+        "def": 502,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 58,
+        "ascension": 3,
+        "hp": 8320,
+        "atk": 205,
+        "def": 508,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 59,
+        "ascension": 3,
+        "hp": 8410,
+        "atk": 207,
+        "def": 513,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 60,
+        "ascension": 3,
+        "hp": 8500,
+        "atk": 209,
+        "def": 519,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 61,
+        "ascension": 4,
+        "hp": 9211,
+        "atk": 227,
+        "def": 562,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 62,
+        "ascension": 4,
+        "hp": 9301,
+        "atk": 229,
+        "def": 567,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 63,
+        "ascension": 4,
+        "hp": 9392,
+        "atk": 231,
+        "def": 573,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 64,
+        "ascension": 4,
+        "hp": 9482,
+        "atk": 234,
+        "def": 578,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 65,
+        "ascension": 4,
+        "hp": 9572,
+        "atk": 236,
+        "def": 584,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 66,
+        "ascension": 4,
+        "hp": 9663,
+        "atk": 238,
+        "def": 589,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 67,
+        "ascension": 4,
+        "hp": 9753,
+        "atk": 240,
+        "def": 595,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 68,
+        "ascension": 4,
+        "hp": 9844,
+        "atk": 243,
+        "def": 600,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 69,
+        "ascension": 4,
+        "hp": 9934,
+        "atk": 245,
+        "def": 606,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 70,
+        "ascension": 4,
+        "hp": 10025,
+        "atk": 247,
+        "def": 612,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 71,
+        "ascension": 5,
+        "hp": 10737,
+        "atk": 265,
+        "def": 655,
+        "CRITDMG_": "28.8"
+      },
+      {
+        "level": 72,
+        "ascension": 5,
+        "hp": 10829,
+        "atk": 267,
+        "def": 661,
+        "CRITDMG_": "28.8"
+      },
+      {
+        "level": 73,
+        "ascension": 5,
+        "hp": 10920,
+        "atk": 269,
+        "def": 666,
+        "CRITDMG_": "28.8"
+      },
+      {
+        "level": 74,
+        "ascension": 5,
+        "hp": 11011,
+        "atk": 271,
+        "def": 672,
+        "CRITDMG_": "28.8"
+      },
+      {
+        "level": 75,
+        "ascension": 5,
+        "hp": 11103,
+        "atk": 274,
+        "def": 677,
+        "CRITDMG_": "28.8"
+      },
+      {
+        "level": 76,
+        "ascension": 5,
+        "hp": 11193,
+        "atk": 276,
+        "def": 683,
+        "CRITDMG_": "28.8"
+      },
+      {
+        "level": 77,
+        "ascension": 5,
+        "hp": 11285,
+        "atk": 278,
+        "def": 688,
+        "CRITDMG_": "28.8"
+      },
+      {
+        "level": 78,
+        "ascension": 5,
+        "hp": 11377,
+        "atk": 280,
+        "def": 694,
+        "CRITDMG_": "28.8"
+      },
+      {
+        "level": 79,
+        "ascension": 5,
+        "hp": 11469,
+        "atk": 283,
+        "def": 700,
+        "CRITDMG_": "28.8"
+      },
+      {
+        "level": 80,
+        "ascension": 5,
+        "hp": 11561,
+        "atk": 285,
+        "def": 705,
+        "CRITDMG_": "28.8"
+      },
+      {
+        "level": 81,
+        "ascension": 6,
+        "hp": 12274,
+        "atk": 302,
+        "def": 749,
+        "CRITDMG_": "38.4"
+      },
+      {
+        "level": 82,
+        "ascension": 6,
+        "hp": 12366,
+        "atk": 305,
+        "def": 754,
+        "CRITDMG_": "38.4"
+      },
+      {
+        "level": 83,
+        "ascension": 6,
+        "hp": 12457,
+        "atk": 307,
+        "def": 760,
+        "CRITDMG_": "38.4"
+      },
+      {
+        "level": 84,
+        "ascension": 6,
+        "hp": 12549,
+        "atk": 309,
+        "def": 766,
+        "CRITDMG_": "38.4"
+      },
+      {
+        "level": 85,
+        "ascension": 6,
+        "hp": 12641,
+        "atk": 312,
+        "def": 771,
+        "CRITDMG_": "38.4"
+      },
+      {
+        "level": 86,
+        "ascension": 6,
+        "hp": 12734,
+        "atk": 314,
+        "def": 777,
+        "CRITDMG_": "38.4"
+      },
+      {
+        "level": 87,
+        "ascension": 6,
+        "hp": 12826,
+        "atk": 316,
+        "def": 782,
+        "CRITDMG_": "38.4"
+      },
+      {
+        "level": 88,
+        "ascension": 6,
+        "hp": 12918,
+        "atk": 318,
+        "def": 788,
+        "CRITDMG_": "38.4"
+      },
+      {
+        "level": 89,
+        "ascension": 6,
+        "hp": 13011,
+        "atk": 321,
+        "def": 794,
+        "CRITDMG_": "38.4"
+      },
+      {
+        "level": 90,
+        "ascension": 6,
+        "hp": 13103,
+        "atk": 323,
+        "def": 799,
+        "CRITDMG_": "38.4"
+      },
+      {
+        "level": 95,
+        "ascension": 6,
+        "hp": 13568,
+        "atk": 359,
+        "def": 828,
+        "CRITDMG_": "38.4"
+      },
+      {
+        "level": 100,
+        "ascension": 6,
+        "hp": 14034,
+        "atk": 396,
+        "def": 856,
+        "CRITDMG_": "38.4"
+      }
+    ]
+  },
+  "icons": {
+    "forward": "UI_AvatarIcon_Keqing",
+    "coop_img": "UI_CoopImg_Keqing"
+  },
+  "ascension": {
+    "x202": 7.0499E+6,
+    "exp": {
+      "x104001": 2,
+      "x104003": 418
+    },
+    "speciality": {
+      "x100058": 168
+    },
+    "elemental": {
+      "x104141": 1,
+      "x104142": 9,
+      "x104143": 9,
+      "x104144": 6
+    },
+    "worldmonster": {
+      "x112038": 18,
+      "x112039": 30,
+      "x112040": 36
+    },
+    "elitemonster": {
+      "x113002": 46
+    }
+  },
+  "skills": {
+    "normalattack": {
+      "name": "Yunlai Swordsmanship",
+      "icon": "Skill_A_01",
+      "multipliers": {
+        "x1_HitDMG": [
+          "41.02%",
+          "44.36%",
+          "47.7%",
+          "52.47%",
+          "55.81%",
+          "59.62%",
+          "64.87%",
+          "70.12%",
+          "75.37%",
+          "81.09%",
+          "86.81%",
+          "92.54%",
+          "98.26%",
+          "103.99%",
+          "109.71%"
+        ],
+        "x2_HitDMG": [
+          "41.02%",
+          "44.36%",
+          "47.7%",
+          "52.47%",
+          "55.81%",
+          "59.62%",
+          "64.87%",
+          "70.12%",
+          "75.37%",
+          "81.09%",
+          "86.81%",
+          "92.54%",
+          "98.26%",
+          "103.99%",
+          "109.71%"
+        ],
+        "x3_HitDMG": [
+          "54.44%",
+          "58.87%",
+          "63.3%",
+          "69.63%",
+          "74.06%",
+          "79.12%",
+          "86.09%",
+          "93.05%",
+          "100.01%",
+          "107.61%",
+          "115.21%",
+          "122.8%",
+          "130.4%",
+          "137.99%",
+          "145.59%"
+        ],
+        "x4_HitDMG": [
+          "31.48%+34.4%",
+          "34.04%+37.2%",
+          "36.6%+40%",
+          "40.26%+44%",
+          "42.82%+46.8%",
+          "45.75%+50%",
+          "49.78%+54.4%",
+          "53.8%+58.8%",
+          "57.83%+63.2%",
+          "62.22%+68%",
+          "66.61%+72.8%",
+          "71%+77.6%",
+          "75.4%+82.4%",
+          "79.79%+87.2%",
+          "84.18%+92%"
+        ],
+        "x5_HitDMG": [
+          "66.99%",
+          "72.45%",
+          "77.9%",
+          "85.69%",
+          "91.14%",
+          "97.37%",
+          "105.94%",
+          "114.51%",
+          "123.08%",
+          "132.43%",
+          "141.78%",
+          "151.13%",
+          "160.47%",
+          "169.82%",
+          "179.17%"
+        ],
+        "ChargedAttackDMG": [
+          "76.8%+86%",
+          "83.05%+93%",
+          "89.3%+100%",
+          "98.23%+110%",
+          "104.48%+117%",
+          "111.63%+125%",
+          "121.45%+136%",
+          "131.27%+147%",
+          "141.09%+158%",
+          "151.81%+170%",
+          "162.53%+182%",
+          "173.24%+194%",
+          "183.96%+206%",
+          "194.67%+218%",
+          "205.39%+230%"
+        ],
+        "ChargedAttackStaminaCost": [
+          "25",
+          "25",
+          "25",
+          "25",
+          "25",
+          "25",
+          "25",
+          "25",
+          "25",
+          "25",
+          "25",
+          "25",
+          "25",
+          "25",
+          "25"
+        ],
+        "PlungeDMG": [
+          "63.93%",
+          "69.14%",
+          "74.34%",
+          "81.77%",
+          "86.98%",
+          "92.93%",
+          "101.1%",
+          "109.28%",
+          "117.46%",
+          "126.38%",
+          "135.3%",
+          "144.22%",
+          "153.14%",
+          "162.06%",
+          "170.98%"
+        ],
+        "Low_HighPlungeDMG": [
+          "127.84%/159.68%",
+          "138.24%/172.67%",
+          "148.65%/185.67%",
+          "163.51%/204.24%",
+          "173.92%/217.23%",
+          "185.81%/232.09%",
+          "202.16%/252.51%",
+          "218.51%/272.93%",
+          "234.86%/293.36%",
+          "252.7%/315.64%",
+          "270.54%/337.92%",
+          "288.38%/360.2%",
+          "306.22%/382.48%",
+          "324.05%/404.76%",
+          "341.89%/427.04%"
+        ]
+      },
+      "description": "<color=#FFD780FF>Normal Attack</color>\\nPerforms up to 5 rapid strikes.\\n\\n<color=#FFD780FF>Charged Attack</color>\\nConsumes a certain amount of Stamina to unleash 2 rapid sword strikes.\\n\\n<color=#FFD780FF>Plunging Attack</color>\\nPlunges from mid-air to strike the ground below, damaging opponents along the path and dealing AoE DMG upon impact."
+    },
+    "elementalskill": {
+      "name": "Stellar Restoration",
+      "icon": "Skill_S_Keqing_01",
+      "multipliers": {
+        "LightningStilettoDMG": [
+          "50.4%",
+          "54.18%",
+          "57.96%",
+          "63%",
+          "66.78%",
+          "70.56%",
+          "75.6%",
+          "80.64%",
+          "85.68%",
+          "90.72%",
+          "95.76%",
+          "100.8%",
+          "107.1%",
+          "113.4%",
+          "119.7%"
+        ],
+        "SlashingDMG": [
+          "168%",
+          "180.6%",
+          "193.2%",
+          "210%",
+          "222.6%",
+          "235.2%",
+          "252%",
+          "268.8%",
+          "285.6%",
+          "302.4%",
+          "319.2%",
+          "336%",
+          "357%",
+          "378%",
+          "399%"
+        ],
+        "ThunderclapSlashDMG": [
+          "84%×2",
+          "90.3%×2",
+          "96.6%×2",
+          "105%×2",
+          "111.3%×2",
+          "117.6%×2",
+          "126%×2",
+          "134.4%×2",
+          "142.8%×2",
+          "151.2%×2",
+          "159.6%×2",
+          "168%×2",
+          "178.5%×2",
+          "189%×2",
+          "199.5%×2"
+        ],
+        "CD": [
+          "7.5s",
+          "7.5s",
+          "7.5s",
+          "7.5s",
+          "7.5s",
+          "7.5s",
+          "7.5s",
+          "7.5s",
+          "7.5s",
+          "7.5s",
+          "7.5s",
+          "7.5s",
+          "7.5s",
+          "7.5s",
+          "7.5s"
+        ]
+      },
+      "description": "Hurls a Lightning Stiletto that annihilates her opponents like the swift thunder.\\nWhen the Stiletto hits its target, it deals <color=#FFACFFFF>Electro DMG</color> to opponents in a small AoE, and places a Stiletto Mark on the spot hit.\\n\\n<color=#FFD780FF>Hold</color>\\nHold to adjust the direction in which the Stiletto shall be thrown.\\nStilettos thrown by the Hold attack mode can be suspended in mid-air, allowing Keqing to jump to them when using Stellar Restoration a second time.\\n\\n<color=#FFD780FF>Lightning Stiletto</color>\\n If Keqing uses Stellar Restoration again or uses a Charged Attack while its duration lasts, it will clear the Stiletto Mark and produce different effects:\\n·If she uses Stellar Restoration again, she will blink to the location of the Mark and unleash one slashing attack that deals <color=#FFACFFFF>AoE Electro DMG</color>. When blinking to a Stiletto that was thrown from a Holding attack, Keqing can leap across obstructing terrain.\\n·If Keqing uses a Charged Attack, she will ignite a series of thundering cuts at the Mark's location, dealing <color=#FFACFFFF>AoE Electro DMG</color>.\\n\\n<i>\"Humans are like moths, endlessly chasing the flame we call gods and adepti. But this light that I have here is my own.\"</i>"
+    },
+    "elementalburst": {
+      "name": "Starward Sword",
+      "icon": "Skill_E_Keqing_01",
+      "multipliers": {
+        "SkillDMG": [
+          "88%",
+          "94.6%",
+          "101.2%",
+          "110%",
+          "116.6%",
+          "123.2%",
+          "132%",
+          "140.8%",
+          "149.6%",
+          "158.4%",
+          "167.2%",
+          "176%",
+          "187%",
+          "198%",
+          "209%"
+        ],
+        "ConsecutiveSlashDMG": [
+          "24%×8",
+          "25.8%×8",
+          "27.6%×8",
+          "30%×8",
+          "31.8%×8",
+          "33.6%×8",
+          "36%×8",
+          "38.4%×8",
+          "40.8%×8",
+          "43.2%×8",
+          "45.6%×8",
+          "48%×8",
+          "51%×8",
+          "54%×8",
+          "57%×8"
+        ],
+        "LastAttackDMG": [
+          "188.8%",
+          "202.96%",
+          "217.12%",
+          "236%",
+          "250.16%",
+          "264.32%",
+          "283.2%",
+          "302.08%",
+          "320.96%",
+          "339.84%",
+          "358.72%",
+          "377.6%",
+          "401.2%",
+          "424.8%",
+          "448.4%"
+        ],
+        "CD": [
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s"
+        ],
+        "EnergyCost": [
+          "40",
+          "40",
+          "40",
+          "40",
+          "40",
+          "40",
+          "40",
+          "40",
+          "40",
+          "40",
+          "40",
+          "40",
+          "40",
+          "40",
+          "40"
+        ]
+      },
+      "description": "Keqing unleashes the power of lightning, dealing <color=#FFACFFFF>Electro DMG</color> in an AOE.\\nShe then blends into the shadow of her blade, striking a series of thunderclap-blows to nearby opponents simultaneously that deal multiple instances of <color=#FFACFFFF>Electro DMG</color>. The final attack deals massive <color=#FFACFFFF>AoE Electro DMG</color>.\\n\\n<i>The swiftest technique in Keqing's personal arsenal is fast enough to bring stars crashing down.</i>"
+    },
+    "leveling": {
+      "books": {
+        "x104310": 9,
+        "x104311": 63,
+        "x104312": 114
+      },
+      "crown": {
+        "x104319": 3
+      },
+      "worldmonster": {
+        "x112038": 18,
+        "x112039": 66,
+        "x112040": 93
+      },
+      "weekly": {
+        "x113007": 18
+      }
+    }
+  },
+  "passives": {
+    "p1": {
+      "name": "Thundering Penance",
+      "description": "After recasting <color=#FFD780FF>Stellar Restoration</color> while a Lightning Stiletto is present, Keqing's weapon gains an <color=#FFACFFFF>Electro Infusion</color> for 5s.",
+      "icon": "UI_Talent_S_Keqing_05"
+    },
+    "p2": {
+      "name": "Aristocratic Dignity",
+      "description": "When casting <color=#FFD780FF>Starward Sword</color>, Keqing's CRIT Rate is increased by 15%, and her Energy Recharge is increased by 15%. This effect lasts for 8s.",
+      "icon": "UI_Talent_S_Keqing_06"
+    },
+    "p3": {
+      "name": "Land's Overseer",
+      "description": "When dispatched on an expedition in Liyue, time consumed is reduced by 25%.",
+      "icon": "UI_Talent_Expedition_Liyue"
+    },
+    "p4": ""
+  },
+  "constellations": {
+    "const1": {
+      "name": "Thundering Might",
+      "description": "Recasting <color=#FFD780FF>Stellar Restoration</color> while a Lightning Stiletto is present causes Keqing to deal 50% of her ATK as <color=#FFACFFFF>AoE Electro DMG</color> at the start point and terminus of her Blink.",
+      "icon": "UI_Talent_S_Keqing_01"
+    },
+    "const2": {
+      "name": "Keen Extraction",
+      "description": "When Keqing's Normal and Charged Attacks hit opponents affected by <color=#FFACFFFF>Electro</color>, they have a 50% chance of producing an Elemental Particle.\\nThis effect can only occur once every 5s.",
+      "icon": "UI_Talent_S_Keqing_02"
+    },
+    "const3": {
+      "name": "Foreseen Reformation",
+      "description": "Increases the Level of <color=#FFD780FF>Starward Sword</color> by 3.\\nMaximum upgrade level is 15.",
+      "icon": "UI_Talent_U_Keqing_01"
+    },
+    "const4": {
+      "name": "Attunement",
+      "description": "For 10s after Keqing triggers an <color=#FFACFFFF>Electro-related Elemental Reaction</color>, her ATK is increased by 25%.",
+      "icon": "UI_Talent_S_Keqing_03"
+    },
+    "const5": {
+      "name": "Beckoning Stars",
+      "description": "Increases the Level of <color=#FFD780FF>Stellar Restoration</color> by 3.\\nMaximum upgrade level is 15.",
+      "icon": "UI_Talent_U_Keqing_02"
+    },
+    "const6": {
+      "name": "Tenacious Star",
+      "description": "When initiating a Normal Attack, a Charged Attack, Elemental Skill or Elemental Burst, Keqing gains a 6% <color=#FFACFFFF>Electro DMG Bonus</color> for 8s.\\nEffects triggered by Normal Attacks, Charged Attacks, Elemental Skills and Elemental Bursts are considered independent entities.",
+      "icon": "UI_Talent_S_Keqing_04"
+    }
+  },
+  "hyperlinks": [],
+  "stories": {
+    "x32201": {
+      "storyTitle": "Character Details",
+      "storyText": "Rex Lapis has brought prosperity and plenty to Liyue Harbor, and his rule and majesty have long passed into show and song, much to the delight of the people. But for someone in such proximity to a god, Keqing seems to lack the requisite respect the most.\\n\"Hmph. Let's be real here, but does Morax really know everything?\"\\nThe Liyue Qixing deal with the day-to-day happenings in the Harbor, whether great or small, while Rex Lapis only descends once a year.\\nWhile history has shown that following Morax's lead has been the right call, Keqing believes that humans should have their pride and that their views deserve equal consideration.\\nAs such, she often advocates different opinions from Rex Lapis, and is the first to put such views into practice.\\nHer radical actions have seen stellar results, but they have also attracted murmurings of opprobrium among those devoted to Rex Lapis.\\nAs Keqing sees it, such opposition are the excuses of those who have grown complacent under the aegis of their deity, and who cannot consider the future of humanity of their own accord.\\nBut someone must walk on the front line of the epoch and create a new path with their own hands — and the Yuheng star is determined to do her part in this endeavor.",
+      "unlockConds": []
+    },
+    "x32202": {
+      "storyTitle": "Character Story 1",
+      "storyText": "Keqing is the daughter of an illustrious Liyue family with a proud lineage, and she is better acquainted than most with the influence that Rex Lapis has over the people of Liyue.\\nOnce every few years, in an almost cyclical fashion, a major reshuffle hits Liyue's economy after the Rite of Descension. Once Rex Lapis' new policies are announced, some families celebrate while others grieve.\\nThe poor hope it will offer them the chance to finally make their fortunes while the wealthy pray that theirs will not be swept away in the changing tides. Rather than carefully analyzing the economic climate, merchants are more prone to making investments based on belief.\\nAnd in present-day Liyue, this is a forgivable strategy: Rex Lapis is a powerful deity and he can be relied on for all things.\\nBut Keqing has her reservations about all this: What if, one day, Rex Lapis stops fulfilling his duty? Then what would become of the people of Liyue?\\nLiyue's present prosperity is akin to a magnificent sandcastle on the beach — humanity does not have the luxury of deciding when the tide will come in.\\nHowever, Keqing has been unable to garner majority support for her views. From most people's perspective, life is but a brief, insignificant moment in Liyue's long history, and there is no point in working oneself up into an existential quandary.\\nThis perspective, as far as Keqing is concerned, is a lazy and cowardly one that denies there is any value at all in the existence of the human race. \"If humans really have no value,\" Keqing retorts, \"then why should we expect the gods to care about us so much?\"\\nUnwilling to compromise on her beliefs, she cast her skepticism on everything — everything from Rex Lapis' loving-kindness, to the people's laziness, to the way that society runs.\\nIssues affecting humans' fate should be handled by humans, and humans are more than capable of handling them with finesse.\\nFinally, the day came of her now-famous speech at the Rite of Descension.\\n\"Rex Lapis has watched over Liyue for a millennium. But what about the next millennium? What about the next ten, or the next hundred millennia? How long are we expecting this status quo to last?\"\\nOn hearing these words, Rex Lapis burst into hearty laughter. But as for what exactly he was laughing about, only Rex Lapis himself knows.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 2
+      }
+    },
+    "x32203": {
+      "storyTitle": "Character Story 2",
+      "storyText": "Some may be able to keep up with Keqing's forward-thinking ideas, but none can keep up with her pace of work.\\nPerhaps in an effort to become a role model for her people, she demands of herself to work ten times harder than the average person, and she cannot abide any measure of laziness or inefficiency.\\nHumans' abilities and lifespans are more limited than the gods'. This means that one has no hope of living to see the day when humans replace the gods as masters of our own universe if one allows apathy and hesitation to slow themselves down.\\nBecause of this same mindset, she is never able to synchronize her work rhythm with the people around her.\\nWhatever the task, she does not rest until the job is done, and when something should take half the month to resolve, she will pull out all the stops to try and get it turned around within the next 48 hours.\\nAdditionally, Keqing's notion of 'completing' something is far more ambitious than simply getting it 'finished' — she will make sure that every relevant detail is tied up too. To the outside observer, she seems to be both highly efficient and a perfectionist.\\nBut not everyone is as self-motivated as Keqing. No assistant she hires ever makes it past the three-month mark.\\nShe has received countless remonstrations urging her to be less impatient, but she meets each one with a stern rejection.\\nStill, she has, to some extent, come around to the idea that a high staff turnover is itself a manifestation of inefficiency, and made some concessions accordingly.\\nToday, if you encounter an assistant of Keqing's dealing with some matter three, four, or even five years ahead of time, don't be alarmed, this is completely normal. Keqing gave them a bit of a head start, but she'll be catching up before long.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 3
+      }
+    },
+    "x32204": {
+      "storyTitle": "Character Story 3",
+      "storyText": "\"Yesterday's experiences make me stronger today.\" This is one of the principles Keqing lives by.\\nSpending all of one's time at Yujing Terrace means seeing the same old things day after day. But to be able to think and act as swiftly as lightning, one needs a huge amount of experience to draw on.\\nSo, if Keqing sees something that needs doing, why, she'll do it herself. For example, she once served for two months as a laborer to better decide how to refine a plan to improve their treatment.\\nIt's hard to imagine that this young lady with so much authority vested in her has pulled carts at The Chasm, rammed earth at the south wharf, and waited tables at small diners.\\nIn addition to working, she also once took the opportunity to gather evidence with which to report a powerful individual known for his abuses.\\nHe was apprehended without any clue as to how he had been exposed, but when he was brought to the interrogation chamber by the Millelith, there he saw a striking young lady dressed in fine robes.\\n\"Hey! Haven't we... haven't we met somewhere before?\"\\nThe words felt foolish the moment they rolled off his tongue, even to him.\\nEspecially because the Millelith then introduced her as follows: \"This is the Yuheng of the Liyue Qixing. Know your place and keep your distance!\"\\n—Exactly, so what was he thinking!?",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 4
+      }
+    },
+    "x32205": {
+      "storyTitle": "Character Story 4",
+      "storyText": "Rex Lapis' departure has put Liyue Harbor through a great deal of hardship. All the duties Rex once fulfilled have been taken up by the Qixing and the Eight Trades.\\nNow that divine rule is a thing of the past, the old strictures left behind can't simply be continued wholesale. But to establish new laws for Liyue, whose history spans several thousand years, is no mean feat.\\nAt first, Keqing was incredibly enthusiastic about this task, having long prepared for this day when she might finally show her mettle. But several months in, and she was still stuck on a single task, land infrastructure — and it was driving her up the wall.\\nNo matter how hard she struggled, the mountain of tasks was like a quagmire. She was making difference, yes, but not nearly with as much ease as Rex Lapis.\\n\"Why can I only do this much? Why... can't I do it better?\"\\nOf course, she had long understood the wherefores here.\\nHer lack of respect for gods had somehow received their recognition all the same, yes, but that didn't mean that she was ready to simply replace them.\\nBut she was still Keqing, resolute and tenacious.\\nFrom that day on, she shut herself in, studying classics of various kinds to learn all that she needed. Placing herself lowest, she accepted all that she had hitherto not known with open arms.\\nDuring this period, she gained a certain calm, slowly discarding the \"opprobrium\" she had long held against Rex Lapis.\\nThey were both working for the good of Liyue, after all — and two people who love the same thing need not be on opposing sides.\\nShe also seemingly came to an understanding concerning the smile Rex Lapis had given her during that Rite of Descension. It was, Keqing now believes, an expression of acknowledgment and expectation.\\nShe hasn't lost any of her forceful and decisive manner, no. But sometimes, when she feels lost, she will stop and think: \"What would Rex Lapis do at a moment such as this?\"",
+      "unlockConds": [
+        {
+          "type": "FETTER_COND_FETTER_LEVEL",
+          "value": 5
+        },
+        {
+          "type": "FETTER_COND_FINISH_QUEST",
+          "value": 102510
+        }
+      ]
+    },
+    "x32206": {
+      "storyTitle": "Character Story 5",
+      "storyText": "Keqing, who has dedicated a large portion of her energies to Liyue Harbor, indulges in an unexpected pastime when she can spare a moment — shopping.\\nOn her days off, she changes into ordinary clothes, contacts a few close friends, and enjoys a day of strolling around Feiyun Slope and Chihu Rock, just enjoying the act of buying things.\\nAfter Rex Lapis' departure, Keqing managed to maintain this method of decompression despite her busier schedule, though with one subtle difference.\\nOn one of her shopping trips, she happened upon a small and unremarkable stall that sold cute Rex Lapis clay figurines with tiny bodies and big heads.\\nPersuading her friends to visit the silk store opposite, she approached the stall, took a figurine in her hand, and began to examine it.\\nShe knew that she didn't have much time. So, after glancing around to make sure that no one was watching, she paid for, picked up, and packed away her prize in one swift single movement.\\nBut no sooner had she placed the figurine into her bag and heaved a sigh of relief than one of her friends, silk bundles in tow, tapped her on the shoulder.\\nIn the end, all was revealed. Her friends were quite curious: Wasn't Keqing a skeptic among skeptics? Why would she buy one of these?\\n\"For... For introspection, of course! There's nothing wrong with self-reflection, is there?\"\\nSo she said, and it would be convincing, too — if Keqing didn't already have an entire shelf dedicated to Rex Lapis self-reflection memorabilia...",
+      "unlockConds": [
+        {
+          "type": "FETTER_COND_FETTER_LEVEL",
+          "value": 6
+        },
+        {
+          "type": "FETTER_COND_FINISH_QUEST",
+          "value": 102510
+        }
+      ]
+    },
+    "x32207": {
+      "storyTitle": "Survival Hairpin",
+      "storyText": "Though she is of noble birth, Keqing tries to keep her luxuries to the bare minimum that would befit her position as one of the Liyue Qixing.\\nAnd when she is outside the borders of the prosperous city, she will often head deep into uninhabited areas to strengthen her knowledge and sharpen her will.\\nShe has experienced countless challenges, but unlike backpackers and adventurers, she does not bring anything with but her hairpin and her sword.\\nAs long as it is infused with Electro, a hairpin can become a knife of unmatched sharpness. Cutting grass, chopping firewood, skinning game, and carving bone are all well within its capabilities.\\nIf faced with a drop of great height, she only needs to pin it into the ground, tie rattans to it, and rappel down.\\nIt also serves as an incredibly sensitive security device when camping out. Any unusual movements nearby will cause it, when tipped over and placed perpendicular to the ground, to alert and awaken Keqing immediately.\\nIt can even be used to fish: Keqing just hurls it into the water when she's feeling peckish, and there will always be a few fish that will get knocked out by the electric shock — and of course, finding a stick to grill the fish on is not a problem either.\\nSome narrow-minded folk have ridiculed Keqing's hairpin for being old and worn, but this does not anger her. Indeed, she considers it a point of pride.\\n\"Its weathered form is what gives it its charm.\"",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 4
+      }
+    },
+    "x32208": {
+      "storyTitle": "Vision",
+      "storyText": "Keqing is likely a skeptic without equal when it comes to the value of Visions.\\nShe knows that everything she has is the result of her own hard work, but that in the eyes of others, credit has been given instead to her Vision.\\nShe once believed that this purple crystal had stolen the pride due originally to her, and that it was both a challenge and an insult from the gods.\\nIn fact, she has tried to destroy her Vision countless times — she's left it in a huge fire for three days and three nights, run over it with a minecart full of rocks, and has even hurled it from the heights of the Jade Chamber.\\nUnfortunately, she has never been successful.\\nWith no options left, and not wanting it to fall into the wrong hands, Keqing was forced to accept the Vision as part of her life.\\nOver time, Keqing came to appreciate her Vision. She realized that this item did not actually have any divine will imbued within it, and that it also had numerous practical uses. Thus, she decided to make use of it.\\n\"The source of power is far less important than the character of its user.\"\\nRegardless of how she may once have regarded it, Keqing's Vision and its powers have become a part of her.\\nThank the Archons she hadn't destroyed it back then, or she'd have regretted it for sure — oh, the hardships of being a pragmatist.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 6
+      }
+    }
+  },
+  "quotes": {
+    "x32009": {
+      "quoteTitle": "Hello",
+      "quoteText": "I am Keqing, Yuheng of the Liyue Qixing. We live in an era of change, as the old order that has existed for a thousand years is about to be rewritten. Join me. Let us bear witness to this historical moment together.",
+      "unlockConds": []
+    },
+    "x32010": {
+      "quoteTitle": "Chat: Delays",
+      "quoteText": "Come on. Enough procrastinating. Let's go.",
+      "unlockConds": []
+    },
+    "x32011": {
+      "quoteTitle": "Chat: Relax",
+      "quoteText": "I'm all for work-life balance, but I think this is pushing it.",
+      "unlockConds": []
+    },
+    "x32012": {
+      "quoteTitle": "Chat: Opportunity",
+      "quoteText": "In adventuring, as in business, you always have to seize the opportunity while it's there.",
+      "unlockConds": []
+    },
+    "x32013": {
+      "quoteTitle": "When It Rains",
+      "quoteText": "Quite a downpour... Nothing will get done until it clears. Let this be a lesson to those who yesterday said, \"I'll do it tomorrow.\"",
+      "unlockConds": []
+    },
+    "x32014": {
+      "quoteTitle": "When Thunder Strikes",
+      "quoteText": "Thunder and lightning can be quite frightening, but don't worry — Liyue's storm and fire defenses are second to none.",
+      "unlockConds": []
+    },
+    "x32015": {
+      "quoteTitle": "When It Snows",
+      "quoteText": "Don't worry, snowfall on this scale is no impediment. We can keep moving.",
+      "unlockConds": []
+    },
+    "x32016": {
+      "quoteTitle": "When the Sun Is Out",
+      "quoteText": "Ah, the sun is out. Our work's done for the day... shall we take a stroll?",
+      "unlockConds": []
+    },
+    "x32017": {
+      "quoteTitle": "Good Morning",
+      "quoteText": "Morning. Time to set the tone for the rest of the day, so if you're still feeling sleepy, shake it off!",
+      "unlockConds": []
+    },
+    "x32018": {
+      "quoteTitle": "Good Afternoon",
+      "quoteText": "I'm not in the habit of napping at noon, but don't let that stop you if you're feeling tired. I'll give you a wake-up call in, say, three minutes' time.",
+      "unlockConds": []
+    },
+    "x32019": {
+      "quoteTitle": "Good Evening",
+      "quoteText": "The lights are coming on now that the night is setting in. *yawn* Another delightful day draws to a close.",
+      "unlockConds": []
+    },
+    "x32020": {
+      "quoteTitle": "Good Night",
+      "quoteText": "Sleep well. ...Me? Uh... I still have a handful of things on my to-do list, but I'll call it a night once they're done.",
+      "unlockConds": []
+    },
+    "x32021": {
+      "quoteTitle": "About Keqing: Idealism",
+      "quoteText": "If you feel strongly about something, you should speak up and take action. That's the philosophy I live by.",
+      "unlockConds": []
+    },
+    "x32022": {
+      "quoteTitle": "About Keqing: Work",
+      "quoteText": "My role is to manage real estate and construction in Liyue. Sure, Liyue is a vast place with abundant resources — but without proper planning, and if too much focus is placed on short-term profit, a great many things can go wrong.",
+      "unlockConds": []
+    },
+    "x32023": {
+      "quoteTitle": "About Keqing: Skepticism",
+      "quoteText": "What do you think has kept Liyue going over the last millennium? Rex Lapis? ...I disagree. We mortals have to fight for survival whatever happens. He just feels the need to come down here and poke his nose into everything that's going on for some reason... Hmph, people don't like to think about this, but should we really be trusting him to be an expert in everything?",
+      "unlockConds": []
+    },
+    "x32024": {
+      "quoteTitle": "About Keqing: Self-Reflection",
+      "quoteText": "After I took on the management of so many of Liyue's affairs, I had a new-found respect for Rex Lapis and all his hard work over the last millennium. Recently, every time I come up against a difficult problem with no obvious solution, I find myself thinking: What would Rex Lapis do? Maybe he really IS an expert in everything, and I've got more left to learn than I realized...",
+      "unlockConds": [
+        "Complete \"A New Star Approaches\""
+      ]
+    },
+    "x32025": {
+      "quoteTitle": "About Us: Pursuing",
+      "quoteText": "You know why I like you? It's because you don't believe something just because it was said by a god. You make up your own mind. You ask the questions everyone else is too cowardly to ask, and when you don't get an answer, you keep looking till you find one. Oh don't worry — your way is definitely the right way. Who says gods don't make mistakes, anyway?",
+      "unlockConds": []
+    },
+    "x32026": {
+      "quoteTitle": "About Us: Trying",
+      "quoteText": "It's not difficult, you'll see. Just give it a try. What if you try and it doesn't work out? ...No, I don't believe that will happen. You've never let me down before. You don't seem the type.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 6"
+      ]
+    },
+    "x32027": {
+      "quoteTitle": "About Us: Encouragement",
+      "quoteText": "I used to be so naive. I genuinely believed I was on par with Rex Lapis... Seems I really overestimated myself. Hmm? Yes... You're right! I have plenty of self-confidence in other areas, so why not in this? ...I can catch up with him — I WILL catch up with him! I just need to keep my chin up, keep trying, and keep learning!",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 6",
+        "Complete \"A New Star Approaches\""
+      ]
+    },
+    "x32028": {
+      "quoteTitle": "About the Vision: Skepticism",
+      "quoteText": "If a Vision means the approval of the gods, then I don't see why I should want one. In fact, I find it quite insulting... It's like trying to say everything I've ever achieved is all thanks to the gods looking out for me! Well, I got to where I am today through my own hard work. The gods had nothing to do with it.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x32029": {
+      "quoteTitle": "About the Vision: Reflection",
+      "quoteText": "Oh, so... Rex Lapis wanted me to have power beyond the average mortal so that I can be a great leader? Huh... I like to think I'd do an admirable job even without his blessing! Yeah, I'll show him... I won't give him any reason to be disappointed with me...",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4",
+        "Complete \"A New Star Approaches\""
+      ]
+    },
+    "x32030": {
+      "quoteTitle": "Something to Share: Initiative",
+      "quoteText": "In addition to my work with the Liyue Qixing, I do a lot of work for the public, too. Mostly the feedback is positive, but whenever I propose something like adding an extra hour to the workday, I come up against very strong resistance... I'm too forward-thinking, I suppose. Maybe I should start with a half hour instead?",
+      "unlockConds": []
+    },
+    "x32031": {
+      "quoteTitle": "Something to Share: Souvenir",
+      "quoteText": "What do you mean, Geo Archon paraphernalia? ...You're not suggesting my bedroom is full of that stuff, surely? I'm not a child anymore! Although... Okay, I did buy a couple of Rex Lapis figurines recently, but — but, they're just to keep me on the straight and narrow. Look, just because I own an idol or two does not mean that I idolize him, okay!?",
+      "unlockConds": [
+        "Complete \"A New Star Approaches\""
+      ]
+    },
+    "x32032": {
+      "quoteTitle": "Interesting Things",
+      "quoteText": "I once heard a Mondstadt fable about courage being what it takes for birds to learn to fly. But I think that you must first possess a yearning for the boundless skies before you would have any inclination, let alone the courage, to spread your wings and try to fly. For me, Liyue is that boundless sky.",
+      "unlockConds": []
+    },
+    "x32033": {
+      "quoteTitle": "About Zhongli",
+      "quoteText": "The gentleman from the Wangsheng Funeral Parlor? Clearly, he's an extremely learned individual, and I do have a lot of respect for him. But his mindset is too traditional for me — he thinks in the same tired old terms as Rex Lapis did... If he were more of an original thinker, I'm sure he'd be a great asset to me in reaching my objectives.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x32034": {
+      "quoteTitle": "About Beidou",
+      "quoteText": "That captain is always flouting the rules, and her personality really rubs people the wrong way. That said, The Crux Fleet is indispensable to Liyue Harbor. It's a bit of an art, knowing when to enforce the rules and when it's in everyone's interests to be more lenient. Thing is, the Tianquan is supposed to be the one enforcing the rules, but she always seems to be too busy...",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x32035": {
+      "quoteTitle": "About Ningguang: Conflict",
+      "quoteText": "We do work together, but we couldn't be more opposite personality-wise. To her, Liyue Harbor is nothing more than a marketplace, and she'll do anything as long as it makes money for her. Doesn't she have any principles? Hmm, or maybe turning a profit IS her principle?",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x32036": {
+      "quoteTitle": "About Ningguang: Cooperation",
+      "quoteText": "Since Rex Lapis left us, we've actually found some common ground. I was quite judgmental of her in the past, and we still fundamentally disagree on a number of issues, but in the current climate I have to say I count her as a comrade in arms.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4",
+        "Complete \"A New Star Approaches\""
+      ]
+    },
+    "x32037": {
+      "quoteTitle": "About Ningguang: Trifling Matters",
+      "quoteText": "Ugh, having said that... I ordered a Lucent Crescent from Mingxing Jewelry three months in advance, and when it was finally time to pick it up, they told me Ningguang had bought up the last few months' worth of Lucent Crescents for herself by paying double the price! *sigh* She can be such a pain!",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4",
+        "Complete \"A New Star Approaches\""
+      ]
+    },
+    "x32038": {
+      "quoteTitle": "About Xinyan",
+      "quoteText": "You know what, I think her music rocks. Too noisy by traditional standards, for sure, but I don't care. Good music is good music. And good music should reach the widest possible audience.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x32039": {
+      "quoteTitle": "About Baizhu",
+      "quoteText": "Everyone has faith in Dr. Baizhu's medical skills. He's the right guy to go to when you can't figure out what's wrong with you. Oh... the rumors, you say? The only one that I know for a fact is true is how disgusting his medicine tastes. It's not just the kids who find it bitter, it's left me with some horrible memories, too!",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x32040": {
+      "quoteTitle": "About Xiangling",
+      "quoteText": "Yeah, the up-and-coming chef from Wanmin Restaurant... I get that she's gifted and everything, I just think her cooking can be a bit hit-or-miss. I was all ready to hire her for a small banquet once, and give her full control over the menu... but the amount of lizard and slime in her sample dishes quickly turned me off that idea!",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x32041": {
+      "quoteTitle": "About Xingqiu",
+      "quoteText": "I've heard his story — he was born into a well-to-do family, but wasn't keen on the family business, so he now devotes his time to being an envoy of justice. I have huge respect for that! Not everyone has the guts to follow their dreams when it means breaking with a long-standing family tradition.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x32042": {
+      "quoteTitle": "About Xiao",
+      "quoteText": "I feel like now that we live in the age of mankind's rule, it's time for the legendary boy-adeptus to be released from duty. We no longer need a defender of that kind, because we are capable of working through the challenges we face on our own strength.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4",
+        "Complete \"A New Star Approaches\""
+      ]
+    },
+    "x32043": {
+      "quoteTitle": "About Ganyu: Skepticism",
+      "quoteText": "Who knows what Rex Lapis must have done to inspire such blind devotion from Ganyu... But her reluctance to be critical is not without its advantages. In the workplace, she'll carry out my instructions to the letter, even when I can tell she has her reservations. It's a good attitude to have as a career professional.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x32044": {
+      "quoteTitle": "About Ganyu: Reflection",
+      "quoteText": "I find myself getting a second opinion from her a lot these days. Lots of things come up that I just have no idea about, and of everyone in Liyue, she's probably the most familiar with Rex Lapis. Heh... I feel a bit awkward, though, because I used to be openly disparaging of Rex Lapis in front of her... But she doesn't seem to mind, so I guess I've got nothing to worry about...",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4",
+        "Complete \"A New Star Approaches\""
+      ]
+    },
+    "x32045": {
+      "quoteTitle": "About Yun Jin",
+      "quoteText": "When you're passing by Heyu Tea House and have to squeeze your way through the biggest crowd you've seen in your life, that's when you know Yun Jin's on stage performing. There's not a merchant in Liyue who wouldn't buy up the place if they had the chance, and Yun Jin is the reason it would be worth every Mora.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x32046": {
+      "quoteTitle": "About the Anemo Archon",
+      "quoteText": "Since Rex Lapis left us, the question of Liyue's future has been on my mind constantly. In addition to reviewing his own past deeds, I've been researching the other archons' modes of governance, too. Mondstadt's god is the one who baffles me the most though — how exactly do any of his actions contribute to the longevity of Mondstadt? It's completely beyond me.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4",
+        "Complete \"A New Star Approaches\""
+      ]
+    },
+    "x32047": {
+      "quoteTitle": "About Yanfei",
+      "quoteText": "The way I see it, the law is a summary of things done the right way in the past. However, it should also be continuously adapted and improved to match the needs of the present. Given that Liyue is about to undergo a radical transformation, legal talent is in great demand. With an assistant like Yanfei, I could spare myself a great deal of trouble.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x32048": {
+      "quoteTitle": "About Yelan",
+      "quoteText": "Ms. Yelan's ancestors used to serve the Qixing. My grandfather and her family have had academic collaborations in the past. All in all, she's reliable, efficient, and provides important intel to the Ministry of Civil Affairs. I can't say for sure how Ms. Yelan actually gets her intel, however...",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x32049": {
+      "quoteTitle": "More About Keqing: I",
+      "quoteText": "You want to know more about me? Sure. Let's start with the principles that are central to the role of Yuheng. Once you've memorized the hundred or more contractual obligations of the position, you'll know my hopes and dreams like the back of your hand!",
+      "unlockConds": []
+    },
+    "x32050": {
+      "quoteTitle": "More About Keqing: II",
+      "quoteText": "Nothing exists independently, and there's nothing you can do to change that. So, when you drag your heels on one thing, you're actually causing chaos for a whole bunch of other connected issues, too. That's why I firmly believe you should never put off until tomorrow what you can do today. ...I'm also a very impatient person and can't stand procrastinating, so that's also part of it.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 3"
+      ]
+    },
+    "x32051": {
+      "quoteTitle": "More About Keqing: III",
+      "quoteText": "Never mince your words with me, okay? Yuheng's just a title. I'll not have you treading on eggshells around me just because of my status. Say what's on your mind, always — that's what makes you unique, and it's the thing I admire about you the most.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x32052": {
+      "quoteTitle": "More About Keqing: IV",
+      "quoteText": "We've been on our fair share of adventures together, haven't we? The more time we spend together, the more I think that you're the person of my dreams, and— Huh? Why so shocked? You're a crucial part of my dreams for the new Liyue.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 5"
+      ]
+    },
+    "x32053": {
+      "quoteTitle": "More About Keqing: V",
+      "quoteText": "\"The time has come for humanity to make its mark in the land of the Geo Archon\"... Turns out that was quite an ambitious statement after all. But I want you to make me a promise: come and visit when the new Liyue Harbor is born. I will show you around. After all the help and support you've given me along the way, you deserve to see Liyue reborn with your own eyes. I owe you that much.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 6",
+        "Complete \"A New Star Approaches\""
+      ]
+    },
+    "x32054": {
+      "quoteTitle": "Keqing's Hobbies",
+      "quoteText": "That indulgent feeling of being spoilt for choice between countless different varieties... That, to me, is the appeal of shopping.",
+      "unlockConds": []
+    },
+    "x32055": {
+      "quoteTitle": "Keqing's Troubles",
+      "quoteText": "It's great that the quality of life in Liyue is improving for everyone. But one downside is the growing number of people who are happy to reap the rewards without doing their fair share of the work. The Liyue Qixing did not put in all this effort to create a more prosperous society just so people like them can loaf around.",
+      "unlockConds": []
+    },
+    "x32056": {
+      "quoteTitle": "Favorite Food",
+      "quoteText": "It makes no logical sense to be greedy with food, but for me, all rationality goes out the window when there's Golden Shrimp Balls involved... They're just irresistible. The taste of a single Golden Shrimp Ball brings me so much joy that all the stress of work just melts away.",
+      "unlockConds": []
+    },
+    "x32057": {
+      "quoteTitle": "Least Favorite Food",
+      "quoteText": "Everything has a certain way it should taste. I won't touch anything that tries to break the mold, so no salted Almond Tofu for me, and no sweetened Lotus Seed and Bird Egg Soup either. It's just a total waste of perfectly good ingredients.",
+      "unlockConds": []
+    },
+    "x32058": {
+      "quoteTitle": "Birthday",
+      "quoteText": "Happy birthday! I've got a very special gift for you. It might look like an ordinary old lantern, but this one runs on Electro energy and stays alight for a really long time. For those times when you need a little extra light in your life.",
+      "unlockConds": []
+    },
+    "x32059": {
+      "quoteTitle": "Feelings About Ascension: Intro",
+      "quoteText": "When your heart is set on something, you get closer to your goal with each passing day.",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 1"
+      ]
+    },
+    "x32060": {
+      "quoteTitle": "Feelings About Ascension: Building Up",
+      "quoteText": "Great, having another trick up my sleeve gives me more flexibility in rapidly changing circumstances.",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 2"
+      ]
+    },
+    "x32061": {
+      "quoteTitle": "Feelings About Ascension: Climax",
+      "quoteText": "Yesterday's experiences make me stronger today. And most of those experiences are ones that I share with you.",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 4"
+      ]
+    },
+    "x32062": {
+      "quoteTitle": "Feelings About Ascension: Conclusion",
+      "quoteText": "I feel I have grown immensely from my travels with you. If, one day, I finally manage to make my dreams a reality... I wonder, will you still be there by my side?",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 6"
+      ]
+    },
+    "x32063": {
+      "quoteTitle": "Elemental Skill: I",
+      "quoteText": "Incoming!",
+      "unlockConds": []
+    },
+    "x32064": {
+      "quoteTitle": "Elemental Skill: II",
+      "quoteText": "Speed of light!",
+      "unlockConds": []
+    },
+    "x32065": {
+      "quoteTitle": "Elemental Skill: III",
+      "quoteText": "Don't blink.",
+      "unlockConds": []
+    },
+    "x32066": {
+      "quoteTitle": "Elemental Skill: IV",
+      "quoteText": "Hah—!",
+      "unlockConds": []
+    },
+    "x32067": {
+      "quoteTitle": "Elemental Skill: V",
+      "quoteText": "Hey!",
+      "unlockConds": []
+    },
+    "x32068": {
+      "quoteTitle": "Elemental Skill: VI",
+      "quoteText": "Huh!",
+      "unlockConds": []
+    },
+    "x32069": {
+      "quoteTitle": "Elemental Burst: I",
+      "quoteText": "Nowhere to hide!",
+      "unlockConds": []
+    },
+    "x32070": {
+      "quoteTitle": "Elemental Burst: II",
+      "quoteText": "With sword comes shadow!",
+      "unlockConds": []
+    },
+    "x32071": {
+      "quoteTitle": "Elemental Burst: III",
+      "quoteText": "Cut to the chase!",
+      "unlockConds": []
+    },
+    "x32072": {
+      "quoteTitle": "Opening Treasure Chest: I",
+      "quoteText": "You give, you receive.",
+      "unlockConds": []
+    },
+    "x32073": {
+      "quoteTitle": "Opening Treasure Chest: II",
+      "quoteText": "Not bad, as far as treasure is concerned...",
+      "unlockConds": []
+    },
+    "x32074": {
+      "quoteTitle": "Opening Treasure Chest: III",
+      "quoteText": "That's everything, on to the next.",
+      "unlockConds": []
+    },
+    "x32075": {
+      "quoteTitle": "Low HP: I",
+      "quoteText": "One step back, two forward...",
+      "unlockConds": []
+    },
+    "x32076": {
+      "quoteTitle": "Low HP: II",
+      "quoteText": "Stronger than I thought.",
+      "unlockConds": []
+    },
+    "x32077": {
+      "quoteTitle": "Low HP: III",
+      "quoteText": "Change of plan.",
+      "unlockConds": []
+    },
+    "x32078": {
+      "quoteTitle": "Ally at Low HP: I",
+      "quoteText": "Take five, I'll take over.",
+      "unlockConds": []
+    },
+    "x32079": {
+      "quoteTitle": "Ally at Low HP: II",
+      "quoteText": "Watch yourself!",
+      "unlockConds": []
+    },
+    "x32080": {
+      "quoteTitle": "Fallen: I",
+      "quoteText": "Right idea, wrong time...",
+      "unlockConds": []
+    },
+    "x32081": {
+      "quoteTitle": "Fallen: II",
+      "quoteText": "I will not go quietly...",
+      "unlockConds": []
+    },
+    "x32082": {
+      "quoteTitle": "Fallen: III",
+      "quoteText": "What a let-down...",
+      "unlockConds": []
+    },
+    "x32083": {
+      "quoteTitle": "Light Hit Taken: I",
+      "quoteText": "Ugh.",
+      "unlockConds": []
+    },
+    "x32084": {
+      "quoteTitle": "Light Hit Taken: II",
+      "quoteText": "I'll be fine.",
+      "unlockConds": []
+    },
+    "x32085": {
+      "quoteTitle": "Heavy Hit Taken: I",
+      "quoteText": "Got lucky that time!",
+      "unlockConds": []
+    },
+    "x32086": {
+      "quoteTitle": "Joining Party: I",
+      "quoteText": "Let's go, time is against us.",
+      "unlockConds": []
+    },
+    "x32087": {
+      "quoteTitle": "Joining Party: II",
+      "quoteText": "Something's come up?",
+      "unlockConds": []
+    },
+    "x32088": {
+      "quoteTitle": "Joining Party: III",
+      "quoteText": "Let's finish this quickly.",
+      "unlockConds": []
+    },
+    "x32089": {
+      "quoteTitle": "Receiving a Gift: I",
+      "quoteText": "Yep, that's right. My favorite.",
+      "unlockConds": []
+    },
+    "x32090": {
+      "quoteTitle": "Receiving a Gift: II",
+      "quoteText": "The taste is fairly standard, but I can see you worked hard at it.",
+      "unlockConds": []
+    },
+    "x32091": {
+      "quoteTitle": "Receiving a Gift: III",
+      "quoteText": "It seems quite a ways off from how it's supposed to taste...",
+      "unlockConds": []
+    },
+    "x32092": {
+      "quoteTitle": "About Lan Yan",
+      "quoteText": "Madame Lan is a lovely young lady and a very talented craftswoman. As the Ministry of Civil Affairs works to promote local craftmanship in the future, we will certainly consult masters like her. Oh, what about outside of work? Of course, she's welcome in Liyue Harbor any time. I find her company very enjoyable.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    }
+  },
+  "energy": [
+    {
+      "source": "Ball",
+      "particles": "2",
+      "chance": "100%",
+      "cd": "0.6s"
+    },
+    {
+      "source": "Ball",
+      "particles": "1",
+      "chance": "50%",
+      "cd": "0.6s"
+    },
+    {
+      "source": "DropBall_Talent",
+      "particles": "1",
+      "chance": "100%",
+      "cd": "Instant"
+    }
+  ],
+  "attacks": [
+    {
+      "name": "NormalAttack05_Bullet",
+      "icd_source": "Tag: NormalAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV7/64",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Slash",
+      "damageParam": "0.720000"
+    },
+    {
+      "name": "NormalAttack05_Bullet",
+      "icd_source": "Tag: NormalAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV7/64",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Slash",
+      "damageParam": "0.720000"
+    },
+    {
+      "name": "Talent_Electrans_BlinkAttack1",
+      "icd_source": "Tag: Elemental_Art (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV1/50",
+      "element": "Electric",
+      "attackType": "Melee",
+      "strikeType": "-",
+      "damageParam": "Damage"
+    },
+    {
+      "name": "Talent_Electrans_BlinkAttack2",
+      "icd_source": "Tag: Elemental_Art (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV1/50",
+      "element": "Electric",
+      "attackType": "Melee",
+      "strikeType": "-",
+      "damageParam": "Damage"
+    },
+    {
+      "name": "Electrans_Strike",
+      "icd_source": "Tag: Elemental_Art (!)",
+      "icd_rule": "Independent",
+      "gauge": "2U",
+      "poise": "LV7/100",
+      "element": "Electric",
+      "attackType": "Melee",
+      "strikeType": "Slash",
+      "damageParam": "Damage"
+    },
+    {
+      "name": "SkillBullet_Material",
+      "icd_source": "Tag: Elemental_Art (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV3/50",
+      "element": "Electric",
+      "attackType": "Default",
+      "strikeType": "-",
+      "damageParam": "Damage"
+    },
+    {
+      "name": "TrapBurst_Material",
+      "icd_source": "Tag: Elemental_Art (!)",
+      "icd_rule": "Independent",
+      "gauge": "2U",
+      "poise": "LV2/50",
+      "element": "Electric",
+      "attackType": "Range",
+      "strikeType": "Slash",
+      "damageParam": "Damage1"
+    },
+    {
+      "name": "TrapBurst_Material",
+      "icd_source": "Tag: Elemental_Art (!)",
+      "icd_rule": "Independent",
+      "gauge": "2U",
+      "poise": "LV2/50",
+      "element": "Electric",
+      "attackType": "Range",
+      "strikeType": "Slash",
+      "damageParam": "Damage2"
+    },
+    {
+      "name": "ElementalBurst_Gadget_Material",
+      "icd_source": "Tag: Elemental_Burst (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV7/200",
+      "element": "Electric",
+      "attackType": "Range",
+      "strikeType": "Slash",
+      "damageParam": "Damage_Last"
+    },
+    {
+      "name": "ElementalBurst_Gadget_StartAttack",
+      "icd_source": "Tag: Elemental_Burst (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV1/100",
+      "element": "Electric",
+      "attackType": "Range",
+      "strikeType": "Slash",
+      "damageParam": "Damage_Start"
+    },
+    {
+      "name": "ElementalBurst_Gadget_AttackType1",
+      "icd_source": "Tag: Elemental_Burst (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV3/25",
+      "element": "Electric",
+      "attackType": "Range",
+      "strikeType": "Slash",
+      "damageParam": "Damage"
+    },
+    {
+      "name": "ElementalBurst_Gadget_AttackType2",
+      "icd_source": "Tag: Elemental_Burst (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV1/25",
+      "element": "Electric",
+      "attackType": "Range",
+      "strikeType": "Slash",
+      "damageParam": "Damage"
+    },
+    {
+      "name": "ElementalBurst_Gadget_AttackType3",
+      "icd_source": "Tag: Elemental_Burst (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV3/25",
+      "element": "Electric",
+      "attackType": "Range",
+      "strikeType": "Slash",
+      "damageParam": "Damage"
+    },
+    {
+      "name": "ElementalBurst_Gadget_AttackType4",
+      "icd_source": "Tag: Elemental_Burst (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV1/25",
+      "element": "Electric",
+      "attackType": "Range",
+      "strikeType": "Slash",
+      "damageParam": "Damage"
+    },
+    {
+      "name": "ElementalBurst_Gadget_AttackType5",
+      "icd_source": "Tag: Elemental_Burst (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV1/25",
+      "element": "Electric",
+      "attackType": "Range",
+      "strikeType": "Slash",
+      "damageParam": "Damage"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "0U",
+      "poise": "LV2/25",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Slash",
+      "damageParam": "FallingAnthem_Normal_Loop_Damage"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV4/100",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Blunt",
+      "damageParam": "FallingAnthem_Normal_Rank_1_Damage"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV7/150",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Blunt",
+      "damageParam": "FallingAnthem_Normal_Rank_2_Damage"
+    }
+  ],
+  "endure": [
+    {
+      "ability": "Electrans_Part2",
+      "handler": "Blink",
+      "Actor_EndureDelta": 0
+    },
+    {
+      "ability": "Electrans_Part2",
+      "handler": "Blink_Air",
+      "Actor_EndureDelta": 0
+    }
+  ]
+}

@@ -1,0 +1,2 @@
+Weapon,WeaponATK,WeaponSubStatType,WeaponSubStatValue,WeaponRefinement,HPBonus,FlatHP,AtkBonus,FlatATK,ER,EM,CritRate,CritDMG,PyroDMGBonus,SkillDMGBonus,BurstDMGBonus,ResShred,ArtifactSet1,ArtifactSet1Pieces,ArtifactSet2,ArtifactSet2Pieces,ArtifactSet4Active
+苇海信标,608,CR,0.331,1,0.72,4780,0.74,311,1.5,80,0.74,1.95,0.466,0.2,0.24,0,VourukashasGlow,4,None,0,1

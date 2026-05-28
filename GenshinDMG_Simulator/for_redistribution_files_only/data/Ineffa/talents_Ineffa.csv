@@ -1,0 +1,7 @@
+Skill,Param,ScalingType,Level10
+Skill,Cast,ATK,2.65
+Skill,Birgitta,ATK,1.52
+Burst,Cast,ATK,4.10
+Burst,FollowUp,ATK,1.80
+Reaction,LunarCharged,FLAT,1750
+Shield,Ratio,ATK,1.80

@@ -1,0 +1,2001 @@
+{
+  "info": {
+    "name": "Navia",
+    "description": "The current President of Spina di Rosula, who is lovely, dutiful, and a great boss.",
+    "rarity": "QUALITY_ORANGE",
+    "weapon": "WEAPON_CLAYMORE",
+    "birthday": "16/8",
+    "element": "Geo",
+    "title": "Helm of the Radiant Rose",
+    "constellation": "Rosa Multiflora",
+    "affiliation": "Spina di Rosula",
+    "cv": {
+      "EN": "Brenna Larsen",
+      "CHS": "小敢",
+      "JP": "豊崎愛生",
+      "KR": "Jeong Hae-eun"
+    },
+    "attributes": [
+      {
+        "level": 1,
+        "ascension": 0,
+        "hp": 985,
+        "atk": 27,
+        "def": 62,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 2,
+        "ascension": 0,
+        "hp": 1067,
+        "atk": 30,
+        "def": 67,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 3,
+        "ascension": 0,
+        "hp": 1148,
+        "atk": 32,
+        "def": 72,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 4,
+        "ascension": 0,
+        "hp": 1231,
+        "atk": 34,
+        "def": 77,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 5,
+        "ascension": 0,
+        "hp": 1313,
+        "atk": 36,
+        "def": 82,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 6,
+        "ascension": 0,
+        "hp": 1395,
+        "atk": 39,
+        "def": 87,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 7,
+        "ascension": 0,
+        "hp": 1477,
+        "atk": 41,
+        "def": 93,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 8,
+        "ascension": 0,
+        "hp": 1560,
+        "atk": 43,
+        "def": 98,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 9,
+        "ascension": 0,
+        "hp": 1643,
+        "atk": 46,
+        "def": 103,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 10,
+        "ascension": 0,
+        "hp": 1724,
+        "atk": 48,
+        "def": 108,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 11,
+        "ascension": 0,
+        "hp": 1807,
+        "atk": 50,
+        "def": 113,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 12,
+        "ascension": 0,
+        "hp": 1890,
+        "atk": 53,
+        "def": 118,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 13,
+        "ascension": 0,
+        "hp": 1973,
+        "atk": 55,
+        "def": 124,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 14,
+        "ascension": 0,
+        "hp": 2056,
+        "atk": 57,
+        "def": 129,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 15,
+        "ascension": 0,
+        "hp": 2139,
+        "atk": 59,
+        "def": 134,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 16,
+        "ascension": 0,
+        "hp": 2222,
+        "atk": 62,
+        "def": 139,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 17,
+        "ascension": 0,
+        "hp": 2305,
+        "atk": 64,
+        "def": 145,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 18,
+        "ascension": 0,
+        "hp": 2388,
+        "atk": 66,
+        "def": 150,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 19,
+        "ascension": 0,
+        "hp": 2472,
+        "atk": 69,
+        "def": 155,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 20,
+        "ascension": 0,
+        "hp": 2555,
+        "atk": 71,
+        "def": 160,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 21,
+        "ascension": 1,
+        "hp": 3483,
+        "atk": 97,
+        "def": 218,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 22,
+        "ascension": 1,
+        "hp": 3566,
+        "atk": 99,
+        "def": 224,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 23,
+        "ascension": 1,
+        "hp": 3650,
+        "atk": 101,
+        "def": 229,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 24,
+        "ascension": 1,
+        "hp": 3734,
+        "atk": 104,
+        "def": 234,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 25,
+        "ascension": 1,
+        "hp": 3817,
+        "atk": 106,
+        "def": 239,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 26,
+        "ascension": 1,
+        "hp": 3902,
+        "atk": 108,
+        "def": 245,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 27,
+        "ascension": 1,
+        "hp": 3986,
+        "atk": 111,
+        "def": 250,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 28,
+        "ascension": 1,
+        "hp": 4070,
+        "atk": 113,
+        "def": 255,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 29,
+        "ascension": 1,
+        "hp": 4154,
+        "atk": 115,
+        "def": 260,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 30,
+        "ascension": 1,
+        "hp": 4238,
+        "atk": 118,
+        "def": 266,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 31,
+        "ascension": 1,
+        "hp": 4323,
+        "atk": 120,
+        "def": 271,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 32,
+        "ascension": 1,
+        "hp": 4407,
+        "atk": 122,
+        "def": 276,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 33,
+        "ascension": 1,
+        "hp": 4492,
+        "atk": 125,
+        "def": 282,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 34,
+        "ascension": 1,
+        "hp": 4576,
+        "atk": 127,
+        "def": 287,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 35,
+        "ascension": 1,
+        "hp": 4660,
+        "atk": 130,
+        "def": 292,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 36,
+        "ascension": 1,
+        "hp": 4746,
+        "atk": 132,
+        "def": 298,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 37,
+        "ascension": 1,
+        "hp": 4831,
+        "atk": 134,
+        "def": 303,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 38,
+        "ascension": 1,
+        "hp": 4915,
+        "atk": 137,
+        "def": 308,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 39,
+        "ascension": 1,
+        "hp": 5000,
+        "atk": 139,
+        "def": 314,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 40,
+        "ascension": 1,
+        "hp": 5086,
+        "atk": 141,
+        "def": 319,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 41,
+        "ascension": 2,
+        "hp": 5770,
+        "atk": 160,
+        "def": 362,
+        "CRITDMG_": "9.6"
+      },
+      {
+        "level": 42,
+        "ascension": 2,
+        "hp": 5856,
+        "atk": 163,
+        "def": 367,
+        "CRITDMG_": "9.6"
+      },
+      {
+        "level": 43,
+        "ascension": 2,
+        "hp": 5942,
+        "atk": 165,
+        "def": 373,
+        "CRITDMG_": "9.6"
+      },
+      {
+        "level": 44,
+        "ascension": 2,
+        "hp": 6026,
+        "atk": 167,
+        "def": 378,
+        "CRITDMG_": "9.6"
+      },
+      {
+        "level": 45,
+        "ascension": 2,
+        "hp": 6112,
+        "atk": 170,
+        "def": 383,
+        "CRITDMG_": "9.6"
+      },
+      {
+        "level": 46,
+        "ascension": 2,
+        "hp": 6198,
+        "atk": 172,
+        "def": 389,
+        "CRITDMG_": "9.6"
+      },
+      {
+        "level": 47,
+        "ascension": 2,
+        "hp": 6284,
+        "atk": 175,
+        "def": 394,
+        "CRITDMG_": "9.6"
+      },
+      {
+        "level": 48,
+        "ascension": 2,
+        "hp": 6369,
+        "atk": 177,
+        "def": 399,
+        "CRITDMG_": "9.6"
+      },
+      {
+        "level": 49,
+        "ascension": 2,
+        "hp": 6456,
+        "atk": 179,
+        "def": 405,
+        "CRITDMG_": "9.6"
+      },
+      {
+        "level": 50,
+        "ascension": 2,
+        "hp": 6542,
+        "atk": 182,
+        "def": 410,
+        "CRITDMG_": "9.6"
+      },
+      {
+        "level": 51,
+        "ascension": 3,
+        "hp": 7427,
+        "atk": 206,
+        "def": 466,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 52,
+        "ascension": 3,
+        "hp": 7514,
+        "atk": 209,
+        "def": 471,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 53,
+        "ascension": 3,
+        "hp": 7599,
+        "atk": 211,
+        "def": 476,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 54,
+        "ascension": 3,
+        "hp": 7686,
+        "atk": 214,
+        "def": 482,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 55,
+        "ascension": 3,
+        "hp": 7773,
+        "atk": 216,
+        "def": 487,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 56,
+        "ascension": 3,
+        "hp": 7859,
+        "atk": 218,
+        "def": 493,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 57,
+        "ascension": 3,
+        "hp": 7946,
+        "atk": 221,
+        "def": 498,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 58,
+        "ascension": 3,
+        "hp": 8033,
+        "atk": 223,
+        "def": 504,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 59,
+        "ascension": 3,
+        "hp": 8119,
+        "atk": 226,
+        "def": 509,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 60,
+        "ascension": 3,
+        "hp": 8206,
+        "atk": 228,
+        "def": 515,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 61,
+        "ascension": 4,
+        "hp": 8893,
+        "atk": 247,
+        "def": 558,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 62,
+        "ascension": 4,
+        "hp": 8979,
+        "atk": 250,
+        "def": 563,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 63,
+        "ascension": 4,
+        "hp": 9067,
+        "atk": 252,
+        "def": 568,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 64,
+        "ascension": 4,
+        "hp": 9154,
+        "atk": 254,
+        "def": 574,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 65,
+        "ascension": 4,
+        "hp": 9241,
+        "atk": 257,
+        "def": 579,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 66,
+        "ascension": 4,
+        "hp": 9329,
+        "atk": 259,
+        "def": 585,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 67,
+        "ascension": 4,
+        "hp": 9416,
+        "atk": 262,
+        "def": 590,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 68,
+        "ascension": 4,
+        "hp": 9503,
+        "atk": 264,
+        "def": 596,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 69,
+        "ascension": 4,
+        "hp": 9591,
+        "atk": 267,
+        "def": 601,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 70,
+        "ascension": 4,
+        "hp": 9679,
+        "atk": 269,
+        "def": 607,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 71,
+        "ascension": 5,
+        "hp": 10366,
+        "atk": 288,
+        "def": 650,
+        "CRITDMG_": "28.8"
+      },
+      {
+        "level": 72,
+        "ascension": 5,
+        "hp": 10455,
+        "atk": 291,
+        "def": 656,
+        "CRITDMG_": "28.8"
+      },
+      {
+        "level": 73,
+        "ascension": 5,
+        "hp": 10542,
+        "atk": 293,
+        "def": 661,
+        "CRITDMG_": "28.8"
+      },
+      {
+        "level": 74,
+        "ascension": 5,
+        "hp": 10630,
+        "atk": 295,
+        "def": 666,
+        "CRITDMG_": "28.8"
+      },
+      {
+        "level": 75,
+        "ascension": 5,
+        "hp": 10719,
+        "atk": 298,
+        "def": 672,
+        "CRITDMG_": "28.8"
+      },
+      {
+        "level": 76,
+        "ascension": 5,
+        "hp": 10806,
+        "atk": 300,
+        "def": 678,
+        "CRITDMG_": "28.8"
+      },
+      {
+        "level": 77,
+        "ascension": 5,
+        "hp": 10895,
+        "atk": 303,
+        "def": 683,
+        "CRITDMG_": "28.8"
+      },
+      {
+        "level": 78,
+        "ascension": 5,
+        "hp": 10984,
+        "atk": 305,
+        "def": 689,
+        "CRITDMG_": "28.8"
+      },
+      {
+        "level": 79,
+        "ascension": 5,
+        "hp": 11072,
+        "atk": 308,
+        "def": 694,
+        "CRITDMG_": "28.8"
+      },
+      {
+        "level": 80,
+        "ascension": 5,
+        "hp": 11161,
+        "atk": 310,
+        "def": 700,
+        "CRITDMG_": "28.8"
+      },
+      {
+        "level": 81,
+        "ascension": 6,
+        "hp": 11849,
+        "atk": 329,
+        "def": 743,
+        "CRITDMG_": "38.4"
+      },
+      {
+        "level": 82,
+        "ascension": 6,
+        "hp": 11938,
+        "atk": 332,
+        "def": 749,
+        "CRITDMG_": "38.4"
+      },
+      {
+        "level": 83,
+        "ascension": 6,
+        "hp": 12027,
+        "atk": 334,
+        "def": 754,
+        "CRITDMG_": "38.4"
+      },
+      {
+        "level": 84,
+        "ascension": 6,
+        "hp": 12115,
+        "atk": 337,
+        "def": 760,
+        "CRITDMG_": "38.4"
+      },
+      {
+        "level": 85,
+        "ascension": 6,
+        "hp": 12204,
+        "atk": 339,
+        "def": 765,
+        "CRITDMG_": "38.4"
+      },
+      {
+        "level": 86,
+        "ascension": 6,
+        "hp": 12294,
+        "atk": 342,
+        "def": 771,
+        "CRITDMG_": "38.4"
+      },
+      {
+        "level": 87,
+        "ascension": 6,
+        "hp": 12382,
+        "atk": 344,
+        "def": 776,
+        "CRITDMG_": "38.4"
+      },
+      {
+        "level": 88,
+        "ascension": 6,
+        "hp": 12472,
+        "atk": 347,
+        "def": 782,
+        "CRITDMG_": "38.4"
+      },
+      {
+        "level": 89,
+        "ascension": 6,
+        "hp": 12561,
+        "atk": 349,
+        "def": 788,
+        "CRITDMG_": "38.4"
+      },
+      {
+        "level": 90,
+        "ascension": 6,
+        "hp": 12650,
+        "atk": 352,
+        "def": 793,
+        "CRITDMG_": "38.4"
+      },
+      {
+        "level": 95,
+        "ascension": 6,
+        "hp": 13099,
+        "atk": 391,
+        "def": 821,
+        "CRITDMG_": "38.4"
+      },
+      {
+        "level": 100,
+        "ascension": 6,
+        "hp": 13549,
+        "atk": 431,
+        "def": 850,
+        "CRITDMG_": "38.4"
+      }
+    ]
+  },
+  "icons": {
+    "forward": "UI_AvatarIcon_Navia",
+    "coop_img": "UI_CoopImg_Navia"
+  },
+  "ascension": {
+    "x202": 7.0499E+6,
+    "exp": {
+      "x104001": 2,
+      "x104003": 418
+    },
+    "speciality": {
+      "x101240": 168
+    },
+    "elemental": {
+      "x104171": 1,
+      "x104172": 9,
+      "x104173": 9,
+      "x104174": 6
+    },
+    "worldmonster": {
+      "x112080": 18,
+      "x112081": 30,
+      "x112082": 36
+    },
+    "elitemonster": {
+      "x113050": 46
+    }
+  },
+  "skills": {
+    "normalattack": {
+      "name": "Blunt Refusal",
+      "icon": "Skill_A_04",
+      "multipliers": {
+        "x1_HitDMG": [
+          "93.52%",
+          "101.13%",
+          "108.74%",
+          "119.62%",
+          "127.23%",
+          "135.93%",
+          "147.89%",
+          "159.85%",
+          "171.81%",
+          "184.86%",
+          "197.91%",
+          "210.96%",
+          "224.01%",
+          "237.06%",
+          "250.11%"
+        ],
+        "x2_HitDMG": [
+          "86.51%",
+          "93.55%",
+          "100.59%",
+          "110.65%",
+          "117.69%",
+          "125.74%",
+          "136.8%",
+          "147.87%",
+          "158.93%",
+          "171%",
+          "183.07%",
+          "195.14%",
+          "207.21%",
+          "219.28%",
+          "231.35%"
+        ],
+        "x3_HitDMG": [
+          "34.89%×3",
+          "37.73%×3",
+          "40.56%×3",
+          "44.62%×3",
+          "47.46%×3",
+          "50.71%×3",
+          "55.17%×3",
+          "59.63%×3",
+          "64.09%×3",
+          "68.96%×3",
+          "73.83%×3",
+          "78.7%×3",
+          "83.56%×3",
+          "88.43%×3",
+          "93.3%×3"
+        ],
+        "x4_HitDMG": [
+          "133.43%",
+          "144.29%",
+          "155.15%",
+          "170.67%",
+          "181.53%",
+          "193.94%",
+          "211.01%",
+          "228.07%",
+          "245.14%",
+          "263.76%",
+          "282.38%",
+          "301%",
+          "319.62%",
+          "338.23%",
+          "356.85%"
+        ],
+        "ChargedAttackCyclicDMG": [
+          "62.52%",
+          "67.61%",
+          "72.7%",
+          "79.97%",
+          "85.06%",
+          "90.87%",
+          "98.87%",
+          "106.87%",
+          "114.87%",
+          "123.59%",
+          "132.31%",
+          "141.04%",
+          "149.76%",
+          "158.49%",
+          "167.21%"
+        ],
+        "ChargedAttackFinalDMG": [
+          "113.09%",
+          "122.29%",
+          "131.5%",
+          "144.65%",
+          "153.86%",
+          "164.37%",
+          "178.84%",
+          "193.31%",
+          "207.77%",
+          "223.55%",
+          "239.33%",
+          "255.11%",
+          "270.89%",
+          "286.67%",
+          "302.45%"
+        ],
+        "ChargedAttackStaminaCost": [
+          "40/s",
+          "40/s",
+          "40/s",
+          "40/s",
+          "40/s",
+          "40/s",
+          "40/s",
+          "40/s",
+          "40/s",
+          "40/s",
+          "40/s",
+          "40/s",
+          "40/s",
+          "40/s",
+          "40/s"
+        ],
+        "MaxDuration": [
+          "5s",
+          "5s",
+          "5s",
+          "5s",
+          "5s",
+          "5s",
+          "5s",
+          "5s",
+          "5s",
+          "5s",
+          "5s",
+          "5s",
+          "5s",
+          "5s",
+          "5s"
+        ],
+        "PlungeDMG": [
+          "74.59%",
+          "80.66%",
+          "86.73%",
+          "95.4%",
+          "101.47%",
+          "108.41%",
+          "117.95%",
+          "127.49%",
+          "137.03%",
+          "147.44%",
+          "157.85%",
+          "168.26%",
+          "178.66%",
+          "189.07%",
+          "199.48%"
+        ],
+        "Low_HighPlungeDMG": [
+          "149.14%/186.29%",
+          "161.28%/201.45%",
+          "173.42%/216.62%",
+          "190.77%/238.28%",
+          "202.91%/253.44%",
+          "216.78%/270.77%",
+          "235.86%/294.6%",
+          "254.93%/318.42%",
+          "274.01%/342.25%",
+          "294.82%/368.25%",
+          "315.63%/394.24%",
+          "336.44%/420.23%",
+          "357.25%/446.23%",
+          "378.06%/472.22%",
+          "398.87%/498.21%"
+        ]
+      },
+      "description": "<color=#FFD780FF>Normal Attack</color>\\nPerforms up to 4 consecutive strikes.\\n\\n<color=#FFD780FF>Charged Attack</color>\\nDrains Stamina over time to perform continuous spinning attacks against all nearby opponents.\\nAt the end of the sequence, performs a more powerful slash.\\n\\n<color=#FFD780FF>Plunging Attack</color>\\nPlunges from mid-air to strike the ground below, damaging opponents along the path and dealing AoE DMG upon impact."
+    },
+    "elementalskill": {
+      "name": "Ceremonial Crystalshot",
+      "icon": "Skill_S_Navia_01",
+      "multipliers": {
+        "RosulaShardshotBaseDMG": [
+          "394.8%",
+          "424.41%",
+          "454.02%",
+          "493.5%",
+          "523.11%",
+          "552.72%",
+          "592.2%",
+          "631.68%",
+          "671.16%",
+          "710.64%",
+          "750.12%",
+          "789.6%",
+          "838.95%",
+          "888.3%",
+          "937.65%"
+        ],
+        "CrystalShrapnelDuration": [
+          "300s",
+          "300s",
+          "300s",
+          "300s",
+          "300s",
+          "300s",
+          "300s",
+          "300s",
+          "300s",
+          "300s",
+          "300s",
+          "300s",
+          "300s",
+          "300s",
+          "300s"
+        ],
+        "SurgingBladeDMG": [
+          "36%",
+          "38.7%",
+          "41.4%",
+          "45%",
+          "47.7%",
+          "50.4%",
+          "54%",
+          "57.6%",
+          "61.2%",
+          "64.8%",
+          "68.4%",
+          "72%",
+          "76.5%",
+          "81%",
+          "85.5%"
+        ],
+        "SurgingBladeInterval": [
+          "7s",
+          "7s",
+          "7s",
+          "7s",
+          "7s",
+          "7s",
+          "7s",
+          "7s",
+          "7s",
+          "7s",
+          "7s",
+          "7s",
+          "7s",
+          "7s",
+          "7s"
+        ],
+        "CD": [
+          "9s",
+          "9s",
+          "9s",
+          "9s",
+          "9s",
+          "9s",
+          "9s",
+          "9s",
+          "9s",
+          "9s",
+          "9s",
+          "9s",
+          "9s",
+          "9s",
+          "9s"
+        ]
+      },
+      "description": "When a character in the party obtains an Elemental Shard created from the Crystallize reaction, or when they trigger the Lunar-Crystallize reaction, Navia will gain 1 Crystal Shrapnel stack. Navia can have up to 6 stacks of Crystal Shrapnel at once. Each time Crystal Shrapnel gain is triggered, the duration of the Crystal Shrapnel stacks you already have will be reset. Through the Lunar-Crystallize reaction, Navia will gain up to 1 Crystal Shrapnel stack every second.\\nWhen she fires, Navia will consume all Crystal Shrapnel stacks and open her elegant yet lethal Gunbrella, firing multiple Rosula Shardshots that can penetrate opponents, dealing <color=#FFE699FF>Geo DMG</color> to opponents hit.\\nWhen 0/1/2/3 or more stacks of Crystal Shrapnel are consumed, 5/7/9/11 Rosula Shardshots will be fired respectively. The more Rosula Shardshots that strike a single opponent, the greater the DMG dealt to them. When all 11 Rosula Shardshots strike, 200% of the original amount of DMG is dealt.\\nIn addition, when more than 3 stacks of Crystal Shrapnel are consumed, every stack consumed beyond those 3 will increase the DMG dealt by this Gunbrella attack by an additional 15%.\\n\\n<color=#FFD780FF>Hold</color>\\nEnter Aiming Mode, continually collecting nearby Elemental Shards created by Crystallize reactions. When released, fire Rosula Shardshots with the same effect as when the skill is Tapped.\\n\\nTwo initial charges.\\n\\n<color=#FFD780FF>Arkhe: Ousia</color>\\nPeriodically, when Navia fires her Gunbrella, a Surging Blade will be summoned, dealing Ousia-aligned <color=#FFE699FF>Geo DMG</color>.\\n\\n<i>\"Maintaining the appropriate distance with those whom distance should be maintained is an essential part of etiquette. Naturally, there are also many ways to do this...\"</i>"
+    },
+    "elementalburst": {
+      "name": "As the Sunlit Sky's Singing Salute",
+      "icon": "Skill_E_Navia_01",
+      "multipliers": {
+        "SkillDMG": [
+          "75.2%",
+          "80.84%",
+          "86.48%",
+          "94%",
+          "99.64%",
+          "105.28%",
+          "112.8%",
+          "120.32%",
+          "127.84%",
+          "135.36%",
+          "142.88%",
+          "150.4%",
+          "159.8%",
+          "169.2%",
+          "178.6%"
+        ],
+        "CannonFireSupportDMG": [
+          "43.15%",
+          "46.39%",
+          "49.62%",
+          "53.94%",
+          "57.17%",
+          "60.41%",
+          "64.72%",
+          "69.04%",
+          "73.36%",
+          "77.67%",
+          "81.99%",
+          "86.3%",
+          "91.69%",
+          "97.09%",
+          "102.48%"
+        ],
+        "CannonFireSupportDuration": [
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s"
+        ],
+        "CD": [
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s"
+        ],
+        "EnergyCost": [
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60"
+        ]
+      },
+      "description": "On the orders of the President of the Spina di Rosula, call for a magnificent Rosula Dorata Salute. Unleashes a massive cannon bombardment on opponents in front of her, dealing <color=#FFE699FF>AoE Geo DMG</color> and providing Cannon Fire Support for a duration afterward, periodically dealing <color=#FFE699FF>Geo DMG</color> to nearby opponents.\\nWhen cannon attacks hit opponents, Navia will gain 1 stack of Crystal Shrapnel. This effect can be triggered up to once every 2.4s.\\n\\n<i>\"The Spina di Rosula's salute is a preemptive celebration of the successful conclusion of our negotiations and is fired just before talks begin. Don't misunderstand, it isn't in any way, shape, or form some kind of threat.\"</i>"
+    },
+    "leveling": {
+      "crown": {
+        "x104319": 3
+      },
+      "books": {
+        "x104338": 9,
+        "x104339": 63,
+        "x104340": 114
+      },
+      "worldmonster": {
+        "x112080": 18,
+        "x112081": 66,
+        "x112082": 93
+      },
+      "weekly": {
+        "x113054": 18
+      }
+    }
+  },
+  "passives": {
+    "p1": {
+      "name": "Undisclosed Distribution Channels",
+      "description": "For 4s after using <color=#FFD780FF>Ceremonial Crystalshot</color>, the DMG dealt by Navia's Normal Attacks, Charged Attacks, and Plunging Attacks will be converted into <color=#FFE699FF>Geo DMG</color> which cannot be overridden by other Elemental infusions, and the DMG dealt by Navia's Normal Attacks, Charged Attacks, and Plunging Attacks will be increased by 40%.",
+      "icon": "UI_Talent_S_Navia_05"
+    },
+    "p2": {
+      "name": "Mutual Assistance Network",
+      "description": "For each <color=#FF9999FF>Pyro</color>/<color=#FFACFFFF>Electro</color>/<color=#99FFFFFF>Cryo</color>/<color=#80C0FFFF>Hydro</color> party member, Navia gains 20% increased ATK. This effect can stack up to 2 times.",
+      "icon": "UI_Talent_S_Navia_06"
+    },
+    "p3": {
+      "name": "Painstaking Transaction",
+      "description": "Gains 25% more rewards when dispatched on a Fontaine Expedition for 20 hours.",
+      "icon": "UI_Talent_S_Navia_07"
+    },
+    "p4": ""
+  },
+  "constellations": {
+    "const1": {
+      "name": "A Lady's Rules for Keeping a Courteous Distance",
+      "description": "Each stack of Crystal Shrapnel consumed when Navia uses <color=#FFD780FF>Ceremonial Crystalshot</color> will restore 3 Energy to her and decrease the CD of <color=#FFD780FF>As the Sunlit Sky's Singing Salute</color> by 1s. Up to 9 Energy can be gained this way, and the CD of \"As the Sunlit Sky's Singing Salute\" can be decreased by up to 3s.",
+      "icon": "UI_Talent_S_Navia_01"
+    },
+    "const2": {
+      "name": "The President's Pursuit of Victory",
+      "description": "Each stack of Crystal Shrapnel consumed will increase the CRIT Rate of this <color=#FFD780FF>Ceremonial Crystalshot</color> instance by 12%. CRIT Rate can be increased by up to 36% in this way.\\nIn addition, when Ceremonial Crystalshot hits an opponent, one Cannon Fire Support shot from <color=#FFD780FF>As the Sunlit Sky's Singing Salute</color> will strike near the location of the hit. Up to one instance of Cannon Fire Support can be triggered each time Ceremonial Crystalshot is used, and DMG dealt by said Cannon Fire Support this way is considered Elemental Burst DMG.",
+      "icon": "UI_Talent_S_Navia_02"
+    },
+    "const3": {
+      "name": "Businesswoman's Broad Vision",
+      "description": "Increases the Level of <color=#FFD780FF>Ceremonial Crystalshot</color> by 3.\\nMaximum upgrade level is 15.",
+      "icon": "UI_Talent_U_Navia_01"
+    },
+    "const4": {
+      "name": "The Oathsworn Never Capitulate",
+      "description": "When <color=#FFD780FF>As the Sunlit Sky's Singing Salute</color> hits an opponent, that opponent's <color=#FFE699FF>Geo RES</color> will be decreased by 20% for 8s.",
+      "icon": "UI_Talent_S_Navia_03"
+    },
+    "const5": {
+      "name": "Negotiator's Resolute Negotiations",
+      "description": "Increases the Level of <color=#FFD780FF>As the Sunlit Sky's Singing Salute</color> by 3.\\nMaximum upgrade level is 15.",
+      "icon": "UI_Talent_U_Navia_02"
+    },
+    "const6": {
+      "name": "The Flexible Finesse of the Spina's President",
+      "description": "If more than 3 stacks of Crystal Shrapnel are consumed when using <color=#FFD780FF>Ceremonial Crystalshot</color>, each stack consumed beyond the first 3 increases the CRIT DMG of that Ceremonial Crystalshot by 45%, and any stacks consumed beyond the first 3 are returned to Navia.",
+      "icon": "UI_Talent_S_Navia_04"
+    }
+  },
+  "hyperlinks": [],
+  "stories": {
+    "x91200": {
+      "storyTitle": "Character Details",
+      "storyText": "Fontaine's laws are very strict, but its people are quite free-spirited. Fontainian society contains all manner of social organizations, clubs, or factions, all of which have their own origins, development, goals, and style.\\nFor example, the short-lived Hat Jellyfish Association ostensibly promoted the protection of the waters and those living within, but was in truth founded by a band of explosives enthusiasts.\\nBy comparison, the Spina di Rosula are a law-abiding, reliable lot, their overly rambunctious young President notwithstanding.\\nIn official statements, the Spina proclaims itself to be a citizen-oriented society that involves many walks of life and focuses its efforts on solving difficult issues amongst the common folk, and that it will cooperate with the Fontainian authorities where needed.\\nIf you ask Navia, she'd tell you that the Spina serves as a business partner with all sorts of people in it, that will help with any problem, using the velvet glove or the iron fist as appropriate.\\nNeither of these descriptions are mistaken, at least in broad strokes, so you may choose the one you prefer — though it is worth noting that those who choose the latter wording will find it easier to make friends with Navia.",
+      "unlockConds": []
+    },
+    "x91201": {
+      "storyTitle": "Character Story 1",
+      "storyText": "In Fontaine, to say that you grew up watching the theater is no different from claiming that you were raised drinking water: Simply so ordinary that it barely bears mentioning.\\nSo it was with Navia. So enamored was she with the scenes on stage that as a little girl she would pester her father to buy her tickets so that she could experience each part of the tale alongside the characters.\\nThese feelings would take on a different note after she became involved in the affairs of the Spina di Rosula. The staged conflicts seemed fewer than the twists and turns at the negotiating table, and she could see the cosmetic scars imagined by makeup artists permanently carved into the bodies of those dwelling in the Fleuve Cendre.\\nGradually, her visits to the opera house became less and less frequent, and she instead spent more and more time on those around her. Tragedy onstage was captivating, of course, but Navia did not wish for such tales of misfortune to befall real people.\\nHow might one mediate between separated lovers mired in the battlefields of differing perspectives? How might one in middle age robbed of their ability to work by an accident find a new way to be the breadwinner?\\nThe world is filled with problems of this sort, and while they bring little profit when resolved, unlike the core businesses that sustain the Spina, Navia throws herself into solving them.\\nAnd if anyone should accuse her of being a busybody, she will counter thusly.\\n\"Such presumption, to call such matters trivial,\" she'd say, using lofty language to stymie the other party's reply. \"This is called 'a stitch in time saving nine.' And wouldn't you agree that we're doing the Palais Mermonia a favor by preventing someone from being hauled up onstage at the opera house?\"\\nAt such times, Navia will not identify herself as the Demoiselle, President, or any fancy title, but as simply as Navia, an enthusiastically civic-minded citizen.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 2
+      }
+    },
+    "x91202": {
+      "storyTitle": "Character Story 2",
+      "storyText": "Navia, presently the one helping people out of trouble, used to be the one getting into it as a child.\\nPresident Callas, busy as he was, had to rely on Spina di Rosula members to take care of her, which was no mean feat when their charge could disappear in the blink of an eye. After much searching, they would at most find the barest hint of a fancy hat's rim visible on some rooftop... only for them to find naught but the hat itself upon finally climbing up.\\nThe hat's owner would at that time already be playing somewhere on Mont Automnequi. Her curiosity was so intense that she could easily enjoy and entertain herself even without any companions. Give her a pond, and she could stare at it the whole day, watching birds flapping about as they bathed in the shallows and otters rising from the bottom to do the backstroke. Just this alone could bring her great joy for quite some time, and she would give gifts in gratitude for those who brought her such happiness — millet for the birds to eat, and shells for the otters to play with.\\nSometimes, she would also seek out playmates. The children of Fleuve Cendre owned no toys for the most part, so she would play hide-and-seek with them, dragging her silk skirts with her through the pipes. Win or lose, she would always gain a little extra compared to the other kids. She would emerge from her hiding place brandishing a component or two she found in some nook or cranny, a few lost Mora, or a fifty-percent new portable toolbox, and bask in the admiration of her companions.\\nThough she would often run off on her own, most of the adults were exceptionally tolerant of her behavior (her father being the exception). Spina members would help bandage her bruised knees, and the women of the Fleuve Cendre would help mend her torn clothes. Navia would think, Ah, I am loved by so many, and such thoughts would make her happier still.\\nAt one point, Navia heard an elderly lady next door say gossipingly thusly with others: \"...That girl only has her father, and he's got no time to accompany her... Poor girl, always having to roam outside by herself...\"\\nSuch words made Navia unhappy for a while. She thought herself quite fortunate. Her father loved her lots, and the adults and children around her also liked her. So why would someone regard her as one to be pitied? Perhaps, Navia thought, it was a matter of unclear communication leading to confusion. In which case, that wouldn't do, not at all.\\nFrom then on, whenever little Navia felt loved, she would loudly declare: \"Thanks for liking me so much. That makes me very happy!\"",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 3
+      }
+    },
+    "x91203": {
+      "storyTitle": "Character Story 3",
+      "storyText": "Navia's original intention behind combining a gun with an umbrella was quite simple: she just didn't want to carry too much around, as this would affect her ability to conduct other business.\\nIt rains often in Fontaine, and the rain gives way to merciless sun, so umbrellas are a must when going outdoors. And it would not do for the Demoiselle of the Spina to go without a gun, for surely none would think it an ornament in her hands.\\nHer sharpshooting skills are born of much practice, with her principle being that any stance will do so long as you hit your shots — even propping your barrel atop a Blubberbeast is fine.\\nClorinde, trained in the art of Marechaussee Hunter marksmanship, tends to shake her head at this, even as words of affirmation tumble out of her mouth. \"I find your optimism regarding battle is quite admirable.\"\\nNavia takes that as praise. She met Clorinde when she was a (self-proclaimed) big girl of something over ten years, and is thus quite used to the latter's mannerisms. Yes, those are accurate words of praise, indeed!\\nOptimism is indeed a rare psychological quality not to be undervalued. Many are those who intentionally seek to cultivate such a characteristic, yet prove unable to smile amidst life's struggles, while Navia appears to have been born with this ability. To her, there are only two types of trouble in this world: The solvable, and the unsolvable. Immediate action is the panacea to problems that can be eliminated, and as for those problems beyond one's power to change, then change yourself and learn acceptance.\\nApart from optimism, Navia finds tolerance to be a value that brings real improvement to one's quality of life, and it is a virtue that extends to the Spina. Why, look at all the varied business ventures, and the people of all sorts — indeed, even a Tent Tortoise calls the place home!\\nIt is said that this creature was a friend of Callas's named Consigliere, roughly meaning \"Counselor.\" Navia has also taken counsel with it in the past, finding it patient, quiet, and long-lived — just the sort of person you'd confide in. One day, Charlotte happened upon Navia babbling away to Consigliere, and out came her Kamera. The next thing anyone knew, many would come to speak to the Tent Tortoise on the picture's account. Navia herself would seek it out less from then on.\\n\"Others should have a chance to chat with Monsieur Consigliere too,\" she would say with a straight face.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 4
+      }
+    },
+    "x91204": {
+      "storyTitle": "Character Story 4",
+      "storyText": "This world was probably full of contradictions from the beginning.\\nTake Navia's father Callas for example. If the Spina di Rosula was more influential, a lot of things could get done more easily, but Callas stubbornly refused to accept the honorary title that the Palais Mermonia sought to grant him after the completion of the aquabus lines.\\nAgain, Callas would never intentionally hide what the Spina did from his daughter, and would speak to her of all manner of business techniques, even personally or engaging others to teach her how to use weapons, as well as bringing her to the negotiating table, as if intending to groom her to be his successor. But at the same time, he never spoke of the cause of her mother's death, nor would he ever share his feelings with her. For a time, Navia was even confused as to whether she and her father were close or distant.\\nLater, Navia slowly came up with a theory: That her father may have treated her so to protect her. He let her learn and build up wisdom in the hopes that she would become independent and be able to survive the crushing stresses of life. As for why he would not speak of his own pressures or pain, or even Clementine's death, it was most likely to spare his daughter sorrow or unnecessary guilt. And so he remained silent, never having a heart-to-heart with his own daughter, no matter how much he missed his wife.\\nAs for his rejection of the title, this was possibly because he felt that Spina di Rosula would often be working with the common folk and a title like \"Duke Callas\" might create the perception of a difference in status between them, causing the Spina in turn to lose the trust of the people.\\nStill, all of these are just Navia's own conclusions.\\nThis is another area where Navia found herself conflicted. She was in all things valiant, and in business straightforward, but she never did seek her father out to confirm her conjectures.\\n—Did you make those choices to protect me, Papa? Did you underestimate my ability to sort out my feelings, even though you trusted me?\\nShe never spoke these thoughts aloud to her father. After all, she thought, they had time. Could she not wait until her stubborn old man stopped being so closed off, or until she had found better footing of her own, for them to have that conversation?\\nIt was time that would answer her question, and teach her that which her father could not.\\nSome things in life are like that, leaving only time for on-the-spot learning and no time for preparation, just as she would go on to organize her own memos after Melus's departure.\\nWell, everyone makes mistakes at first, right? But don't worry — Navia's a fast learner.",
+      "unlockConds": [
+        {
+          "type": "FETTER_COND_FETTER_LEVEL",
+          "value": 5
+        },
+        {
+          "type": "FETTER_COND_FINISH_PARENT_QUEST",
+          "value": 4025
+        }
+      ]
+    },
+    "x91205": {
+      "storyTitle": "Character Story 5",
+      "storyText": "Fontaine is the Nation of Hydro, and thus, from time immemorial, many tales about water have been flowing through it, such as the belief that the rain that falls is the Hydro Dragon Sovereign's tears and that the Great Terrestrial Lake holds the emotions of humanity...\\nThe former is regarded as a ditty meant to pacify unruly children, while the latter is regarded by most to be unprovable, but as the matter of the \"prophecy\" progressed, people gradually turned to it for emotional sustenance.\\nAs Fontaine's post-disaster reconstruction work steadily progressed, Navia found that more and more people began to stay a while and tarry by the water, especially around Poisson.\\nAfter her accession as President, Navia was never one for slowing down or taking breaks. But once, when she was walking by the waterfront, she glimpsed her reflection in the surface and was suddenly struck by the desire to stop and stare, just as she had gazed at ponds when she was little.\\nShe stooped down and scooped up some water, and watched as it drained away through the gaps between her fingers, till there was but a little left in her palm. Navia felt little from the water cupped in her hand, remembering only the traces of blood washed out by the rain, and the clothes left behind when the waters had retreated.\\nShe had always been one to see the bright side of things, and did not wish for her sorrow to spread to her companions, and so she seldom cried. But thus did the unshed tears swollen with the river of the years at last find their outlet.\\nThose tears were blown dry by the wind, and did not fall into the waters, but Navia believed that they would not fade with time.\\nHer tears were utterly insignificant, but a drop in the ocean, but just as all other waters in this world, they would evaporate, condense, and fall as light rain, and with the wetness of each rainy season that came, they would meet again.",
+      "unlockConds": [
+        {
+          "type": "FETTER_COND_FETTER_LEVEL",
+          "value": 6
+        },
+        {
+          "type": "FETTER_COND_FINISH_PARENT_QUEST",
+          "value": 4025
+        }
+      ]
+    },
+    "x91206": {
+      "storyTitle": "The Right Time",
+      "storyText": "When Navia no longer needed to tiptoe to touch the shelf tops, Callas gave her a notebook. The book contained no dates and had no format, and even contained some text without punctuation — and was written by her mother, Clementine.\\nWhile it was initially a welcome surprise, frustration and gloom took root in her heart as she read on.\\nThe short essays began from the time Clementine went with Callas to visit the Fountain of Lucine. It seemed that from the moment they became intent on having a child, her mother would often think about her. In the golden sunflowers, she would see her child's hair, and in the bright lakes, her child's eyes.\\nShe wrote down every last one of these hopes and blessings: May our child brim with beautiful virtues, try the many adventures and lovely cuisines the world has to offer, and experience all manner of joy and happiness.\\nThis was not the first time Navia had read things her mother had written, but this instance certainly made her the happiest and angriest all at once. Why had her father only chosen to give this to her now!?\\nBut her fury was not to last. She soon finished reading all the thin book had to offer, and its ending was one of devastating simplicity.\\n\"Though I have written much about our child, I suppose these are, in the end, just my own wishes.\"\\nFor some reason — their connection by blood, perhaps — Navia immediately understood the meaning of those words. Her mother had not wished for these hopes become a burden upon her growing child, and thus, her father had given this book into her keeping only after she had already grown into an adult by following her own path.\\nThat day, Navia, did something quite rare, and did not go out, instead spending a long time in her room. Equally rare, also, was her acknowledgment of her father's arbitrary exercise of authority in this case.\\nPerhaps her mother had once intended to give her this notebook herself, once she was grown... when the time was right.",
+      "unlockConds": [
+        {
+          "type": "FETTER_COND_FETTER_LEVEL",
+          "value": 4
+        },
+        {
+          "type": "FETTER_COND_FINISH_PARENT_QUEST",
+          "value": 4002
+        }
+      ]
+    },
+    "x91207": {
+      "storyTitle": "Vision",
+      "storyText": "At a birthday party many years ago, Navia took her favorite tabletop game out.\\nPerhaps it was because this was also her coming of age, but the participants playing that day were especially numerous. Amid this lively atmosphere, everyone — apart from the birthday girl, the star of the show — racked their brains coming up with characters exceedingly ill-suited to themselves.\\nMelus, the steady hand, became the rash and careless commissioner, inviting all present to solve — or suffer under, more like — the ancient curse afflicting his family. Sonny, ever elegant in speech and etiquette, would play a potty-mouthed petty thief, even making the grand sacrifice of shedding his pale outer coat, which usually stuck to him like a second skin. The nervous rookie, Silver, having been dragged into this by dint of passing by, was made a mighty, mysterious mage.\\nThe most lethal blow came when Clorinde, who usually took charge of proceedings, decided to \"band together\" with the famed adventurer known as \"Demoiselle\" as a private doctor who missed every shot she fired. Someone had to do the healing, she reasoned — but alas, this left the role of game master open, with Callas unfortunate enough to be the only one left to fill that post. Thus was he forced to put his soft drink aside, and leave the audience stands (the bench) for the crowd of players (the sofa).\\nNavia was most pleased with this start.\\nThe game, however, got off to a bumpy beginning, with the strange commissioner bursting his way into Demoiselle's residence during her birthday party, only to misjudge and crash head first into a triple-layered cake, nearly drowning himself in dessert and ending the millennia-spanning family curse by his own hand within the first five minutes.\\nDemoiselle would quickly get the good-hearted doctor to save the man, with the doctor musing if letting him live on was tantamount to helping their enemies as she rolled the dice.\\nThe game master's expression did not change as he went faithfully about his duty in a low voice:\\n\"The young man, having braved the rain, was soaked to the bone, and both his hands were set a-trembling.\"\\n\"He did his best to clean the cream off his face and body, though he missed a few spots.\"\\n\"'Thank you, kind souls, thank you, for joining in my battle against this curse most wicked!'\"\\nThey were unusually lucky during the middle portion of the game. To solve a problem, one must investigate its source. According to the mage's hypothesis, the commissioner's ancestor must have made a contract with a demon for some reason. \"Ah, if I had only rolled higher, we would already know that reason...\" grumbled the mage. \"Bloody signed a high-interest contract without a care for his descendants, didn't 'e, the blithering idiot?\" The thief blurted out. \"Well then, can we steal the document and destroy it?\" Demoiselle asked offhandedly.\\nThe inexperienced game master would regret allowing their actions for all time, for the thief's luck was truly ludicrous.\\n\"...Demoiselle was clever indeed, and the thief just as profoundly skilled.\"\\n\"No one thought that the contract would fall into their hands so easily, and yet the words written upon it were nigh indecipherable...\"\\nThe ending, too, was unusually happy. Thanks to the hardworking and kind (and also sufficiently rusty) game master, Demoiselle would finally drag the rest of the party, riddled as they were with status effects, into a confrontation with the ancient demon. The battle was as chaotic as ever, with the mage losing his sanity first, and the doctor not landing a single shot. But just as everyone's hit points were about to bottom out, the adventurer Demoiselle would hazard a venture. Using up a turn to move beside the demon, and tanking a full round of its attacks head-on, she knowingly gave the doctor a desperate order, as everything was going to hell: \"Shoot me instead!\"\\nThe doctor's dice were rolled before the game master could say anything. Callas counted the dice in silence, before taking three deep breaths.\\n\"...The bullet pierces the demon's weak spot, and the giant creature collapses into the abyss.\"\\n\"It returns to the darkness, and into slumber, taking that absurd curse with it.\"\\n\"Rejoice, rejoice, for the adventurer's courage and for her ill-omened ally!\"\\nPerhaps it was to go with the President's flow or out of genuine emotion, but there was indeed much rejoicing. Amidst the din, only Callas, who had begun to sort out the various items used for play, was stunned. He retrieved a golden-yellow jewel from within the dice box.\\n\"Navia... I think this is yours.\"\\nThere were many people present, but this Vision did indeed belong to Navia, for it was with a flash of her thought that a great blade of Geo would slice her birthday cake in two... along with the table.\\nLater at night, when the party and her excitement both had settled down, Navia would lie on her bed, unable to remember what she had been thinking when she had obtained the Vision. Had her mind lingered on the final victory, obtained only after much struggle and hardship? Or had she wished that her birthdays henceforth would be spent surrounded by friends, just like this one?\\nIf it was the former, that seemed to obliquely indicate that a happy ending must be preceded by many tribulations... so best to go with the latter.\\nThus were her thoughts as she lay at dreamland's door, still clutching the Vision.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 6
+      }
+    }
+  },
+  "quotes": {
+    "x91000": {
+      "quoteTitle": "Hello",
+      "quoteText": "Nice to meet you! I am Navia, the esteemed president, leader, commander-in-chief, executive director, and Boss of Spina di Rosula. You strike me as somebody special — a person of character. Something tells me that this is the beginning of a long partnership between us... perhaps even as long as all the titles in front of my name.",
+      "unlockConds": []
+    },
+    "x91001": {
+      "quoteTitle": "Chat: Traveling",
+      "quoteText": "I really wanna go traveling! I don't mind where we go, as long as I have my friends with me, hehe.",
+      "unlockConds": []
+    },
+    "x91002": {
+      "quoteTitle": "Chat: Speaking From Experience",
+      "quoteText": "My time with the Spina has taught me that carrying an unreliable weapon is worse than not carrying one at all.",
+      "unlockConds": []
+    },
+    "x91003": {
+      "quoteTitle": "Chat: Logo",
+      "quoteText": "I do love Spina di Rosula's logo. It was designed by my mother. Have you noticed how it's shaped like a heart?",
+      "unlockConds": []
+    },
+    "x91004": {
+      "quoteTitle": "When It Rains",
+      "quoteText": "Ugh... It's raining again...",
+      "unlockConds": []
+    },
+    "x91005": {
+      "quoteTitle": "When Thunder Strikes",
+      "quoteText": "Aaah! Ugh, I should have covered my ears when I saw the flash!",
+      "unlockConds": []
+    },
+    "x91006": {
+      "quoteTitle": "When It Snows",
+      "quoteText": "Maybe I should take off my hat, and let the snowflakes fall onto my face... I feel like that would be really refreshing.",
+      "unlockConds": []
+    },
+    "x91007": {
+      "quoteTitle": "When the Sun Is Out",
+      "quoteText": "Quick, look! Up in the sky! Look at that scorching sun, it's like a blast furnace! You know what this means? It means we have to drop everything, right now, and make a run for the ice cream store! We need to get two of the biggest cones they sell, and then it's an all-out race to see who can finish before it melts!",
+      "unlockConds": []
+    },
+    "x91008": {
+      "quoteTitle": "After the Rain",
+      "quoteText": "Finally! The rain has stopped!",
+      "unlockConds": []
+    },
+    "x91009": {
+      "quoteTitle": "When the Wind Is Blowing",
+      "quoteText": "*gasp* My hat! No, my skirt! Aah, don't make me choose!",
+      "unlockConds": []
+    },
+    "x91010": {
+      "quoteTitle": "In the Desert",
+      "quoteText": "Sunglasses are great at keeping the sand out of your eyes so you can see your way! Except at night... then you can't see anything at all...",
+      "unlockConds": []
+    },
+    "x91011": {
+      "quoteTitle": "Good Morning",
+      "quoteText": "Morning! Any plans for the day yet? If not, why don't you hang out with me?",
+      "unlockConds": []
+    },
+    "x91012": {
+      "quoteTitle": "Good Afternoon",
+      "quoteText": "I've heard about this weird new kind of lasagna that's just come out. You wanna try it together? Sounds like it'll taste pretty strange... but I still gotta try it!",
+      "unlockConds": []
+    },
+    "x91013": {
+      "quoteTitle": "Good Evening",
+      "quoteText": "In the headlines tonight, President of Spina di Rosula in \"awesome\" mood after spending another fantastic day with her favorite partner!",
+      "unlockConds": []
+    },
+    "x91014": {
+      "quoteTitle": "Good Night",
+      "quoteText": "Come on now, time to empty your mind and get a good night's sleep! I'll see you tomorrow~",
+      "unlockConds": []
+    },
+    "x91015": {
+      "quoteTitle": "About Navia: Optimism",
+      "quoteText": "I always say that blind optimism isn't the answer — if you want a bright future, you have to go out and seize it with your own two hands! So, come over here... Now, take my hands in yours and give them a good shake. There! See, doesn't that feel good?",
+      "unlockConds": []
+    },
+    "x91016": {
+      "quoteTitle": "About Navia: Luck",
+      "quoteText": "People who know about my past might think I've suffered a lot of misfortune, but I don't see it like that at all.\\nI count myself lucky to have received so much love in life.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4",
+        "Complete \"Braving the Tides Together\""
+      ]
+    },
+    "x91017": {
+      "quoteTitle": "About Us: Partners",
+      "quoteText": "Some people call me \"Boss,\" others \"Demoiselle,\" but none of that does anything for me. My favorite thing to be called is \"partner\" — but only by you, of course. So, just know that my vainer side would be over the moon if you could indulge me a little more often.",
+      "unlockConds": [
+        "Complete \"As Light Rain Falls Without Reason\""
+      ]
+    },
+    "x91018": {
+      "quoteTitle": "About Us: Keeping Secrets",
+      "quoteText": "People say that a secret shared is a secret no more, but I like to think that true friends keep each other's secrets. ...What? Veiled threat? No, of course not! Granted, as president of Spina di Rosula, I do have my ways of making people keep their mouths shut, but don't worry — I promise not to use those on you.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 6",
+        "Complete \"Braving the Tides Together\""
+      ]
+    },
+    "x91019": {
+      "quoteTitle": "About the Vision",
+      "quoteText": "Here, take a look at my Vision! I love how shiny it is. Doesn't it go great with my dress?\\nStill, it's nothing compared to using the elements without a Vision... And with no training or anything either, right? So cool.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x91020": {
+      "quoteTitle": "Something to Share: Dogs",
+      "quoteText": "My favorite dog breed of all is the chestnut hunting hound. You know how they have the little spots above their eyes? They look just like eyebrows, don't they? That's why they look so innocent and earnest all the time. Please keep this a secret for me, though — I don't wanna hurt the other dogs' feelings!",
+      "unlockConds": []
+    },
+    "x91021": {
+      "quoteTitle": "Something to Share: The Dependable Spina di Rosula",
+      "quoteText": "If you've spent long enough in the Fleuve Cendre, you might have noticed that there are a lot of other groups in Fontaine besides the Spina di Rosula. Beware of them — they each have their own agenda, and they're not all friendly like us. If you ever find yourself in a tight spot, you can always ask Mr. Tetreaux at the bar for help. Unless you're dealing with someone who isn't in the mood to sit down and have a conversation, in which case... White Glove will sort things out. You can count on him.",
+      "unlockConds": []
+    },
+    "x91022": {
+      "quoteTitle": "Interesting Things",
+      "quoteText": "I really love the Pluie Lotus — it's such a beautiful color. Plus, when you see them in full bloom, it's a sure sign that the rainy season is finally over.",
+      "unlockConds": []
+    },
+    "x91023": {
+      "quoteTitle": "About Clorinde",
+      "quoteText": "She might not say much, or show a lot of emotion, but I can tell that she feels deeply. After my father's death, I... well, it caused quite a rift between us for a long time. But even then, I never did like having her constantly walking on eggshells around me... I much prefer how things are now.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4",
+        "Complete \"Masquerade of the Guilty\""
+      ]
+    },
+    "x91024": {
+      "quoteTitle": "About Charlotte",
+      "quoteText": "Charlotte's known for her fast-and-furious reporting, but it's her photography skills that really impress me. She once snapped a quick photo of me, a waist-up shot, and the result was absolutely stunning — it was like looking at an oil painting. She seems to have a knack for writing extraordinary news stories and taking the most eye-catching photos. Guess she was born to be a journalist.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x91025": {
+      "quoteTitle": "About Chiori",
+      "quoteText": "Ah, the fashion designer who brought the coolest Inazuman trends to Fontaine? She's actually been a great help to the Spina behind the scenes. She says my unorthodox ideas always give her a lot of inspiration for her work, and from what I can tell, I think she means it. Still, she drew the line at my request for a ten-meter-tall top hat. *sigh* Missed opportunity, if you ask me... Imagine seeing one of those in front of the shop! It would be a great way to draw in customers.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x91026": {
+      "quoteTitle": "About Furina",
+      "quoteText": "I was lucky enough to catch her in an opera when I was young. Even though it was a charity show, the tickets were nearly impossible to get! She was performing in character then, but I thought she seemed more in her element then than she ever did as an Archon, giving speeches up in the opera box... Looking back, I guess my intuition was right.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4",
+        "Complete \"Masquerade of the Guilty\""
+      ]
+    },
+    "x91027": {
+      "quoteTitle": "About Neuvillette",
+      "quoteText": "Ah, how to describe Monsieur Neuvillette... He's... complex, in some ways — but very straightforward in others. I guess a good analogy would be rocky reefs in the sea: Trying to navigate through obstacles you can't see makes for a bumpy ride, but if you can figure out how they work, you start to spot the signs.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4",
+        "Complete \"As Light Rain Falls Without Reason\""
+      ]
+    },
+    "x91028": {
+      "quoteTitle": "About Wriothesley",
+      "quoteText": "Trying to discuss anything with that guy is an exhausting process. Clorinde says I needn't have any reservations about collaborating with him in the scope of our preexisting agreement, but I still shouldn't trust everything that comes out of his mouth. No wonder my father never tried to get involved with the affairs of the Fortress... I think I'll play it safe and keep things that way.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x91029": {
+      "quoteTitle": "About The Knave",
+      "quoteText": "She is a formidable but caring leader, and definitely comes across like a master of the house. But she's still a Fatui Harbinger, and that means she must have a more ruthless side. So don't worry — while I'll always appreciate what she did for Poisson, I'm not about to let my guard down around her completely.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4",
+        "Complete \"Masquerade of the Guilty\""
+      ]
+    },
+    "x91030": {
+      "quoteTitle": "About Lyney and Lynette",
+      "quoteText": "I know magicians can often be all bravado and razzmatazz, but I can tell that Lyney is a sincere guy who cares deeply about his friends and family. He's so mature for his age, it catches me off guard sometimes... Oh, and how could I forget — it was so kind of him to try and cheer up the children in Poisson with an impromptu free magic show during the flood! I'll have to invite him and Lynette over for some macarons at my place when I get the chance. I know Lynette's always conjuring teacups out of thin air, so surely at least she's a fan of a proper tea break?",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4",
+        "Complete \"Masquerade of the Guilty\""
+      ]
+    },
+    "x91031": {
+      "quoteTitle": "More About Navia: I",
+      "quoteText": "The Spina's work is basically... well, a little bit of everything, but the focus is always on solving other people's problems. ...That probably makes it sound worse than it is, though. Sure, I'm making other people's problems my own, but I always get a real boost out of being able to help people.",
+      "unlockConds": []
+    },
+    "x91032": {
+      "quoteTitle": "More About Navia: II",
+      "quoteText": "I've always thought that it's important to appreciate the beauty in the world. The blossoms in the spring, summers by the sea, the smiles on your friends' faces... You shouldn't take those things for granted.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 3"
+      ]
+    },
+    "x91033": {
+      "quoteTitle": "More About Navia: III",
+      "quoteText": "Sometimes, I like to go out into the wild, find a quiet place with no one else around, and do some target practice.\\nIt's a great way to destress! Wanna try? I can walk you through it step by step. You'd be my first student, but I feel like I'd be a great teacher. I still remember everything that my father and Nanny Bracari ever taught me!",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x91034": {
+      "quoteTitle": "More About Navia: IV",
+      "quoteText": "I won't become the same kind of person as my father was. Some veterans of the Spina think that I'm becoming more and more like him, but I think the trend they're referring to is a superficial one, born out of the simple fact that some problems only have so many solutions. Spina di Rosula has changed a lot since my father's day, and I intend to be the president for the Spina of today.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 5",
+        "Complete \"Braving the Tides Together\""
+      ]
+    },
+    "x91035": {
+      "quoteTitle": "More About Navia: V",
+      "quoteText": "I also don't think I'm going to turn into my mother, either. People say we have similar personalities, and I can kind of understand her reasons for making the decisions she did back in the day, but even so...\\nHuh, I have a sudden urge to take a trip on the Clementine Line. Could you come with me? I don't have a particular goal in mind, but... maybe we could take a walk around the city afterwards?",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 6",
+        "Complete \"Braving the Tides Together\""
+      ]
+    },
+    "x91036": {
+      "quoteTitle": "Navia's Hobbies",
+      "quoteText": "I've loved baking ever since I was a child. Don't you think it's magical? You throw a bunch of random ingredients together in the right amounts, put the mixture in the oven, and then just watch as it slowly balloons up and transforms into a delicious treat...\\nHey, do you wanna make gingerbread together sometime? We can make it into a fun little competition — see who can build the biggest, most beautiful gingerbread house!",
+      "unlockConds": []
+    },
+    "x91037": {
+      "quoteTitle": "Navia's Troubles",
+      "quoteText": "Ugh, cleaning up after baking a cake is a nightmare. The flour just gets everywhere, and the leftover egg whites and cream go all sticky and gross... I'll, um... I'll just go find a helper!",
+      "unlockConds": []
+    },
+    "x91038": {
+      "quoteTitle": "Favorite Food",
+      "quoteText": "I like trying new things, for the surprise factor. But before you question my sense of taste, let me clarify that just because I can appreciate the novelty in a dish doesn't mean I'm claiming it tastes amazing.",
+      "unlockConds": []
+    },
+    "x91039": {
+      "quoteTitle": "Least Favorite Food",
+      "quoteText": "I never enjoy leftovers that have been left too long. It just feels like sacrilege to neglect the poor food when it's fresh, then eat after it's gone stale...",
+      "unlockConds": []
+    },
+    "x91040": {
+      "quoteTitle": "Receiving a Gift: I",
+      "quoteText": "This is some incredible cooking! Next time we head out together, looks like I should carry the ingredients and cookware, and let you be the chef.",
+      "unlockConds": []
+    },
+    "x91041": {
+      "quoteTitle": "Receiving a Gift: II",
+      "quoteText": "Not bad! Next time, you cook the food and I'll plate it. Then, it'll look as good as it tastes.",
+      "unlockConds": []
+    },
+    "x91042": {
+      "quoteTitle": "Receiving a Gift: III",
+      "quoteText": "Don't feel discouraged! The world needs people who aren't afraid to innovate.",
+      "unlockConds": []
+    },
+    "x91043": {
+      "quoteTitle": "Birthday",
+      "quoteText": "Do you believe that wishes can come true? You know, like when you toss a coin into a fountain for good luck? As long as you throw enough coins in, one of your wishes is sure to come true, right?\\nWell anyway, today's your birthday, so I'm not leaving anything to chance — I've got a whole bag of Mora here dedicated to making your birthday wish come true. Whatever you want, I'll do everything in my power to make it happen!",
+      "unlockConds": []
+    },
+    "x91044": {
+      "quoteTitle": "Feelings About Ascension: Intro",
+      "quoteText": "This feeling, it's like... Like a lemon cheesecake!",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 1"
+      ]
+    },
+    "x91045": {
+      "quoteTitle": "Feelings About Ascension: Building Up",
+      "quoteText": "As the cream melts on the tip of my tongue, all my stress fades away.",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 2"
+      ]
+    },
+    "x91046": {
+      "quoteTitle": "Feelings About Ascension: Climax",
+      "quoteText": "Do you know that chocolate candy that's made in the shape of a bullet? It's so sweet, it's like an instant shot of energy to your whole body. Well, that's what this feels like!",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 4"
+      ]
+    },
+    "x91047": {
+      "quoteTitle": "Feelings About Ascension: Conclusion",
+      "quoteText": "All I need now is a nice pot of soothing tea with a little milk, and our tea party can finally commence... But seriously, one tea party wouldn't begin to repay you after everything you've done for me. So if there's ever something you need in Fontaine, know that Spina di Rosula will always be happy to help you.",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 6"
+      ]
+    },
+    "x91048": {
+      "quoteTitle": "Elemental Skill: I",
+      "quoteText": "Watch out~!",
+      "unlockConds": []
+    },
+    "x91049": {
+      "quoteTitle": "Elemental Skill: II",
+      "quoteText": "Comin' at ya!",
+      "unlockConds": []
+    },
+    "x91050": {
+      "quoteTitle": "Elemental Skill: III",
+      "quoteText": "Hey there!",
+      "unlockConds": []
+    },
+    "x91051": {
+      "quoteTitle": "Elemental Skill: IV",
+      "quoteText": "Feelin' lucky?",
+      "unlockConds": []
+    },
+    "x91052": {
+      "quoteTitle": "Elemental Skill: V",
+      "quoteText": "This one's got your name on it!",
+      "unlockConds": []
+    },
+    "x91053": {
+      "quoteTitle": "Elemental Skill: VI",
+      "quoteText": "...Umbrella warfare, I guess?",
+      "unlockConds": []
+    },
+    "x91054": {
+      "quoteTitle": "Elemental Burst: I",
+      "quoteText": "Fire!!! ...Well, with rocks.",
+      "unlockConds": []
+    },
+    "x91055": {
+      "quoteTitle": "Elemental Burst: II",
+      "quoteText": "A proper sendoff! From the Spina, with love.",
+      "unlockConds": []
+    },
+    "x91056": {
+      "quoteTitle": "Elemental Burst: III",
+      "quoteText": "Attack! Mm-hmm, that's the way.",
+      "unlockConds": []
+    },
+    "x91057": {
+      "quoteTitle": "Opening Treasure Chest: I",
+      "quoteText": "Whoa! What a stroke of good luck!",
+      "unlockConds": []
+    },
+    "x91058": {
+      "quoteTitle": "Opening Treasure Chest: II",
+      "quoteText": "Quick! Let's pack it up!",
+      "unlockConds": []
+    },
+    "x91059": {
+      "quoteTitle": "Opening Treasure Chest: III",
+      "quoteText": "I'm loving this treasure hunt~!",
+      "unlockConds": []
+    },
+    "x91060": {
+      "quoteTitle": "Low HP: I",
+      "quoteText": "Just... a little longer!",
+      "unlockConds": []
+    },
+    "x91061": {
+      "quoteTitle": "Low HP: II",
+      "quoteText": "...I must do my duty!",
+      "unlockConds": []
+    },
+    "x91062": {
+      "quoteTitle": "Low HP: III",
+      "quoteText": "C'mon, Navia, focus!",
+      "unlockConds": []
+    },
+    "x91063": {
+      "quoteTitle": "Ally at Low HP: I",
+      "quoteText": "Leave it to the president!",
+      "unlockConds": []
+    },
+    "x91064": {
+      "quoteTitle": "Ally at Low HP: II",
+      "quoteText": "Reinforcements are here!",
+      "unlockConds": []
+    },
+    "x91065": {
+      "quoteTitle": "Fallen: I",
+      "quoteText": "Guess I'm... going home...",
+      "unlockConds": []
+    },
+    "x91066": {
+      "quoteTitle": "Fallen: II",
+      "quoteText": "Sorry, partner...",
+      "unlockConds": []
+    },
+    "x91067": {
+      "quoteTitle": "Fallen: III",
+      "quoteText": "No... not me, too...",
+      "unlockConds": []
+    },
+    "x91068": {
+      "quoteTitle": "Light Hit Taken: I",
+      "quoteText": "What's your problem?",
+      "unlockConds": []
+    },
+    "x91069": {
+      "quoteTitle": "Heavy Hit Taken: I",
+      "quoteText": "Where'd that come from!?",
+      "unlockConds": []
+    },
+    "x91070": {
+      "quoteTitle": "Heavy Hit Taken: II",
+      "quoteText": "Ow... I'm fine!",
+      "unlockConds": []
+    },
+    "x91071": {
+      "quoteTitle": "Joining Party: I",
+      "quoteText": "Count me in.",
+      "unlockConds": []
+    },
+    "x91072": {
+      "quoteTitle": "Joining Party: II",
+      "quoteText": "The Spina's on the case!",
+      "unlockConds": []
+    },
+    "x91073": {
+      "quoteTitle": "Joining Party: III",
+      "quoteText": "I'll take the lead today!",
+      "unlockConds": []
+    },
+    "x91074": {
+      "quoteTitle": "About Escoffier",
+      "quoteText": "My good friend Escoffier is finally out and about again... It's about time. Shutting herself away like that, all to try and surpass her own magnum opus, Gateau Debord. It's a wonder she can even stand the sunlight after all that time inside. You know what? We should all go for a picnic sometime! I'll make sure to bring her a pair of sunglasses and a parasol. Believe me, you're in for a treat! With Escoffier, even the simplest of outings feel like fine dining!",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4",
+        "Complete \"Masquerade of the Guilty\""
+      ]
+    }
+  },
+  "energy": [
+    {
+      "source": "Rock_ElemBall",
+      "particles": "3",
+      "chance": "100%",
+      "cd": "0.2s"
+    },
+    {
+      "source": "Rock_ElemBall",
+      "particles": "1",
+      "chance": "50%",
+      "cd": "0.2s"
+    }
+  ],
+  "attacks": [
+    {
+      "name": "NormalAttack_3_Claymore",
+      "icd_source": "Tag: NormalAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV2/50",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Blunt",
+      "damageParam": "0.200000"
+    },
+    {
+      "name": "NormalAttack_3_Claymore",
+      "icd_source": "Tag: NormalAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV2/50",
+      "element": "Rock",
+      "attackType": "Melee",
+      "strikeType": "Blunt",
+      "damageParam": "0.200000"
+    },
+    {
+      "name": "NormalAttack_3_Claymore",
+      "icd_source": "Tag: NormalAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV2/50",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Blunt",
+      "damageParam": "0.200000"
+    },
+    {
+      "name": "NormalAttack_3_Claymore",
+      "icd_source": "Tag: NormalAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV2/50",
+      "element": "Rock",
+      "attackType": "Melee",
+      "strikeType": "Blunt",
+      "damageParam": "0.200000"
+    },
+    {
+      "name": "ElementalArt",
+      "icd_source": "Tag: Elemental_Art (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV3/150",
+      "element": "Rock",
+      "attackType": "Range",
+      "strikeType": "Blunt",
+      "damageParam": "Damage_Ratio"
+    },
+    {
+      "name": "ElementalArt",
+      "icd_source": "Tag: Elemental_Art (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV3/150",
+      "element": "Rock",
+      "attackType": "Range",
+      "strikeType": "Blunt",
+      "damageParam": "Damage_Ratio"
+    },
+    {
+      "name": "ElementalArt",
+      "icd_source": "Tag: Elemental_Art (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV3/150",
+      "element": "Rock",
+      "attackType": "Range",
+      "strikeType": "Blunt",
+      "damageParam": "Damage_Ratio"
+    },
+    {
+      "name": "ElementalArt",
+      "icd_source": "Tag: Elemental_Art (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV3/150",
+      "element": "Rock",
+      "attackType": "Range",
+      "strikeType": "Blunt",
+      "damageParam": "Damage_Ratio"
+    },
+    {
+      "name": "ElementalArt",
+      "icd_source": "Tag: Elemental_Art (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV3/150",
+      "element": "Rock",
+      "attackType": "Range",
+      "strikeType": "Blunt",
+      "damageParam": "Damage_Ratio"
+    },
+    {
+      "name": "ElementalArt",
+      "icd_source": "Tag: Elemental_Art (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV3/150",
+      "element": "Rock",
+      "attackType": "Range",
+      "strikeType": "Blunt",
+      "damageParam": "Damage_Ratio"
+    },
+    {
+      "name": "ElementalArt",
+      "icd_source": "Tag: Elemental_Art (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV3/150",
+      "element": "Rock",
+      "attackType": "Range",
+      "strikeType": "Blunt",
+      "damageParam": "Damage_Ratio"
+    },
+    {
+      "name": "ElementalArt",
+      "icd_source": "Tag: Elemental_Art (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV3/150",
+      "element": "Rock",
+      "attackType": "Range",
+      "strikeType": "Blunt",
+      "damageParam": "Damage_Ratio"
+    },
+    {
+      "name": "ElementalArt_Pneuma",
+      "icd_source": "Tag: Elemental_Art (!)",
+      "icd_rule": "Independent",
+      "gauge": "0U",
+      "poise": "LV2/20",
+      "element": "Rock",
+      "attackType": "Default",
+      "strikeType": "Pierce",
+      "damageParam": "PneumaRatio"
+    },
+    {
+      "name": "ElementalArt_ShotGun_Bullet",
+      "icd_source": "Tag: Elemental_Art (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV2/30",
+      "element": "Rock",
+      "attackType": "Range",
+      "strikeType": "Blunt",
+      "damageParam": "Damage_Ratio"
+    },
+    {
+      "name": "ElementalBurst",
+      "icd_source": "Tag: Elemental_Burst (!)",
+      "icd_rule": "Independent",
+      "gauge": "2U",
+      "poise": "LV4/100",
+      "element": "Rock",
+      "attackType": "Range",
+      "strikeType": "Blunt",
+      "damageParam": "First_Damge_Ratio"
+    },
+    {
+      "name": "Burst_Follow_Gadget",
+      "icd_source": "Grp: Avatar_Navia_Burst (Tag Miss)",
+      "icd_rule": "3 hits / 12s",
+      "gauge": "1U",
+      "poise": "LV1/50",
+      "element": "Rock",
+      "attackType": "Range",
+      "strikeType": "Blunt",
+      "damageParam": "Damage_Ratio"
+    },
+    {
+      "name": "Talent_2_Driver",
+      "icd_source": "Grp: Avatar_Navia_Burst (Tag Miss)",
+      "icd_rule": "3 hits / 12s",
+      "gauge": "1U",
+      "poise": "LV1/50",
+      "element": "Rock",
+      "attackType": "Range",
+      "strikeType": "Blunt",
+      "damageParam": "Damage_Ratio"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "0U",
+      "poise": "LV2/35",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Slash",
+      "damageParam": "FallingAnthem_Normal_Loop_Damage"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "0U",
+      "poise": "LV2/35",
+      "element": "Rock",
+      "attackType": "Melee",
+      "strikeType": "Slash",
+      "damageParam": "FallingAnthem_Normal_Loop_Damage"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV4/150",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Blunt",
+      "damageParam": "FallingAnthem_Normal_Rank_1_Damage"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV4/150",
+      "element": "Rock",
+      "attackType": "Melee",
+      "strikeType": "Blunt",
+      "damageParam": "FallingAnthem_Normal_Rank_1_Damage"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV7/200",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Blunt",
+      "damageParam": "FallingAnthem_Normal_Rank_2_Damage"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV7/200",
+      "element": "Rock",
+      "attackType": "Melee",
+      "strikeType": "Blunt",
+      "damageParam": "FallingAnthem_Normal_Rank_2_Damage"
+    }
+  ],
+  "endure": {
+    "ability": "ElementalArt",
+    "handler": "Focus",
+    "Actor_EndureDelta": 0.5
+  }
+}

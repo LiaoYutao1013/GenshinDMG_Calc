@@ -1,0 +1,31 @@
+﻿{
+    "Id":  15028,
+    "SetId":  15028,
+    "EnName":  "Flower of Paradise Lost",
+    "QualityType":  "QUALITY_ORANGE",
+    "SetIcon":  "UI_RelicIcon_15028_4",
+    "Effect2Pc":  "Increases Elemental Mastery by 80.",
+    "Effect4Pc":  "The equipping character\u0027s Bloom, Hyperbloom, and Burgeon reaction DMG are increased by 40%, and their Lunar-Bloom reaction DMG is increased by 10%. Additionally, after the equipping character triggers Bloom, Hyperbloom, Lunar-Bloom, or Burgeon, they will gain another 25% bonus to the effects mentioned prior. Each stack of this lasts 10s. Max 4 stacks simultaneously. This effect can only be triggered once per second. The character who equips this can still trigger its effects when not on the field.",
+    "Pieces":  {
+                   "circlet":  {
+                                   "icon":  "UI_RelicIcon_15028_3",
+                                   "name":  "Amethyst Crown"
+                               },
+                   "flower":  {
+                                  "icon":  "UI_RelicIcon_15028_4",
+                                  "name":  "Ay-Khanoum\u0027s Myriad"
+                              },
+                   "goblet":  {
+                                  "icon":  "UI_RelicIcon_15028_1",
+                                  "name":  "Secret-Keeper\u0027s Magic Bottle"
+                              },
+                   "plume":  {
+                                 "icon":  "UI_RelicIcon_15028_2",
+                                 "name":  "Wilting Feast"
+                             },
+                   "sands":  {
+                                 "icon":  "UI_RelicIcon_15028_5",
+                                 "name":  "A Moment Congealed"
+                             }
+               }
+}

@@ -1,0 +1,31 @@
+﻿{
+    "Id":  15003,
+    "SetId":  15003,
+    "EnName":  "Wanderer\u0027s Troupe",
+    "QualityType":  "QUALITY_ORANGE",
+    "SetIcon":  "UI_RelicIcon_15003_4",
+    "Effect2Pc":  "Increases Elemental Mastery by 80.",
+    "Effect4Pc":  "Increases Charged Attack DMG by 35% if the character uses a Catalyst or a Bow.",
+    "Pieces":  {
+                   "circlet":  {
+                                   "icon":  "UI_RelicIcon_15003_3",
+                                   "name":  "Conductor\u0027s Top Hat"
+                               },
+                   "flower":  {
+                                  "icon":  "UI_RelicIcon_15003_4",
+                                  "name":  "Troupe\u0027s Dawnlight"
+                              },
+                   "goblet":  {
+                                  "icon":  "UI_RelicIcon_15003_1",
+                                  "name":  "Wanderer\u0027s String-Kettle"
+                              },
+                   "plume":  {
+                                 "icon":  "UI_RelicIcon_15003_2",
+                                 "name":  "Bard\u0027s Arrow Feather"
+                             },
+                   "sands":  {
+                                 "icon":  "UI_RelicIcon_15003_5",
+                                 "name":  "Concert\u0027s Final Hour"
+                             }
+               }
+}

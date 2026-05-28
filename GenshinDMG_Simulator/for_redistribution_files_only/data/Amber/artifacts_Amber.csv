@@ -1,0 +1,2 @@
+Weapon,WeaponATK,WeaponSubStatType,WeaponSubStatValue,WeaponRefinement,AtkBonus,FlatATK,ER,EM,CritRate,CritDMG,PyroDMGBonus,SkillDMGBonus,BurstDMGBonus,ArtifactSet1,ArtifactSet1Pieces,ArtifactSet2,ArtifactSet2Pieces,ArtifactSet4Active
+TheStringless,510,EM,165.38,5,0.7,220,1.45,180,0.62,1.55,0.466,0.32,0.28,NoblesseOblige,4,None,0,1

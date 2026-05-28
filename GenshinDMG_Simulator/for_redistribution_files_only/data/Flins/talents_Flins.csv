@@ -1,0 +1,8 @@
+Skill,Param,ScalingType,Level10
+Normal,N1,ATK,0.98
+Normal,N2,ATK,1.12
+Skill,Cast,ATK,2.80
+Skill,Phantom,ATK,1.65
+Burst,Cast,ATK,4.40
+Burst,Resonance,ATK,1.95
+Reaction,LunarCharged,FLAT,1820

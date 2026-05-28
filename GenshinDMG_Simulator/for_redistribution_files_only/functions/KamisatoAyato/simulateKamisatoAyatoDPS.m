@@ -1,0 +1,60 @@
+function [totalDMG, dps, breakdown, rotationTime, audit] = simulateKamisatoAyatoDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
+    % Ayato simulator for Takimeguri Kanka slash strings and burst rain.
+    if nargin < 3 || isempty(seqFile)
+        seqFile = fullfile(fileparts(mfilename('fullpath')), '..', '..', 'data', 'KamisatoAyato', 'rotation_KamisatoAyato.txt');
+    end
+    if nargin < 4 || isempty(talentLevel)
+        talentLevel = 10;
+    end
+    if nargin < 5 || isempty(constellation)
+        constellation = 0;
+    end
+    if nargin < 6 || isempty(teamContext)
+        teamContext = buildTeamContext({struct('Name', 'KamisatoAyato', 'Constellation', constellation, 'Build', build)}, 20, struct());
+    end
+
+    talentPath = fullfile(fileparts(mfilename('fullpath')), '..', '..', 'data', 'KamisatoAyato', 'talents_KamisatoAyato.csv');
+    talent = readtable(talentPath);
+    skillLevel = talentLevel + 3 * double(constellation >= 3);
+    burstLevel = talentLevel + 3 * double(constellation >= 5);
+    hpBonus1 = getTalentValue(talent, 'Skill', 'NamisenDMGBonus', skillLevel);
+    hpWeight1 = hpBonus1 / max(getTalentValue(talent, 'Skill', 'Shunsuiken1HitDMG', skillLevel), 1e-6);
+    hpWeight2 = hpBonus1 / max(getTalentValue(talent, 'Skill', 'Shunsuiken2HitDMG', skillLevel), 1e-6);
+    hpWeight3 = hpBonus1 / max(getTalentValue(talent, 'Skill', 'Shunsuiken3HitDMG', skillLevel), 1e-6);
+    burstNormalBonus = getTalentValue(talent, 'Burst', 'NormalAttackDMGBonus', burstLevel);
+    vapeReady = getFieldOrDefault(teamContext, 'PyroCount', 0) >= 1;
+    preferredAura = "";
+    if vapeReady
+        preferredAura = "Pyro";
+    end
+
+    actions = struct();
+    actions.E = struct('TalentGroup', "Skill", 'Param', "WaterIllusionDMG", 'DamageField', "SkillDMGBonus", ...
+        'ActionElement', "Hydro", 'BaseMultiplier', 1.00, 'AllowAmplify', double(vapeReady), ...
+        'PostSetSkillActiveTime', 6.0, 'ApplyGauge', 0, 'CanApplyAura', false, 'Note', "Takimeguri Kanka");
+    actions.S1 = struct('TalentGroup', "Skill", 'Param', "Shunsuiken1HitDMG", 'DamageField', "NormalDMGBonus", ...
+        'ActionElement', "Hydro", 'BaseMultiplier', 1.00, 'HPWeight', hpWeight1, ...
+        'FlatDamageBonus', burstNormalBonus, 'AllowAmplify', double(vapeReady), 'LunarisDamageParam', "Shunsuiken1HitDMG", 'Note', "Shunsuiken 1");
+    actions.S2 = struct('TalentGroup', "Skill", 'Param', "Shunsuiken2HitDMG", 'DamageField', "NormalDMGBonus", ...
+        'ActionElement', "Hydro", 'BaseMultiplier', 1.00, 'HPWeight', hpWeight2, ...
+        'FlatDamageBonus', burstNormalBonus, 'AllowAmplify', double(vapeReady), 'LunarisDamageParam', "Shunsuiken2HitDMG", 'Note', "Shunsuiken 2");
+    actions.S3 = struct('TalentGroup', "Skill", 'Param', "Shunsuiken3HitDMG", 'DamageField', "NormalDMGBonus", ...
+        'ActionElement', "Hydro", 'BaseMultiplier', 1.00, 'HPWeight', hpWeight3, ...
+        'FlatDamageBonus', burstNormalBonus, 'AllowAmplify', double(vapeReady), 'LunarisDamageParam', "Shunsuiken3HitDMG", 'Note', "Shunsuiken 3");
+    actions.Q = struct('TalentGroup', "Burst", 'Param', "BloomwaterBladeDMG", 'DamageField', "BurstDMGBonus", ...
+        'ActionElement', "Hydro", 'BaseMultiplier', 1.00, 'HitCount', 8 + 2 * double(constellation >= 2), ...
+        'AllowAmplify', double(vapeReady), 'PostSetBurstActiveTime', 18.0, 'Note', "Suiyuu");
+
+    spec = struct( ...
+        'Element', "Hydro", ...
+        'ScalingMode', "ATK", ...
+        'PreferredAmplifyAura', preferredAura, ...
+        'DefaultActionTime', 0.40, ...
+        'DefaultRotation', {{'Q', 'E', 'S1', 'S2', 'S3', 'S1', 'S2', 'S3', 'S1', 'S2', 'S3'}}, ...
+        'ActionTimeMap', struct('Q', 1.10, 'E', 0.70, 'S1', 0.28, 'S2', 0.28, 'S3', 0.32), ...
+        'Actions', actions);
+
+    [totalDMG, dps, breakdown, rotationTime, audit] = simulateSimpleCharacterDPS( ...
+        'KamisatoAyato', build, enemy, seqFile, talentLevel, constellation, teamContext, spec);
+end
+

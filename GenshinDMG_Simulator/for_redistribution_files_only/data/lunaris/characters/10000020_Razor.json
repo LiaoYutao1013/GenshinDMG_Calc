@@ -1,0 +1,1853 @@
+{
+  "info": {
+    "name": "Razor",
+    "description": "A boy who lives among the wolves in Wolvendom of Mondstadt, away from human civilization. As agile as lightning.",
+    "rarity": "QUALITY_PURPLE",
+    "weapon": "WEAPON_CLAYMORE",
+    "birthday": "9/9",
+    "element": "Electro",
+    "title": "Wolf Boy",
+    "constellation": "Lupus Minor",
+    "affiliation": "Wolvendom",
+    "cv": {
+      "EN": "Todd Haberkorn",
+      "CHS": "周帅",
+      "JP": "内山昂輝",
+      "KR": "Kim Seo-young"
+    },
+    "attributes": [
+      {
+        "level": 1,
+        "ascension": 0,
+        "hp": 1003,
+        "atk": 20,
+        "def": 63,
+        "Physical_": "0"
+      },
+      {
+        "level": 2,
+        "ascension": 0,
+        "hp": 1086,
+        "atk": 21,
+        "def": 68,
+        "Physical_": "0"
+      },
+      {
+        "level": 3,
+        "ascension": 0,
+        "hp": 1168,
+        "atk": 23,
+        "def": 73,
+        "Physical_": "0"
+      },
+      {
+        "level": 4,
+        "ascension": 0,
+        "hp": 1252,
+        "atk": 24,
+        "def": 79,
+        "Physical_": "0"
+      },
+      {
+        "level": 5,
+        "ascension": 0,
+        "hp": 1334,
+        "atk": 26,
+        "def": 84,
+        "Physical_": "0"
+      },
+      {
+        "level": 6,
+        "ascension": 0,
+        "hp": 1417,
+        "atk": 28,
+        "def": 89,
+        "Physical_": "0"
+      },
+      {
+        "level": 7,
+        "ascension": 0,
+        "hp": 1499,
+        "atk": 29,
+        "def": 94,
+        "Physical_": "0"
+      },
+      {
+        "level": 8,
+        "ascension": 0,
+        "hp": 1583,
+        "atk": 31,
+        "def": 99,
+        "Physical_": "0"
+      },
+      {
+        "level": 9,
+        "ascension": 0,
+        "hp": 1666,
+        "atk": 33,
+        "def": 105,
+        "Physical_": "0"
+      },
+      {
+        "level": 10,
+        "ascension": 0,
+        "hp": 1748,
+        "atk": 34,
+        "def": 110,
+        "Physical_": "0"
+      },
+      {
+        "level": 11,
+        "ascension": 0,
+        "hp": 1831,
+        "atk": 36,
+        "def": 115,
+        "Physical_": "0"
+      },
+      {
+        "level": 12,
+        "ascension": 0,
+        "hp": 1914,
+        "atk": 37,
+        "def": 120,
+        "Physical_": "0"
+      },
+      {
+        "level": 13,
+        "ascension": 0,
+        "hp": 1997,
+        "atk": 39,
+        "def": 125,
+        "Physical_": "0"
+      },
+      {
+        "level": 14,
+        "ascension": 0,
+        "hp": 2079,
+        "atk": 41,
+        "def": 130,
+        "Physical_": "0"
+      },
+      {
+        "level": 15,
+        "ascension": 0,
+        "hp": 2162,
+        "atk": 42,
+        "def": 136,
+        "Physical_": "0"
+      },
+      {
+        "level": 16,
+        "ascension": 0,
+        "hp": 2246,
+        "atk": 44,
+        "def": 141,
+        "Physical_": "0"
+      },
+      {
+        "level": 17,
+        "ascension": 0,
+        "hp": 2328,
+        "atk": 45,
+        "def": 146,
+        "Physical_": "0"
+      },
+      {
+        "level": 18,
+        "ascension": 0,
+        "hp": 2411,
+        "atk": 47,
+        "def": 151,
+        "Physical_": "0"
+      },
+      {
+        "level": 19,
+        "ascension": 0,
+        "hp": 2493,
+        "atk": 49,
+        "def": 156,
+        "Physical_": "0"
+      },
+      {
+        "level": 20,
+        "ascension": 0,
+        "hp": 2577,
+        "atk": 50,
+        "def": 162,
+        "Physical_": "0"
+      },
+      {
+        "level": 21,
+        "ascension": 1,
+        "hp": 3408,
+        "atk": 67,
+        "def": 214,
+        "Physical_": "0"
+      },
+      {
+        "level": 22,
+        "ascension": 1,
+        "hp": 3491,
+        "atk": 68,
+        "def": 219,
+        "Physical_": "0"
+      },
+      {
+        "level": 23,
+        "ascension": 1,
+        "hp": 3575,
+        "atk": 70,
+        "def": 224,
+        "Physical_": "0"
+      },
+      {
+        "level": 24,
+        "ascension": 1,
+        "hp": 3657,
+        "atk": 71,
+        "def": 230,
+        "Physical_": "0"
+      },
+      {
+        "level": 25,
+        "ascension": 1,
+        "hp": 3740,
+        "atk": 73,
+        "def": 235,
+        "Physical_": "0"
+      },
+      {
+        "level": 26,
+        "ascension": 1,
+        "hp": 3822,
+        "atk": 75,
+        "def": 240,
+        "Physical_": "0"
+      },
+      {
+        "level": 27,
+        "ascension": 1,
+        "hp": 3906,
+        "atk": 76,
+        "def": 245,
+        "Physical_": "0"
+      },
+      {
+        "level": 28,
+        "ascension": 1,
+        "hp": 3988,
+        "atk": 78,
+        "def": 250,
+        "Physical_": "0"
+      },
+      {
+        "level": 29,
+        "ascension": 1,
+        "hp": 4071,
+        "atk": 80,
+        "def": 256,
+        "Physical_": "0"
+      },
+      {
+        "level": 30,
+        "ascension": 1,
+        "hp": 4153,
+        "atk": 81,
+        "def": 261,
+        "Physical_": "0"
+      },
+      {
+        "level": 31,
+        "ascension": 1,
+        "hp": 4237,
+        "atk": 83,
+        "def": 266,
+        "Physical_": "0"
+      },
+      {
+        "level": 32,
+        "ascension": 1,
+        "hp": 4320,
+        "atk": 84,
+        "def": 271,
+        "Physical_": "0"
+      },
+      {
+        "level": 33,
+        "ascension": 1,
+        "hp": 4402,
+        "atk": 86,
+        "def": 276,
+        "Physical_": "0"
+      },
+      {
+        "level": 34,
+        "ascension": 1,
+        "hp": 4485,
+        "atk": 88,
+        "def": 282,
+        "Physical_": "0"
+      },
+      {
+        "level": 35,
+        "ascension": 1,
+        "hp": 4568,
+        "atk": 89,
+        "def": 287,
+        "Physical_": "0"
+      },
+      {
+        "level": 36,
+        "ascension": 1,
+        "hp": 4651,
+        "atk": 91,
+        "def": 292,
+        "Physical_": "0"
+      },
+      {
+        "level": 37,
+        "ascension": 1,
+        "hp": 4733,
+        "atk": 92,
+        "def": 297,
+        "Physical_": "0"
+      },
+      {
+        "level": 38,
+        "ascension": 1,
+        "hp": 4816,
+        "atk": 94,
+        "def": 302,
+        "Physical_": "0"
+      },
+      {
+        "level": 39,
+        "ascension": 1,
+        "hp": 4900,
+        "atk": 96,
+        "def": 308,
+        "Physical_": "0"
+      },
+      {
+        "level": 40,
+        "ascension": 1,
+        "hp": 4982,
+        "atk": 97,
+        "def": 313,
+        "Physical_": "0"
+      },
+      {
+        "level": 41,
+        "ascension": 2,
+        "hp": 5597,
+        "atk": 109,
+        "def": 351,
+        "Physical_": "7.5"
+      },
+      {
+        "level": 42,
+        "ascension": 2,
+        "hp": 5680,
+        "atk": 111,
+        "def": 356,
+        "Physical_": "7.5"
+      },
+      {
+        "level": 43,
+        "ascension": 2,
+        "hp": 5763,
+        "atk": 113,
+        "def": 362,
+        "Physical_": "7.5"
+      },
+      {
+        "level": 44,
+        "ascension": 2,
+        "hp": 5845,
+        "atk": 114,
+        "def": 367,
+        "Physical_": "7.5"
+      },
+      {
+        "level": 45,
+        "ascension": 2,
+        "hp": 5928,
+        "atk": 116,
+        "def": 372,
+        "Physical_": "7.5"
+      },
+      {
+        "level": 46,
+        "ascension": 2,
+        "hp": 6012,
+        "atk": 117,
+        "def": 377,
+        "Physical_": "7.5"
+      },
+      {
+        "level": 47,
+        "ascension": 2,
+        "hp": 6094,
+        "atk": 119,
+        "def": 382,
+        "Physical_": "7.5"
+      },
+      {
+        "level": 48,
+        "ascension": 2,
+        "hp": 6177,
+        "atk": 121,
+        "def": 388,
+        "Physical_": "7.5"
+      },
+      {
+        "level": 49,
+        "ascension": 2,
+        "hp": 6259,
+        "atk": 122,
+        "def": 393,
+        "Physical_": "7.5"
+      },
+      {
+        "level": 50,
+        "ascension": 2,
+        "hp": 6343,
+        "atk": 124,
+        "def": 398,
+        "Physical_": "7.5"
+      },
+      {
+        "level": 51,
+        "ascension": 3,
+        "hp": 7135,
+        "atk": 139,
+        "def": 448,
+        "Physical_": "15"
+      },
+      {
+        "level": 52,
+        "ascension": 3,
+        "hp": 7218,
+        "atk": 141,
+        "def": 453,
+        "Physical_": "15"
+      },
+      {
+        "level": 53,
+        "ascension": 3,
+        "hp": 7301,
+        "atk": 143,
+        "def": 458,
+        "Physical_": "15"
+      },
+      {
+        "level": 54,
+        "ascension": 3,
+        "hp": 7383,
+        "atk": 144,
+        "def": 463,
+        "Physical_": "15"
+      },
+      {
+        "level": 55,
+        "ascension": 3,
+        "hp": 7467,
+        "atk": 146,
+        "def": 469,
+        "Physical_": "15"
+      },
+      {
+        "level": 56,
+        "ascension": 3,
+        "hp": 7549,
+        "atk": 147,
+        "def": 474,
+        "Physical_": "15"
+      },
+      {
+        "level": 57,
+        "ascension": 3,
+        "hp": 7632,
+        "atk": 149,
+        "def": 479,
+        "Physical_": "15"
+      },
+      {
+        "level": 58,
+        "ascension": 3,
+        "hp": 7714,
+        "atk": 151,
+        "def": 484,
+        "Physical_": "15"
+      },
+      {
+        "level": 59,
+        "ascension": 3,
+        "hp": 7798,
+        "atk": 152,
+        "def": 489,
+        "Physical_": "15"
+      },
+      {
+        "level": 60,
+        "ascension": 3,
+        "hp": 7881,
+        "atk": 154,
+        "def": 495,
+        "Physical_": "15"
+      },
+      {
+        "level": 61,
+        "ascension": 4,
+        "hp": 8496,
+        "atk": 166,
+        "def": 533,
+        "Physical_": "15"
+      },
+      {
+        "level": 62,
+        "ascension": 4,
+        "hp": 8579,
+        "atk": 168,
+        "def": 538,
+        "Physical_": "15"
+      },
+      {
+        "level": 63,
+        "ascension": 4,
+        "hp": 8661,
+        "atk": 169,
+        "def": 544,
+        "Physical_": "15"
+      },
+      {
+        "level": 64,
+        "ascension": 4,
+        "hp": 8744,
+        "atk": 171,
+        "def": 549,
+        "Physical_": "15"
+      },
+      {
+        "level": 65,
+        "ascension": 4,
+        "hp": 8827,
+        "atk": 172,
+        "def": 554,
+        "Physical_": "15"
+      },
+      {
+        "level": 66,
+        "ascension": 4,
+        "hp": 8910,
+        "atk": 174,
+        "def": 559,
+        "Physical_": "15"
+      },
+      {
+        "level": 67,
+        "ascension": 4,
+        "hp": 8993,
+        "atk": 176,
+        "def": 564,
+        "Physical_": "15"
+      },
+      {
+        "level": 68,
+        "ascension": 4,
+        "hp": 9075,
+        "atk": 177,
+        "def": 570,
+        "Physical_": "15"
+      },
+      {
+        "level": 69,
+        "ascension": 4,
+        "hp": 9159,
+        "atk": 179,
+        "def": 575,
+        "Physical_": "15"
+      },
+      {
+        "level": 70,
+        "ascension": 4,
+        "hp": 9241,
+        "atk": 180,
+        "def": 580,
+        "Physical_": "15"
+      },
+      {
+        "level": 71,
+        "ascension": 5,
+        "hp": 9856,
+        "atk": 193,
+        "def": 619,
+        "Physical_": "22.5"
+      },
+      {
+        "level": 72,
+        "ascension": 5,
+        "hp": 9939,
+        "atk": 194,
+        "def": 624,
+        "Physical_": "22.5"
+      },
+      {
+        "level": 73,
+        "ascension": 5,
+        "hp": 10022,
+        "atk": 196,
+        "def": 629,
+        "Physical_": "22.5"
+      },
+      {
+        "level": 74,
+        "ascension": 5,
+        "hp": 10105,
+        "atk": 197,
+        "def": 634,
+        "Physical_": "22.5"
+      },
+      {
+        "level": 75,
+        "ascension": 5,
+        "hp": 10187,
+        "atk": 199,
+        "def": 639,
+        "Physical_": "22.5"
+      },
+      {
+        "level": 76,
+        "ascension": 5,
+        "hp": 10271,
+        "atk": 201,
+        "def": 645,
+        "Physical_": "22.5"
+      },
+      {
+        "level": 77,
+        "ascension": 5,
+        "hp": 10353,
+        "atk": 202,
+        "def": 650,
+        "Physical_": "22.5"
+      },
+      {
+        "level": 78,
+        "ascension": 5,
+        "hp": 10436,
+        "atk": 204,
+        "def": 655,
+        "Physical_": "22.5"
+      },
+      {
+        "level": 79,
+        "ascension": 5,
+        "hp": 10518,
+        "atk": 205,
+        "def": 660,
+        "Physical_": "22.5"
+      },
+      {
+        "level": 80,
+        "ascension": 5,
+        "hp": 10602,
+        "atk": 207,
+        "def": 665,
+        "Physical_": "22.5"
+      },
+      {
+        "level": 81,
+        "ascension": 6,
+        "hp": 11217,
+        "atk": 219,
+        "def": 704,
+        "Physical_": "30"
+      },
+      {
+        "level": 82,
+        "ascension": 6,
+        "hp": 11299,
+        "atk": 221,
+        "def": 709,
+        "Physical_": "30"
+      },
+      {
+        "level": 83,
+        "ascension": 6,
+        "hp": 11383,
+        "atk": 222,
+        "def": 714,
+        "Physical_": "30"
+      },
+      {
+        "level": 84,
+        "ascension": 6,
+        "hp": 11465,
+        "atk": 224,
+        "def": 720,
+        "Physical_": "30"
+      },
+      {
+        "level": 85,
+        "ascension": 6,
+        "hp": 11548,
+        "atk": 226,
+        "def": 725,
+        "Physical_": "30"
+      },
+      {
+        "level": 86,
+        "ascension": 6,
+        "hp": 11630,
+        "atk": 227,
+        "def": 730,
+        "Physical_": "30"
+      },
+      {
+        "level": 87,
+        "ascension": 6,
+        "hp": 11714,
+        "atk": 229,
+        "def": 735,
+        "Physical_": "30"
+      },
+      {
+        "level": 88,
+        "ascension": 6,
+        "hp": 11796,
+        "atk": 230,
+        "def": 740,
+        "Physical_": "30"
+      },
+      {
+        "level": 89,
+        "ascension": 6,
+        "hp": 11879,
+        "atk": 232,
+        "def": 746,
+        "Physical_": "30"
+      },
+      {
+        "level": 90,
+        "ascension": 6,
+        "hp": 11962,
+        "atk": 234,
+        "def": 751,
+        "Physical_": "30"
+      },
+      {
+        "level": 95,
+        "ascension": 6,
+        "hp": 12376,
+        "atk": 263,
+        "def": 777,
+        "Physical_": "30"
+      },
+      {
+        "level": 100,
+        "ascension": 6,
+        "hp": 12790,
+        "atk": 293,
+        "def": 803,
+        "Physical_": "30"
+      }
+    ]
+  },
+  "icons": {
+    "forward": "UI_AvatarIcon_Razor",
+    "coop_img": "UI_CoopImg_Razor"
+  },
+  "ascension": {
+    "x202": 7.0499E+6,
+    "exp": {
+      "x104001": 2,
+      "x104003": 418
+    },
+    "speciality": {
+      "x100021": 168
+    },
+    "elemental": {
+      "x104141": 1,
+      "x104142": 9,
+      "x104143": 9,
+      "x104144": 6
+    },
+    "worldmonster": {
+      "x112005": 18,
+      "x112006": 30,
+      "x112007": 36
+    },
+    "elitemonster": {
+      "x113002": 46
+    }
+  },
+  "skills": {
+    "normalattack": {
+      "name": "Steel Fang",
+      "icon": "Skill_A_04",
+      "multipliers": {
+        "x1_HitDMG": [
+          "95.92%",
+          "102.46%",
+          "109%",
+          "117.72%",
+          "124.26%",
+          "131.89%",
+          "141.7%",
+          "151.51%",
+          "161.32%",
+          "171.13%",
+          "180.94%",
+          "190.75%",
+          "200.56%",
+          "210.37%",
+          "220.18%"
+        ],
+        "x2_HitDMG": [
+          "82.63%",
+          "88.27%",
+          "93.9%",
+          "101.41%",
+          "107.05%",
+          "113.62%",
+          "122.07%",
+          "130.52%",
+          "138.97%",
+          "147.42%",
+          "155.87%",
+          "164.32%",
+          "172.78%",
+          "181.23%",
+          "189.68%"
+        ],
+        "x3_HitDMG": [
+          "103.31%",
+          "110.36%",
+          "117.4%",
+          "126.79%",
+          "133.84%",
+          "142.05%",
+          "152.62%",
+          "163.19%",
+          "173.75%",
+          "184.32%",
+          "194.88%",
+          "205.45%",
+          "216.02%",
+          "226.58%",
+          "237.15%"
+        ],
+        "x4_HitDMG": [
+          "136.05%",
+          "145.32%",
+          "154.6%",
+          "166.97%",
+          "176.24%",
+          "187.07%",
+          "200.98%",
+          "214.89%",
+          "228.81%",
+          "242.72%",
+          "256.64%",
+          "270.55%",
+          "284.46%",
+          "298.38%",
+          "312.29%"
+        ],
+        "ChargedAttackCyclicDMG": [
+          "62.54%",
+          "67.63%",
+          "72.72%",
+          "79.99%",
+          "85.08%",
+          "90.9%",
+          "98.9%",
+          "106.9%",
+          "114.9%",
+          "123.62%",
+          "132.35%",
+          "141.08%",
+          "149.8%",
+          "158.53%",
+          "167.26%"
+        ],
+        "ChargedAttackFinalDMG": [
+          "113.09%",
+          "122.29%",
+          "131.5%",
+          "144.65%",
+          "153.86%",
+          "164.37%",
+          "178.84%",
+          "193.31%",
+          "207.77%",
+          "223.55%",
+          "239.33%",
+          "255.11%",
+          "270.89%",
+          "286.67%",
+          "302.45%"
+        ],
+        "ChargedAttackStaminaCost": [
+          "40/s",
+          "40/s",
+          "40/s",
+          "40/s",
+          "40/s",
+          "40/s",
+          "40/s",
+          "40/s",
+          "40/s",
+          "40/s",
+          "40/s",
+          "40/s",
+          "40/s",
+          "40/s",
+          "40/s"
+        ],
+        "MaxDuration": [
+          "5s",
+          "5s",
+          "5s",
+          "5s",
+          "5s",
+          "5s",
+          "5s",
+          "5s",
+          "5s",
+          "5s",
+          "5s",
+          "5s",
+          "5s",
+          "5s",
+          "5s"
+        ],
+        "PlungeDMG": [
+          "82.05%",
+          "88.72%",
+          "95.4%",
+          "104.94%",
+          "111.62%",
+          "119.25%",
+          "129.75%",
+          "140.24%",
+          "150.74%",
+          "162.19%",
+          "173.63%",
+          "185.08%",
+          "196.53%",
+          "207.98%",
+          "219.43%"
+        ],
+        "Low_HighPlungeDMG": [
+          "164.06%/204.92%",
+          "177.41%/221.6%",
+          "190.77%/238.28%",
+          "209.84%/262.1%",
+          "223.2%/278.78%",
+          "238.46%/297.85%",
+          "259.44%/324.06%",
+          "280.43%/350.27%",
+          "301.41%/376.48%",
+          "324.3%/405.07%",
+          "347.19%/433.66%",
+          "370.09%/462.26%",
+          "392.98%/490.85%",
+          "415.87%/519.44%",
+          "438.76%/548.04%"
+        ]
+      },
+      "description": "<color=#FFD780FF>Normal Attack</color>\\nPerforms up to 4 consecutive strikes.\\n\\n<color=#FFD780FF>Charged Attack</color>\\nDrains Stamina over time to perform continuous spinning attacks against all nearby opponents.\\nAt the end of the sequence, performs a more powerful slash. \\n\\n<color=#FFD780FF>Plunging Attack</color>\\nPlunges from mid-air to strike the ground below, damaging opponents along the path and dealing AoE DMG upon impact."
+    },
+    "elementalskill": {
+      "name": "Claw and Thunder",
+      "icon": "Skill_S_Razor_01",
+      "multipliers": {
+        "PressSkillDMG": [
+          "199.2%",
+          "214.14%",
+          "229.08%",
+          "249%",
+          "263.94%",
+          "278.88%",
+          "298.8%",
+          "318.72%",
+          "338.64%",
+          "358.56%",
+          "378.48%",
+          "398.4%",
+          "423.3%",
+          "448.2%",
+          "473.1%"
+        ],
+        "HoldSkillDMG": [
+          "295.2%",
+          "317.34%",
+          "339.48%",
+          "369%",
+          "391.14%",
+          "413.28%",
+          "442.8%",
+          "472.32%",
+          "501.84%",
+          "531.36%",
+          "560.88%",
+          "590.4%",
+          "627.3%",
+          "664.2%",
+          "701.1%"
+        ],
+        "EnergyRechargeBonus": [
+          "20% per Electro Sigil",
+          "20% per Electro Sigil",
+          "20% per Electro Sigil",
+          "20% per Electro Sigil",
+          "20% per Electro Sigil",
+          "20% per Electro Sigil",
+          "20% per Electro Sigil",
+          "20% per Electro Sigil",
+          "20% per Electro Sigil",
+          "20% per Electro Sigil",
+          "20% per Electro Sigil",
+          "20% per Electro Sigil",
+          "20% per Electro Sigil",
+          "20% per Electro Sigil",
+          "20% per Electro Sigil"
+        ],
+        "EnergyRegenerated": [
+          "5 per Electro Sigil Absorbed",
+          "5 per Electro Sigil Absorbed",
+          "5 per Electro Sigil Absorbed",
+          "5 per Electro Sigil Absorbed",
+          "5 per Electro Sigil Absorbed",
+          "5 per Electro Sigil Absorbed",
+          "5 per Electro Sigil Absorbed",
+          "5 per Electro Sigil Absorbed",
+          "5 per Electro Sigil Absorbed",
+          "5 per Electro Sigil Absorbed",
+          "5 per Electro Sigil Absorbed",
+          "5 per Electro Sigil Absorbed",
+          "5 per Electro Sigil Absorbed",
+          "5 per Electro Sigil Absorbed",
+          "5 per Electro Sigil Absorbed"
+        ],
+        "ElectroSigilDuration": [
+          "18s",
+          "18s",
+          "18s",
+          "18s",
+          "18s",
+          "18s",
+          "18s",
+          "18s",
+          "18s",
+          "18s",
+          "18s",
+          "18s",
+          "18s",
+          "18s",
+          "18s"
+        ],
+        "PressCD": [
+          "6s",
+          "6s",
+          "6s",
+          "6s",
+          "6s",
+          "6s",
+          "6s",
+          "6s",
+          "6s",
+          "6s",
+          "6s",
+          "6s",
+          "6s",
+          "6s",
+          "6s"
+        ],
+        "HoldCD": [
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s"
+        ]
+      },
+      "description": "#Hunts his prey using the techniques taught to him by his master and his lupical.\\n\\n<color=#FFD780FF>Press</color>\\nSwings the Thunder Wolf Claw, dealing <color=#FFACFFFF>Electro DMG</color> to opponents in front of Razor.\\nUpon striking an opponent, Razor will gain an Electro Sigil, which increases his Energy Recharge rate.\\nRazor can have up to 3 Electro Sigils simultaneously, and gaining a new Electro Sigil refreshes their duration.\\n\\n<color=#FFD780FF>Hold</color>\\nGathers Electro energy to unleash a lightning storm over a small AoE, causing massive <color=#FFACFFFF>Electro DMG</color>, and clears all of Razor's Electro Sigils.\\nEach Electro Sigil cleared in this manner will be converted into Energy for Razor.\\n\\n<i>In the moment when lightning strikes, you can sometimes glimpse the look of a predator sizing up his prey deep within Razor's eyes.</i>"
+    },
+    "elementalburst": {
+      "name": "Lightning Fang",
+      "icon": "Skill_E_Razor_01",
+      "multipliers": {
+        "BurstDMG": [
+          "160%",
+          "172%",
+          "184%",
+          "200%",
+          "212%",
+          "224%",
+          "240%",
+          "256%",
+          "272%",
+          "288%",
+          "304%",
+          "320%",
+          "340%",
+          "360%",
+          "380%"
+        ],
+        "SoulCompanionDMG": [
+          "24% Normal Attack DMG",
+          "25.8% Normal Attack DMG",
+          "27.6% Normal Attack DMG",
+          "30% Normal Attack DMG",
+          "31.8% Normal Attack DMG",
+          "33.6% Normal Attack DMG",
+          "36% Normal Attack DMG",
+          "38.4% Normal Attack DMG",
+          "40.8% Normal Attack DMG",
+          "43.2% Normal Attack DMG",
+          "45.6% Normal Attack DMG",
+          "48% Normal Attack DMG",
+          "51% Normal Attack DMG",
+          "54% Normal Attack DMG",
+          "57% Normal Attack DMG"
+        ],
+        "NormalATKSPDBonus": [
+          "26%",
+          "28%",
+          "30%",
+          "32%",
+          "34%",
+          "36%",
+          "37%",
+          "38%",
+          "39%",
+          "40%",
+          "40%",
+          "40%",
+          "40%",
+          "40%",
+          "40%"
+        ],
+        "ElectroRESBonus": [
+          "80%",
+          "80%",
+          "80%",
+          "80%",
+          "80%",
+          "80%",
+          "80%",
+          "80%",
+          "80%",
+          "80%",
+          "80%",
+          "80%",
+          "80%",
+          "80%",
+          "80%"
+        ],
+        "Duration": [
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s"
+        ],
+        "CD": [
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s"
+        ],
+        "EnergyCost": [
+          "80",
+          "80",
+          "80",
+          "80",
+          "80",
+          "80",
+          "80",
+          "80",
+          "80",
+          "80",
+          "80",
+          "80",
+          "80",
+          "80",
+          "80"
+        ]
+      },
+      "description": "Summons the Wolf Within, which deals <color=#FFACFFFF>Electro DMG</color> to all nearby opponents. This clears all of Razor's Electro Sigils, which will be converted into Elemental Energy for him.\\nThe Wolf Within will fight alongside Razor for the skill's duration.\\n\\n<color=#FFD780FF>The Wolf Within</color>\\n·Strikes alongside Razor's normal attacks, dealing <color=#FFACFFFF>Electro DMG</color>.\\n·Raises Razor's ATK SPD and <color=#FFACFFFF>Electro RES</color>.\\n·Causes Razor to be immune to DMG inflicted by the <color=#FFACFFFF>Electro-Charged</color> status.\\n·Disables Razor's Charged Attacks.\\n·Increases Razor's resistance to interruption.\\n\\nThese effects end when Razor leaves the battlefield.\\nWhen Razor leaves the field, a maximum of 10 Energy will be returned to him based off the duration remaining on this skill.\\n\\n<i>The wolf has awoken. The hunt is on.</i>"
+    },
+    "leveling": {
+      "books": {
+        "x104304": 9,
+        "x104305": 63,
+        "x104306": 114
+      },
+      "crown": {
+        "x104319": 3
+      },
+      "worldmonster": {
+        "x112005": 18,
+        "x112006": 66,
+        "x112007": 93
+      },
+      "weekly": {
+        "x113004": 18
+      }
+    }
+  },
+  "passives": {
+    "p1": {
+      "name": "Awakening",
+      "description": "Decreases <color=#FFD780FF>Claw and Thunder</color>'s CD by 18%.\\nUsing <color=#FFD780FF>Lightning Fang</color> resets the CD of <color=#FFD780FF>Claw and Thunder</color>.",
+      "icon": "UI_Talent_S_Razor_05"
+    },
+    "p2": {
+      "name": "Hunger",
+      "description": "When Razor's Energy is below 50%, increases Energy Recharge by 30%.",
+      "icon": "UI_Talent_S_Razor_06"
+    },
+    "p3": {
+      "name": "Wolvensprint",
+      "description": "Decreases sprinting Stamina consumption for your own party members by 20%.\\nNot stackable with Passive Talents that provide the exact same effects.",
+      "icon": "UI_Talent_Explosion_Sprint"
+    },
+    "p4": {
+      "name": "Witch's Eve Rite: Surge of Lightning",
+      "description": "After completing <color=#FFD780FF>Witch's Homework: Of the Little Wolf Pack</color>, Razor will become a <color=#FFD780FF>Hexerei</color> character. When the party includes at least 2 Hexerei characters, you will gain the <color=#FFD780FF>Hexerei: Secret Rite</color> effect, which enhances Hexerei characters.\\nAdditionally, Razor's Elemental Burst <color=#FFD780FF>Lightning Fang</color> is enhanced: <color=#FFD780FF>The Wolf Within</color>'s DMG dealt is increased by 70% of Razor's ATK.\\n\\n<color=#FFD780FF>Hexerei: Secret Rite</color>\\nWhile the Wolf Within summoned by Razor's Elemental Burst <color=#FFD780FF>Lightning Fang</color> is active, if the Electro Sigils from Razor's Elemental Skill <color=#FFD780FF>Claw and Thunder</color> overflow, the Wolf Within will call down a lightning strike on nearby enemies, dealing AoE Electro DMG equal to 150% of Razor's ATK and restoring 7 Energy to Razor. This effect can be triggered once every 1s.",
+      "icon": "UI_Talent_S_Razor_07"
+    }
+  },
+  "constellations": {
+    "const1": {
+      "name": "Wolf's Instinct",
+      "description": "Picking up an Elemental Orb or Particle increases Razor's DMG by 10% for 8s.",
+      "icon": "UI_Talent_S_Razor_01"
+    },
+    "const2": {
+      "name": "Suppression",
+      "description": "Increases CRIT Rate against opponents with less than 30% HP by 10%.",
+      "icon": "UI_Talent_S_Razor_02"
+    },
+    "const3": {
+      "name": "Soul Companion",
+      "description": "Increases the Level of <color=#FFD780FF>Lightning Fang</color> by 3.\\nMaximum upgrade level is 15.",
+      "icon": "UI_Talent_U_Razor_02"
+    },
+    "const4": {
+      "name": "Bite",
+      "description": "#When casting <color=#FFD780FF>Claw and Thunder</color> (Press), opponents hit will have their DEF decreased by 15% for 7s.",
+      "icon": "UI_Talent_S_Razor_03"
+    },
+    "const5": {
+      "name": "Sharpened Claws",
+      "description": "Increases the Level of <color=#FFD780FF>Claw and Thunder</color> by 3.\\nMaximum upgrade level is 15.",
+      "icon": "UI_Talent_U_Razor_01"
+    },
+    "const6": {
+      "name": "Lupus Fulguris",
+      "description": "Every 10s, Razor's sword charges up, causing the next Normal Attack to release lightning that deals 100% of Razor's ATK as <color=#FFACFFFF>Electro DMG</color>.\\nWhen Razor is not using <color=#FFD780FF>Lightning Fang</color>, lightning strikes on an opponent will grant 3 Electro Sigils for his Elemental Skill <color=#FFD780FF>Claw and Thunder</color>.\\nAdditionally, when Razor gains Electro Sigils through his Elemental Skill <color=#FFD780FF>Claw and Thunder</color>, he will gain 3 Sigils instead.\\nFor 15s after consuming Electro Sigils, Razor's CRIT Rate is increased by 10% and CRIT DMG by 50%.",
+      "icon": "UI_Talent_S_Razor_04"
+    }
+  },
+  "hyperlinks": [],
+  "stories": {
+    "x9201": {
+      "storyTitle": "Character Details",
+      "storyText": "Razor is a boy whose identity is shrouded in mystery. He lives in Wolvendom and is rarely spotted by the citizens of Mondstadt.\\nAccording to a handful of eyewitness accounts, Razor has keen senses and is highly agile, traversing the forest at breakneck speed. He is often seen in the company of his wolf pack, while generally avoiding contact with humans.\\nSome speculate that he was an orphan raised by the wolves, while others say he is a wolf spirit that has taken on a human form.\\nSuch rumors only add to the mystery of the \"Wolf Boy,\" as the denizens of Mondstadt call him.\\nMeanwhile, Razor the Wolf Boy stands all the while on the hilltops with his head held high, basking in the warm sunlight.",
+      "unlockConds": []
+    },
+    "x9202": {
+      "storyTitle": "Character Story 1",
+      "storyText": "Razor lives among the wolves night and day.\\nAll of them are as close with Razor as they could possibly be. Which wolf has the loudest howl, which wolf runs the fastest, which wolf is the best at ambushing — there isn't a wolf Razor doesn't know.\\nHe can sense the mood of the wind, smell a scent from miles away, and knows many practical applications for plants of all kinds. The one thing he can't bring to mind is the faces of his parents.\\nWhat kind of people were they? No matter how hard he tries, he cannot remember.\\nHis memory starts after his life with the wolves had already begun. The wolves took him in as part of their \"Lupical\" — a word he was taught by someone else, which means family.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 2
+      }
+    },
+    "x9203": {
+      "storyTitle": "Character Story 2",
+      "storyText": "Tiny singing things are flying in the sky.\\nThe clouds are long and fluffy, like a wolf's tail.\\nRazor's world is a simple one.\\nOn a sunny day, you run around hunting or try and beat your prey to the ripe fruits. On a rainy day, you hide out in a hollow tree and fall asleep hugging a furry lupine friend, with some grass and leaves for a pillow.\\nEat as much as you can and drink plenty of water. Cool off in the lake when you're hot, and go find some juicy berries when you're thirsty.\\nRazor looks at his body and then at the bodies of his kin.\\nHe knows he is different from them.\\nBut there's nothing wrong with that, as far as Razor is concerned.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 3
+      }
+    },
+    "x9204": {
+      "storyTitle": "Character Story 3",
+      "storyText": "One day, a tall man came to the mountains and disrupted Razor's peaceful life.\\nRazor did not know who the man was, only that he was a human. Seeing the confused look on Razor's face, the man gave him a friendly smile.\\n\"Hey buddy! Why don't you come back down to Mondstadt with me?\"\\nThe man offered his hand to Razor as he spoke.\\nBut neither Razor nor the wolves understood the gesture. Feeling protective, the wolves placed themselves between Razor and the man to keep him away.\\nRazor ducked down beneath the wolves' furry tails. He looked at his body, and then peered out through the gaps in the wolf fur to get a look at the man's.\\nRazor knew he wasn't the most intelligent of beings, and was at a loss to answer the question that has been in his mind ever since that day.\\n\"Am I a human, or a wolf?\"",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 4
+      }
+    },
+    "x9205": {
+      "storyTitle": "Character Story 4",
+      "storyText": "It was that man who gave Razor his name.\\nThe simple Wolf Boy could not understand the intricacies of human language, but he knew from the look on the man's face when he produced this sound that the man was giving him a name.\\n\"Rae-zer.\"\\nThe shadows cast by the trees of Wolvendom grew short, and then grew long again.\\nThe man taught Razor how to swing a sword. Unwieldy though this steel claw may be, thought Razor, it was at least sharp enough to cut through tree branches.\\n\"Now you can protect your friends.\"\\n\"Fr-ren-dzz...\"\\nRazor imitated the sounds the man made, without understanding what they meant.\\nSimilarly, he did not understand why the names of things were all that important in the first place. After all, he never learned the name of that man before he left.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 5
+      }
+    },
+    "x9206": {
+      "storyTitle": "Character Story 5",
+      "storyText": "\"Master, what is... 'friends'?\"\\nRazor once asked of his new mentor, working at the limits of his vocabulary.\\nHis purple-clothed mentor seemed to know it all, from how to make hash browns from potatoes in the ground, to the name of the brightest star in the summer night sky.\\nHowever, Lisa simply smiled and yawned without answering him.\\nRazor thought about it when the wind blew, when the rain fell — even when Wolfhook berries got stuck in his fur. He just couldn't figure it out.\\nUntil one day, Razor met a bright-red, 'burny' girl.\\nThey stood in the wind together, got soaked in the rain together — she even rolled around in Wolfhook bushes with him.\\nHer name was Klee. When Razor played with her, it was like being a wolf pup again.\\n\"Friends... is... Lupical.\"\\nRazor may not understand the complexity of human relationships, but he has an honest, primal loyalty to him.\\n\"So... protect friends... Lupical... with life.\"\\nThe wolf pack howls in the distance, summoning him home.\\nRazor still does not know if he is a human or a wolf.\\nBut he is happy either way.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 6
+      }
+    },
+    "x9207": {
+      "storyTitle": "Razor's Crude Wooden Crate",
+      "storyText": "In a box so crudely made that one has to be extra careful when opening it lies Razor's greatest treasures.\\nThe broken-off hilt of a greatsword, a children's storybook called The Wolf and the Windwheel Aster, and a dry, withered four-leaf clover.\\nThough he understands neither the intricacies of human relations nor the ways of the world, Razor knows that these are gifts from the ones known as 'friends' — and that is what makes them his most treasured possessions of all.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 6
+      }
+    },
+    "x9208": {
+      "storyTitle": "Vision",
+      "storyText": "The story of how Razor got his Vision is one of the few memories that he wishes he could forget.\\nOne day, during a lightning storm, an Abyss Mage ambushed Razor from behind and dragged him away. The wolf pack ran to his aid and put up a fearless fight, but every last one of them was defeated by the Abyss Mage.\\nAs he looked on helplessly at his dear companions being harmed, Razor let out an almighty roar like that of a cornered animal.\\n\"Lupical!\"\\nFueled by his almighty fury, a lightning-like power grew inside, and suddenly an overload of elemental energy was flowing within him.\\nHe was ready to protect. He was ready to avenge.\\nHe threw off his shackles and raised his weapon.\\nThe Abyss Mage was overwhelmed and defeated by a wild, unfettered frenzy of Electro energy, but this time it was too late to save Razor's wolven companions.\\n...\\nThough he had obtained a Vision, Razor was still unable to manipulate Electro energy with finesse. One day many moons later, when he met the Witch of Purple Rose, Lisa, he began to study human knowledge.\\n\"Friends, hurt... Never again! I will... protect them.\"\\nWith each day, Razor grew more skilled in the use of his Vision. He made a silent promise to himself: \"I will become stronger. I will become the strongest of them all.\"\\nBecause the day may come when his Lupical faces another threat, and this time, he will protect them.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 6
+      }
+    }
+  },
+  "quotes": {
+    "x9100": {
+      "quoteTitle": "Hello",
+      "quoteText": "You smell... *sniff* nice! Let's hunt.",
+      "unlockConds": []
+    },
+    "x9101": {
+      "quoteTitle": "Chat: Scent",
+      "quoteText": "*sniff* I smell rabbit.",
+      "unlockConds": []
+    },
+    "x9102": {
+      "quoteTitle": "Chat: Hunger",
+      "quoteText": "I'm hungry. Let's hunt.",
+      "unlockConds": []
+    },
+    "x9103": {
+      "quoteTitle": "Chat: Wind-gazing",
+      "quoteText": "I keep watch. You leave, you call me.",
+      "unlockConds": []
+    },
+    "x9104": {
+      "quoteTitle": "When Thunder Strikes: Warning",
+      "quoteText": "If you're scared of lightning, hide now.",
+      "unlockConds": []
+    },
+    "x9105": {
+      "quoteTitle": "When Thunder Strikes: Guidance",
+      "quoteText": "Avoid the trees. Follow me.",
+      "unlockConds": []
+    },
+    "x9106": {
+      "quoteTitle": "When It's Windy",
+      "quoteText": "Wind... I like the wind.",
+      "unlockConds": []
+    },
+    "x9107": {
+      "quoteTitle": "When the Wind Is Blowing",
+      "quoteText": "The wind... bites hard.",
+      "unlockConds": []
+    },
+    "x9108": {
+      "quoteTitle": "Good Morning",
+      "quoteText": "The sun is up. Time to hunt.",
+      "unlockConds": []
+    },
+    "x9109": {
+      "quoteTitle": "Good Afternoon",
+      "quoteText": "I had a big lunch. Lots of meat. Mm, I'm happy.",
+      "unlockConds": []
+    },
+    "x9110": {
+      "quoteTitle": "Good Evening",
+      "quoteText": "Go to sleep. I watch the moon.",
+      "unlockConds": []
+    },
+    "x9111": {
+      "quoteTitle": "Good Night",
+      "quoteText": "You sleep now. I keep watch.",
+      "unlockConds": []
+    },
+    "x9112": {
+      "quoteTitle": "About Razor",
+      "quoteText": "I have no human family. I am a wolf.",
+      "unlockConds": []
+    },
+    "x9113": {
+      "quoteTitle": "About Us: Friends",
+      "quoteText": "You are my friend. We can hunt. Together!",
+      "unlockConds": []
+    },
+    "x9114": {
+      "quoteTitle": "About Us: Weapons",
+      "quoteText": "I have iron claws and teeth of thunder. I protect you.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 6"
+      ]
+    },
+    "x9115": {
+      "quoteTitle": "About the Vision",
+      "quoteText": "Vision helps Razor... fight with lightning tooth! Protect Lupical!",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x9116": {
+      "quoteTitle": "Something to Share",
+      "quoteText": "I like the stars at night. So many stars. In the sky, in the lake. And in the city.",
+      "unlockConds": []
+    },
+    "x9117": {
+      "quoteTitle": "Interesting Things",
+      "quoteText": "The wolves are my Lupical. My family.",
+      "unlockConds": []
+    },
+    "x9118": {
+      "quoteTitle": "About Lisa",
+      "quoteText": "Lisa lightning makes the sky black. She is strong. She is scary.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4",
+        "Complete \"The Meaning of Lupical\""
+      ]
+    },
+    "x9119": {
+      "quoteTitle": "About Barbara",
+      "quoteText": "Shining Barbara is a good child. Very good child.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x9120": {
+      "quoteTitle": "About Diluc",
+      "quoteText": "Diluc is red and black. Hot and cold.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x9121": {
+      "quoteTitle": "About Venti",
+      "quoteText": "Razor doesn't know poems, but... Lupical likes them.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x9122": {
+      "quoteTitle": "About Bennett",
+      "quoteText": "Bennett... Much talking. Eat with him, never full.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x9123": {
+      "quoteTitle": "About Klee",
+      "quoteText": "Klee, friend! Friend, but... big hassle.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4",
+        "Complete \"The Meaning of Lupical\""
+      ]
+    },
+    "x9124": {
+      "quoteTitle": "About Varka: Stranger",
+      "quoteText": "Varka? Razor doesn't know...",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x9125": {
+      "quoteTitle": "About Varka: Memory",
+      "quoteText": "Oh, Varka is... a name. That man big. Big steelclaw, Razor's name — Varka gave him. Oh... want to see him.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 6"
+      ]
+    },
+    "x9126": {
+      "quoteTitle": "More About Razor: I",
+      "quoteText": "*sniff* Hmm... You smell kind. Do you like meat?",
+      "unlockConds": []
+    },
+    "x9127": {
+      "quoteTitle": "More About Razor: II",
+      "quoteText": "You are strong. Like a wolf. I like to hunt with you. We catch a lot.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 3"
+      ]
+    },
+    "x9128": {
+      "quoteTitle": "More About Razor: III",
+      "quoteText": "Lupical means wolf home— no, Lupical means wolf family. My Lupical lives in the woods. They say I am their Lupical.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x9129": {
+      "quoteTitle": "More About Razor: IV",
+      "quoteText": "My Lupical is my only family. But I don't have four legs, not like them. Because I'm not a real wolf. Sometimes, this makes me sad.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 5"
+      ]
+    },
+    "x9130": {
+      "quoteTitle": "More About Razor: V",
+      "quoteText": "When I run with you, when I hunt with you, I am happy. With you, I am not a wolf, I am not a boy, I am just me. I am Razor. Because you are my friend. You are my Lupical. I hope you feel happy, too!",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 6"
+      ]
+    },
+    "x9131": {
+      "quoteTitle": "Razor's Hobbies",
+      "quoteText": "I like Lupical. I like the woods. I like my friend. I like to run!",
+      "unlockConds": []
+    },
+    "x9132": {
+      "quoteTitle": "Razor's Troubles",
+      "quoteText": "Talking makes me tired. Talking is... hard. But... I have to try.",
+      "unlockConds": []
+    },
+    "x9133": {
+      "quoteTitle": "Favorite Food",
+      "quoteText": "I like meat, and... I like potatoes.",
+      "unlockConds": []
+    },
+    "x9134": {
+      "quoteTitle": "Least Favorite Food",
+      "quoteText": "Greens are bad. Animal eats green things. Then I eat animal!",
+      "unlockConds": []
+    },
+    "x9135": {
+      "quoteTitle": "Birthday",
+      "quoteText": "Today is your day. You were born on this day, many moons ago. I want to make you happy today. Can we eat meat together?",
+      "unlockConds": []
+    },
+    "x9136": {
+      "quoteTitle": "Feelings About Ascension: Intro",
+      "quoteText": "Arms... bigger!",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 1"
+      ]
+    },
+    "x9137": {
+      "quoteTitle": "Feelings About Ascension: Building Up",
+      "quoteText": "Grr! Sharpen claws. Sharpen teeth. Become stronger!",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 2"
+      ]
+    },
+    "x9138": {
+      "quoteTitle": "Feelings About Ascension: Climax",
+      "quoteText": "Run... Hunt... No. No! Must... become stronger!",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 4"
+      ]
+    },
+    "x9139": {
+      "quoteTitle": "Feelings About Ascension: Conclusion",
+      "quoteText": "Teeth. Claws. Legs. All bigger. All stronger! To protect you.",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 6"
+      ]
+    },
+    "x9140": {
+      "quoteTitle": "Elemental Skill: I",
+      "quoteText": "Get back!",
+      "unlockConds": []
+    },
+    "x9141": {
+      "quoteTitle": "Elemental Skill: II",
+      "quoteText": "Ah!",
+      "unlockConds": []
+    },
+    "x9142": {
+      "quoteTitle": "Elemental Skill: III",
+      "quoteText": "Heyah!",
+      "unlockConds": []
+    },
+    "x9143": {
+      "quoteTitle": "Elemental Skill: IV",
+      "quoteText": "Keep back!",
+      "unlockConds": []
+    },
+    "x9144": {
+      "quoteTitle": "Elemental Burst: I",
+      "quoteText": "Raaaarrr!",
+      "unlockConds": []
+    },
+    "x9145": {
+      "quoteTitle": "Elemental Burst: II",
+      "quoteText": "*howls*",
+      "unlockConds": []
+    },
+    "x9146": {
+      "quoteTitle": "Elemental Burst: III",
+      "quoteText": "*roars*",
+      "unlockConds": []
+    },
+    "x9147": {
+      "quoteTitle": "Elemental Burst: IV",
+      "quoteText": "Rar!",
+      "unlockConds": []
+    },
+    "x9148": {
+      "quoteTitle": "Opening Treasure Chest: I",
+      "quoteText": "These things... useful?",
+      "unlockConds": []
+    },
+    "x9149": {
+      "quoteTitle": "Opening Treasure Chest: II",
+      "quoteText": "Empty chest... good for storage.",
+      "unlockConds": []
+    },
+    "x9150": {
+      "quoteTitle": "Opening Treasure Chest: III",
+      "quoteText": "Smell of treasure... strange.",
+      "unlockConds": []
+    },
+    "x9151": {
+      "quoteTitle": "Low HP: I",
+      "quoteText": "Argh!",
+      "unlockConds": []
+    },
+    "x9152": {
+      "quoteTitle": "Low HP: II",
+      "quoteText": "*grunt* A-a-awoooo!",
+      "unlockConds": []
+    },
+    "x9153": {
+      "quoteTitle": "Low HP: III",
+      "quoteText": "I kill you!",
+      "unlockConds": []
+    },
+    "x9154": {
+      "quoteTitle": "Ally at Low HP: I",
+      "quoteText": "No!",
+      "unlockConds": []
+    },
+    "x9155": {
+      "quoteTitle": "Ally at Low HP: II",
+      "quoteText": "Wake up!",
+      "unlockConds": []
+    },
+    "x9156": {
+      "quoteTitle": "Fallen: I",
+      "quoteText": "Can't... breathe...",
+      "unlockConds": []
+    },
+    "x9157": {
+      "quoteTitle": "Fallen: II",
+      "quoteText": "Take me back...",
+      "unlockConds": []
+    },
+    "x9158": {
+      "quoteTitle": "Fallen: III",
+      "quoteText": "Lupical... my Lupical...",
+      "unlockConds": []
+    },
+    "x9159": {
+      "quoteTitle": "Heavy Hit Taken: I",
+      "quoteText": "I taste blood...",
+      "unlockConds": []
+    },
+    "x9160": {
+      "quoteTitle": "Joining Party: I",
+      "quoteText": "I'll scout ahead.",
+      "unlockConds": []
+    },
+    "x9161": {
+      "quoteTitle": "Joining Party: II",
+      "quoteText": "We're going to hunt!",
+      "unlockConds": []
+    },
+    "x9162": {
+      "quoteTitle": "Joining Party: III",
+      "quoteText": "I'll watch your back.",
+      "unlockConds": []
+    },
+    "x9163": {
+      "quoteTitle": "Receiving a Gift: I",
+      "quoteText": "Smells good, also tastes good, I like it.",
+      "unlockConds": []
+    },
+    "x9164": {
+      "quoteTitle": "Receiving a Gift: II",
+      "quoteText": "Eating this gives me energy, makes me happy.",
+      "unlockConds": []
+    },
+    "x9165": {
+      "quoteTitle": "Receiving a Gift: III",
+      "quoteText": "Eating it, bad. Not eating it, also bad. I'm a bit sad.",
+      "unlockConds": []
+    }
+  },
+  "energy": [
+    {
+      "source": "ClawMark_Click_DropBall_Base",
+      "particles": "3",
+      "chance": "100%",
+      "cd": "1s"
+    },
+    {
+      "source": "ClawMark_Burst_DropBall_Base",
+      "particles": "4",
+      "chance": "100%",
+      "cd": "1s"
+    }
+  ],
+  "attacks": [
+    {
+      "name": "ClawMark_Click",
+      "icd_source": "Tag: Elemental_Art (!)",
+      "icd_rule": "Independent",
+      "gauge": "2U",
+      "poise": "LV3/140",
+      "element": "Electric",
+      "attackType": "Melee",
+      "strikeType": "Slash",
+      "damageParam": "ClawMark_Damage"
+    },
+    {
+      "name": "ClawMark_Click",
+      "icd_source": "Tag: Elemental_Art (!)",
+      "icd_rule": "Independent",
+      "gauge": "2U",
+      "poise": "LV3/140",
+      "element": "Electric",
+      "attackType": "Melee",
+      "strikeType": "Slash",
+      "damageParam": "ClawMark_Damage"
+    },
+    {
+      "name": "ClawMark_Burst",
+      "icd_source": "Tag: Elemental_Art (!)",
+      "icd_rule": "Independent",
+      "gauge": "2U",
+      "poise": "LV5/300",
+      "element": "Electric",
+      "attackType": "Melee",
+      "strikeType": "Blunt",
+      "damageParam": "ExplodeDamage"
+    },
+    {
+      "name": "ClawMark_Burst",
+      "icd_source": "Tag: Elemental_Art (!)",
+      "icd_rule": "Independent",
+      "gauge": "2U",
+      "poise": "LV3/300",
+      "element": "Electric",
+      "attackType": "Melee",
+      "strikeType": "Blunt",
+      "damageParam": "ExplodeDamage"
+    },
+    {
+      "name": "LycanMode",
+      "icd_source": "Tag: Elemental_Burst (!)",
+      "icd_rule": "Independent",
+      "gauge": "2U",
+      "poise": "LV3/51",
+      "element": "Electric",
+      "attackType": "Default",
+      "strikeType": "Blunt",
+      "damageParam": "LycanMode_BlastDamage"
+    },
+    {
+      "name": "Talent_ChargedBlade",
+      "icd_source": "Tag: ChargedBlade (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV2/69",
+      "element": "Electric",
+      "attackType": "Default",
+      "strikeType": "None",
+      "damageParam": "ChargedBlade_Damage"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "0U",
+      "poise": "LV2/35",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Slash",
+      "damageParam": "FallingAnthem_Normal_Loop_Damage"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV4/150",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Blunt",
+      "damageParam": "FallingAnthem_Normal_Rank_1_Damage"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV7/200",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Blunt",
+      "damageParam": "FallingAnthem_Normal_Rank_2_Damage"
+    },
+    {
+      "name": "HexenzirkelSkill",
+      "icd_source": "Grp: default",
+      "icd_rule": "Standard (3h/2.5s)",
+      "gauge": "1U",
+      "poise": "LV3/100",
+      "element": "Electric",
+      "attackType": "Default",
+      "strikeType": "-",
+      "damageParam": "ThunderfallDamage"
+    }
+  ],
+  "endure": {
+    "ability": "LycanMode_LycanSimulator",
+    "handler": "LycanMode_Electrified",
+    "Actor_EndureDelta": 0.5
+  }
+}

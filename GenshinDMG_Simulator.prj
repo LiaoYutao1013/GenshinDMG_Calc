@@ -1,8 +1,13 @@
 <deployment-project plugin="plugin.ezdeploy" plugin-version="1.0">
-  <configuration file="C:\Users\ASUS\MATLAB\Projects\GenshinDMG_Calc\GenshinDMG_Simulator.prj" location="C:\Users\ASUS\MATLAB\Projects\GenshinDMG_Calc" name="GenshinDMG_Simulator" target="target.ezdeploy.standalone" target-name="Application Compiler">
+  <configuration build-checksum="1077253425" file="C:\Users\ASUS\MATLAB\Projects\GenshinDMG_Calc\GenshinDMG_Simulator.prj" location="C:\Users\ASUS\MATLAB\Projects\GenshinDMG_Calc" name="GenshinDMG_Simulator" preferred-package-location="C:\Users\ASUS\MATLAB\Projects\GenshinDMG_Calc\GenshinDMG_Simulator\for_redistribution" preferred-package-type="package.type.exe" target="target.ezdeploy.standalone" target-name="Application Compiler">
     <param.appname>GenshinDMG_Simulator</param.appname>
-    <param.icon />
-    <param.icons />
+    <param.icon>${PROJECT_ROOT}\GenshinDMG_Simulator_resources\icon.ico</param.icon>
+    <param.icons>
+      <file>${PROJECT_ROOT}\GenshinDMG_Simulator_resources\icon_48.png</file>
+      <file>${PROJECT_ROOT}\GenshinDMG_Simulator_resources\icon_32.png</file>
+      <file>${PROJECT_ROOT}\GenshinDMG_Simulator_resources\icon_24.png</file>
+      <file>${PROJECT_ROOT}\GenshinDMG_Simulator_resources\icon_16.png</file>
+    </param.icons>
     <param.version>1.0.0</param.version>
     <param.authnamewatermark>LiaoYutao</param.authnamewatermark>
     <param.email>bcliaoyutao@mail.scut.edu.cn</param.email>
@@ -35,8 +40,8 @@ This project is fan-made and is not affiliated with, endorsed by, or sponsored b
     <param.package.mcr.name>MyAppInstaller_mcr</param.package.mcr.name>
     <param.no.mcr.name>MyAppInstaller_app</param.no.mcr.name>
     <param.windows.command.prompt>true</param.windows.command.prompt>
-    <param.create.log>true</param.create.log>
-    <param.log.file>Log.log</param.log.file>
+    <param.create.log>false</param.create.log>
+    <param.log.file />
     <param.native.matlab>false</param.native.matlab>
     <param.checkbox>false</param.checkbox>
     <param.example />
@@ -53,8 +58,6 @@ It supports character damage simulation, artifact and stat comparison, team buff
 
 This project is fan-made and is not affiliated with, endorsed by, or sponsored by HoYoverse.</param.help.text>
     <unset>
-      <param.icon />
-      <param.icons />
       <param.company />
       <param.guid />
       <param.installpath.string />
@@ -76,6 +79,8 @@ This project is fan-made and is not affiliated with, endorsed by, or sponsored b
       <param.package.mcr.name />
       <param.no.mcr.name />
       <param.windows.command.prompt />
+      <param.create.log />
+      <param.log.file />
       <param.native.matlab />
       <param.checkbox />
       <param.example />
@@ -84,9 +89,255 @@ This project is fan-made and is not affiliated with, endorsed by, or sponsored b
       <file>${PROJECT_ROOT}\analysis\launchGenshinDMGApp.m</file>
     </fileset.main>
     <fileset.resources />
-    <fileset.package />
+    <fileset.package>
+      <file>${PROJECT_ROOT}\analysis</file>
+      <file>${PROJECT_ROOT}\art</file>
+      <file>${PROJECT_ROOT}\data</file>
+      <file>${PROJECT_ROOT}\functions</file>
+      <file>${PROJECT_ROOT}\functions\app</file>
+      <file>${PROJECT_ROOT}\functions\app\GenshinDMGDashboard.html</file>
+      <file>${PROJECT_ROOT}\optimization</file>
+      <file>${PROJECT_ROOT}\resources</file>
+    </fileset.package>
     <fileset.depfun>
-      <file>${PROJECT_ROOT}\art\pictures\Columbina\Columbina_BG001.png</file>
+      <file>${PROJECT_ROOT}\functions\advanceEnemyStateTime.m</file>
+      <file>${PROJECT_ROOT}\functions\Aino\customArtifact_Aino.m</file>
+      <file>${PROJECT_ROOT}\functions\Aino\simulateAinoDPS.m</file>
+      <file>${PROJECT_ROOT}\functions\Alhaitham\customArtifact_Alhaitham.m</file>
+      <file>${PROJECT_ROOT}\functions\Alhaitham\simulateAlhaithamDPS.m</file>
+      <file>${PROJECT_ROOT}\functions\Amber\customArtifact_Amber.m</file>
+      <file>${PROJECT_ROOT}\functions\Amber\simulateAmberDPS.m</file>
+      <file>${PROJECT_ROOT}\functions\app\buildStructToTableData.m</file>
+      <file>${PROJECT_ROOT}\functions\app\estimateActionDuration.m</file>
+      <file>${PROJECT_ROOT}\functions\app\GenshinDMGApp.m</file>
+      <file>${PROJECT_ROOT}\functions\app\getArtifactSetChoices.m</file>
+      <file>${PROJECT_ROOT}\functions\app\getArtifactSetTheme.m</file>
+      <file>${PROJECT_ROOT}\functions\app\getCharacterDefaultRotationText.m</file>
+      <file>${PROJECT_ROOT}\functions\app\getCharacterRegistry.m</file>
+      <file>${PROJECT_ROOT}\functions\app\getEquipmentBadge.m</file>
+      <file>${PROJECT_ROOT}\functions\app\getPortraitForCharacter.m</file>
+      <file>${PROJECT_ROOT}\functions\app\getWeaponTypeMap.m</file>
+      <file>${PROJECT_ROOT}\functions\app\listBuildPresetsForCharacter.m</file>
+      <file>${PROJECT_ROOT}\functions\app\listWeaponsForCharacter.m</file>
+      <file>${PROJECT_ROOT}\functions\app\loadBuildPreset.m</file>
+      <file>${PROJECT_ROOT}\functions\app\parseRotationTextTokens.m</file>
+      <file>${PROJECT_ROOT}\functions\app\tableDataToBuildStruct.m</file>
+      <file>${PROJECT_ROOT}\functions\app\writeTempRotationFile.m</file>
+      <file>${PROJECT_ROOT}\functions\applyElementalHitToEnemy.m</file>
+      <file>${PROJECT_ROOT}\functions\applyStructOverrides.m</file>
+      <file>${PROJECT_ROOT}\functions\AratakiItto\customArtifact_AratakiItto.m</file>
+      <file>${PROJECT_ROOT}\functions\AratakiItto\simulateAratakiIttoDPS.m</file>
+      <file>${PROJECT_ROOT}\functions\Arlecchino\customArtifact_Arlecchino.m</file>
+      <file>${PROJECT_ROOT}\functions\Arlecchino\simulateArlecchinoDPS.m</file>
+      <file>${PROJECT_ROOT}\functions\Baizhu\customArtifact_Baizhu.m</file>
+      <file>${PROJECT_ROOT}\functions\Baizhu\simulateBaizhuDPS.m</file>
+      <file>${PROJECT_ROOT}\functions\Barbara\customArtifact_Barbara.m</file>
+      <file>${PROJECT_ROOT}\functions\Barbara\simulateBarbaraDPS.m</file>
+      <file>${PROJECT_ROOT}\functions\Beidou\customArtifact_Beidou.m</file>
+      <file>${PROJECT_ROOT}\functions\Beidou\simulateBeidouDPS.m</file>
+      <file>${PROJECT_ROOT}\functions\buildGenericCharacterArtifact.m</file>
+      <file>${PROJECT_ROOT}\functions\buildInferredReactionAudit.m</file>
+      <file>${PROJECT_ROOT}\functions\buildTeamContext.m</file>
+      <file>${PROJECT_ROOT}\functions\calcDamageMultiplier.m</file>
+      <file>${PROJECT_ROOT}\functions\calcExpectedCritMultiplier.m</file>
+      <file>${PROJECT_ROOT}\functions\calcReactionDamage.m</file>
+      <file>${PROJECT_ROOT}\functions\Candace\customArtifact_Candace.m</file>
+      <file>${PROJECT_ROOT}\functions\Candace\simulateCandaceDPS.m</file>
+      <file>${PROJECT_ROOT}\functions\Charlotte\customArtifact_Charlotte.m</file>
+      <file>${PROJECT_ROOT}\functions\Charlotte\simulateCharlotteDPS.m</file>
+      <file>${PROJECT_ROOT}\functions\Chasca\customArtifact_Chasca.m</file>
+      <file>${PROJECT_ROOT}\functions\Chasca\simulateChascaDPS.m</file>
+      <file>${PROJECT_ROOT}\functions\Chevreuse\customArtifact_Chevreuse.m</file>
+      <file>${PROJECT_ROOT}\functions\Chevreuse\simulateChevreuseDPS.m</file>
+      <file>${PROJECT_ROOT}\functions\Chiori\customArtifact_Chiori.m</file>
+      <file>${PROJECT_ROOT}\functions\Chiori\simulateChioriDPS.m</file>
+      <file>${PROJECT_ROOT}\functions\Citlali\customArtifact_Citlali.m</file>
+      <file>${PROJECT_ROOT}\functions\Citlali\simulateCitlaliDPS.m</file>
+      <file>${PROJECT_ROOT}\functions\Clorinde\customArtifact_Clorinde.m</file>
+      <file>${PROJECT_ROOT}\functions\Clorinde\simulateClorindeDPS.m</file>
+      <file>${PROJECT_ROOT}\functions\Collei\customArtifact_Collei.m</file>
+      <file>${PROJECT_ROOT}\functions\Collei\simulateColleiDPS.m</file>
+      <file>${PROJECT_ROOT}\functions\Columbina\customArtifact_Columbina.m</file>
+      <file>${PROJECT_ROOT}\functions\Columbina\simulateColumbinaDPS.m</file>
+      <file>${PROJECT_ROOT}\functions\compileArtifactSetBonuses.m</file>
+      <file>${PROJECT_ROOT}\functions\createEnemyState.m</file>
+      <file>${PROJECT_ROOT}\functions\Cyno\customArtifact_Cyno.m</file>
+      <file>${PROJECT_ROOT}\functions\Cyno\simulateCynoDPS.m</file>
+      <file>${PROJECT_ROOT}\functions\Dahlia\customArtifact_Dahlia.m</file>
+      <file>${PROJECT_ROOT}\functions\Dahlia\simulateDahliaDPS.m</file>
+      <file>${PROJECT_ROOT}\functions\Dehya\customArtifact_Dehya.m</file>
+      <file>${PROJECT_ROOT}\functions\Dehya\simulateDehyaDPS.m</file>
+      <file>${PROJECT_ROOT}\functions\Diluc\customArtifact_Diluc.m</file>
+      <file>${PROJECT_ROOT}\functions\Diluc\simulateDilucDPS.m</file>
+      <file>${PROJECT_ROOT}\functions\Dori\customArtifact_Dori.m</file>
+      <file>${PROJECT_ROOT}\functions\Dori\simulateDoriDPS.m</file>
+      <file>${PROJECT_ROOT}\functions\Durin\customArtifact_Durin.m</file>
+      <file>${PROJECT_ROOT}\functions\Durin\simulateDurinDPS.m</file>
+      <file>${PROJECT_ROOT}\functions\Emilie\customArtifact_Emilie.m</file>
+      <file>${PROJECT_ROOT}\functions\Emilie\simulateEmilieDPS.m</file>
+      <file>${PROJECT_ROOT}\functions\Escoffier\customArtifact_Escoffier.m</file>
+      <file>${PROJECT_ROOT}\functions\Escoffier\simulateEscoffierDPS.m</file>
+      <file>${PROJECT_ROOT}\functions\Faruzan\customArtifact_Faruzan.m</file>
+      <file>${PROJECT_ROOT}\functions\Faruzan\simulateFaruzanDPS.m</file>
+      <file>${PROJECT_ROOT}\functions\Fischl\customArtifact_Fischl.m</file>
+      <file>${PROJECT_ROOT}\functions\Fischl\simulateFischlDPS.m</file>
+      <file>${PROJECT_ROOT}\functions\Flins\customArtifact_Flins.m</file>
+      <file>${PROJECT_ROOT}\functions\Flins\simulateFlinsDPS.m</file>
+      <file>${PROJECT_ROOT}\functions\Freminet\customArtifact_Freminet.m</file>
+      <file>${PROJECT_ROOT}\functions\Freminet\simulateFreminetDPS.m</file>
+      <file>${PROJECT_ROOT}\functions\Furina\customArtifact_Furina.m</file>
+      <file>${PROJECT_ROOT}\functions\Furina\simulateFurinaDPS.m</file>
+      <file>${PROJECT_ROOT}\functions\Gaming\customArtifact_Gaming.m</file>
+      <file>${PROJECT_ROOT}\functions\Gaming\simulateGamingDPS.m</file>
+      <file>${PROJECT_ROOT}\functions\getAmplifyingReactionMultiplier.m</file>
+      <file>${PROJECT_ROOT}\functions\getArtifactLegacySetContribution.m</file>
+      <file>${PROJECT_ROOT}\functions\getArtifactMainStatValue.m</file>
+      <file>${PROJECT_ROOT}\functions\getArtifactModelProfile.m</file>
+      <file>${PROJECT_ROOT}\functions\getArtifactSetBonusContribution.m</file>
+      <file>${PROJECT_ROOT}\functions\getArtifactSetRegistry.m</file>
+      <file>${PROJECT_ROOT}\functions\getArtifactTeamBuffs.m</file>
+      <file>${PROJECT_ROOT}\functions\getCharacterAscensionBonus.m</file>
+      <file>${PROJECT_ROOT}\functions\getCharacterBurstCost.m</file>
+      <file>${PROJECT_ROOT}\functions\getCharacterElement.m</file>
+      <file>${PROJECT_ROOT}\functions\getCharacterRegistryEntry.m</file>
+      <file>${PROJECT_ROOT}\functions\getDefaultCharacterConfig.m</file>
+      <file>${PROJECT_ROOT}\functions\getElementResShredValue.m</file>
+      <file>${PROJECT_ROOT}\functions\getFieldOrDefault.m</file>
+      <file>${PROJECT_ROOT}\functions\getLunarisArtifactCatalog.m</file>
+      <file>${PROJECT_ROOT}\functions\getReactionBaseDamage.m</file>
+      <file>${PROJECT_ROOT}\functions\getTalentValue.m</file>
+      <file>${PROJECT_ROOT}\functions\getWeaponSubstatBonus.m</file>
+      <file>${PROJECT_ROOT}\functions\Gorou\customArtifact_Gorou.m</file>
+      <file>${PROJECT_ROOT}\functions\Gorou\simulateGorouDPS.m</file>
+      <file>${PROJECT_ROOT}\functions\hasAscendantMoonsign.m</file>
+      <file>${PROJECT_ROOT}\functions\Hutao\customArtifact_Hutao.m</file>
+      <file>${PROJECT_ROOT}\functions\Hutao\simulateHutaoDPS.m</file>
+      <file>${PROJECT_ROOT}\functions\Iansan\customArtifact_Iansan.m</file>
+      <file>${PROJECT_ROOT}\functions\Iansan\simulateIansanDPS.m</file>
+      <file>${PROJECT_ROOT}\functions\identifyTeamArchetype.m</file>
+      <file>${PROJECT_ROOT}\functions\Ifa\customArtifact_Ifa.m</file>
+      <file>${PROJECT_ROOT}\functions\Ifa\simulateIfaDPS.m</file>
+      <file>${PROJECT_ROOT}\functions\Illuga\customArtifact_Illuga.m</file>
+      <file>${PROJECT_ROOT}\functions\Illuga\simulateIllugaDPS.m</file>
+      <file>${PROJECT_ROOT}\functions\Ineffa\customArtifact_Ineffa.m</file>
+      <file>${PROJECT_ROOT}\functions\Ineffa\simulateIneffaDPS.m</file>
+      <file>${PROJECT_ROOT}\functions\inferActionCombatMetadata.m</file>
+      <file>${PROJECT_ROOT}\functions\Jahoda\customArtifact_Jahoda.m</file>
+      <file>${PROJECT_ROOT}\functions\Jahoda\simulateJahodaDPS.m</file>
+      <file>${PROJECT_ROOT}\functions\Jean\customArtifact_Jean.m</file>
+      <file>${PROJECT_ROOT}\functions\Jean\simulateJeanDPS.m</file>
+      <file>${PROJECT_ROOT}\functions\Kachina\customArtifact_Kachina.m</file>
+      <file>${PROJECT_ROOT}\functions\Kachina\simulateKachinaDPS.m</file>
+      <file>${PROJECT_ROOT}\functions\Kaeya\customArtifact_Kaeya.m</file>
+      <file>${PROJECT_ROOT}\functions\Kaeya\simulateKaeyaDPS.m</file>
+      <file>${PROJECT_ROOT}\functions\KamisatoAyaka\customArtifact_KamisatoAyaka.m</file>
+      <file>${PROJECT_ROOT}\functions\KamisatoAyaka\simulateKamisatoAyakaDPS.m</file>
+      <file>${PROJECT_ROOT}\functions\KamisatoAyato\customArtifact_KamisatoAyato.m</file>
+      <file>${PROJECT_ROOT}\functions\KamisatoAyato\simulateKamisatoAyatoDPS.m</file>
+      <file>${PROJECT_ROOT}\functions\Kaveh\customArtifact_Kaveh.m</file>
+      <file>${PROJECT_ROOT}\functions\Kaveh\simulateKavehDPS.m</file>
+      <file>${PROJECT_ROOT}\functions\Kinich\customArtifact_Kinich.m</file>
+      <file>${PROJECT_ROOT}\functions\Kinich\simulateKinichDPS.m</file>
+      <file>${PROJECT_ROOT}\functions\KukiShinobu\customArtifact_KukiShinobu.m</file>
+      <file>${PROJECT_ROOT}\functions\KukiShinobu\simulateKukiShinobuDPS.m</file>
+      <file>${PROJECT_ROOT}\functions\LanYan\customArtifact_LanYan.m</file>
+      <file>${PROJECT_ROOT}\functions\LanYan\simulateLanYanDPS.m</file>
+      <file>${PROJECT_ROOT}\functions\Lauma\customArtifact_Lauma.m</file>
+      <file>${PROJECT_ROOT}\functions\Lauma\simulateLaumaDPS.m</file>
+      <file>${PROJECT_ROOT}\functions\Layla\customArtifact_Layla.m</file>
+      <file>${PROJECT_ROOT}\functions\Layla\simulateLaylaDPS.m</file>
+      <file>${PROJECT_ROOT}\functions\Linnea\customArtifact_Linnea.m</file>
+      <file>${PROJECT_ROOT}\functions\Linnea\simulateLinneaDPS.m</file>
+      <file>${PROJECT_ROOT}\functions\Lisa\customArtifact_Lisa.m</file>
+      <file>${PROJECT_ROOT}\functions\Lisa\simulateLisaDPS.m</file>
+      <file>${PROJECT_ROOT}\functions\loadLunarisAttackMetadata.m</file>
+      <file>${PROJECT_ROOT}\functions\Lohen\customArtifact_Lohen.m</file>
+      <file>${PROJECT_ROOT}\functions\Lohen\simulateLohenDPS.m</file>
+      <file>${PROJECT_ROOT}\functions\Lynette\customArtifact_Lynette.m</file>
+      <file>${PROJECT_ROOT}\functions\Lynette\simulateLynetteDPS.m</file>
+      <file>${PROJECT_ROOT}\functions\Lyney\customArtifact_Lyney.m</file>
+      <file>${PROJECT_ROOT}\functions\Lyney\simulateLyneyDPS.m</file>
+      <file>${PROJECT_ROOT}\functions\materializeArtifactPieceModel.m</file>
+      <file>${PROJECT_ROOT}\functions\Mavuika\customArtifact_Mavuika.m</file>
+      <file>${PROJECT_ROOT}\functions\Mavuika\simulateMavuikaDPS.m</file>
+      <file>${PROJECT_ROOT}\functions\Mika\customArtifact_Mika.m</file>
+      <file>${PROJECT_ROOT}\functions\Mika\simulateMikaDPS.m</file>
+      <file>${PROJECT_ROOT}\functions\Mizuki\customArtifact_Mizuki.m</file>
+      <file>${PROJECT_ROOT}\functions\Mizuki\simulateMizukiDPS.m</file>
+      <file>${PROJECT_ROOT}\functions\Mualani\customArtifact_Mualani.m</file>
+      <file>${PROJECT_ROOT}\functions\Mualani\simulateMualaniDPS.m</file>
+      <file>${PROJECT_ROOT}\functions\Nahida\customArtifact_Nahida.m</file>
+      <file>${PROJECT_ROOT}\functions\Nahida\simulateNahidaDPS.m</file>
+      <file>${PROJECT_ROOT}\functions\Navia\customArtifact_Navia.m</file>
+      <file>${PROJECT_ROOT}\functions\Navia\simulateNaviaDPS.m</file>
+      <file>${PROJECT_ROOT}\functions\Nefer\customArtifact_Nefer.m</file>
+      <file>${PROJECT_ROOT}\functions\Nefer\simulateNeferDPS.m</file>
+      <file>${PROJECT_ROOT}\functions\Neuvillette\customArtifact_Neuvillette.m</file>
+      <file>${PROJECT_ROOT}\functions\Neuvillette\simulateNeuvilletteDPS.m</file>
+      <file>${PROJECT_ROOT}\functions\Nicole\customArtifact_Nicole.m</file>
+      <file>${PROJECT_ROOT}\functions\Nicole\simulateNicoleDPS.m</file>
+      <file>${PROJECT_ROOT}\functions\Nilou\customArtifact_Nilou.m</file>
+      <file>${PROJECT_ROOT}\functions\Nilou\simulateNilouDPS.m</file>
+      <file>${PROJECT_ROOT}\functions\normalizeArtifactBuild.m</file>
+      <file>${PROJECT_ROOT}\functions\Ororon\customArtifact_Ororon.m</file>
+      <file>${PROJECT_ROOT}\functions\Ororon\simulateOroronDPS.m</file>
+      <file>${PROJECT_ROOT}\functions\parseArtifactSubstats.m</file>
+      <file>${PROJECT_ROOT}\functions\planTeamRotation.m</file>
+      <file>${PROJECT_ROOT}\functions\Prune\customArtifact_Prune.m</file>
+      <file>${PROJECT_ROOT}\functions\Prune\simulatePruneDPS.m</file>
+      <file>${PROJECT_ROOT}\functions\Razor\customArtifact_Razor.m</file>
+      <file>${PROJECT_ROOT}\functions\Razor\simulateRazorDPS.m</file>
+      <file>${PROJECT_ROOT}\functions\readRotationTokens.m</file>
+      <file>${PROJECT_ROOT}\functions\resolveCharacterDataFile.m</file>
+      <file>${PROJECT_ROOT}\functions\resolveInferredAuraMetadata.m</file>
+      <file>${PROJECT_ROOT}\functions\resolveReactionForHit.m</file>
+      <file>${PROJECT_ROOT}\functions\Sandrone\customArtifact_Sandrone.m</file>
+      <file>${PROJECT_ROOT}\functions\Sandrone\simulateSandroneDPS.m</file>
+      <file>${PROJECT_ROOT}\functions\Sethos\customArtifact_Sethos.m</file>
+      <file>${PROJECT_ROOT}\functions\Sethos\simulateSethosDPS.m</file>
+      <file>${PROJECT_ROOT}\functions\Shenhe\customArtifact_Shenhe.m</file>
+      <file>${PROJECT_ROOT}\functions\Shenhe\simulateShenheDPS.m</file>
+      <file>${PROJECT_ROOT}\functions\ShikanoinHeizou\customArtifact_ShikanoinHeizou.m</file>
+      <file>${PROJECT_ROOT}\functions\ShikanoinHeizou\simulateShikanoinHeizouDPS.m</file>
+      <file>${PROJECT_ROOT}\functions\Sigewinne\customArtifact_Sigewinne.m</file>
+      <file>${PROJECT_ROOT}\functions\Sigewinne\simulateSigewinneDPS.m</file>
+      <file>${PROJECT_ROOT}\functions\simulateCharacterDPS.m</file>
+      <file>${PROJECT_ROOT}\functions\simulateImportedCharacterDPS.m</file>
+      <file>${PROJECT_ROOT}\functions\simulateSimpleCharacterDPS.m</file>
+      <file>${PROJECT_ROOT}\functions\simulateTeamDPS.m</file>
+      <file>${PROJECT_ROOT}\functions\simulateTeamTimeline.m</file>
+      <file>${PROJECT_ROOT}\functions\Skirk\customArtifact_Skirk.m</file>
+      <file>${PROJECT_ROOT}\functions\Skirk\simulateSkirkDPS.m</file>
+      <file>${PROJECT_ROOT}\functions\Tighnari\customArtifact_Tighnari.m</file>
+      <file>${PROJECT_ROOT}\functions\Tighnari\simulateTighnariDPS.m</file>
+      <file>${PROJECT_ROOT}\functions\Varesa\customArtifact_Varesa.m</file>
+      <file>${PROJECT_ROOT}\functions\Varesa\simulateVaresaDPS.m</file>
+      <file>${PROJECT_ROOT}\functions\Varka\customArtifact_Varka.m</file>
+      <file>${PROJECT_ROOT}\functions\Varka\simulateVarkaDPS.m</file>
+      <file>${PROJECT_ROOT}\functions\Venti\customArtifact_Venti.m</file>
+      <file>${PROJECT_ROOT}\functions\Venti\simulateVentiDPS.m</file>
+      <file>${PROJECT_ROOT}\functions\Wanderer\customArtifact_Wanderer.m</file>
+      <file>${PROJECT_ROOT}\functions\Wanderer\simulateWandererDPS.m</file>
+      <file>${PROJECT_ROOT}\functions\Wriothesley\customArtifact_Wriothesley.m</file>
+      <file>${PROJECT_ROOT}\functions\Wriothesley\simulateWriothesleyDPS.m</file>
+      <file>${PROJECT_ROOT}\functions\writeDefaultArtifactBuild.m</file>
+      <file>${PROJECT_ROOT}\functions\Xiangling\customArtifact_Xiangling.m</file>
+      <file>${PROJECT_ROOT}\functions\Xiangling\simulateXianglingDPS.m</file>
+      <file>${PROJECT_ROOT}\functions\Xianyun\customArtifact_Xianyun.m</file>
+      <file>${PROJECT_ROOT}\functions\Xianyun\simulateXianyunDPS.m</file>
+      <file>${PROJECT_ROOT}\functions\Xilonen\customArtifact_Xilonen.m</file>
+      <file>${PROJECT_ROOT}\functions\Xilonen\simulateXilonenDPS.m</file>
+      <file>${PROJECT_ROOT}\functions\YaeMiko\customArtifact_YaeMiko.m</file>
+      <file>${PROJECT_ROOT}\functions\YaeMiko\simulateYaeMikoDPS.m</file>
+      <file>${PROJECT_ROOT}\functions\Yaoyao\customArtifact_Yaoyao.m</file>
+      <file>${PROJECT_ROOT}\functions\Yaoyao\simulateYaoyaoDPS.m</file>
+      <file>${PROJECT_ROOT}\functions\Yelan\customArtifact_Yelan.m</file>
+      <file>${PROJECT_ROOT}\functions\Yelan\simulateYelanDPS.m</file>
+      <file>${PROJECT_ROOT}\functions\YunJin\customArtifact_YunJin.m</file>
+      <file>${PROJECT_ROOT}\functions\YunJin\simulateYunJinDPS.m</file>
+      <file>${PROJECT_ROOT}\functions\Zibai\customArtifact_Zibai.m</file>
+      <file>${PROJECT_ROOT}\functions\Zibai\simulateZibaiDPS.m</file>
+      <file>${PROJECT_ROOT}\initProjectPaths.m</file>
     </fileset.depfun>
     <build-deliverables>
       <file location="${PROJECT_ROOT}\GenshinDMG_Simulator\for_testing" name="readme.txt" optional="true">C:\Users\ASUS\MATLAB\Projects\GenshinDMG_Calc\GenshinDMG_Simulator\for_testing\readme.txt</file>

@@ -1,0 +1,31 @@
+﻿{
+    "Id":  15001,
+    "SetId":  15001,
+    "EnName":  "Gladiator\u0027s Finale",
+    "QualityType":  "QUALITY_ORANGE",
+    "SetIcon":  "UI_RelicIcon_15001_4",
+    "Effect2Pc":  "ATK +18%.",
+    "Effect4Pc":  "If the wielder of this artifact set uses a Sword, Claymore or Polearm, increases their Normal Attack DMG by 35%.",
+    "Pieces":  {
+                   "circlet":  {
+                                   "icon":  "UI_RelicIcon_15001_3",
+                                   "name":  "Gladiator\u0027s Triumphus"
+                               },
+                   "flower":  {
+                                  "icon":  "UI_RelicIcon_15001_4",
+                                  "name":  "Gladiator\u0027s Nostalgia"
+                              },
+                   "goblet":  {
+                                  "icon":  "UI_RelicIcon_15001_1",
+                                  "name":  "Gladiator\u0027s Intoxication"
+                              },
+                   "plume":  {
+                                 "icon":  "UI_RelicIcon_15001_2",
+                                 "name":  "Gladiator\u0027s Destiny"
+                             },
+                   "sands":  {
+                                 "icon":  "UI_RelicIcon_15001_5",
+                                 "name":  "Gladiator\u0027s Longing"
+                             }
+               }
+}

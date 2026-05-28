@@ -1,0 +1,2 @@
+Weapon,WeaponATK,WeaponSubStatType,WeaponSubStatValue,WeaponRefinement,AtkBonus,FlatATK,EM,CritRate,CritDMG,PyroDMGBonus,NormalDMGBonus,SkillDMGBonus,BurstDMGBonus,ArtifactSet1,ArtifactSet1Pieces,ArtifactSet2,ArtifactSet2Pieces,ArtifactSet4Active
+WolfsGravestone,608,ATK,0.496,1,0.96,311,100,0.72,1.9,0.466,0.18,0,0,CrimsonWitchOfFlames,4,None,0,1

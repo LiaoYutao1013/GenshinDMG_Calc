@@ -1,0 +1,1791 @@
+{
+  "info": {
+    "name": "Jean",
+    "description": "The righteous and rigorous Dandelion Knight, and Acting Grand Master of Mondstadt's Knights of Favonius.",
+    "rarity": "QUALITY_ORANGE",
+    "weapon": "WEAPON_SWORD_ONE_HAND",
+    "birthday": "14/3",
+    "element": "Anemo",
+    "title": "Dandelion Knight",
+    "constellation": "Leo Minor",
+    "affiliation": "Knights of Favonius",
+    "cv": {
+      "EN": "Stephanie Southerland",
+      "CHS": "林簌",
+      "JP": "斎藤千和",
+      "KR": "Ahn Young-mi"
+    },
+    "attributes": [
+      {
+        "level": 1,
+        "ascension": 0,
+        "hp": 1144,
+        "atk": 19,
+        "def": 60,
+        "Healing_": "0"
+      },
+      {
+        "level": 2,
+        "ascension": 0,
+        "hp": 1239,
+        "atk": 20,
+        "def": 65,
+        "Healing_": "0"
+      },
+      {
+        "level": 3,
+        "ascension": 0,
+        "hp": 1334,
+        "atk": 22,
+        "def": 70,
+        "Healing_": "0"
+      },
+      {
+        "level": 4,
+        "ascension": 0,
+        "hp": 1430,
+        "atk": 23,
+        "def": 75,
+        "Healing_": "0"
+      },
+      {
+        "level": 5,
+        "ascension": 0,
+        "hp": 1525,
+        "atk": 25,
+        "def": 80,
+        "Healing_": "0"
+      },
+      {
+        "level": 6,
+        "ascension": 0,
+        "hp": 1621,
+        "atk": 26,
+        "def": 85,
+        "Healing_": "0"
+      },
+      {
+        "level": 7,
+        "ascension": 0,
+        "hp": 1716,
+        "atk": 28,
+        "def": 90,
+        "Healing_": "0"
+      },
+      {
+        "level": 8,
+        "ascension": 0,
+        "hp": 1812,
+        "atk": 29,
+        "def": 95,
+        "Healing_": "0"
+      },
+      {
+        "level": 9,
+        "ascension": 0,
+        "hp": 1908,
+        "atk": 31,
+        "def": 100,
+        "Healing_": "0"
+      },
+      {
+        "level": 10,
+        "ascension": 0,
+        "hp": 2003,
+        "atk": 33,
+        "def": 105,
+        "Healing_": "0"
+      },
+      {
+        "level": 11,
+        "ascension": 0,
+        "hp": 2099,
+        "atk": 34,
+        "def": 110,
+        "Healing_": "0"
+      },
+      {
+        "level": 12,
+        "ascension": 0,
+        "hp": 2195,
+        "atk": 36,
+        "def": 115,
+        "Healing_": "0"
+      },
+      {
+        "level": 13,
+        "ascension": 0,
+        "hp": 2291,
+        "atk": 37,
+        "def": 120,
+        "Healing_": "0"
+      },
+      {
+        "level": 14,
+        "ascension": 0,
+        "hp": 2389,
+        "atk": 39,
+        "def": 125,
+        "Healing_": "0"
+      },
+      {
+        "level": 15,
+        "ascension": 0,
+        "hp": 2485,
+        "atk": 40,
+        "def": 130,
+        "Healing_": "0"
+      },
+      {
+        "level": 16,
+        "ascension": 0,
+        "hp": 2581,
+        "atk": 42,
+        "def": 135,
+        "Healing_": "0"
+      },
+      {
+        "level": 17,
+        "ascension": 0,
+        "hp": 2678,
+        "atk": 44,
+        "def": 140,
+        "Healing_": "0"
+      },
+      {
+        "level": 18,
+        "ascension": 0,
+        "hp": 2774,
+        "atk": 45,
+        "def": 145,
+        "Healing_": "0"
+      },
+      {
+        "level": 19,
+        "ascension": 0,
+        "hp": 2871,
+        "atk": 47,
+        "def": 150,
+        "Healing_": "0"
+      },
+      {
+        "level": 20,
+        "ascension": 0,
+        "hp": 2967,
+        "atk": 48,
+        "def": 155,
+        "Healing_": "0"
+      },
+      {
+        "level": 21,
+        "ascension": 1,
+        "hp": 4046,
+        "atk": 66,
+        "def": 212,
+        "Healing_": "0"
+      },
+      {
+        "level": 22,
+        "ascension": 1,
+        "hp": 4143,
+        "atk": 67,
+        "def": 217,
+        "Healing_": "0"
+      },
+      {
+        "level": 23,
+        "ascension": 1,
+        "hp": 4240,
+        "atk": 69,
+        "def": 222,
+        "Healing_": "0"
+      },
+      {
+        "level": 24,
+        "ascension": 1,
+        "hp": 4337,
+        "atk": 71,
+        "def": 227,
+        "Healing_": "0"
+      },
+      {
+        "level": 25,
+        "ascension": 1,
+        "hp": 4435,
+        "atk": 72,
+        "def": 232,
+        "Healing_": "0"
+      },
+      {
+        "level": 26,
+        "ascension": 1,
+        "hp": 4533,
+        "atk": 74,
+        "def": 237,
+        "Healing_": "0"
+      },
+      {
+        "level": 27,
+        "ascension": 1,
+        "hp": 4630,
+        "atk": 75,
+        "def": 242,
+        "Healing_": "0"
+      },
+      {
+        "level": 28,
+        "ascension": 1,
+        "hp": 4727,
+        "atk": 77,
+        "def": 247,
+        "Healing_": "0"
+      },
+      {
+        "level": 29,
+        "ascension": 1,
+        "hp": 4826,
+        "atk": 79,
+        "def": 252,
+        "Healing_": "0"
+      },
+      {
+        "level": 30,
+        "ascension": 1,
+        "hp": 4923,
+        "atk": 80,
+        "def": 257,
+        "Healing_": "0"
+      },
+      {
+        "level": 31,
+        "ascension": 1,
+        "hp": 5021,
+        "atk": 82,
+        "def": 263,
+        "Healing_": "0"
+      },
+      {
+        "level": 32,
+        "ascension": 1,
+        "hp": 5120,
+        "atk": 83,
+        "def": 268,
+        "Healing_": "0"
+      },
+      {
+        "level": 33,
+        "ascension": 1,
+        "hp": 5218,
+        "atk": 85,
+        "def": 273,
+        "Healing_": "0"
+      },
+      {
+        "level": 34,
+        "ascension": 1,
+        "hp": 5315,
+        "atk": 87,
+        "def": 278,
+        "Healing_": "0"
+      },
+      {
+        "level": 35,
+        "ascension": 1,
+        "hp": 5414,
+        "atk": 88,
+        "def": 283,
+        "Healing_": "0"
+      },
+      {
+        "level": 36,
+        "ascension": 1,
+        "hp": 5513,
+        "atk": 90,
+        "def": 288,
+        "Healing_": "0"
+      },
+      {
+        "level": 37,
+        "ascension": 1,
+        "hp": 5612,
+        "atk": 91,
+        "def": 293,
+        "Healing_": "0"
+      },
+      {
+        "level": 38,
+        "ascension": 1,
+        "hp": 5710,
+        "atk": 93,
+        "def": 299,
+        "Healing_": "0"
+      },
+      {
+        "level": 39,
+        "ascension": 1,
+        "hp": 5808,
+        "atk": 95,
+        "def": 304,
+        "Healing_": "0"
+      },
+      {
+        "level": 40,
+        "ascension": 1,
+        "hp": 5908,
+        "atk": 96,
+        "def": 309,
+        "Healing_": "0"
+      },
+      {
+        "level": 41,
+        "ascension": 2,
+        "hp": 6703,
+        "atk": 109,
+        "def": 351,
+        "Healing_": "5.5"
+      },
+      {
+        "level": 42,
+        "ascension": 2,
+        "hp": 6803,
+        "atk": 111,
+        "def": 356,
+        "Healing_": "5.5"
+      },
+      {
+        "level": 43,
+        "ascension": 2,
+        "hp": 6902,
+        "atk": 112,
+        "def": 361,
+        "Healing_": "5.5"
+      },
+      {
+        "level": 44,
+        "ascension": 2,
+        "hp": 7001,
+        "atk": 114,
+        "def": 366,
+        "Healing_": "5.5"
+      },
+      {
+        "level": 45,
+        "ascension": 2,
+        "hp": 7100,
+        "atk": 116,
+        "def": 371,
+        "Healing_": "5.5"
+      },
+      {
+        "level": 46,
+        "ascension": 2,
+        "hp": 7200,
+        "atk": 117,
+        "def": 377,
+        "Healing_": "5.5"
+      },
+      {
+        "level": 47,
+        "ascension": 2,
+        "hp": 7299,
+        "atk": 119,
+        "def": 382,
+        "Healing_": "5.5"
+      },
+      {
+        "level": 48,
+        "ascension": 2,
+        "hp": 7399,
+        "atk": 120,
+        "def": 387,
+        "Healing_": "5.5"
+      },
+      {
+        "level": 49,
+        "ascension": 2,
+        "hp": 7500,
+        "atk": 122,
+        "def": 392,
+        "Healing_": "5.5"
+      },
+      {
+        "level": 50,
+        "ascension": 2,
+        "hp": 7599,
+        "atk": 124,
+        "def": 397,
+        "Healing_": "5.5"
+      },
+      {
+        "level": 51,
+        "ascension": 3,
+        "hp": 8628,
+        "atk": 140,
+        "def": 451,
+        "Healing_": "11.1"
+      },
+      {
+        "level": 52,
+        "ascension": 3,
+        "hp": 8728,
+        "atk": 142,
+        "def": 457,
+        "Healing_": "11.1"
+      },
+      {
+        "level": 53,
+        "ascension": 3,
+        "hp": 8828,
+        "atk": 144,
+        "def": 462,
+        "Healing_": "11.1"
+      },
+      {
+        "level": 54,
+        "ascension": 3,
+        "hp": 8929,
+        "atk": 145,
+        "def": 467,
+        "Healing_": "11.1"
+      },
+      {
+        "level": 55,
+        "ascension": 3,
+        "hp": 9029,
+        "atk": 147,
+        "def": 472,
+        "Healing_": "11.1"
+      },
+      {
+        "level": 56,
+        "ascension": 3,
+        "hp": 9130,
+        "atk": 149,
+        "def": 478,
+        "Healing_": "11.1"
+      },
+      {
+        "level": 57,
+        "ascension": 3,
+        "hp": 9231,
+        "atk": 150,
+        "def": 483,
+        "Healing_": "11.1"
+      },
+      {
+        "level": 58,
+        "ascension": 3,
+        "hp": 9331,
+        "atk": 152,
+        "def": 488,
+        "Healing_": "11.1"
+      },
+      {
+        "level": 59,
+        "ascension": 3,
+        "hp": 9432,
+        "atk": 154,
+        "def": 493,
+        "Healing_": "11.1"
+      },
+      {
+        "level": 60,
+        "ascension": 3,
+        "hp": 9533,
+        "atk": 155,
+        "def": 499,
+        "Healing_": "11.1"
+      },
+      {
+        "level": 61,
+        "ascension": 4,
+        "hp": 10330,
+        "atk": 168,
+        "def": 540,
+        "Healing_": "11.1"
+      },
+      {
+        "level": 62,
+        "ascension": 4,
+        "hp": 10431,
+        "atk": 170,
+        "def": 546,
+        "Healing_": "11.1"
+      },
+      {
+        "level": 63,
+        "ascension": 4,
+        "hp": 10533,
+        "atk": 171,
+        "def": 551,
+        "Healing_": "11.1"
+      },
+      {
+        "level": 64,
+        "ascension": 4,
+        "hp": 10633,
+        "atk": 173,
+        "def": 556,
+        "Healing_": "11.1"
+      },
+      {
+        "level": 65,
+        "ascension": 4,
+        "hp": 10735,
+        "atk": 175,
+        "def": 561,
+        "Healing_": "11.1"
+      },
+      {
+        "level": 66,
+        "ascension": 4,
+        "hp": 10837,
+        "atk": 176,
+        "def": 567,
+        "Healing_": "11.1"
+      },
+      {
+        "level": 67,
+        "ascension": 4,
+        "hp": 10938,
+        "atk": 178,
+        "def": 572,
+        "Healing_": "11.1"
+      },
+      {
+        "level": 68,
+        "ascension": 4,
+        "hp": 11040,
+        "atk": 180,
+        "def": 577,
+        "Healing_": "11.1"
+      },
+      {
+        "level": 69,
+        "ascension": 4,
+        "hp": 11141,
+        "atk": 181,
+        "def": 583,
+        "Healing_": "11.1"
+      },
+      {
+        "level": 70,
+        "ascension": 4,
+        "hp": 11243,
+        "atk": 183,
+        "def": 588,
+        "Healing_": "11.1"
+      },
+      {
+        "level": 71,
+        "ascension": 5,
+        "hp": 12042,
+        "atk": 196,
+        "def": 630,
+        "Healing_": "16.6"
+      },
+      {
+        "level": 72,
+        "ascension": 5,
+        "hp": 12145,
+        "atk": 198,
+        "def": 635,
+        "Healing_": "16.6"
+      },
+      {
+        "level": 73,
+        "ascension": 5,
+        "hp": 12247,
+        "atk": 199,
+        "def": 641,
+        "Healing_": "16.6"
+      },
+      {
+        "level": 74,
+        "ascension": 5,
+        "hp": 12349,
+        "atk": 201,
+        "def": 646,
+        "Healing_": "16.6"
+      },
+      {
+        "level": 75,
+        "ascension": 5,
+        "hp": 12451,
+        "atk": 203,
+        "def": 651,
+        "Healing_": "16.6"
+      },
+      {
+        "level": 76,
+        "ascension": 5,
+        "hp": 12553,
+        "atk": 204,
+        "def": 657,
+        "Healing_": "16.6"
+      },
+      {
+        "level": 77,
+        "ascension": 5,
+        "hp": 12656,
+        "atk": 206,
+        "def": 662,
+        "Healing_": "16.6"
+      },
+      {
+        "level": 78,
+        "ascension": 5,
+        "hp": 12759,
+        "atk": 208,
+        "def": 667,
+        "Healing_": "16.6"
+      },
+      {
+        "level": 79,
+        "ascension": 5,
+        "hp": 12862,
+        "atk": 209,
+        "def": 673,
+        "Healing_": "16.6"
+      },
+      {
+        "level": 80,
+        "ascension": 5,
+        "hp": 12965,
+        "atk": 211,
+        "def": 678,
+        "Healing_": "16.6"
+      },
+      {
+        "level": 81,
+        "ascension": 6,
+        "hp": 13765,
+        "atk": 224,
+        "def": 720,
+        "Healing_": "22.1"
+      },
+      {
+        "level": 82,
+        "ascension": 6,
+        "hp": 13868,
+        "atk": 226,
+        "def": 725,
+        "Healing_": "22.1"
+      },
+      {
+        "level": 83,
+        "ascension": 6,
+        "hp": 13971,
+        "atk": 227,
+        "def": 731,
+        "Healing_": "22.1"
+      },
+      {
+        "level": 84,
+        "ascension": 6,
+        "hp": 14074,
+        "atk": 229,
+        "def": 736,
+        "Healing_": "22.1"
+      },
+      {
+        "level": 85,
+        "ascension": 6,
+        "hp": 14177,
+        "atk": 231,
+        "def": 741,
+        "Healing_": "22.1"
+      },
+      {
+        "level": 86,
+        "ascension": 6,
+        "hp": 14281,
+        "atk": 232,
+        "def": 747,
+        "Healing_": "22.1"
+      },
+      {
+        "level": 87,
+        "ascension": 6,
+        "hp": 14384,
+        "atk": 234,
+        "def": 752,
+        "Healing_": "22.1"
+      },
+      {
+        "level": 88,
+        "ascension": 6,
+        "hp": 14488,
+        "atk": 236,
+        "def": 758,
+        "Healing_": "22.1"
+      },
+      {
+        "level": 89,
+        "ascension": 6,
+        "hp": 14592,
+        "atk": 238,
+        "def": 763,
+        "Healing_": "22.1"
+      },
+      {
+        "level": 90,
+        "ascension": 6,
+        "hp": 14695,
+        "atk": 239,
+        "def": 769,
+        "Healing_": "22.1"
+      },
+      {
+        "level": 95,
+        "ascension": 6,
+        "hp": 15217,
+        "atk": 266,
+        "def": 796,
+        "Healing_": "22.1"
+      },
+      {
+        "level": 100,
+        "ascension": 6,
+        "hp": 15740,
+        "atk": 293,
+        "def": 823,
+        "Healing_": "22.1"
+      }
+    ]
+  },
+  "icons": {
+    "forward": "UI_AvatarIcon_Qin",
+    "coop_img": "UI_CoopImg_Qin"
+  },
+  "ascension": {
+    "x202": 7.0499E+6,
+    "exp": {
+      "x104001": 2,
+      "x104003": 418
+    },
+    "speciality": {
+      "x100057": 168
+    },
+    "elemental": {
+      "x104151": 1,
+      "x104152": 9,
+      "x104153": 9,
+      "x104154": 6
+    },
+    "worldmonster": {
+      "x112005": 18,
+      "x112006": 30,
+      "x112007": 36
+    },
+    "elitemonster": {
+      "x113001": 46
+    }
+  },
+  "skills": {
+    "normalattack": {
+      "name": "Favonius Bladework",
+      "icon": "Skill_A_01",
+      "multipliers": {
+        "x1_HitDMG": [
+          "48.33%",
+          "52.27%",
+          "56.2%",
+          "61.82%",
+          "65.75%",
+          "70.25%",
+          "76.43%",
+          "82.61%",
+          "88.8%",
+          "95.54%",
+          "103.27%",
+          "112.36%",
+          "121.44%",
+          "130.53%",
+          "140.44%"
+        ],
+        "x2_HitDMG": [
+          "45.58%",
+          "49.29%",
+          "53%",
+          "58.3%",
+          "62.01%",
+          "66.25%",
+          "72.08%",
+          "77.91%",
+          "83.74%",
+          "90.1%",
+          "97.39%",
+          "105.96%",
+          "114.53%",
+          "123.1%",
+          "132.45%"
+        ],
+        "x3_HitDMG": [
+          "60.29%",
+          "65.19%",
+          "70.1%",
+          "77.11%",
+          "82.02%",
+          "87.63%",
+          "95.34%",
+          "103.05%",
+          "110.76%",
+          "119.17%",
+          "128.81%",
+          "140.14%",
+          "151.48%",
+          "162.81%",
+          "175.18%"
+        ],
+        "x4_HitDMG": [
+          "65.88%",
+          "71.24%",
+          "76.6%",
+          "84.26%",
+          "89.62%",
+          "95.75%",
+          "104.18%",
+          "112.6%",
+          "121.03%",
+          "130.22%",
+          "140.75%",
+          "153.14%",
+          "165.52%",
+          "177.91%",
+          "191.42%"
+        ],
+        "x5_HitDMG": [
+          "79.21%",
+          "85.65%",
+          "92.1%",
+          "101.31%",
+          "107.76%",
+          "115.13%",
+          "125.26%",
+          "135.39%",
+          "145.52%",
+          "156.57%",
+          "169.23%",
+          "184.13%",
+          "199.02%",
+          "213.91%",
+          "230.16%"
+        ],
+        "ChargedAttackDMG": [
+          "162.02%",
+          "175.21%",
+          "188.4%",
+          "207.24%",
+          "220.43%",
+          "235.5%",
+          "256.22%",
+          "276.95%",
+          "297.67%",
+          "320.28%",
+          "346.18%",
+          "376.65%",
+          "407.11%",
+          "437.58%",
+          "470.81%"
+        ],
+        "ChargedAttackStaminaCost": [
+          "20",
+          "20",
+          "20",
+          "20",
+          "20",
+          "20",
+          "20",
+          "20",
+          "20",
+          "20",
+          "20",
+          "20",
+          "20",
+          "20",
+          "20"
+        ],
+        "PlungeDMG": [
+          "63.93%",
+          "69.14%",
+          "74.34%",
+          "81.77%",
+          "86.98%",
+          "92.93%",
+          "101.1%",
+          "109.28%",
+          "117.46%",
+          "126.38%",
+          "135.3%",
+          "144.22%",
+          "153.14%",
+          "162.06%",
+          "170.98%"
+        ],
+        "Low_HighPlungeDMG": [
+          "127.84%/159.68%",
+          "138.24%/172.67%",
+          "148.65%/185.67%",
+          "163.51%/204.24%",
+          "173.92%/217.23%",
+          "185.81%/232.09%",
+          "202.16%/252.51%",
+          "218.51%/272.93%",
+          "234.86%/293.36%",
+          "252.7%/315.64%",
+          "270.54%/337.92%",
+          "288.38%/360.2%",
+          "306.22%/382.48%",
+          "324.05%/404.76%",
+          "341.89%/427.04%"
+        ]
+      },
+      "description": "<color=#FFD780FF>Normal Attack</color>\\nPerforms up to 5 consecutive strikes.\\n\\n<color=#FFD780FF>Charged Attack</color>\\nConsumes a certain amount of stamina to launch an opponent using the power of wind.\\nLaunched opponents will slowly fall to the ground.\\n\\n<color=#FFD780FF>Plunging Attack</color>\\nPlunges from mid-air to strike the ground below, damaging opponents along the path and dealing AoE DMG upon impact."
+    },
+    "elementalskill": {
+      "name": "Gale Blade",
+      "icon": "Skill_S_Qin_02",
+      "multipliers": {
+        "SkillDMG": [
+          "292%",
+          "313.9%",
+          "335.8%",
+          "365%",
+          "386.9%",
+          "408.8%",
+          "438%",
+          "467.2%",
+          "496.4%",
+          "525.6%",
+          "554.8%",
+          "584%",
+          "620.5%",
+          "657%",
+          "693.5%"
+        ],
+        "StaminaConsumption": [
+          "20/s",
+          "20/s",
+          "20/s",
+          "20/s",
+          "20/s",
+          "20/s",
+          "20/s",
+          "20/s",
+          "20/s",
+          "20/s",
+          "20/s",
+          "20/s",
+          "20/s",
+          "20/s",
+          "20/s"
+        ],
+        "MaxDuration": [
+          "5s",
+          "5s",
+          "5s",
+          "5s",
+          "5s",
+          "5s",
+          "5s",
+          "5s",
+          "5s",
+          "5s",
+          "5s",
+          "5s",
+          "5s",
+          "5s",
+          "5s"
+        ],
+        "CD": [
+          "6s",
+          "6s",
+          "6s",
+          "6s",
+          "6s",
+          "6s",
+          "6s",
+          "6s",
+          "6s",
+          "6s",
+          "6s",
+          "6s",
+          "6s",
+          "6s",
+          "6s"
+        ]
+      },
+      "description": "Focusing the might of the formless wind around her blade, Jean releases a miniature storm, launching opponents in the direction she aims at, dealing massive <color=#80FFD7FF>Anemo DMG</color>.\\n\\n<color=#FFD780FF>Hold</color>\\nAt the cost of continued stamina consumption, Jean can command the whirlwind to pull surrounding opponents and objects towards her front.\\nDirection can be adjusted.\\nCharacter is immobile during skill duration.\\n\\n<i>That which follows Jean, the wholehearted defender, is a guardian wind that can banish danger from her comrades' presence.</i>"
+    },
+    "elementalburst": {
+      "name": "Dandelion Breeze",
+      "icon": "Skill_E_Qin_01",
+      "multipliers": {
+        "BurstDMG": [
+          "424.8%",
+          "456.66%",
+          "488.52%",
+          "531%",
+          "562.86%",
+          "594.72%",
+          "637.2%",
+          "679.68%",
+          "722.16%",
+          "764.64%",
+          "807.12%",
+          "849.6%",
+          "902.7%",
+          "955.8%",
+          "1008.9%"
+        ],
+        "FieldEntering_ExitingDMG": [
+          "78.4%",
+          "84.28%",
+          "90.16%",
+          "98%",
+          "103.88%",
+          "109.76%",
+          "117.6%",
+          "125.44%",
+          "133.28%",
+          "141.12%",
+          "148.96%",
+          "156.8%",
+          "166.6%",
+          "176.4%",
+          "186.2%"
+        ],
+        "FieldActivationHealing": [
+          "251.2% ATK+1540",
+          "270.04% ATK+1694",
+          "288.88% ATK+1861",
+          "314% ATK+2041",
+          "332.84% ATK+2234",
+          "351.68% ATK+2439",
+          "376.8% ATK+2657",
+          "401.92% ATK+2888",
+          "427.04% ATK+3132",
+          "452.16% ATK+3389",
+          "477.28% ATK+3659",
+          "502.4% ATK+3941",
+          "533.8% ATK+4236",
+          "565.2% ATK+4544",
+          "596.6% ATK+4865"
+        ],
+        "ContinuousRegeneration": [
+          "25.12% ATK+154/s",
+          "27% ATK+169/s",
+          "28.89% ATK+186/s",
+          "31.4% ATK+204/s",
+          "33.28% ATK+223/s",
+          "35.17% ATK+244/s",
+          "37.68% ATK+266/s",
+          "40.19% ATK+289/s",
+          "42.7% ATK+313/s",
+          "45.22% ATK+339/s",
+          "47.73% ATK+366/s",
+          "50.24% ATK+394/s",
+          "53.38% ATK+424/s",
+          "56.52% ATK+454/s",
+          "59.66% ATK+487/s"
+        ],
+        "CD": [
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s"
+        ],
+        "EnergyCost": [
+          "80",
+          "80",
+          "80",
+          "80",
+          "80",
+          "80",
+          "80",
+          "80",
+          "80",
+          "80",
+          "80",
+          "80",
+          "80",
+          "80",
+          "80"
+        ]
+      },
+      "description": "Calling upon the wind's protection, Jean creates a swirling Dandelion Field, launching surrounding opponents and dealing <color=#80FFD7FF>Anemo DMG</color>.\\nAt the same time, she instantly regenerates a large amount of HP for all party members. The amount of HP restored scales off Jean's ATK.\\n\\n<color=#FFD780FF>Dandelion Field</color>\\n·Continuously regenerates HP of characters within the AoE and continuously imbues them with <color=#80FFD7FF>Anemo</color>.\\n·Deals <color=#80FFD7FF>Anemo DMG</color> to opponents entering or exiting the Dandelion Field.\\n\\n<i>Jean's magnanimity is as vast as the dandelion fields, and it is the root of her wish to protect others.</i>"
+    },
+    "leveling": {
+      "books": {
+        "x104304": 9,
+        "x104305": 63,
+        "x104306": 114
+      },
+      "crown": {
+        "x104319": 3
+      },
+      "worldmonster": {
+        "x112005": 18,
+        "x112006": 66,
+        "x112007": 93
+      },
+      "weekly": {
+        "x113003": 18
+      }
+    }
+  },
+  "passives": {
+    "p1": {
+      "name": "Wind Companion",
+      "description": "On hit, Jean's Normal Attacks have a 50% chance to regenerate HP equal to 15% of Jean's ATK for all party members.",
+      "icon": "UI_Talent_S_Qin_05"
+    },
+    "p2": {
+      "name": "Let the Wind Lead",
+      "description": "Using <color=#FFD780FF>Dandelion Breeze</color> will regenerate 20% of its Energy.",
+      "icon": "UI_Talent_S_Qin_06"
+    },
+    "p3": {
+      "name": "Guiding Breeze",
+      "description": "When a Perfect Cooking is achieved on a dish with restorative effects, there is a 12% chance to obtain double the product.",
+      "icon": "UI_Talent_Cook_Heal"
+    },
+    "p4": ""
+  },
+  "constellations": {
+    "const1": {
+      "name": "Spiraling Tempest",
+      "description": "Increases the pulling speed of <color=#FFD780FF>Gale Blade</color> after holding for more than 1s, and increases the DMG dealt by 40%.",
+      "icon": "UI_Talent_S_Qin_01"
+    },
+    "const2": {
+      "name": "People's Aegis",
+      "description": "When Jean picks up an Elemental Orb/Particle, all party members have their Movement SPD and ATK SPD increased by 15% for 15s.",
+      "icon": "UI_Talent_S_Qin_02"
+    },
+    "const3": {
+      "name": "When the West Wind Arises",
+      "description": "Increases the Level of <color=#FFD780FF>Dandelion Breeze</color> by 3.\\nMaximum upgrade level is 15.",
+      "icon": "UI_Talent_U_Qin_02"
+    },
+    "const4": {
+      "name": "Lands of Dandelion",
+      "description": "Within the Field created by <color=#FFD780FF>Dandelion Breeze</color>, all opponents have their <color=#80FFD7FF>Anemo RES</color> decreased by 40%.",
+      "icon": "UI_Talent_S_Qin_03"
+    },
+    "const5": {
+      "name": "Outbursting Gust",
+      "description": "Increases the Level of <color=#FFD780FF>Gale Blade</color> by 3.\\nMaximum upgrade level is 15.",
+      "icon": "UI_Talent_U_Qin_01"
+    },
+    "const6": {
+      "name": "Lion's Fang, Fair Protector of Mondstadt",
+      "description": "Incoming DMG is decreased by 35% within the Field created by <color=#FFD780FF>Dandelion Breeze</color>. Upon leaving the Dandelion Field, this effect lasts for 3 attacks or 10s.",
+      "icon": "UI_Talent_S_Qin_04"
+    }
+  },
+  "hyperlinks": [],
+  "stories": {
+    "x4201": {
+      "storyTitle": "Character Details",
+      "storyText": "The Knights of Favonius are the protectors of Mondstadt, the swords and shields of the city.\\nIn addition to keeping the city and the surrounding travel routes safe from the threat of wild monsters, the Knights' most important responsibility is maintaining order among Mondstadt's inhabitants.\\nMondstadt is the City of Freedom, but unchecked freedom without any kind of rules only invites chaos and anxiety.\\nJean's understanding of this is the reason she remains diligent at all times, holding herself to impeccable standards.\\nHowever, she often finds that she exhausts her monthly quota of coffee within the first few days of the month as a result.",
+      "unlockConds": []
+    },
+    "x4202": {
+      "storyTitle": "Character Story 1",
+      "storyText": "The Gunnhildr Clan is the oldest family of knights in Mondstadt, dating back to even before the very first epic was written.\\nHowever, this long and proud lineage can also be a burden. Jean was raised by her mother to be the successor to the Gunnhildr Clan.\\nShe was trained in all the things a knight must know and all the qualities they must exhibit, from discipline, etiquette and conduct, to knowledge of history and ballads, as well as maintaining peak swordsmanship and physical fitness. Only by upholding this standard can Jean carry the mantle of the Gunnhildr Clan, whose motto is: \"For Mondstadt, as always.\"\\nSome time ago, there was a joke commonly told in Mondstadt's taverns: A Gunnhildr learns to say \"For Mondstadt, as always\" before learning to say \"Mommy.\"\\nAs a child, Jean once lifted her head up from the book she was reading, \"Breeze Amidst the Forest - Ballad Selection,\" and saw the other children her age happily playing with pinwheels outside the window. The young Jean knew in that moment what her family motto meant to her.\\nNow, when she lifts her head up from her piles of paperwork and sees the next generation of children doing the same thing, Acting Grand Master Jean has no regrets about her years of service to that motto.\\n\"You have to give your all to do the right thing. Always.\"",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 2
+      }
+    },
+    "x4203": {
+      "storyTitle": "Character Story 2",
+      "storyText": "\"Master Jean is so reliable.\"\\n\"If you ever run into trouble, seek Jean. She'll know what to do.\"\\nThe denizens of Mondstadt, civilians and knights alike, all rely on Jean.\\nIf someone needs help for the right reasons, Jean does not hesitate to render assistance.\\nBe it a quarrel down at the market, a relationship issue...\\nNo matter how unrelated it may be to a knight's job... Jean gladly lends a hand whenever she can.\\n\"The chance to help someone in need is reason enough for a knight.\"\\nTo her, her knightly duty takes priority over her role as Acting Grand Master. She believes helping others herself is the best way to assist.\\nShe holds her fellow knights to the same standard.\\nLisa the Librarian once suggested that Jean take a break and \"enjoy some afternoon tea, as is befitting of a lady.\"\\nHowever, to Jean, doing that which is befitting of a knight takes priority over doing that which is befitting of a lady.\\n\"Jean is so reliable.\"\\nSuch is the reputation Jean enjoys in Mondstadt.\\nHer only gripe is that there are not enough hours in the day. She could never help all of those in need, even by forgoing sleep.\\nThe dedication and commitment required to become someone so reliable is unimaginable.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 3
+      }
+    },
+    "x4204": {
+      "storyTitle": "Character Story 3",
+      "storyText": "Given everything Jean has brought to her role as Acting Grand Master, people sometimes forget that there is, in fact, a Grand Master who is her superior.\\nThis does not bother her in any way, though. Her role and title within the Knights of Favonius do not affect her work ethic in the slightest.\\nHer passion, honesty, and meticulousness come from two things.\\nOne is her education and training, which instilled in her a chivalrous spirit from a young age.\\nThe other is the devoted teachings of Varka, the free-spirited Knight of Boreas and Grand Master of the Knights of Favonius, currently dispatched on a crusade.\\nThe effect the relaxed and unruly Knight of Boreas Varka has had on Jean's growth has been great.\\n\"Grand Master, please take your job seriously. All of Mondstadt looks up to you.\"\\n\"Well, you are my second-in-command, so helping me out is part of your job description. This way, I can focus on the really important things, wouldn't you agree?\"\\n\"...\"\\nHe is the knight of new frontiers and legendary conquests, while she is the knight of maintaining peace and freedom.\\nJean does not resent Varka; perhaps there is wisdom in his conduct. However, what Varka leaves undone falls on her shoulders, and it is then down to her to do the right thing.\\nHalf a year ago, Varka led the elite knights of Favonius on yet another expedition away from Mondstadt.\\nAn expedition — how typical of Varka's character.\\n\"I'll leave things here to you. I mean, you've basically been doing my job for years now, anyway.\"\\n\"Leave it to me, Grand Master.\"\\nAfter seeing the Grand Master off, Jean sat by the window and thought to herself:\\nUpon your return, I will show you a kinder, more prosperous, and more peaceful Mondstadt.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 4
+      }
+    },
+    "x4205": {
+      "storyTitle": "Character Story 4",
+      "storyText": "The great tree at Windrise is where the first Dandelion Knight came to the end of her journey.\\nShe was Vennessa, the founder of the Knights of Favonius and the restorer of Mondstadt.\\nShe bade farewell to the city she had vowed to protect, leaving behind her legend and a single sapling.\\nAfter centuries of basking in the bliss of the thousand winds, this sapling grew into a towering tree.\\nJean was conferred the title of \"Dandelion Knight\" at the age of fifteen.\\nThe Dandelion Knight is also known as Lionfang Knight. Passed down through generations of knights, the title is bestowed upon only the most distinguished.\\nOn the day she received the title, Jean excused herself from the celebrations that followed the conferment ceremony. As if following in the footsteps of her childhood hero, she went and stood before the great tree.\\nThe title of Dandelion Knight symbolizes Vennessa's legacy of resistance and benevolence. So how, Jean thought, could one such as herself be worthy of this honorable title?\\nMore than a millennium had passed since Mondstadt's restoration. Did she really have what it would take to continue to protect this ancient and proud land of freedom?\\nBeneath her outwardly mature visage lay the heart of a young girl, who had only just received the title and remained wholly unprepared for the task that lay before her.\\nThe wind blew from far away, and she felt it flow within her as it gently whisked away her doubts and worries, leaving her with an unwavering determination:\\nFor Mondstadt, as always.\\nTo become a warrior as kind and as determined as Vennessa, and to fight for her people and for freedom... Yes, this was the true meaning of her simple family motto.\\nTo this day, whenever Jean feels weary or feels herself beginning to waver, she comes and stands before this tree and lets the wind console her once more. It carries away her fatigue, so that she may once more have the strength to carry on.\\nThe great tree at Windrise marked the end of the first Lionfang Knight's journey.\\nSo too does it symbolize the beginning of Jean's.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 5
+      }
+    },
+    "x4206": {
+      "storyTitle": "Character Story 5",
+      "storyText": "Master Jean has a secret.\\nThe Gunnhildr Clan is a venerable knightly house. This prideful blood comes from Jean's mother, Frederica.\\nJean's father on the other hand is Seamus Pegg, an adventurer famed throughout the continent. When he came to Mondstadt, he dusted off his past self and started anew with the Church of Favonius, and ascended to high office within it, becoming known as the Cardinal of Daybreak.\\nThe two lovers eventually parted ways. Young Jean, holding her mother's hand, would watch the silhouettes of her father and her sister, Barbara, grow ever more distant.\\nLater, Barbara would follow in her father's footsteps and join the Church of Favonius, becoming a deaconess much beloved by the people.\\nJean has always wanted to get closer to her younger sister by blood, but cannot bring herself to say anything when faced with Barbara's evasive eyes.\\nPerhaps this all-too-similar awkwardness is a sign that the sentiment is shared.\\nMaster Jean has yet another secret.\\nNo matter how many times she has read the historical classics, despite her title of Dandelion Knight, and though she has become the Acting Grand Master whom everyone relies on...\\nJean still loves romance novels.\\nThis is not for the years as a young girl that she missed amid her training and duties, or due to the rift that formed in her parents' marriage.\\nJean simply yearns for the mutual attraction spoken of in such stories, for those emotions as subtle and fragile as spider-silk.\\nAs a knight, she must put Mondstadt and the Knights of Favonius first.\\nBut...\\n\"If I too could...\"\\nIn her office, deep at night, Jean once again finishes reading \"Vera's Melancholy.\"\\n\"If I have the time, it should be fine to go to Cape Oath, just before daybreak... right?\"\\nLowering her head, Jean peeks out her window at the glittering stars above.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 6
+      }
+    },
+    "x4207": {
+      "storyTitle": "Jean's Daily Schedule - Ver. XVII",
+      "storyText": "This schedule is accurate down to the minute.\\nFrom a morning run with Amber followed a breakfast trip with Lisa on the way, to doing her own laundry by hand and settling her own change of clothes at night — all things great and small pack Jean's schedule rather tightly.\\nEvery completed item is ticked off, while ones delayed due to external factors list the detailed whys and wherefores.\\nNext to the item \"Mondstadt Public Facilities Review\" — delayed due to a bout of illness — is written the following \"completed at 3 am, end-of-month book purchase award is canceled.\"\\nJean sometimes thinks that inspiration for this schedule may have been the training program her mother drew up for her ten years ago.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 4
+      }
+    },
+    "x4208": {
+      "storyTitle": "Vision",
+      "storyText": "If one were to go by skill alone, Jean has long become one of the best swordsmen in Mondstadt.\\nBut in Jean's heart, she would rather be a shield that defends freedom and song than a sword that cuts through corruption and darkness.\\n\"Protecting\" has always been a tougher task than \"destroying.\"\\nAround the time when she was promoted from Captain of her squad to Master of the Knights, a huge challenge stood before her. From without, the Fatui exerted diplomatic pressure, and from within, there were traitors — comrades of the former Inspector. Regrouping and finding a way to break through was no easy task.\\nBut Jean was able to fend off the external pressure with one hand, and lead the Knights to smash the many plots of the Abyss Order with the other, re-establishing the authority of the Knights of Favonius.\\nJean will never forget the moment she received her Vision. At that moment, all seemed to grow quiet as she felt the breeze flow through her hand. The world seemed to fade away, save for the time-honored motto of the house of Gunnhildr:\\n\"For Mondstadt, as always.\"",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 6
+      }
+    }
+  },
+  "quotes": {
+    "x4100": {
+      "quoteTitle": "Hello",
+      "quoteText": "I am Jean, the Dandelion Knight, requesting approval to join your party. From this day onwards, my honor and loyalty lie with you.",
+      "unlockConds": []
+    },
+    "x4101": {
+      "quoteTitle": "Chat: Operation",
+      "quoteText": "It's time to move on, we shouldn't stay here.",
+      "unlockConds": []
+    },
+    "x4102": {
+      "quoteTitle": "Chat: Knights of Favonius",
+      "quoteText": "I do hope the Knights of Favonius are all working hard...",
+      "unlockConds": []
+    },
+    "x4103": {
+      "quoteTitle": "Chat: Target",
+      "quoteText": "Onwards! We have work to do.",
+      "unlockConds": []
+    },
+    "x4104": {
+      "quoteTitle": "When It Rains",
+      "quoteText": "The rain won't slow me down.",
+      "unlockConds": []
+    },
+    "x4105": {
+      "quoteTitle": "After the Rain",
+      "quoteText": "This weather is perfect, we should move out.",
+      "unlockConds": []
+    },
+    "x4106": {
+      "quoteTitle": "When It Snows",
+      "quoteText": "Huh, snow. Remember — tend to your boots when we return.",
+      "unlockConds": []
+    },
+    "x4107": {
+      "quoteTitle": "When It's Windy",
+      "quoteText": "Such fine weather.",
+      "unlockConds": []
+    },
+    "x4108": {
+      "quoteTitle": "When the Wind Is Blowing",
+      "quoteText": "Legend has it the wind was unusually strong on that day, too...",
+      "unlockConds": []
+    },
+    "x4109": {
+      "quoteTitle": "Good Morning",
+      "quoteText": "A successful day starts from the morning. Let's give it our all today.",
+      "unlockConds": []
+    },
+    "x4110": {
+      "quoteTitle": "Good Afternoon",
+      "quoteText": "We've still got work to do. Let's keep going.",
+      "unlockConds": []
+    },
+    "x4111": {
+      "quoteTitle": "Good Evening",
+      "quoteText": "Huh, it seems I'm immune to coffee now. Perhaps I need to ask Lisa for something... a little stronger...",
+      "unlockConds": []
+    },
+    "x4112": {
+      "quoteTitle": "Good Night",
+      "quoteText": "Training is finished for today. Great work, you've earned a good rest.",
+      "unlockConds": []
+    },
+    "x4113": {
+      "quoteTitle": "About Jean",
+      "quoteText": "Today I had no choice but to cut down five Ruin Guards to protect the people of our city... Ugh, I must continue to work harder. Though hostile, destroying such precious artifacts is still a loss to us all. I must find a less destructive way to bring them down next time...",
+      "unlockConds": []
+    },
+    "x4114": {
+      "quoteTitle": "About Us: Creed",
+      "quoteText": "You have my complete and full support. Of course, if your path ever deviates from justice, I will not hesitate to point it out.",
+      "unlockConds": []
+    },
+    "x4115": {
+      "quoteTitle": "About Us: Oath",
+      "quoteText": "I swear by this sword, victory shall be yours.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 6"
+      ]
+    },
+    "x4116": {
+      "quoteTitle": "About Us: Quest",
+      "quoteText": "Our work will not handle itself... But, I suppose the occasional short break is warranted. Let us rest for a couple of minutes.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 6"
+      ]
+    },
+    "x4117": {
+      "quoteTitle": "About the Vision",
+      "quoteText": "For Mondstadt, as always is the Gunnhildr family motto. Every time I use my Vision, I am reminded of my mother and the hopes of the people of Mondstadt. For Mondstadt, for freedom — that is what I fight for.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x4118": {
+      "quoteTitle": "Something to Share",
+      "quoteText": "On behalf of the Knights of Favonius, I would like to extend my gratitude to you for all you have done for Mondstadt. Please remember to rest from time to ti... Did I miss something? What are you laughing at? Did I say something odd?",
+      "unlockConds": []
+    },
+    "x4119": {
+      "quoteTitle": "Interesting Things",
+      "quoteText": "\"Dandelion, Dandelion, ride the wind to a faraway land.\" Who knows, the wind might take it all the way to Celestia.",
+      "unlockConds": []
+    },
+    "x4120": {
+      "quoteTitle": "About Barbara",
+      "quoteText": "Barbara is a hard worker, but I feel she's too hard on herself sometimes... What? You ask me how I know all of this? It's because the order also manages the Church.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x4121": {
+      "quoteTitle": "About Lisa",
+      "quoteText": "When Lisa is around, I always have peace of mind.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x4122": {
+      "quoteTitle": "About Amber",
+      "quoteText": "I must say that Amber's development has impressed me recently. I hope that one day, her deeds will become the words of a bard's tale.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x4123": {
+      "quoteTitle": "About Kaeya",
+      "quoteText": "Is that right...? Kaeya also gave you some suggestions. He is an excellent knight after all — this is a fact no one can deny.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x4124": {
+      "quoteTitle": "About Klee",
+      "quoteText": "Though it may be said that it is in a child's nature to play, the things Klee plays with are far from toys. I can never take my eye off her.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x4125": {
+      "quoteTitle": "About Albedo",
+      "quoteText": "Sometimes I feel that terms like \"genius\" were originally created for Albedo.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x4126": {
+      "quoteTitle": "About Varka",
+      "quoteText": "Grand Master Varka is the legend of his generation. On the day of his triumphant return, I shall be sure to personally introduce you to him. I'm sure you too will be in awe of his greatness.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x4127": {
+      "quoteTitle": "About Noelle",
+      "quoteText": "Noelle... She puts enormous effort into trying to become a Knight of Favonius. However, I fear she is not quite ready for the dangers that lie beyond Mondstadt's walls.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x4128": {
+      "quoteTitle": "About Rosaria",
+      "quoteText": "Some may see Sister Rosaria as one who complains about how bothersome her work is, but she does her job well. Last time I saw her I told her she could come find me should she ever need help, to which she simply replied that doing so would be even more bothersome. I need to work harder to become of more assistance to the people of Mondstadt.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x4129": {
+      "quoteTitle": "About Diluc: Disillusion",
+      "quoteText": "Master Diluc has his reasons for being so critical of the Knights of Favonius. I am not proud of the way things went, but I cannot change the past. All I can do is keep working hard, in the hope he may one day see us in a better light... This is my duty.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x4130": {
+      "quoteTitle": "About Diluc: Respect",
+      "quoteText": "Master Diluc is my senior, and I have the utmost respect for him. Though we have gone separate ways, I can sense we share the same strong commitment to protecting Mondstadt at all costs.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x4131": {
+      "quoteTitle": "About Sucrose",
+      "quoteText": "Sucrose is also a rare talent in the field of alchemy. Under Albedo's mentorship, she is sure to flourish. I am sure her future will be bright. The only thing is... Ahem, I was momentarily lost in thought. It is nothing. Nothing bad, anyway.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x4132": {
+      "quoteTitle": "About Eula",
+      "quoteText": "Eula? Um... Please, do not hold her unfortunate background against her. The Knights of Favonius evaluate each person impartially. Eula has a clear sense of right and wrong and is more talented than most. The controversial statements that she makes from time to time are just a product of her personality. For instance, she always mentions wanting to challenge me, but I don't mind.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x4133": {
+      "quoteTitle": "More About Jean: I",
+      "quoteText": "I shoulder the knights' trust and the people's hope. It is for this reason, I must stay vigilant.",
+      "unlockConds": []
+    },
+    "x4134": {
+      "quoteTitle": "More About Jean: II",
+      "quoteText": "Vennessa's title — \"Dandelion Knight\" — has been passed down from generation to generation. Countless great knights were awarded with this honor and I will not bring shame to this name. Thus, I must keep going. I must become the sword and aegis of the people.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 3"
+      ]
+    },
+    "x4135": {
+      "quoteTitle": "More About Jean: III",
+      "quoteText": "Only glorious victories are recorded in legends and history books. Surely even the great knights of old must have had their struggles?\\nWind, please show me the path.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x4136": {
+      "quoteTitle": "More About Jean: IV",
+      "quoteText": "When I'm wholeheartedly devoted to my work, all of my troubles and even my sense of time seem to just slip away. Hmm, Grand Master Varka did say to me: \"Jean, there is no better candidate for this task\"...",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 5"
+      ]
+    },
+    "x4137": {
+      "quoteTitle": "More About Jean: V",
+      "quoteText": "As I walk with you, the path ahead becomes clearer. It's almost as if I have finally found someone I can trust. I wonder if...\\nNo, this must mean that I am still lacking in strength... I must not give up, I will not — I cannot fail the Knights and the people of Mondstadt. Still... thank you.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 6"
+      ]
+    },
+    "x4138": {
+      "quoteTitle": "Jean's Hobbies",
+      "quoteText": "Maybe we can discuss the tales of legendary heroes. Have you heard the story of the heroic king of Khaenri'ah?",
+      "unlockConds": []
+    },
+    "x4139": {
+      "quoteTitle": "Jean's Troubles",
+      "quoteText": "If only there was some kind of mysterious potion that could keep me awake forever... I need to have a talk with Lisa tomorrow.",
+      "unlockConds": []
+    },
+    "x4140": {
+      "quoteTitle": "Favorite Food",
+      "quoteText": "It's been ages since I had pizza at Cat's Tail. If only they delivered...",
+      "unlockConds": []
+    },
+    "x4141": {
+      "quoteTitle": "Least Favorite Food",
+      "quoteText": "A true knight can't afford to be a picky eater.",
+      "unlockConds": []
+    },
+    "x4142": {
+      "quoteTitle": "Birthday",
+      "quoteText": "Today is a day worth celebrating. If you must ask why, well, let me remind you that today is when you, the one who is blessed by the wind, came into the world. Since this is your birthday, I'll allow you to take it easy.\\nAhem... ♪Happy birthday to you...♪\\nUh... Please forgive my presumptuousness. I hope this gift is to your liking.",
+      "unlockConds": []
+    },
+    "x4143": {
+      "quoteTitle": "Feelings About Ascension: Intro",
+      "quoteText": "Good. On to our next objective.",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 1"
+      ]
+    },
+    "x4144": {
+      "quoteTitle": "Feelings About Ascension: Building Up",
+      "quoteText": "As the wind continues to blow, so too shall I continue to fight.",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 2"
+      ]
+    },
+    "x4145": {
+      "quoteTitle": "Feelings About Ascension: Climax",
+      "quoteText": "Although we have peace, we must not become complacent. As the Acting Grand Master, I must remain vigilant.",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 4"
+      ]
+    },
+    "x4146": {
+      "quoteTitle": "Feelings About Ascension: Conclusion",
+      "quoteText": "I am still not good enough. Ever since I met you, I have been indebted to you for your assistance. My gratitude...\\nWind, please forgive my selfishness. Not as the Acting Grand Master, but as Jean — I hereby swear that my sword shall always go with you.",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 6"
+      ]
+    },
+    "x4147": {
+      "quoteTitle": "Elemental Skill: I",
+      "quoteText": "Go as one!",
+      "unlockConds": []
+    },
+    "x4148": {
+      "quoteTitle": "Elemental Skill: II",
+      "quoteText": "Hah!",
+      "unlockConds": []
+    },
+    "x4149": {
+      "quoteTitle": "Elemental Skill: III",
+      "quoteText": "Huh!",
+      "unlockConds": []
+    },
+    "x4150": {
+      "quoteTitle": "Elemental Burst: I",
+      "quoteText": "Wind, hear me!",
+      "unlockConds": []
+    },
+    "x4151": {
+      "quoteTitle": "Elemental Burst: II",
+      "quoteText": "I swear by my sword!",
+      "unlockConds": []
+    },
+    "x4152": {
+      "quoteTitle": "Elemental Burst: III",
+      "quoteText": "Barbatos, guide us.",
+      "unlockConds": []
+    },
+    "x4153": {
+      "quoteTitle": "Opening Treasure Chest: I",
+      "quoteText": "What a pleasant surprise.",
+      "unlockConds": []
+    },
+    "x4154": {
+      "quoteTitle": "Opening Treasure Chest: II",
+      "quoteText": "Hmm, things are going a little too smoothly today...",
+      "unlockConds": []
+    },
+    "x4155": {
+      "quoteTitle": "Opening Treasure Chest: III",
+      "quoteText": "I hope the others find some.",
+      "unlockConds": []
+    },
+    "x4156": {
+      "quoteTitle": "Low HP: I",
+      "quoteText": "I'm... I'm fine...",
+      "unlockConds": []
+    },
+    "x4157": {
+      "quoteTitle": "Low HP: II",
+      "quoteText": "My companions... need me...",
+      "unlockConds": []
+    },
+    "x4158": {
+      "quoteTitle": "Low HP: III",
+      "quoteText": "I can not give up...",
+      "unlockConds": []
+    },
+    "x4159": {
+      "quoteTitle": "Ally at Low HP: I",
+      "quoteText": "You're injured... get to safety!",
+      "unlockConds": []
+    },
+    "x4160": {
+      "quoteTitle": "Ally at Low HP: II",
+      "quoteText": "I'll take over.",
+      "unlockConds": []
+    },
+    "x4161": {
+      "quoteTitle": "Fallen: I",
+      "quoteText": "Mondstadt...",
+      "unlockConds": []
+    },
+    "x4162": {
+      "quoteTitle": "Fallen: II",
+      "quoteText": "Everyone has their limits...",
+      "unlockConds": []
+    },
+    "x4163": {
+      "quoteTitle": "Fallen: III",
+      "quoteText": "I have failed...",
+      "unlockConds": []
+    },
+    "x4164": {
+      "quoteTitle": "Heavy Hit Taken: I",
+      "quoteText": "Ugh! Barely a scratch!",
+      "unlockConds": []
+    },
+    "x4165": {
+      "quoteTitle": "Joining Party: I",
+      "quoteText": "We may leave at any time.",
+      "unlockConds": []
+    },
+    "x4166": {
+      "quoteTitle": "Joining Party: II",
+      "quoteText": "Ready for anything.",
+      "unlockConds": []
+    },
+    "x4167": {
+      "quoteTitle": "Joining Party: III",
+      "quoteText": "Let the wind lead.",
+      "unlockConds": []
+    },
+    "x4168": {
+      "quoteTitle": "Receiving a Gift: I",
+      "quoteText": "Not only is the taste magnificent, but you've also made sure it was healthy. You have my gratitude.",
+      "unlockConds": []
+    },
+    "x4169": {
+      "quoteTitle": "Receiving a Gift: II",
+      "quoteText": "Hmm yes, I feel a lot more energetic now, thanks to you.",
+      "unlockConds": []
+    },
+    "x4170": {
+      "quoteTitle": "Receiving a Gift: III",
+      "quoteText": "Ahem... all in all, I appreciate the effort.",
+      "unlockConds": []
+    },
+    "x4171": {
+      "quoteTitle": "About Mika",
+      "quoteText": "The Grand Master placed Mika on the front line of the expedition team not simply because he met the requirements of the mission — more importantly, he was impressed by Mika's hardworking and grounded nature. From my own perspective, I feel very honored to work with someone like him.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    }
+  },
+  "energy": [
+    {
+      "source": "Ball",
+      "particles": "2",
+      "chance": "100%",
+      "cd": "0.3s"
+    },
+    {
+      "source": "Ball_Extra",
+      "particles": "1",
+      "chance": "67%",
+      "cd": "1s"
+    }
+  ],
+  "attacks": [
+    {
+      "name": "VortexSmash",
+      "icd_source": "Tag: VortexSmash_Detect_Short (!)",
+      "icd_rule": "Independent",
+      "gauge": "2U",
+      "poise": "LV0/0",
+      "element": "-",
+      "attackType": "Default",
+      "strikeType": "None",
+      "damageParam": "-"
+    },
+    {
+      "name": "VortexSmash",
+      "icd_source": "Tag: VortexSmash_Detect (!)",
+      "icd_rule": "Independent",
+      "gauge": "2U",
+      "poise": "LV0/0",
+      "element": "-",
+      "attackType": "Default",
+      "strikeType": "None",
+      "damageParam": "-"
+    },
+    {
+      "name": "VortexSmash",
+      "icd_source": "Tag: Elemental_Art (!)",
+      "icd_rule": "Independent",
+      "gauge": "2U",
+      "poise": "LV9/250",
+      "element": "Wind",
+      "attackType": "Melee",
+      "strikeType": "-",
+      "damageParam": "Art_DMG"
+    },
+    {
+      "name": "VortexSmash",
+      "icd_source": "Tag: Qin_VortexSmash (!)",
+      "icd_rule": "Independent",
+      "gauge": "2U",
+      "poise": "LV9/250",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "-",
+      "damageParam": "-"
+    },
+    {
+      "name": "DandelionWind_Harm",
+      "icd_source": "Tag: Elemental_Burst (!)",
+      "icd_rule": "Independent",
+      "gauge": "2U",
+      "poise": "LV2/50",
+      "element": "Wind",
+      "attackType": "Default",
+      "strikeType": "-",
+      "damageParam": "InOutHarm"
+    },
+    {
+      "name": "DandelionWind_Push",
+      "icd_source": "Tag: Elemental_Burst (!)",
+      "icd_rule": "Independent",
+      "gauge": "2U",
+      "poise": "LV4/400",
+      "element": "Wind",
+      "attackType": "Default",
+      "strikeType": "-",
+      "damageParam": "Burst_DMG"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "0U",
+      "poise": "LV2/25",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Slash",
+      "damageParam": "FallingAnthem_Normal_Loop_Damage"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV4/100",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Blunt",
+      "damageParam": "FallingAnthem_Normal_Rank_1_Damage"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV7/150",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Blunt",
+      "damageParam": "FallingAnthem_Normal_Rank_2_Damage"
+    }
+  ],
+  "endure": []
+}

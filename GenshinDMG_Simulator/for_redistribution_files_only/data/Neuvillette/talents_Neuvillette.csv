@@ -1,0 +1,7 @@
+Skill,Param,ScalingType,Level10
+Skill,SourcewaterHP,MaxHP,0.120
+Charge,BeamHP,MaxHP,0.238
+Charge,FinalWaveHP,MaxHP,0.315
+Burst,CastHP,MaxHP,0.335
+Burst,DropletHP,MaxHP,0.160
+Passive,DraconicStack,DMG,0.11

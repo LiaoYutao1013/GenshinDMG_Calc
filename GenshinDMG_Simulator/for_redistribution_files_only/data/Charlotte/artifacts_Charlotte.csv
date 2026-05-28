@@ -1,0 +1,2 @@
+Weapon,WeaponATK,WeaponSubStatType,WeaponSubStatValue,WeaponRefinement,AtkBonus,FlatATK,ER,EM,CritRate,CritDMG,CryoDMGBonus,SkillDMGBonus,BurstDMGBonus,HealingBonus,ResShred,ArtifactSet1,ArtifactSet1Pieces,ArtifactSet2,ArtifactSet2Pieces,ArtifactSet4Active
+西风秘典,510,ER,0.4594,5,0.88,311,1.9,40,0.42,0.9,0.466,0.2,0.2,0.35,0,NoblesseOblige,4,None,0,1

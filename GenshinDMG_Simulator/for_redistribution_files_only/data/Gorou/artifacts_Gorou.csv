@@ -1,0 +1,2 @@
+Weapon,WeaponATK,WeaponSubStatType,WeaponSubStatValue,WeaponRefinement,DEFBonus,FlatDEF,ER,CritRate,CritDMG,GeoDMGBonus,SkillDMGBonus,BurstDMGBonus,ResShred,ArtifactSet1,ArtifactSet1Pieces,ArtifactSet2,ArtifactSet2Pieces,ArtifactSet4Active
+FavoniusWarbow,565,ER,0.306,1,0.46,180,1.85,0.55,1.2,0.466,0.2,0.2,0,NoblesseOblige,4,None,0,1

@@ -1,0 +1,2 @@
+Weapon,WeaponATK,WeaponSubStatType,WeaponSubStatValue,WeaponRefinement,AtkBonus,FlatATK,ER,CritRate,CritDMG,CryoDMGBonus,SkillDMGBonus,BurstDMGBonus,ArtifactSet1,ArtifactSet1Pieces,ArtifactSet2,ArtifactSet2Pieces,ArtifactSet4Active
+PrimordialJadeCutter,542,CR,0.441,1,0.78,220,1.35,0.7,1.95,0.466,0.2,0.22,BlizzardStrayer,4,None,0,1

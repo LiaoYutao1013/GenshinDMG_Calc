@@ -1,0 +1,1884 @@
+{
+  "info": {
+    "name": "Ganyu",
+    "description": "The secretary at Yuehai Pavilion. The blood of the qilin, an illuminated beast, flows within her veins.",
+    "rarity": "QUALITY_ORANGE",
+    "weapon": "WEAPON_BOW",
+    "birthday": "2/12",
+    "element": "Cryo",
+    "title": "Plenilune Gaze",
+    "constellation": "Sinae Unicornis",
+    "affiliation": "Yuehai Pavilion",
+    "cv": {
+      "EN": "Rachel Lepore & Jennifer Losi",
+      "CHS": "林簌",
+      "JP": "上田麗奈",
+      "KR": "Kim Seon-hye"
+    },
+    "attributes": [
+      {
+        "level": 1,
+        "ascension": 0,
+        "hp": 763,
+        "atk": 26,
+        "def": 49,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 2,
+        "ascension": 0,
+        "hp": 826,
+        "atk": 28,
+        "def": 53,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 3,
+        "ascension": 0,
+        "hp": 889,
+        "atk": 30,
+        "def": 57,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 4,
+        "ascension": 0,
+        "hp": 953,
+        "atk": 33,
+        "def": 61,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 5,
+        "ascension": 0,
+        "hp": 1017,
+        "atk": 35,
+        "def": 65,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 6,
+        "ascension": 0,
+        "hp": 1081,
+        "atk": 37,
+        "def": 70,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 7,
+        "ascension": 0,
+        "hp": 1144,
+        "atk": 39,
+        "def": 74,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 8,
+        "ascension": 0,
+        "hp": 1208,
+        "atk": 41,
+        "def": 78,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 9,
+        "ascension": 0,
+        "hp": 1272,
+        "atk": 43,
+        "def": 82,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 10,
+        "ascension": 0,
+        "hp": 1335,
+        "atk": 46,
+        "def": 86,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 11,
+        "ascension": 0,
+        "hp": 1399,
+        "atk": 48,
+        "def": 90,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 12,
+        "ascension": 0,
+        "hp": 1464,
+        "atk": 50,
+        "def": 94,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 13,
+        "ascension": 0,
+        "hp": 1528,
+        "atk": 52,
+        "def": 98,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 14,
+        "ascension": 0,
+        "hp": 1592,
+        "atk": 54,
+        "def": 102,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 15,
+        "ascension": 0,
+        "hp": 1656,
+        "atk": 57,
+        "def": 107,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 16,
+        "ascension": 0,
+        "hp": 1721,
+        "atk": 59,
+        "def": 111,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 17,
+        "ascension": 0,
+        "hp": 1785,
+        "atk": 61,
+        "def": 115,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 18,
+        "ascension": 0,
+        "hp": 1849,
+        "atk": 63,
+        "def": 119,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 19,
+        "ascension": 0,
+        "hp": 1914,
+        "atk": 65,
+        "def": 123,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 20,
+        "ascension": 0,
+        "hp": 1978,
+        "atk": 68,
+        "def": 127,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 21,
+        "ascension": 1,
+        "hp": 2697,
+        "atk": 92,
+        "def": 173,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 22,
+        "ascension": 1,
+        "hp": 2762,
+        "atk": 94,
+        "def": 178,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 23,
+        "ascension": 1,
+        "hp": 2827,
+        "atk": 97,
+        "def": 182,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 24,
+        "ascension": 1,
+        "hp": 2892,
+        "atk": 99,
+        "def": 186,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 25,
+        "ascension": 1,
+        "hp": 2956,
+        "atk": 101,
+        "def": 190,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 26,
+        "ascension": 1,
+        "hp": 3022,
+        "atk": 103,
+        "def": 194,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 27,
+        "ascension": 1,
+        "hp": 3087,
+        "atk": 106,
+        "def": 199,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 28,
+        "ascension": 1,
+        "hp": 3152,
+        "atk": 108,
+        "def": 203,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 29,
+        "ascension": 1,
+        "hp": 3217,
+        "atk": 110,
+        "def": 207,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 30,
+        "ascension": 1,
+        "hp": 3282,
+        "atk": 112,
+        "def": 211,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 31,
+        "ascension": 1,
+        "hp": 3348,
+        "atk": 114,
+        "def": 215,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 32,
+        "ascension": 1,
+        "hp": 3413,
+        "atk": 117,
+        "def": 220,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 33,
+        "ascension": 1,
+        "hp": 3479,
+        "atk": 119,
+        "def": 224,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 34,
+        "ascension": 1,
+        "hp": 3544,
+        "atk": 121,
+        "def": 228,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 35,
+        "ascension": 1,
+        "hp": 3609,
+        "atk": 123,
+        "def": 232,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 36,
+        "ascension": 1,
+        "hp": 3676,
+        "atk": 126,
+        "def": 236,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 37,
+        "ascension": 1,
+        "hp": 3741,
+        "atk": 128,
+        "def": 241,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 38,
+        "ascension": 1,
+        "hp": 3807,
+        "atk": 130,
+        "def": 245,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 39,
+        "ascension": 1,
+        "hp": 3872,
+        "atk": 132,
+        "def": 249,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 40,
+        "ascension": 1,
+        "hp": 3939,
+        "atk": 135,
+        "def": 253,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 41,
+        "ascension": 2,
+        "hp": 4469,
+        "atk": 153,
+        "def": 287,
+        "CRITDMG_": "9.6"
+      },
+      {
+        "level": 42,
+        "ascension": 2,
+        "hp": 4535,
+        "atk": 155,
+        "def": 292,
+        "CRITDMG_": "9.6"
+      },
+      {
+        "level": 43,
+        "ascension": 2,
+        "hp": 4602,
+        "atk": 157,
+        "def": 296,
+        "CRITDMG_": "9.6"
+      },
+      {
+        "level": 44,
+        "ascension": 2,
+        "hp": 4667,
+        "atk": 160,
+        "def": 300,
+        "CRITDMG_": "9.6"
+      },
+      {
+        "level": 45,
+        "ascension": 2,
+        "hp": 4734,
+        "atk": 162,
+        "def": 305,
+        "CRITDMG_": "9.6"
+      },
+      {
+        "level": 46,
+        "ascension": 2,
+        "hp": 4800,
+        "atk": 164,
+        "def": 309,
+        "CRITDMG_": "9.6"
+      },
+      {
+        "level": 47,
+        "ascension": 2,
+        "hp": 4866,
+        "atk": 166,
+        "def": 313,
+        "CRITDMG_": "9.6"
+      },
+      {
+        "level": 48,
+        "ascension": 2,
+        "hp": 4933,
+        "atk": 169,
+        "def": 317,
+        "CRITDMG_": "9.6"
+      },
+      {
+        "level": 49,
+        "ascension": 2,
+        "hp": 5000,
+        "atk": 171,
+        "def": 322,
+        "CRITDMG_": "9.6"
+      },
+      {
+        "level": 50,
+        "ascension": 2,
+        "hp": 5066,
+        "atk": 173,
+        "def": 326,
+        "CRITDMG_": "9.6"
+      },
+      {
+        "level": 51,
+        "ascension": 3,
+        "hp": 5752,
+        "atk": 197,
+        "def": 370,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 52,
+        "ascension": 3,
+        "hp": 5819,
+        "atk": 199,
+        "def": 374,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 53,
+        "ascension": 3,
+        "hp": 5885,
+        "atk": 201,
+        "def": 379,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 54,
+        "ascension": 3,
+        "hp": 5952,
+        "atk": 203,
+        "def": 383,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 55,
+        "ascension": 3,
+        "hp": 6020,
+        "atk": 206,
+        "def": 387,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 56,
+        "ascension": 3,
+        "hp": 6087,
+        "atk": 208,
+        "def": 392,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 57,
+        "ascension": 3,
+        "hp": 6154,
+        "atk": 210,
+        "def": 396,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 58,
+        "ascension": 3,
+        "hp": 6221,
+        "atk": 213,
+        "def": 400,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 59,
+        "ascension": 3,
+        "hp": 6288,
+        "atk": 215,
+        "def": 405,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 60,
+        "ascension": 3,
+        "hp": 6355,
+        "atk": 217,
+        "def": 409,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 61,
+        "ascension": 4,
+        "hp": 6887,
+        "atk": 235,
+        "def": 443,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 62,
+        "ascension": 4,
+        "hp": 6954,
+        "atk": 238,
+        "def": 447,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 63,
+        "ascension": 4,
+        "hp": 7022,
+        "atk": 240,
+        "def": 452,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 64,
+        "ascension": 4,
+        "hp": 7089,
+        "atk": 242,
+        "def": 456,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 65,
+        "ascension": 4,
+        "hp": 7157,
+        "atk": 245,
+        "def": 460,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 66,
+        "ascension": 4,
+        "hp": 7225,
+        "atk": 247,
+        "def": 465,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 67,
+        "ascension": 4,
+        "hp": 7292,
+        "atk": 249,
+        "def": 469,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 68,
+        "ascension": 4,
+        "hp": 7360,
+        "atk": 252,
+        "def": 473,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 69,
+        "ascension": 4,
+        "hp": 7428,
+        "atk": 254,
+        "def": 478,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 70,
+        "ascension": 4,
+        "hp": 7495,
+        "atk": 256,
+        "def": 482,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 71,
+        "ascension": 5,
+        "hp": 8028,
+        "atk": 274,
+        "def": 516,
+        "CRITDMG_": "28.8"
+      },
+      {
+        "level": 72,
+        "ascension": 5,
+        "hp": 8097,
+        "atk": 277,
+        "def": 521,
+        "CRITDMG_": "28.8"
+      },
+      {
+        "level": 73,
+        "ascension": 5,
+        "hp": 8164,
+        "atk": 279,
+        "def": 525,
+        "CRITDMG_": "28.8"
+      },
+      {
+        "level": 74,
+        "ascension": 5,
+        "hp": 8232,
+        "atk": 281,
+        "def": 530,
+        "CRITDMG_": "28.8"
+      },
+      {
+        "level": 75,
+        "ascension": 5,
+        "hp": 8301,
+        "atk": 284,
+        "def": 534,
+        "CRITDMG_": "28.8"
+      },
+      {
+        "level": 76,
+        "ascension": 5,
+        "hp": 8369,
+        "atk": 286,
+        "def": 538,
+        "CRITDMG_": "28.8"
+      },
+      {
+        "level": 77,
+        "ascension": 5,
+        "hp": 8438,
+        "atk": 288,
+        "def": 543,
+        "CRITDMG_": "28.8"
+      },
+      {
+        "level": 78,
+        "ascension": 5,
+        "hp": 8506,
+        "atk": 291,
+        "def": 547,
+        "CRITDMG_": "28.8"
+      },
+      {
+        "level": 79,
+        "ascension": 5,
+        "hp": 8575,
+        "atk": 293,
+        "def": 552,
+        "CRITDMG_": "28.8"
+      },
+      {
+        "level": 80,
+        "ascension": 5,
+        "hp": 8643,
+        "atk": 295,
+        "def": 556,
+        "CRITDMG_": "28.8"
+      },
+      {
+        "level": 81,
+        "ascension": 6,
+        "hp": 9177,
+        "atk": 314,
+        "def": 590,
+        "CRITDMG_": "38.4"
+      },
+      {
+        "level": 82,
+        "ascension": 6,
+        "hp": 9245,
+        "atk": 316,
+        "def": 595,
+        "CRITDMG_": "38.4"
+      },
+      {
+        "level": 83,
+        "ascension": 6,
+        "hp": 9314,
+        "atk": 318,
+        "def": 599,
+        "CRITDMG_": "38.4"
+      },
+      {
+        "level": 84,
+        "ascension": 6,
+        "hp": 9383,
+        "atk": 321,
+        "def": 604,
+        "CRITDMG_": "38.4"
+      },
+      {
+        "level": 85,
+        "ascension": 6,
+        "hp": 9451,
+        "atk": 323,
+        "def": 608,
+        "CRITDMG_": "38.4"
+      },
+      {
+        "level": 86,
+        "ascension": 6,
+        "hp": 9521,
+        "atk": 325,
+        "def": 612,
+        "CRITDMG_": "38.4"
+      },
+      {
+        "level": 87,
+        "ascension": 6,
+        "hp": 9589,
+        "atk": 328,
+        "def": 617,
+        "CRITDMG_": "38.4"
+      },
+      {
+        "level": 88,
+        "ascension": 6,
+        "hp": 9659,
+        "atk": 330,
+        "def": 621,
+        "CRITDMG_": "38.4"
+      },
+      {
+        "level": 89,
+        "ascension": 6,
+        "hp": 9728,
+        "atk": 333,
+        "def": 626,
+        "CRITDMG_": "38.4"
+      },
+      {
+        "level": 90,
+        "ascension": 6,
+        "hp": 9797,
+        "atk": 335,
+        "def": 630,
+        "CRITDMG_": "38.4"
+      },
+      {
+        "level": 95,
+        "ascension": 6,
+        "hp": 10144,
+        "atk": 373,
+        "def": 653,
+        "CRITDMG_": "38.4"
+      },
+      {
+        "level": 100,
+        "ascension": 6,
+        "hp": 10493,
+        "atk": 410,
+        "def": 675,
+        "CRITDMG_": "38.4"
+      }
+    ]
+  },
+  "icons": {
+    "forward": "UI_AvatarIcon_Ganyu",
+    "coop_img": "UI_CoopImg_Ganyu"
+  },
+  "ascension": {
+    "x202": 7.0499E+6,
+    "exp": {
+      "x104001": 2,
+      "x104003": 418
+    },
+    "speciality": {
+      "x100031": 168
+    },
+    "elemental": {
+      "x104161": 1,
+      "x104162": 9,
+      "x104163": 9,
+      "x104164": 6
+    },
+    "worldmonster": {
+      "x112038": 18,
+      "x112039": 30,
+      "x112040": 36
+    },
+    "elitemonster": {
+      "x113010": 46
+    }
+  },
+  "skills": {
+    "normalattack": {
+      "name": "Liutian Archery",
+      "icon": "Skill_A_02",
+      "multipliers": {
+        "x1_HitDMG": [
+          "31.73%",
+          "34.32%",
+          "36.9%",
+          "40.59%",
+          "43.17%",
+          "46.13%",
+          "50.18%",
+          "54.24%",
+          "58.3%",
+          "62.73%",
+          "67.8%",
+          "73.77%",
+          "79.74%",
+          "85.7%",
+          "92.21%"
+        ],
+        "x2_HitDMG": [
+          "35.6%",
+          "38.5%",
+          "41.4%",
+          "45.54%",
+          "48.44%",
+          "51.75%",
+          "56.3%",
+          "60.86%",
+          "65.41%",
+          "70.38%",
+          "76.07%",
+          "82.77%",
+          "89.46%",
+          "96.16%",
+          "103.46%"
+        ],
+        "x3_HitDMG": [
+          "45.49%",
+          "49.2%",
+          "52.9%",
+          "58.19%",
+          "61.89%",
+          "66.12%",
+          "71.94%",
+          "77.76%",
+          "83.58%",
+          "89.93%",
+          "97.2%",
+          "105.76%",
+          "114.31%",
+          "122.87%",
+          "132.2%"
+        ],
+        "x4_HitDMG": [
+          "45.49%",
+          "49.2%",
+          "52.9%",
+          "58.19%",
+          "61.89%",
+          "66.12%",
+          "71.94%",
+          "77.76%",
+          "83.58%",
+          "89.93%",
+          "97.2%",
+          "105.76%",
+          "114.31%",
+          "122.87%",
+          "132.2%"
+        ],
+        "x5_HitDMG": [
+          "48.25%",
+          "52.17%",
+          "56.1%",
+          "61.71%",
+          "65.64%",
+          "70.13%",
+          "76.3%",
+          "82.47%",
+          "88.64%",
+          "95.37%",
+          "103.08%",
+          "112.16%",
+          "121.23%",
+          "130.3%",
+          "140.19%"
+        ],
+        "x6_HitDMG": [
+          "57.62%",
+          "62.31%",
+          "67%",
+          "73.7%",
+          "78.39%",
+          "83.75%",
+          "91.12%",
+          "98.49%",
+          "105.86%",
+          "113.9%",
+          "123.11%",
+          "133.95%",
+          "144.78%",
+          "155.61%",
+          "167.43%"
+        ],
+        "AimedShot": [
+          "43.86%",
+          "47.43%",
+          "51%",
+          "56.1%",
+          "59.67%",
+          "63.75%",
+          "69.36%",
+          "74.97%",
+          "80.58%",
+          "86.7%",
+          "92.82%",
+          "98.94%",
+          "105.06%",
+          "111.18%",
+          "117.3%"
+        ],
+        "AimedShotChargeLevel1": [
+          "124%",
+          "133.3%",
+          "142.6%",
+          "155%",
+          "164.3%",
+          "173.6%",
+          "186%",
+          "198.4%",
+          "210.8%",
+          "223.2%",
+          "235.6%",
+          "248%",
+          "263.5%",
+          "279%",
+          "294.5%"
+        ],
+        "FrostflakeArrowDMG": [
+          "128%",
+          "137.6%",
+          "147.2%",
+          "160%",
+          "169.6%",
+          "179.2%",
+          "192%",
+          "204.8%",
+          "217.6%",
+          "230.4%",
+          "243.2%",
+          "256%",
+          "272%",
+          "288%",
+          "304%"
+        ],
+        "FrostflakeArrowBloomDMG": [
+          "217.6%",
+          "233.92%",
+          "250.24%",
+          "272%",
+          "288.32%",
+          "304.64%",
+          "326.4%",
+          "348.16%",
+          "369.92%",
+          "391.68%",
+          "413.44%",
+          "435.2%",
+          "462.4%",
+          "489.6%",
+          "516.8%"
+        ],
+        "PlungeDMG": [
+          "56.83%",
+          "61.45%",
+          "66.08%",
+          "72.69%",
+          "77.31%",
+          "82.6%",
+          "89.87%",
+          "97.14%",
+          "104.41%",
+          "112.34%",
+          "120.27%",
+          "128.2%",
+          "136.12%",
+          "144.05%",
+          "151.98%"
+        ],
+        "Low_HighPlungeDMG": [
+          "113.63%/141.93%",
+          "122.88%/153.49%",
+          "132.13%/165.04%",
+          "145.35%/181.54%",
+          "154.59%/193.1%",
+          "165.16%/206.3%",
+          "179.7%/224.45%",
+          "194.23%/242.61%",
+          "208.77%/260.76%",
+          "224.62%/280.57%",
+          "240.48%/300.37%",
+          "256.34%/320.18%",
+          "272.19%/339.98%",
+          "288.05%/359.79%",
+          "303.9%/379.59%"
+        ]
+      },
+      "description": "<color=#FFD780FF>Normal Attack</color>\\nPerforms up to 6 consecutive shots with a bow.\\n\\n<color=#FFD780FF>Charged Attack</color>\\nPerforms a more precise <color=#FFD780FF>Aimed Shot</color> with increased DMG.\\nWhile aiming, an icy aura will accumulate on the arrowhead before the arrow is fired. Has different effects based on how long the energy has been charged:\\n·Charge Level 1: Fires off an icy arrow that deals <color=#99FFFFFF>Cryo DMG</color>.\\n·Charge Level 2: Fires off a Frostflake Arrow that deals <color=#99FFFFFF>Cryo DMG</color>. The Frostflake Arrow blooms after hitting its target, dealing <color=#99FFFFFF>AoE Cryo DMG</color>.\\n\\n<color=#FFD780FF>Plunging Attack</color>\\nFires off a shower of arrows in mid-air before falling and striking the ground, dealing AoE DMG upon impact."
+    },
+    "elementalskill": {
+      "name": "Trail of the Qilin",
+      "icon": "Skill_S_Ganyu_01",
+      "multipliers": {
+        "InheritedHP": [
+          "120%",
+          "129%",
+          "138%",
+          "150%",
+          "159%",
+          "168%",
+          "180%",
+          "192%",
+          "204%",
+          "216%",
+          "228%",
+          "240%",
+          "255%",
+          "270%",
+          "285%"
+        ],
+        "SkillDMG": [
+          "132%",
+          "141.9%",
+          "151.8%",
+          "165%",
+          "174.9%",
+          "184.8%",
+          "198%",
+          "211.2%",
+          "224.4%",
+          "237.6%",
+          "250.8%",
+          "264%",
+          "280.5%",
+          "297%",
+          "313.5%"
+        ],
+        "Duration": [
+          "6s",
+          "6s",
+          "6s",
+          "6s",
+          "6s",
+          "6s",
+          "6s",
+          "6s",
+          "6s",
+          "6s",
+          "6s",
+          "6s",
+          "6s",
+          "6s",
+          "6s"
+        ],
+        "CD": [
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s"
+        ]
+      },
+      "description": "Leaving a single Ice Lotus behind, Ganyu dashes backward, shunning all impurity and dealing <color=#99FFFFFF>AoE Cryo DMG</color>.\\n\\n<color=#FFD780FF>Ice Lotus</color>\\n·Continuously taunts surrounding opponents, attracting them to attack it.\\n·Endurance scales based on Ganyu's Max HP.\\n·Blooms profusely when destroyed or once its duration ends, dealing <color=#99FFFFFF>AoE Cryo DMG</color>.\\n\\n<i>\"You saw me, you say? You must be mistaken. I was working overtime then.\"</i>"
+    },
+    "elementalburst": {
+      "name": "Celestial Shower",
+      "icon": "Skill_E_Ganyu_01",
+      "multipliers": {
+        "IceShardDMG": [
+          "70.27%",
+          "75.54%",
+          "80.81%",
+          "87.84%",
+          "93.11%",
+          "98.38%",
+          "105.41%",
+          "112.44%",
+          "119.46%",
+          "126.49%",
+          "133.52%",
+          "140.54%",
+          "149.33%",
+          "158.11%",
+          "166.9%"
+        ],
+        "Duration": [
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s"
+        ],
+        "CD": [
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s"
+        ],
+        "EnergyCost": [
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60"
+        ]
+      },
+      "description": "Coalesces atmospheric frost and snow to summon a Sacred Cryo Pearl that exorcises evil.\\nDuring its ability duration, the Sacred Cryo Pearl will continuously rain down shards of ice, striking opponents within an AoE and dealing <color=#99FFFFFF>Cryo DMG</color>.\\n\\n<i>Ganyu can bring down sweet rains as a matter of course. But against demons and heretics, they become bitter, freezing snow.</i>"
+    },
+    "leveling": {
+      "books": {
+        "x104313": 9,
+        "x104314": 63,
+        "x104315": 114
+      },
+      "crown": {
+        "x104319": 3
+      },
+      "worldmonster": {
+        "x112038": 18,
+        "x112039": 66,
+        "x112040": 93
+      },
+      "weekly": {
+        "x113015": 18
+      }
+    }
+  },
+  "passives": {
+    "p1": {
+      "name": "Undivided Heart",
+      "description": "After firing a Frostflake Arrow, the CRIT Rate of subsequent Frostflake Arrows and their resulting bloom effects is increased by 20% for 5s.",
+      "icon": "UI_Talent_S_Ganyu_05"
+    },
+    "p2": {
+      "name": "Harmony Between Heaven and Earth",
+      "description": "<color=#FFD780FF>Celestial Shower</color> grants a 20% <color=#99FFFFFF>Cryo DMG Bonus</color> to active party members in the AoE.",
+      "icon": "UI_Talent_S_Ganyu_06"
+    },
+    "p3": {
+      "name": "Preserved for the Hunt",
+      "description": "Refunds 15% of the ore used when crafting Bow-type weapons.",
+      "icon": "UI_Talent_Forge_Bow"
+    },
+    "p4": ""
+  },
+  "constellations": {
+    "const1": {
+      "name": "Dew-Drinker",
+      "description": "Charge Level 2 Frostflake Arrows or Frostflake Arrow Blooms decrease opponents' <color=#99FFFFFF>Cryo RES</color> by 15% for 6s upon hit.\\nA hit also regenerates 2 Energy for Ganyu. This effect can only occur once per Charge Level 2 Frostflake Arrow, regardless if Frostflake Arrow itself or its Bloom hits the target.",
+      "icon": "UI_Talent_S_Ganyu_01"
+    },
+    "const2": {
+      "name": "The Auspicious",
+      "description": "<color=#FFD780FF>Trail of the Qilin</color> gains 1 additional charge.",
+      "icon": "UI_Talent_S_Ganyu_02"
+    },
+    "const3": {
+      "name": "Cloud-Strider",
+      "description": "Increases the Level of <color=#FFD780FF>Celestial Shower</color> by 3.\\nMaximum upgrade level is 15.",
+      "icon": "UI_Talent_U_Ganyu_01"
+    },
+    "const4": {
+      "name": "Westward Sojourn",
+      "description": "Opponents standing within the AoE of <color=#FFD780FF>Celestial Shower</color> take increased DMG. This effect strengthens over time.\\nIncreased DMG taken begins at 5% and increases by 5% every 3s, up to a maximum of 25%.\\nThe effect lingers for 3s after the opponent leaves the AoE.",
+      "icon": "UI_Talent_S_Ganyu_03"
+    },
+    "const5": {
+      "name": "The Merciful",
+      "description": "Increases the Level of <color=#FFD780FF>Trail of the Qilin</color> by 3.\\nMaximum upgrade level is 15.",
+      "icon": "UI_Talent_U_Ganyu_02"
+    },
+    "const6": {
+      "name": "The Clement",
+      "description": "Using <color=#FFD780FF>Trail of the Qilin</color> causes the next Frostflake Arrow shot within 30s to not require charging.",
+      "icon": "UI_Talent_S_Ganyu_04"
+    }
+  },
+  "hyperlinks": [],
+  "stories": {
+    "x25201": {
+      "storyTitle": "Character Details",
+      "storyText": "Though many in Liyue are fascinated by life in Yujing Terrace, its day-to-day operations and rules are a mystery to them.\\nThey are aware that the Liyue Qixing are the cream of the crop who hold the fate of the city in their hands, but the calculations and data behind the Qixing's every decision are far harder to grasp.\\nThe people understand that the new policies announced each year will change the dynamics of the market, yet none can comprehend how policy is plucked from complex meeting minutes and compiled into something easier on the human eye.\\nAs the secretary of Yuehai Pavilion, Ganyu undertakes many tasks that ordinary folk do not see.\\nFor those that have witnessed her standing by the dock at daybreak, enjoying her breakfast in silence, it is difficult to imagine her in such a post.\\nEven still, by the time the sun has fully risen, she will have returned to Yuehai Pavilion overlooking Yujing Terrace, to continue to fulfill her contract.\\nA contract that she signed three thousand years ago with Rex Lapis.",
+      "unlockConds": []
+    },
+    "x25202": {
+      "storyTitle": "Character Story 1",
+      "storyText": "Ganyu is not the secretary of any one leader in the Liyue Qixing but is instead the general secretary for the entire organization. Under her gentle exterior, Ganyu is as persevering as stone itself. This was something that Rex Lapis, the leader of the adepti, noticed very early on. Thus when the Liyue Qixing first emerged ages ago, Ganyu was their secretary. Through the years and the changes in the Qixing's roster, Ganyu has remained by their side as a constant. This has also meant that the mountainous piles of paperwork from the various departments and bureaus in Liyue have fallen upon Ganyu's shoulders. But though her workload has increased seven, a hundred, or even a thousandfold, her sense of responsibility has never wavered. Someone once queried as to the source of her motivation and received an answer that was not quite congruous with the question. \"What I've done... is nothing compared to what Rex Lapis has accomplished.\"",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 2
+      }
+    },
+    "x25203": {
+      "storyTitle": "Character Story 2",
+      "storyText": "\"I work for the well-being of all living things in Liyue.\"\\nUnder almost all circumstances, Ganyu is a very trustworthy secretary.\\nIt is hard to imagine anyone outperforming her in the face of such an enormous workload, especially given her unique and penetrating insights into all of Liyue's matters.\\nNevertheless, her reliability can only be guaranteed under \"almost all circumstances.\"\\nThe more important the matter, the more Ganyu strives for perfection, and the more nervous she becomes. Under pressure, her nervousness does result in the occasional error.\\nOne such incident occurred during the Rite of Descension, without doubt the most important annual event in Liyue's calendar.\\nGanyu was three minutes late for the Rite and had to squeeze through the crowd in full view of all.\\nLater on, with a face as red as a tomato, she stammered her way through an unconvincing explanation, all the while apologizing profusely to Rex Lapis in her heart.\\nHer colleagues guessed that there must be some reason for the mistake.\\nThose who did not know her well saw that Rex Lapis did not mind, and thus paid the incident no attention.\\nThose closer to her worried in private, and asked if she needed a workload adjustment or a short vacation, but Ganyu refused.\\n\"I spent two hours making sure that I wasn't wearing anything too similar to last year's Rite...\"\\nNeedless to say, Ganyu was not about to admit to this being the real reason for her tardiness!",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 3
+      }
+    },
+    "x25204": {
+      "storyTitle": "Character Story 3",
+      "storyText": "How long is a thousand years?\\nLong enough for the Glaze Lilies that once teemed throughout Dihua Marsh to be wiped out by floodwaters, and long enough for the thriving settlement that sprung up upon Guili Plains to come to ruin in war.\\nHow short is a thousand years?\\nTo Ganyu, it has felt shorter than the blink of an eye.\\nThroughout a passage of time unimaginable to mortals, Ganyu has been working on all manner of things at Yujing Terrace.\\nShe recorded the raising and demolishing of every building, and witnessed the rise to prosperity of every industry.\\nGanyu's sense of objectivity towards the passage of time comes from the endless reams of data she must trawl through, and from the ever-increasing number of colors she finds that she needs to categorize it all.\\nAll this time, her mindset has never changed — she constantly wavers between her human and adeptus halves.\\nOn one hand, Ganyu the qilin finds it difficult to comprehend mortal squabbles.\\nBut on the other hand, her human blood reminds her always to hold out hope that she might someday be able to fit in.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 4
+      }
+    },
+    "x25205": {
+      "storyTitle": "Character Story 4",
+      "storyText": "Outside the confines of her work, Ganyu very quickly shows how different she is from most other people.\\nShe has a habit of taking afternoon naps and has a shockingly accurate internal clock. When lunch hour arrives, no matter where she is, she will simply curl up into a ball and fall asleep on the spot. Even the raucous dancing of hilichurls will fail to wake her.\\nThese habits were at first just a running joke within the Liyue Qixing.\\nBut once, after accompanying the then-Tianxuan to lunch outside the city, a well-fed Ganyu simply crawled into the nearest roadside haystack. She ended up being transported all the way to Dihua Marsh, awakening only after bumping her head during the unloading.\\nUnable to find Ganyu anywhere over the subsequent three hours, and knowing that she would not depart unannounced, the Tianxuan almost filed a missing person report.\\nAfter receiving a stern admonishment to \"only take afternoon naps where it's safe,\" Ganyu retorted:\\n\"Well... isn't everywhere in Liyue safe?\"\\nPerhaps, with the mixture of human and illuminated beast blood flowing through her veins, Ganyu's understanding of the world's affairs is a little different to that of most humans.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 5
+      }
+    },
+    "x25206": {
+      "storyTitle": "Character Story 5",
+      "storyText": "Ganyu's qilin heritage is little-known in Liyue Harbor.\\nWhenever she is asked by someone walking along Feiyun Slope as to the obvious protrusions in her hair, she says that they are ornamental heirlooms.\\n\"If I told them the truth, they would distance themselves from me...\"\\nDespite never having been on particularly close terms with Liyue's citizens in the first place, Ganyu would still not consider distancing to be a good thing.\\nHer more important reason for hiding the truth is to prevent curious onlookers from touching her qilin horns.\\nAfter all, a qilin's horns are a sensitive part of their body, both physically and mentally speaking.\\nAnother secret that Ganyu is anxious to keep hidden is the fact that she is watching her physique.\\nThe qilin are strict vegetarians, but Liyue is a veritable powerhouse of gastronomical delights, one in which even vegetarians struggle to control their appetites.\\nGanyu, who has grown accustomed to city life, is thus very vigilant in matters concerning her weight and physique.\\nWhenever she finds herself being drawn towards some delicious dish, she will attempt to reassert her self-control. For Ganyu, the difficulty of such a challenge is second only to finding a Flaming Flower atop Dragonspine.\\nBut she is not one to give up half-way through the ascent.\\nDuring the Archon War, she once choked a giant monster to death with ease after getting lodged in its throat when it tried to eat her, said monster having fatally underestimated quite how wide her waistline was.\\nFor Ganyu, avoiding any similarly embarrassing episodes in the future is an absolute must.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 6
+      }
+    },
+    "x25207": {
+      "storyTitle": "The Flora of Yujing Terrace",
+      "storyText": "Handwritten notes detail the morphological features and behaviors of the plants in Yujing Terrace, with each beautiful stroke penned by Ganyu's own hand.\\nThe notes are succinct, comprehensive, and well-categorized, and even offer some insights that one would be hard-pressed to find elsewhere on the market.\\nThese include pointers on caring for Glaze Lilies and methods for grafting Silk Flowers.\\nIn readability and scientific accessibility, they come close to the standard of official publications.\\nOr rather, this is the experience if one starts reading from the front.\\nSkip to near the end, however, and one may well be left dumbfounded.\\nThe final few pages are a shocking rash of black ink and frantically scribbled-out text.\\nReading patiently and painstakingly between the lines, one might just discover that these notes were, at one time, various methods for vegetable cultivation.\\n\"But if I learn to grow vegetables, I'll be even less able to control my appetite.\"\\nHer hands balling into fists, it was with much difficulty that Ganyu erased the results of her research.\\nLater, whilst watering the plants on an empty stomach, Ganyu found herself plunging her head into a thicket of Silk Flowers, fantasizing that they were Sweet Flowers in an effort to comfort herself.\\nMany more fantasy Sweet Flowers followed shortly afterward during her afternoon nap...",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 4
+      }
+    },
+    "x25208": {
+      "storyTitle": "Vision",
+      "storyText": "Qilin are paragons of benevolence among the adepti, drinking only freshwater and eating only plants. Flies they will not hurt, and a bruised reed they will not break. They do not travel abroad, do not gather in herds, and no trap will hold them. They are leisurely yet composed, active but reserved — a gentle and elegant race. Yet when a wicked beast from the sea arose and threatened the land beneath their feet, that peaceful life ceased to be an option. Three thousand years ago, Ganyu answered the call of Morax the God of Geo, aiding him in the Archon Wars. And when the war was over, she chose to stay in Liyue and help the humans build a better polity there. The first Liyue Qixing would need support, and she took this task up as a matter of course, becoming their secretary. The moment she made that decision, a Vision appeared at her hip, granting her power to resonate with the world to a degree beyond her natural abilities. Whether she would grow strong enough to no longer need it, or whether she would use it as a last resort in Liyue's defense... Regardless, she chose to serve as the bridge between adepti and humans. Her Vision, then, was proof and witness of her new duty.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 6
+      }
+    }
+  },
+  "quotes": {
+    "x25009": {
+      "quoteTitle": "Hello",
+      "quoteText": "Copy that! Here is a draft Service Agreement for your review and consideration. Effective immediately, if all is in order... Ah! Wait a sec, wait a sec, I forgot to sign it... Gan... Yu... There. Right. Now... What was it you needed me to do for you exactly?",
+      "unlockConds": []
+    },
+    "x25010": {
+      "quoteTitle": "Chat: Relaxed",
+      "quoteText": "It's so nice to de-stress.",
+      "unlockConds": []
+    },
+    "x25011": {
+      "quoteTitle": "Chat: Attentive",
+      "quoteText": "If you lie on the grass, you can feel the heartbeat of the world.",
+      "unlockConds": []
+    },
+    "x25012": {
+      "quoteTitle": "Chat: Anxious",
+      "quoteText": "Should we really be off work this early? There is still a lot left to do...",
+      "unlockConds": []
+    },
+    "x25013": {
+      "quoteTitle": "When It Rains: Worries",
+      "quoteText": "Oh good! I was just thinking that the Silk Flowers at the Feiyun Commerce Guild needed watering. The transport co-ordinators will probably moan about the muddy mountain roads again, though...",
+      "unlockConds": []
+    },
+    "x25014": {
+      "quoteTitle": "When It Rains: Listening to the Rain",
+      "quoteText": "It is something of a luxury, but I love listening to the rain from the courtyard.",
+      "unlockConds": []
+    },
+    "x25015": {
+      "quoteTitle": "After the Rain",
+      "quoteText": "Oh, the sun's out. When did that happen?",
+      "unlockConds": []
+    },
+    "x25016": {
+      "quoteTitle": "When the Sun Is Out",
+      "quoteText": "Ah, the air is just right.",
+      "unlockConds": []
+    },
+    "x25017": {
+      "quoteTitle": "When It's Windy",
+      "quoteText": "Ah, I love the smell of Glaze Lilies.",
+      "unlockConds": []
+    },
+    "x25018": {
+      "quoteTitle": "Good Morning",
+      "quoteText": "Morning! What's wrong, is there something stuck in my hair? ...Oh. Please don't stare at my h—hairpiece.",
+      "unlockConds": []
+    },
+    "x25019": {
+      "quoteTitle": "Good Afternoon",
+      "quoteText": "*yawn* Ugh... I need a nap. If there aren't any urgent matters, I'll excuse myself.",
+      "unlockConds": []
+    },
+    "x25020": {
+      "quoteTitle": "Good Evening",
+      "quoteText": "Look how brightly lit the city is at night! Amazing. I wonder what it's like for all the people down there... Hmm? Umm... No thanks, I think I'll pass on the night market. Sorry...",
+      "unlockConds": []
+    },
+    "x25021": {
+      "quoteTitle": "Good Night",
+      "quoteText": "May Rex Lapis watch over you. May your dreams be peaceful and sweet.",
+      "unlockConds": []
+    },
+    "x25022": {
+      "quoteTitle": "About Ganyu",
+      "quoteText": "My job is to honor my contract with Rex Lapis by looking out for the interests of all living things in Liyue.",
+      "unlockConds": []
+    },
+    "x25023": {
+      "quoteTitle": "About Us: Work",
+      "quoteText": "I finished all my assignments early today. ...O—Overtime? I understand. I'll get right on the case.",
+      "unlockConds": []
+    },
+    "x25024": {
+      "quoteTitle": "About Us: Requests",
+      "quoteText": "I want to understand more about humans... And I especially wish to hear what you think of them. Why, you ask? Because you're... you're a bit different from most people in Teyvat, just as I am... Please, tell me what you think.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 6"
+      ]
+    },
+    "x25025": {
+      "quoteTitle": "About Us: Evaluation",
+      "quoteText": "Um, so, yeah, uh, I was, uh... I was wondering what your opinion is on my work so far? Would you say I'm... more of a Common Chest or more of a Luxurious Chest? I—It's fine. I—I can, uh... I can take it.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 6"
+      ]
+    },
+    "x25026": {
+      "quoteTitle": "About the Vision",
+      "quoteText": "\"With authority over a thousand comes responsibility to a thousand.\" Rex Lapis knows the meaning of hardship better than anyone else in Liyue — he has seen everything that has happened from ancient times to the present day, and yet he was forced to give up his entire life. Compared to him, I'm just an everyday Vision holder with everyday responsibilities. I can't complain about my workload.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x25027": {
+      "quoteTitle": "Something to Share",
+      "quoteText": "\"Where merchants flock and all ships dock, and over the oceans flows its stock.\" People say this in praise of Liyue's prosperity. But a city only becomes this successful through everyone playing their part diligently. That's the attitude I take to my work — I want to be worthy of what we enjoy here.",
+      "unlockConds": []
+    },
+    "x25028": {
+      "quoteTitle": "Interesting Facts: Name",
+      "quoteText": "I've named every single doggie living in Liyue. But they're so funny. Some of them still respond even when you call them the completely wrong name. How fascinating is that? Like, if people were to call me \"Bantu,\" how am I supposed to know they're talking to me? No way would I respond.",
+      "unlockConds": []
+    },
+    "x25029": {
+      "quoteTitle": "Interesting Facts: Qingxin",
+      "quoteText": "Qingxin flower petals are pretty tasty. Incredibly tasty, actually. The only reason I don't plant any at Yujing Terrace is because they taste so good that I worry I wouldn't be able to control myself... Huh? Bitter? Yes, they are... Isn't that what they're supposed to taste like?",
+      "unlockConds": []
+    },
+    "x25030": {
+      "quoteTitle": "About Morax: Trust",
+      "quoteText": "I have absolute faith in Rex Lapis. It was only through his leadership that we were able to repel the monsters and subdue the sea creatures, and thus protect the peace of Liyue. The sight of him protecting the masses, and the memory of our centuries of camaraderie... I shall never forget it.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x25031": {
+      "quoteTitle": "About Morax: Follower",
+      "quoteText": "All of Rex Lapis' decisions prioritize the welfare of all life in Liyue. That's what I admire about him the most. I want to live up to the same standard... but it seems that the harder I try to follow in his footsteps, the more overwhelmed I get and the more mistakes I make...",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x25032": {
+      "quoteTitle": "About Ningguang",
+      "quoteText": "Each Tianquan adds their own interpretation and amendments to the founding laws of Liyue. The current one, Ningguang, does it with unmatched efficiency, but that efficacious manner of hers draws a great deal of criticism. I suppose it is always simpler to criticize than to tolerate.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x25033": {
+      "quoteTitle": "About Keqing: Estrangement",
+      "quoteText": "I cannot stand her disrespectful attitude towards Rex Lapis! But he says to me, \"Ganyu, this is just the kind of person Liyue needs in this day and age.\" I guess I'm not smart enough, because I simply do not understand what he means by that. I think I need more life experience to become wise enough to comprehend his words.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x25034": {
+      "quoteTitle": "About Keqing: Changing Perspective",
+      "quoteText": "She came to me recently to discuss the reopening of the Bishui trade route. She even asked me what Rex Lapis would do if it were him. Admittedly, what we came up with was not quite on par with what he would have chosen. But... seeing the way she kept starting her plan from scratch over and over again, I think I started to understand her a little bit.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4",
+        "Complete \"A New Star Approaches\""
+      ]
+    },
+    "x25035": {
+      "quoteTitle": "About Xingqiu",
+      "quoteText": "You mean the boy in the blue jacket from the Feiyun Commerce Guild? He's nothing like his father and brother, doesn't seem to care about the textile business at all. Seems it's because as far as he's concerned, there are more important things for him to be doing. Of course, I'm merely speculating...",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x25036": {
+      "quoteTitle": "About Xiangling",
+      "quoteText": "Xiangling is a celebrity! Um, but... I try to avoid her restaurant. Just... because. No reason. ...Okay, fine. It's not a big secret anyway. It's because you can smell her cooking all the way from the other end of the street. And once you get a whiff, I mean, that's it. You're gone. Next thing you know, you're ordering your second, maybe third round... You just can't control it. Even though I only eat the vegetarian dishes, I don't know what it is. But that is not a road I want to go down again... Not after...",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x25037": {
+      "quoteTitle": "About Beidou",
+      "quoteText": "Recently, everyone in Yujing Terrace has been saying nasty things about The Crux Fleet. But in my personal opinion, Beidou's contribution to Liyue Harbor goes far beyond what those miserable, rumor-loving heathens could even contemplate! ...Oops! I'm sorry, I... I'm not quite sure how that one slipped out...",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x25038": {
+      "quoteTitle": "About Yaoyao",
+      "quoteText": "Yaoyao... Someone I know at the Ministry of Civil Affairs tasked me with keeping an eye on her in the city, making sure she doesn't try and sneak aboard The Crux... Oh, you want to know what the Ministry of Civil Affairs does? ...Who knows, am I right!? Heh... Who knows what they do? ...Not me...",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x25039": {
+      "quoteTitle": "About Xiao",
+      "quoteText": "He seems like a bit of an outsider, socially. Probably just his personality... I can understand that, to be honest, but I'm not really about to try and get close to him. I mean... all the people he's ever agreed to team up with are no longer with us...",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x25040": {
+      "quoteTitle": "About Yanfei",
+      "quoteText": "Ah, Yanfei... Even back when she was an innocent little girl, she would tell me that \"you have to keep your promises to live a happy life.\" Now, she's grown up to be a beautiful, graceful, and highly successful young woman.\\nAlthough the work of a legal adviser is complicated, she always seems so carefree. This puts my mind at ease.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x25041": {
+      "quoteTitle": "About Shenhe",
+      "quoteText": "I actually don't know her all that well — I've only heard bits and pieces from Cloud Retainer. From what I've heard, she can be quite ferocious. Whenever her temper gets the better of her, she is likely to start obliterating her surroundings. I wonder if maybe she's just... bored. Should... Should I recommend some work to keep her occupied?",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x25042": {
+      "quoteTitle": "About Yelan",
+      "quoteText": "Even though Ms. Yelan is absent from work for the majority of the year, I'm sure Lady Ningguang must have her reasons for making exceptions for her. Of course, it wouldn't be my place to ask, so I don't know the details of their arrangement. I remember seeing her one day on my way back to Yuehai Pavilion, she was having breakfast with a group of people — they were all talking and laughing, eating, drinking tea... I must admit, I found myself feeling a little envious in that moment.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x25043": {
+      "quoteTitle": "More About Ganyu: I",
+      "quoteText": "You have a last-minute job for me? Okay, uh... Sorry, please don't try and explain it all verbally... Write it down, leave a note here. I'll get to it as soon as possible.",
+      "unlockConds": []
+    },
+    "x25044": {
+      "quoteTitle": "More About Ganyu: II",
+      "quoteText": "Let's see... \"I want to understand Ganyu better...\" Wh—What sort of request is that!? I've never done this before... Um, um, um... Okay... I can, ah... run you through my annual review from last year? That should bring you up to speed on me... No good? Oh, okay then...",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 3"
+      ]
+    },
+    "x25045": {
+      "quoteTitle": "More About Ganyu: III",
+      "quoteText": "I've had a long, hard think, and I've realized that so long as it's for a work-related matter, there's really nothing for me to be embarrassed about. So if you really need to understand me more... This, uh, hairpiece... it's actually my horns. That's right. I'm part illuminated beast, qilin to be exact. Okay, so, now we've got that out the way... Please sign this non-disclosure agreement for me. And don't tell a soul.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x25046": {
+      "quoteTitle": "More About Ganyu: IV",
+      "quoteText": "Even though I'm part qilin, I'm still part human, too. Still, all these years I've been asking myself the same question: Do I really belong in the human world? Maybe I'm just like a Dendro Slime hiding in the earth, burying myself in numbers and reports in order to escape reality.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 5"
+      ]
+    },
+    "x25047": {
+      "quoteTitle": "More About Ganyu: V",
+      "quoteText": "Thank you for always making time to chat with me. I feel like I must have spoken more after meeting you than I have in the last ten years put together. If I keep going like this... Maybe one day I'll be able to move on to something other than secretarial work. Now that I've got a few hundred years of experience under my belt, I should be able to avoid any more major mistakes.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 6"
+      ]
+    },
+    "x25048": {
+      "quoteTitle": "Ganyu's Hobbies",
+      "quoteText": "My hobby... I would say... my job. What? Why don't jobs count as hobbies? I thought hobbies are supposed to be things you look forward to doing, and that make you feel good when you've done them. That describes my job perfectly. So what's the issue?",
+      "unlockConds": []
+    },
+    "x25049": {
+      "quoteTitle": "Ganyu's Troubles",
+      "quoteText": "I don't understand why people insist on going all out to try and prove how their existence is more valuable than everyone else's. To exist in the first place is a beautiful thing, and that's enough... isn't it?",
+      "unlockConds": []
+    },
+    "x25050": {
+      "quoteTitle": "Favorite Food",
+      "quoteText": "\"Drink only spring water, eat only whole grains,\" that's my motto. So I would be grateful if you could please remove that treacherously enticing-looking plate of delicacies from my field of view. Much obliged!",
+      "unlockConds": []
+    },
+    "x25051": {
+      "quoteTitle": "Least Favorite Food",
+      "quoteText": "Qilins are strict vegetarians, so please do not take offense when I decline meat dishes. Yes, that includes your vegetable fritters since they have been fried in animal fat. Thanks, but I can't. I'm afraid I really can't. I don't mean to argue, it's just I have a keen sense of smell, so I know how they've been cooked.",
+      "unlockConds": []
+    },
+    "x25052": {
+      "quoteTitle": "Birthday",
+      "quoteText": "Many happy returns! After all the times you've looked out for me, I didn't even remember to get you a gift — whoops! Silly me, I... What's that behind my back? Ah. You saw it then. It's a failed attempt at making a Qingxin flower cake... I wanted it to be perfect, but... Oh, you think it tastes good? Do you really?",
+      "unlockConds": []
+    },
+    "x25053": {
+      "quoteTitle": "Feelings About Ascension: Intro",
+      "quoteText": "Power? ...Now there's a key performance indicator I haven't needed in a long time.",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 1"
+      ]
+    },
+    "x25054": {
+      "quoteTitle": "Feelings About Ascension: Building Up",
+      "quoteText": "Could we maybe... find a peaceful resolution instead...? Never mind, doesn't matter...",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 2"
+      ]
+    },
+    "x25055": {
+      "quoteTitle": "Feelings About Ascension: Climax",
+      "quoteText": "I suppose this is the new way of life, then. I'm not going to complain. I'll try to embrace it.",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 4"
+      ]
+    },
+    "x25056": {
+      "quoteTitle": "Feelings About Ascension: Conclusion",
+      "quoteText": "I remember reading in an ancient text that \"Only when days be darker than the darkest night, may a qilin be compelled to fight.\" That's a massive exaggeration, but... should the time come for battle, and should you need me, then I will give it every ounce of my strength.",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 6"
+      ]
+    },
+    "x25057": {
+      "quoteTitle": "Elemental Skill: I",
+      "quoteText": "No touching!",
+      "unlockConds": []
+    },
+    "x25058": {
+      "quoteTitle": "Elemental Skill: II",
+      "quoteText": "Access denied.",
+      "unlockConds": []
+    },
+    "x25059": {
+      "quoteTitle": "Elemental Skill: III",
+      "quoteText": "Born of ice and frost.",
+      "unlockConds": []
+    },
+    "x25060": {
+      "quoteTitle": "Elemental Burst: I",
+      "quoteText": "All hail!",
+      "unlockConds": []
+    },
+    "x25061": {
+      "quoteTitle": "Elemental Burst: II",
+      "quoteText": "Glaze over!",
+      "unlockConds": []
+    },
+    "x25062": {
+      "quoteTitle": "Elemental Burst: III",
+      "quoteText": "This is long overdue.",
+      "unlockConds": []
+    },
+    "x25063": {
+      "quoteTitle": "Elemental Burst: IV",
+      "quoteText": "For Rex Lapis!",
+      "unlockConds": []
+    },
+    "x25064": {
+      "quoteTitle": "Sprint Start: I",
+      "quoteText": "We're way behind schedule...",
+      "unlockConds": []
+    },
+    "x25065": {
+      "quoteTitle": "Sprint Start: II",
+      "quoteText": "Next on the agenda...",
+      "unlockConds": []
+    },
+    "x25066": {
+      "quoteTitle": "Sprint End: I",
+      "quoteText": "Healthy body, healthy mind...",
+      "unlockConds": []
+    },
+    "x25067": {
+      "quoteTitle": "Opening Treasure Chest: I",
+      "quoteText": "There's nothing wrong with reaping a reward every now and then.",
+      "unlockConds": []
+    },
+    "x25068": {
+      "quoteTitle": "Opening Treasure Chest: II",
+      "quoteText": "Beautiful treasures are a cause for great happiness.",
+      "unlockConds": []
+    },
+    "x25069": {
+      "quoteTitle": "Opening Treasure Chest: III",
+      "quoteText": "Perhaps whoever left these behind was... also fulfilling a contract?",
+      "unlockConds": []
+    },
+    "x25070": {
+      "quoteTitle": "Low HP: I",
+      "quoteText": "I'm just way out of practice.",
+      "unlockConds": []
+    },
+    "x25071": {
+      "quoteTitle": "Low HP: II",
+      "quoteText": "Did I miscalculate?",
+      "unlockConds": []
+    },
+    "x25072": {
+      "quoteTitle": "Low HP: III",
+      "quoteText": "I'm a little low on energy.",
+      "unlockConds": []
+    },
+    "x25073": {
+      "quoteTitle": "Ally at Low HP: I",
+      "quoteText": "Please step back!",
+      "unlockConds": []
+    },
+    "x25074": {
+      "quoteTitle": "Ally at Low HP: II",
+      "quoteText": "Uh... \"Don't try to rush your enemy\"!",
+      "unlockConds": []
+    },
+    "x25075": {
+      "quoteTitle": "Fallen: I",
+      "quoteText": "Rex Lapis... I am sorry!",
+      "unlockConds": []
+    },
+    "x25076": {
+      "quoteTitle": "Fallen: II",
+      "quoteText": "My contract goes... unfulfilled...",
+      "unlockConds": []
+    },
+    "x25077": {
+      "quoteTitle": "Fallen: III",
+      "quoteText": "Must... press... on...",
+      "unlockConds": []
+    },
+    "x25078": {
+      "quoteTitle": "Light Hit Taken: I",
+      "quoteText": "Ngh... Didn't see that coming.",
+      "unlockConds": []
+    },
+    "x25079": {
+      "quoteTitle": "Heavy Hit Taken: I",
+      "quoteText": "I can fix this!",
+      "unlockConds": []
+    },
+    "x25080": {
+      "quoteTitle": "Joining Party: I",
+      "quoteText": "Time to begin work?",
+      "unlockConds": []
+    },
+    "x25081": {
+      "quoteTitle": "Joining Party: II",
+      "quoteText": "What are my orders?",
+      "unlockConds": []
+    },
+    "x25082": {
+      "quoteTitle": "Joining Party: III",
+      "quoteText": "As per our contract.",
+      "unlockConds": []
+    },
+    "x25083": {
+      "quoteTitle": "Receiving a Gift: I",
+      "quoteText": "Such authentic delicacies... Oh no! I think I might have eaten too much...",
+      "unlockConds": []
+    },
+    "x25084": {
+      "quoteTitle": "Receiving a Gift: II",
+      "quoteText": "I'm somewhat of a picky eater, sorry you went to all this trouble...",
+      "unlockConds": []
+    },
+    "x25085": {
+      "quoteTitle": "Receiving a Gift: III",
+      "quoteText": "I appreciate the thought, but... meat's not really my thing.",
+      "unlockConds": []
+    },
+    "x25086": {
+      "quoteTitle": "About Xianyun",
+      "quoteText": "Cloud Retainer... Oh, I mean, Ms. Xianyun — we went shopping together a while back, but we ended up stopping at every single stall, and she wanted to inspect every item they sold before we could leave. When we finally remembered to get something to eat, it was already dark out. It really reminded me of the time I used to spend training in the mountains with her... Back then, time also seemed to pass in the blink of an eye...",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4",
+        "Complete \"A Thousand Moonlit Miles\""
+      ]
+    }
+  },
+  "energy": [
+    {
+      "source": "Ball",
+      "particles": "2",
+      "chance": "100%",
+      "cd": "Instant"
+    },
+    {
+      "source": "Ball",
+      "particles": "2",
+      "chance": "100%",
+      "cd": "Instant"
+    }
+  ],
+  "attacks": [
+    {
+      "name": "ShootArrow_Enchanted_WithoutIce",
+      "icd_source": "Tag: ExtraAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "4U",
+      "poise": "LV2/10",
+      "element": "-",
+      "attackType": "Default",
+      "strikeType": "Pierce",
+      "damageParam": "DamageWithoutIce"
+    },
+    {
+      "name": "Bullet_ShootArrow_WithIce",
+      "icd_source": "Tag: ExtraAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV2/20",
+      "element": "Ice",
+      "attackType": "Default",
+      "strikeType": "Pierce",
+      "damageParam": "DamageWithIce"
+    },
+    {
+      "name": "Bullet_ShootArrow_WithIce_BeforeFission",
+      "icd_source": "Tag: ExtraAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV2/20",
+      "element": "Ice",
+      "attackType": "Default",
+      "strikeType": "Pierce",
+      "damageParam": "DamageWithIce_BeforeFission"
+    },
+    {
+      "name": "Bullet_ShootArrow_WithIce_BeforeFission",
+      "icd_source": "Tag: ExtraAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV2/20",
+      "element": "Ice",
+      "attackType": "Default",
+      "strikeType": "Pierce",
+      "damageParam": "DamageWithIce_BeforeFission"
+    },
+    {
+      "name": "Bullet_ShootArrow_WithIce_AfterFission",
+      "icd_source": "Tag: ExtraAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV1/40",
+      "element": "Ice",
+      "attackType": "Default",
+      "strikeType": "Pierce",
+      "damageParam": "DamageWithIce_AfterFission"
+    },
+    {
+      "name": "Bullet_ShootArrow_WithIce_AfterFission",
+      "icd_source": "Tag: ExtraAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV1/40",
+      "element": "Ice",
+      "attackType": "Default",
+      "strikeType": "Pierce",
+      "damageParam": "DamageWithIce_AfterFission"
+    },
+    {
+      "name": "SkillObj_IceBreaker_Dummy",
+      "icd_source": "Tag: Elemental_Art (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV3/80",
+      "element": "Ice",
+      "attackType": "Range",
+      "strikeType": "-",
+      "damageParam": "damage"
+    },
+    {
+      "name": "SkillObj_IceBreaker_Dummy_EndBoom",
+      "icd_source": "Tag: Elemental_Art (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV4/80",
+      "element": "Ice",
+      "attackType": "Range",
+      "strikeType": "-",
+      "damageParam": "damage"
+    },
+    {
+      "name": "UnbreakableIce",
+      "icd_source": "Grp: default",
+      "icd_rule": "Standard (3h/2.5s)",
+      "gauge": "4U",
+      "poise": "-/400",
+      "element": "-",
+      "attackType": "Default",
+      "strikeType": "None",
+      "damageParam": "-"
+    },
+    {
+      "name": "Bullet_UnbreakableIce_Iceberg1",
+      "icd_source": "Tag: Elemental_Burst (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV2/60",
+      "element": "Ice",
+      "attackType": "Range",
+      "strikeType": "-",
+      "damageParam": "damage"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "0U",
+      "poise": "LV2/10",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Pierce",
+      "damageParam": "FallingAnthem_Normal_Loop_Damage"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV2/50",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Pierce",
+      "damageParam": "FallingAnthem_Normal_Rank_1_Damage"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV3/100",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Pierce",
+      "damageParam": "FallingAnthem_Normal_Rank_2_Damage"
+    }
+  ],
+  "endure": []
+}

@@ -1,0 +1,1768 @@
+{
+  "info": {
+    "name": "Dori",
+    "description": "An elusive merchant who has a fondness for glittering Mora.",
+    "rarity": "QUALITY_PURPLE",
+    "weapon": "WEAPON_CLAYMORE",
+    "birthday": "21/12",
+    "element": "Electro",
+    "title": "Treasure of Dream Garden",
+    "constellation": "Magicae Lucerna",
+    "affiliation": "The Palace of Alcazarzaray",
+    "cv": {
+      "EN": "Anjali Kunapaneni",
+      "CHS": "王晓彤",
+      "JP": "金田朋子",
+      "KR": "Lee Myeong-ho"
+    },
+    "attributes": [
+      {
+        "level": 1,
+        "ascension": 0,
+        "hp": 1039,
+        "atk": 19,
+        "def": 61,
+        "HP_": "0"
+      },
+      {
+        "level": 2,
+        "ascension": 0,
+        "hp": 1126,
+        "atk": 20,
+        "def": 66,
+        "HP_": "0"
+      },
+      {
+        "level": 3,
+        "ascension": 0,
+        "hp": 1211,
+        "atk": 22,
+        "def": 71,
+        "HP_": "0"
+      },
+      {
+        "level": 4,
+        "ascension": 0,
+        "hp": 1297,
+        "atk": 23,
+        "def": 76,
+        "HP_": "0"
+      },
+      {
+        "level": 5,
+        "ascension": 0,
+        "hp": 1382,
+        "atk": 25,
+        "def": 81,
+        "HP_": "0"
+      },
+      {
+        "level": 6,
+        "ascension": 0,
+        "hp": 1469,
+        "atk": 26,
+        "def": 86,
+        "HP_": "0"
+      },
+      {
+        "level": 7,
+        "ascension": 0,
+        "hp": 1554,
+        "atk": 28,
+        "def": 91,
+        "HP_": "0"
+      },
+      {
+        "level": 8,
+        "ascension": 0,
+        "hp": 1640,
+        "atk": 30,
+        "def": 96,
+        "HP_": "0"
+      },
+      {
+        "level": 9,
+        "ascension": 0,
+        "hp": 1727,
+        "atk": 31,
+        "def": 101,
+        "HP_": "0"
+      },
+      {
+        "level": 10,
+        "ascension": 0,
+        "hp": 1812,
+        "atk": 33,
+        "def": 106,
+        "HP_": "0"
+      },
+      {
+        "level": 11,
+        "ascension": 0,
+        "hp": 1898,
+        "atk": 34,
+        "def": 111,
+        "HP_": "0"
+      },
+      {
+        "level": 12,
+        "ascension": 0,
+        "hp": 1983,
+        "atk": 36,
+        "def": 116,
+        "HP_": "0"
+      },
+      {
+        "level": 13,
+        "ascension": 0,
+        "hp": 2070,
+        "atk": 37,
+        "def": 121,
+        "HP_": "0"
+      },
+      {
+        "level": 14,
+        "ascension": 0,
+        "hp": 2155,
+        "atk": 39,
+        "def": 126,
+        "HP_": "0"
+      },
+      {
+        "level": 15,
+        "ascension": 0,
+        "hp": 2241,
+        "atk": 40,
+        "def": 131,
+        "HP_": "0"
+      },
+      {
+        "level": 16,
+        "ascension": 0,
+        "hp": 2327,
+        "atk": 42,
+        "def": 136,
+        "HP_": "0"
+      },
+      {
+        "level": 17,
+        "ascension": 0,
+        "hp": 2413,
+        "atk": 43,
+        "def": 141,
+        "HP_": "0"
+      },
+      {
+        "level": 18,
+        "ascension": 0,
+        "hp": 2499,
+        "atk": 45,
+        "def": 146,
+        "HP_": "0"
+      },
+      {
+        "level": 19,
+        "ascension": 0,
+        "hp": 2584,
+        "atk": 46,
+        "def": 151,
+        "HP_": "0"
+      },
+      {
+        "level": 20,
+        "ascension": 0,
+        "hp": 2670,
+        "atk": 48,
+        "def": 156,
+        "HP_": "0"
+      },
+      {
+        "level": 21,
+        "ascension": 1,
+        "hp": 3532,
+        "atk": 64,
+        "def": 206,
+        "HP_": "0"
+      },
+      {
+        "level": 22,
+        "ascension": 1,
+        "hp": 3618,
+        "atk": 65,
+        "def": 211,
+        "HP_": "0"
+      },
+      {
+        "level": 23,
+        "ascension": 1,
+        "hp": 3705,
+        "atk": 67,
+        "def": 216,
+        "HP_": "0"
+      },
+      {
+        "level": 24,
+        "ascension": 1,
+        "hp": 3790,
+        "atk": 68,
+        "def": 221,
+        "HP_": "0"
+      },
+      {
+        "level": 25,
+        "ascension": 1,
+        "hp": 3876,
+        "atk": 70,
+        "def": 226,
+        "HP_": "0"
+      },
+      {
+        "level": 26,
+        "ascension": 1,
+        "hp": 3961,
+        "atk": 71,
+        "def": 231,
+        "HP_": "0"
+      },
+      {
+        "level": 27,
+        "ascension": 1,
+        "hp": 4048,
+        "atk": 73,
+        "def": 236,
+        "HP_": "0"
+      },
+      {
+        "level": 28,
+        "ascension": 1,
+        "hp": 4133,
+        "atk": 74,
+        "def": 241,
+        "HP_": "0"
+      },
+      {
+        "level": 29,
+        "ascension": 1,
+        "hp": 4219,
+        "atk": 76,
+        "def": 246,
+        "HP_": "0"
+      },
+      {
+        "level": 30,
+        "ascension": 1,
+        "hp": 4304,
+        "atk": 77,
+        "def": 251,
+        "HP_": "0"
+      },
+      {
+        "level": 31,
+        "ascension": 1,
+        "hp": 4391,
+        "atk": 79,
+        "def": 256,
+        "HP_": "0"
+      },
+      {
+        "level": 32,
+        "ascension": 1,
+        "hp": 4477,
+        "atk": 81,
+        "def": 261,
+        "HP_": "0"
+      },
+      {
+        "level": 33,
+        "ascension": 1,
+        "hp": 4562,
+        "atk": 82,
+        "def": 266,
+        "HP_": "0"
+      },
+      {
+        "level": 34,
+        "ascension": 1,
+        "hp": 4648,
+        "atk": 84,
+        "def": 271,
+        "HP_": "0"
+      },
+      {
+        "level": 35,
+        "ascension": 1,
+        "hp": 4734,
+        "atk": 85,
+        "def": 276,
+        "HP_": "0"
+      },
+      {
+        "level": 36,
+        "ascension": 1,
+        "hp": 4820,
+        "atk": 87,
+        "def": 281,
+        "HP_": "0"
+      },
+      {
+        "level": 37,
+        "ascension": 1,
+        "hp": 4905,
+        "atk": 88,
+        "def": 286,
+        "HP_": "0"
+      },
+      {
+        "level": 38,
+        "ascension": 1,
+        "hp": 4991,
+        "atk": 90,
+        "def": 291,
+        "HP_": "0"
+      },
+      {
+        "level": 39,
+        "ascension": 1,
+        "hp": 5078,
+        "atk": 91,
+        "def": 296,
+        "HP_": "0"
+      },
+      {
+        "level": 40,
+        "ascension": 1,
+        "hp": 5163,
+        "atk": 93,
+        "def": 301,
+        "HP_": "0"
+      },
+      {
+        "level": 41,
+        "ascension": 2,
+        "hp": 5801,
+        "atk": 104,
+        "def": 339,
+        "HP_": "6"
+      },
+      {
+        "level": 42,
+        "ascension": 2,
+        "hp": 5886,
+        "atk": 106,
+        "def": 344,
+        "HP_": "6"
+      },
+      {
+        "level": 43,
+        "ascension": 2,
+        "hp": 5972,
+        "atk": 107,
+        "def": 349,
+        "HP_": "6"
+      },
+      {
+        "level": 44,
+        "ascension": 2,
+        "hp": 6058,
+        "atk": 109,
+        "def": 354,
+        "HP_": "6"
+      },
+      {
+        "level": 45,
+        "ascension": 2,
+        "hp": 6144,
+        "atk": 111,
+        "def": 359,
+        "HP_": "6"
+      },
+      {
+        "level": 46,
+        "ascension": 2,
+        "hp": 6230,
+        "atk": 112,
+        "def": 364,
+        "HP_": "6"
+      },
+      {
+        "level": 47,
+        "ascension": 2,
+        "hp": 6315,
+        "atk": 114,
+        "def": 369,
+        "HP_": "6"
+      },
+      {
+        "level": 48,
+        "ascension": 2,
+        "hp": 6402,
+        "atk": 115,
+        "def": 374,
+        "HP_": "6"
+      },
+      {
+        "level": 49,
+        "ascension": 2,
+        "hp": 6487,
+        "atk": 117,
+        "def": 379,
+        "HP_": "6"
+      },
+      {
+        "level": 50,
+        "ascension": 2,
+        "hp": 6573,
+        "atk": 118,
+        "def": 384,
+        "HP_": "6"
+      },
+      {
+        "level": 51,
+        "ascension": 3,
+        "hp": 7394,
+        "atk": 133,
+        "def": 431,
+        "HP_": "12"
+      },
+      {
+        "level": 52,
+        "ascension": 3,
+        "hp": 7480,
+        "atk": 135,
+        "def": 437,
+        "HP_": "12"
+      },
+      {
+        "level": 53,
+        "ascension": 3,
+        "hp": 7567,
+        "atk": 136,
+        "def": 442,
+        "HP_": "12"
+      },
+      {
+        "level": 54,
+        "ascension": 3,
+        "hp": 7652,
+        "atk": 138,
+        "def": 447,
+        "HP_": "12"
+      },
+      {
+        "level": 55,
+        "ascension": 3,
+        "hp": 7738,
+        "atk": 139,
+        "def": 452,
+        "HP_": "12"
+      },
+      {
+        "level": 56,
+        "ascension": 3,
+        "hp": 7823,
+        "atk": 141,
+        "def": 457,
+        "HP_": "12"
+      },
+      {
+        "level": 57,
+        "ascension": 3,
+        "hp": 7910,
+        "atk": 142,
+        "def": 462,
+        "HP_": "12"
+      },
+      {
+        "level": 58,
+        "ascension": 3,
+        "hp": 7995,
+        "atk": 144,
+        "def": 467,
+        "HP_": "12"
+      },
+      {
+        "level": 59,
+        "ascension": 3,
+        "hp": 8081,
+        "atk": 145,
+        "def": 472,
+        "HP_": "12"
+      },
+      {
+        "level": 60,
+        "ascension": 3,
+        "hp": 8168,
+        "atk": 147,
+        "def": 477,
+        "HP_": "12"
+      },
+      {
+        "level": 61,
+        "ascension": 4,
+        "hp": 8804,
+        "atk": 158,
+        "def": 514,
+        "HP_": "12"
+      },
+      {
+        "level": 62,
+        "ascension": 4,
+        "hp": 8891,
+        "atk": 160,
+        "def": 519,
+        "HP_": "12"
+      },
+      {
+        "level": 63,
+        "ascension": 4,
+        "hp": 8976,
+        "atk": 161,
+        "def": 524,
+        "HP_": "12"
+      },
+      {
+        "level": 64,
+        "ascension": 4,
+        "hp": 9062,
+        "atk": 163,
+        "def": 529,
+        "HP_": "12"
+      },
+      {
+        "level": 65,
+        "ascension": 4,
+        "hp": 9147,
+        "atk": 165,
+        "def": 534,
+        "HP_": "12"
+      },
+      {
+        "level": 66,
+        "ascension": 4,
+        "hp": 9234,
+        "atk": 166,
+        "def": 539,
+        "HP_": "12"
+      },
+      {
+        "level": 67,
+        "ascension": 4,
+        "hp": 9320,
+        "atk": 168,
+        "def": 544,
+        "HP_": "12"
+      },
+      {
+        "level": 68,
+        "ascension": 4,
+        "hp": 9405,
+        "atk": 169,
+        "def": 549,
+        "HP_": "12"
+      },
+      {
+        "level": 69,
+        "ascension": 4,
+        "hp": 9492,
+        "atk": 171,
+        "def": 554,
+        "HP_": "12"
+      },
+      {
+        "level": 70,
+        "ascension": 4,
+        "hp": 9577,
+        "atk": 172,
+        "def": 559,
+        "HP_": "12"
+      },
+      {
+        "level": 71,
+        "ascension": 5,
+        "hp": 10215,
+        "atk": 184,
+        "def": 596,
+        "HP_": "18"
+      },
+      {
+        "level": 72,
+        "ascension": 5,
+        "hp": 10300,
+        "atk": 185,
+        "def": 601,
+        "HP_": "18"
+      },
+      {
+        "level": 73,
+        "ascension": 5,
+        "hp": 10386,
+        "atk": 187,
+        "def": 606,
+        "HP_": "18"
+      },
+      {
+        "level": 74,
+        "ascension": 5,
+        "hp": 10473,
+        "atk": 188,
+        "def": 611,
+        "HP_": "18"
+      },
+      {
+        "level": 75,
+        "ascension": 5,
+        "hp": 10558,
+        "atk": 190,
+        "def": 616,
+        "HP_": "18"
+      },
+      {
+        "level": 76,
+        "ascension": 5,
+        "hp": 10644,
+        "atk": 191,
+        "def": 621,
+        "HP_": "18"
+      },
+      {
+        "level": 77,
+        "ascension": 5,
+        "hp": 10729,
+        "atk": 193,
+        "def": 626,
+        "HP_": "18"
+      },
+      {
+        "level": 78,
+        "ascension": 5,
+        "hp": 10816,
+        "atk": 195,
+        "def": 631,
+        "HP_": "18"
+      },
+      {
+        "level": 79,
+        "ascension": 5,
+        "hp": 10901,
+        "atk": 196,
+        "def": 636,
+        "HP_": "18"
+      },
+      {
+        "level": 80,
+        "ascension": 5,
+        "hp": 10987,
+        "atk": 198,
+        "def": 641,
+        "HP_": "18"
+      },
+      {
+        "level": 81,
+        "ascension": 6,
+        "hp": 11625,
+        "atk": 209,
+        "def": 678,
+        "HP_": "24"
+      },
+      {
+        "level": 82,
+        "ascension": 6,
+        "hp": 11710,
+        "atk": 211,
+        "def": 683,
+        "HP_": "24"
+      },
+      {
+        "level": 83,
+        "ascension": 6,
+        "hp": 11797,
+        "atk": 212,
+        "def": 688,
+        "HP_": "24"
+      },
+      {
+        "level": 84,
+        "ascension": 6,
+        "hp": 11882,
+        "atk": 214,
+        "def": 693,
+        "HP_": "24"
+      },
+      {
+        "level": 85,
+        "ascension": 6,
+        "hp": 11968,
+        "atk": 215,
+        "def": 698,
+        "HP_": "24"
+      },
+      {
+        "level": 86,
+        "ascension": 6,
+        "hp": 12053,
+        "atk": 217,
+        "def": 703,
+        "HP_": "24"
+      },
+      {
+        "level": 87,
+        "ascension": 6,
+        "hp": 12140,
+        "atk": 218,
+        "def": 708,
+        "HP_": "24"
+      },
+      {
+        "level": 88,
+        "ascension": 6,
+        "hp": 12225,
+        "atk": 220,
+        "def": 713,
+        "HP_": "24"
+      },
+      {
+        "level": 89,
+        "ascension": 6,
+        "hp": 12311,
+        "atk": 221,
+        "def": 718,
+        "HP_": "24"
+      },
+      {
+        "level": 90,
+        "ascension": 6,
+        "hp": 12397,
+        "atk": 223,
+        "def": 723,
+        "HP_": "24"
+      },
+      {
+        "level": 95,
+        "ascension": 6,
+        "hp": 12826,
+        "atk": 251,
+        "def": 748,
+        "HP_": "24"
+      },
+      {
+        "level": 100,
+        "ascension": 6,
+        "hp": 13255,
+        "atk": 280,
+        "def": 774,
+        "HP_": "24"
+      }
+    ]
+  },
+  "icons": {
+    "forward": "UI_AvatarIcon_Dori",
+    "coop_img": "UI_CoopImg_Dori"
+  },
+  "ascension": {
+    "x202": 7.0499E+6,
+    "exp": {
+      "x104001": 2,
+      "x104003": 418
+    },
+    "speciality": {
+      "x101217": 168
+    },
+    "elemental": {
+      "x104141": 1,
+      "x104142": 9,
+      "x104143": 9,
+      "x104144": 6
+    },
+    "worldmonster": {
+      "x112065": 18,
+      "x112066": 30,
+      "x112067": 36
+    },
+    "elitemonster": {
+      "x113037": 46
+    }
+  },
+  "skills": {
+    "normalattack": {
+      "name": "Marvelous Sword-Dance (Modified)",
+      "icon": "Skill_A_04",
+      "multipliers": {
+        "x1_HitDMG": [
+          "90.21%",
+          "97.56%",
+          "104.9%",
+          "115.39%",
+          "122.73%",
+          "131.12%",
+          "142.66%",
+          "154.2%",
+          "165.74%",
+          "178.33%",
+          "190.92%",
+          "203.51%",
+          "216.09%",
+          "228.68%",
+          "241.27%"
+        ],
+        "x2_HitDMG": [
+          "41.07%+43.12%",
+          "44.42%+46.63%",
+          "47.76%+50.14%",
+          "52.54%+55.15%",
+          "55.88%+58.66%",
+          "59.7%+62.67%",
+          "64.95%+68.19%",
+          "70.21%+73.71%",
+          "75.46%+79.22%",
+          "81.19%+85.24%",
+          "86.92%+91.25%",
+          "92.65%+97.27%",
+          "98.39%+103.29%",
+          "104.12%+109.31%",
+          "109.85%+115.32%"
+        ],
+        "x3_HitDMG": [
+          "128.4%",
+          "138.85%",
+          "149.3%",
+          "164.23%",
+          "174.68%",
+          "186.63%",
+          "203.05%",
+          "219.47%",
+          "235.89%",
+          "253.81%",
+          "271.73%",
+          "289.64%",
+          "307.56%",
+          "325.47%",
+          "343.39%"
+        ],
+        "ChargedAttackSpinningDMG": [
+          "62.55%",
+          "67.64%",
+          "72.73%",
+          "80%",
+          "85.09%",
+          "90.91%",
+          "98.91%",
+          "106.91%",
+          "114.91%",
+          "123.64%",
+          "133.64%",
+          "145.4%",
+          "157.16%",
+          "168.92%",
+          "181.75%"
+        ],
+        "ChargedAttackFinalDMG": [
+          "113.09%",
+          "122.29%",
+          "131.5%",
+          "144.65%",
+          "153.86%",
+          "164.37%",
+          "178.84%",
+          "193.31%",
+          "207.77%",
+          "223.55%",
+          "241.63%",
+          "262.89%",
+          "284.16%",
+          "305.42%",
+          "328.62%"
+        ],
+        "ChargedAttackStaminaCost": [
+          "40/s",
+          "40/s",
+          "40/s",
+          "40/s",
+          "40/s",
+          "40/s",
+          "40/s",
+          "40/s",
+          "40/s",
+          "40/s",
+          "40/s",
+          "40/s",
+          "40/s",
+          "40/s",
+          "40/s"
+        ],
+        "MaxDuration": [
+          "5s",
+          "5s",
+          "5s",
+          "5s",
+          "5s",
+          "5s",
+          "5s",
+          "5s",
+          "5s",
+          "5s",
+          "5s",
+          "5s",
+          "5s",
+          "5s",
+          "5s"
+        ],
+        "PlungeDMG": [
+          "74.59%",
+          "80.66%",
+          "86.73%",
+          "95.4%",
+          "101.47%",
+          "108.41%",
+          "117.95%",
+          "127.49%",
+          "137.03%",
+          "147.44%",
+          "157.85%",
+          "168.26%",
+          "178.66%",
+          "189.07%",
+          "199.48%"
+        ],
+        "Low_HighPlungeDMG": [
+          "149.14%/186.29%",
+          "161.28%/201.45%",
+          "173.42%/216.62%",
+          "190.77%/238.28%",
+          "202.91%/253.44%",
+          "216.78%/270.77%",
+          "235.86%/294.6%",
+          "254.93%/318.42%",
+          "274.01%/342.25%",
+          "294.82%/368.25%",
+          "315.63%/394.24%",
+          "336.44%/420.23%",
+          "357.25%/446.23%",
+          "378.06%/472.22%",
+          "398.87%/498.21%"
+        ]
+      },
+      "description": "<color=#FFD780FF>Normal Attack</color>\\nPerforms up to 3 consecutive strikes.\\n\\n<color=#FFD780FF>Charged Attack</color>\\nDrains Stamina over time to perform continuous spinning attacks against all nearby opponents.\\nAt the end of the sequence, performs a more powerful slash. \\n\\n<color=#FFD780FF>Plunging Attack</color>\\nPlunges from mid-air to strike the ground below, damaging opponents along the path and dealing AoE DMG upon impact."
+    },
+    "elementalskill": {
+      "name": "Spirit-Warding Lamp: Troubleshooter Cannon",
+      "icon": "Skill_S_Dori_01",
+      "multipliers": {
+        "TroubleshooterShotDMG": [
+          "147.28%",
+          "158.33%",
+          "169.37%",
+          "184.1%",
+          "195.15%",
+          "206.19%",
+          "220.92%",
+          "235.65%",
+          "250.38%",
+          "265.1%",
+          "279.83%",
+          "294.56%",
+          "312.97%",
+          "331.38%",
+          "349.79%"
+        ],
+        "After_SalesServiceRoundDMG": [
+          "31.56%",
+          "33.93%",
+          "36.29%",
+          "39.45%",
+          "41.82%",
+          "44.18%",
+          "47.34%",
+          "50.5%",
+          "53.65%",
+          "56.81%",
+          "59.96%",
+          "63.12%",
+          "67.07%",
+          "71.01%",
+          "74.95%"
+        ],
+        "CD": [
+          "9s",
+          "9s",
+          "9s",
+          "9s",
+          "9s",
+          "9s",
+          "9s",
+          "9s",
+          "9s",
+          "9s",
+          "9s",
+          "9s",
+          "9s",
+          "9s",
+          "9s"
+        ]
+      },
+      "description": "Directs a Spirit-Warding Lamp to fire off a Troubleshooter Shot at opponents, dealing <color=#FFACFFFF>Electro DMG</color>.\\nAfter the Troubleshooter Shot hits, it will create 2 After-Sales Service Rounds that will automatically track nearby opponents and deal <color=#FFACFFFF>Electro DMG</color>.\\n\\n<i>It is said that Dori can fix any problem for you... for the right price.</i>"
+    },
+    "elementalburst": {
+      "name": "Alcazarzaray's Exactitude",
+      "icon": "Skill_E_Dori_01",
+      "multipliers": {
+        "ConnectorDMG": [
+          "15.88%",
+          "17.07%",
+          "18.26%",
+          "19.85%",
+          "21.04%",
+          "22.24%",
+          "23.82%",
+          "25.41%",
+          "27%",
+          "28.59%",
+          "30.18%",
+          "31.76%",
+          "33.75%",
+          "35.74%",
+          "37.72%"
+        ],
+        "ContinuousHealing": [
+          "6.67% Max HP+642",
+          "7.17% Max HP+706",
+          "7.67% Max HP+776",
+          "8.34% Max HP+851",
+          "8.84% Max HP+931",
+          "9.34% Max HP+1017",
+          "10.01% Max HP+1107",
+          "10.67% Max HP+1204",
+          "11.34% Max HP+1305",
+          "12.01% Max HP+1412",
+          "12.67% Max HP+1525",
+          "13.34% Max HP+1643",
+          "14.17% Max HP+1766",
+          "15.01% Max HP+1894",
+          "15.84% Max HP+2028"
+        ],
+        "EnergyRegeneration": [
+          "1.6",
+          "1.7",
+          "1.8",
+          "1.9",
+          "2",
+          "2.1",
+          "2.2",
+          "2.3",
+          "2.4",
+          "2.5",
+          "2.5",
+          "2.5",
+          "2.5",
+          "2.5",
+          "2.5"
+        ],
+        "Duration": [
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s"
+        ],
+        "CD": [
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s"
+        ],
+        "EnergyCost": [
+          "80",
+          "80",
+          "80",
+          "80",
+          "80",
+          "80",
+          "80",
+          "80",
+          "80",
+          "80",
+          "80",
+          "80",
+          "80",
+          "80",
+          "80"
+        ]
+      },
+      "description": "Summons forth the Jinni within the lamp to give the client various kinds of aid.\\n\\n<color=#FFD780FF>Jinni</color>\\nConnects to a nearby character. The connected character will:\\n· Continuously restore HP based on Dori's Max HP.\\n· Continuously regenerate Energy.\\n· Be affected by <color=#FFACFFFF>Electro</color>.\\nWhen the connector between the Jinni and the character touches opponents, it will deal one instance of <color=#FFACFFFF>Electro DMG</color> to them every 0.4s.\\n\\nOnly one Jinni can exist at one time.\\n\\n<i>\"Hmm? You'll pick this lamp, will you? Oh my, you've got good taste! Unfortunately, there's no price on this treasure — comparable, I'd say, to how you will not sell that mascot by your side for any price in the world.\"</i>"
+    },
+    "leveling": {
+      "crown": {
+        "x104319": 3
+      },
+      "books": {
+        "x104332": 9,
+        "x104333": 63,
+        "x104334": 114
+      },
+      "worldmonster": {
+        "x112065": 18,
+        "x112066": 66,
+        "x112067": 93
+      },
+      "weekly": {
+        "x113018": 18
+      }
+    }
+  },
+  "passives": {
+    "p1": {
+      "name": "An Eye for Gold",
+      "description": "After a character connected to the <color=#FFD780FF>Jinni</color> triggers an Electro-Charged, Lunar-Charged, Superconduct, Overloaded, Quicken, Aggravate, Hyperbloom, Electro Swirl, or Electro Crystallize reaction, the CD of <color=#FFD780FF>Spirit-Warding Lamp: Troubleshooter Cannon</color> is decreased by 1s.\\nThis effect can be triggered once every 3s.",
+      "icon": "UI_Talent_S_Dori_05"
+    },
+    "p2": {
+      "name": "Compound Interest",
+      "description": "When the Troubleshooter Shots or After-Sales Service Rounds from <color=#FFD780FF>Spirit-Warding Lamp: Troubleshooter Cannon</color> hit opponents, Dori will restore 5 Elemental Energy for every 100% Energy Recharge possessed.\\nPer Spirit-Warding Lamp: Troubleshooter Cannon, only one instance of Energy restoration can be triggered and a maximum of 15 Energy can be restored this way.",
+      "icon": "UI_Talent_S_Dori_06"
+    },
+    "p3": {
+      "name": "Unexpected Order",
+      "description": "Has a 25% chance to recover some of the materials used when crafting Character and Weapon Materials.",
+      "icon": "UI_Talent_S_Dori_07"
+    },
+    "p4": ""
+  },
+  "constellations": {
+    "const1": {
+      "name": "Additional Investment",
+      "description": "The number of After-Sales Service Rounds created by <color=#FFD780FF>Troubleshooter Shots</color> is increased by 1.",
+      "icon": "UI_Talent_S_Dori_01"
+    },
+    "const2": {
+      "name": "Special Franchise",
+      "description": "When you are in combat and the <color=#FFD780FF>Jinni</color> heals the character it is connected to, it will fire a Jinni Toop from that character's position that deals 50% of Dori's ATK DMG.",
+      "icon": "UI_Talent_S_Dori_02"
+    },
+    "const3": {
+      "name": "Wonders Never Cease",
+      "description": "Increases the Level of <color=#FFD780FF>Alcazarzaray's Exactitude</color> by 3.\\nMaximum upgrade level is 15.",
+      "icon": "UI_Talent_U_Dori_02"
+    },
+    "const4": {
+      "name": "Discretionary Supplement",
+      "description": "The character connected to the <color=#FFD780FF>Jinni</color> will obtain the following buffs based on their current HP and Energy:\\n·When their HP is lower than 50%, they gain 50% Incoming Healing Bonus.\\n·When their Energy is less than 50%, they gain 30% Energy Recharge.",
+      "icon": "UI_Talent_S_Dori_03"
+    },
+    "const5": {
+      "name": "Value for Mora",
+      "description": "Increases the Level of <color=#FFD780FF>Spirit-Warding Lamp: Troubleshooter Cannon</color> by 3.\\nMaximum upgrade level is 15.",
+      "icon": "UI_Talent_U_Dori_01"
+    },
+    "const6": {
+      "name": "Sprinkling Weight",
+      "description": "Dori gains the following effects for 3s after using <color=#FFD780FF>Spirit-Warding Lamp: Troubleshooter Cannon</color>:\\n·<color=#FFACFFFF>Electro Infusion</color>.\\n·When Normal Attacks hit opponents, all nearby party members will heal HP equivalent to 4% of Dori's Max HP. This type of healing can occur once every 0.1s.",
+      "icon": "UI_Talent_S_Dori_04"
+    }
+  },
+  "hyperlinks": [],
+  "stories": {
+    "x68200": {
+      "storyTitle": "Character Details",
+      "storyText": "\"Dori Sangemah Bay, owner of the Palace of Alcazarzaray, super-duper merchant who sells everything you need!\"\\nWhen one holds Dori's name card, this impressive title instantly comes into view.\\nDori is, however, indeed the most special Sumeru merchant of all.\\nShe already possesses vast wealth, but is still fervently passionate about earning Mora;\\nShe already owns multiple well-renowned merchant caravans, yet she always travels across Sumeru to sell her marvelous items in person.\\nSpeaking of which, her wares are just as curious as her style: special travel kit, outdoor dryer machines, automatic snowball launchers... You can probably buy anything you can think of from Dori. The only question is: Do you have enough Mora to do so?",
+      "unlockConds": []
+    },
+    "x68201": {
+      "storyTitle": "Character Story 1",
+      "storyText": "\"Oh wow, are you headed for the desert? I have some good stuff you'll need there.\"\\n\"The rainforest is terribly infested with poisonous snakes, ferocious monsters, and a terminal case of humidity — it's no place for the less-than-thoroughly prepared, no sir! Now then, why don't you try bringing this for your trip? Buy it now and enjoy a 20 percent discount!\"\\n\"Hold your horses, hotshot. You're not taking that route, are you? There's a huge pack of monsters lying in wait ahead that-a-ways. But see, I have some weapons here that you won't regret purchasing — you know, for self defense!\"\\n\"Going to the Akhtamun Ruins? You've got the right person. First things first, you'll need a complete set of water-drawing tools... Which, as it happens, I happen to have for sale!\"\\nThere is a tale among adventurers in Sumeru.\\nIt says that if you are about to embark on a journey into a dangerous place, you'll see a diminutive figure, seemingly having been waiting for you.\\nBe it in the treacherous mountains, arid deserts, grim rainforests, or desolate areas inhabited by monsters, you'll always see her smiling face.\\nWord has it that Dori carries all manner of marvelous items on her person all the time. Her items can help adventurers get through their pressing troubles.\\n—At a \"reasonable\" price, of course.\\nAdventurers who \"have just received Dori's help in their time of need\" at the cost of \"paying a large sum of Mora at once\" often develop conflicted feelings toward her — somewhere in between gratitude and a grudge.\\nFor Dori's part, she considerately ignores the conflicted look on their faces, putting the fresh Mora in her almost-bursting purse and bidding them adieu with a contented smile.\\n\"Thank you for your generous purchase. Hehe.\"",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 2
+      }
+    },
+    "x68202": {
+      "storyTitle": "Character Story 2",
+      "storyText": "From the perspective of others, Dori's business has always been on the up and up. However, only Dori herself knows how many unimaginable bottlenecks she's struggled through.\\nThere was a time when orders from all over Sumeru just kept flooding in and Dori couldn't deliver such a giant number of orders in a timely fashion.\\nUnfortunately, the capacity of the usual merchant routes was too limited for the delivery of commodities in such a gigantic quantity.\\nMany members of Dori's merchant caravans suggested rejecting certain orders to dial down the scale of delivery and maintain a decent, stable profit — one that already seemed set to make them immensely wealthy, given time.\\nBut Dori took a very bold step: She accepted all the orders while starting cooperation with the Kshahrewar to establish new trade routes in areas that were known to be dangerous.\\nShe opened the new routes up to nearby merchant caravans, took the opportunity to found a commerce guild and put the relevant resources to good use, and finally eliminated the bottleneck that her business was stuck in.\\nToday, Dori's new, built-from-scratch merchant routes are seen all across Sumeru, and the good reputation of \"Lord Sangemah Bay\" has spread far and wide.\\nThe words Dori said to her caravan members have also become common knowledge:\\n\"I'm not some stupid toadstool. I don't cancel or reject any orders.\"\\n\"Every Mora that can be earned, will be earned by me. Why? Well, because it's there, of course.\"",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 3
+      }
+    },
+    "x68203": {
+      "storyTitle": "Character Story 3",
+      "storyText": "Dori used to suffer terribly from insomnia. Back then, she would often lose sleep for no reason. After such sleepless nights, she would show up to trade meetings with a pair of raccoon eyes.\\nEven the best doctors couldn't diagnose her properly. She burned one frankincense stick after another, and yet they did not lull her into sleep but into coughing fits instead.\\nIt was at that moment that a doctor passed by and told Dori this:\\n\"I've heard that some people place an hourglass by their bedside. The sound of the falling sand helps them sleep.\"\\nDori tried it for a few days and it didn't work. However, she was inspired by the failed attempt, ordering a large custom-made hourglass.\\nThat which was in this hourglass was not sand, but shiny Mora.\\nThat night, embraced by the music of jingling Mora, Dori slept soundly at last.\\nAfter that, Dori learned the trick to dealing with insomnia:\\n\"To sleep well, you must first secure peace of mind.\"",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 4
+      }
+    },
+    "x68204": {
+      "storyTitle": "Character Story 4",
+      "storyText": "Maybe it's because of her deep love for Mora, Dori also takes interest in \"whoever or whatever might bring Mora in.\"\\nFor example, her merchant caravans use Sumpter Beasts to carry cargo, so Dori had an \"amusement park\" built for the Sumpter Beasts such that they might enjoy their downtime.\\nShe also handpicks Sumpter Beast food of the best quality to make sure that they have balanced nutrition and that they stay in good health.\\nAlso, as a shrewd merchant, she never misses a single business opportunity.\\nSumpter Beasts playing together in the amusement park make for a fun scene, so Dori took the chance to open the amusement park to tourists and sold tickets, food, and souvenirs to them. The cost of raising the Sumpter Beasts was covered by the amusement park's revenue in no time.\\nDori's love for Sumpter Beasts is genuine, and so is her intention to make Mora out of that love.\\nPerhaps the Jinni in Dori's lamp knows this better than everyone else. The spirit was tricked into entering Dori's lamp, but it has never left since.\\nDori will summon it into combat, but she will also grant its wishes afterwards.\\nSometimes the Jinni even thinks that the fairy tale might actually have gotten things reversed —\\nFor the one who dwells in the lamp is a powerful fighter, while the one holding the lamp is the one who grants wishes.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 5
+      }
+    },
+    "x68205": {
+      "storyTitle": "Character Story 5",
+      "storyText": "No one knows how exactly Dori met Alice, but they are truly a pair of business partners that could make all merchants jealous.\\nAlice travels the world, so she does not stay for long every time she visits Sumeru. However, every once in a while, Alice will ask someone to send her new invention to Dori.\\nDori, for her part, will sell it and find a way to send the Mora to Alice.\\nSometimes, Alice sends the invention with an attached letter that tells Dori to keep the Mora for the time being because Alice is currently in a dangerous area.\\nHowever, Dori insists on getting someone to send the Mora to safe zones closest to Alice's position, making sure that Alice will receive the Mora at her earliest convenience.\\nThe labor, shipment, insurance... The various costs tend to amount to a fairly large expenditure, but Dori is never stingy in this regard. She even pays in advance.\\n\"I, Dori, never default on payment.\"\\n\"Also, Ms. Alice has expenses, too. I must make sure that she has Mora at hand whenever she needs it.\"\\nDori often repeats these words and, despite the trouble, repeatedly makes sure that Alice's payment is delivered.\\nThough Alice is no longer Dori's only supplier, Alice's payment is still a top priority for Dori.\\nPerhaps it's because Dori keeps a certain promise embedded in her heart — the promise she made to Alice the day they met.\\n\"You want limitless Mora? Sure. I can supply you with marvelous items of all kinds. But how much Mora you're going to make will depend on how good you are at sales.\"\\n\"Don't worry. I'll sell them for a good price, earn a large sum of Mora, and deliver your share as quickly as possible... I'll be your greatest business partner.\"",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 6
+      }
+    },
+    "x68206": {
+      "storyTitle": "Mora Music Box",
+      "storyText": "To better enjoy the fascinating clinking of Mora, Dori ordered a custom-made \"Mora Music Box.\"\\nOn top of the music box is a slot precisely the size of a single Mora.\\nInsert a Mora through the slot into the box, and it will roll along the intricate tracks inside and make pleasant clinking sounds.\\nThese sounds compose beautiful music to which Dori twirls in the grand Palace of Alcazarzaray.\\n\"Mora, Mora, shining brightly.\"\\n\"Mora, Mora, toward infinity.\"\\n\"Beautiful Mora, Dori's Mora.\"\\n\"Everyone's Mora, come to Dori.\"\\nDori's sung this song countless times, yet she's never tired of it.\\nAt the end of her dance, Dori takes a deep bow to her imaginary audience.\\nIt is also the moment when the Mora falls to the bottom of the music box, making the final clink —\\nWith this finishing touch, an imaginary curtain descends upon Dori's delightful dance.\\nHowever, Dori is never quite finished — she always has another Mora to slot into her music box.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 4
+      }
+    },
+    "x68207": {
+      "storyTitle": "Vision",
+      "storyText": "Two girls of similar ages hummed a melody that was slightly out of tune. They spent their innocent childhood hand-in-hand as constant companions.\\nThey each picked flowers to decorate the other's hair in spring and walked across creeks barefoot in summer.\\nThey slid down the golden sand dunes in autumn and shared a book in the warmth of the winter sunlight.\\nIt seemed that such happy times would never come to an end.\\nThat is, until the elder sister started coughing blood for no reason. At this time, their home came to be ringed by a great many strange adults.\\nThe strangers explained the elder sister's situation in serious tones and with unfathomable jargon before sighing at the dingy little room.\\nThe younger sister had no idea what was happening, but she visited her sister every day, and her sister would always say this to her with a bright smile:\\n\"It's alright. I just need some rest.\"\\nSeeing that smile, the innocent younger sister's eyes filled with expectation. She even began looking forward to playing together like they used to.\\nBut one day, she saw her sister gripping her chest while telling a story.\\nThen, when her frail form collapsed onto the bed, the younger sister reached out to catch her, only to find that her body was so very light.\\n...It was almost as if her sister were a feather, a feather that might drift away to some place far, far away.\\nLater on, the younger sister found a crumpled note.\\nIt was a doctor's prescription, with a list of herbs that were desperately scarce — the collectors who had such herbs were few and far between.\\nTo purchase those herbs would cost more than tens of millions of Mora, an impossible price for a family that was already struggling to make the ends meet.\\nThe elder sister always shook her head with a smile to dismiss her family's insistence on following the prescription. Perhaps she herself could only find the courage to glance at that note in the deep hours of the night — and dare to dream that she might \"live.\"\\nUpon finding out about the note, the younger sister put it into her pocket silently and resolved to save her sister.\\n\"I must make a lot of Mora.\"\\n\"With enough Mora, my family will never have to smile at me while swallowing their pain, and I will never have to lose anything due to lacking Mora...\"\\nPerhaps it was at that moment that the gods looked upon her with mercy.\\nBut to an \"ambitious\" person like her, getting a Vision was just the start.\\nIn the countless days and nights that have followed, she has constantly kept herself calm and clear-headed, telling herself:\\n\"Conviction alone is not enough. I will work hard for what I desire until the end of my days.\"\\n\"There's nothing that Lord Sangemah Bay cannot achieve.\"",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 6
+      }
+    }
+  },
+  "quotes": {
+    "x68000": {
+      "quoteTitle": "Hello",
+      "quoteText": "Oh! Well if it isn't the renowned Traveler! I'm Dori Sangemah Bay, a traveling merchant. As an introductory gift, you can enjoy a 10% discount on all my wares and merchandise. Feel free to have a look. I'll even help package up your purchase, free of charge.",
+      "unlockConds": []
+    },
+    "x68001": {
+      "quoteTitle": "Chat: Mora",
+      "quoteText": "♪ I love Mora, and Mora loves me! I make Mora, and it makes me happy! Lalala... ♪",
+      "unlockConds": []
+    },
+    "x68002": {
+      "quoteTitle": "Chat: Win-Win",
+      "quoteText": "First, I mark up the price by 30% and then I offer a 20% discount. More Mora for me, and the customers still feel like they're getting a bargain. Now that's what I call a win-win.",
+      "unlockConds": []
+    },
+    "x68003": {
+      "quoteTitle": "Chat: Money-Mad",
+      "quoteText": "With enough Mora, you can afford to do anything — even take on the Akademiya.",
+      "unlockConds": []
+    },
+    "x68004": {
+      "quoteTitle": "When It Rains",
+      "quoteText": "Need to stay dry? I have just the thing! This specialty umbrella collects and purifies rain water, turning it into drinking water that is conveniently stored in this compact container — a real must-have for a traveler like yourself! And all that for only 500,000 Mora!",
+      "unlockConds": []
+    },
+    "x68005": {
+      "quoteTitle": "When Thunder Strikes",
+      "quoteText": "I bet even the caravans can't move under these conditions. I'm losing Mora here...",
+      "unlockConds": []
+    },
+    "x68006": {
+      "quoteTitle": "When It Snows",
+      "quoteText": "Oh oh oh! Check out my fully-automatic snowball maker! It's one of a kind! Wanna give it a try? I'll even throw in a 5% discount on the rental!",
+      "unlockConds": []
+    },
+    "x68007": {
+      "quoteTitle": "When the Sun Is Out",
+      "quoteText": "There's nothing more beautiful than shiny Mora, glittering in the sun! Hehe.",
+      "unlockConds": []
+    },
+    "x68008": {
+      "quoteTitle": "When the Wind Is Blowing",
+      "quoteText": "You've gotta be kidding! Who would be crossing the desert on such a windy day? Silly toadstools... What's that? Oh, I can get them out of there of course... But I'll have to triple my usual price, hehehe.",
+      "unlockConds": []
+    },
+    "x68009": {
+      "quoteTitle": "Good Morning",
+      "quoteText": "Good morning! Last night I had a dream filled with lovely, round, shiny Mora. Seems like today I'm gonna make a fortune!",
+      "unlockConds": []
+    },
+    "x68010": {
+      "quoteTitle": "Good Afternoon",
+      "quoteText": "You wanna take a nap? I can offer you a soft, fluffy cushion that will perfectly conform to the contour of your back. Of course, the level of comfort also depends on how much Mora you're willing to pay.",
+      "unlockConds": []
+    },
+    "x68011": {
+      "quoteTitle": "Good Evening",
+      "quoteText": "Traveling at night can be a real challenge, but for a seasoned merchant like me, it's a walk in the park!",
+      "unlockConds": []
+    },
+    "x68012": {
+      "quoteTitle": "Good Night",
+      "quoteText": "Trying to sleep? Hehe, alright. I'll be generous and let you try my Mora Hypnosis! Don't say I never gave you anything! It goes like this: 10,000 Mora in my coin purse, 20,000 Mora in my coin purse, 30,000 Mora in my coin purse, 40... 40,000 Mora hehe... Mora hehe... Zzz...",
+      "unlockConds": []
+    },
+    "x68013": {
+      "quoteTitle": "About Dori: Peddling",
+      "quoteText": "Welcome to Dori's Divine Bazaar! Everything you need with service you can rely on! You name it, we've got it! Questions or troubles? I'm here to personally assist you!",
+      "unlockConds": []
+    },
+    "x68014": {
+      "quoteTitle": "About Dori: Kshahrewar",
+      "quoteText": "I tend to avoid people from the Akademiya, all those rules and regulations of theirs make it nearly impossible to do good business. Although, those from the Kshahrewar tend to be a little more sensible... Ahem, between the two of us, they signed a private contract with me. I have the Mora, they have the technology and crafting techniques. This collaboration will practically roll in opportunities for my business. Hehe, a Dori deal is always a lucrative deal!",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x68015": {
+      "quoteTitle": "About Us: Promotion",
+      "quoteText": "Planning to travel in Sumeru? The desert can be pretty dangerous, you know — but don't worry, Dori's always got your back! Ta-daaa! This is the Desert Survival Kit. Available to you for only 5 million Mora! Buy it now and I'll throw in an additional Rainforest Survival Kit, free of charge! This deal is available for a limited time only, so don't miss your chance!",
+      "unlockConds": []
+    },
+    "x68016": {
+      "quoteTitle": "About Us: Mora Distribution",
+      "quoteText": "My Mora is mine, and your Mora is mine too! Hehehe.",
+      "unlockConds": []
+    },
+    "x68017": {
+      "quoteTitle": "About Us: Actual Price",
+      "quoteText": "Fine fine, I'll be honest with you... The desert and rainforest survival kits are worth two and a half million Mora each. But buy one get one free sure sounds like a good bargain, doesn't it?",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 6"
+      ]
+    },
+    "x68018": {
+      "quoteTitle": "About the Vision",
+      "quoteText": "Wow, just look at it... My Vision is so shiny and beautiful, isn't it? Don't you think you should pay me a fee for the privilege of seeing such an exquisite beauty?",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x68019": {
+      "quoteTitle": "Something to Share",
+      "quoteText": "Once, some stupid toadstools thought they could get away with not paying what they owed. Hmph, little did they know who they were messing with! ...Can you guess what happened to them?",
+      "unlockConds": []
+    },
+    "x68020": {
+      "quoteTitle": "Interesting Things: Common Language",
+      "quoteText": "If Weasel Thieves could talk, I bet we'd have a lot in common. What they love most in all of Teyvat is, of course, shiny Mora! Sounds like they've got good heads on their shoulders if you ask me.",
+      "unlockConds": []
+    },
+    "x68021": {
+      "quoteTitle": "Interesting Things: Sumpter Beast Park",
+      "quoteText": "You'd like to see a Sumpter Beast? No problem! I've got more than you could ever dream of! I'd be happy to let you see them, for a fee... hehe.",
+      "unlockConds": []
+    },
+    "x68022": {
+      "quoteTitle": "About Cyno",
+      "quoteText": "You could say I know him. After all, I was the only merchant in all Sumeru who could acquire the full range of Genius Invokation TCG merch for him! Not bad, huh? I've gotta admit, it's pretty rare to see anyone from the Akademiya like him... independent and with a good head on his shoulders. Plus, he's never been one to haggle over prices.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x68023": {
+      "quoteTitle": "About Tighnari",
+      "quoteText": "He loves learning as much as I love Mora. I heard he makes a lot of little interesting gadgets, but he refuses to partner with me to mass produce them. He always says he's too busy with work, but really it's just an excuse. *sigh* A shame, really... We could make an absolute fortune!",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x68024": {
+      "quoteTitle": "About Alhaitham",
+      "quoteText": "He once came nosing around, asking my minions some questions to see what he could find out. Like I said, those Akademiya people are just pig-headed and dishonest. Why should I take the risk of others prying into my business? Right, my young apprentice?",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x68025": {
+      "quoteTitle": "About Kaveh",
+      "quoteText": "Ah yeah, he's one of the Kshahrewar people that I work with. Unlike the more closed-minded people at the Akademiya, he actually has his own dreams that he's fighting for. I, for one, really respect that. I secretly lent him some Mora — and I mean a LOT of Mora — to build my Palace of Alcazarzaray. One thing's for sure — without Dori the benevolent benefactor, Kaveh would not be where he is today, hehe.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x68026": {
+      "quoteTitle": "About Dehya",
+      "quoteText": "I hire her to help escort my caravans from time to time. After all, she's got the muscle, and her price is reasonable. When it comes to cost-performance ratio, she's always the best pick.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x68027": {
+      "quoteTitle": "About Rex Lapis",
+      "quoteText": "Before Rex Lapis parted from this world, I'd say a little prayer every morning: \"O great God of Wealth up above, please bless my day with more Mora to love.\" But uh, now, I guess I just pray to myself... \"O divine Dori right here and now, please bless my day with more Mora to count!\" Hehe.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4",
+        "Complete \"A New Star Approaches\""
+      ]
+    },
+    "x68028": {
+      "quoteTitle": "About Lesser Lord Kusanali",
+      "quoteText": "In Sumeru, Lesser Lord Kusanali has very few believers. Hmm? Am I one? Heh, if she's willing to pay me, I'd be her loyal believer for all eternity.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x68029": {
+      "quoteTitle": "About Nilou",
+      "quoteText": "She's a good dancer, but definitely not making the most of her time by staying in Sumeru... I mean, it's a complete waste of her talent. If I took her on tour across all Teyvat, do you have any idea how much Mora I'd rake in?",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x68030": {
+      "quoteTitle": "About Alice",
+      "quoteText": "Alice's range of eccentric novelties knows no end! Which makes her by far my best supplier, hehe. Ahem, now that I've told you my trade secret, I think you should catch up on your tuition fees, hmm? C'mon, pay up!",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x68031": {
+      "quoteTitle": "More About Dori: I",
+      "quoteText": "You wanna hear some stories? Alright, it'll cost you a million Mora. Well... Okay, out of respect for our friendship, I guess I can give you a 1% discount. So that'll be 990,000 Mora. Pretty good deal if you ask me.",
+      "unlockConds": []
+    },
+    "x68032": {
+      "quoteTitle": "More About Dori: II",
+      "quoteText": "Hehe, you've got a good head on your shoulders. I'll tell you a story about a merchant.\\nA long, long time ago, a merchant lost her way while she was out on the road. It wasn't long before she encountered a Fog Div. Just as the Fog Div was about to eat her alive, she said in a panic, \"Wait, Mr. Fog Div! Don't eat me! I've got a story to tell you. Please, have a listen, and if you like what you hear, then perhaps you would spare me...\"",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 3"
+      ]
+    },
+    "x68033": {
+      "quoteTitle": "More About Dori: III",
+      "quoteText": "...The Fog Div agreed to listen, and the merchant began to tell her story. It was about herself, from a time when business was not doing so well. Just as she was beginning to feel helpless, she happened to find a magic lamp in her warehouse. She began to polish the lamp, when all of a sudden, a puff of red smoke came out. The smoke spoke to her and claimed to be The Genie of Beauty and Kindness. The merchant somehow reminded the genie of her own lovely daughter, so she kindly offered to grant the merchant a wish.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x68034": {
+      "quoteTitle": "More About Dori: IV",
+      "quoteText": "What could a merchant ever desire more than the prospect of more Mora? So the merchant wished that she could earn more Mora in the future than she could ever hope to count. The Genie of Beauty and Kindness agreed, and became the merchant's supplier, providing her with magical and fantastic goods. The merchant soon went on to make a fortune...",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 5"
+      ]
+    },
+    "x68035": {
+      "quoteTitle": "More About Dori: V",
+      "quoteText": "Hearing the merchant's story, the Fog Div became very puzzled. The div and the genie were obviously of the same species, so how come the div couldn't perform any magic? The merchant praised the Fog Div's potential, saying that it, too, would surely gain the genie's great power if only it were to stay in the same magic lamp. The Fog Div agreed and entered the merchant's magic lamp... Huh? Is this a real story? Backstory details cost extra! Give me another 990,000 Mora and I'll tell you!",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 6"
+      ]
+    },
+    "x68036": {
+      "quoteTitle": "Dori's Hobbies",
+      "quoteText": "Hobbies? Sure, I've got tons of hobbies. First there's earning Mora, then there's counting Mora... Oh, and then I like to look at Mora. Ah Mora, nothing in the world makes me happier!",
+      "unlockConds": []
+    },
+    "x68037": {
+      "quoteTitle": "Dori's Troubles",
+      "quoteText": "I always have people coming to me with business proposals that could yield only 30% profit. I'm a busy lady, you know. Please, anything under 100% profit, I don't even want to hear about it.",
+      "unlockConds": []
+    },
+    "x68038": {
+      "quoteTitle": "Favorite Food",
+      "quoteText": "I hear there's a dish in Liyue called Mora Meat. With a name like that, I know it's gotta be delicious! Wh—What? You know how to make it!? Well ahem, you have been my apprentice for some time now, and you must've learned a lot from me. So uh, in exchange for all that you've learned, why don't you cook some Mora Meat for me? Well, what are you waiting for!?",
+      "unlockConds": []
+    },
+    "x68039": {
+      "quoteTitle": "Least Favorite Food",
+      "quoteText": "I can't stand anything that's dark and burnt looking... you know, like Charcoal-Baked Ajilenakh Cakes. Ugh, I will never even touch them! Even if you paid me a million Mora, I... Uh, well if that were the case, maybe I'd consider it.",
+      "unlockConds": []
+    },
+    "x68040": {
+      "quoteTitle": "Receiving a Gift: I",
+      "quoteText": "Mmm, yummy! What do you say we partner up, hmm? You could also be my personal chef!",
+      "unlockConds": []
+    },
+    "x68041": {
+      "quoteTitle": "Receiving a Gift: II",
+      "quoteText": "Oh, so my apprentice knows their way around the kitchen, huh? Alright, lemme order something...",
+      "unlockConds": []
+    },
+    "x68042": {
+      "quoteTitle": "Receiving a Gift: III",
+      "quoteText": "You expect me to eat this? Hmph, you'd better compensate me for the mental trauma!",
+      "unlockConds": []
+    },
+    "x68043": {
+      "quoteTitle": "Birthday",
+      "quoteText": "Today I can grant you one wish! After all, I am the great and almighty Dori! Go on, tell me, what do you wish for? But lemme just tell you now that a lifetime supply of Mora is off the table.",
+      "unlockConds": []
+    },
+    "x68044": {
+      "quoteTitle": "Feelings About Ascension: Intro",
+      "quoteText": "Does this mean you're investing in me? Hehe, I always knew you had a good head on your shoulders.",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 1"
+      ]
+    },
+    "x68045": {
+      "quoteTitle": "Feelings About Ascension: Building Up",
+      "quoteText": "The Mora, the merrier.",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 2"
+      ]
+    },
+    "x68046": {
+      "quoteTitle": "Feelings About Ascension: Climax",
+      "quoteText": "Wow! This is like having a bottomless coin pouch filled with endless power!",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 4"
+      ]
+    },
+    "x68047": {
+      "quoteTitle": "Feelings About Ascension: Conclusion",
+      "quoteText": "Congratulations! You are now a VIP customer of the illustrious Lord Sangemah Bay! This entitles you to enjoy a 20% discount on all future purchases. You're also the first VIP customer ever, so make good use of it!",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 6"
+      ]
+    },
+    "x68048": {
+      "quoteTitle": "Elemental Skill: I",
+      "quoteText": "Watch this!",
+      "unlockConds": []
+    },
+    "x68049": {
+      "quoteTitle": "Elemental Skill: II",
+      "quoteText": "Your Mora is mine!",
+      "unlockConds": []
+    },
+    "x68050": {
+      "quoteTitle": "Elemental Burst: I",
+      "quoteText": "Magic lamp!",
+      "unlockConds": []
+    },
+    "x68051": {
+      "quoteTitle": "Elemental Burst: II",
+      "quoteText": "Here's the goods!",
+      "unlockConds": []
+    },
+    "x68052": {
+      "quoteTitle": "Elemental Burst: III",
+      "quoteText": "Let's sweeten the deal!",
+      "unlockConds": []
+    },
+    "x68053": {
+      "quoteTitle": "Opening Treasure Chest: I",
+      "quoteText": "We'll split it, fifty-fifty.",
+      "unlockConds": []
+    },
+    "x68054": {
+      "quoteTitle": "Opening Treasure Chest: II",
+      "quoteText": "Show me the goods!",
+      "unlockConds": []
+    },
+    "x68055": {
+      "quoteTitle": "Opening Treasure Chest: III",
+      "quoteText": "I'll take it all!",
+      "unlockConds": []
+    },
+    "x68056": {
+      "quoteTitle": "Low HP: I",
+      "quoteText": "Hands off my Mora!",
+      "unlockConds": []
+    },
+    "x68057": {
+      "quoteTitle": "Low HP: II",
+      "quoteText": "Help! I'm being robbed!",
+      "unlockConds": []
+    },
+    "x68058": {
+      "quoteTitle": "Low HP: III",
+      "quoteText": "Protect the Mora.",
+      "unlockConds": []
+    },
+    "x68059": {
+      "quoteTitle": "Ally at Low HP: I",
+      "quoteText": "I'll help for a price!",
+      "unlockConds": []
+    },
+    "x68060": {
+      "quoteTitle": "Ally at Low HP: II",
+      "quoteText": "You can't spend Mora dead, numbskull!",
+      "unlockConds": []
+    },
+    "x68061": {
+      "quoteTitle": "Fallen: I",
+      "quoteText": "Must earn... more Mora...",
+      "unlockConds": []
+    },
+    "x68062": {
+      "quoteTitle": "Fallen: II",
+      "quoteText": "Not... again...",
+      "unlockConds": []
+    },
+    "x68063": {
+      "quoteTitle": "Fallen: III",
+      "quoteText": "Guess there's some things... Mora can't buy...",
+      "unlockConds": []
+    },
+    "x68064": {
+      "quoteTitle": "Light Hit Taken: I",
+      "quoteText": "Mind the merchandise!",
+      "unlockConds": []
+    },
+    "x68065": {
+      "quoteTitle": "Light Hit Taken: II",
+      "quoteText": "No can do!",
+      "unlockConds": []
+    },
+    "x68066": {
+      "quoteTitle": "Heavy Hit Taken: I",
+      "quoteText": "You big bully!",
+      "unlockConds": []
+    },
+    "x68067": {
+      "quoteTitle": "Heavy Hit Taken: II",
+      "quoteText": "That's a deal-breaker!",
+      "unlockConds": []
+    },
+    "x68068": {
+      "quoteTitle": "Joining Party: I",
+      "quoteText": "C'mon let's go! There's a fortune to be made!",
+      "unlockConds": []
+    },
+    "x68069": {
+      "quoteTitle": "Joining Party: II",
+      "quoteText": "Hurry up! Mora waits for no one.",
+      "unlockConds": []
+    },
+    "x68070": {
+      "quoteTitle": "Joining Party: III",
+      "quoteText": "So, what's the deal?",
+      "unlockConds": []
+    },
+    "x68071": {
+      "quoteTitle": "About Kirara",
+      "quoteText": "She delivered several orders to me when I was stocking up on goods from outside of Sumeru. Her service is great, and her prices are low. Oh, I think she's into pretty accessories, and I happen to have some handmade Sumeru specialties on sale! Wanna buy some as a gift for her? I can give you a discount!",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x68072": {
+      "quoteTitle": "Elemental Skill: III",
+      "quoteText": "Sha~zam!",
+      "unlockConds": []
+    },
+    "x68073": {
+      "quoteTitle": "About Varesa",
+      "quoteText": "Ah, yes, I know who you're talking about. The sweet and innocent Fruit Lord... Her family's produce is the best of the best! And she's very easy to negotiate with. If I simply purse my lips and look deep in thought, she gets nervous and starts questioning the quality of her goods, then she starts offering discounts... Hehe, you gotta be a little tougher than that in business, or you'll lose all your Mora! And I hope it's only me that makes her squirm like that. She'd better not be giving the same discounts to everyone else!",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    }
+  },
+  "energy": [
+    {
+      "source": "Ball",
+      "particles": "1",
+      "chance": "100%",
+      "cd": "1.5s"
+    },
+    {
+      "source": "UNIQUE_SubBullet_Ball",
+      "particles": "1",
+      "chance": "100%",
+      "cd": "1.5s"
+    }
+  ],
+  "attacks": [
+    {
+      "name": "ElementalArt_Bullet_Material",
+      "icd_source": "Tag: Elemental_Art (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV3/30",
+      "element": "Electric",
+      "attackType": "Default",
+      "strikeType": "-",
+      "damageParam": "ElementalArt_Bullet_Damage"
+    },
+    {
+      "name": "ElementalArt_SubBullet_Material",
+      "icd_source": "Tag: Elemental_Art (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV3/10",
+      "element": "Electric",
+      "attackType": "Default",
+      "strikeType": "-",
+      "damageParam": "ElementalArt_Bullet_Damage"
+    },
+    {
+      "name": "ElementalArt_Constellation_Bullet_Material",
+      "icd_source": "Tag: Constellation_2 (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV3/10",
+      "element": "Electric",
+      "attackType": "Default",
+      "strikeType": "-",
+      "damageParam": "ElementalArt_Bullet_Damage"
+    },
+    {
+      "name": "ChargingStation",
+      "icd_source": "Grp: Dori_Elemental_Burst (Tag Miss)",
+      "icd_rule": "12 hits / 3s",
+      "gauge": "1U",
+      "poise": "LV0/0",
+      "element": "Electric",
+      "attackType": "Default",
+      "strikeType": "-",
+      "damageParam": "-"
+    },
+    {
+      "name": "ChargingStation",
+      "icd_source": "Grp: Dori_Elemental_Burst (Tag Miss)",
+      "icd_rule": "12 hits / 3s",
+      "gauge": "1U",
+      "poise": "LV0/8",
+      "element": "Electric",
+      "attackType": "Default",
+      "strikeType": "-",
+      "damageParam": "Elemental_Burst_Damage"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "0U",
+      "poise": "LV2/35",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Slash",
+      "damageParam": "FallingAnthem_Normal_Loop_Damage"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV4/150",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Blunt",
+      "damageParam": "FallingAnthem_Normal_Rank_1_Damage"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV7/200",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Blunt",
+      "damageParam": "FallingAnthem_Normal_Rank_2_Damage"
+    }
+  ],
+  "endure": []
+}

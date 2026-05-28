@@ -1,0 +1,17 @@
+# Default single-target Arlecchino loop
+E
+DebtTick
+Charge
+N1
+N2
+N3
+N4A
+N4B
+N5
+N6
+N1
+N2
+N3
+N4A
+N4B
+Q

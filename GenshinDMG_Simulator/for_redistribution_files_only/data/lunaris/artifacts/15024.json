@@ -1,0 +1,31 @@
+﻿{
+    "Id":  15024,
+    "SetId":  15024,
+    "EnName":  "Echoes of an Offering",
+    "QualityType":  "QUALITY_ORANGE",
+    "SetIcon":  "UI_RelicIcon_15024_4",
+    "Effect2Pc":  "ATK +18%.",
+    "Effect4Pc":  "When Normal Attacks hit opponents, there is a 36% chance that it will trigger Valley Rite, which will increase Normal Attack DMG by 70% of ATK. This effect will be dispelled 0.05s after a Normal Attack deals DMG. If a Normal Attack fails to trigger Valley Rite, the odds of it triggering the next time will increase by 20%. This trigger can occur once every 0.2s.",
+    "Pieces":  {
+                   "circlet":  {
+                                   "icon":  "UI_RelicIcon_15024_3",
+                                   "name":  "Flowing Rings"
+                               },
+                   "flower":  {
+                                  "icon":  "UI_RelicIcon_15024_4",
+                                  "name":  "Soulscent Bloom"
+                              },
+                   "goblet":  {
+                                  "icon":  "UI_RelicIcon_15024_1",
+                                  "name":  "Chalice of the Font"
+                              },
+                   "plume":  {
+                                 "icon":  "UI_RelicIcon_15024_2",
+                                 "name":  "Jade Leaf"
+                             },
+                   "sands":  {
+                                 "icon":  "UI_RelicIcon_15024_5",
+                                 "name":  "Symbol of Felicitation"
+                             }
+               }
+}

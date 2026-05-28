@@ -1,0 +1,31 @@
+﻿{
+    "Id":  15038,
+    "SetId":  15038,
+    "EnName":  "Obsidian Codex",
+    "QualityType":  "QUALITY_ORANGE",
+    "SetIcon":  "UI_RelicIcon_15038_4",
+    "Effect2Pc":  "While the equipping character is in Nightsoul\u0027s Blessing and is on the field, their DMG dealt is increased by 15%.",
+    "Effect4Pc":  "After the equipping character consumes 1 Nightsoul point while on the field, CRIT Rate increases by 40% for 6s. This effect can trigger once every second.",
+    "Pieces":  {
+                   "circlet":  {
+                                   "icon":  "UI_RelicIcon_15038_3",
+                                   "name":  "Crown of the Saints"
+                               },
+                   "flower":  {
+                                  "icon":  "UI_RelicIcon_15038_4",
+                                  "name":  "Reckoning of the Xenogenic"
+                              },
+                   "goblet":  {
+                                  "icon":  "UI_RelicIcon_15038_1",
+                                  "name":  "Pre-Banquet of the Contenders"
+                              },
+                   "plume":  {
+                                 "icon":  "UI_RelicIcon_15038_2",
+                                 "name":  "Root of the Spirit-Marrow"
+                             },
+                   "sands":  {
+                                 "icon":  "UI_RelicIcon_15038_5",
+                                 "name":  "Myths of the Night Realm"
+                             }
+               }
+}

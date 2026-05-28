@@ -1,0 +1,1910 @@
+﻿{
+    "Version":  "6.5.54.2",
+    "GeneratedAt":  "2026-05-16T03:51:30",
+    "Artifacts":  [
+                      {
+                          "Id":  10001,
+                          "SetId":  10001,
+                          "EnName":  "Resolution of Sojourner",
+                          "QualityType":  "QUALITY_PURPLE",
+                          "SetIcon":  "UI_RelicIcon_10001_4",
+                          "Effect2Pc":  "ATK +18%.",
+                          "Effect4Pc":  "Increases Charged Attack CRIT Rate by 30%.",
+                          "Pieces":  {
+                                         "circlet":  {
+                                                         "icon":  "UI_RelicIcon_10001_3",
+                                                         "name":  "Crown of Parting"
+                                                     },
+                                         "flower":  {
+                                                        "icon":  "UI_RelicIcon_10001_4",
+                                                        "name":  "Heart of Comradeship"
+                                                    },
+                                         "goblet":  {
+                                                        "icon":  "UI_RelicIcon_10001_1",
+                                                        "name":  "Goblet of the Sojourner"
+                                                    },
+                                         "plume":  {
+                                                       "icon":  "UI_RelicIcon_10001_2",
+                                                       "name":  "Feather of Homecoming"
+                                                   },
+                                         "sands":  {
+                                                       "icon":  "UI_RelicIcon_10001_5",
+                                                       "name":  "Sundial of the Sojourner"
+                                                   }
+                                     }
+                      },
+                      {
+                          "Id":  10002,
+                          "SetId":  10002,
+                          "EnName":  "Brave Heart",
+                          "QualityType":  "QUALITY_PURPLE",
+                          "SetIcon":  "UI_RelicIcon_10002_4",
+                          "Effect2Pc":  "ATK +18%.",
+                          "Effect4Pc":  "Increases DMG by 30% against opponents with more than 50% HP.",
+                          "Pieces":  {
+                                         "circlet":  {
+                                                         "icon":  "UI_RelicIcon_10002_3",
+                                                         "name":  "Crown of the Brave"
+                                                     },
+                                         "flower":  {
+                                                        "icon":  "UI_RelicIcon_10002_4",
+                                                        "name":  "Medal of the Brave"
+                                                    },
+                                         "goblet":  {
+                                                        "icon":  "UI_RelicIcon_10002_1",
+                                                        "name":  "Outset of the Brave"
+                                                    },
+                                         "plume":  {
+                                                       "icon":  "UI_RelicIcon_10002_2",
+                                                       "name":  "Prospect of the Brave"
+                                                   },
+                                         "sands":  {
+                                                       "icon":  "UI_RelicIcon_10002_5",
+                                                       "name":  "Fortitude of the Brave"
+                                                   }
+                                     }
+                      },
+                      {
+                          "Id":  10003,
+                          "SetId":  10003,
+                          "EnName":  "Defender\u0027s Will",
+                          "QualityType":  "QUALITY_PURPLE",
+                          "SetIcon":  "UI_RelicIcon_10003_4",
+                          "Effect2Pc":  "DEF +30%",
+                          "Effect4Pc":  "For each different element present in your own party, the wearer\u0027s Elemental RES to that corresponding element is increased by 30%.",
+                          "Pieces":  {
+                                         "circlet":  {
+                                                         "icon":  "UI_RelicIcon_10003_3",
+                                                         "name":  "Guardian\u0027s Band"
+                                                     },
+                                         "flower":  {
+                                                        "icon":  "UI_RelicIcon_10003_4",
+                                                        "name":  "Guardian\u0027s Flower"
+                                                    },
+                                         "goblet":  {
+                                                        "icon":  "UI_RelicIcon_10003_1",
+                                                        "name":  "Guardian\u0027s Vessel"
+                                                    },
+                                         "plume":  {
+                                                       "icon":  "UI_RelicIcon_10003_2",
+                                                       "name":  "Guardian\u0027s Sigil"
+                                                   },
+                                         "sands":  {
+                                                       "icon":  "UI_RelicIcon_10003_5",
+                                                       "name":  "Guardian\u0027s Clock"
+                                                   }
+                                     }
+                      },
+                      {
+                          "Id":  10004,
+                          "SetId":  10004,
+                          "EnName":  "Tiny Miracle",
+                          "QualityType":  "QUALITY_PURPLE",
+                          "SetIcon":  "UI_RelicIcon_10004_4",
+                          "Effect2Pc":  "All Elemental RES increased by 20%.",
+                          "Effect4Pc":  "Incoming elemental DMG increases corresponding Elemental RES by 30% for 10s. Can only occur once every 10s.",
+                          "Pieces":  {
+                                         "circlet":  {
+                                                         "icon":  "UI_RelicIcon_10004_3",
+                                                         "name":  "Tiny Miracle\u0027s Earrings"
+                                                     },
+                                         "flower":  {
+                                                        "icon":  "UI_RelicIcon_10004_4",
+                                                        "name":  "Tiny Miracle\u0027s Flower"
+                                                    },
+                                         "goblet":  {
+                                                        "icon":  "UI_RelicIcon_10004_1",
+                                                        "name":  "Tiny Miracle\u0027s Goblet"
+                                                    },
+                                         "plume":  {
+                                                       "icon":  "UI_RelicIcon_10004_2",
+                                                       "name":  "Tiny Miracle\u0027s Feather"
+                                                   },
+                                         "sands":  {
+                                                       "icon":  "UI_RelicIcon_10004_5",
+                                                       "name":  "Tiny Miracle\u0027s Hourglass"
+                                                   }
+                                     }
+                      },
+                      {
+                          "Id":  10005,
+                          "SetId":  10005,
+                          "EnName":  "Berserker",
+                          "QualityType":  "QUALITY_PURPLE",
+                          "SetIcon":  "UI_RelicIcon_10005_4",
+                          "Effect2Pc":  "CRIT Rate +12%",
+                          "Effect4Pc":  "When HP is below 70%, CRIT Rate increases by an additional 24%.",
+                          "Pieces":  {
+                                         "circlet":  {
+                                                         "icon":  "UI_RelicIcon_10005_3",
+                                                         "name":  "Berserker\u0027s Battle Mask"
+                                                     },
+                                         "flower":  {
+                                                        "icon":  "UI_RelicIcon_10005_4",
+                                                        "name":  "Berserker\u0027s Rose"
+                                                    },
+                                         "goblet":  {
+                                                        "icon":  "UI_RelicIcon_10005_1",
+                                                        "name":  "Berserker\u0027s Bone Goblet"
+                                                    },
+                                         "plume":  {
+                                                       "icon":  "UI_RelicIcon_10005_2",
+                                                       "name":  "Berserker\u0027s Indigo Feather"
+                                                   },
+                                         "sands":  {
+                                                       "icon":  "UI_RelicIcon_10005_5",
+                                                       "name":  "Berserker\u0027s Timepiece"
+                                                   }
+                                     }
+                      },
+                      {
+                          "Id":  10006,
+                          "SetId":  10006,
+                          "EnName":  "Martial Artist",
+                          "QualityType":  "QUALITY_PURPLE",
+                          "SetIcon":  "UI_RelicIcon_10006_4",
+                          "Effect2Pc":  "Normal and Charged Attack DMG +15%",
+                          "Effect4Pc":  "After using Elemental Skill, increases Normal Attack and Charged Attack DMG by 25% for 8s.",
+                          "Pieces":  {
+                                         "circlet":  {
+                                                         "icon":  "UI_RelicIcon_10006_3",
+                                                         "name":  "Martial Artist\u0027s Bandana"
+                                                     },
+                                         "flower":  {
+                                                        "icon":  "UI_RelicIcon_10006_4",
+                                                        "name":  "Martial Artist\u0027s Red Flower"
+                                                    },
+                                         "goblet":  {
+                                                        "icon":  "UI_RelicIcon_10006_1",
+                                                        "name":  "Martial Artist\u0027s Wine Cup"
+                                                    },
+                                         "plume":  {
+                                                       "icon":  "UI_RelicIcon_10006_2",
+                                                       "name":  "Martial Artist\u0027s Feather Accessory"
+                                                   },
+                                         "sands":  {
+                                                       "icon":  "UI_RelicIcon_10006_5",
+                                                       "name":  "Martial Artist\u0027s Water Hourglass"
+                                                   }
+                                     }
+                      },
+                      {
+                          "Id":  10007,
+                          "SetId":  10007,
+                          "EnName":  "Instructor",
+                          "QualityType":  "QUALITY_PURPLE",
+                          "SetIcon":  "UI_RelicIcon_10007_4",
+                          "Effect2Pc":  "Increases Elemental Mastery by 80.",
+                          "Effect4Pc":  "Upon triggering an Elemental Reaction, increases all party members\u0027 Elemental Mastery by 120 for 8s.",
+                          "Pieces":  {
+                                         "circlet":  {
+                                                         "icon":  "UI_RelicIcon_10007_3",
+                                                         "name":  "Instructor\u0027s Cap"
+                                                     },
+                                         "flower":  {
+                                                        "icon":  "UI_RelicIcon_10007_4",
+                                                        "name":  "Instructor\u0027s Brooch"
+                                                    },
+                                         "goblet":  {
+                                                        "icon":  "UI_RelicIcon_10007_1",
+                                                        "name":  "Instructor\u0027s Tea Cup"
+                                                    },
+                                         "plume":  {
+                                                       "icon":  "UI_RelicIcon_10007_2",
+                                                       "name":  "Instructor\u0027s Feather Accessory"
+                                                   },
+                                         "sands":  {
+                                                       "icon":  "UI_RelicIcon_10007_5",
+                                                       "name":  "Instructor\u0027s Pocket Watch"
+                                                   }
+                                     }
+                      },
+                      {
+                          "Id":  10008,
+                          "SetId":  10008,
+                          "EnName":  "Gambler",
+                          "QualityType":  "QUALITY_PURPLE",
+                          "SetIcon":  "UI_RelicIcon_10008_4",
+                          "Effect2Pc":  "Increases Elemental Skill DMG by 20%.",
+                          "Effect4Pc":  "Defeating an opponent has a 100% chance to remove Elemental Skill CD. Can only occur once every 15s.",
+                          "Pieces":  {
+                                         "circlet":  {
+                                                         "icon":  "UI_RelicIcon_10008_3",
+                                                         "name":  "Gambler\u0027s Earrings"
+                                                     },
+                                         "flower":  {
+                                                        "icon":  "UI_RelicIcon_10008_4",
+                                                        "name":  "Gambler\u0027s Brooch"
+                                                    },
+                                         "goblet":  {
+                                                        "icon":  "UI_RelicIcon_10008_1",
+                                                        "name":  "Gambler\u0027s Dice Cup"
+                                                    },
+                                         "plume":  {
+                                                       "icon":  "UI_RelicIcon_10008_2",
+                                                       "name":  "Gambler\u0027s Feather Accessory"
+                                                   },
+                                         "sands":  {
+                                                       "icon":  "UI_RelicIcon_10008_5",
+                                                       "name":  "Gambler\u0027s Pocket Watch"
+                                                   }
+                                     }
+                      },
+                      {
+                          "Id":  10009,
+                          "SetId":  10009,
+                          "EnName":  "The Exile",
+                          "QualityType":  "QUALITY_PURPLE",
+                          "SetIcon":  "UI_RelicIcon_10009_4",
+                          "Effect2Pc":  "Energy Recharge +20%",
+                          "Effect4Pc":  "Using an Elemental Burst regenerates 2 Energy for all party members (excluding the wearer) every 2s for 6s. This effect cannot stack.",
+                          "Pieces":  {
+                                         "circlet":  {
+                                                         "icon":  "UI_RelicIcon_10009_3",
+                                                         "name":  "Exile\u0027s Circlet"
+                                                     },
+                                         "flower":  {
+                                                        "icon":  "UI_RelicIcon_10009_4",
+                                                        "name":  "Exile\u0027s Flower"
+                                                    },
+                                         "goblet":  {
+                                                        "icon":  "UI_RelicIcon_10009_1",
+                                                        "name":  "Exile\u0027s Goblet"
+                                                    },
+                                         "plume":  {
+                                                       "icon":  "UI_RelicIcon_10009_2",
+                                                       "name":  "Exile\u0027s Feather"
+                                                   },
+                                         "sands":  {
+                                                       "icon":  "UI_RelicIcon_10009_5",
+                                                       "name":  "Exile\u0027s Pocket Watch"
+                                                   }
+                                     }
+                      },
+                      {
+                          "Id":  10010,
+                          "SetId":  10010,
+                          "EnName":  "Adventurer",
+                          "QualityType":  "QUALITY_BLUE",
+                          "SetIcon":  "UI_RelicIcon_10010_4",
+                          "Effect2Pc":  "Max HP increased by 1,000.",
+                          "Effect4Pc":  "Opening a chest regenerates 30% Max HP over 5s.",
+                          "Pieces":  {
+                                         "circlet":  {
+                                                         "icon":  "UI_RelicIcon_10010_3",
+                                                         "name":  "Adventurer\u0027s Bandana"
+                                                     },
+                                         "flower":  {
+                                                        "icon":  "UI_RelicIcon_10010_4",
+                                                        "name":  "Adventurer\u0027s Flower"
+                                                    },
+                                         "goblet":  {
+                                                        "icon":  "UI_RelicIcon_10010_1",
+                                                        "name":  "Adventurer\u0027s Golden Goblet"
+                                                    },
+                                         "plume":  {
+                                                       "icon":  "UI_RelicIcon_10010_2",
+                                                       "name":  "Adventurer\u0027s Tail Feather"
+                                                   },
+                                         "sands":  {
+                                                       "icon":  "UI_RelicIcon_10010_5",
+                                                       "name":  "Adventurer\u0027s Pocket Watch"
+                                                   }
+                                     }
+                      },
+                      {
+                          "Id":  10011,
+                          "SetId":  10011,
+                          "EnName":  "Lucky Dog",
+                          "QualityType":  "QUALITY_BLUE",
+                          "SetIcon":  "UI_RelicIcon_10011_4",
+                          "Effect2Pc":  "DEF increased by 100.",
+                          "Effect4Pc":  "Picking up Mora restores 300 HP.",
+                          "Pieces":  {
+                                         "circlet":  {
+                                                         "icon":  "UI_RelicIcon_10011_3",
+                                                         "name":  "Lucky Dog\u0027s Silver Circlet"
+                                                     },
+                                         "flower":  {
+                                                        "icon":  "UI_RelicIcon_10011_4",
+                                                        "name":  "Lucky Dog\u0027s Clover"
+                                                    },
+                                         "goblet":  {
+                                                        "icon":  "UI_RelicIcon_10011_1",
+                                                        "name":  "Lucky Dog\u0027s Goblet"
+                                                    },
+                                         "plume":  {
+                                                       "icon":  "UI_RelicIcon_10011_2",
+                                                       "name":  "Lucky Dog\u0027s Eagle Feather"
+                                                   },
+                                         "sands":  {
+                                                       "icon":  "UI_RelicIcon_10011_5",
+                                                       "name":  "Lucky Dog\u0027s Hourglass"
+                                                   }
+                                     }
+                      },
+                      {
+                          "Id":  10012,
+                          "SetId":  10012,
+                          "EnName":  "Scholar",
+                          "QualityType":  "QUALITY_PURPLE",
+                          "SetIcon":  "UI_RelicIcon_10012_4",
+                          "Effect2Pc":  "Energy Recharge +20%",
+                          "Effect4Pc":  "Gaining Elemental Particles or Orbs gives 3 Energy to all party members who have a bow or a catalyst equipped. Can only occur once every 3s.",
+                          "Pieces":  {
+                                         "circlet":  {
+                                                         "icon":  "UI_RelicIcon_10012_3",
+                                                         "name":  "Scholar\u0027s Lens"
+                                                     },
+                                         "flower":  {
+                                                        "icon":  "UI_RelicIcon_10012_4",
+                                                        "name":  "Scholar\u0027s Bookmark"
+                                                    },
+                                         "goblet":  {
+                                                        "icon":  "UI_RelicIcon_10012_1",
+                                                        "name":  "Scholar\u0027s Ink Cup"
+                                                    },
+                                         "plume":  {
+                                                       "icon":  "UI_RelicIcon_10012_2",
+                                                       "name":  "Scholar\u0027s Quill Pen"
+                                                   },
+                                         "sands":  {
+                                                       "icon":  "UI_RelicIcon_10012_5",
+                                                       "name":  "Scholar\u0027s Clock"
+                                                   }
+                                     }
+                      },
+                      {
+                          "Id":  10013,
+                          "SetId":  10013,
+                          "EnName":  "Traveling Doctor",
+                          "QualityType":  "QUALITY_BLUE",
+                          "SetIcon":  "UI_RelicIcon_10013_4",
+                          "Effect2Pc":  "Increases incoming healing by 20%.",
+                          "Effect4Pc":  "Using Elemental Burst restores 20% HP.",
+                          "Pieces":  {
+                                         "circlet":  {
+                                                         "icon":  "UI_RelicIcon_10013_3",
+                                                         "name":  "Traveling Doctor\u0027s Handkerchief"
+                                                     },
+                                         "flower":  {
+                                                        "icon":  "UI_RelicIcon_10013_4",
+                                                        "name":  "Traveling Doctor\u0027s Silver Lotus"
+                                                    },
+                                         "goblet":  {
+                                                        "icon":  "UI_RelicIcon_10013_1",
+                                                        "name":  "Traveling Doctor\u0027s Medicine Pot"
+                                                    },
+                                         "plume":  {
+                                                       "icon":  "UI_RelicIcon_10013_2",
+                                                       "name":  "Traveling Doctor\u0027s Owl Feather"
+                                                   },
+                                         "sands":  {
+                                                       "icon":  "UI_RelicIcon_10013_5",
+                                                       "name":  "Traveling Doctor\u0027s Pocket Watch"
+                                                   }
+                                     }
+                      },
+                      {
+                          "Id":  14001,
+                          "SetId":  14001,
+                          "EnName":  "Blizzard Strayer",
+                          "QualityType":  "QUALITY_ORANGE",
+                          "SetIcon":  "UI_RelicIcon_14001_4",
+                          "Effect2Pc":  "Cryo DMG Bonus +15%",
+                          "Effect4Pc":  "When a character attacks an opponent affected by Cryo, their CRIT Rate is increased by 20%. If the opponent is Frozen, CRIT Rate is increased by an additional 20%.",
+                          "Pieces":  {
+                                         "circlet":  {
+                                                         "icon":  "UI_RelicIcon_14001_3",
+                                                         "name":  "Broken Rime\u0027s Echo"
+                                                     },
+                                         "flower":  {
+                                                        "icon":  "UI_RelicIcon_14001_4",
+                                                        "name":  "Snowswept Memory"
+                                                    },
+                                         "goblet":  {
+                                                        "icon":  "UI_RelicIcon_14001_1",
+                                                        "name":  "Frost-Weaved Dignity"
+                                                    },
+                                         "plume":  {
+                                                       "icon":  "UI_RelicIcon_14001_2",
+                                                       "name":  "Icebreaker\u0027s Resolve"
+                                                   },
+                                         "sands":  {
+                                                       "icon":  "UI_RelicIcon_14001_5",
+                                                       "name":  "Frozen Homeland\u0027s Demise"
+                                                   }
+                                     }
+                      },
+                      {
+                          "Id":  14002,
+                          "SetId":  14002,
+                          "EnName":  "Thundersoother",
+                          "QualityType":  "QUALITY_ORANGE",
+                          "SetIcon":  "UI_RelicIcon_14002_4",
+                          "Effect2Pc":  "Electro RES increased by 40%.",
+                          "Effect4Pc":  "Increases DMG against opponents affected by Electro by 35%.",
+                          "Pieces":  {
+                                         "circlet":  {
+                                                         "icon":  "UI_RelicIcon_14002_3",
+                                                         "name":  "Thundersoother\u0027s Diadem"
+                                                     },
+                                         "flower":  {
+                                                        "icon":  "UI_RelicIcon_14002_4",
+                                                        "name":  "Thundersoother\u0027s Heart"
+                                                    },
+                                         "goblet":  {
+                                                        "icon":  "UI_RelicIcon_14002_1",
+                                                        "name":  "Thundersoother\u0027s Goblet"
+                                                    },
+                                         "plume":  {
+                                                       "icon":  "UI_RelicIcon_14002_2",
+                                                       "name":  "Thundersoother\u0027s Plume"
+                                                   },
+                                         "sands":  {
+                                                       "icon":  "UI_RelicIcon_14002_5",
+                                                       "name":  "Hour of Soothing Thunder"
+                                                   }
+                                     }
+                      },
+                      {
+                          "Id":  14003,
+                          "SetId":  14003,
+                          "EnName":  "Lavawalker",
+                          "QualityType":  "QUALITY_ORANGE",
+                          "SetIcon":  "UI_RelicIcon_14003_4",
+                          "Effect2Pc":  "Pyro RES increased by 40%.",
+                          "Effect4Pc":  "Increases DMG against opponents affected by Pyro by 35%.",
+                          "Pieces":  {
+                                         "circlet":  {
+                                                         "icon":  "UI_RelicIcon_14003_3",
+                                                         "name":  "Lavawalker\u0027s Wisdom"
+                                                     },
+                                         "flower":  {
+                                                        "icon":  "UI_RelicIcon_14003_4",
+                                                        "name":  "Lavawalker\u0027s Resolution"
+                                                    },
+                                         "goblet":  {
+                                                        "icon":  "UI_RelicIcon_14003_1",
+                                                        "name":  "Lavawalker\u0027s Epiphany"
+                                                    },
+                                         "plume":  {
+                                                       "icon":  "UI_RelicIcon_14003_2",
+                                                       "name":  "Lavawalker\u0027s Salvation"
+                                                   },
+                                         "sands":  {
+                                                       "icon":  "UI_RelicIcon_14003_5",
+                                                       "name":  "Lavawalker\u0027s Torment"
+                                                   }
+                                     }
+                      },
+                      {
+                          "Id":  14004,
+                          "SetId":  14004,
+                          "EnName":  "Maiden Beloved",
+                          "QualityType":  "QUALITY_ORANGE",
+                          "SetIcon":  "UI_RelicIcon_14004_4",
+                          "Effect2Pc":  "Character Healing Effectiveness +15%",
+                          "Effect4Pc":  "Using an Elemental Skill or Burst increases healing received by all party members by 20% for 10s.",
+                          "Pieces":  {
+                                         "circlet":  {
+                                                         "icon":  "UI_RelicIcon_14004_3",
+                                                         "name":  "Maiden\u0027s Fading Beauty"
+                                                     },
+                                         "flower":  {
+                                                        "icon":  "UI_RelicIcon_14004_4",
+                                                        "name":  "Maiden\u0027s Distant Love"
+                                                    },
+                                         "goblet":  {
+                                                        "icon":  "UI_RelicIcon_14004_1",
+                                                        "name":  "Maiden\u0027s Fleeting Leisure"
+                                                    },
+                                         "plume":  {
+                                                       "icon":  "UI_RelicIcon_14004_2",
+                                                       "name":  "Maiden\u0027s Heart-Stricken Infatuation"
+                                                   },
+                                         "sands":  {
+                                                       "icon":  "UI_RelicIcon_14004_5",
+                                                       "name":  "Maiden\u0027s Passing Youth"
+                                                   }
+                                     }
+                      },
+                      {
+                          "Id":  15000,
+                          "SetId":  15000,
+                          "EnName":  "???",
+                          "QualityType":  "QUALITY_ORANGE",
+                          "SetIcon":  "",
+                          "Effect2Pc":  null,
+                          "Effect4Pc":  null,
+                          "Pieces":  {
+                                         "circlet":  {
+                                                         "icon":  "UI_RelicIcon_15000_3",
+                                                         "name":  "Lord of Wind over Firmament\u0027s Crown"
+                                                     },
+                                         "flower":  {
+                                                        "icon":  "UI_RelicIcon_15000_4",
+                                                        "name":  "Lord of Wind over Firmament\u0027s Flower"
+                                                    },
+                                         "goblet":  {
+                                                        "icon":  "UI_RelicIcon_15000_1",
+                                                        "name":  "Lord of Wind over Firmament\u0027s Cup"
+                                                    },
+                                         "plume":  {
+                                                       "icon":  "UI_RelicIcon_15000_2",
+                                                       "name":  "Lord of Wind over Firmament\u0027s Feather"
+                                                   },
+                                         "sands":  {
+                                                       "icon":  "UI_RelicIcon_15000_5",
+                                                       "name":  "Lord of Wind over Firmament\u0027s Hourglass"
+                                                   }
+                                     }
+                      },
+                      {
+                          "Id":  15001,
+                          "SetId":  15001,
+                          "EnName":  "Gladiator\u0027s Finale",
+                          "QualityType":  "QUALITY_ORANGE",
+                          "SetIcon":  "UI_RelicIcon_15001_4",
+                          "Effect2Pc":  "ATK +18%.",
+                          "Effect4Pc":  "If the wielder of this artifact set uses a Sword, Claymore or Polearm, increases their Normal Attack DMG by 35%.",
+                          "Pieces":  {
+                                         "circlet":  {
+                                                         "icon":  "UI_RelicIcon_15001_3",
+                                                         "name":  "Gladiator\u0027s Triumphus"
+                                                     },
+                                         "flower":  {
+                                                        "icon":  "UI_RelicIcon_15001_4",
+                                                        "name":  "Gladiator\u0027s Nostalgia"
+                                                    },
+                                         "goblet":  {
+                                                        "icon":  "UI_RelicIcon_15001_1",
+                                                        "name":  "Gladiator\u0027s Intoxication"
+                                                    },
+                                         "plume":  {
+                                                       "icon":  "UI_RelicIcon_15001_2",
+                                                       "name":  "Gladiator\u0027s Destiny"
+                                                   },
+                                         "sands":  {
+                                                       "icon":  "UI_RelicIcon_15001_5",
+                                                       "name":  "Gladiator\u0027s Longing"
+                                                   }
+                                     }
+                      },
+                      {
+                          "Id":  15002,
+                          "SetId":  15002,
+                          "EnName":  "Viridescent Venerer",
+                          "QualityType":  "QUALITY_ORANGE",
+                          "SetIcon":  "UI_RelicIcon_15002_4",
+                          "Effect2Pc":  "Anemo DMG Bonus +15%",
+                          "Effect4Pc":  "Increases Swirl DMG by 60%. Decreases opponent\u0027s Elemental RES to the element infused in the Swirl by 40% for 10s.",
+                          "Pieces":  {
+                                         "circlet":  {
+                                                         "icon":  "UI_RelicIcon_15002_3",
+                                                         "name":  "Viridescent Venerer\u0027s Diadem"
+                                                     },
+                                         "flower":  {
+                                                        "icon":  "UI_RelicIcon_15002_4",
+                                                        "name":  "In Remembrance of Viridescent Fields"
+                                                    },
+                                         "goblet":  {
+                                                        "icon":  "UI_RelicIcon_15002_1",
+                                                        "name":  "Viridescent Venerer\u0027s Vessel"
+                                                    },
+                                         "plume":  {
+                                                       "icon":  "UI_RelicIcon_15002_2",
+                                                       "name":  "Viridescent Arrow Feather"
+                                                   },
+                                         "sands":  {
+                                                       "icon":  "UI_RelicIcon_15002_5",
+                                                       "name":  "Viridescent Venerer\u0027s Determination"
+                                                   }
+                                     }
+                      },
+                      {
+                          "Id":  15003,
+                          "SetId":  15003,
+                          "EnName":  "Wanderer\u0027s Troupe",
+                          "QualityType":  "QUALITY_ORANGE",
+                          "SetIcon":  "UI_RelicIcon_15003_4",
+                          "Effect2Pc":  "Increases Elemental Mastery by 80.",
+                          "Effect4Pc":  "Increases Charged Attack DMG by 35% if the character uses a Catalyst or a Bow.",
+                          "Pieces":  {
+                                         "circlet":  {
+                                                         "icon":  "UI_RelicIcon_15003_3",
+                                                         "name":  "Conductor\u0027s Top Hat"
+                                                     },
+                                         "flower":  {
+                                                        "icon":  "UI_RelicIcon_15003_4",
+                                                        "name":  "Troupe\u0027s Dawnlight"
+                                                    },
+                                         "goblet":  {
+                                                        "icon":  "UI_RelicIcon_15003_1",
+                                                        "name":  "Wanderer\u0027s String-Kettle"
+                                                    },
+                                         "plume":  {
+                                                       "icon":  "UI_RelicIcon_15003_2",
+                                                       "name":  "Bard\u0027s Arrow Feather"
+                                                   },
+                                         "sands":  {
+                                                       "icon":  "UI_RelicIcon_15003_5",
+                                                       "name":  "Concert\u0027s Final Hour"
+                                                   }
+                                     }
+                      },
+                      {
+                          "Id":  15004,
+                          "SetId":  15004,
+                          "EnName":  "Glacier and Snowfield",
+                          "QualityType":  "QUALITY_ORANGE",
+                          "SetIcon":  "UI_RelicIcon_15004_4",
+                          "Effect2Pc":  "Cryo DMG Bonus +15%",
+                          "Effect4Pc":  "Increases Superconduct DMG by 100%. Increases Melt DMG by 15%. Using an Elemental Burst increases Cryo DMG Bonus by 30% for 10s.",
+                          "Pieces":  {
+                                         "circlet":  {
+                                                         "icon":  "UI_RelicIcon_15004_3",
+                                                         "name":  "Crown of Glacier"
+                                                     },
+                                         "flower":  {
+                                                        "icon":  "UI_RelicIcon_15004_4",
+                                                        "name":  "Heart of Frost"
+                                                    },
+                                         "goblet":  {
+                                                        "icon":  "UI_RelicIcon_15004_1",
+                                                        "name":  "Goblet of Aquilo"
+                                                    },
+                                         "plume":  {
+                                                       "icon":  "UI_RelicIcon_15004_2",
+                                                       "name":  "Plume of Snow"
+                                                   },
+                                         "sands":  {
+                                                       "icon":  "UI_RelicIcon_15004_5",
+                                                       "name":  "Glacial Sand"
+                                                   }
+                                     }
+                      },
+                      {
+                          "Id":  15005,
+                          "SetId":  15005,
+                          "EnName":  "Thundering Fury",
+                          "QualityType":  "QUALITY_ORANGE",
+                          "SetIcon":  "UI_RelicIcon_15005_4",
+                          "Effect2Pc":  "Electro DMG Bonus +15%",
+                          "Effect4Pc":  "Increases the DMG caused by Overloaded, Electro-Charged, Superconduct, and Hyperbloom by 40%, the DMG Bonus conferred by Aggravate by 20%, and the DMG caused by Lunar-Charged by 20%. When Quicken or the aforementioned Elemental Reactions are triggered, Elemental Skill CD is decreased by 1s. Can only occur once every 0.8s.",
+                          "Pieces":  {
+                                         "circlet":  {
+                                                         "icon":  "UI_RelicIcon_15005_3",
+                                                         "name":  "Thunder Summoner\u0027s Crown"
+                                                     },
+                                         "flower":  {
+                                                        "icon":  "UI_RelicIcon_15005_4",
+                                                        "name":  "Thunderbird\u0027s Mercy"
+                                                    },
+                                         "goblet":  {
+                                                        "icon":  "UI_RelicIcon_15005_1",
+                                                        "name":  "Omen of Thunderstorm"
+                                                    },
+                                         "plume":  {
+                                                       "icon":  "UI_RelicIcon_15005_2",
+                                                       "name":  "Survivor of Catastrophe"
+                                                   },
+                                         "sands":  {
+                                                       "icon":  "UI_RelicIcon_15005_5",
+                                                       "name":  "Hourglass of Thunder"
+                                                   }
+                                     }
+                      },
+                      {
+                          "Id":  15006,
+                          "SetId":  15006,
+                          "EnName":  "Crimson Witch of Flames",
+                          "QualityType":  "QUALITY_ORANGE",
+                          "SetIcon":  "UI_RelicIcon_15006_4",
+                          "Effect2Pc":  "Pyro DMG Bonus +15%",
+                          "Effect4Pc":  "Increases Overloaded, Burning, and Burgeon DMG by 40%. Increases Vaporize and Melt DMG by 15%. Using Elemental Skill increases the 2-Piece Set Bonus by 50% of its starting value for 10s. Max 3 stacks.",
+                          "Pieces":  {
+                                         "circlet":  {
+                                                         "icon":  "UI_RelicIcon_15006_3",
+                                                         "name":  "Witch\u0027s Scorching Hat"
+                                                     },
+                                         "flower":  {
+                                                        "icon":  "UI_RelicIcon_15006_4",
+                                                        "name":  "Witch\u0027s Flower of Blaze"
+                                                    },
+                                         "goblet":  {
+                                                        "icon":  "UI_RelicIcon_15006_1",
+                                                        "name":  "Witch\u0027s Heart Flames"
+                                                    },
+                                         "plume":  {
+                                                       "icon":  "UI_RelicIcon_15006_2",
+                                                       "name":  "Witch\u0027s Ever-Burning Plume"
+                                                   },
+                                         "sands":  {
+                                                       "icon":  "UI_RelicIcon_15006_5",
+                                                       "name":  "Witch\u0027s End Time"
+                                                   }
+                                     }
+                      },
+                      {
+                          "Id":  15007,
+                          "SetId":  15007,
+                          "EnName":  "Noblesse Oblige",
+                          "QualityType":  "QUALITY_ORANGE",
+                          "SetIcon":  "UI_RelicIcon_15007_4",
+                          "Effect2Pc":  "Elemental Burst DMG +20%",
+                          "Effect4Pc":  "Using an Elemental Burst increases all party members\u0027 ATK by 20% for 12s. This effect cannot stack.",
+                          "Pieces":  {
+                                         "circlet":  {
+                                                         "icon":  "UI_RelicIcon_15007_3",
+                                                         "name":  "Royal Masque"
+                                                     },
+                                         "flower":  {
+                                                        "icon":  "UI_RelicIcon_15007_4",
+                                                        "name":  "Royal Flora"
+                                                    },
+                                         "goblet":  {
+                                                        "icon":  "UI_RelicIcon_15007_1",
+                                                        "name":  "Royal Silver Urn"
+                                                    },
+                                         "plume":  {
+                                                       "icon":  "UI_RelicIcon_15007_2",
+                                                       "name":  "Royal Plume"
+                                                   },
+                                         "sands":  {
+                                                       "icon":  "UI_RelicIcon_15007_5",
+                                                       "name":  "Royal Pocket Watch"
+                                                   }
+                                     }
+                      },
+                      {
+                          "Id":  15008,
+                          "SetId":  15008,
+                          "EnName":  "Bloodstained Chivalry",
+                          "QualityType":  "QUALITY_ORANGE",
+                          "SetIcon":  "UI_RelicIcon_15008_4",
+                          "Effect2Pc":  "Physical DMG +25%",
+                          "Effect4Pc":  "After defeating an opponent, increases Charged Attack DMG by 50%, and reduces its Stamina cost to 0 for 10s.",
+                          "Pieces":  {
+                                         "circlet":  {
+                                                         "icon":  "UI_RelicIcon_15008_3",
+                                                         "name":  "Bloodstained Iron Mask"
+                                                     },
+                                         "flower":  {
+                                                        "icon":  "UI_RelicIcon_15008_4",
+                                                        "name":  "Bloodstained Flower of Iron"
+                                                    },
+                                         "goblet":  {
+                                                        "icon":  "UI_RelicIcon_15008_1",
+                                                        "name":  "Bloodstained Chevalier\u0027s Goblet"
+                                                    },
+                                         "plume":  {
+                                                       "icon":  "UI_RelicIcon_15008_2",
+                                                       "name":  "Bloodstained Black Plume"
+                                                   },
+                                         "sands":  {
+                                                       "icon":  "UI_RelicIcon_15008_5",
+                                                       "name":  "Bloodstained Final Hour"
+                                                   }
+                                     }
+                      },
+                      {
+                          "Id":  15009,
+                          "SetId":  15009,
+                          "EnName":  "Prayers for Illumination",
+                          "QualityType":  "QUALITY_PURPLE",
+                          "SetIcon":  "UI_RelicIcon_15009_3",
+                          "Effect2Pc":  null,
+                          "Effect4Pc":  null,
+                          "Pieces":  {
+                                         "circlet":  {
+                                                         "icon":  "UI_RelicIcon_15009_3",
+                                                         "name":  "Tiara of Flame"
+                                                     }
+                                     }
+                      },
+                      {
+                          "Id":  15010,
+                          "SetId":  15010,
+                          "EnName":  "Prayers for Destiny",
+                          "QualityType":  "QUALITY_PURPLE",
+                          "SetIcon":  "UI_RelicIcon_15010_3",
+                          "Effect2Pc":  null,
+                          "Effect4Pc":  null,
+                          "Pieces":  {
+                                         "circlet":  {
+                                                         "icon":  "UI_RelicIcon_15010_3",
+                                                         "name":  "Tiara of Torrents"
+                                                     }
+                                     }
+                      },
+                      {
+                          "Id":  15011,
+                          "SetId":  15011,
+                          "EnName":  "Prayers for Wisdom",
+                          "QualityType":  "QUALITY_PURPLE",
+                          "SetIcon":  "UI_RelicIcon_15011_3",
+                          "Effect2Pc":  null,
+                          "Effect4Pc":  null,
+                          "Pieces":  {
+                                         "circlet":  {
+                                                         "icon":  "UI_RelicIcon_15011_3",
+                                                         "name":  "Tiara of Thunder"
+                                                     }
+                                     }
+                      },
+                      {
+                          "Id":  15012,
+                          "SetId":  15012,
+                          "EnName":  "Prayers to the Firmament",
+                          "QualityType":  "QUALITY_PURPLE",
+                          "SetIcon":  "UI_RelicIcon_15012_3",
+                          "Effect2Pc":  null,
+                          "Effect4Pc":  null,
+                          "Pieces":  {
+                                         "circlet":  {
+                                                         "icon":  "UI_RelicIcon_15012_3",
+                                                         "name":  "Tiara of Gales"
+                                                     }
+                                     }
+                      },
+                      {
+                          "Id":  15013,
+                          "SetId":  15013,
+                          "EnName":  "Prayers to Springtime",
+                          "QualityType":  "QUALITY_PURPLE",
+                          "SetIcon":  "UI_RelicIcon_15013_3",
+                          "Effect2Pc":  null,
+                          "Effect4Pc":  null,
+                          "Pieces":  {
+                                         "circlet":  {
+                                                         "icon":  "UI_RelicIcon_15013_3",
+                                                         "name":  "Tiara of Frost"
+                                                     }
+                                     }
+                      },
+                      {
+                          "Id":  15014,
+                          "SetId":  15014,
+                          "EnName":  "Archaic Petra",
+                          "QualityType":  "QUALITY_ORANGE",
+                          "SetIcon":  "UI_RelicIcon_15014_4",
+                          "Effect2Pc":  "Gain a 15% Geo DMG Bonus.",
+                          "Effect4Pc":  "Upon obtaining an Elemental Shard created through Crystallize or triggering a Lunar-Crystallize reaction, all party members gain a 35% DMG Bonus for that particular element for 10s. Only one form of Elemental DMG Bonus can be gained in this manner at any one time.",
+                          "Pieces":  {
+                                         "circlet":  {
+                                                         "icon":  "UI_RelicIcon_15014_3",
+                                                         "name":  "Mask of Solitude Basalt"
+                                                     },
+                                         "flower":  {
+                                                        "icon":  "UI_RelicIcon_15014_4",
+                                                        "name":  "Flower of Creviced Cliff"
+                                                    },
+                                         "goblet":  {
+                                                        "icon":  "UI_RelicIcon_15014_1",
+                                                        "name":  "Goblet of Chiseled Crag"
+                                                    },
+                                         "plume":  {
+                                                       "icon":  "UI_RelicIcon_15014_2",
+                                                       "name":  "Feather of Jagged Peaks"
+                                                   },
+                                         "sands":  {
+                                                       "icon":  "UI_RelicIcon_15014_5",
+                                                       "name":  "Sundial of Enduring Jade"
+                                                   }
+                                     }
+                      },
+                      {
+                          "Id":  15015,
+                          "SetId":  15015,
+                          "EnName":  "Retracing Bolide",
+                          "QualityType":  "QUALITY_ORANGE",
+                          "SetIcon":  "UI_RelicIcon_15015_4",
+                          "Effect2Pc":  "Increases Shield Strength by 35%.",
+                          "Effect4Pc":  "While protected by a shield, gain an additional 40% Normal and Charged Attack DMG.",
+                          "Pieces":  {
+                                         "circlet":  {
+                                                         "icon":  "UI_RelicIcon_15015_3",
+                                                         "name":  "Summer Night\u0027s Mask"
+                                                     },
+                                         "flower":  {
+                                                        "icon":  "UI_RelicIcon_15015_4",
+                                                        "name":  "Summer Night\u0027s Bloom"
+                                                    },
+                                         "goblet":  {
+                                                        "icon":  "UI_RelicIcon_15015_1",
+                                                        "name":  "Summer Night\u0027s Waterballoon"
+                                                    },
+                                         "plume":  {
+                                                       "icon":  "UI_RelicIcon_15015_2",
+                                                       "name":  "Summer Night\u0027s Finale"
+                                                   },
+                                         "sands":  {
+                                                       "icon":  "UI_RelicIcon_15015_5",
+                                                       "name":  "Summer Night\u0027s Moment"
+                                                   }
+                                     }
+                      },
+                      {
+                          "Id":  15016,
+                          "SetId":  15016,
+                          "EnName":  "Heart of Depth",
+                          "QualityType":  "QUALITY_ORANGE",
+                          "SetIcon":  "UI_RelicIcon_15016_4",
+                          "Effect2Pc":  "Hydro DMG Bonus +15%",
+                          "Effect4Pc":  "After using Elemental Skill, increases Normal Attack and Charged Attack DMG by 30% for 15s.",
+                          "Pieces":  {
+                                         "circlet":  {
+                                                         "icon":  "UI_RelicIcon_15016_3",
+                                                         "name":  "Wine-Stained Tricorne"
+                                                     },
+                                         "flower":  {
+                                                        "icon":  "UI_RelicIcon_15016_4",
+                                                        "name":  "Gilded Corsage"
+                                                    },
+                                         "goblet":  {
+                                                        "icon":  "UI_RelicIcon_15016_1",
+                                                        "name":  "Goblet of Thundering Deep"
+                                                    },
+                                         "plume":  {
+                                                       "icon":  "UI_RelicIcon_15016_2",
+                                                       "name":  "Gust of Nostalgia"
+                                                   },
+                                         "sands":  {
+                                                       "icon":  "UI_RelicIcon_15016_5",
+                                                       "name":  "Copper Compass"
+                                                   }
+                                     }
+                      },
+                      {
+                          "Id":  15017,
+                          "SetId":  15017,
+                          "EnName":  "Tenacity of the Millelith",
+                          "QualityType":  "QUALITY_ORANGE",
+                          "SetIcon":  "UI_RelicIcon_15017_4",
+                          "Effect2Pc":  "HP +20%",
+                          "Effect4Pc":  "When an Elemental Skill hits an opponent, the ATK of all nearby party members is increased by 20% and their Shield Strength is increased by 30% for 3s. This effect can be triggered once every 0.5s. This effect can still be triggered even when the character who is using this artifact set is not on the field.",
+                          "Pieces":  {
+                                         "circlet":  {
+                                                         "icon":  "UI_RelicIcon_15017_3",
+                                                         "name":  "General\u0027s Ancient Helm"
+                                                     },
+                                         "flower":  {
+                                                        "icon":  "UI_RelicIcon_15017_4",
+                                                        "name":  "Flower of Accolades"
+                                                    },
+                                         "goblet":  {
+                                                        "icon":  "UI_RelicIcon_15017_1",
+                                                        "name":  "Noble\u0027s Pledging Vessel"
+                                                    },
+                                         "plume":  {
+                                                       "icon":  "UI_RelicIcon_15017_2",
+                                                       "name":  "Ceremonial War-Plume"
+                                                   },
+                                         "sands":  {
+                                                       "icon":  "UI_RelicIcon_15017_5",
+                                                       "name":  "Orichalceous Time-Dial"
+                                                   }
+                                     }
+                      },
+                      {
+                          "Id":  15018,
+                          "SetId":  15018,
+                          "EnName":  "Pale Flame",
+                          "QualityType":  "QUALITY_ORANGE",
+                          "SetIcon":  "UI_RelicIcon_15018_4",
+                          "Effect2Pc":  "Physical DMG is increased by 25%.",
+                          "Effect4Pc":  "When an Elemental Skill hits an opponent, ATK is increased by 9% for 7s. This effect stacks up to 2 times and can be triggered once every 0.3s. Once 2 stacks are reached, the 2-set effect is increased by 100%.",
+                          "Pieces":  {
+                                         "circlet":  {
+                                                         "icon":  "UI_RelicIcon_15018_3",
+                                                         "name":  "Mocking Mask"
+                                                     },
+                                         "flower":  {
+                                                        "icon":  "UI_RelicIcon_15018_4",
+                                                        "name":  "Stainless Bloom"
+                                                    },
+                                         "goblet":  {
+                                                        "icon":  "UI_RelicIcon_15018_1",
+                                                        "name":  "Surpassing Cup"
+                                                    },
+                                         "plume":  {
+                                                       "icon":  "UI_RelicIcon_15018_2",
+                                                       "name":  "Wise Doctor\u0027s Pinion"
+                                                   },
+                                         "sands":  {
+                                                       "icon":  "UI_RelicIcon_15018_5",
+                                                       "name":  "Moment of Cessation"
+                                                   }
+                                     }
+                      },
+                      {
+                          "Id":  15019,
+                          "SetId":  15019,
+                          "EnName":  "Shimenawa\u0027s Reminiscence",
+                          "QualityType":  "QUALITY_ORANGE",
+                          "SetIcon":  "UI_RelicIcon_15019_4",
+                          "Effect2Pc":  "ATK +18%.",
+                          "Effect4Pc":  "When casting an Elemental Skill, if the character has 15 or more Energy, they lose 15 Energy and Normal/Charged/Plunging Attack DMG is increased by 50% for 10s. This effect will not trigger again during that duration.",
+                          "Pieces":  {
+                                         "circlet":  {
+                                                         "icon":  "UI_RelicIcon_15019_3",
+                                                         "name":  "Capricious Visage"
+                                                     },
+                                         "flower":  {
+                                                        "icon":  "UI_RelicIcon_15019_4",
+                                                        "name":  "Entangling Bloom"
+                                                    },
+                                         "goblet":  {
+                                                        "icon":  "UI_RelicIcon_15019_1",
+                                                        "name":  "Hopeful Heart"
+                                                    },
+                                         "plume":  {
+                                                       "icon":  "UI_RelicIcon_15019_2",
+                                                       "name":  "Shaft of Remembrance"
+                                                   },
+                                         "sands":  {
+                                                       "icon":  "UI_RelicIcon_15019_5",
+                                                       "name":  "Morning Dew\u0027s Moment"
+                                                   }
+                                     }
+                      },
+                      {
+                          "Id":  15020,
+                          "SetId":  15020,
+                          "EnName":  "Emblem of Severed Fate",
+                          "QualityType":  "QUALITY_ORANGE",
+                          "SetIcon":  "UI_RelicIcon_15020_4",
+                          "Effect2Pc":  "Energy Recharge +20%",
+                          "Effect4Pc":  "Increases Elemental Burst DMG by 25% of Energy Recharge. A maximum of 75% bonus DMG can be obtained in this way.",
+                          "Pieces":  {
+                                         "circlet":  {
+                                                         "icon":  "UI_RelicIcon_15020_3",
+                                                         "name":  "Ornate Kabuto"
+                                                     },
+                                         "flower":  {
+                                                        "icon":  "UI_RelicIcon_15020_4",
+                                                        "name":  "Magnificent Tsuba"
+                                                    },
+                                         "goblet":  {
+                                                        "icon":  "UI_RelicIcon_15020_1",
+                                                        "name":  "Scarlet Vessel"
+                                                    },
+                                         "plume":  {
+                                                       "icon":  "UI_RelicIcon_15020_2",
+                                                       "name":  "Sundered Feather"
+                                                   },
+                                         "sands":  {
+                                                       "icon":  "UI_RelicIcon_15020_5",
+                                                       "name":  "Storm Cage"
+                                                   }
+                                     }
+                      },
+                      {
+                          "Id":  15021,
+                          "SetId":  15021,
+                          "EnName":  "Husk of Opulent Dreams",
+                          "QualityType":  "QUALITY_ORANGE",
+                          "SetIcon":  "UI_RelicIcon_15021_4",
+                          "Effect2Pc":  "DEF +30%",
+                          "Effect4Pc":  "A character equipped with this Artifact set will obtain the Curiosity effect in the following conditions: When on the field, the character gains 1 stack after hitting an opponent with a Geo attack, triggering a maximum of once every 0.3s. When off the field, the character gains 1 stack every 3s. Curiosity can stack up to 4 times, each providing 6% DEF and a 6% Geo DMG Bonus. When 6 seconds pass without gaining a Curiosity stack, 1 stack is lost.",
+                          "Pieces":  {
+                                         "circlet":  {
+                                                         "icon":  "UI_RelicIcon_15021_3",
+                                                         "name":  "Skeletal Hat"
+                                                     },
+                                         "flower":  {
+                                                        "icon":  "UI_RelicIcon_15021_4",
+                                                        "name":  "Bloom Times"
+                                                    },
+                                         "goblet":  {
+                                                        "icon":  "UI_RelicIcon_15021_1",
+                                                        "name":  "Calabash of Awakening"
+                                                    },
+                                         "plume":  {
+                                                       "icon":  "UI_RelicIcon_15021_2",
+                                                       "name":  "Plume of Luxury"
+                                                   },
+                                         "sands":  {
+                                                       "icon":  "UI_RelicIcon_15021_5",
+                                                       "name":  "Song of Life"
+                                                   }
+                                     }
+                      },
+                      {
+                          "Id":  15022,
+                          "SetId":  15022,
+                          "EnName":  "Ocean-Hued Clam",
+                          "QualityType":  "QUALITY_ORANGE",
+                          "SetIcon":  "UI_RelicIcon_15022_4",
+                          "Effect2Pc":  "Healing Bonus +15%.",
+                          "Effect4Pc":  "When the character equipping this artifact set heals a character in the party, a Sea-Dyed Foam will appear for 3 seconds, accumulating the amount of HP recovered from healing (including overflow healing). At the end of the duration, the Sea-Dyed Foam will explode, dealing DMG to nearby opponents based on 90% of the accumulated healing. (This DMG is calculated similarly to Reactions such as Electro-Charged, and Superconduct, but is not affected by Elemental Mastery, Character Levels, or Reaction DMG Bonuses). Only one Sea-Dyed Foam can be produced every 3.5 seconds. Each Sea-Dyed Foam can accumulate up to 30,000 HP (including overflow healing). There can be no more than one Sea-Dyed Foam active at any given time. This effect can still be triggered even when the character who is using this artifact set is not on the field.",
+                          "Pieces":  {
+                                         "circlet":  {
+                                                         "icon":  "UI_RelicIcon_15022_3",
+                                                         "name":  "Crown of Watatsumi"
+                                                     },
+                                         "flower":  {
+                                                        "icon":  "UI_RelicIcon_15022_4",
+                                                        "name":  "Sea-Dyed Blossom"
+                                                    },
+                                         "goblet":  {
+                                                        "icon":  "UI_RelicIcon_15022_1",
+                                                        "name":  "Pearl Cage"
+                                                    },
+                                         "plume":  {
+                                                       "icon":  "UI_RelicIcon_15022_2",
+                                                       "name":  "Deep Palace\u0027s Plume"
+                                                   },
+                                         "sands":  {
+                                                       "icon":  "UI_RelicIcon_15022_5",
+                                                       "name":  "Cowry of Parting"
+                                                   }
+                                     }
+                      },
+                      {
+                          "Id":  15023,
+                          "SetId":  15023,
+                          "EnName":  "Vermillion Hereafter",
+                          "QualityType":  "QUALITY_ORANGE",
+                          "SetIcon":  "UI_RelicIcon_15023_4",
+                          "Effect2Pc":  "ATK +18%.",
+                          "Effect4Pc":  "After using an Elemental Burst, this character will gain the Nascent Light effect, increasing their ATK by 8% for 16s. When the character\u0027s HP decreases, their ATK will further increase by 10%. This further increase can occur this way a maximum of 4 times. This effect can be triggered once every 0.8s. Nascent Light will be dispelled when the character leaves the field. If an Elemental Burst is used again during the duration of Nascent Light, the original Nascent Light will be dispelled.",
+                          "Pieces":  {
+                                         "circlet":  {
+                                                         "icon":  "UI_RelicIcon_15023_3",
+                                                         "name":  "Thundering Poise"
+                                                     },
+                                         "flower":  {
+                                                        "icon":  "UI_RelicIcon_15023_4",
+                                                        "name":  "Flowering Life"
+                                                    },
+                                         "goblet":  {
+                                                        "icon":  "UI_RelicIcon_15023_1",
+                                                        "name":  "Moment of the Pact"
+                                                    },
+                                         "plume":  {
+                                                       "icon":  "UI_RelicIcon_15023_2",
+                                                       "name":  "Feather of Nascent Light"
+                                                   },
+                                         "sands":  {
+                                                       "icon":  "UI_RelicIcon_15023_5",
+                                                       "name":  "Solar Relic"
+                                                   }
+                                     }
+                      },
+                      {
+                          "Id":  15024,
+                          "SetId":  15024,
+                          "EnName":  "Echoes of an Offering",
+                          "QualityType":  "QUALITY_ORANGE",
+                          "SetIcon":  "UI_RelicIcon_15024_4",
+                          "Effect2Pc":  "ATK +18%.",
+                          "Effect4Pc":  "When Normal Attacks hit opponents, there is a 36% chance that it will trigger Valley Rite, which will increase Normal Attack DMG by 70% of ATK. This effect will be dispelled 0.05s after a Normal Attack deals DMG. If a Normal Attack fails to trigger Valley Rite, the odds of it triggering the next time will increase by 20%. This trigger can occur once every 0.2s.",
+                          "Pieces":  {
+                                         "circlet":  {
+                                                         "icon":  "UI_RelicIcon_15024_3",
+                                                         "name":  "Flowing Rings"
+                                                     },
+                                         "flower":  {
+                                                        "icon":  "UI_RelicIcon_15024_4",
+                                                        "name":  "Soulscent Bloom"
+                                                    },
+                                         "goblet":  {
+                                                        "icon":  "UI_RelicIcon_15024_1",
+                                                        "name":  "Chalice of the Font"
+                                                    },
+                                         "plume":  {
+                                                       "icon":  "UI_RelicIcon_15024_2",
+                                                       "name":  "Jade Leaf"
+                                                   },
+                                         "sands":  {
+                                                       "icon":  "UI_RelicIcon_15024_5",
+                                                       "name":  "Symbol of Felicitation"
+                                                   }
+                                     }
+                      },
+                      {
+                          "Id":  15025,
+                          "SetId":  15025,
+                          "EnName":  "Deepwood Memories",
+                          "QualityType":  "QUALITY_ORANGE",
+                          "SetIcon":  "UI_RelicIcon_15025_4",
+                          "Effect2Pc":  "Dendro DMG Bonus +15%.",
+                          "Effect4Pc":  "After Elemental Skills or Bursts hit opponents, the targets\u0027 Dendro RES will be decreased by 30% for 8s. This effect can be triggered even if the equipping character is not on the field.",
+                          "Pieces":  {
+                                         "circlet":  {
+                                                         "icon":  "UI_RelicIcon_15025_3",
+                                                         "name":  "Laurel Coronet"
+                                                     },
+                                         "flower":  {
+                                                        "icon":  "UI_RelicIcon_15025_4",
+                                                        "name":  "Labyrinth Wayfarer"
+                                                    },
+                                         "goblet":  {
+                                                        "icon":  "UI_RelicIcon_15025_1",
+                                                        "name":  "Lamp of the Lost"
+                                                    },
+                                         "plume":  {
+                                                       "icon":  "UI_RelicIcon_15025_2",
+                                                       "name":  "Scholar of Vines"
+                                                   },
+                                         "sands":  {
+                                                       "icon":  "UI_RelicIcon_15025_5",
+                                                       "name":  "A Time of Insight"
+                                                   }
+                                     }
+                      },
+                      {
+                          "Id":  15026,
+                          "SetId":  15026,
+                          "EnName":  "Gilded Dreams",
+                          "QualityType":  "QUALITY_ORANGE",
+                          "SetIcon":  "UI_RelicIcon_15026_4",
+                          "Effect2Pc":  "Increases Elemental Mastery by 80.",
+                          "Effect4Pc":  "Within 8s of triggering an Elemental Reaction, the character equipping this will obtain buffs based on the Elemental Type of the other party members. ATK is increased by 14% for each party member whose Elemental Type is the same as the equipping character, and Elemental Mastery is increased by 50 for every party member with a different Elemental Type. Each of the aforementioned buffs will count up to 3 characters. This effect can be triggered once every 8s. The character who equips this can still trigger its effects when not on the field.",
+                          "Pieces":  {
+                                         "circlet":  {
+                                                         "icon":  "UI_RelicIcon_15026_3",
+                                                         "name":  "Shadow of the Sand King"
+                                                     },
+                                         "flower":  {
+                                                        "icon":  "UI_RelicIcon_15026_4",
+                                                        "name":  "Dreaming Steelbloom"
+                                                    },
+                                         "goblet":  {
+                                                        "icon":  "UI_RelicIcon_15026_1",
+                                                        "name":  "Honeyed Final Feast"
+                                                    },
+                                         "plume":  {
+                                                       "icon":  "UI_RelicIcon_15026_2",
+                                                       "name":  "Feather of Judgment"
+                                                   },
+                                         "sands":  {
+                                                       "icon":  "UI_RelicIcon_15026_5",
+                                                       "name":  "The Sunken Years"
+                                                   }
+                                     }
+                      },
+                      {
+                          "Id":  15027,
+                          "SetId":  15027,
+                          "EnName":  "Desert Pavilion Chronicle",
+                          "QualityType":  "QUALITY_ORANGE",
+                          "SetIcon":  "UI_RelicIcon_15027_4",
+                          "Effect2Pc":  "Anemo DMG Bonus +15%",
+                          "Effect4Pc":  "When Charged Attacks hit opponents, the equipping character\u0027s Normal Attack SPD will increase by 10% while Normal, Charged, and Plunging Attack DMG will increase by 40% for 15s.",
+                          "Pieces":  {
+                                         "circlet":  {
+                                                         "icon":  "UI_RelicIcon_15027_3",
+                                                         "name":  "Legacy of the Desert High-Born"
+                                                     },
+                                         "flower":  {
+                                                        "icon":  "UI_RelicIcon_15027_4",
+                                                        "name":  "The First Days of the City of Kings"
+                                                    },
+                                         "goblet":  {
+                                                        "icon":  "UI_RelicIcon_15027_1",
+                                                        "name":  "Defender of the Enchanting Dream"
+                                                    },
+                                         "plume":  {
+                                                       "icon":  "UI_RelicIcon_15027_2",
+                                                       "name":  "End of the Golden Realm"
+                                                   },
+                                         "sands":  {
+                                                       "icon":  "UI_RelicIcon_15027_5",
+                                                       "name":  "Timepiece of the Lost Path"
+                                                   }
+                                     }
+                      },
+                      {
+                          "Id":  15028,
+                          "SetId":  15028,
+                          "EnName":  "Flower of Paradise Lost",
+                          "QualityType":  "QUALITY_ORANGE",
+                          "SetIcon":  "UI_RelicIcon_15028_4",
+                          "Effect2Pc":  "Increases Elemental Mastery by 80.",
+                          "Effect4Pc":  "The equipping character\u0027s Bloom, Hyperbloom, and Burgeon reaction DMG are increased by 40%, and their Lunar-Bloom reaction DMG is increased by 10%. Additionally, after the equipping character triggers Bloom, Hyperbloom, Lunar-Bloom, or Burgeon, they will gain another 25% bonus to the effects mentioned prior. Each stack of this lasts 10s. Max 4 stacks simultaneously. This effect can only be triggered once per second. The character who equips this can still trigger its effects when not on the field.",
+                          "Pieces":  {
+                                         "circlet":  {
+                                                         "icon":  "UI_RelicIcon_15028_3",
+                                                         "name":  "Amethyst Crown"
+                                                     },
+                                         "flower":  {
+                                                        "icon":  "UI_RelicIcon_15028_4",
+                                                        "name":  "Ay-Khanoum\u0027s Myriad"
+                                                    },
+                                         "goblet":  {
+                                                        "icon":  "UI_RelicIcon_15028_1",
+                                                        "name":  "Secret-Keeper\u0027s Magic Bottle"
+                                                    },
+                                         "plume":  {
+                                                       "icon":  "UI_RelicIcon_15028_2",
+                                                       "name":  "Wilting Feast"
+                                                   },
+                                         "sands":  {
+                                                       "icon":  "UI_RelicIcon_15028_5",
+                                                       "name":  "A Moment Congealed"
+                                                   }
+                                     }
+                      },
+                      {
+                          "Id":  15029,
+                          "SetId":  15029,
+                          "EnName":  "Nymph\u0027s Dream",
+                          "QualityType":  "QUALITY_ORANGE",
+                          "SetIcon":  "UI_RelicIcon_15029_4",
+                          "Effect2Pc":  "Hydro DMG Bonus +15%",
+                          "Effect4Pc":  "After Normal, Charged, and Plunging Attacks, Elemental Skills, and Elemental Bursts hit opponents, 1 stack of Mirrored Nymph will be triggered, lasting 8s. When under the effect of 1, 2, or 3 or more Mirrored Nymph stacks, ATK will be increased by 7%/16%/25%, and Hydro DMG Bonus will be increased by 4%/9%/15%. Mirrored Nymph stacks created by Normal, Charged, and Plunging Attacks, Elemental Skills, and Elemental Bursts exist independently.",
+                          "Pieces":  {
+                                         "circlet":  {
+                                                         "icon":  "UI_RelicIcon_15029_3",
+                                                         "name":  "Fell Dragon\u0027s Monocle"
+                                                     },
+                                         "flower":  {
+                                                        "icon":  "UI_RelicIcon_15029_4",
+                                                        "name":  "Odyssean Flower"
+                                                    },
+                                         "goblet":  {
+                                                        "icon":  "UI_RelicIcon_15029_1",
+                                                        "name":  "Heroes\u0027 Tea Party"
+                                                    },
+                                         "plume":  {
+                                                       "icon":  "UI_RelicIcon_15029_2",
+                                                       "name":  "Wicked Mage\u0027s Plumule"
+                                                   },
+                                         "sands":  {
+                                                       "icon":  "UI_RelicIcon_15029_5",
+                                                       "name":  "Nymph\u0027s Constancy"
+                                                   }
+                                     }
+                      },
+                      {
+                          "Id":  15030,
+                          "SetId":  15030,
+                          "EnName":  "Vourukasha\u0027s Glow",
+                          "QualityType":  "QUALITY_ORANGE",
+                          "SetIcon":  "UI_RelicIcon_15030_4",
+                          "Effect2Pc":  "HP +20%",
+                          "Effect4Pc":  "Elemental Skill and Elemental Burst DMG will be increased by 10%. After the equipping character takes DMG, the aforementioned DMG Bonus is increased by 80% for 5s. This effect increase can have 5 stacks. The duration of each stack is counted independently. These effects can be triggered even when the equipping character is not on the field.",
+                          "Pieces":  {
+                                         "circlet":  {
+                                                         "icon":  "UI_RelicIcon_15030_3",
+                                                         "name":  "Heart of Khvarena\u0027s Brilliance"
+                                                     },
+                                         "flower":  {
+                                                        "icon":  "UI_RelicIcon_15030_4",
+                                                        "name":  "Stamen of Khvarena\u0027s Origin"
+                                                    },
+                                         "goblet":  {
+                                                        "icon":  "UI_RelicIcon_15030_1",
+                                                        "name":  "Feast of Boundless Joy"
+                                                    },
+                                         "plume":  {
+                                                       "icon":  "UI_RelicIcon_15030_2",
+                                                       "name":  "Vibrant Pinion"
+                                                   },
+                                         "sands":  {
+                                                       "icon":  "UI_RelicIcon_15030_5",
+                                                       "name":  "Ancient Abscission"
+                                                   }
+                                     }
+                      },
+                      {
+                          "Id":  15031,
+                          "SetId":  15031,
+                          "EnName":  "Marechaussee Hunter",
+                          "QualityType":  "QUALITY_ORANGE",
+                          "SetIcon":  "UI_RelicIcon_15031_4",
+                          "Effect2Pc":  "Normal and Charged Attack DMG +15%",
+                          "Effect4Pc":  "When current HP increases or decreases, CRIT Rate will be increased by 12% for 5s. Max 3 stacks.",
+                          "Pieces":  {
+                                         "circlet":  {
+                                                         "icon":  "UI_RelicIcon_15031_3",
+                                                         "name":  "Veteran\u0027s Visage"
+                                                     },
+                                         "flower":  {
+                                                        "icon":  "UI_RelicIcon_15031_4",
+                                                        "name":  "Hunter\u0027s Brooch"
+                                                    },
+                                         "goblet":  {
+                                                        "icon":  "UI_RelicIcon_15031_1",
+                                                        "name":  "Forgotten Vessel"
+                                                    },
+                                         "plume":  {
+                                                       "icon":  "UI_RelicIcon_15031_2",
+                                                       "name":  "Masterpiece\u0027s Overture"
+                                                   },
+                                         "sands":  {
+                                                       "icon":  "UI_RelicIcon_15031_5",
+                                                       "name":  "Moment of Judgment"
+                                                   }
+                                     }
+                      },
+                      {
+                          "Id":  15032,
+                          "SetId":  15032,
+                          "EnName":  "Golden Troupe",
+                          "QualityType":  "QUALITY_ORANGE",
+                          "SetIcon":  "UI_RelicIcon_15032_4",
+                          "Effect2Pc":  "Increases Elemental Skill DMG by 20%.",
+                          "Effect4Pc":  "Increases Elemental Skill DMG by 25%. Additionally, when not on the field, Elemental Skill DMG will be further increased by 25%. This effect will be cleared 2s after taking the field.",
+                          "Pieces":  {
+                                         "circlet":  {
+                                                         "icon":  "UI_RelicIcon_15032_3",
+                                                         "name":  "Golden Troupe\u0027s Reward"
+                                                     },
+                                         "flower":  {
+                                                        "icon":  "UI_RelicIcon_15032_4",
+                                                        "name":  "Golden Song\u0027s Variation"
+                                                    },
+                                         "goblet":  {
+                                                        "icon":  "UI_RelicIcon_15032_1",
+                                                        "name":  "Golden Night\u0027s Bustle"
+                                                    },
+                                         "plume":  {
+                                                       "icon":  "UI_RelicIcon_15032_2",
+                                                       "name":  "Golden Bird\u0027s Shedding"
+                                                   },
+                                         "sands":  {
+                                                       "icon":  "UI_RelicIcon_15032_5",
+                                                       "name":  "Golden Era\u0027s Prelude"
+                                                   }
+                                     }
+                      },
+                      {
+                          "Id":  15033,
+                          "SetId":  15033,
+                          "EnName":  "Song of Days Past",
+                          "QualityType":  "QUALITY_ORANGE",
+                          "SetIcon":  "UI_RelicIcon_15033_4",
+                          "Effect2Pc":  "Healing Bonus +15%.",
+                          "Effect4Pc":  "When the equipping character heals a party member, the Yearning effect will be created for 6s, which records the total amount of healing provided (including overflow healing). When the duration expires, the Yearning effect will be transformed into the \"Waves of Days Past\" effect: When your active party member hits an opponent with a Normal Attack, Charged Attack, Plunging Attack, Elemental Skill, or Elemental Burst, the DMG dealt will be increased by 8% of the total healing amount recorded by the Yearning effect. The \"Waves of Days Past\" effect is removed after it has taken effect 5 times or after 10s. A single instance of the Yearning effect can record up to 15,000 healing, and only a single instance can exist at once, but it can record the healing from multiple equipping characters. Equipping characters on standby can still trigger this effect.",
+                          "Pieces":  {
+                                         "circlet":  {
+                                                         "icon":  "UI_RelicIcon_15033_3",
+                                                         "name":  "Poetry of Days Past"
+                                                     },
+                                         "flower":  {
+                                                        "icon":  "UI_RelicIcon_15033_4",
+                                                        "name":  "Forgotten Oath of Days Past"
+                                                    },
+                                         "goblet":  {
+                                                        "icon":  "UI_RelicIcon_15033_1",
+                                                        "name":  "Promised Dream of Days Past"
+                                                    },
+                                         "plume":  {
+                                                       "icon":  "UI_RelicIcon_15033_2",
+                                                       "name":  "Recollection of Days Past"
+                                                   },
+                                         "sands":  {
+                                                       "icon":  "UI_RelicIcon_15033_5",
+                                                       "name":  "Echoing Sound From Days Past"
+                                                   }
+                                     }
+                      },
+                      {
+                          "Id":  15034,
+                          "SetId":  15034,
+                          "EnName":  "Nighttime Whispers in the Echoing Woods",
+                          "QualityType":  "QUALITY_ORANGE",
+                          "SetIcon":  "UI_RelicIcon_15034_4",
+                          "Effect2Pc":  "ATK +18%.",
+                          "Effect4Pc":  "After using an Elemental Skill, gain a 20% Geo DMG Bonus for 10s. When under a shield granted by the Crystallize reaction, or when Moondrifts formed by Lunar-Crystallize reactions are nearby, the above effect is increased by 150%. When these conditions are no longer met, this additional increase disappears after 1s.",
+                          "Pieces":  {
+                                         "circlet":  {
+                                                         "icon":  "UI_RelicIcon_15034_3",
+                                                         "name":  "Compassionate Ladies\u0027 Hat"
+                                                     },
+                                         "flower":  {
+                                                        "icon":  "UI_RelicIcon_15034_4",
+                                                        "name":  "Selfless Floral Accessory"
+                                                    },
+                                         "goblet":  {
+                                                        "icon":  "UI_RelicIcon_15034_1",
+                                                        "name":  "Magnanimous Ink Bottle"
+                                                    },
+                                         "plume":  {
+                                                       "icon":  "UI_RelicIcon_15034_2",
+                                                       "name":  "Honest Quill"
+                                                   },
+                                         "sands":  {
+                                                       "icon":  "UI_RelicIcon_15034_5",
+                                                       "name":  "Faithful Hourglass"
+                                                   }
+                                     }
+                      },
+                      {
+                          "Id":  15035,
+                          "SetId":  15035,
+                          "EnName":  "Fragment of Harmonic Whimsy",
+                          "QualityType":  "QUALITY_ORANGE",
+                          "SetIcon":  "UI_RelicIcon_15035_4",
+                          "Effect2Pc":  "ATK +18%.",
+                          "Effect4Pc":  "When the value of a Bond of Life increases or decreases, this character deals 18% increased DMG for 6s. Max 3 stacks.",
+                          "Pieces":  {
+                                         "circlet":  {
+                                                         "icon":  "UI_RelicIcon_15035_3",
+                                                         "name":  "Whimsical Dance of the Withered"
+                                                     },
+                                         "flower":  {
+                                                        "icon":  "UI_RelicIcon_15035_4",
+                                                        "name":  "Harmonious Symphony Prelude"
+                                                    },
+                                         "goblet":  {
+                                                        "icon":  "UI_RelicIcon_15035_1",
+                                                        "name":  "Ichor Shower Rhapsody"
+                                                    },
+                                         "plume":  {
+                                                       "icon":  "UI_RelicIcon_15035_2",
+                                                       "name":  "Ancient Sea\u0027s Nocturnal Musing"
+                                                   },
+                                         "sands":  {
+                                                       "icon":  "UI_RelicIcon_15035_5",
+                                                       "name":  "The Grand Jape of the Turning of Fate"
+                                                   }
+                                     }
+                      },
+                      {
+                          "Id":  15036,
+                          "SetId":  15036,
+                          "EnName":  "Unfinished Reverie",
+                          "QualityType":  "QUALITY_ORANGE",
+                          "SetIcon":  "UI_RelicIcon_15036_4",
+                          "Effect2Pc":  "ATK +18%.",
+                          "Effect4Pc":  "After leaving combat for 3s, DMG dealt increased by 50%. In combat, if no Burning opponents are nearby for more than 6s, this DMG Bonus will decrease by 10% per second until it reaches 0%. When a Burning opponent exists, it will increase by 10% instead until it reaches 50%. This effect still triggers if the equipping character is off-field.",
+                          "Pieces":  {
+                                         "circlet":  {
+                                                         "icon":  "UI_RelicIcon_15036_3",
+                                                         "name":  "Crownless Crown"
+                                                     },
+                                         "flower":  {
+                                                        "icon":  "UI_RelicIcon_15036_4",
+                                                        "name":  "Dark Fruit of Bright Flowers"
+                                                    },
+                                         "goblet":  {
+                                                        "icon":  "UI_RelicIcon_15036_1",
+                                                        "name":  "The Wine-Flask Over Which the Plan Was Hatched"
+                                                    },
+                                         "plume":  {
+                                                       "icon":  "UI_RelicIcon_15036_2",
+                                                       "name":  "Faded Emerald Tail"
+                                                   },
+                                         "sands":  {
+                                                       "icon":  "UI_RelicIcon_15036_5",
+                                                       "name":  "Moment of Attainment"
+                                                   }
+                                     }
+                      },
+                      {
+                          "Id":  15037,
+                          "SetId":  15037,
+                          "EnName":  "Scroll of the Hero of Cinder City",
+                          "QualityType":  "QUALITY_ORANGE",
+                          "SetIcon":  "UI_RelicIcon_15037_4",
+                          "Effect2Pc":  "When a nearby party member triggers a Nightsoul Burst, the equipping character regenerates 6 Elemental Energy.",
+                          "Effect4Pc":  "After the equipping character triggers a reaction related to their Elemental Type, all nearby party members gain a 12% Elemental DMG Bonus for the Elemental Types involved in the elemental reaction for 15s. If the equipping character is in the Nightsoul\u0027s Blessing state when triggering this effect, all nearby party members gain an additional 28% Elemental DMG Bonus for the Elemental Types involved in the elemental reaction for 20s. The equipping character can trigger this effect while off-field, and the DMG bonus from Artifact Sets with the same name do not stack.",
+                          "Pieces":  {
+                                         "circlet":  {
+                                                         "icon":  "UI_RelicIcon_15037_3",
+                                                         "name":  "Demon-Warrior\u0027s Feather Mask"
+                                                     },
+                                         "flower":  {
+                                                        "icon":  "UI_RelicIcon_15037_4",
+                                                        "name":  "Beast Tamer\u0027s Talisman"
+                                                    },
+                                         "goblet":  {
+                                                        "icon":  "UI_RelicIcon_15037_1",
+                                                        "name":  "Wandering Scholar\u0027s Claw Cup"
+                                                    },
+                                         "plume":  {
+                                                       "icon":  "UI_RelicIcon_15037_2",
+                                                       "name":  "Mountain Ranger\u0027s Marker"
+                                                   },
+                                         "sands":  {
+                                                       "icon":  "UI_RelicIcon_15037_5",
+                                                       "name":  "Mystic\u0027s Gold Dial"
+                                                   }
+                                     }
+                      },
+                      {
+                          "Id":  15038,
+                          "SetId":  15038,
+                          "EnName":  "Obsidian Codex",
+                          "QualityType":  "QUALITY_ORANGE",
+                          "SetIcon":  "UI_RelicIcon_15038_4",
+                          "Effect2Pc":  "While the equipping character is in Nightsoul\u0027s Blessing and is on the field, their DMG dealt is increased by 15%.",
+                          "Effect4Pc":  "After the equipping character consumes 1 Nightsoul point while on the field, CRIT Rate increases by 40% for 6s. This effect can trigger once every second.",
+                          "Pieces":  {
+                                         "circlet":  {
+                                                         "icon":  "UI_RelicIcon_15038_3",
+                                                         "name":  "Crown of the Saints"
+                                                     },
+                                         "flower":  {
+                                                        "icon":  "UI_RelicIcon_15038_4",
+                                                        "name":  "Reckoning of the Xenogenic"
+                                                    },
+                                         "goblet":  {
+                                                        "icon":  "UI_RelicIcon_15038_1",
+                                                        "name":  "Pre-Banquet of the Contenders"
+                                                    },
+                                         "plume":  {
+                                                       "icon":  "UI_RelicIcon_15038_2",
+                                                       "name":  "Root of the Spirit-Marrow"
+                                                   },
+                                         "sands":  {
+                                                       "icon":  "UI_RelicIcon_15038_5",
+                                                       "name":  "Myths of the Night Realm"
+                                                   }
+                                     }
+                      },
+                      {
+                          "Id":  15039,
+                          "SetId":  15039,
+                          "EnName":  "Long Night\u0027s Oath",
+                          "QualityType":  "QUALITY_ORANGE",
+                          "SetIcon":  "UI_RelicIcon_15039_4",
+                          "Effect2Pc":  "Plunging Attack DMG increased by 25%.",
+                          "Effect4Pc":  "After the equipping character\u0027s Plunging Attack/Charged Attack/Elemental Skill hits an opponent, they will gain 1/2/2 stack(s) of \"Radiance Everlasting.\" Plunging Attacks, Charged Attacks, or Elemental Skills can each trigger this effect once every 1s. Radiance Everlasting: Plunging Attacks deal 15% increased DMG for 6s. Max 5 stacks. Each stack\u0027s duration is counted independently.",
+                          "Pieces":  {
+                                         "circlet":  {
+                                                         "icon":  "UI_RelicIcon_15039_3",
+                                                         "name":  "Dyed Tassel"
+                                                     },
+                                         "flower":  {
+                                                        "icon":  "UI_RelicIcon_15039_4",
+                                                        "name":  "Lightkeeper\u0027s Pledge"
+                                                    },
+                                         "goblet":  {
+                                                        "icon":  "UI_RelicIcon_15039_1",
+                                                        "name":  "A Horn Unwinded"
+                                                    },
+                                         "plume":  {
+                                                       "icon":  "UI_RelicIcon_15039_2",
+                                                       "name":  "Nightingale\u0027s Tail Feather"
+                                                   },
+                                         "sands":  {
+                                                       "icon":  "UI_RelicIcon_15039_5",
+                                                       "name":  "Undying One\u0027s Mourning Bell"
+                                                   }
+                                     }
+                      },
+                      {
+                          "Id":  15040,
+                          "SetId":  15040,
+                          "EnName":  "Finale of the Deep Galleries",
+                          "QualityType":  "QUALITY_ORANGE",
+                          "SetIcon":  "UI_RelicIcon_15040_4",
+                          "Effect2Pc":  "Cryo DMG Bonus +15%",
+                          "Effect4Pc":  "When the equipping character has 0 Elemental Energy, Normal Attack DMG is increased by 60% and Elemental Burst DMG is increased by 60%. After the equipping character deals Normal Attack DMG, the aforementioned Elemental Burst effect will stop applying for 6s. After the equipping character deals Elemental Burst DMG, the aforementioned Normal Attack effect will stop applying for 6s. This effect can trigger even if the equipping character is off the field.",
+                          "Pieces":  {
+                                         "circlet":  {
+                                                         "icon":  "UI_RelicIcon_15040_3",
+                                                         "name":  "Deep Gallery\u0027s Lost Crown"
+                                                     },
+                                         "flower":  {
+                                                        "icon":  "UI_RelicIcon_15040_4",
+                                                        "name":  "Deep Gallery\u0027s Echoing Song"
+                                                    },
+                                         "goblet":  {
+                                                        "icon":  "UI_RelicIcon_15040_1",
+                                                        "name":  "Deep Gallery\u0027s Bestowed Banquet"
+                                                    },
+                                         "plume":  {
+                                                       "icon":  "UI_RelicIcon_15040_2",
+                                                       "name":  "Deep Gallery\u0027s Distant Pact"
+                                                   },
+                                         "sands":  {
+                                                       "icon":  "UI_RelicIcon_15040_5",
+                                                       "name":  "Deep Gallery\u0027s Moment of Oblivion"
+                                                   }
+                                     }
+                      },
+                      {
+                          "Id":  15041,
+                          "SetId":  15041,
+                          "EnName":  "Night of the Sky\u0027s Unveiling",
+                          "QualityType":  "QUALITY_ORANGE",
+                          "SetIcon":  "UI_RelicIcon_15041_4",
+                          "Effect2Pc":  "Increases Elemental Mastery by 80.",
+                          "Effect4Pc":  "When nearby party members trigger Lunar Reactions, if the equipping character is on the field, gain the Gleaming Moon: Intent effect for 4s: Increases CRIT Rate by 15%/30% when the party\u0027s Moonsign is Nascent Gleam/Ascendant Gleam. All party members\u0027 Lunar Reaction DMG is increased by 10% for each different Gleaming Moon effect that party members have. Effects from Gleaming Moon cannot stack.",
+                          "Pieces":  {
+                                         "circlet":  {
+                                                         "icon":  "UI_RelicIcon_15041_3",
+                                                         "name":  "Crown of the Befallen"
+                                                     },
+                                         "flower":  {
+                                                        "icon":  "UI_RelicIcon_15041_4",
+                                                        "name":  "Bloom of the Mind\u0027s Desire"
+                                                    },
+                                         "goblet":  {
+                                                        "icon":  "UI_RelicIcon_15041_1",
+                                                        "name":  "Vessel of Plenty"
+                                                    },
+                                         "plume":  {
+                                                       "icon":  "UI_RelicIcon_15041_2",
+                                                       "name":  "Feather of Indelible Sin"
+                                                   },
+                                         "sands":  {
+                                                       "icon":  "UI_RelicIcon_15041_5",
+                                                       "name":  "Revelation\u0027s Toll"
+                                                   }
+                                     }
+                      },
+                      {
+                          "Id":  15042,
+                          "SetId":  15042,
+                          "EnName":  "Silken Moon\u0027s Serenade",
+                          "QualityType":  "QUALITY_ORANGE",
+                          "SetIcon":  "UI_RelicIcon_15042_4",
+                          "Effect2Pc":  "Energy Recharge +20%.",
+                          "Effect4Pc":  "When dealing Elemental DMG, gain the Gleaming Moon: Devotion effect for 8s: Increases all party members\u0027 Elemental Mastery by 60/120 when the party\u0027s Moonsign is Nascent Gleam/Ascendant Gleam. The equipping character can trigger this effect while off-field. All party members\u0027 Lunar Reaction DMG is increased by 10% for each different Gleaming Moon effect that party members have. Effects from Gleaming Moon cannot stack.",
+                          "Pieces":  {
+                                         "circlet":  {
+                                                         "icon":  "UI_RelicIcon_15042_3",
+                                                         "name":  "Holy Crown of the Believer"
+                                                     },
+                                         "flower":  {
+                                                        "icon":  "UI_RelicIcon_15042_4",
+                                                        "name":  "Crystal Tear of the Wanderer"
+                                                    },
+                                         "goblet":  {
+                                                        "icon":  "UI_RelicIcon_15042_1",
+                                                        "name":  "Joyous Glory of the Pure"
+                                                    },
+                                         "plume":  {
+                                                       "icon":  "UI_RelicIcon_15042_2",
+                                                       "name":  "Pristine Plume of the Blessed"
+                                                   },
+                                         "sands":  {
+                                                       "icon":  "UI_RelicIcon_15042_5",
+                                                       "name":  "Frost Devotee\u0027s Delirium"
+                                                   }
+                                     }
+                      },
+                      {
+                          "Id":  15043,
+                          "SetId":  15043,
+                          "EnName":  "Aubade of Morningstar and Moon",
+                          "QualityType":  "QUALITY_ORANGE",
+                          "SetIcon":  "UI_RelicIcon_15043_4",
+                          "Effect2Pc":  "Increases Elemental Mastery by 80.",
+                          "Effect4Pc":  "When the equipping character is off-field, Lunar Reaction DMG is increased by 20%. When the party\u0027s Moonsign Level is at least Ascendant Gleam, Lunar Reaction DMG will be further increased by 40%. This effect will disappear after the equipping character is active for 3s.",
+                          "Pieces":  {
+                                         "circlet":  {
+                                                         "icon":  "UI_RelicIcon_15043_3",
+                                                         "name":  "Moonlit Offering\u0027s Silver Crown"
+                                                     },
+                                         "flower":  {
+                                                        "icon":  "UI_RelicIcon_15043_4",
+                                                        "name":  "Moonlit Offering\u0027s Opulent Dream"
+                                                    },
+                                         "goblet":  {
+                                                        "icon":  "UI_RelicIcon_15043_1",
+                                                        "name":  "Moonlit Offering\u0027s Libation"
+                                                    },
+                                         "plume":  {
+                                                       "icon":  "UI_RelicIcon_15043_2",
+                                                       "name":  "Moonlit Offering\u0027s Parting Light"
+                                                   },
+                                         "sands":  {
+                                                       "icon":  "UI_RelicIcon_15043_5",
+                                                       "name":  "Moonlit Offering\u0027s Final Hour"
+                                                   }
+                                     }
+                      },
+                      {
+                          "Id":  15044,
+                          "SetId":  15044,
+                          "EnName":  "A Day Carved From Rising Winds",
+                          "QualityType":  "QUALITY_ORANGE",
+                          "SetIcon":  "UI_RelicIcon_15044_4",
+                          "Effect2Pc":  "ATK +18%.",
+                          "Effect4Pc":  "After a Normal Attack, Charged Attack, Elemental Skill, or Elemental Burst hits an opponent, gain the Blessing of Pastoral Winds effect for 6s: ATK is increased by 25%. If the equipping character has completed Witch\u0027s Homework, Blessing of Pastoral Winds will be upgraded to Resolve of Pastoral Winds, which additionally increases the CRIT Rate of the equipping character by 20%. This effect can be triggered even when the character is off-field.",
+                          "Pieces":  {
+                                         "circlet":  {
+                                                         "icon":  "UI_RelicIcon_15044_3",
+                                                         "name":  "Minnesang of Love and Lament"
+                                                     },
+                                         "flower":  {
+                                                        "icon":  "UI_RelicIcon_15044_4",
+                                                        "name":  "Windborne Flower\u0027s Spruchdichtung"
+                                                    },
+                                         "goblet":  {
+                                                        "icon":  "UI_RelicIcon_15044_1",
+                                                        "name":  "Heldenepos\u0027s Unspoken Tale"
+                                                    },
+                                         "plume":  {
+                                                       "icon":  "UI_RelicIcon_15044_2",
+                                                       "name":  "Dawn\u0027s Brilliant Oath"
+                                                   },
+                                         "sands":  {
+                                                       "icon":  "UI_RelicIcon_15044_5",
+                                                       "name":  "A Note in Spring\u0027s Leich"
+                                                   }
+                                     }
+                      },
+                      {
+                          "Id":  15045,
+                          "SetId":  15045,
+                          "EnName":  "Celestial Gift",
+                          "QualityType":  "QUALITY_ORANGE",
+                          "SetIcon":  "UI_RelicIcon_15045_4",
+                          "Effect2Pc":  "Energy Recharge +20%.",
+                          "Effect4Pc":  "If the equipping character has completed Witch\u0027s Homework, after they use an Elemental Skill, they also gain \"Light\u0027s Guidance\" for 20s: All nearby party members gain a 20% Elemental DMG Bonus corresponding to the equipping character\u0027s Elemental Type. The equipping character can trigger this effect while off-field. DMG Bonuses provided by Artifact Sets with the same name do not stack.\\nÂ· When your party has the Hexerei: Secret Rite effect, Light\u0027s Guidance is upgraded to \"Mortal Hymn\": All nearby party members gain a 40% Elemental DMG Bonus corresponding to both the equipping character and the current active party member\u0027s Elemental Type instead. If both characters have the same Elemental Type, these bonuses will not stack.",
+                          "Pieces":  {
+                                         "circlet":  {
+                                                         "icon":  "UI_RelicIcon_15045_3",
+                                                         "name":  "Heavensent Crown"
+                                                     },
+                                         "flower":  {
+                                                        "icon":  "UI_RelicIcon_15045_4",
+                                                        "name":  "Heavensent Fragrance"
+                                                    },
+                                         "goblet":  {
+                                                        "icon":  "UI_RelicIcon_15045_1",
+                                                        "name":  "Heavensent Reward"
+                                                    },
+                                         "plume":  {
+                                                       "icon":  "UI_RelicIcon_15045_2",
+                                                       "name":  "Heavensent Demise"
+                                                   },
+                                         "sands":  {
+                                                       "icon":  "UI_RelicIcon_15045_5",
+                                                       "name":  "Heavensent Decree"
+                                                   }
+                                     }
+                      },
+                      {
+                          "Id":  15046,
+                          "SetId":  15046,
+                          "EnName":  "Disenchantment in Deep Shadow",
+                          "QualityType":  "QUALITY_ORANGE",
+                          "SetIcon":  "UI_RelicIcon_15046_4",
+                          "Effect2Pc":  "ATK +18%.",
+                          "Effect4Pc":  "Increases Superconduct Reaction DMG by 80%. When the wielder attacks opponents affected by Superconduct, this attack\u0027s CRIT Rate is increased by 16%. An all-new blessing may be obtained as you make your way toward Snezhnaya...",
+                          "Pieces":  {
+                                         "circlet":  {
+                                                         "icon":  "UI_RelicIcon_15046_3",
+                                                         "name":  "Pendulum That Ceased Amidst a Great Fall"
+                                                     },
+                                         "flower":  {
+                                                        "icon":  "UI_RelicIcon_15046_4",
+                                                        "name":  "Iridescence That Ceased Amidst Glory"
+                                                    },
+                                         "goblet":  {
+                                                        "icon":  "UI_RelicIcon_15046_1",
+                                                        "name":  "Ovations That Ceased Upon Festivity"
+                                                    },
+                                         "plume":  {
+                                                       "icon":  "UI_RelicIcon_15046_2",
+                                                       "name":  "Sharpness That Ceased Upon Wondrous Creation"
+                                                   },
+                                         "sands":  {
+                                                       "icon":  "UI_RelicIcon_15046_5",
+                                                       "name":  "Moment That Ceased Upon Waking From Grand Dreams"
+                                                   }
+                                     }
+                      }
+                  ]
+}

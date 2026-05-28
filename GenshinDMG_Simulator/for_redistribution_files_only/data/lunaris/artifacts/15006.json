@@ -1,0 +1,31 @@
+﻿{
+    "Id":  15006,
+    "SetId":  15006,
+    "EnName":  "Crimson Witch of Flames",
+    "QualityType":  "QUALITY_ORANGE",
+    "SetIcon":  "UI_RelicIcon_15006_4",
+    "Effect2Pc":  "Pyro DMG Bonus +15%",
+    "Effect4Pc":  "Increases Overloaded, Burning, and Burgeon DMG by 40%. Increases Vaporize and Melt DMG by 15%. Using Elemental Skill increases the 2-Piece Set Bonus by 50% of its starting value for 10s. Max 3 stacks.",
+    "Pieces":  {
+                   "circlet":  {
+                                   "icon":  "UI_RelicIcon_15006_3",
+                                   "name":  "Witch\u0027s Scorching Hat"
+                               },
+                   "flower":  {
+                                  "icon":  "UI_RelicIcon_15006_4",
+                                  "name":  "Witch\u0027s Flower of Blaze"
+                              },
+                   "goblet":  {
+                                  "icon":  "UI_RelicIcon_15006_1",
+                                  "name":  "Witch\u0027s Heart Flames"
+                              },
+                   "plume":  {
+                                 "icon":  "UI_RelicIcon_15006_2",
+                                 "name":  "Witch\u0027s Ever-Burning Plume"
+                             },
+                   "sands":  {
+                                 "icon":  "UI_RelicIcon_15006_5",
+                                 "name":  "Witch\u0027s End Time"
+                             }
+               }
+}

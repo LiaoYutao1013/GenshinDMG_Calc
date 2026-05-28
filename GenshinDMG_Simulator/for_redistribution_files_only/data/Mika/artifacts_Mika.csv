@@ -1,0 +1,2 @@
+Weapon,WeaponATK,WeaponSubStatType,WeaponSubStatValue,WeaponRefinement,HPBonus,FlatHP,AtkBonus,FlatATK,ER,EM,CritRate,CritDMG,CryoDMGBonus,SkillDMGBonus,BurstDMGBonus,HealingBonus,ResShred,ArtifactSet1,ArtifactSet1Pieces,ArtifactSet2,ArtifactSet2Pieces,ArtifactSet4Active
+西风长枪,565,ER,0.306268198,5,0.84,4780,0.22,180,1.95,40,0.42,0.8,0.18,0.15,0.15,0.359,0,NoblesseOblige,4,None,0,1

@@ -1,0 +1,2 @@
+Weapon,WeaponATK,WeaponSubStatType,WeaponSubStatValue,WeaponRefinement,HPBonus,FlatHP,EM,CritRate,CritDMG,ElectroDMGBonus,SkillDMGBonus,BurstDMGBonus,HealingBonus,ResShred,ArtifactSet1,ArtifactSet1Pieces,ArtifactSet2,ArtifactSet2Pieces,ArtifactSet4Active
+FreedomSworn,608,EM,198.45,1,0.46,4200,300,0.55,1.3,0.466,0.18,0.18,0.2,0,GildedDreams,4,None,0,1

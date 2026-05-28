@@ -1,0 +1,10 @@
+Skill,Param,ScalingType,Level10
+Normal,N1,ATK,0.92
+Normal,N2,ATK,1.18
+Skill,RushATK,ATK,2.42
+Skill,ImpactATK,ATK,2.88
+Skill,LeapATK,ATK,1.86
+Plunge,HighPlungeATK,ATK,2.68
+Burst,CastATK,ATK,4.92
+Burst,FinisherATK,ATK,5.36
+Reaction,ElectroCharged,FLAT,1320

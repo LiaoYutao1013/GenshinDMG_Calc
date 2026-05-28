@@ -1,0 +1,2117 @@
+{
+  "info": {
+    "name": "Raiden Shogun",
+    "description": "Her Excellency, the Almighty Narukami Ogosho, who promised the people of Inazuma an unchanging Eternity.",
+    "rarity": "QUALITY_ORANGE",
+    "weapon": "WEAPON_POLE",
+    "birthday": "26/6",
+    "element": "Electro",
+    "title": "Plane of Euthymia",
+    "constellation": "Imperatrix Umbrosa",
+    "affiliation": "Inazuma City",
+    "cv": {
+      "EN": "Anne Yatco",
+      "CHS": "菊花花",
+      "JP": "沢城みゆき",
+      "KR": "Park Ji-yoon"
+    },
+    "attributes": [
+      {
+        "level": 1,
+        "ascension": 0,
+        "hp": 1005,
+        "atk": 26,
+        "def": 61,
+        "ER": "0"
+      },
+      {
+        "level": 2,
+        "ascension": 0,
+        "hp": 1088,
+        "atk": 28,
+        "def": 67,
+        "ER": "0"
+      },
+      {
+        "level": 3,
+        "ascension": 0,
+        "hp": 1172,
+        "atk": 31,
+        "def": 72,
+        "ER": "0"
+      },
+      {
+        "level": 4,
+        "ascension": 0,
+        "hp": 1256,
+        "atk": 33,
+        "def": 77,
+        "ER": "0"
+      },
+      {
+        "level": 5,
+        "ascension": 0,
+        "hp": 1339,
+        "atk": 35,
+        "def": 82,
+        "ER": "0"
+      },
+      {
+        "level": 6,
+        "ascension": 0,
+        "hp": 1424,
+        "atk": 37,
+        "def": 87,
+        "ER": "0"
+      },
+      {
+        "level": 7,
+        "ascension": 0,
+        "hp": 1507,
+        "atk": 39,
+        "def": 92,
+        "ER": "0"
+      },
+      {
+        "level": 8,
+        "ascension": 0,
+        "hp": 1592,
+        "atk": 42,
+        "def": 97,
+        "ER": "0"
+      },
+      {
+        "level": 9,
+        "ascension": 0,
+        "hp": 1676,
+        "atk": 44,
+        "def": 102,
+        "ER": "0"
+      },
+      {
+        "level": 10,
+        "ascension": 0,
+        "hp": 1759,
+        "atk": 46,
+        "def": 108,
+        "ER": "0"
+      },
+      {
+        "level": 11,
+        "ascension": 0,
+        "hp": 1844,
+        "atk": 48,
+        "def": 113,
+        "ER": "0"
+      },
+      {
+        "level": 12,
+        "ascension": 0,
+        "hp": 1928,
+        "atk": 50,
+        "def": 118,
+        "ER": "0"
+      },
+      {
+        "level": 13,
+        "ascension": 0,
+        "hp": 2013,
+        "atk": 53,
+        "def": 123,
+        "ER": "0"
+      },
+      {
+        "level": 14,
+        "ascension": 0,
+        "hp": 2098,
+        "atk": 55,
+        "def": 128,
+        "ER": "0"
+      },
+      {
+        "level": 15,
+        "ascension": 0,
+        "hp": 2182,
+        "atk": 57,
+        "def": 133,
+        "ER": "0"
+      },
+      {
+        "level": 16,
+        "ascension": 0,
+        "hp": 2267,
+        "atk": 59,
+        "def": 139,
+        "ER": "0"
+      },
+      {
+        "level": 17,
+        "ascension": 0,
+        "hp": 2352,
+        "atk": 61,
+        "def": 144,
+        "ER": "0"
+      },
+      {
+        "level": 18,
+        "ascension": 0,
+        "hp": 2437,
+        "atk": 64,
+        "def": 149,
+        "ER": "0"
+      },
+      {
+        "level": 19,
+        "ascension": 0,
+        "hp": 2522,
+        "atk": 66,
+        "def": 154,
+        "ER": "0"
+      },
+      {
+        "level": 20,
+        "ascension": 0,
+        "hp": 2606,
+        "atk": 68,
+        "def": 159,
+        "ER": "0"
+      },
+      {
+        "level": 21,
+        "ascension": 1,
+        "hp": 3553,
+        "atk": 93,
+        "def": 217,
+        "ER": "0"
+      },
+      {
+        "level": 22,
+        "ascension": 1,
+        "hp": 3639,
+        "atk": 95,
+        "def": 223,
+        "ER": "0"
+      },
+      {
+        "level": 23,
+        "ascension": 1,
+        "hp": 3724,
+        "atk": 97,
+        "def": 228,
+        "ER": "0"
+      },
+      {
+        "level": 24,
+        "ascension": 1,
+        "hp": 3810,
+        "atk": 100,
+        "def": 233,
+        "ER": "0"
+      },
+      {
+        "level": 25,
+        "ascension": 1,
+        "hp": 3895,
+        "atk": 102,
+        "def": 238,
+        "ER": "0"
+      },
+      {
+        "level": 26,
+        "ascension": 1,
+        "hp": 3981,
+        "atk": 104,
+        "def": 243,
+        "ER": "0"
+      },
+      {
+        "level": 27,
+        "ascension": 1,
+        "hp": 4067,
+        "atk": 106,
+        "def": 249,
+        "ER": "0"
+      },
+      {
+        "level": 28,
+        "ascension": 1,
+        "hp": 4152,
+        "atk": 108,
+        "def": 254,
+        "ER": "0"
+      },
+      {
+        "level": 29,
+        "ascension": 1,
+        "hp": 4239,
+        "atk": 111,
+        "def": 259,
+        "ER": "0"
+      },
+      {
+        "level": 30,
+        "ascension": 1,
+        "hp": 4324,
+        "atk": 113,
+        "def": 264,
+        "ER": "0"
+      },
+      {
+        "level": 31,
+        "ascension": 1,
+        "hp": 4410,
+        "atk": 115,
+        "def": 270,
+        "ER": "0"
+      },
+      {
+        "level": 32,
+        "ascension": 1,
+        "hp": 4497,
+        "atk": 117,
+        "def": 275,
+        "ER": "0"
+      },
+      {
+        "level": 33,
+        "ascension": 1,
+        "hp": 4583,
+        "atk": 120,
+        "def": 280,
+        "ER": "0"
+      },
+      {
+        "level": 34,
+        "ascension": 1,
+        "hp": 4669,
+        "atk": 122,
+        "def": 286,
+        "ER": "0"
+      },
+      {
+        "level": 35,
+        "ascension": 1,
+        "hp": 4755,
+        "atk": 124,
+        "def": 291,
+        "ER": "0"
+      },
+      {
+        "level": 36,
+        "ascension": 1,
+        "hp": 4843,
+        "atk": 127,
+        "def": 296,
+        "ER": "0"
+      },
+      {
+        "level": 37,
+        "ascension": 1,
+        "hp": 4929,
+        "atk": 129,
+        "def": 301,
+        "ER": "0"
+      },
+      {
+        "level": 38,
+        "ascension": 1,
+        "hp": 5015,
+        "atk": 131,
+        "def": 307,
+        "ER": "0"
+      },
+      {
+        "level": 39,
+        "ascension": 1,
+        "hp": 5102,
+        "atk": 133,
+        "def": 312,
+        "ER": "0"
+      },
+      {
+        "level": 40,
+        "ascension": 1,
+        "hp": 5189,
+        "atk": 136,
+        "def": 317,
+        "ER": "0"
+      },
+      {
+        "level": 41,
+        "ascension": 2,
+        "hp": 5888,
+        "atk": 154,
+        "def": 360,
+        "ER": "8"
+      },
+      {
+        "level": 42,
+        "ascension": 2,
+        "hp": 5975,
+        "atk": 156,
+        "def": 365,
+        "ER": "8"
+      },
+      {
+        "level": 43,
+        "ascension": 2,
+        "hp": 6063,
+        "atk": 158,
+        "def": 371,
+        "ER": "8"
+      },
+      {
+        "level": 44,
+        "ascension": 2,
+        "hp": 6149,
+        "atk": 161,
+        "def": 376,
+        "ER": "8"
+      },
+      {
+        "level": 45,
+        "ascension": 2,
+        "hp": 6236,
+        "atk": 163,
+        "def": 381,
+        "ER": "8"
+      },
+      {
+        "level": 46,
+        "ascension": 2,
+        "hp": 6324,
+        "atk": 165,
+        "def": 387,
+        "ER": "8"
+      },
+      {
+        "level": 47,
+        "ascension": 2,
+        "hp": 6411,
+        "atk": 168,
+        "def": 392,
+        "ER": "8"
+      },
+      {
+        "level": 48,
+        "ascension": 2,
+        "hp": 6499,
+        "atk": 170,
+        "def": 397,
+        "ER": "8"
+      },
+      {
+        "level": 49,
+        "ascension": 2,
+        "hp": 6587,
+        "atk": 172,
+        "def": 403,
+        "ER": "8"
+      },
+      {
+        "level": 50,
+        "ascension": 2,
+        "hp": 6675,
+        "atk": 174,
+        "def": 408,
+        "ER": "8"
+      },
+      {
+        "level": 51,
+        "ascension": 3,
+        "hp": 7578,
+        "atk": 198,
+        "def": 463,
+        "ER": "16"
+      },
+      {
+        "level": 52,
+        "ascension": 3,
+        "hp": 7667,
+        "atk": 200,
+        "def": 469,
+        "ER": "16"
+      },
+      {
+        "level": 53,
+        "ascension": 3,
+        "hp": 7754,
+        "atk": 203,
+        "def": 474,
+        "ER": "16"
+      },
+      {
+        "level": 54,
+        "ascension": 3,
+        "hp": 7842,
+        "atk": 205,
+        "def": 480,
+        "ER": "16"
+      },
+      {
+        "level": 55,
+        "ascension": 3,
+        "hp": 7931,
+        "atk": 207,
+        "def": 485,
+        "ER": "16"
+      },
+      {
+        "level": 56,
+        "ascension": 3,
+        "hp": 8019,
+        "atk": 210,
+        "def": 490,
+        "ER": "16"
+      },
+      {
+        "level": 57,
+        "ascension": 3,
+        "hp": 8108,
+        "atk": 212,
+        "def": 496,
+        "ER": "16"
+      },
+      {
+        "level": 58,
+        "ascension": 3,
+        "hp": 8196,
+        "atk": 214,
+        "def": 501,
+        "ER": "16"
+      },
+      {
+        "level": 59,
+        "ascension": 3,
+        "hp": 8284,
+        "atk": 216,
+        "def": 507,
+        "ER": "16"
+      },
+      {
+        "level": 60,
+        "ascension": 3,
+        "hp": 8373,
+        "atk": 219,
+        "def": 512,
+        "ER": "16"
+      },
+      {
+        "level": 61,
+        "ascension": 4,
+        "hp": 9073,
+        "atk": 237,
+        "def": 555,
+        "ER": "16"
+      },
+      {
+        "level": 62,
+        "ascension": 4,
+        "hp": 9162,
+        "atk": 239,
+        "def": 560,
+        "ER": "16"
+      },
+      {
+        "level": 63,
+        "ascension": 4,
+        "hp": 9251,
+        "atk": 242,
+        "def": 566,
+        "ER": "16"
+      },
+      {
+        "level": 64,
+        "ascension": 4,
+        "hp": 9340,
+        "atk": 244,
+        "def": 571,
+        "ER": "16"
+      },
+      {
+        "level": 65,
+        "ascension": 4,
+        "hp": 9429,
+        "atk": 246,
+        "def": 577,
+        "ER": "16"
+      },
+      {
+        "level": 66,
+        "ascension": 4,
+        "hp": 9519,
+        "atk": 249,
+        "def": 582,
+        "ER": "16"
+      },
+      {
+        "level": 67,
+        "ascension": 4,
+        "hp": 9607,
+        "atk": 251,
+        "def": 587,
+        "ER": "16"
+      },
+      {
+        "level": 68,
+        "ascension": 4,
+        "hp": 9696,
+        "atk": 253,
+        "def": 593,
+        "ER": "16"
+      },
+      {
+        "level": 69,
+        "ascension": 4,
+        "hp": 9786,
+        "atk": 256,
+        "def": 598,
+        "ER": "16"
+      },
+      {
+        "level": 70,
+        "ascension": 4,
+        "hp": 9875,
+        "atk": 258,
+        "def": 604,
+        "ER": "16"
+      },
+      {
+        "level": 71,
+        "ascension": 5,
+        "hp": 10577,
+        "atk": 276,
+        "def": 647,
+        "ER": "24"
+      },
+      {
+        "level": 72,
+        "ascension": 5,
+        "hp": 10667,
+        "atk": 279,
+        "def": 652,
+        "ER": "24"
+      },
+      {
+        "level": 73,
+        "ascension": 5,
+        "hp": 10757,
+        "atk": 281,
+        "def": 658,
+        "ER": "24"
+      },
+      {
+        "level": 74,
+        "ascension": 5,
+        "hp": 10846,
+        "atk": 283,
+        "def": 663,
+        "ER": "24"
+      },
+      {
+        "level": 75,
+        "ascension": 5,
+        "hp": 10937,
+        "atk": 286,
+        "def": 669,
+        "ER": "24"
+      },
+      {
+        "level": 76,
+        "ascension": 5,
+        "hp": 11026,
+        "atk": 288,
+        "def": 674,
+        "ER": "24"
+      },
+      {
+        "level": 77,
+        "ascension": 5,
+        "hp": 11116,
+        "atk": 290,
+        "def": 680,
+        "ER": "24"
+      },
+      {
+        "level": 78,
+        "ascension": 5,
+        "hp": 11207,
+        "atk": 293,
+        "def": 685,
+        "ER": "24"
+      },
+      {
+        "level": 79,
+        "ascension": 5,
+        "hp": 11297,
+        "atk": 295,
+        "def": 691,
+        "ER": "24"
+      },
+      {
+        "level": 80,
+        "ascension": 5,
+        "hp": 11388,
+        "atk": 298,
+        "def": 696,
+        "ER": "24"
+      },
+      {
+        "level": 81,
+        "ascension": 6,
+        "hp": 12090,
+        "atk": 316,
+        "def": 739,
+        "ER": "32"
+      },
+      {
+        "level": 82,
+        "ascension": 6,
+        "hp": 12181,
+        "atk": 318,
+        "def": 745,
+        "ER": "32"
+      },
+      {
+        "level": 83,
+        "ascension": 6,
+        "hp": 12271,
+        "atk": 321,
+        "def": 750,
+        "ER": "32"
+      },
+      {
+        "level": 84,
+        "ascension": 6,
+        "hp": 12362,
+        "atk": 323,
+        "def": 756,
+        "ER": "32"
+      },
+      {
+        "level": 85,
+        "ascension": 6,
+        "hp": 12452,
+        "atk": 325,
+        "def": 761,
+        "ER": "32"
+      },
+      {
+        "level": 86,
+        "ascension": 6,
+        "hp": 12543,
+        "atk": 328,
+        "def": 767,
+        "ER": "32"
+      },
+      {
+        "level": 87,
+        "ascension": 6,
+        "hp": 12634,
+        "atk": 330,
+        "def": 773,
+        "ER": "32"
+      },
+      {
+        "level": 88,
+        "ascension": 6,
+        "hp": 12725,
+        "atk": 332,
+        "def": 778,
+        "ER": "32"
+      },
+      {
+        "level": 89,
+        "ascension": 6,
+        "hp": 12817,
+        "atk": 335,
+        "def": 784,
+        "ER": "32"
+      },
+      {
+        "level": 90,
+        "ascension": 6,
+        "hp": 12907,
+        "atk": 337,
+        "def": 789,
+        "ER": "32"
+      },
+      {
+        "level": 95,
+        "ascension": 6,
+        "hp": 13365,
+        "atk": 375,
+        "def": 817,
+        "ER": "32"
+      },
+      {
+        "level": 100,
+        "ascension": 6,
+        "hp": 13825,
+        "atk": 413,
+        "def": 845,
+        "ER": "32"
+      }
+    ]
+  },
+  "icons": {
+    "forward": "UI_AvatarIcon_Shougun",
+    "coop_img": "UI_CoopImg_Shougun"
+  },
+  "ascension": {
+    "x202": 7.0499E+6,
+    "exp": {
+      "x104001": 2,
+      "x104003": 418
+    },
+    "speciality": {
+      "x101208": 168
+    },
+    "elemental": {
+      "x104141": 1,
+      "x104142": 9,
+      "x104143": 9,
+      "x104144": 6
+    },
+    "worldmonster": {
+      "x112044": 18,
+      "x112045": 30,
+      "x112046": 36
+    },
+    "elitemonster": {
+      "x113029": 46
+    }
+  },
+  "skills": {
+    "normalattack": {
+      "name": "Origin",
+      "icon": "Skill_A_03",
+      "multipliers": {
+        "x1_HitDMG": [
+          "39.65%",
+          "42.87%",
+          "46.1%",
+          "50.71%",
+          "53.94%",
+          "57.63%",
+          "62.7%",
+          "67.77%",
+          "72.84%",
+          "78.37%",
+          "84.71%",
+          "92.16%",
+          "99.62%",
+          "107.07%",
+          "115.2%"
+        ],
+        "x2_HitDMG": [
+          "39.73%",
+          "42.97%",
+          "46.2%",
+          "50.82%",
+          "54.05%",
+          "57.75%",
+          "62.83%",
+          "67.91%",
+          "73%",
+          "78.54%",
+          "84.89%",
+          "92.36%",
+          "99.83%",
+          "107.3%",
+          "115.45%"
+        ],
+        "x3_HitDMG": [
+          "49.88%",
+          "53.94%",
+          "58%",
+          "63.8%",
+          "67.86%",
+          "72.5%",
+          "78.88%",
+          "85.26%",
+          "91.64%",
+          "98.6%",
+          "106.58%",
+          "115.95%",
+          "125.33%",
+          "134.71%",
+          "144.94%"
+        ],
+        "x4_HitDMG": [
+          "28.98%+28.98%",
+          "31.34%+31.34%",
+          "33.7%+33.7%",
+          "37.07%+37.07%",
+          "39.43%+39.43%",
+          "42.12%+42.12%",
+          "45.83%+45.83%",
+          "49.54%+49.54%",
+          "53.25%+53.25%",
+          "57.29%+57.29%",
+          "61.92%+61.92%",
+          "67.37%+67.37%",
+          "72.82%+72.82%",
+          "78.27%+78.27%",
+          "84.22%+84.22%"
+        ],
+        "x5_HitDMG": [
+          "65.45%",
+          "70.77%",
+          "76.1%",
+          "83.71%",
+          "89.04%",
+          "95.13%",
+          "103.5%",
+          "111.87%",
+          "120.24%",
+          "129.37%",
+          "139.83%",
+          "152.14%",
+          "164.44%",
+          "176.75%",
+          "190.17%"
+        ],
+        "ChargedAttackDMG": [
+          "99.59%",
+          "107.69%",
+          "115.8%",
+          "127.38%",
+          "135.49%",
+          "144.75%",
+          "157.49%",
+          "170.23%",
+          "182.96%",
+          "196.86%",
+          "212.78%",
+          "231.51%",
+          "250.23%",
+          "268.96%",
+          "289.38%"
+        ],
+        "ChargedAttackStaminaCost": [
+          "25",
+          "25",
+          "25",
+          "25",
+          "25",
+          "25",
+          "25",
+          "25",
+          "25",
+          "25",
+          "25",
+          "25",
+          "25",
+          "25",
+          "25"
+        ],
+        "PlungeDMG": [
+          "63.93%",
+          "69.14%",
+          "74.34%",
+          "81.77%",
+          "86.98%",
+          "92.93%",
+          "101.1%",
+          "109.28%",
+          "117.46%",
+          "126.38%",
+          "135.3%",
+          "144.22%",
+          "153.14%",
+          "162.06%",
+          "170.98%"
+        ],
+        "Low_HighPlungeDMG": [
+          "127.84%/159.68%",
+          "138.24%/172.67%",
+          "148.65%/185.67%",
+          "163.51%/204.24%",
+          "173.92%/217.23%",
+          "185.81%/232.09%",
+          "202.16%/252.51%",
+          "218.51%/272.93%",
+          "234.86%/293.36%",
+          "252.7%/315.64%",
+          "270.54%/337.92%",
+          "288.38%/360.2%",
+          "306.22%/382.48%",
+          "324.05%/404.76%",
+          "341.89%/427.04%"
+        ]
+      },
+      "description": "<color=#FFD780FF>Normal Attack</color>\\nPerforms up to 5 consecutive spear strikes.\\n\\n<color=#FFD780FF>Charged Attack</color>\\nConsumes a certain amount of Stamina to perform an upward slash.\\n\\n<color=#FFD780FF>Plunging Attack</color>\\nPlunges from mid-air to strike the ground below, damaging opponents along the path and dealing AoE DMG upon impact."
+    },
+    "elementalskill": {
+      "name": "Transcendence: Baleful Omen",
+      "icon": "Skill_S_Shougun_01",
+      "multipliers": {
+        "SkillDMG": [
+          "117.2%",
+          "125.99%",
+          "134.78%",
+          "146.5%",
+          "155.29%",
+          "164.08%",
+          "175.8%",
+          "187.52%",
+          "199.24%",
+          "210.96%",
+          "222.68%",
+          "234.4%",
+          "249.05%",
+          "263.7%",
+          "278.35%"
+        ],
+        "CoordinatedATKDMG": [
+          "42%",
+          "45.15%",
+          "48.3%",
+          "52.5%",
+          "55.65%",
+          "58.8%",
+          "63%",
+          "67.2%",
+          "71.4%",
+          "75.6%",
+          "79.8%",
+          "84%",
+          "89.25%",
+          "94.5%",
+          "99.75%"
+        ],
+        "Duration": [
+          "25s",
+          "25s",
+          "25s",
+          "25s",
+          "25s",
+          "25s",
+          "25s",
+          "25s",
+          "25s",
+          "25s",
+          "25s",
+          "25s",
+          "25s",
+          "25s",
+          "25s"
+        ],
+        "ElementalBurstDMGBonus": [
+          "0.22% Per Energy",
+          "0.23% Per Energy",
+          "0.24% Per Energy",
+          "0.25% Per Energy",
+          "0.26% Per Energy",
+          "0.27% Per Energy",
+          "0.28% Per Energy",
+          "0.29% Per Energy",
+          "0.3% Per Energy",
+          "0.3% Per Energy",
+          "0.3% Per Energy",
+          "0.3% Per Energy",
+          "0.3% Per Energy",
+          "0.3% Per Energy",
+          "0.3% Per Energy"
+        ],
+        "CD": [
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s"
+        ]
+      },
+      "description": "The Raiden Shogun unveils a shard of her Euthymia, dealing <color=#FFACFFFF>Electro DMG</color> to nearby opponents, and granting nearby party members the Eye of Stormy Judgment.\\n\\n<color=#FFD780FF>Eye of Stormy Judgment</color>\\n·When characters with this buff attack and deal DMG to opponents, the Eye will unleash a coordinated attack, dealing <color=#FFACFFFF>AoE Electro DMG</color> at the opponent's position.\\n·Characters who gain the Eye of Stormy Judgment will have their Elemental Burst DMG increased based on the Energy Cost of the Elemental Burst during the Eye's duration.\\n\\nThe Eye can initiate one coordinated attack every 0.9s per party.\\nCoordinated attacks generated by characters not controlled by you deal 20% of the normal DMG.\\n\\n<i>Beings of great divinity might affect all that they survey, and the Electro Archon can manipulate the very inauspicious stars themselves to defend her retainers and bring a thundering sentence down on their foes.</i>"
+    },
+    "elementalburst": {
+      "name": "Secret Art: Musou Shinsetsu",
+      "icon": "Skill_E_Shougun_01",
+      "multipliers": {
+        "MusouNoHitotachiBaseDMG": [
+          "400.8%",
+          "430.86%",
+          "460.92%",
+          "501%",
+          "531.06%",
+          "561.12%",
+          "601.2%",
+          "641.28%",
+          "681.36%",
+          "721.44%",
+          "761.52%",
+          "801.6%",
+          "851.7%",
+          "901.8%",
+          "951.9%"
+        ],
+        "ResolveBonus": [
+          "3.89% Initial/0.73% ATK DMG Per Stack",
+          "4.18% Initial/0.78% ATK DMG Per Stack",
+          "4.47% Initial/0.84% ATK DMG Per Stack",
+          "4.86% Initial/0.91% ATK DMG Per Stack",
+          "5.15% Initial/0.96% ATK DMG Per Stack",
+          "5.44% Initial/1.02% ATK DMG Per Stack",
+          "5.83% Initial/1.09% ATK DMG Per Stack",
+          "6.22% Initial/1.16% ATK DMG Per Stack",
+          "6.61% Initial/1.23% ATK DMG Per Stack",
+          "7% Initial/1.31% ATK DMG Per Stack",
+          "7.39% Initial/1.38% ATK DMG Per Stack",
+          "7.78% Initial/1.45% ATK DMG Per Stack",
+          "8.26% Initial/1.54% ATK DMG Per Stack",
+          "8.75% Initial/1.63% ATK DMG Per Stack",
+          "9.23% Initial/1.72% ATK DMG Per Stack"
+        ],
+        "ResolveStacksGained": [
+          "0.15 Per Energy Consumed",
+          "0.16 Per Energy Consumed",
+          "0.16 Per Energy Consumed",
+          "0.17 Per Energy Consumed",
+          "0.17 Per Energy Consumed",
+          "0.18 Per Energy Consumed",
+          "0.18 Per Energy Consumed",
+          "0.19 Per Energy Consumed",
+          "0.19 Per Energy Consumed",
+          "0.2 Per Energy Consumed",
+          "0.2 Per Energy Consumed",
+          "0.2 Per Energy Consumed",
+          "0.2 Per Energy Consumed",
+          "0.2 Per Energy Consumed",
+          "0.2 Per Energy Consumed"
+        ],
+        "x1_HitDMG": [
+          "44.74%",
+          "47.79%",
+          "50.84%",
+          "54.9%",
+          "57.96%",
+          "61.51%",
+          "66.09%",
+          "70.66%",
+          "75.24%",
+          "79.82%",
+          "84.39%",
+          "88.97%",
+          "93.54%",
+          "98.12%",
+          "102.69%"
+        ],
+        "x2_HitDMG": [
+          "43.96%",
+          "46.95%",
+          "49.95%",
+          "53.95%",
+          "56.94%",
+          "60.44%",
+          "64.93%",
+          "69.43%",
+          "73.93%",
+          "78.42%",
+          "82.92%",
+          "87.41%",
+          "91.91%",
+          "96.4%",
+          "100.9%"
+        ],
+        "x3_HitDMG": [
+          "53.82%",
+          "57.49%",
+          "61.16%",
+          "66.05%",
+          "69.72%",
+          "74%",
+          "79.51%",
+          "85.01%",
+          "90.52%",
+          "96.02%",
+          "101.53%",
+          "107.03%",
+          "112.54%",
+          "118.04%",
+          "123.55%"
+        ],
+        "x4_HitDMG": [
+          "30.89%+30.98%",
+          "32.99%+33.09%",
+          "35.1%+35.2%",
+          "37.91%+38.02%",
+          "40.01%+40.13%",
+          "42.47%+42.59%",
+          "45.63%+45.76%",
+          "48.79%+48.93%",
+          "51.95%+52.1%",
+          "55.11%+55.26%",
+          "58.27%+58.43%",
+          "61.43%+61.6%",
+          "64.58%+64.77%",
+          "67.74%+67.94%",
+          "70.9%+71.1%"
+        ],
+        "x5_HitDMG": [
+          "73.94%",
+          "78.99%",
+          "84.03%",
+          "90.75%",
+          "95.79%",
+          "101.67%",
+          "109.24%",
+          "116.8%",
+          "124.36%",
+          "131.92%",
+          "139.48%",
+          "147.05%",
+          "154.61%",
+          "162.17%",
+          "169.73%"
+        ],
+        "ChargedAttackDMG": [
+          "61.6%+74.36%",
+          "65.8%+79.43%",
+          "70%+84.5%",
+          "75.6%+91.26%",
+          "79.8%+96.33%",
+          "84.7%+102.24%",
+          "91%+109.85%",
+          "97.3%+117.46%",
+          "103.6%+125.06%",
+          "109.9%+132.67%",
+          "116.2%+140.27%",
+          "122.5%+147.87%",
+          "128.8%+155.48%",
+          "135.1%+163.08%",
+          "141.4%+170.69%"
+        ],
+        "ChargedAttackStaminaCost": [
+          "20",
+          "20",
+          "20",
+          "20",
+          "20",
+          "20",
+          "20",
+          "20",
+          "20",
+          "20",
+          "20",
+          "20",
+          "20",
+          "20",
+          "20"
+        ],
+        "PlungeDMG": [
+          "63.93%",
+          "69.14%",
+          "74.34%",
+          "81.77%",
+          "86.98%",
+          "92.93%",
+          "101.1%",
+          "109.28%",
+          "117.46%",
+          "126.38%",
+          "135.3%",
+          "144.22%",
+          "153.14%",
+          "162.06%",
+          "170.98%"
+        ],
+        "Low_HighPlungeDMG": [
+          "127.84%/159.68%",
+          "138.24%/172.67%",
+          "148.65%/185.67%",
+          "163.51%/204.24%",
+          "173.92%/217.23%",
+          "185.81%/232.09%",
+          "202.16%/252.51%",
+          "218.51%/272.93%",
+          "234.86%/293.36%",
+          "252.7%/315.64%",
+          "270.54%/337.92%",
+          "288.38%/360.2%",
+          "306.22%/382.48%",
+          "324.05%/404.76%",
+          "341.89%/427.04%"
+        ],
+        "MusouIsshinEnergyRestoration": [
+          "1.6",
+          "1.7",
+          "1.8",
+          "1.9",
+          "2",
+          "2.1",
+          "2.2",
+          "2.3",
+          "2.4",
+          "2.5",
+          "2.5",
+          "2.5",
+          "2.5",
+          "2.5",
+          "2.5"
+        ],
+        "MusouIsshinDuration": [
+          "7s",
+          "7s",
+          "7s",
+          "7s",
+          "7s",
+          "7s",
+          "7s",
+          "7s",
+          "7s",
+          "7s",
+          "7s",
+          "7s",
+          "7s",
+          "7s",
+          "7s"
+        ],
+        "CD": [
+          "18s",
+          "18s",
+          "18s",
+          "18s",
+          "18s",
+          "18s",
+          "18s",
+          "18s",
+          "18s",
+          "18s",
+          "18s",
+          "18s",
+          "18s",
+          "18s",
+          "18s"
+        ],
+        "EnergyCost": [
+          "90",
+          "90",
+          "90",
+          "90",
+          "90",
+          "90",
+          "90",
+          "90",
+          "90",
+          "90",
+          "90",
+          "90",
+          "90",
+          "90",
+          "90"
+        ]
+      },
+      "description": "Gathering truths unnumbered and wishes uncounted, the Raiden Shogun unleashes the Musou no Hitotachi and deals <color=#FFACFFFF>AoE Electro DMG</color>, using Musou Isshin in combat for a certain duration afterward. The DMG dealt by Musou no Hitotachi and Musou Isshin's attacks will be increased based on the number of Chakra Desiderata's Resolve stacks consumed when this skill is used.\\n\\n<color=#FFD780FF>Musou Isshin</color>\\nWhile in this state, the Raiden Shogun will wield her tachi in battle, while her Normal, Charged, and Plunging Attacks will be infused with <color=#FFACFFFF>Electro DMG</color>, which cannot be overridden. When such attacks hit opponents, she will regenerate Energy for all nearby party members. Energy can be restored this way once every 1s, and this effect can be triggered 5 times throughout this skill's duration.\\nWhile in this state, the Raiden Shogun's resistance to interruption is increased, and she is immune to <color=#FFACFFFF>Electro-Charged</color> reaction DMG.\\nWhile Musou Isshin is active, the Raiden Shogun's Normal, Charged, and Plunging Attack DMG will be considered Elemental Burst DMG.\\n\\nThe effects of Musou Isshin will be cleared when the Raiden Shogun leaves the field.\\n\\n<color=#FFD780FF>Chakra Desiderata</color>\\nWhen nearby party members (excluding the Raiden Shogun herself) use their Elemental Bursts, the Raiden Shogun will build up Resolve stacks based on the Energy Cost of these Elemental Bursts.\\nThe maximum number of Resolve stacks is 60.\\n\\nThe Resolve gained by Chakra Desiderata will be cleared 300s after the Raiden Shogun leaves the field.\\n\\n<i>This is the Raiden Shogun's new secret technique. Abandoning the void-like \"Musou,\" she now shoulders a new \"Musou\" — the dreams and ambitions of all. Just as \"shinsetsu,\" \"the truth,\" also means \"the new,\" so too has Inazuma entered a new chapter.</i>"
+    },
+    "leveling": {
+      "crown": {
+        "x104319": 3
+      },
+      "books": {
+        "x104326": 9,
+        "x104327": 63,
+        "x104328": 114
+      },
+      "worldmonster": {
+        "x112044": 18,
+        "x112045": 66,
+        "x112046": 93
+      },
+      "weekly": {
+        "x113025": 18
+      }
+    }
+  },
+  "passives": {
+    "p1": {
+      "name": "Wishes Unnumbered",
+      "description": "When nearby party members gain Elemental Orbs or Particles, <color=#FFD780FF>Chakra Desiderata</color> gains 2 Resolve stacks.\\nThis effect can occur once every 3s.",
+      "icon": "UI_Talent_S_Shougun_05"
+    },
+    "p2": {
+      "name": "Enlightened One",
+      "description": "Each 1% above 100% Energy Recharge that the Raiden Shogun possesses grants her:\\n·0.6% greater Energy restoration from <color=#FFD780FF>Musou Isshin</color>\\n·0.4% <color=#FFACFFFF>Electro DMG Bonus</color>.",
+      "icon": "UI_Talent_S_Shougun_06"
+    },
+    "p3": {
+      "name": "All-Preserver",
+      "description": "Mora expended when ascending Swords and Polearms is decreased by 50%.",
+      "icon": "UI_Talent_S_Shougun_07"
+    },
+    "p4": ""
+  },
+  "constellations": {
+    "const1": {
+      "name": "Ominous Inscription",
+      "description": "<color=#FFD780FF>Chakra Desiderata</color> will gather Resolve even faster. When <color=#FFACFFFF>Electro</color> characters use their Elemental Bursts, the Resolve gained is increased by 80%. When characters of other Elemental Types use their Elemental Bursts, the Resolve gained is increased by 20%.",
+      "icon": "UI_Talent_S_Shougun_01"
+    },
+    "const2": {
+      "name": "Steelbreaker",
+      "description": "While using Musou no Hitotachi and in the Musou Isshin state applied by <color=#FFD780FF>Secret Art: Musou Shinsetsu</color>, the Raiden Shogun's attacks ignore 60% of opponents' DEF.",
+      "icon": "UI_Talent_S_Shougun_03"
+    },
+    "const3": {
+      "name": "Shinkage Bygones",
+      "description": "Increases the Level of <color=#FFD780FF>Secret Art: Musou Shinsetsu</color> by 3.\\nMaximum upgrade level is 15.",
+      "icon": "UI_Talent_U_Shougun_02"
+    },
+    "const4": {
+      "name": "Pledge of Propriety",
+      "description": "When the <color=#FFD780FF>Musou Isshin</color> state applied by <color=#FFD780FF>Secret Art: Musou Shinsetsu</color> expires, all nearby party members (excluding the Raiden Shogun) gain 30% bonus ATK for 10s.",
+      "icon": "UI_Talent_S_Shougun_02"
+    },
+    "const5": {
+      "name": "Shogun's Descent",
+      "description": "Increases the Level of <color=#FFD780FF>Transcendence: Baleful Omen</color> by 3.\\nMaximum upgrade level is 15.",
+      "icon": "UI_Talent_U_Shougun_01"
+    },
+    "const6": {
+      "name": "Wishbearer",
+      "description": "While in the <color=#FFD780FF>Musou Isshin</color> state applied by <color=#FFD780FF>Secret Art: Musou Shinsetsu</color>, attacks by the Raiden Shogun that are considered part of her Elemental Burst will decrease all nearby party members' (not including the Raiden Shogun herself) Elemental Burst CD by 1s when they hit opponents.\\nThis effect can trigger once every 1s and can trigger a total of 5 times during Musou Isshin's duration.",
+      "icon": "UI_Talent_S_Shougun_04"
+    }
+  },
+  "hyperlinks": [],
+  "stories": {
+    "x52201": {
+      "storyTitle": "Character Details",
+      "storyText": "Since the dawn of life, humankind has always borne an intense yearning for and curiosity about the world. This is the anchor point of their cognition and is the foundation of all reason.\\nThe world of the people of Inazuma is also thus. There, thunder, lightning, wind, and rain were primordial facts of life, as well as light, and the sea... and the Raiden Shogun.\\nBabes nestling in their mothers' arms hear tales of the Shogun's slaying of many gods and conquering of other races.\\nWhen young men and women roam the islands, they see the gorge split asunder by a blade of lightning and the pale, still-standing bones of the giant snake.\\nSoldiers take to the battlefield with \"glory to the Shogun and her everlasting reign!\" upon their lips.\\nThe people work in contentment and peace, knowing that the Shogun and her loyal Tri-Commission are there.\\nThe great name of the Raiden Shogun has long shaken off the shackles of mere life, becoming the eternal traditional belief of Inazuma.\\nPeople trust in this great name and its might, believing that their descendants shall witness the same sights, that the same faith will form the foundations of their inner worlds, and that this will pass on from generation to generation.\\nThis is the eternal paradise that the Almighty Shogun promised her people.",
+      "unlockConds": []
+    },
+    "x52202": {
+      "storyTitle": "Character Story 1",
+      "storyText": "The true name of the Raiden Shogun is \"Raiden Ei.\"\\nIn her long road, she has witnessed the price that Inazuma has had to pay for progress over the hundreds and thousands of years.\\nThe happiest years of her life had passed her by, and those she once considered friends became her foes. In the end, she even lost the reason for which she had wielded her sword.\\n\"Where there is progress, there must be loss.\"\\nEi believed that this was the iron-clad rule of the world, with time as its merciless enforcer.\\nThe greatest and most prosperous nation of men collapsed overnight, and even that most ancient Liyue Harbor would say farewell to its Geo Archon. The winds of parting came whistling in from the outer edge of time.\\nHowever resounding the Raiden Shogun's name, centuries later, millennia later... Someday, Inazuma would lose the protection of its deity.\\nAs a warrior, she was wary of all foes. Even if that enemy was a crisis as intangible as time's passage, she had to find a countermeasure, a weapon she could use to defeat it in time.\\nHer answer? \"Eternity.\" Only Eternity could freeze all things under the sky, make Inazuma truly deathless.\\n\"Then, while things are still good, let us have stillness... Let us march towards Eternity.\"",
+      "unlockConds": [
+        {
+          "type": "FETTER_COND_FETTER_LEVEL",
+          "value": 2
+        },
+        {
+          "type": "FETTER_COND_FINISH_PARENT_QUEST",
+          "value": 2021
+        }
+      ]
+    },
+    "x52203": {
+      "storyTitle": "Character Story 2",
+      "storyText": "For beings with a perishable form of flesh to pursue Eternity, they must first solve the unavoidable problem of lifespan.\\nThis limited time troubled Ei greatly, until one day when a mysterious technique came before her eyes as if by a stroke of fate.\\nUsing such techniques, one could create intricate puppets indistinguishable from true life.\\nIn theory, this puppet could perfectly imitate everything about Ei. It could surpass the limits of her lifespan and defend Inazuma forever. Yet, how could creating a copy of an Archon be a simple affair?\\nEi conducted countless experiments to this effect, discarded a great many failed products, and spent an unimaginable amount of time and resources—\\nBut at last, by her dogged pursuit and warrior's spirit, she was able to create a flawless puppet.\\nThe newborn Raiden Shogun sat there silently, listening to Ei speak all about her, \"her,\" and even about them. The future of Inazuma was here, inscribed upon a gorgeous blueprint.\\nThe automaton had but one question to ask Ei: \"There is no turning back from forsaking your form. Do you regret nothing?\"\\n\"Your existence is my answer.\"\\nThen, Ei transferred her consciousness into her blade, and thus was born the Plane of Euthymia.",
+      "unlockConds": [
+        {
+          "type": "FETTER_COND_FETTER_LEVEL",
+          "value": 3
+        },
+        {
+          "type": "FETTER_COND_FINISH_PARENT_QUEST",
+          "value": 2021
+        }
+      ]
+    },
+    "x52204": {
+      "storyTitle": "Character Story 3",
+      "storyText": "Before Raiden Ei became the Shogun, she was a samurai responsible for seeing that the previous Shogun's orders were carried out.\\nThe previous Electro Archon, Raiden Makoto, was no great fighter, and the things Ei had charge over were mostly matters of warfare and slaughter. However, Ei also had moments of repose away from battle, sitting with her friends under the sakura trees and playing karuta.\\nDue to her character, Ei was always the most wooden player. She was never the final victor, nor did she ever have a taste of the prizes that the Kitsune Saiguu reserved for the winners.\\nThus, she poured the effort that she put into swordsmanship into karuta practice, often pestering Makoto or Mikoshi Chiyo for karuta matches, or spending much time by moonlight reading the poetry inscribed on the cards out loud.\\nAt last, the day came that under a sakura tree's shade, Ei would defeat opponent after opponent. Even the mighty tengu would be felled after a hard-fought battle, and thus was she crowned the champion.\\nEi let out a victorious whoop at her victory, only to be greeted by the sounds of her friends' laughter. Only then did she realize that she had lost her usual composure entirely, before snapping both arms back down and reverting to her usual cool facade.\\n Of course, her friends did not intend to make sport of her. Indeed, they understood her character and the manner in which she had worked ever so hard to come out on top.\\nAs for the Kitsune Saiguu, oh, how amused she looked as she presented Ei with some pastries.\\n\"I said it was a reward, yes, but it was simply some hand-made cakes of mine. I didn't think that you would be so concerned about it, Ei. Well then, enjoy the spoils of your victory to your heart's content.\"\\nEi was hardly one to be greedy for snacks. But as a samurai, she firmly believed that what she lost must be reclaimed. These pastries were more akin to a vindication of her desire to win.\\n—But it was not long before that cool demeanor of hers broke into a smile again. The cakes were lovely — just like the taste of victory. As for her clumsy attempts to hide that smile, one could only say that it was an entertaining sight all around for her friends.\\nTo this day, Ei still often remembers that sakura tree.\\n...Even though she has not gone to see it in a long time, and even though no one sits under it anymore, she wishes that time might stop forever.",
+      "unlockConds": [
+        {
+          "type": "FETTER_COND_FETTER_LEVEL",
+          "value": 4
+        },
+        {
+          "type": "FETTER_COND_FINISH_PARENT_QUEST",
+          "value": 2021
+        }
+      ]
+    },
+    "x52205": {
+      "storyTitle": "Character Story 4",
+      "storyText": "Ei still remembers the way in which Makoto greatly loved the scenery of Inazuma, its cuisine, and the stories of its people — and how she loved telling Ei all about them.\\nThough they both understood the concept of erosion well, Makoto was unlike Ei, who worried about the future more often. Instead, Makoto's energies were focused on the present.\\n\"It is precisely because we know that this scene is but a fleeting shadow that we should enjoy it all the more.\"\\nThen, Ei could only smile wryly, realizing that she, the kagemusha, was even more old-fashioned than the real Raiden Shogun. She thought to herself that she must learn to be more leisurely, just like Makoto.\\nYet the times changed all too quickly, all but catching Ei off guard. Before she knew it, her hands already held the blade that the dying Raiden Makoto had passed on to her.\\nThis day, the kagemusha was now the true Raiden Shogun.\\nAnd it was on this day that Ei truly felt the agony of erosion.\\nAs time marched forward inexorably, even this blade, this sakura... All life on Inazuma would fade before her eyes.\\nThis was the foundation of Inazuma, and it was the thing that the Raiden Shogun must defend.\\n\"If you look at it this way, thinking ahead is not meaningless, nor is it vain arrogance.\"\\nHaving resolved herself, her life exceeded its mortal shell, and eternity descended upon the mortal plane.",
+      "unlockConds": [
+        {
+          "type": "FETTER_COND_FETTER_LEVEL",
+          "value": 5
+        },
+        {
+          "type": "FETTER_COND_FINISH_PARENT_QUEST",
+          "value": 2021
+        }
+      ]
+    },
+    "x52206": {
+      "storyTitle": "Character Story 5",
+      "storyText": "One night, Raiden Ei entered a beautiful dreamscape while meditating.\\nHere, there was nothing left between heaven and earth but her, and a \"her\" that was akin to looking into a mirror.\\nThe automaton's voice flowed into her ears like a sigh: \"the eternity you resolved to establish in your heart has been shaken by the countless wishes of the people. Thus, you have become my enemy.\"\\nBack when she was creating the puppet, Ei had considered all the hidden risks involved.\\nShe believed that anything was possible — including the worst-case scenario... in which she too would someday become a threat to Eternity.\\nBut she had to press on. She had to reach Eternity. This, she would not permit to be stayed by any outside force.\\nThe puppet's words were something that she had asked herself long ago:\\n\"You believe your present self has greater certainty than your former self. Thus, you believe your present self is correct. Don't you?\"\\n\"But have you really been enlightened with new ideas? Or have you been degraded by irreversible erosion?\"\\nTheir faces were the same, but they spoke of different ideals. The battle with herself, with her past, would come someday.\\nBut it was not this day. Ei knew well that she was not yet ready.\\nHer heart had been clear, and she would have remained in that state, but hearing the cries of her people, she had to command her feet to stop.\\nThe sky above the mirror was no longer empty, and all about the silent halls, she heard the cry of crows. Dawn was coming. The samurai must take up her sword.\\nThis dream was ever so real, and it, too, passed like a shadow.",
+      "unlockConds": [
+        {
+          "type": "FETTER_COND_FETTER_LEVEL",
+          "value": 6
+        },
+        {
+          "type": "FETTER_COND_FINISH_QUEST",
+          "value": 1.201812E+6
+        }
+      ]
+    },
+    "x52207": {
+      "storyTitle": "Musou Isshin",
+      "storyText": "A sword that, once passed on, has accompanied Ei to this day.\\nThis sword has had two wielders, and has witnessed both time and eternity.\\nIt was born from Raiden Makoto's divine might, but it was never once sharpened. It took after its owner, of course, for Makoto was not one for battle. It was but a symbol, a sign of true peace.\\nThe day Makoto passed on, it was given into Ei's hands. The sword was stained with blood, then, and as the blade drew its first taste of crimson, the dripping ichor was blown aside by wild winds and blazing thunder.\\nMakoto gave it the name Musou Isshin, and desired to have it witness an Inazuma as lovely as a dream and the noble hearts that dwell in this world.\\nEi did not change its name. For she, too, had looked out over that vast scene of beauty, and the sight of it had engendered a stronger, purer dream in her own heart.\\nThe aesthetic of lightning is precisely to capture that which is precious amidst fleeting transience.",
+      "unlockConds": [
+        {
+          "type": "FETTER_COND_FETTER_LEVEL",
+          "value": 4
+        },
+        {
+          "type": "FETTER_COND_FINISH_PARENT_QUEST",
+          "value": 2021
+        }
+      ]
+    },
+    "x52208": {
+      "storyTitle": "Gnosis",
+      "storyText": "Before she came to dwell in the Plane of Euthymia permanently, Ei was troubled for a time concerning where she might store her Gnosis.\\nShe no longer had any need of it, but such an important item could not simply be placed anywhere. She had initially intended to have it modified into an energy supply device, but no matter what she did, her techniques had no effect on the Gnosis at all.\\nAnd that was when she thought of someone: the cunning and clever Yae Miko. She was not precisely someone to be trusted, but she was in many ways also Ei's best choice.\\nUpon hearing this request, Miko could not help but joke: \"Aren't you afraid that I might just sell this off?\"\\n\"You understand the value of a Gnosis. Even if you sold it, I trust that you would have exchanged it for something of equal value, and that is no easy price to pay.\"\\nWith someone of Yae Miko's character, it would be no surprise if she ever sold the Gnosis, yes, but she would not allow herself to lose out in any such exchange.\\nSuch, then, was the tacit agreement between the two old friends. Yae Miko understood Ei's intent and took the precious Gnosis with a smile.\\n\"Well, this is your idea, not mine. Don't end up regretting this, now.\"",
+      "unlockConds": [
+        {
+          "type": "FETTER_COND_FETTER_LEVEL",
+          "value": 6
+        },
+        {
+          "type": "FETTER_COND_FINISH_PARENT_QUEST",
+          "value": 2021
+        }
+      ]
+    }
+  },
+  "quotes": {
+    "x52009": {
+      "quoteTitle": "Hello",
+      "quoteText": "No salutations needed. My exalted status shall not be disclosed as we travel among the common folk. I acknowledge that you are a person of superior ability. Henceforth, you will be my guard. Worry not. Should any danger arise, I shall dispose of it.",
+      "unlockConds": []
+    },
+    "x52010": {
+      "quoteTitle": "Chat: Idleness",
+      "quoteText": "Inactivity serves no purpose whatsoever. Hmph.",
+      "unlockConds": []
+    },
+    "x52011": {
+      "quoteTitle": "Chat: The Mortal World",
+      "quoteText": "The world remains constant over the centuries. But human life is like the dew at dawn or a bubble rising through water. Transitory.",
+      "unlockConds": []
+    },
+    "x52012": {
+      "quoteTitle": "Chat: Worldly Beauty",
+      "quoteText": "All the world holds dear is but a backdrop of constant motion. I stand before it alone and unchanging.",
+      "unlockConds": []
+    },
+    "x52013": {
+      "quoteTitle": "When It Rains",
+      "quoteText": "Rainfall alone does not constitute a storm. Thunder is required.",
+      "unlockConds": []
+    },
+    "x52014": {
+      "quoteTitle": "When Thunder Strikes",
+      "quoteText": "Dear me, that didn't frighten you, did it? After all, you are in the presence of the most supreme and terrifying incarnation of lightning in the whole of Teyvat.",
+      "unlockConds": [
+        "Complete \"Omnipresence Over Mortals\""
+      ]
+    },
+    "x52015": {
+      "quoteTitle": "When It Snows",
+      "quoteText": "The Winter Shogun approaches.",
+      "unlockConds": []
+    },
+    "x52016": {
+      "quoteTitle": "On a Clear Day",
+      "quoteText": "Clear skies can do nothing to hide the brilliance of lightning. Divine bolts can strike even in the absence of rain. Do you see that tree? Wait... you understand? So... demonstration is not required? Good.",
+      "unlockConds": []
+    },
+    "x52017": {
+      "quoteTitle": "Good Morning",
+      "quoteText": "Yawning without covering your mouth? Uncouth. I will pardon your rudeness this time. Good morning to you, too.",
+      "unlockConds": []
+    },
+    "x52018": {
+      "quoteTitle": "Good Afternoon",
+      "quoteText": "Time for dessert. What? Why not? What do you mean, \"Entrées come first\"? ...They were only indulging me because I am the Shogun? Huh, interesting.",
+      "unlockConds": [
+        "Complete \"Omnipresence Over Mortals\""
+      ]
+    },
+    "x52019": {
+      "quoteTitle": "Good Evening",
+      "quoteText": "Do you wish to know the truth about the shooting stars at night? Haha, they are but fleeting moments of luminosity. Uh, you used to be one of them? Are you a tengu warrior?",
+      "unlockConds": [
+        "Complete \"Omnipresence Over Mortals\""
+      ]
+    },
+    "x52020": {
+      "quoteTitle": "Good Night",
+      "quoteText": "I command the thunder in all corners of the world to cease. Rest well tonight.",
+      "unlockConds": []
+    },
+    "x52021": {
+      "quoteTitle": "About the Raiden Shogun: Transience",
+      "quoteText": "Thunder's roar and lightning's flash. So ephemeral. This is why reaching Eternity is desirable. ...Actually, no — this is why reaching Eternity is necessary.",
+      "unlockConds": []
+    },
+    "x52022": {
+      "quoteTitle": "About the Raiden Shogun: Eternity",
+      "quoteText": "Erosion is a terrible thing. This body's purpose is to withstand wear and tear, that the one within might achieve Eternity.",
+      "unlockConds": []
+    },
+    "x52023": {
+      "quoteTitle": "About Us: Okuzumeshuu",
+      "quoteText": "I declare you my chamberlain. In other words, according to my judgment, you are useful to the Shogunate and loyal to me.",
+      "unlockConds": []
+    },
+    "x52024": {
+      "quoteTitle": "About Us: Protector",
+      "quoteText": "Despite serving as my guard during this journey, you need not shield me from danger. The Shogun's constitution is rather robust, and in the event she does break down, we can simply get a replacement. In an emergency, just send her into the fray.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 6",
+        "Complete \"Omnipresence Over Mortals\""
+      ]
+    },
+    "x52025": {
+      "quoteTitle": "About Us: Legacy",
+      "quoteText": "The Inazuman arts of polearm and sword combat, as well as the blade-forging process itself, primarily originated with me. Since then, they have branched out and blossomed into a variety of techniques according to each master's individual aptitude. \\nWhat would you say to another sparring session? If you emerge unscathed again, I'll let you found your own martial arts tradition in Inazuma. Ah, the drive to advance and evolve in the martial arts is truly unstoppable.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 6",
+        "Complete \"Omnipresence Over Mortals\""
+      ]
+    },
+    "x52026": {
+      "quoteTitle": "About the Vision",
+      "quoteText": "Really? So in all this time, no new Electro Visions have appeared in the outside world? Well, what I can say on this topic is subject to certain constraints, but... it is not by my will that Visions are granted or denied. The key is people's desire, and... well, there's another side to it too.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4",
+        "Complete \"Omnipresence Over Mortals\""
+      ]
+    },
+    "x52027": {
+      "quoteTitle": "Something to Share",
+      "quoteText": "No, I have nothing to share with you at this time. But you... You use elemental energy without the aid of a Vision. How is this possible? Please enlighten me.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x52028": {
+      "quoteTitle": "Interesting Things",
+      "quoteText": "Her body may have perished, but she became the Sacred Sakura. This, too, is a form of Eternity.",
+      "unlockConds": []
+    },
+    "x52029": {
+      "quoteTitle": "About Yae Miko",
+      "quoteText": "Ah, that girl... She used to be the kind of person who could easily be swayed with some Fried Tofu. It's a relief to see how shrewd and resourceful she's now become. Still, I have to admit that I was a little upset to become the target of her scheming myself. I know it was for my own good, but I'm afraid she will mock me next time we meet... Perhaps I should take the initiative and strike her first? Hmm, she'll dodge it anyway.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4",
+        "Complete \"Omnipresence Over Mortals\""
+      ]
+    },
+    "x52030": {
+      "quoteTitle": "About Kamisato Ayato",
+      "quoteText": "Kamisato... One of the most distinguished clans in all of Inazuma. Despite Ayato's trickery in regard to the Tri-Commission's affairs, he is nevertheless a loyal subject. His past misdeeds shall be excused.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x52031": {
+      "quoteTitle": "About Kamisato Ayaka",
+      "quoteText": "Kamisato... One of the most distinguished clans in all of Inazuma. Eh? That's exactly what the Shogun said? Well, A—Ayaka's also well-versed in the art of the sword.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4",
+        "Complete \"Omnipresence Over Mortals\""
+      ]
+    },
+    "x52032": {
+      "quoteTitle": "About Kujou Sara",
+      "quoteText": "A loyal and righteous subject, and an accomplished warrior. She is worthy to be called a hero. With an heir of such great promise, the future prosperity of the Kujou Clan is assured.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x52033": {
+      "quoteTitle": "About Yoimiya",
+      "quoteText": "Who? Ah, the firework maker. A manufacturer of fleeting illusions, enamored with the realm of fantasy and imagination, but a subject of mine nonetheless. \\nHmm? Fireworks were released on Tenryou Commission property? By whom... her?",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4",
+        "Complete \"Omnipresence Over Mortals\""
+      ]
+    },
+    "x52034": {
+      "quoteTitle": "About Thoma",
+      "quoteText": "I can't deny that I am somewhat culpable in the events that led to him being almost stripped of his Vision, but I rather think the Shogun should be the one to extend a formal apology to him... Okay, fine. I'll give it some more thought.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4",
+        "Complete \"Omnipresence Over Mortals\""
+      ]
+    },
+    "x52035": {
+      "quoteTitle": "About Sangonomiya Kokomi",
+      "quoteText": "Indeed. It was I who slew Orobaxi. But I also allowed the people of Sangonomiya to continue worshiping it as the Watatsumi Omikami, so that it might enjoy their offerings. Now, Sangonomiya has destroyed the local Narukami Shrine and rebels against the Shogunate. As the Divine Priestess representing the Watatsumi Omikami, she must be held accountable.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x52036": {
+      "quoteTitle": "About Kunikuzushi",
+      "quoteText": "He came about as a byproduct of creating the Shogun. Perhaps it's because I feel like I owe him something, but I do not wish to assert control over him.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4",
+        "Complete \"Omnipresence Over Mortals\""
+      ]
+    },
+    "x52037": {
+      "quoteTitle": "About Arataki Itto",
+      "quoteText": "Who?",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x52038": {
+      "quoteTitle": "About Morax",
+      "quoteText": "I had an opportunity to feast with him once, back when I was just a kagemusha attending a gathering of the gods. So he's made his choice. Be that as it may, I don't believe his story is anywhere near finished yet.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4",
+        "Complete \"Omnipresence Over Mortals\""
+      ]
+    },
+    "x52039": {
+      "quoteTitle": "About Venti",
+      "quoteText": "Hmm. So, the Anemo Archon still goes by that name among mortals these days? Truth be told, from the very first moment I met him, I could somehow sense that we were not going to get along. Also, he sure can drink a lot.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4",
+        "Complete \"Omnipresence Over Mortals\""
+      ]
+    },
+    "x52040": {
+      "quoteTitle": "More About the Raiden Shogun: I",
+      "quoteText": "State your query. To the point.",
+      "unlockConds": []
+    },
+    "x52041": {
+      "quoteTitle": "More About the Raiden Shogun: II",
+      "quoteText": "On stormy days, the people of Inazuma chant \"kuwabara, kuwabara,\" believing that this will protect themselves from being struck by lightning. You need not worry about any storm summoned by my own hand — they will bring you no harm. Lightning storms that occur naturally, however, can be more unpredictable.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 3"
+      ]
+    },
+    "x52042": {
+      "quoteTitle": "More About Ei: III",
+      "quoteText": "The account given in the book \"Treasured Tales\" is largely an accurate one. At that time, she was preoccupied with various domestic matters within the island, so as her kagemusha, I assumed her identity and joined the troops dispatched to pacify Watatsumi. After this point, however, the story turns into mere wishful thinking. Back then, I was just a martial artist wrapped up in all the fighting, not a social reformer or a moral leader.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4",
+        "Complete \"Omnipresence Over Mortals\""
+      ]
+    },
+    "x52043": {
+      "quoteTitle": "More About Ei: IV",
+      "quoteText": "Perhaps my pursuit of Eternity is nothing more than a form of escapism. In the end, the path I took was like that of a turtle who hides in its shell. Still, turtles have always been a symbol of longevity. Perhaps in order to reach Eternity, one has to follow their example.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 5",
+        "Complete \"Omnipresence Over Mortals\""
+      ]
+    },
+    "x52044": {
+      "quoteTitle": "More About Ei: V",
+      "quoteText": "I'm fearful because of what I witnessed five hundred years ago — her demise and... that thing. But, if... If it were you, everyone would be safe. You would've saved the world. Just like I cherish the memories of everything in Inazuma, if you remember me, I'll live forever.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 6",
+        "Complete \"Omnipresence Over Mortals\""
+      ]
+    },
+    "x52045": {
+      "quoteTitle": "The Raiden Shogun's Hobbies",
+      "quoteText": "Foolish question. There are only two kinds of things — those that must be done and those that must not.",
+      "unlockConds": []
+    },
+    "x52046": {
+      "quoteTitle": "Ei's Troubles",
+      "quoteText": "Don't try and get me to cook. I can take care of anything else, but not that.",
+      "unlockConds": [
+        "Complete \"Omnipresence Over Mortals\""
+      ]
+    },
+    "x52047": {
+      "quoteTitle": "Favorite Food",
+      "quoteText": "Oh, don't listen to the Shogun. Desserts! Cavities are no big deal — you can just replace your teeth. Anyway, I just don't see how desserts can pose a serious obstacle to my pursuit of Eternity.",
+      "unlockConds": [
+        "Complete \"Omnipresence Over Mortals\""
+      ]
+    },
+    "x52048": {
+      "quoteTitle": "Least Favorite Food",
+      "quoteText": "Foolish question. There are only two kinds of foods — those that must be consumed to nourish the body and those that harm it.",
+      "unlockConds": []
+    },
+    "x52049": {
+      "quoteTitle": "Birth Date",
+      "quoteText": "Is today the day of your creation? Return to the city with me. I will read out a speech for you in front of all my attendants. \"Embarrassing\"? ...Understood.",
+      "unlockConds": []
+    },
+    "x52050": {
+      "quoteTitle": "Birthday",
+      "quoteText": "Happy birthday! Let's celebrate together and make it a moment to remember for the whole year until your next birthday celebration, and so on and so forth. Then, you shall have an eternity of happiness.",
+      "unlockConds": []
+    },
+    "x52051": {
+      "quoteTitle": "Feelings About Ascension: Intro",
+      "quoteText": "The initial stage of my journey, or Shoden, involves learning the nine-way sword slash and the foundations of the art of the polearm. There is no great variation from other traditions at this point. Or rather, it is the other traditions that do not differ from mine.",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 1"
+      ]
+    },
+    "x52052": {
+      "quoteTitle": "Feelings About Ascension: Building Up",
+      "quoteText": "At the intermediate stage of my journey, or Chuuden, the art of the sword focuses on the study of various stances and transitions. The art of the polearm — slashes and backslashes.",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 2"
+      ]
+    },
+    "x52053": {
+      "quoteTitle": "Feelings About Ascension: Climax",
+      "quoteText": "The final stage of my journey, or Kaiden, is the study of the most profound techniques. Unavoidably, these draw heavily on elemental power, rendering them beyond the capabilities of most mortals. Most practitioners of other traditions are unable to ever reach this level.",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 4"
+      ]
+    },
+    "x52054": {
+      "quoteTitle": "Feelings About Ascension: Conclusion",
+      "quoteText": "The profoundest of the profound is the Musou no Hitotachi. A sword art without parallel in all the world. With you as my sparring partner, I can perfect that technique even further.",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 6"
+      ]
+    },
+    "x52055": {
+      "quoteTitle": "Elemental Skill: I",
+      "quoteText": "Shine down!",
+      "unlockConds": []
+    },
+    "x52056": {
+      "quoteTitle": "Elemental Skill: II",
+      "quoteText": "There is no escape!",
+      "unlockConds": []
+    },
+    "x52057": {
+      "quoteTitle": "Elemental Skill: III",
+      "quoteText": "Illusion shattered!",
+      "unlockConds": []
+    },
+    "x52058": {
+      "quoteTitle": "Elemental Burst: I",
+      "quoteText": "Torn to oblivion!",
+      "unlockConds": []
+    },
+    "x52059": {
+      "quoteTitle": "Elemental Burst: II",
+      "quoteText": "Now, you shall perish!",
+      "unlockConds": []
+    },
+    "x52060": {
+      "quoteTitle": "Elemental Burst: III",
+      "quoteText": "Inazuma shines eternal!",
+      "unlockConds": []
+    },
+    "x52061": {
+      "quoteTitle": "Opening Treasure Chest: I",
+      "quoteText": "Take them. I have no need.",
+      "unlockConds": []
+    },
+    "x52062": {
+      "quoteTitle": "Opening Treasure Chest: II",
+      "quoteText": "...But a momentary distraction.",
+      "unlockConds": []
+    },
+    "x52063": {
+      "quoteTitle": "Opening Treasure Chest: III",
+      "quoteText": "Hmm?",
+      "unlockConds": []
+    },
+    "x52064": {
+      "quoteTitle": "Low HP: I",
+      "quoteText": "...Transcend all constraints.",
+      "unlockConds": []
+    },
+    "x52065": {
+      "quoteTitle": "Low HP: II",
+      "quoteText": "...Erase all threats.",
+      "unlockConds": []
+    },
+    "x52066": {
+      "quoteTitle": "Low HP: III",
+      "quoteText": "...Remove all obstacles.",
+      "unlockConds": []
+    },
+    "x52067": {
+      "quoteTitle": "Ally at Low HP: I",
+      "quoteText": "Fall back and await my orders.",
+      "unlockConds": []
+    },
+    "x52068": {
+      "quoteTitle": "Ally at Low HP: II",
+      "quoteText": "Step aside.",
+      "unlockConds": []
+    },
+    "x52069": {
+      "quoteTitle": "Fallen: I",
+      "quoteText": "The mortal plane... A fleeting dream...",
+      "unlockConds": []
+    },
+    "x52070": {
+      "quoteTitle": "Fallen: II",
+      "quoteText": "Detached from the world...",
+      "unlockConds": []
+    },
+    "x52071": {
+      "quoteTitle": "Fallen: III",
+      "quoteText": "The thunder falls silent...",
+      "unlockConds": []
+    },
+    "x52072": {
+      "quoteTitle": "Heavy Hit Taken: I",
+      "quoteText": "Insolent!",
+      "unlockConds": []
+    },
+    "x52073": {
+      "quoteTitle": "Heavy Hit Taken: II",
+      "quoteText": "Absurd!",
+      "unlockConds": []
+    },
+    "x52074": {
+      "quoteTitle": "Joining Party: I",
+      "quoteText": "What is the situation?",
+      "unlockConds": []
+    },
+    "x52075": {
+      "quoteTitle": "Joining Party: II",
+      "quoteText": "Stay close and you will live.",
+      "unlockConds": []
+    },
+    "x52076": {
+      "quoteTitle": "Joining Party: III",
+      "quoteText": "The campaign begins.",
+      "unlockConds": []
+    },
+    "x52077": {
+      "quoteTitle": "Receiving a Gift: I",
+      "quoteText": "A familiar flavor... Acceptable.",
+      "unlockConds": []
+    },
+    "x52078": {
+      "quoteTitle": "Receiving a Gift: II",
+      "quoteText": "Leave it here, and I shall sample it.",
+      "unlockConds": []
+    },
+    "x52079": {
+      "quoteTitle": "Receiving a Gift: III",
+      "quoteText": "Consuming this would be physically detrimental. Remove it from my presence.",
+      "unlockConds": []
+    },
+    "x52080": {
+      "quoteTitle": "Receiving a Gift: IV",
+      "quoteText": "Delicious. I feel much better after that. Thank you.",
+      "unlockConds": [
+        "Complete \"Omnipresence Over Mortals\""
+      ]
+    },
+    "x52081": {
+      "quoteTitle": "Receiving a Gift: V",
+      "quoteText": "Doesn't look too bad, how did you make it?",
+      "unlockConds": [
+        "Complete \"Omnipresence Over Mortals\""
+      ]
+    },
+    "x52082": {
+      "quoteTitle": "Receiving a Gift: VI",
+      "quoteText": "Allow me to decline.",
+      "unlockConds": [
+        "Complete \"Omnipresence Over Mortals\""
+      ]
+    },
+    "x52083": {
+      "quoteTitle": "About Buer",
+      "quoteText": "I admire her humility; it is a sign of true wisdom. With the power she holds, Buer is capable of doing many things beyond our wildest imaginations... and yet, she uses her power only to right wrongs and to protect. She is a truly gentle god.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4",
+        "Complete \"Akasha Pulses, the Kalpa Flame Rises\""
+      ]
+    },
+    "x52084": {
+      "quoteTitle": "About Furina",
+      "quoteText": "For five centuries I dueled the Raiden Shogun in my personal realm of consciousness, to confirm the steadfastness of my will. Yet this Furina you speak of, though possessing only a frail human body, committed herself to acting out her part every second of every day for five hundred years — a true battle of the spirit. Her willpower has indeed reached the level of a god.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4",
+        "Complete \"Masquerade of the Guilty\"",
+        "Complete \"Transient Dreams\""
+      ]
+    },
+    "x52085": {
+      "quoteTitle": "About Haborym",
+      "quoteText": "When I arrived in Khaenri'ah five hundred years ago, I saw a battlefield of scorched earth on the level of Musoujin Gorge. The fury of the Pyro Archon... that was said to be the cause. Now, I have the opportunity to meet that human once again... Perhaps you could introduce me? We are both warriors. It would be nice to find a spacious place to engage in a practical exchange.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4",
+        "Complete \"Incandescent Ode of Resurrection\""
+      ]
+    },
+    "x52086": {
+      "quoteTitle": "About Yumemizuki Mizuki",
+      "quoteText": "Yumemizuki Mizuki is one of Miko's old acquaintances, but I struggle to understand their friendship. Though they share an irreplaceable bond, they seem reluctant to associate with each other in public, instead engaging in a long-standing business feud. In the end, much of their rivalry centers around projects that end up improving people's lives, so I see no reason to intervene.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4",
+        "Complete \"Transient Dreams\""
+      ]
+    }
+  },
+  "energy": {
+    "source": "UNIQUE_Elf_ElementalBall_Handler",
+    "particles": "1",
+    "chance": "50%",
+    "cd": "Instant"
+  },
+  "attacks": [
+    {
+      "name": "SkillObj_ElementalArt_EyeBoom",
+      "icd_source": "Tag: Elemental_Art (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV2/80",
+      "element": "Electric",
+      "attackType": "Melee",
+      "strikeType": "-",
+      "damageParam": "ElementalArt_Attack"
+    },
+    {
+      "name": "Elf",
+      "icd_source": "Tag: Elemental_Art (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV2/30",
+      "element": "Electric",
+      "attackType": "Melee",
+      "strikeType": "Slash",
+      "damageParam": "Elf_Attack"
+    },
+    {
+      "name": "Elf",
+      "icd_source": "Tag: Elemental_Art (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV2/30",
+      "element": "Electric",
+      "attackType": "Melee",
+      "strikeType": "Slash",
+      "damageParam": "Elf_Attack|Elf_RemoteAttackRatio|MUL"
+    },
+    {
+      "name": "ElementalBurst",
+      "icd_source": "Tag: Elemental_Burst (!)",
+      "icd_rule": "Independent",
+      "gauge": "2U",
+      "poise": "LV2/150",
+      "element": "Electric",
+      "attackType": "Melee",
+      "strikeType": "Slash",
+      "damageParam": "ElementalBurst_BaseDamage|BurstDamageDelta|ADD"
+    },
+    {
+      "name": "ElementalBurst",
+      "icd_source": "Grp: default",
+      "icd_rule": "Standard (3h/2.5s)",
+      "gauge": "4U",
+      "poise": "-/400",
+      "element": "-",
+      "attackType": "Default",
+      "strikeType": "None",
+      "damageParam": "-"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: Elemental_Burst (!)",
+      "icd_rule": "Independent",
+      "gauge": "0U",
+      "poise": "LV2/25",
+      "element": "Electric",
+      "attackType": "Melee",
+      "strikeType": "Slash",
+      "damageParam": "FallingAnthem_Normal_Loop_Katana_Damage|KatanaDamageDelta|ADD"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "0U",
+      "poise": "LV2/25",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Slash",
+      "damageParam": "FallingAnthem_Normal_Loop_Damage"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "0U",
+      "poise": "LV2/25",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Slash",
+      "damageParam": "FallingAnthem_Normal_Loop_Damage"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV4/100",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Blunt",
+      "damageParam": "FallingAnthem_Normal_Rank_1_Damage"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV7/150",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Blunt",
+      "damageParam": "FallingAnthem_Normal_Rank_2_Damage"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: Elemental_Burst (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV4/100",
+      "element": "Electric",
+      "attackType": "Melee",
+      "strikeType": "Blunt",
+      "damageParam": "FallingAnthem_Normal_Rank_1_Katana_Damage|KatanaDamageDelta|ADD"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: Elemental_Burst (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV7/150",
+      "element": "Electric",
+      "attackType": "Melee",
+      "strikeType": "Blunt",
+      "damageParam": "FallingAnthem_Normal_Rank_2_Katana_Damage|KatanaDamageDelta|ADD"
+    }
+  ],
+  "endure": {
+    "ability": "ElementalBurst",
+    "handler": "UNIQUE_Tachi_Handler",
+    "Actor_EndureDelta": 0
+  }
+}

@@ -1,0 +1,31 @@
+﻿{
+    "Id":  10007,
+    "SetId":  10007,
+    "EnName":  "Instructor",
+    "QualityType":  "QUALITY_PURPLE",
+    "SetIcon":  "UI_RelicIcon_10007_4",
+    "Effect2Pc":  "Increases Elemental Mastery by 80.",
+    "Effect4Pc":  "Upon triggering an Elemental Reaction, increases all party members\u0027 Elemental Mastery by 120 for 8s.",
+    "Pieces":  {
+                   "circlet":  {
+                                   "icon":  "UI_RelicIcon_10007_3",
+                                   "name":  "Instructor\u0027s Cap"
+                               },
+                   "flower":  {
+                                  "icon":  "UI_RelicIcon_10007_4",
+                                  "name":  "Instructor\u0027s Brooch"
+                              },
+                   "goblet":  {
+                                  "icon":  "UI_RelicIcon_10007_1",
+                                  "name":  "Instructor\u0027s Tea Cup"
+                              },
+                   "plume":  {
+                                 "icon":  "UI_RelicIcon_10007_2",
+                                 "name":  "Instructor\u0027s Feather Accessory"
+                             },
+                   "sands":  {
+                                 "icon":  "UI_RelicIcon_10007_5",
+                                 "name":  "Instructor\u0027s Pocket Watch"
+                             }
+               }
+}

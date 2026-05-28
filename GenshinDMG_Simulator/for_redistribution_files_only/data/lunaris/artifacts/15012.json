@@ -1,0 +1,15 @@
+﻿{
+    "Id":  15012,
+    "SetId":  15012,
+    "EnName":  "Prayers to the Firmament",
+    "QualityType":  "QUALITY_PURPLE",
+    "SetIcon":  "UI_RelicIcon_15012_3",
+    "Effect2Pc":  null,
+    "Effect4Pc":  null,
+    "Pieces":  {
+                   "circlet":  {
+                                   "icon":  "UI_RelicIcon_15012_3",
+                                   "name":  "Tiara of Gales"
+                               }
+               }
+}

@@ -1,0 +1,2 @@
+Weapon,WeaponATK,WeaponSubStatType,WeaponSubStatValue,WeaponRefinement,AtkBonus,FlatATK,EM,ER,CritRate,CritDMG,AnemoDMGBonus,NormalDMGBonus,SkillDMGBonus,BurstDMGBonus,ResShred,ArtifactSet1,ArtifactSet1Pieces,ArtifactSet2,ArtifactSet2Pieces,ArtifactSet4Active
+Beacon of the Reed Sea,608,CR,0.331,1,0.94,311,100,1.15,0.8,2.04,0.466,0.18,0.22,0.2,0,ViridescentVenerer,4,None,0,1

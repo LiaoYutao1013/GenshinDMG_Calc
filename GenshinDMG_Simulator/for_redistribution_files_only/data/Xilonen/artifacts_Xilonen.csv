@@ -1,0 +1,2 @@
+Weapon,WeaponATK,DEFBonus,FlatDEF,CritRate,CritDMG,GeoDMGBonus,SkillDMGBonus,BurstDMGBonus,HealingBonus,ResShred,ArtifactSet1,ArtifactSet1Pieces,ArtifactSet2,ArtifactSet2Pieces,ArtifactSet4Active
+TrailforgedEdge,608,1.18,260,0.62,1.7,0.466,0.2,0.2,0.15,0,HuskOfOpulentDreams,4,None,0,1

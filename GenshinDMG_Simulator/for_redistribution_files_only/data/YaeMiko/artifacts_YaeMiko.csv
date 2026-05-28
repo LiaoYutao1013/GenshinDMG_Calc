@@ -1,0 +1,2 @@
+Weapon,WeaponATK,WeaponSubStatType,WeaponSubStatValue,WeaponRefinement,AtkBonus,FlatATK,EM,ER,CritRate,CritDMG,ElectroDMGBonus,SkillDMGBonus,BurstDMGBonus,ResShred,ArtifactSet1,ArtifactSet1Pieces,ArtifactSet2,ArtifactSet2Pieces,ArtifactSet4Active
+KagurasVerity,608,CD,0.662,1,0.46,140,120,1.4,0.72,2.2,0.466,0.46,0.2,0,GoldenTroupe,4,None,0,1

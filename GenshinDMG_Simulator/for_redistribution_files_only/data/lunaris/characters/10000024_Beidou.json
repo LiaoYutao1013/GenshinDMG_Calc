@@ -1,0 +1,1883 @@
+{
+  "info": {
+    "name": "Beidou",
+    "description": "Captain of her crew, The Crux. She's quite an unbound and forthright woman.",
+    "rarity": "QUALITY_PURPLE",
+    "weapon": "WEAPON_CLAYMORE",
+    "birthday": "0/2",
+    "element": "Electro",
+    "title": "Uncrowned Lord of the Ocean",
+    "constellation": "Victor Mare",
+    "affiliation": "The Crux",
+    "cv": {
+      "EN": "Allegra Clark",
+      "CHS": "唐雅菁",
+      "JP": "小清水亜美",
+      "KR": "Jung Yoo-mi"
+    },
+    "attributes": [
+      {
+        "level": 1,
+        "ascension": 0,
+        "hp": 1094,
+        "atk": 19,
+        "def": 54,
+        "Electro_": "0"
+      },
+      {
+        "level": 2,
+        "ascension": 0,
+        "hp": 1185,
+        "atk": 20,
+        "def": 59,
+        "Electro_": "0"
+      },
+      {
+        "level": 3,
+        "ascension": 0,
+        "hp": 1275,
+        "atk": 22,
+        "def": 63,
+        "Electro_": "0"
+      },
+      {
+        "level": 4,
+        "ascension": 0,
+        "hp": 1365,
+        "atk": 24,
+        "def": 68,
+        "Electro_": "0"
+      },
+      {
+        "level": 5,
+        "ascension": 0,
+        "hp": 1455,
+        "atk": 25,
+        "def": 72,
+        "Electro_": "0"
+      },
+      {
+        "level": 6,
+        "ascension": 0,
+        "hp": 1546,
+        "atk": 27,
+        "def": 77,
+        "Electro_": "0"
+      },
+      {
+        "level": 7,
+        "ascension": 0,
+        "hp": 1636,
+        "atk": 28,
+        "def": 81,
+        "Electro_": "0"
+      },
+      {
+        "level": 8,
+        "ascension": 0,
+        "hp": 1727,
+        "atk": 30,
+        "def": 86,
+        "Electro_": "0"
+      },
+      {
+        "level": 9,
+        "ascension": 0,
+        "hp": 1817,
+        "atk": 31,
+        "def": 90,
+        "Electro_": "0"
+      },
+      {
+        "level": 10,
+        "ascension": 0,
+        "hp": 1907,
+        "atk": 33,
+        "def": 95,
+        "Electro_": "0"
+      },
+      {
+        "level": 11,
+        "ascension": 0,
+        "hp": 1998,
+        "atk": 34,
+        "def": 99,
+        "Electro_": "0"
+      },
+      {
+        "level": 12,
+        "ascension": 0,
+        "hp": 2088,
+        "atk": 36,
+        "def": 104,
+        "Electro_": "0"
+      },
+      {
+        "level": 13,
+        "ascension": 0,
+        "hp": 2178,
+        "atk": 38,
+        "def": 108,
+        "Electro_": "0"
+      },
+      {
+        "level": 14,
+        "ascension": 0,
+        "hp": 2268,
+        "atk": 39,
+        "def": 113,
+        "Electro_": "0"
+      },
+      {
+        "level": 15,
+        "ascension": 0,
+        "hp": 2359,
+        "atk": 41,
+        "def": 117,
+        "Electro_": "0"
+      },
+      {
+        "level": 16,
+        "ascension": 0,
+        "hp": 2450,
+        "atk": 42,
+        "def": 122,
+        "Electro_": "0"
+      },
+      {
+        "level": 17,
+        "ascension": 0,
+        "hp": 2540,
+        "atk": 44,
+        "def": 126,
+        "Electro_": "0"
+      },
+      {
+        "level": 18,
+        "ascension": 0,
+        "hp": 2630,
+        "atk": 45,
+        "def": 131,
+        "Electro_": "0"
+      },
+      {
+        "level": 19,
+        "ascension": 0,
+        "hp": 2720,
+        "atk": 47,
+        "def": 135,
+        "Electro_": "0"
+      },
+      {
+        "level": 20,
+        "ascension": 0,
+        "hp": 2811,
+        "atk": 48,
+        "def": 140,
+        "Electro_": "0"
+      },
+      {
+        "level": 21,
+        "ascension": 1,
+        "hp": 3718,
+        "atk": 64,
+        "def": 185,
+        "Electro_": "0"
+      },
+      {
+        "level": 22,
+        "ascension": 1,
+        "hp": 3809,
+        "atk": 66,
+        "def": 189,
+        "Electro_": "0"
+      },
+      {
+        "level": 23,
+        "ascension": 1,
+        "hp": 3900,
+        "atk": 67,
+        "def": 194,
+        "Electro_": "0"
+      },
+      {
+        "level": 24,
+        "ascension": 1,
+        "hp": 3989,
+        "atk": 69,
+        "def": 198,
+        "Electro_": "0"
+      },
+      {
+        "level": 25,
+        "ascension": 1,
+        "hp": 4080,
+        "atk": 70,
+        "def": 203,
+        "Electro_": "0"
+      },
+      {
+        "level": 26,
+        "ascension": 1,
+        "hp": 4170,
+        "atk": 72,
+        "def": 207,
+        "Electro_": "0"
+      },
+      {
+        "level": 27,
+        "ascension": 1,
+        "hp": 4261,
+        "atk": 74,
+        "def": 212,
+        "Electro_": "0"
+      },
+      {
+        "level": 28,
+        "ascension": 1,
+        "hp": 4350,
+        "atk": 75,
+        "def": 216,
+        "Electro_": "0"
+      },
+      {
+        "level": 29,
+        "ascension": 1,
+        "hp": 4441,
+        "atk": 77,
+        "def": 221,
+        "Electro_": "0"
+      },
+      {
+        "level": 30,
+        "ascension": 1,
+        "hp": 4531,
+        "atk": 78,
+        "def": 225,
+        "Electro_": "0"
+      },
+      {
+        "level": 31,
+        "ascension": 1,
+        "hp": 4622,
+        "atk": 80,
+        "def": 230,
+        "Electro_": "0"
+      },
+      {
+        "level": 32,
+        "ascension": 1,
+        "hp": 4713,
+        "atk": 81,
+        "def": 234,
+        "Electro_": "0"
+      },
+      {
+        "level": 33,
+        "ascension": 1,
+        "hp": 4802,
+        "atk": 83,
+        "def": 239,
+        "Electro_": "0"
+      },
+      {
+        "level": 34,
+        "ascension": 1,
+        "hp": 4893,
+        "atk": 84,
+        "def": 243,
+        "Electro_": "0"
+      },
+      {
+        "level": 35,
+        "ascension": 1,
+        "hp": 4983,
+        "atk": 86,
+        "def": 248,
+        "Electro_": "0"
+      },
+      {
+        "level": 36,
+        "ascension": 1,
+        "hp": 5074,
+        "atk": 88,
+        "def": 252,
+        "Electro_": "0"
+      },
+      {
+        "level": 37,
+        "ascension": 1,
+        "hp": 5163,
+        "atk": 89,
+        "def": 257,
+        "Electro_": "0"
+      },
+      {
+        "level": 38,
+        "ascension": 1,
+        "hp": 5254,
+        "atk": 91,
+        "def": 261,
+        "Electro_": "0"
+      },
+      {
+        "level": 39,
+        "ascension": 1,
+        "hp": 5345,
+        "atk": 92,
+        "def": 266,
+        "Electro_": "0"
+      },
+      {
+        "level": 40,
+        "ascension": 1,
+        "hp": 5435,
+        "atk": 94,
+        "def": 270,
+        "Electro_": "0"
+      },
+      {
+        "level": 41,
+        "ascension": 2,
+        "hp": 6106,
+        "atk": 105,
+        "def": 303,
+        "Electro_": "6"
+      },
+      {
+        "level": 42,
+        "ascension": 2,
+        "hp": 6196,
+        "atk": 107,
+        "def": 308,
+        "Electro_": "6"
+      },
+      {
+        "level": 43,
+        "ascension": 2,
+        "hp": 6287,
+        "atk": 108,
+        "def": 312,
+        "Electro_": "6"
+      },
+      {
+        "level": 44,
+        "ascension": 2,
+        "hp": 6377,
+        "atk": 110,
+        "def": 317,
+        "Electro_": "6"
+      },
+      {
+        "level": 45,
+        "ascension": 2,
+        "hp": 6467,
+        "atk": 112,
+        "def": 321,
+        "Electro_": "6"
+      },
+      {
+        "level": 46,
+        "ascension": 2,
+        "hp": 6558,
+        "atk": 113,
+        "def": 326,
+        "Electro_": "6"
+      },
+      {
+        "level": 47,
+        "ascension": 2,
+        "hp": 6648,
+        "atk": 115,
+        "def": 330,
+        "Electro_": "6"
+      },
+      {
+        "level": 48,
+        "ascension": 2,
+        "hp": 6739,
+        "atk": 116,
+        "def": 335,
+        "Electro_": "6"
+      },
+      {
+        "level": 49,
+        "ascension": 2,
+        "hp": 6828,
+        "atk": 118,
+        "def": 339,
+        "Electro_": "6"
+      },
+      {
+        "level": 50,
+        "ascension": 2,
+        "hp": 6919,
+        "atk": 119,
+        "def": 344,
+        "Electro_": "6"
+      },
+      {
+        "level": 51,
+        "ascension": 3,
+        "hp": 7783,
+        "atk": 134,
+        "def": 387,
+        "Electro_": "12"
+      },
+      {
+        "level": 52,
+        "ascension": 3,
+        "hp": 7874,
+        "atk": 136,
+        "def": 391,
+        "Electro_": "12"
+      },
+      {
+        "level": 53,
+        "ascension": 3,
+        "hp": 7965,
+        "atk": 137,
+        "def": 396,
+        "Electro_": "12"
+      },
+      {
+        "level": 54,
+        "ascension": 3,
+        "hp": 8055,
+        "atk": 139,
+        "def": 400,
+        "Electro_": "12"
+      },
+      {
+        "level": 55,
+        "ascension": 3,
+        "hp": 8145,
+        "atk": 141,
+        "def": 405,
+        "Electro_": "12"
+      },
+      {
+        "level": 56,
+        "ascension": 3,
+        "hp": 8235,
+        "atk": 142,
+        "def": 409,
+        "Electro_": "12"
+      },
+      {
+        "level": 57,
+        "ascension": 3,
+        "hp": 8326,
+        "atk": 144,
+        "def": 414,
+        "Electro_": "12"
+      },
+      {
+        "level": 58,
+        "ascension": 3,
+        "hp": 8416,
+        "atk": 145,
+        "def": 418,
+        "Electro_": "12"
+      },
+      {
+        "level": 59,
+        "ascension": 3,
+        "hp": 8507,
+        "atk": 147,
+        "def": 423,
+        "Electro_": "12"
+      },
+      {
+        "level": 60,
+        "ascension": 3,
+        "hp": 8597,
+        "atk": 148,
+        "def": 427,
+        "Electro_": "12"
+      },
+      {
+        "level": 61,
+        "ascension": 4,
+        "hp": 9268,
+        "atk": 160,
+        "def": 460,
+        "Electro_": "12"
+      },
+      {
+        "level": 62,
+        "ascension": 4,
+        "hp": 9359,
+        "atk": 161,
+        "def": 465,
+        "Electro_": "12"
+      },
+      {
+        "level": 63,
+        "ascension": 4,
+        "hp": 9448,
+        "atk": 163,
+        "def": 469,
+        "Electro_": "12"
+      },
+      {
+        "level": 64,
+        "ascension": 4,
+        "hp": 9539,
+        "atk": 165,
+        "def": 474,
+        "Electro_": "12"
+      },
+      {
+        "level": 65,
+        "ascension": 4,
+        "hp": 9629,
+        "atk": 166,
+        "def": 478,
+        "Electro_": "12"
+      },
+      {
+        "level": 66,
+        "ascension": 4,
+        "hp": 9720,
+        "atk": 168,
+        "def": 483,
+        "Electro_": "12"
+      },
+      {
+        "level": 67,
+        "ascension": 4,
+        "hp": 9811,
+        "atk": 169,
+        "def": 487,
+        "Electro_": "12"
+      },
+      {
+        "level": 68,
+        "ascension": 4,
+        "hp": 9900,
+        "atk": 171,
+        "def": 492,
+        "Electro_": "12"
+      },
+      {
+        "level": 69,
+        "ascension": 4,
+        "hp": 9991,
+        "atk": 172,
+        "def": 496,
+        "Electro_": "12"
+      },
+      {
+        "level": 70,
+        "ascension": 4,
+        "hp": 10081,
+        "atk": 174,
+        "def": 501,
+        "Electro_": "12"
+      },
+      {
+        "level": 71,
+        "ascension": 5,
+        "hp": 10752,
+        "atk": 186,
+        "def": 534,
+        "Electro_": "18"
+      },
+      {
+        "level": 72,
+        "ascension": 5,
+        "hp": 10842,
+        "atk": 187,
+        "def": 539,
+        "Electro_": "18"
+      },
+      {
+        "level": 73,
+        "ascension": 5,
+        "hp": 10933,
+        "atk": 189,
+        "def": 543,
+        "Electro_": "18"
+      },
+      {
+        "level": 74,
+        "ascension": 5,
+        "hp": 11024,
+        "atk": 190,
+        "def": 548,
+        "Electro_": "18"
+      },
+      {
+        "level": 75,
+        "ascension": 5,
+        "hp": 11113,
+        "atk": 192,
+        "def": 552,
+        "Electro_": "18"
+      },
+      {
+        "level": 76,
+        "ascension": 5,
+        "hp": 11204,
+        "atk": 193,
+        "def": 557,
+        "Electro_": "18"
+      },
+      {
+        "level": 77,
+        "ascension": 5,
+        "hp": 11294,
+        "atk": 195,
+        "def": 561,
+        "Electro_": "18"
+      },
+      {
+        "level": 78,
+        "ascension": 5,
+        "hp": 11385,
+        "atk": 196,
+        "def": 566,
+        "Electro_": "18"
+      },
+      {
+        "level": 79,
+        "ascension": 5,
+        "hp": 11475,
+        "atk": 198,
+        "def": 570,
+        "Electro_": "18"
+      },
+      {
+        "level": 80,
+        "ascension": 5,
+        "hp": 11565,
+        "atk": 200,
+        "def": 575,
+        "Electro_": "18"
+      },
+      {
+        "level": 81,
+        "ascension": 6,
+        "hp": 12237,
+        "atk": 211,
+        "def": 608,
+        "Electro_": "24"
+      },
+      {
+        "level": 82,
+        "ascension": 6,
+        "hp": 12327,
+        "atk": 213,
+        "def": 612,
+        "Electro_": "24"
+      },
+      {
+        "level": 83,
+        "ascension": 6,
+        "hp": 12417,
+        "atk": 214,
+        "def": 617,
+        "Electro_": "24"
+      },
+      {
+        "level": 84,
+        "ascension": 6,
+        "hp": 12507,
+        "atk": 216,
+        "def": 621,
+        "Electro_": "24"
+      },
+      {
+        "level": 85,
+        "ascension": 6,
+        "hp": 12598,
+        "atk": 217,
+        "def": 626,
+        "Electro_": "24"
+      },
+      {
+        "level": 86,
+        "ascension": 6,
+        "hp": 12688,
+        "atk": 219,
+        "def": 630,
+        "Electro_": "24"
+      },
+      {
+        "level": 87,
+        "ascension": 6,
+        "hp": 12779,
+        "atk": 220,
+        "def": 635,
+        "Electro_": "24"
+      },
+      {
+        "level": 88,
+        "ascension": 6,
+        "hp": 12868,
+        "atk": 222,
+        "def": 639,
+        "Electro_": "24"
+      },
+      {
+        "level": 89,
+        "ascension": 6,
+        "hp": 12959,
+        "atk": 224,
+        "def": 644,
+        "Electro_": "24"
+      },
+      {
+        "level": 90,
+        "ascension": 6,
+        "hp": 13050,
+        "atk": 225,
+        "def": 648,
+        "Electro_": "24"
+      },
+      {
+        "level": 95,
+        "ascension": 6,
+        "hp": 13501,
+        "atk": 254,
+        "def": 671,
+        "Electro_": "24"
+      },
+      {
+        "level": 100,
+        "ascension": 6,
+        "hp": 13953,
+        "atk": 283,
+        "def": 693,
+        "Electro_": "24"
+      }
+    ]
+  },
+  "icons": {
+    "forward": "UI_AvatarIcon_Beidou",
+    "coop_img": "UI_CoopImg_Beidou"
+  },
+  "ascension": {
+    "x202": 7.0499E+6,
+    "exp": {
+      "x104001": 2,
+      "x104003": 418
+    },
+    "speciality": {
+      "x100028": 168
+    },
+    "elemental": {
+      "x104141": 1,
+      "x104142": 9,
+      "x104143": 9,
+      "x104144": 6
+    },
+    "worldmonster": {
+      "x112035": 18,
+      "x112036": 30,
+      "x112037": 36
+    },
+    "elitemonster": {
+      "x113002": 46
+    }
+  },
+  "skills": {
+    "normalattack": {
+      "name": "Oceanborne",
+      "icon": "Skill_A_04",
+      "multipliers": {
+        "x1_HitDMG": [
+          "71.12%",
+          "76.91%",
+          "82.7%",
+          "90.97%",
+          "96.76%",
+          "103.38%",
+          "112.47%",
+          "121.57%",
+          "130.67%",
+          "140.59%",
+          "151.96%",
+          "165.33%",
+          "178.71%",
+          "192.08%",
+          "206.67%"
+        ],
+        "x2_HitDMG": [
+          "70.86%",
+          "76.63%",
+          "82.4%",
+          "90.64%",
+          "96.41%",
+          "103%",
+          "112.06%",
+          "121.13%",
+          "130.19%",
+          "140.08%",
+          "151.41%",
+          "164.73%",
+          "178.06%",
+          "191.38%",
+          "205.92%"
+        ],
+        "x3_HitDMG": [
+          "88.32%",
+          "95.51%",
+          "102.7%",
+          "112.97%",
+          "120.16%",
+          "128.38%",
+          "139.67%",
+          "150.97%",
+          "162.27%",
+          "174.59%",
+          "188.71%",
+          "205.32%",
+          "221.92%",
+          "238.53%",
+          "256.65%"
+        ],
+        "x4_HitDMG": [
+          "86.52%",
+          "93.56%",
+          "100.6%",
+          "110.66%",
+          "117.7%",
+          "125.75%",
+          "136.82%",
+          "147.88%",
+          "158.95%",
+          "171.02%",
+          "184.85%",
+          "201.12%",
+          "217.39%",
+          "233.65%",
+          "251.4%"
+        ],
+        "x5_HitDMG": [
+          "112.14%",
+          "121.27%",
+          "130.4%",
+          "143.44%",
+          "152.57%",
+          "163%",
+          "177.34%",
+          "191.69%",
+          "206.03%",
+          "221.68%",
+          "239.61%",
+          "260.7%",
+          "281.78%",
+          "302.87%",
+          "325.87%"
+        ],
+        "ChargedAttackCyclicDMG": [
+          "56.24%",
+          "60.82%",
+          "65.4%",
+          "71.94%",
+          "76.52%",
+          "81.75%",
+          "88.94%",
+          "96.14%",
+          "103.33%",
+          "111.18%",
+          "120.17%",
+          "130.75%",
+          "141.32%",
+          "151.9%",
+          "163.43%"
+        ],
+        "ChargedAttackFinalDMG": [
+          "101.82%",
+          "110.11%",
+          "118.4%",
+          "130.24%",
+          "138.53%",
+          "148%",
+          "161.02%",
+          "174.05%",
+          "187.07%",
+          "201.28%",
+          "217.56%",
+          "236.71%",
+          "255.85%",
+          "275%",
+          "295.88%"
+        ],
+        "ChargedAttackStaminaCost": [
+          "40/s",
+          "40/s",
+          "40/s",
+          "40/s",
+          "40/s",
+          "40/s",
+          "40/s",
+          "40/s",
+          "40/s",
+          "40/s",
+          "40/s",
+          "40/s",
+          "40/s",
+          "40/s",
+          "40/s"
+        ],
+        "MaxDuration": [
+          "5s",
+          "5s",
+          "5s",
+          "5s",
+          "5s",
+          "5s",
+          "5s",
+          "5s",
+          "5s",
+          "5s",
+          "5s",
+          "5s",
+          "5s",
+          "5s",
+          "5s"
+        ],
+        "PlungeDMG": [
+          "74.59%",
+          "80.66%",
+          "86.73%",
+          "95.4%",
+          "101.47%",
+          "108.41%",
+          "117.95%",
+          "127.49%",
+          "137.03%",
+          "147.44%",
+          "157.85%",
+          "168.26%",
+          "178.66%",
+          "189.07%",
+          "199.48%"
+        ],
+        "Low_HighPlungeDMG": [
+          "149.14%/186.29%",
+          "161.28%/201.45%",
+          "173.42%/216.62%",
+          "190.77%/238.28%",
+          "202.91%/253.44%",
+          "216.78%/270.77%",
+          "235.86%/294.6%",
+          "254.93%/318.42%",
+          "274.01%/342.25%",
+          "294.82%/368.25%",
+          "315.63%/394.24%",
+          "336.44%/420.23%",
+          "357.25%/446.23%",
+          "378.06%/472.22%",
+          "398.87%/498.21%"
+        ]
+      },
+      "description": "<color=#FFD780FF>Normal Attack</color>\\nPerforms up to 5 consecutive strikes.\\n\\n<color=#FFD780FF>Charged Attack</color>\\nDrains Stamina over time to perform continuous slashes.\\nAt the end of the sequence, performs a more powerful slash.\\n\\n<color=#FFD780FF>Plunging Attack</color>\\nPlunges from mid-air to strike the ground, damaging opponents along the path and dealing AoE DMG upon impact."
+    },
+    "elementalskill": {
+      "name": "Tidecaller",
+      "icon": "Skill_S_Beidou_01",
+      "multipliers": {
+        "ShieldDMGAbsorption": [
+          "14.4% Max HP+1386",
+          "15.48% Max HP+1525",
+          "16.56% Max HP+1675",
+          "18% Max HP+1837",
+          "19.08% Max HP+2010",
+          "20.16% Max HP+2195",
+          "21.6% Max HP+2392",
+          "23.04% Max HP+2600",
+          "24.48% Max HP+2819",
+          "25.92% Max HP+3050",
+          "27.36% Max HP+3293",
+          "28.8% Max HP+3547",
+          "30.6% Max HP+3813",
+          "32.4% Max HP+4090",
+          "34.2% Max HP+4379"
+        ],
+        "BaseDMG": [
+          "121.6%",
+          "130.72%",
+          "139.84%",
+          "152%",
+          "161.12%",
+          "170.24%",
+          "182.4%",
+          "194.56%",
+          "206.72%",
+          "218.88%",
+          "231.04%",
+          "243.2%",
+          "258.4%",
+          "273.6%",
+          "288.8%"
+        ],
+        "DMGBonusOnHitTaken": [
+          "160%",
+          "172%",
+          "184%",
+          "200%",
+          "212%",
+          "224%",
+          "240%",
+          "256%",
+          "272%",
+          "288%",
+          "304%",
+          "320%",
+          "340%",
+          "360%",
+          "380%"
+        ],
+        "CD": [
+          "7.5s",
+          "7.5s",
+          "7.5s",
+          "7.5s",
+          "7.5s",
+          "7.5s",
+          "7.5s",
+          "7.5s",
+          "7.5s",
+          "7.5s",
+          "7.5s",
+          "7.5s",
+          "7.5s",
+          "7.5s",
+          "7.5s"
+        ]
+      },
+      "description": "#Nothing to worry about. Should anyone raise a hand against her or her men, she will avenge it ten-fold with sword and thunder.\\n\\n<color=#FFD780FF>Press</color>\\nAccumulating the power of lightning, Beidou swings her blade forward fiercely, dealing <color=#FFACFFFF>Electro DMG</color>.\\n\\n<color=#FFD780FF>Hold</color>\\nLifts her weapon up as a shield. Max DMG absorbed scales off Beidou's Max HP.\\nAttacks using the energy stored within the greatsword upon release or once this ability's duration expires, dealing <color=#FFACFFFF>Electro DMG</color>. DMG dealt scales with the number of times Beidou is attacked in the skill's duration. The greatest DMG Bonus will be attained once this effect is triggered twice.\\nThe shield possesses the following properties:\\n·Has 250% <color=#FFACFFFF>Electro DMG</color> Absorption Efficiency.\\n·Applies the <color=#FFACFFFF>Electro element</color> to Beidou upon activation.\\n\\n<i>Conquer the high seas! Pursue the waves and chase the storm!</i>"
+    },
+    "elementalburst": {
+      "name": "Stormbreaker",
+      "icon": "Skill_E_Beidou_01",
+      "multipliers": {
+        "SkillDMG": [
+          "121.6%",
+          "130.72%",
+          "139.84%",
+          "152%",
+          "161.12%",
+          "170.24%",
+          "182.4%",
+          "194.56%",
+          "206.72%",
+          "218.88%",
+          "231.04%",
+          "243.2%",
+          "258.4%",
+          "273.6%",
+          "288.8%"
+        ],
+        "LightningDMG": [
+          "96%",
+          "103.2%",
+          "110.4%",
+          "120%",
+          "127.2%",
+          "134.4%",
+          "144%",
+          "153.6%",
+          "163.2%",
+          "172.8%",
+          "182.4%",
+          "192%",
+          "204%",
+          "216%",
+          "228%"
+        ],
+        "DMGReduction": [
+          "20%",
+          "21%",
+          "22%",
+          "24%",
+          "25%",
+          "26%",
+          "28%",
+          "30%",
+          "32%",
+          "34%",
+          "35%",
+          "36%",
+          "37%",
+          "38%",
+          "39%"
+        ],
+        "Duration": [
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s"
+        ],
+        "CD": [
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s"
+        ],
+        "EnergyCost": [
+          "80",
+          "80",
+          "80",
+          "80",
+          "80",
+          "80",
+          "80",
+          "80",
+          "80",
+          "80",
+          "80",
+          "80",
+          "80",
+          "80",
+          "80"
+        ]
+      },
+      "description": "Recalling her slaying of the great beast Haishan, Beidou calls upon that monstrous strength and the lightning to create a Thunderbeast's Targe around herself, dealing <color=#FFACFFFF>Electro DMG</color> to nearby opponents.\\n\\n<color=#FFD780FF>Thunderbeast's Targe</color>\\n·When Normal and Charged Attacks hit, they create a lightning discharge that can jump between opponents, dealing <color=#FFACFFFF>Electro DMG</color>.\\n·Increases the character's resistance to interruption, and decreases DMG taken.\\n\\nA maximum of 1 lightning discharge can be triggered per second.\\n\\n<i>With a peal of thunder, Haishan is slain.</i>"
+    },
+    "leveling": {
+      "books": {
+        "x104316": 9,
+        "x104317": 63,
+        "x104318": 114
+      },
+      "crown": {
+        "x104319": 3
+      },
+      "worldmonster": {
+        "x112035": 18,
+        "x112036": 66,
+        "x112037": 93
+      },
+      "weekly": {
+        "x113005": 18
+      }
+    }
+  },
+  "passives": {
+    "p1": {
+      "name": "Retribution",
+      "description": "Counterattacking with <color=#FFD780FF>Tidecaller</color> at the precise moment when the character is hit grants the maximum DMG Bonus.",
+      "icon": "UI_Talent_S_Beidou_05"
+    },
+    "p2": {
+      "name": "Lightning Storm",
+      "description": "Gain the following effects for 10s after unleashing <color=#FFD780FF>Tidecaller</color> with its maximum DMG Bonus: \\n·DMG dealt by Normal and Charged Attacks is increased by 15%. ATK SPD of Normal and Charged Attacks is increased by 15%.\\n·Greatly reduced delay before unleashing Charged Attacks.",
+      "icon": "UI_Talent_S_Beidou_06"
+    },
+    "p3": {
+      "name": "Conqueror of Tides",
+      "description": "Decreases swimming Stamina consumption for your own party members by 20%.\\nNot stackable with Passive Talents that provide the exact same effects.",
+      "icon": "UI_Talent_Explosion_Swim"
+    },
+    "p4": {
+      "name": "Polaris",
+      "description": "Increases counterattack DMG Bonus every 0.8s while the Skill button is being held down. Additionally, unleashing the enhanced Tidecaller counterattack reduces the Elemental Skill's CD by 4s for each stack of the enhancement (max 2 stacks) active, and each stack will also restore 8 Energy (max 2 stacks). This effect can be triggered once every 15s.",
+      "icon": "UI_Talent_S_Beidou_08"
+    }
+  },
+  "constellations": {
+    "const1": {
+      "name": "Sea Beast's Scourge",
+      "description": "When <color=#FFD780FF>Stormbreaker</color> is used:\\nCreates a shield that absorbs up to 16% of Beidou's Max HP for 15s.\\nThis shield absorbs <color=#FFACFFFF>Electro DMG</color> 250% more effectively.",
+      "icon": "UI_Talent_S_Beidou_02"
+    },
+    "const2": {
+      "name": "Upon the Turbulent Sea, the Thunder Arises",
+      "description": "<color=#FFD780FF>Stormbreaker</color>'s arc lightning can jump to 2 additional targets.",
+      "icon": "UI_Talent_S_Beidou_01"
+    },
+    "const3": {
+      "name": "Summoner of Storm",
+      "description": "Increases the Level of <color=#FFD780FF>Tidecaller</color> by 3.\\nMaximum upgrade level is 15.",
+      "icon": "UI_Talent_U_Beidou_01"
+    },
+    "const4": {
+      "name": "Stunning Revenge",
+      "description": "Upon being attacked, Beidou's Normal Attacks gain an additional instance of 20% <color=#FFACFFFF>Electro DMG</color> for 10s.",
+      "icon": "UI_Talent_S_Beidou_03"
+    },
+    "const5": {
+      "name": "Crimson Tidewalker",
+      "description": "Increases the Level of <color=#FFD780FF>Stormbreaker</color> by 3.\\nMaximum upgrade level is 15.",
+      "icon": "UI_Talent_U_Beidou_02"
+    },
+    "const6": {
+      "name": "Bane of Evil",
+      "description": "While <color=#FFD780FF>Stormbreaker</color> is active, nearby opponents' <color=#FFACFFFF>Electro RES</color> is reduced by 15%.\\n\\nIf the current active party member is in the Radiance: Stellar-Conduct state, the Cryo RES of nearby opponents will be reduced by 15% while Stormbreaker is active. Additionally, the current active party member's Elemental Mastery is increased by 200.",
+      "icon": "UI_Talent_S_Beidou_04"
+    }
+  },
+  "hyperlinks": [],
+  "stories": {
+    "x14201": {
+      "storyTitle": "Character Details",
+      "storyText": "Beidou is the leader of The Crux — an armed crew based in Liyue Harbor.\\nAn armed crew means exactly what it sounds like: a crew of sailors armed to the teeth.\\nWithout getting into too many details, everything The Crux does is approved by the Qixing... more or less.\\nBeidou is a trusted leader, so much so that her crew believes her capable of taming the storms and billows on the sea.\\n\"It's Beidou! Even the mightiest of storms must bow its head to her might!\"",
+      "unlockConds": []
+    },
+    "x14202": {
+      "storyTitle": "Character Story 1",
+      "storyText": "Beidou is something of a cultural icon in Liyue.\\nThough her fame does not quite reach the same lofty heights as that of the Liyue Qixing, one can be certain that every merchant in the city knows her name — and that of her crew, The Crux.\\nNaturally, there are rumors abound regarding someone of her status. People love to tell epic tales of her earth-shattering (or rather, sea-splitting) feats. Tales in which her abilities are exaggerated to almost superhuman levels.\\nOne rumor is that she can channel Electro energy with her sword. It is said that she once used it to cut a formidable sea monster from the depths of the ocean abyss in half with just one hit.\\nBystanders who overhear such tales generally dismiss them as drunken ramblings. But to anyone who has ever voyaged with Beidou themselves, these stories are no joke. In their view, if this world really were home to a giant sea monster from the ocean abyss... Beidou would certainly be capable of cutting it in half.\\nIn summary, Beidou's abilities are every bit as impressive as her reputation in business circles. So if you hear her lauded as the Uncrowned Lord of the Ocean — suffice to say that there is no smoke without fire.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 2
+      }
+    },
+    "x14203": {
+      "storyTitle": "Character Story 2",
+      "storyText": "Business people tend to put profit before their humanity. This is just accepted as the way of the world. At most, it makes for some light verbal sparring at the dinner table.\\nBut things are different in Liyue, where everyone is involved in business. They reject the notion entirely, claiming that Liyue Harbor is a special place where humanity is sacred.\\nForeign merchants will retort that the only thing special about Liyue is that \"They've managed to commodify humanity, too!\" To this, Liyue locals respond, \"Then how do you explain The Crux?\"\\nWith The Crux having made a name for itself over many years, its services are extremely expensive to charter. And yet, on one voyage when The Crux encountered a strong storm, Beidou noticed a small private boat nearby. Seeing the way it was tossed about by the waves, she ordered her crew to tow the boat to safety — despite the risk that her ship's keel might give way. What little food and water the fleet had left, Beidou shared with the rescued crew as she navigated her vessel onward through the raging storm.\\nFinally, after several days, The Crux delivered the rescued boat to a safe mooring spot. Grateful to Beidou for saving their lives, the crew of the rescued boat became her loyal trade partners thereafter.\\nAfter Liyue locals recount this story, they smile and insist, \"When you have someone risking their life like that, you can be sure that it takes far more than commodification to explain their actions! Would you really dare to look Beidou in the eyes and talk about the commodification of humanity?\"",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 3
+      }
+    },
+    "x14204": {
+      "storyTitle": "Character Story 3",
+      "storyText": "Word has it that The Crux's boss behind the curtains is none other than the Qixing's Tianquan, Ningguang, herself.\\nBoth of the people involved deny this outright, though they do so for different reasons.\\nAs a member of the Qixing, Ningguang often needs someone else to do her dirty work for her. Of the many candidates available, she picked Beidou.\\nNingguang would emphasize that she picked Beidou, not The Crux. Ningguang's collaboration with The Crux is, therefore, purely incidental.\\nMeanwhile, when Beidou hears the rumors about her dealings with Ningguang, she furiously insists that she collaborates with Ningguang on an equal footing: Beidou is her own boss and no one, not even Ningguang, is sitting in the background pulling the strings for her.\\nBeidou is certainly unique among Ningguang's collaborators.\\nShe does not tread carefully or show reverence in the way that most of them do. In fact, one could even say Beidou is sometimes at odds with Ningguang.\\nNingguang's advisers worry constantly that Beidou is too unpredictable and too much of a maverick. But Ningguang simply smiles and dismisses their concerns.\\n\"On the contrary, Beidou is the most reliable person in Liyue,\" she replies. \"Just tell her the truth, as well as what's in it for her, and she'll come around in her own time.\"",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 4
+      }
+    },
+    "x14205": {
+      "storyTitle": "Character Story 4",
+      "storyText": "Once, after disembarking from a long voyage, The Crux held its customary three-day celebratory banquet. The autumn was like any other before it — except for the new chef in town. This was Xiangling, the head chef-to-be of the Wanmin Restaurant.\\nLooking to keep costs down, they lured Xiangling onboard after meeting her on the streets, by hook and by crook. When she saw Beidou, Xiangling was dismayed, and let Beidou know this in no uncertain terms: \"If you want to have Yue-style seafood, then I can't agree to help you. I'll have you know that I intend to transcend Liyue's two warring culinary styles with my cooking...\"\\nBeidou merely smiled and gestured to the chest of gold coins beside her: \"Just do what you're good at. We made quite a bit on our last run. How does a retainer of fifty thousand Mora sound?\"\\nNot one to shy away for a chance to prove the worth of her cooking, Xiangling took the job.\\nWhen the day was done, Beidou was indeed won over by Xiangling's skill. She declared in front of her crew that Xiangling would soon be a renowned chef throughout Liyue. She also insisted that they refer to her as \"Madam Xiangling.\"\\nHaving only begun to make her name, Xiangling admired Beidou for her generosity with money and her direct personality. Thereafter, Xiangling would sail with Beidou often, looking for new and exotic seafood ingredients. She found herself surprised by Beidou's vast knowledge of seafood and their culinary preparation, given how far she usually was from any kitchen.\\nOf course, that didn't mean Xiangling would necessarily heed Beidou's advice on whether something was edible or not...but that is a story for another time.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 5
+      }
+    },
+    "x14206": {
+      "storyTitle": "Character Story 5",
+      "storyText": "Some say an object takes after its master.\\nThough it may not be a suitable description, The Crux crew does indeed take after Beidou, exhibiting the same qualities.\\nHowever, there are still secrets among the crew, spreading in places unnoticed by Beidou.\\nHer First Mate always takes new sailors out after their first safe return for drinks and fills them in on the details of an old story:\\nIn the past, the crew went on a journey to brave the unknown seas and found itself at death's door in a horrific storm.\\nAt that time, Beidou stood on the deck behind the wheel, singing a Liyue fishermen's song in the storm.\\n\"...all the way until the waves died down and dawn broke on the far horizon...\"\\nThe First Mate often ends the story with this final line and a look of longing on his face.\\nAs business grew and the crew expanded, more and more outrageously incredible details were added to the story, making the rookies worship Beidou like a goddess.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 6
+      }
+    },
+    "x14207": {
+      "storyTitle": "Pier Laborers' Gossip",
+      "storyText": "1. Facing a three-headed hydra of unrivaled girth, Beidou hurled forth her greatsword. Spinning in the air, it sliced clean through all three of the hydra's vertebrae, before returning to her waiting hand.\\n2. Beidou has beaten Ningguang at chess. Twice. The important part is not so much that she did win Ningguang's money, but more that she dared to.\\n3. Since the day she slew the sea monster Haishan, Beidou has never sung a fishermen's shanty ever again.\\n4. Yes, Beidou knows shanties. But don't you dare ask her that to her face. I mean, you know how that hydra ended up, don't you...",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 4
+      }
+    },
+    "x14208": {
+      "storyTitle": "Vision",
+      "storyText": "Liyue and Inazuma share a common saying: \"Its fins formed the ocean deep, its tail the mountains high.\" The fishermen learned this phrase while ashore long ago, and sang it over and over, spreading the tune far and wide till it became the much-loved song people know today. Whenever the mists gather over the sea's surface, one can hear the distant song of the fishermen hidden in the white shroud: \"its fins formed the oceans deep, its tail the mountains high...\"\\nThis was Beidou's childhood lullaby. The tale of Rex Lapis smiting the sea monsters had become legendary among the people of Liyue. As a child, Beidou loved tales like this, and in her dreams, she thought: One day, I want to see this big fish too.\\nThis day, however, she sang this song with a different emotion in her heart. Her entire crew sang along as they sailed.\\nHaishan was in the waters with them — at once like a dragon and a fish, it was larger than any could have imagined in their worst nightmares, and mighty as a deity, raising waves dozens of meters high with ease.\\nAll who ply their trade on the high seas are destined to meet Haishan eventually. Beidou had longed to do so since she was nine, dreaming of slicing its head off in a single blow.\\nMany times she had challenged the creature, and many times she had failed. But this day was different. This day she charged at Haishan with her best greatsword in hand, and crack sailors at her back.\\nThe battle would rage fiercely for four days. With cannons and harpoons, arrows and ropes the fleet would assail Haishan, while Beidou battled the thusly tied-down creature for ten hours, well into the night.\\nNow, nighttime was when Haishan was in its element, and in their vigilance not a single member of the fleet dared sleep a wink. Beidou stood upon the prow, listening to the wind.\\nOne strike. Just one strike. That was all she needed. And so she waited, unmoving, in the freezing wind.\\nThen, at the crack of dawn, having neither eaten nor drank throughout the night, Beidou heard a change in the sound of the waves.\\nWith one almighty strike that sounded as if it could have sliced the moon in two or ripped a mountain from the face of the world, she chopped the leviathan's head clean off!\\nThe sound of thunder filled the heavens, and a single bolt of purple lightning struck the ocean right in front of Beidou, even as she bathed in the blood of her nemesis.\\nThus descended a Vision to the slayer of the sea monster, its violet glow as stunning as lightning, and its immaculate, jeweled form a treasure more precious than dragon blood. A suitably divine gift for the hero who subdued Haishan.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 6
+      }
+    }
+  },
+  "quotes": {
+    "x14100": {
+      "quoteTitle": "Hello",
+      "quoteText": "I'm Beidou. You've heard of my ship, The Crux and its crew? If you too love adventure, then join me. I've got your back.",
+      "unlockConds": []
+    },
+    "x14101": {
+      "quoteTitle": "Chat: Sparring",
+      "quoteText": "If you ever want to trade tactics, I'm always ready.",
+      "unlockConds": []
+    },
+    "x14102": {
+      "quoteTitle": "Chat: Drinking",
+      "quoteText": "Ah! A cold beer after a hard day's work... Nothing like it!",
+      "unlockConds": []
+    },
+    "x14103": {
+      "quoteTitle": "Chat: Land",
+      "quoteText": "It's hard to remain on dry land for so long. Can never seem to quite get my land legs back.",
+      "unlockConds": []
+    },
+    "x14104": {
+      "quoteTitle": "When It Rains",
+      "quoteText": "When stuck on a deserted island, rain is a precious source of drinking water. There's no need for it now though.",
+      "unlockConds": []
+    },
+    "x14105": {
+      "quoteTitle": "When Thunder Strikes",
+      "quoteText": "Hey, it's just a little lightning. No need to fear it on the open ocean, so there's even less need to fear it on dry land.",
+      "unlockConds": []
+    },
+    "x14106": {
+      "quoteTitle": "When It's Windy",
+      "quoteText": "This weather would be great for setting sail.",
+      "unlockConds": []
+    },
+    "x14107": {
+      "quoteTitle": "When the Wind Is Blowing",
+      "quoteText": "Wind's picking up. If sand gets in your eyes, be sure not to rub them.",
+      "unlockConds": []
+    },
+    "x14108": {
+      "quoteTitle": "Good Morning",
+      "quoteText": "Yo, good morning. I'm about to head off, coming with me?",
+      "unlockConds": []
+    },
+    "x14109": {
+      "quoteTitle": "Good Afternoon",
+      "quoteText": "Let's get Xiangling to whip us up something for lunch. Believe me, a hot meal from her is far better than the salted fish we eat out at sea.",
+      "unlockConds": []
+    },
+    "x14110": {
+      "quoteTitle": "Good Evening",
+      "quoteText": "Alright, I'm off for a drink. Hahaha, no one willing to sell you a proper drink, huh? Perhaps I can...",
+      "unlockConds": []
+    },
+    "x14111": {
+      "quoteTitle": "Good Night",
+      "quoteText": "Time moves quickly. Haha, go, may the wind be at your back.",
+      "unlockConds": []
+    },
+    "x14112": {
+      "quoteTitle": "About Beidou",
+      "quoteText": "We're setting sail! Men, to your posts! A new adventure is about to begin!",
+      "unlockConds": []
+    },
+    "x14113": {
+      "quoteTitle": "About Us: Titles",
+      "quoteText": "I'm the captain, so you can be my first mate! Deal? Ha? Such names are too outdated for you huh? We'll call each other whatever you wish then.",
+      "unlockConds": []
+    },
+    "x14114": {
+      "quoteTitle": "About Us: Eye for People",
+      "quoteText": "I tend to be a good judge of character. When you've learned to read the open ocean, reading people is a cinch. Haha, and that's how I knew you're the good sort the second I laid eyes on ya!",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 6"
+      ]
+    },
+    "x14115": {
+      "quoteTitle": "About Us: Choices",
+      "quoteText": "I chose you as my crewmate, as my comrade on the sea. It gives me great pride to be able to say that.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 6"
+      ]
+    },
+    "x14116": {
+      "quoteTitle": "About the Vision",
+      "quoteText": "To those that don't have a Vision, it must seem that those with Visions are like flagships from the Archons to follow. As such, I make sure to fly my flag with pride. That is my motivation.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x14117": {
+      "quoteTitle": "Something to Share",
+      "quoteText": "At a loss? When you don't know what to do, just take the first step. The rest will figure itself out naturally.",
+      "unlockConds": []
+    },
+    "x14118": {
+      "quoteTitle": "Interesting Things",
+      "quoteText": "Every time I return from a long journey and I see the lapis gledes, I'm reminded that I'm almost home. The scenery out on the open ocean gets familiar real quick. Sure, they're birds of prey, but seeing them fly so freely is heart-warming.",
+      "unlockConds": []
+    },
+    "x14119": {
+      "quoteTitle": "About Ningguang: Liyue Qixing",
+      "quoteText": "Ningguang, eh? As far as Liyue Qixing is concerned, she seems to be doing a good job. But for me, my responsibility lies with my ship and my men, and not with Liyue Qixing.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x14120": {
+      "quoteTitle": "About Ningguang: Attitudes",
+      "quoteText": "Ningguang is never really one to speak frankly, but she has been very direct with her criticism of me in the past. Haha... But hey, whether she likes me or hates me is her choice, nothing I can do to sway her.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x14121": {
+      "quoteTitle": "About Xiangling: Culinary Skills",
+      "quoteText": "When we're out on the open ocean, the one thing we do all miss is Xiangling's cooking. When spirits are low, just thinking of her fried jueyun chili, bursting with flavor... It gives everyone just that little extra kick.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x14122": {
+      "quoteTitle": "About Xiangling: Food Tasting",
+      "quoteText": "Xiangling huh? She sometimes uses some... interesting ingredients in her dishes to bring about some, ah... intriguing flavors. Though... there's no way she can improve without having someone to taste-test — a role that I am more than happy to fill.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x14123": {
+      "quoteTitle": "About Zhongli",
+      "quoteText": "You mean the gentleman from Wangsheng Funeral Parlor? My men sometimes speak of the rumors surrounding him — he sounds interesting. Yes, if I get the chance I'd like to meet him someday.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x14124": {
+      "quoteTitle": "About Xiao",
+      "quoteText": "One year on the eve of the Lantern Rite, we ran into a storm as we were returning to port. Try as we did, we only made it back to Liyue Harbor in the dead of night, long after the lanterns had all been released. As I looked towards Guyun Stone Forest, I saw an adeptus, floating in the air, in the form of what appeared to be a young boy. I guess it is like the legends say — there really must be those that watch over Liyue, even if they cannot be seen.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x14125": {
+      "quoteTitle": "About Ganyu",
+      "quoteText": "Privately, Ganyu and I get on like a house on fire! But as you know, she's the secretary to the Liyue Qixing... and I'm not exactly in their good books right now! Doesn't bother me, but I wouldn't want to put Ganyu in a difficult position. So just keep what I said between us, yeah?",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x14126": {
+      "quoteTitle": "About Xinyan",
+      "quoteText": "She's got a great personality, that one! The guys in the crew love that rock and roll of hers. Me? We have common ground, just... not when it comes to taste in music.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x14127": {
+      "quoteTitle": "About Yaoyao",
+      "quoteText": "Yaoyao always comes on board to play when we're in the harbor. Trouble is, when it's time for her to go she gives you the puppy eyes, and no one has the heart to send her away... Means we're always cutting it quite close by the time we manage to set sail.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x14128": {
+      "quoteTitle": "About Kaedehara Kazuha",
+      "quoteText": "Kazuha? That scallywag actually blocked a strike from the Raiden Shogun outside Tenshukaku! Easier said than done... After the battle he came to the Crux Fleet — said he'd voyage with us a while longer. I was more than happy to oblige. If the day comes when he decides to set off again by himself on the next stage of his journey, I'll send him off with a drink, haha...",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4",
+        "Complete \"Omnipresence Over Mortals\""
+      ]
+    },
+    "x14130": {
+      "quoteTitle": "More About Beidou: I",
+      "quoteText": "Before you step foot on The Alcor, you need to answer one question. When the sea is full of perils — why is it that you still wish to come aboard my ship?",
+      "unlockConds": []
+    },
+    "x14131": {
+      "quoteTitle": "More About Beidou: II",
+      "quoteText": "You want to know of my legendary tales? Hahaha, that's just my men exaggerating, adding in their own little details. Although, if you were to ask me if I'm afraid of what monsters lurk in the deep, I'd tell you I have no fear of them.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 3"
+      ]
+    },
+    "x14132": {
+      "quoteTitle": "More About Beidou: III",
+      "quoteText": "You wanna know why I help the common folk? Why not? Everyone has their low points in life. I don't really do anything, other than help steer those who are truly lost towards a brighter future.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x14133": {
+      "quoteTitle": "More About Beidou: IV",
+      "quoteText": "I've been through some hard times. When I was a child we had little money, so nothing to eat, and lived for years by stealing fruit off of people's trees. Even after I got my own ship, I was cast out by pompous merchants. But me telling you such stories is merely for your amusement. I have no intention of making you live through it too.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 5"
+      ]
+    },
+    "x14134": {
+      "quoteTitle": "More About Beidou: V",
+      "quoteText": "I have many brothers that sail with me. I have asked, and remember, why each and every one of them came on board. You, however, are special. I know you still have your own things to deal with, and as such, I won't try to rope you into coming onboard permanently. But remember, there is always a place for you onboard The Alcor.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 6"
+      ]
+    },
+    "x14135": {
+      "quoteTitle": "Beidou's Hobbies",
+      "quoteText": "My hobbies...? Eh, lemme think... Well, there's adventure, sailing, making friends, drinking, eating... more than I can count on one hand.",
+      "unlockConds": []
+    },
+    "x14136": {
+      "quoteTitle": "Beidou's Troubles",
+      "quoteText": "If you can change something, change it. If you can't, don't waste time thinking about it. That's how I go about things. But really, if you get stuck, come find me. I'll help you deal with it.",
+      "unlockConds": []
+    },
+    "x14137": {
+      "quoteTitle": "Favorite Food",
+      "quoteText": "I like food with robust flavors. Spicy fried meat or spicy tofu are my favorites. Sitting down to a big hearty meal together, where everyone can fill their bellies — now that's when things get lively! Haha, alright, alright, all this talk is making me hungry!",
+      "unlockConds": []
+    },
+    "x14138": {
+      "quoteTitle": "Least Favorite Food",
+      "quoteText": "I'm not a fan of anything cold, it does nothing to fire up my appetite. I'd rather fry up a few fish.",
+      "unlockConds": []
+    },
+    "x14139": {
+      "quoteTitle": "Birthday",
+      "quoteText": "Come, board my ship. I've gathered the crew. The food and drink are all prepared. Today is your birthday, so you are the captain. Haha, so: where should we set sail?",
+      "unlockConds": []
+    },
+    "x14140": {
+      "quoteTitle": "Feelings About Ascension: Intro",
+      "quoteText": "Great! I feel much stronger.",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 1"
+      ]
+    },
+    "x14141": {
+      "quoteTitle": "Feelings About Ascension: Building Up",
+      "quoteText": "We're making progress. Let's crack open a bottle to celebrate!",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 2"
+      ]
+    },
+    "x14142": {
+      "quoteTitle": "Feelings About Ascension: Climax",
+      "quoteText": "A prime example! It is an honor to have you aboard. I need to keep up if I'm to keep the respect of my crew.",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 4"
+      ]
+    },
+    "x14143": {
+      "quoteTitle": "Feelings About Ascension: Conclusion",
+      "quoteText": "After all this training, I feel like I'm finally at my best. Thank you... But please, I'd still like for you to keep me on my toes.",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 6"
+      ]
+    },
+    "x14144": {
+      "quoteTitle": "Elemental Skill: I",
+      "quoteText": "Back off!",
+      "unlockConds": []
+    },
+    "x14145": {
+      "quoteTitle": "Elemental Skill: II",
+      "quoteText": "Ha!",
+      "unlockConds": []
+    },
+    "x14146": {
+      "quoteTitle": "Elemental Skill: III",
+      "quoteText": "Back at ya!",
+      "unlockConds": []
+    },
+    "x14147": {
+      "quoteTitle": "Elemental Skill: IV",
+      "quoteText": "Take this!",
+      "unlockConds": []
+    },
+    "x14148": {
+      "quoteTitle": "Elemental Skill: V",
+      "quoteText": "Hurrrh!",
+      "unlockConds": []
+    },
+    "x14149": {
+      "quoteTitle": "Elemental Burst: I",
+      "quoteText": "Power that ended Haishan!",
+      "unlockConds": []
+    },
+    "x14150": {
+      "quoteTitle": "Elemental Burst: II",
+      "quoteText": "Eyes on me!",
+      "unlockConds": []
+    },
+    "x14151": {
+      "quoteTitle": "Elemental Burst: III",
+      "quoteText": "To ashes!",
+      "unlockConds": []
+    },
+    "x14152": {
+      "quoteTitle": "Opening Treasure Chest: I",
+      "quoteText": "Huh, where've you been hiding?",
+      "unlockConds": []
+    },
+    "x14153": {
+      "quoteTitle": "Opening Treasure Chest: II",
+      "quoteText": "Nice, I'm starting to lose count!",
+      "unlockConds": []
+    },
+    "x14154": {
+      "quoteTitle": "Opening Treasure Chest: III",
+      "quoteText": "The Mora the merrier. First round's on me!",
+      "unlockConds": []
+    },
+    "x14155": {
+      "quoteTitle": "Low HP: I",
+      "quoteText": "It's not over!",
+      "unlockConds": []
+    },
+    "x14156": {
+      "quoteTitle": "Low HP: II",
+      "quoteText": "Hah, I've still got some kick.",
+      "unlockConds": []
+    },
+    "x14157": {
+      "quoteTitle": "Low HP: III",
+      "quoteText": "I never yield.",
+      "unlockConds": []
+    },
+    "x14158": {
+      "quoteTitle": "Ally at Low HP: I",
+      "quoteText": "Get behind me!",
+      "unlockConds": []
+    },
+    "x14159": {
+      "quoteTitle": "Ally at Low HP: II",
+      "quoteText": "Get back! Don't be a hero.",
+      "unlockConds": []
+    },
+    "x14160": {
+      "quoteTitle": "Fallen: I",
+      "quoteText": "This isn't good...",
+      "unlockConds": []
+    },
+    "x14161": {
+      "quoteTitle": "Fallen: II",
+      "quoteText": "Men... Fall... back...",
+      "unlockConds": []
+    },
+    "x14162": {
+      "quoteTitle": "Fallen: III",
+      "quoteText": "Crew... Set sail for home...",
+      "unlockConds": []
+    },
+    "x14163": {
+      "quoteTitle": "Light Hit Taken: I",
+      "quoteText": "Just a scratch.",
+      "unlockConds": []
+    },
+    "x14164": {
+      "quoteTitle": "Heavy Hit Taken: I",
+      "quoteText": "You haven't won yet.",
+      "unlockConds": []
+    },
+    "x14165": {
+      "quoteTitle": "Heavy Hit Taken: II",
+      "quoteText": "Not bad.",
+      "unlockConds": []
+    },
+    "x14166": {
+      "quoteTitle": "Joining Party: I",
+      "quoteText": "Alright, let's go!",
+      "unlockConds": []
+    },
+    "x14167": {
+      "quoteTitle": "Joining Party: II",
+      "quoteText": "Come with me.",
+      "unlockConds": []
+    },
+    "x14168": {
+      "quoteTitle": "Joining Party: III",
+      "quoteText": "I trust you.",
+      "unlockConds": []
+    },
+    "x14169": {
+      "quoteTitle": "Receiving a Gift: I",
+      "quoteText": "Tastes good, I like it! Mind giving me a bowl of rice with this?",
+      "unlockConds": []
+    },
+    "x14170": {
+      "quoteTitle": "Receiving a Gift: II",
+      "quoteText": "Your cooking skills aren't bad at all, eating your food has me in a good mood.",
+      "unlockConds": []
+    },
+    "x14171": {
+      "quoteTitle": "Receiving a Gift: III",
+      "quoteText": "You know, at the end of the day, food is food, and that's fine by me.",
+      "unlockConds": []
+    }
+  },
+  "energy": [
+    {
+      "source": "Ball",
+      "particles": "2",
+      "chance": "100%",
+      "cd": "0.4s"
+    },
+    {
+      "source": "Ball",
+      "particles": "1",
+      "chance": "100%",
+      "cd": "0.4s"
+    },
+    {
+      "source": "Ball",
+      "particles": "1",
+      "chance": "100%",
+      "cd": "0.4s"
+    }
+  ],
+  "attacks": [
+    {
+      "name": "ThunderCounter_Strike",
+      "icd_source": "Tag: Elemental_Art (!)",
+      "icd_rule": "Independent",
+      "gauge": "2U",
+      "poise": "LV4/100",
+      "element": "Electric",
+      "attackType": "Melee",
+      "strikeType": "Blunt",
+      "damageParam": "Damage_Stage1"
+    },
+    {
+      "name": "ThunderCounter_Strike",
+      "icd_source": "Tag: Elemental_Art (!)",
+      "icd_rule": "Independent",
+      "gauge": "2U",
+      "poise": "LV4/200",
+      "element": "Electric",
+      "attackType": "Melee",
+      "strikeType": "Blunt",
+      "damageParam": "Damage_Stage1|Damage_PerStage|ADD"
+    },
+    {
+      "name": "ThunderCounter_Strike",
+      "icd_source": "Tag: Elemental_Art (!)",
+      "icd_rule": "Independent",
+      "gauge": "2U",
+      "poise": "LV6/300",
+      "element": "Electric",
+      "attackType": "Melee",
+      "strikeType": "Blunt",
+      "damageParam": "Damage_PerStage|2.000000|MUL|Damage_Stage1|ADD"
+    },
+    {
+      "name": "ThunderShield_Gadget",
+      "icd_source": "Tag: Elemental_Burst (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV1/50",
+      "element": "Electric",
+      "attackType": "Default",
+      "strikeType": "None",
+      "damageParam": "ChainDamage"
+    },
+    {
+      "name": "ThunderShield_Gadget",
+      "icd_source": "Tag: Elemental_Burst (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV1/50",
+      "element": "Electric",
+      "attackType": "Default",
+      "strikeType": "None",
+      "damageParam": "ChainDamage"
+    },
+    {
+      "name": "ThunderShield_Gadget",
+      "icd_source": "Tag: Elemental_Burst (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV1/50",
+      "element": "Electric",
+      "attackType": "Default",
+      "strikeType": "None",
+      "damageParam": "ChainDamage"
+    },
+    {
+      "name": "ThunderShield_Gadget",
+      "icd_source": "Tag: Elemental_Burst (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV1/50",
+      "element": "Electric",
+      "attackType": "Default",
+      "strikeType": "None",
+      "damageParam": "ChainDamage"
+    },
+    {
+      "name": "ThunderShield_Gadget",
+      "icd_source": "Tag: Elemental_Burst (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV1/50",
+      "element": "Electric",
+      "attackType": "Default",
+      "strikeType": "None",
+      "damageParam": "ChainDamage"
+    },
+    {
+      "name": "ThunderShield",
+      "icd_source": "Tag: Elemental_Burst (!)",
+      "icd_rule": "Independent",
+      "gauge": "4U",
+      "poise": "LV4/400",
+      "element": "Electric",
+      "attackType": "Default",
+      "strikeType": "-",
+      "damageParam": "BurstDamage"
+    },
+    {
+      "name": "Talent_ElectricAdd",
+      "icd_source": "Tag: Elemental_Burst (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV0/30",
+      "element": "Electric",
+      "attackType": "Default",
+      "strikeType": "-",
+      "damageParam": "Rate"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "0U",
+      "poise": "LV2/35",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Slash",
+      "damageParam": "FallingAnthem_Normal_Loop_Damage"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV4/150",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Blunt",
+      "damageParam": "FallingAnthem_Normal_Rank_1_Damage"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV7/200",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Blunt",
+      "damageParam": "FallingAnthem_Normal_Rank_2_Damage"
+    }
+  ],
+  "endure": [
+    {
+      "ability": "ThunderCounter_Handler",
+      "handler": "Skill_HitCount",
+      "Actor_EndureDelta": 0
+    },
+    {
+      "ability": "ThunderShield_Gadget",
+      "handler": "UNIQUE_TalentShield_Child",
+      "Actor_EndureDelta": 0
+    },
+    {
+      "ability": "ThunderShield_Gadget",
+      "handler": "UNIQUE_ThunderShield",
+      "Actor_EndureDelta": 0.5
+    }
+  ]
+}

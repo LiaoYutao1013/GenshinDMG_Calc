@@ -1,0 +1,2005 @@
+{
+  "info": {
+    "name": "Freminet",
+    "description": "A reserved young man who is well-versed in diving. Beneath his distant, icy demeanor lies a pure heart bereft of all flaws.",
+    "rarity": "QUALITY_PURPLE",
+    "weapon": "WEAPON_CLAYMORE",
+    "birthday": "24/9",
+    "element": "Cryo",
+    "title": "Yearning for Unseen Depths",
+    "constellation": "Automaton",
+    "affiliation": "Hotel Bouffes d'ete",
+    "cv": {
+      "EN": "Paul Castro Jr.",
+      "CHS": "锦鲤",
+      "JP": "土岐隼一",
+      "KR": "Lee Ju-seung"
+    },
+    "attributes": [
+      {
+        "level": 1,
+        "ascension": 0,
+        "hp": 1012,
+        "atk": 21,
+        "def": 59,
+        "ATK_": "0"
+      },
+      {
+        "level": 2,
+        "ascension": 0,
+        "hp": 1096,
+        "atk": 23,
+        "def": 64,
+        "ATK_": "0"
+      },
+      {
+        "level": 3,
+        "ascension": 0,
+        "hp": 1179,
+        "atk": 25,
+        "def": 69,
+        "ATK_": "0"
+      },
+      {
+        "level": 4,
+        "ascension": 0,
+        "hp": 1263,
+        "atk": 27,
+        "def": 74,
+        "ATK_": "0"
+      },
+      {
+        "level": 5,
+        "ascension": 0,
+        "hp": 1346,
+        "atk": 28,
+        "def": 79,
+        "ATK_": "0"
+      },
+      {
+        "level": 6,
+        "ascension": 0,
+        "hp": 1430,
+        "atk": 30,
+        "def": 84,
+        "ATK_": "0"
+      },
+      {
+        "level": 7,
+        "ascension": 0,
+        "hp": 1513,
+        "atk": 32,
+        "def": 89,
+        "ATK_": "0"
+      },
+      {
+        "level": 8,
+        "ascension": 0,
+        "hp": 1597,
+        "atk": 34,
+        "def": 94,
+        "ATK_": "0"
+      },
+      {
+        "level": 9,
+        "ascension": 0,
+        "hp": 1681,
+        "atk": 35,
+        "def": 99,
+        "ATK_": "0"
+      },
+      {
+        "level": 10,
+        "ascension": 0,
+        "hp": 1764,
+        "atk": 37,
+        "def": 104,
+        "ATK_": "0"
+      },
+      {
+        "level": 11,
+        "ascension": 0,
+        "hp": 1848,
+        "atk": 39,
+        "def": 108,
+        "ATK_": "0"
+      },
+      {
+        "level": 12,
+        "ascension": 0,
+        "hp": 1931,
+        "atk": 41,
+        "def": 113,
+        "ATK_": "0"
+      },
+      {
+        "level": 13,
+        "ascension": 0,
+        "hp": 2015,
+        "atk": 43,
+        "def": 118,
+        "ATK_": "0"
+      },
+      {
+        "level": 14,
+        "ascension": 0,
+        "hp": 2098,
+        "atk": 44,
+        "def": 123,
+        "ATK_": "0"
+      },
+      {
+        "level": 15,
+        "ascension": 0,
+        "hp": 2182,
+        "atk": 46,
+        "def": 128,
+        "ATK_": "0"
+      },
+      {
+        "level": 16,
+        "ascension": 0,
+        "hp": 2266,
+        "atk": 48,
+        "def": 133,
+        "ATK_": "0"
+      },
+      {
+        "level": 17,
+        "ascension": 0,
+        "hp": 2349,
+        "atk": 50,
+        "def": 138,
+        "ATK_": "0"
+      },
+      {
+        "level": 18,
+        "ascension": 0,
+        "hp": 2433,
+        "atk": 51,
+        "def": 143,
+        "ATK_": "0"
+      },
+      {
+        "level": 19,
+        "ascension": 0,
+        "hp": 2516,
+        "atk": 53,
+        "def": 148,
+        "ATK_": "0"
+      },
+      {
+        "level": 20,
+        "ascension": 0,
+        "hp": 2600,
+        "atk": 55,
+        "def": 153,
+        "ATK_": "0"
+      },
+      {
+        "level": 21,
+        "ascension": 1,
+        "hp": 3439,
+        "atk": 73,
+        "def": 202,
+        "ATK_": "0"
+      },
+      {
+        "level": 22,
+        "ascension": 1,
+        "hp": 3523,
+        "atk": 74,
+        "def": 207,
+        "ATK_": "0"
+      },
+      {
+        "level": 23,
+        "ascension": 1,
+        "hp": 3607,
+        "atk": 76,
+        "def": 212,
+        "ATK_": "0"
+      },
+      {
+        "level": 24,
+        "ascension": 1,
+        "hp": 3690,
+        "atk": 78,
+        "def": 217,
+        "ATK_": "0"
+      },
+      {
+        "level": 25,
+        "ascension": 1,
+        "hp": 3774,
+        "atk": 80,
+        "def": 222,
+        "ATK_": "0"
+      },
+      {
+        "level": 26,
+        "ascension": 1,
+        "hp": 3857,
+        "atk": 81,
+        "def": 226,
+        "ATK_": "0"
+      },
+      {
+        "level": 27,
+        "ascension": 1,
+        "hp": 3941,
+        "atk": 83,
+        "def": 231,
+        "ATK_": "0"
+      },
+      {
+        "level": 28,
+        "ascension": 1,
+        "hp": 4024,
+        "atk": 85,
+        "def": 236,
+        "ATK_": "0"
+      },
+      {
+        "level": 29,
+        "ascension": 1,
+        "hp": 4108,
+        "atk": 87,
+        "def": 241,
+        "ATK_": "0"
+      },
+      {
+        "level": 30,
+        "ascension": 1,
+        "hp": 4191,
+        "atk": 88,
+        "def": 246,
+        "ATK_": "0"
+      },
+      {
+        "level": 31,
+        "ascension": 1,
+        "hp": 4275,
+        "atk": 90,
+        "def": 251,
+        "ATK_": "0"
+      },
+      {
+        "level": 32,
+        "ascension": 1,
+        "hp": 4359,
+        "atk": 92,
+        "def": 256,
+        "ATK_": "0"
+      },
+      {
+        "level": 33,
+        "ascension": 1,
+        "hp": 4442,
+        "atk": 94,
+        "def": 261,
+        "ATK_": "0"
+      },
+      {
+        "level": 34,
+        "ascension": 1,
+        "hp": 4526,
+        "atk": 96,
+        "def": 266,
+        "ATK_": "0"
+      },
+      {
+        "level": 35,
+        "ascension": 1,
+        "hp": 4609,
+        "atk": 97,
+        "def": 271,
+        "ATK_": "0"
+      },
+      {
+        "level": 36,
+        "ascension": 1,
+        "hp": 4693,
+        "atk": 99,
+        "def": 275,
+        "ATK_": "0"
+      },
+      {
+        "level": 37,
+        "ascension": 1,
+        "hp": 4776,
+        "atk": 101,
+        "def": 280,
+        "ATK_": "0"
+      },
+      {
+        "level": 38,
+        "ascension": 1,
+        "hp": 4860,
+        "atk": 103,
+        "def": 285,
+        "ATK_": "0"
+      },
+      {
+        "level": 39,
+        "ascension": 1,
+        "hp": 4944,
+        "atk": 104,
+        "def": 290,
+        "ATK_": "0"
+      },
+      {
+        "level": 40,
+        "ascension": 1,
+        "hp": 5027,
+        "atk": 106,
+        "def": 295,
+        "ATK_": "0"
+      },
+      {
+        "level": 41,
+        "ascension": 2,
+        "hp": 5648,
+        "atk": 119,
+        "def": 332,
+        "ATK_": "6"
+      },
+      {
+        "level": 42,
+        "ascension": 2,
+        "hp": 5731,
+        "atk": 121,
+        "def": 336,
+        "ATK_": "6"
+      },
+      {
+        "level": 43,
+        "ascension": 2,
+        "hp": 5815,
+        "atk": 123,
+        "def": 341,
+        "ATK_": "6"
+      },
+      {
+        "level": 44,
+        "ascension": 2,
+        "hp": 5898,
+        "atk": 125,
+        "def": 346,
+        "ATK_": "6"
+      },
+      {
+        "level": 45,
+        "ascension": 2,
+        "hp": 5982,
+        "atk": 126,
+        "def": 351,
+        "ATK_": "6"
+      },
+      {
+        "level": 46,
+        "ascension": 2,
+        "hp": 6066,
+        "atk": 128,
+        "def": 356,
+        "ATK_": "6"
+      },
+      {
+        "level": 47,
+        "ascension": 2,
+        "hp": 6149,
+        "atk": 130,
+        "def": 361,
+        "ATK_": "6"
+      },
+      {
+        "level": 48,
+        "ascension": 2,
+        "hp": 6233,
+        "atk": 132,
+        "def": 366,
+        "ATK_": "6"
+      },
+      {
+        "level": 49,
+        "ascension": 2,
+        "hp": 6316,
+        "atk": 133,
+        "def": 371,
+        "ATK_": "6"
+      },
+      {
+        "level": 50,
+        "ascension": 2,
+        "hp": 6400,
+        "atk": 135,
+        "def": 376,
+        "ATK_": "6"
+      },
+      {
+        "level": 51,
+        "ascension": 3,
+        "hp": 7200,
+        "atk": 152,
+        "def": 423,
+        "ATK_": "12"
+      },
+      {
+        "level": 52,
+        "ascension": 3,
+        "hp": 7284,
+        "atk": 154,
+        "def": 427,
+        "ATK_": "12"
+      },
+      {
+        "level": 53,
+        "ascension": 3,
+        "hp": 7368,
+        "atk": 156,
+        "def": 432,
+        "ATK_": "12"
+      },
+      {
+        "level": 54,
+        "ascension": 3,
+        "hp": 7451,
+        "atk": 157,
+        "def": 437,
+        "ATK_": "12"
+      },
+      {
+        "level": 55,
+        "ascension": 3,
+        "hp": 7535,
+        "atk": 159,
+        "def": 442,
+        "ATK_": "12"
+      },
+      {
+        "level": 56,
+        "ascension": 3,
+        "hp": 7618,
+        "atk": 161,
+        "def": 447,
+        "ATK_": "12"
+      },
+      {
+        "level": 57,
+        "ascension": 3,
+        "hp": 7702,
+        "atk": 163,
+        "def": 452,
+        "ATK_": "12"
+      },
+      {
+        "level": 58,
+        "ascension": 3,
+        "hp": 7785,
+        "atk": 164,
+        "def": 457,
+        "ATK_": "12"
+      },
+      {
+        "level": 59,
+        "ascension": 3,
+        "hp": 7869,
+        "atk": 166,
+        "def": 462,
+        "ATK_": "12"
+      },
+      {
+        "level": 60,
+        "ascension": 3,
+        "hp": 7953,
+        "atk": 168,
+        "def": 467,
+        "ATK_": "12"
+      },
+      {
+        "level": 61,
+        "ascension": 4,
+        "hp": 8573,
+        "atk": 181,
+        "def": 503,
+        "ATK_": "12"
+      },
+      {
+        "level": 62,
+        "ascension": 4,
+        "hp": 8657,
+        "atk": 183,
+        "def": 508,
+        "ATK_": "12"
+      },
+      {
+        "level": 63,
+        "ascension": 4,
+        "hp": 8740,
+        "atk": 185,
+        "def": 513,
+        "ATK_": "12"
+      },
+      {
+        "level": 64,
+        "ascension": 4,
+        "hp": 8824,
+        "atk": 186,
+        "def": 518,
+        "ATK_": "12"
+      },
+      {
+        "level": 65,
+        "ascension": 4,
+        "hp": 8907,
+        "atk": 188,
+        "def": 523,
+        "ATK_": "12"
+      },
+      {
+        "level": 66,
+        "ascension": 4,
+        "hp": 8991,
+        "atk": 190,
+        "def": 528,
+        "ATK_": "12"
+      },
+      {
+        "level": 67,
+        "ascension": 4,
+        "hp": 9075,
+        "atk": 192,
+        "def": 533,
+        "ATK_": "12"
+      },
+      {
+        "level": 68,
+        "ascension": 4,
+        "hp": 9158,
+        "atk": 193,
+        "def": 537,
+        "ATK_": "12"
+      },
+      {
+        "level": 69,
+        "ascension": 4,
+        "hp": 9242,
+        "atk": 195,
+        "def": 542,
+        "ATK_": "12"
+      },
+      {
+        "level": 70,
+        "ascension": 4,
+        "hp": 9325,
+        "atk": 197,
+        "def": 547,
+        "ATK_": "12"
+      },
+      {
+        "level": 71,
+        "ascension": 5,
+        "hp": 9946,
+        "atk": 210,
+        "def": 584,
+        "ATK_": "18"
+      },
+      {
+        "level": 72,
+        "ascension": 5,
+        "hp": 10029,
+        "atk": 212,
+        "def": 589,
+        "ATK_": "18"
+      },
+      {
+        "level": 73,
+        "ascension": 5,
+        "hp": 10113,
+        "atk": 214,
+        "def": 594,
+        "ATK_": "18"
+      },
+      {
+        "level": 74,
+        "ascension": 5,
+        "hp": 10197,
+        "atk": 215,
+        "def": 598,
+        "ATK_": "18"
+      },
+      {
+        "level": 75,
+        "ascension": 5,
+        "hp": 10280,
+        "atk": 217,
+        "def": 603,
+        "ATK_": "18"
+      },
+      {
+        "level": 76,
+        "ascension": 5,
+        "hp": 10364,
+        "atk": 219,
+        "def": 608,
+        "ATK_": "18"
+      },
+      {
+        "level": 77,
+        "ascension": 5,
+        "hp": 10447,
+        "atk": 221,
+        "def": 613,
+        "ATK_": "18"
+      },
+      {
+        "level": 78,
+        "ascension": 5,
+        "hp": 10531,
+        "atk": 222,
+        "def": 618,
+        "ATK_": "18"
+      },
+      {
+        "level": 79,
+        "ascension": 5,
+        "hp": 10614,
+        "atk": 224,
+        "def": 623,
+        "ATK_": "18"
+      },
+      {
+        "level": 80,
+        "ascension": 5,
+        "hp": 10698,
+        "atk": 226,
+        "def": 628,
+        "ATK_": "18"
+      },
+      {
+        "level": 81,
+        "ascension": 6,
+        "hp": 11319,
+        "atk": 239,
+        "def": 664,
+        "ATK_": "24"
+      },
+      {
+        "level": 82,
+        "ascension": 6,
+        "hp": 11402,
+        "atk": 241,
+        "def": 669,
+        "ATK_": "24"
+      },
+      {
+        "level": 83,
+        "ascension": 6,
+        "hp": 11486,
+        "atk": 243,
+        "def": 674,
+        "ATK_": "24"
+      },
+      {
+        "level": 84,
+        "ascension": 6,
+        "hp": 11569,
+        "atk": 244,
+        "def": 679,
+        "ATK_": "24"
+      },
+      {
+        "level": 85,
+        "ascension": 6,
+        "hp": 11653,
+        "atk": 246,
+        "def": 684,
+        "ATK_": "24"
+      },
+      {
+        "level": 86,
+        "ascension": 6,
+        "hp": 11736,
+        "atk": 248,
+        "def": 689,
+        "ATK_": "24"
+      },
+      {
+        "level": 87,
+        "ascension": 6,
+        "hp": 11820,
+        "atk": 250,
+        "def": 694,
+        "ATK_": "24"
+      },
+      {
+        "level": 88,
+        "ascension": 6,
+        "hp": 11903,
+        "atk": 251,
+        "def": 699,
+        "ATK_": "24"
+      },
+      {
+        "level": 89,
+        "ascension": 6,
+        "hp": 11987,
+        "atk": 253,
+        "def": 704,
+        "ATK_": "24"
+      },
+      {
+        "level": 90,
+        "ascension": 6,
+        "hp": 12071,
+        "atk": 255,
+        "def": 708,
+        "ATK_": "24"
+      },
+      {
+        "level": 95,
+        "ascension": 6,
+        "hp": 12488,
+        "atk": 287,
+        "def": 733,
+        "ATK_": "24"
+      },
+      {
+        "level": 100,
+        "ascension": 6,
+        "hp": 12906,
+        "atk": 320,
+        "def": 757,
+        "ATK_": "24"
+      }
+    ]
+  },
+  "icons": {
+    "forward": "UI_AvatarIcon_Freminet",
+    "coop_img": "UI_CoopImg_Freminet"
+  },
+  "ascension": {
+    "x202": 7.0499E+6,
+    "exp": {
+      "x104001": 2,
+      "x104003": 418
+    },
+    "speciality": {
+      "x101233": 168
+    },
+    "elemental": {
+      "x104161": 1,
+      "x104162": 9,
+      "x104163": 9,
+      "x104164": 6
+    },
+    "worldmonster": {
+      "x112080": 18,
+      "x112081": 30,
+      "x112082": 36
+    },
+    "elitemonster": {
+      "x113050": 46
+    }
+  },
+  "skills": {
+    "normalattack": {
+      "name": "Flowing Eddies",
+      "icon": "Skill_A_04",
+      "multipliers": {
+        "x1_HitDMG": [
+          "84.24%",
+          "91.09%",
+          "97.95%",
+          "107.75%",
+          "114.6%",
+          "122.44%",
+          "133.21%",
+          "143.99%",
+          "154.76%",
+          "166.52%",
+          "178.27%",
+          "190.02%",
+          "201.78%",
+          "213.53%",
+          "225.29%"
+        ],
+        "x2_HitDMG": [
+          "80.68%",
+          "87.24%",
+          "93.81%",
+          "103.19%",
+          "109.76%",
+          "117.26%",
+          "127.58%",
+          "137.9%",
+          "148.22%",
+          "159.48%",
+          "170.73%",
+          "181.99%",
+          "193.25%",
+          "204.5%",
+          "215.76%"
+        ],
+        "x3_HitDMG": [
+          "101.9%",
+          "110.2%",
+          "118.49%",
+          "130.34%",
+          "138.64%",
+          "148.12%",
+          "161.15%",
+          "174.18%",
+          "187.22%",
+          "201.44%",
+          "215.66%",
+          "229.88%",
+          "244.1%",
+          "258.31%",
+          "272.53%"
+        ],
+        "x4_HitDMG": [
+          "123.8%",
+          "133.88%",
+          "143.96%",
+          "158.35%",
+          "168.43%",
+          "179.95%",
+          "195.78%",
+          "211.62%",
+          "227.46%",
+          "244.73%",
+          "262.01%",
+          "279.28%",
+          "296.56%",
+          "313.83%",
+          "331.11%"
+        ],
+        "ChargedAttackCyclicDMG": [
+          "62.52%",
+          "67.61%",
+          "72.7%",
+          "79.97%",
+          "85.06%",
+          "90.87%",
+          "98.87%",
+          "106.87%",
+          "114.87%",
+          "123.59%",
+          "132.31%",
+          "141.04%",
+          "149.76%",
+          "158.49%",
+          "167.21%"
+        ],
+        "ChargedAttackFinalDMG": [
+          "113.09%",
+          "122.29%",
+          "131.5%",
+          "144.65%",
+          "153.86%",
+          "164.37%",
+          "178.84%",
+          "193.31%",
+          "207.77%",
+          "223.55%",
+          "239.33%",
+          "255.11%",
+          "270.89%",
+          "286.67%",
+          "302.45%"
+        ],
+        "ChargedAttackStaminaCost": [
+          "40/s",
+          "40/s",
+          "40/s",
+          "40/s",
+          "40/s",
+          "40/s",
+          "40/s",
+          "40/s",
+          "40/s",
+          "40/s",
+          "40/s",
+          "40/s",
+          "40/s",
+          "40/s",
+          "40/s"
+        ],
+        "MaxDuration": [
+          "5s",
+          "5s",
+          "5s",
+          "5s",
+          "5s",
+          "5s",
+          "5s",
+          "5s",
+          "5s",
+          "5s",
+          "5s",
+          "5s",
+          "5s",
+          "5s",
+          "5s"
+        ],
+        "PlungeDMG": [
+          "74.59%",
+          "80.66%",
+          "86.73%",
+          "95.4%",
+          "101.47%",
+          "108.41%",
+          "117.95%",
+          "127.49%",
+          "137.03%",
+          "147.44%",
+          "157.85%",
+          "168.26%",
+          "178.66%",
+          "189.07%",
+          "199.48%"
+        ],
+        "Low_HighPlungeDMG": [
+          "149.14%/186.29%",
+          "161.28%/201.45%",
+          "173.42%/216.62%",
+          "190.77%/238.28%",
+          "202.91%/253.44%",
+          "216.78%/270.77%",
+          "235.86%/294.6%",
+          "254.93%/318.42%",
+          "274.01%/342.25%",
+          "294.82%/368.25%",
+          "315.63%/394.24%",
+          "336.44%/420.23%",
+          "357.25%/446.23%",
+          "378.06%/472.22%",
+          "398.87%/498.21%"
+        ]
+      },
+      "description": "<color=#FFD780FF>Normal Attack</color>\\nPerforms up to 4 consecutive strikes.\\n\\n<color=#FFD780FF>Charged Attack</color>\\nDrains Stamina over time to perform continuous spinning attacks against all nearby opponents.\\nAt the end of the sequence, performs a more powerful slash. \\n\\n<color=#FFD780FF>Plunging Attack</color>\\nPlunges from mid-air to strike the ground below, damaging opponents along the path and dealing AoE DMG upon impact."
+    },
+    "elementalskill": {
+      "name": "Pressurized Floe",
+      "icon": "Skill_S_Freminet_01",
+      "multipliers": {
+        "UpwardThrustDMG": [
+          "83.04%",
+          "89.27%",
+          "95.5%",
+          "103.8%",
+          "110.03%",
+          "116.26%",
+          "124.56%",
+          "132.86%",
+          "141.17%",
+          "149.47%",
+          "157.78%",
+          "166.08%",
+          "176.46%",
+          "186.84%",
+          "197.22%"
+        ],
+        "FrostDMG": [
+          "7.16%",
+          "7.7%",
+          "8.23%",
+          "8.95%",
+          "9.49%",
+          "10.02%",
+          "10.74%",
+          "11.46%",
+          "12.17%",
+          "12.89%",
+          "13.6%",
+          "14.32%",
+          "15.22%",
+          "16.11%",
+          "17%"
+        ],
+        "Level0ShatteringPressureDMG": [
+          "200.48%",
+          "215.52%",
+          "230.55%",
+          "250.6%",
+          "265.64%",
+          "280.67%",
+          "300.72%",
+          "320.77%",
+          "340.82%",
+          "360.86%",
+          "380.91%",
+          "400.96%",
+          "426.02%",
+          "451.08%",
+          "476.14%"
+        ],
+        "Level1ShatteringPressureDMG": [
+          "100.24% Cryo + 48.69% Physical",
+          "107.76% Cryo + 52.34% Physical",
+          "115.28% Cryo + 55.99% Physical",
+          "125.3% Cryo + 60.86% Physical",
+          "132.82% Cryo + 64.51% Physical",
+          "140.34% Cryo + 68.16% Physical",
+          "150.36% Cryo + 73.03% Physical",
+          "160.38% Cryo + 77.9% Physical",
+          "170.41% Cryo + 82.77% Physical",
+          "180.43% Cryo + 87.64% Physical",
+          "190.46% Cryo + 92.51% Physical",
+          "200.48% Cryo + 97.38% Physical",
+          "213.01% Cryo + 103.46% Physical",
+          "225.54% Cryo + 109.55% Physical",
+          "238.07% Cryo + 115.63% Physical"
+        ],
+        "Level2ShatteringPressureDMG": [
+          "70.17% Cryo + 85.2% Physical",
+          "75.43% Cryo + 91.59% Physical",
+          "80.69% Cryo + 97.98% Physical",
+          "87.71% Cryo + 106.51% Physical",
+          "92.97% Cryo + 112.9% Physical",
+          "98.24% Cryo + 119.29% Physical",
+          "105.25% Cryo + 127.81% Physical",
+          "112.27% Cryo + 136.33% Physical",
+          "119.29% Cryo + 144.85% Physical",
+          "126.3% Cryo + 153.37% Physical",
+          "133.32% Cryo + 161.89% Physical",
+          "140.34% Cryo + 170.41% Physical",
+          "149.11% Cryo + 181.06% Physical",
+          "157.88% Cryo + 191.71% Physical",
+          "166.65% Cryo + 202.36% Physical"
+        ],
+        "Level3ShatteringPressureDMG": [
+          "40.1% Cryo + 121.72% Physical",
+          "43.1% Cryo + 130.85% Physical",
+          "46.11% Cryo + 139.98% Physical",
+          "50.12% Cryo + 152.15% Physical",
+          "53.13% Cryo + 161.28% Physical",
+          "56.13% Cryo + 170.41% Physical",
+          "60.14% Cryo + 182.58% Physical",
+          "64.15% Cryo + 194.75% Physical",
+          "68.16% Cryo + 206.92% Physical",
+          "72.17% Cryo + 219.1% Physical",
+          "76.18% Cryo + 231.27% Physical",
+          "80.19% Cryo + 243.44% Physical",
+          "85.2% Cryo + 258.65% Physical",
+          "90.22% Cryo + 273.87% Physical",
+          "95.23% Cryo + 289.09% Physical"
+        ],
+        "Level4ShatteringPressureDMG": [
+          "243.44%",
+          "261.7%",
+          "279.96%",
+          "304.3%",
+          "322.56%",
+          "340.82%",
+          "365.16%",
+          "389.5%",
+          "413.85%",
+          "438.19%",
+          "462.54%",
+          "486.88%",
+          "517.31%",
+          "547.74%",
+          "578.17%"
+        ],
+        "SpiritbreathThornDMG": [
+          "14.4%",
+          "15.48%",
+          "16.56%",
+          "18%",
+          "19.08%",
+          "20.16%",
+          "21.6%",
+          "23.04%",
+          "24.48%",
+          "25.92%",
+          "27.36%",
+          "28.8%",
+          "30.6%",
+          "32.4%",
+          "34.2%"
+        ],
+        "SpiritbreathThornInterval": [
+          "9s",
+          "9s",
+          "9s",
+          "9s",
+          "9s",
+          "9s",
+          "9s",
+          "9s",
+          "9s",
+          "9s",
+          "9s",
+          "9s",
+          "9s",
+          "9s",
+          "9s"
+        ],
+        "CD": [
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s"
+        ]
+      },
+      "description": "Performs an upward thrust that deals <color=#99FFFFFF>Cryo DMG</color> and causes Freminet to enter Pers Timer for 10s.\\nWhile Pers Timer is active, his Elemental Skill will turn into Shattering Pressure.\\n\\n<color=#FFD780FF>Shattering Pressure</color>\\nExecutes different sorts of attacks based on the Pressure Level of Pers Timer, and then cancels Pers Timer.\\n·Level 0: Unleashes a vertical cut, dealing <color=#99FFFFFF>Cryo DMG</color>.\\n·Levels 1 to 3: Unleashes a vertical cut alongside Pers, dealing <color=#99FFFFFF>Cryo DMG</color> and Physical DMG. DMG dealt scales based on Pressure Level.\\n·Level 4: Borrows the power of a fully-pressurized Pers to deal Physical DMG. Meanwhile, Normal Attack: Flowing Eddies will be replaced by Shattering Pressure.\\n\\n<color=#FFD780FF>Pers Timer</color>\\nWhen Freminet uses Normal Attacks, he will also unleash waves of frost that deal <color=#99FFFFFF>Cryo DMG</color> and increase Pers's Pressure Level.\\nThe accompanying <color=#99FFFFFF>Cryo DMG</color> dealt this way is considered Elemental Skill DMG.\\n\\n<color=#FFD780FF>Arkhe: Pneuma</color>\\nAt certain intervals, after using the upward thrust, a Spiritbreath Thorn in the form of another upward thrust will be created, dealing Pneuma-aligned <color=#99FFFFFF>Cryo DMG</color>.\\n\\n<i>To immobilize one's opponent without taking their life can also be considered something of a \"survival\" strategy that one may choose.</i>\\n<i>\"Pers... I leave the rest to you.\"</i>"
+    },
+    "elementalburst": {
+      "name": "Shadowhunter's Ambush",
+      "icon": "Skill_E_Freminet_01",
+      "multipliers": {
+        "SkillDMG": [
+          "318.4%",
+          "342.28%",
+          "366.16%",
+          "398%",
+          "421.88%",
+          "445.76%",
+          "477.6%",
+          "509.44%",
+          "541.28%",
+          "573.12%",
+          "604.96%",
+          "636.8%",
+          "676.6%",
+          "716.4%",
+          "756.2%"
+        ],
+        "Duration": [
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s",
+          "10s"
+        ],
+        "CD": [
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s"
+        ],
+        "EnergyCost": [
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60"
+        ]
+      },
+      "description": "Unleashes a wave of untouchable cold, dealing <color=#99FFFFFF>AoE Cryo DMG</color>, resetting the CD of the Elemental Skill \"Pressurized Floe,\" and causing Freminet to enter the Subnautical Hunter mode for 10s.\\n\\nWhile in Subnautical Hunter mode, Freminet's resistance to interruption will increase, and his Elemental Skill \"Pressurized Floe\" will obtain the following buffs:\\n·CD is decreased by 70%.\\n·Normal Attacks will increase the Pers Timer by 1 additional Pressure Level, and the frost released by his Normal Attacks deal 200% of their original DMG.\\n\\nThese effects will be canceled when Freminet leaves the field.\\n\\n<i>\"Now... I have no need of any extraneous noise.\"</i>"
+    },
+    "leveling": {
+      "crown": {
+        "x104319": 3
+      },
+      "books": {
+        "x104341": 9,
+        "x104342": 63,
+        "x104343": 114
+      },
+      "worldmonster": {
+        "x112080": 18,
+        "x112081": 66,
+        "x112082": 93
+      },
+      "weekly": {
+        "x113046": 18
+      }
+    }
+  },
+  "passives": {
+    "p1": {
+      "name": "Saturation Deep Dive",
+      "description": "When Freminet unleashes <color=#FFD780FF>Pressurized Floe: Shattering Pressure</color>, if Pers Timer has yet to reach Pressure Level 4, the CD of Pressurized Floe will be decreased by 1s.",
+      "icon": "UI_Talent_S_Freminet_05"
+    },
+    "p2": {
+      "name": "Parallel Condensers",
+      "description": "When Freminet triggers Shatter against opponents, the DMG dealt by <color=#FFD780FF>Pressurized Floe: Shattering Pressure</color> will be increased by 40% for 5s.",
+      "icon": "UI_Talent_S_Freminet_06"
+    },
+    "p3": {
+      "name": "Deepwater Navigation",
+      "description": "Decreases Aquatic Stamina consumption for your own party members by 35%.\\nNot stackable with Passive Talents that provide the exact same effects.",
+      "icon": "UI_Talent_S_Freminet_07"
+    },
+    "p4": ""
+  },
+  "constellations": {
+    "const1": {
+      "name": "Dreams of the Foamy Deep",
+      "description": "The CRIT Rate of <color=#FFD780FF>Pressurized Floe: Shattering Pressure</color> will be increased by 15%.",
+      "icon": "UI_Talent_S_Freminet_01"
+    },
+    "const2": {
+      "name": "Penguins and the Land of Plenty",
+      "description": "Unleashing <color=#FFD780FF>Pressurized Floe: Shattering Pressure</color> will restore 2 Energy to Freminet. If a Pressure Level 4 Shattering Pressure is unleashed, this will restore 3 Energy.",
+      "icon": "UI_Talent_S_Freminet_02"
+    },
+    "const3": {
+      "name": "Song of the Eddies and Bleached Sands",
+      "description": "Increases the Level of <color=#FFD780FF>Normal Attack: Flowing Eddies</color> by 3.\\nMaximum upgrade level is 15.",
+      "icon": "UI_Talent_U_Freminet_01"
+    },
+    "const4": {
+      "name": "Dance of the Snowy Moon and Flute",
+      "description": "After Freminet triggers Frozen, Shatter, or Superconduct against opponents, his ATK will be increased by 9% for 6s. Max 2 stacks. This can be triggered once every 0.3s.",
+      "icon": "UI_Talent_S_Freminet_03"
+    },
+    "const5": {
+      "name": "Nights of Hearth and Happiness",
+      "description": "Increases the Level of <color=#FFD780FF>Pressurized Floe</color> by 3.\\nMaximum upgrade level is 15.",
+      "icon": "UI_Talent_U_Freminet_02"
+    },
+    "const6": {
+      "name": "Moment of Waking and Resolve",
+      "description": "After Freminet triggers Frozen, Shatter, or Superconduct against opponents, his CRIT DMG will be increased by 12% for 6s. Max 3 stacks. This can be triggered once every 0.3s.",
+      "icon": "UI_Talent_S_Freminet_04"
+    }
+  },
+  "hyperlinks": [],
+  "stories": {
+    "x85200": {
+      "storyTitle": "Character Details",
+      "storyText": "Whether you're a tourist visiting Fontaine for the first time or an adventurer who's set their heart on finding legendary treasures, you're sure to be captivated by the enchantments of the underwater world. But those who attempt to explore the depths without first undergoing rigorous training or making the necessary preparations are gambling with their lives. Treacherous underwater currents, unexpected bodily reactions, and monsters lurking in the deep... Peril always comes without knocking. Seeking the help of a professional diver is always a wise choice.\\nIf you ask people who's the most talented diver around, you're likely to hear the name of Freminet. Even old veterans, bronzed and toughened by long exposure to the elements, never tire of lauding his skills. They speak not only of his familiarity with Fontaine's complex hydrological systems, but also of his prowess in coping with different underwater environments and seasonal conditions, as well as his expert control over his breathing. He seems to swim wherever he pleases — even through caverns deep down on the ocean floor, where no one else dares to venture...\\nWhen many people hear this, they suddenly think of something or other that Freminet could do for them. But no matter how great the promised rewards, the veterans always respond the same way — with a shake of the head and a regretful sigh.\\n\"The boy wouldn't hear of it... He's a nice lad, just a bit too shy.\"\\nThe conversation usually stops here.\\nAs Freminet sees it, other people's compliments are as capricious as the weather. He finds it hard to fathom their true intentions, and is constantly worried that he'll put his foot in it by saying something wrong.\\nPerhaps his true friends are the Tidalga and Romaritime Flowers that he spends so much time with. They hold a much dearer place in his heart than do reputation and reward, which float around on the surface. When he dives, he stays silent for long periods of time in the company of his old friends, and lets the silence swallow up his fears and anxieties. In so doing, he lets out all the things weighing on his mind, all the things that he can't say to anyone else.\\nThe reason he chose to dive was that simple — to find some peace and quiet, and escape everything happening in the world above.",
+      "unlockConds": []
+    },
+    "x85201": {
+      "storyTitle": "Character Story 1",
+      "storyText": "Even before he received his Vision, Freminet used to love wearing his diving helmet and exploring the underwater world like a penguin.\\nHe was never a very talkative child, and whenever something upset him he would plunge into the ocean, leaving his worries on the dry land far above. Over time, the quiet seabed became like a cradle to him, somewhere where he could curl up and feel safe. As the rings of a tree grow outward with each passing year, so too did his curiosity for the underwater world. He listened to the ocean currents with his body, and with each breath grew closer to the water around him. He committed every aspect of Fontaine's hydrology to memory, as if he were memorizing roads around a new home, albeit with far more relish. Eventually, he discovered a place of extraordinary beauty which captured his heart, and built a little secret underwater base nearby. Here, he could let his sunken emotions shine forth with a radiance akin to that of a Lumitoile.\\nTo this day, when faced with a particularly thorny problem, Freminet's first thought is to escape to this deep blue sanctuary — so vast and magnanimous that it could embrace all things.\\nFree, tranquil, safe, and content... If Freminet were to tell others how the underwater world makes him feel, he would most probably be met with more than a few raised eyebrows.\\nBut Freminet would never do this. In his mind, this is his ocean, and his alone. These feelings, hidden deep in his heart, are like sunken treasures buried in the depths.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 2
+      }
+    },
+    "x85202": {
+      "storyTitle": "Character Story 2",
+      "storyText": "In the eyes of an onlooker, Freminet doesn't have much of a presence, and comes across as cold almost to the point of being pessimistic. He's always silent, alone, and doesn't seem to enjoy the company of his peers. Compared to his older brother — the legendary Great Magician Lyney — Freminet seems as dull as a piece of old, soon-to-be-forgotten jewelry. But he doesn't care what they think.\\nA long time ago, Freminet began trying to strip away excess emotions to prevent his being affected by external pressures.\\nAs if building an igloo in his heart, he piled up block after block until he had constructed a translucent refuge, and curled up inside. Clutching his knees, the only thing that gave him solace was reading fairytales.\\nIf diving underwater was a way to steal a moment of peace, then sealing himself in a sanctuary of solid ice was actually a way to stay warm.\\nFreminet would only ever invite his closest \"kin\" in, and even then, he'd insist on tidying up first, making sure to lock his fairytales away.\\nBy the time Freminet left, he'd already turned into a clockwork toy — exquisitely made, yet silent as ever.\\nHe once found himself floating on his back upon the waters, unconcerned with his own safety, listening to the unknown songs of Violetgold Angler Gulls circling overhead. In hindsight, it was fortunate that they hadn't mistaken him for a fish...\\nIt was in that moment that he discovered how easy it was to just let the currents carry him away.\\nNo matter who was asking, and no matter what they wanted, as long as he followed orders unquestionably without a thought for the consequences — like an angler bringing home their catch — he would no longer have to face the endless cycle of castigation and punishment.\\nIn the years that children from ordinary families ran about laughing, showing off the latest clockwork toys or picking up phrases from The Steambird, Freminet's heart was gradually becoming numb. Orders filled the void and became like a clockwork spring driving him forward.\\nHe used to fantasize about turning into a cold, cruel machine, driven only by the imperative to execute commands. But as he matured, he became increasingly aware of his essential weakness. He wanted to leave emotions behind, but there were too many feelings that he couldn't just cast aside. They would always come back in the dead of night, suddenly gripping him like seaweed wrapping around his limbs. His habit of avoiding problems, his worry that he would not complete his tasks well, his fear of annoying people with his lack of enthusiasm, and his dread of disappointing others — those who meant something to him, most of all...\\nHe wasn't an outstanding child, but he simply became hypersensitive to everything in the world he grew up in.\\nHe hid himself within a thick shell and yielded to his timidity, until he could only express himself underwater.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 3
+      }
+    },
+    "x85203": {
+      "storyTitle": "Character Story 3",
+      "storyText": "Freminet was born in the Fleuve Cendre region of Fontaine. Each night he would fall asleep to the sound of drunkards belting out off-key shanties, and wake up to the shrill cries of neighbors cursing outside his window.\\nFreminet never met his own father, but he heard from his mother that the man was knee-deep in debt. He had little idea what all these numbers meant, and they were as hard for the little boy to conceive as a dinner in the Palais Mermonia. What he did know was that they were the reason his mother worked from dawn till dusk, day in day out.\\nWhen he was home alone, Freminet would often quietly fiddle about with the few devices there were in the house — a portable lamp that never lit up, a wall clock that never ticked, and so on...\\nThese things had been lying around for as long as he could remember, as if they were guests who had stopped by for a quick rest after a long saunter, but had never woken back up. Freminet found some tools and, one by one, carefully took them apart. To him, the inner structures of these mechanisms were like mysterious labyrinths. Turn this part here, and another would move as a result. Tap that bit there, and something else would spring out...\\nWhen he was with these machines, Freminet felt the same way he did when he read fairytales — like he had taken a magic potion that shrunk him down to the same size as the components. He was moving through a world of cogs and clockwork parts where time seemed to pass without his knowledge. These friends of his, silent yet intriguing, kept him company through many a lonely day.\\nOne day, when his mother returned home, she suddenly heard a strange noise that stopped her in her tracks. It was the sound of their clock, which Freminet had unwittingly fixed, ticking away almost as if to celebrate the new lease on life he had given it. She caressed his head and praised him, filling his heart with joy. But when he woke up the following morning, the clock was nowhere to be found. When his mother came home that evening, she brought him two slices of a type of bread he'd never had before. He still remembers the taste to this day.\\nFrom that day forth, his mother brought back all kinds of different devices for him — everything from clockwork toys to miniature clocks. Freminet liked his new friends a lot, and would spend a long time \"waking\" them from their slumber, even though they always vanished the following day.\\nBut one day, when Freminet ran over excitedly to greet his mother at the door, he had something very special with him — an exquisitely-made music box pendant, about the size of a person's thumb. It had been in such a terrible state when she had found it by the roadside that it was to their great surprise to discover that it still worked.\\nA beautiful melody jingled away between them, and seeing Freminet's innocent face light up with pure joy, a rare smile broke out on his mother's, too.\\nThis pendant would not leave him, for every evening, his mother would carefully take it off her neck, and together they would listen to its sweet lullaby as night fell.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 4
+      }
+    },
+    "x85204": {
+      "storyTitle": "Character Story 4",
+      "storyText": "One day, without uttering a word, Freminet's mother took him by the hand and led him away. As he tried to keep up behind her, little Freminet's palm began to hurt from the strength of her grip.\\n\"Mom, where are we going?\" He asked. She didn't reply.\\n\"Mommy, why are you crying?\" He asked her again. She suddenly stopped and let out a sob, but only a single one.\\nAfterwards, as if resolved to plunge into the freezing depths of the ocean, she took several deep breaths and continued onward. Not another tear fell, but in the oppressive silence Freminet had a vague sense that an ominous current was about to crash against the reef of his future.\\nFinally, they arrived in front of an unfamiliar house. As the thick door opened, it let out a harsh creak. It was the type of door that you intuitively knew that, once closed, could never be opened again.\\nStill, his mother remained silent. It was as if her expression, weighed down by her heavy heart, had sunk into a bottomless ocean.\\n\"Freminet, correct?\" Said a woman as she stepped out. \"Come with me.\"\\nConfused, Freminet looked up at his mother. He could feel the tide surging beneath him.\\nCalling herself the \"director\", the woman took his other wrist and began to pull him in.\\nAll of a sudden his mother's grip tightened, becoming even tighter than when she had led him over. Freminet felt like a boat caught between two waves, completely helpless as they each pulled in opposite directions and showed no sign of letting go.\\nAt last, his mother slowly bent down, half-kneeling before him. This was what she would do each day when she said goodbye to him before leaving the house.\\n\"Be a good boy,\" she said, kissing Freminet on the forehead in the way she always did.\\nThese tender words rose up like a barrier before the jagged reef, instantly turning the raging current into a soft, warm flow.\\nSo that's all this is, Freminet thought to himself. Perhaps, like ever and always, this was just to be a brief parting after all.\\nHe nodded to set her at ease.\\nThe director continued to pull him inside, and this time, his mother didn't try to stop her. Just like that, she let go...\\nFor a long time after, Freminet truly believed that as long as he behaved and performed well enough, his mother would come to bring him back home. That her kind face, disappearing behind that thick door, would someday reappear. And parting his fringe, she would kiss him on the forehead once again to tell him how well he'd done.\\nBut that day never came.\\n\"Still haven't figured it out? You were sold to settle a debt.\"\\nAs he grew up, Freminet started to have doubts about where his mother had gone and his own fate. After he finally plucked up the courage to ask the director, this was the heartless response she gave him.\\n\"You were abandoned, child. This is the only home you have.\" \"If you don't follow orders, your mother's safety can't be guaranteed...\" Such were the words of the previous director, callous as spiked shackles, locking his wildest hopes inside that door forever. These invisible fetters left a mark of utter abjection on Freminet. In those days, the ocean depths were his sole escape.\\nEngulfed by icy-cold seawater, he always felt that little bit closer to her. After all, when those events had transpired all those years ago, had she not sunk to the bottom of the ocean herself? Yet those waters must have been far colder than any he had ever dived in.",
+      "unlockConds": [
+        {
+          "type": "FETTER_COND_FETTER_LEVEL",
+          "value": 5
+        },
+        {
+          "type": "FETTER_COND_FINISH_PARENT_QUEST",
+          "value": 4002
+        }
+      ]
+    },
+    "x85205": {
+      "storyTitle": "Character Story 5",
+      "storyText": "After \"Father\" replaced the previous director, Freminet's thoughts began to turn to finding his mother once again.\\nAt first, Freminet assumed that she would rile up a still greater storm of brutality, for he knew that her methods were brutal, and he expected new orders to be given just as pitilessly as they had been in the past. But he soon discovered that \"Father's\" way of doing things was utterly different.\\nWith \"Father,\" the home was a place of refuge for all the family's children, and as such required a collective effort to maintain. It was up to each of them to complete their tasks in the way that best suited them. Even if they failed, they wouldn't be subjected to the searingly painful punishments they had been previously.\\nThis taste of freedom finally gave Freminet the chance to breathe deeply, and he started searching for his mother's whereabouts in his free time.\\nBut a long time passed and he still wasn't any closer to finding her.\\nPerhaps I really was abandoned, Freminet thought, trying to convince himself to accept reality as he strained to summon the already vague memory of his mother's face.\\nBut just as he was thinking of giving up, \"Father\" threw him a pendant.\\n\"I found this at the base of operations of those scum. Keep it.\" said \"Father.\"\\nFreminet looked back at her, perplexed, which in turn seemed to confuse her.\\n\"What it is? I'm talking about those usurious scoundrels. It belonged to your mother...\" She frowned, seeming to suddenly realize something. \"What were you told about her?\"\\nFreminet told her what the previous director had said to him, about how he had been abandoned. As he did so, she said nothing, but her eyes began to burn with wrath.\\nAfter Freminet was finished, \"Father\" fell silent for a rare moment. \"Do you want to know what really happened?\" She asked, fixing him with a piercing stare.\\nFreminet nodded almost unconsciously. But once he had heard what she had to say, he wasn't sure which story he'd rather believe.\\n\"Father\" told Freminet that his mother hadn't abandoned him, but on the contrary, had acted to protect him...\\nThat year, the debt that his family owed finally reached the point where they would no longer be able to repay it. Those greedy moneylenders had not only forced Freminet's mother to hand over the house that they lived in, but had also demanded that she hand over Freminet as well. But she was his mother — how could she let this happen? In the end, she had no choice but to entrust Freminet to \"that orphanage\" — somewhere they could never get at him — and then face them alone.\\n\"This was all I found. As for your mother...\" As she looked at the young boy in front of her, still gripping the pendant tightly in his hands, \"Father\" trailed off and left the ensuing silence to speak for her.\\nFreminet's head hung low, but knowing his personality, \"Father\" slipped out of the room without another word. The boy was left standing there, shaking as he gazed down at the pendant in his hands. It had long since rusted and could no longer produce sounds, and the clockwork components seemed to have been stained dark brown by dried blood. She must have been holding it at the very end, he thought. In his despair, Freminet continued to stare at the pendant, desperately looking for even a thread of his mother's warmth.\\nThat evening, Freminet dived down to the bottom of the ocean and let it all out. He couldn't remember the last time he had cried like this. Other than the Romaritime Flowers that wept alongside him, not a soul heard the sound of his sobbing, for the ocean smothered it utterly.\\nFrom that day on, his grip on his greatsword tightened. He made an oath to himself that he would never again let another member of his family meet with misfortune.",
+      "unlockConds": [
+        {
+          "type": "FETTER_COND_FETTER_LEVEL",
+          "value": 6
+        },
+        {
+          "type": "FETTER_COND_FINISH_PARENT_QUEST",
+          "value": 4002
+        }
+      ]
+    },
+    "x85206": {
+      "storyTitle": "Tales of a Snow-Winged Goose",
+      "storyText": "Freminet has been captivated by fairytales since he was a child.\\nIn contrast with the real world, the little world inside a picture book is always full of color. Castles can be made from candy, rivers from the juice of Bulle Fruits, there can be talking Hydro Crystalflies, and Redcrown Finches and ragdolls can become the best of friends...\\nWhen he closes his eyes, takes a deep breath, and then opens a storybook, Freminet is able to dive into a magical fairytale world — a world where he can push the boundaries of what exists through a combination of reading and his own imagination.\\nAs he goes, he picks up on scattered phrases or illustrations tucked into the corner of the page and turns these over in his mind. He learns something new every time he reads, and loves the variety of dazzling colors and textures that different subject matters seem to evoke for him.\\n...\\nWhen Freminet starts to feel lonely, \"Pers the Penguin\" waves to him with his black and white wings and slides around on his round little belly as if it were a skateboard. He skids along the surface of the ice until he plops into the sea, challenging Freminet to a fish-catching competition.\\nWhen he's feeling timid, \"Princess Marcotte\" with the long, pink hair stares out at him through the window. He knows that when the princess was but a seed, she rode across the ocean on the claws of a crab, abandoning her birthplace for the promise of a better life...\\nWhen he's feeling troubled, the inimitable adventurers \"Mr Fox and the Clockwork Guardsman\" appear there in front of him, standing side-by-side. Mr. Fox's great big bottle-brush of a tail raises a cloud of dust as it sweeps the floor, causing the Clockwork Guardsman's nose to become all itchy, but he keeps standing there, as straight and tall as ever. \"Everyone faces challenges,\" they say to him. \"Don't let them win. You're a brave, brave kid.\"\\n...\\nEven as he matured and grew older, Freminet still stubbornly held on to the fairytale world of his childhood.\\nHe truly believes in these beautiful stories and the friends he met in his books.\\nIn Freminet's heart, they really do exist in that poetic dreamland of his. There is a place where sadness and worry cease to exist, and all that remains is the unending sound of joyful laughter. It's a place where dreams come true, and justice always triumphs.\\nBut of course, he can't actually reach out and touch the things in this imaginary world. Perhaps he'll find a way someday though...",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 4
+      }
+    },
+    "x85207": {
+      "storyTitle": "Vision",
+      "storyText": "That day, Freminet and some other children were out on an underwater mission. At first, everything went perfectly smoothly, just like it had done on countless other occasions.\\nAll of a sudden, however, Freminet noticed that something was off.\\nCreatures that know their own weakness always seem able to stay focused in places of great peril, and Freminet is no exception. He has always been skilled at self-reflection, even to the point of picking up on minute changes in his breathing. Without them even being aware of it, his unique powers of perception have helped them evade all kinds of danger.\\nFreminet made an emergency gesture to his friends telling them to surface. He still didn't know what the actual peril was, but his nerves had taken hold and his heart began to beat faster and faster.\\nHis friends didn't object and, with Freminet at their center, the group began to ascend.\\nFor these children, who had yet to receive the gods' favor, ascending was something that had to be done slowly. But at the same time, the feeling of unease in Freminet's heart was becoming unbearable. His vision grew hazy, and he couldn't tell whether it was the reflection of some monstrous leviathan or a sign that he was on the verge of fainting.\\nNo. Wait. The diving equipment was malfunctioning! Was it just him? If not, how many of the others were affected?\\nHe tried hard to open his eyes, but he was gradually and uncontrollably slipping out of consciousness.\\nNo, I have to lead them back, he said to himself. As long as my arms and legs keep working...\\nHe began to feel sleepy.\\nHis thoughts were becoming sluggish... If this carries on, he thought, I'm never going to make it to the surface.\\nEven if I make it, what good would it do? That thought suddenly flashed through Freminet's mind. I'd just go back to living day after day after day, eternally devoid of hope.\\nHe felt tired. Tired of forcing himself to keep going.\\nHe was unsuited to having so many \"family members.\" There was no real warmth or feelings between them. They were simply a motley crew of clockwork meka, each of a slightly different model and outward appearance.\\nPerhaps the seawater was where he belonged after all. To drift off into blissful sleep... Was it really so bad? He gradually let his eyes fall shut.\\nA sound suddenly jerked him back awake. Freminet... Freminet. The voice was slow, solemn, and seemed to be coming from the other end of the earth. It also carried a slight stutter.\\nPers?\\nFreminet stretched out his arms to a blank landscape in front of him, opening his eyes in puzzlement.\\nThere was no Pers the penguin in this underwater realm. The children had all slipped into a dreadful torpor.\\nI must save them all! Freminet screamed without making a sound. So what if we're not all of the same mind? I won't abandon anyone in my family! No matter what hazards lie ahead, only with the courage to put life itself on the line will I live to see the blue sky that comes after the storm.\\nIn that moment, his body seemed to be imbued with power, and even his breathing grew easy once more. He quickly swam over to his companions, who were each of them drowning...\\nIn the midst of a tempest, he saved all of his friends — a miracle of heroism worthy of the legendary Pers from the stories he so loved...\\nIt was only then that he realized that a Vision as clear as crystal now hung from his divesuit.\\nHe never told a soul what really happened that day. After all, true heroes aren't in it for the recognition.",
+      "unlockConds": [
+        {
+          "type": "FETTER_COND_FETTER_LEVEL",
+          "value": 6
+        },
+        {
+          "type": "FETTER_COND_FINISH_PARENT_QUEST",
+          "value": 4002
+        }
+      ]
+    }
+  },
+  "quotes": {
+    "x85000": {
+      "quoteTitle": "Hello",
+      "quoteText": "Hello, my name's Freminet, I'm a diver... Oh, no need to shake hands. I mean, no need to be so formal. Ahem, if you need help surveying underwater ruins or salvaging materials, I can be of some use to you. But for anything else... You might find me a disappointment.",
+      "unlockConds": []
+    },
+    "x85001": {
+      "quoteTitle": "Chat: Ocean Depths",
+      "quoteText": "I want to spend some time at the bottom of the sea... In peace and total silence.",
+      "unlockConds": []
+    },
+    "x85002": {
+      "quoteTitle": "Chat: Principles",
+      "quoteText": "It's easy to fix a machine when you know how it's built and how it works. But people... they're much more difficult.",
+      "unlockConds": []
+    },
+    "x85003": {
+      "quoteTitle": "Chat: Home",
+      "quoteText": "Wherever the tide takes me, so long as the light of the hearth still shines, I'll always have a home to return to...",
+      "unlockConds": []
+    },
+    "x85004": {
+      "quoteTitle": "When It Rains",
+      "quoteText": "I always get so gloomy when it rains...",
+      "unlockConds": []
+    },
+    "x85005": {
+      "quoteTitle": "After the Rain",
+      "quoteText": "The rain's stopped? Okay, that's good.",
+      "unlockConds": []
+    },
+    "x85006": {
+      "quoteTitle": "When Thunder Strikes",
+      "quoteText": "Don't be scared, Pers. I'll keep you safe.",
+      "unlockConds": []
+    },
+    "x85007": {
+      "quoteTitle": "When It Snows",
+      "quoteText": "Maybe I should put on my diving helmet to... keep me warm...",
+      "unlockConds": []
+    },
+    "x85008": {
+      "quoteTitle": "When the Wind Is Blowing",
+      "quoteText": "I'd rather be diving in the sea.",
+      "unlockConds": []
+    },
+    "x85009": {
+      "quoteTitle": "Good Morning",
+      "quoteText": "Morning. Do you have an assignment for me today? If not, I'll head out.",
+      "unlockConds": []
+    },
+    "x85010": {
+      "quoteTitle": "Good Afternoon",
+      "quoteText": "All the components look intact. Maybe it's just a worn-out spring? If so, that's an easy fix... Oh, sorry, I was... Did you say something?",
+      "unlockConds": []
+    },
+    "x85011": {
+      "quoteTitle": "Good Evening",
+      "quoteText": "Want a bowl of seafood soup? It's made with shrimp and shellfish caught earlier today. I'm no cook, but the ingredients are fresh, so... it shouldn't taste too bad.",
+      "unlockConds": []
+    },
+    "x85012": {
+      "quoteTitle": "Good Night",
+      "quoteText": "You go ahead, I'm gonna stay up and read for a while. Hmm? What am I reading? It's, um... it's about diving. There's a bunch of skills that I still need to... Anyway, night!",
+      "unlockConds": []
+    },
+    "x85013": {
+      "quoteTitle": "About Freminet: Diving",
+      "quoteText": "As you know, diving is one of the few things I'm any good at. I spend more time among the Tidalga than I do talking to people. They don't ask you questions or act disappointed, they just float there quietly with you... The underwater world is much simpler than the world of dry land.",
+      "unlockConds": []
+    },
+    "x85014": {
+      "quoteTitle": "About Freminet: Clockwork Penguin",
+      "quoteText": "Whenever I feel lonely at night, Pers is the one who's always there for me. I thought that maybe some other kids might want a toy for company too, so I made a bunch of clockwork penguins and took them to Leschots's workshop to put on sale... Apparently, the customer feedback was good, but they didn't sell too many of them. And most of the buyers were adults...",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x85015": {
+      "quoteTitle": "About Us: Orders",
+      "quoteText": "Orders to me are like a clockwork spring driving me forward, and I don't know what to do with myself without them. So if there's anything you need me for, please don't hesitate to ask.",
+      "unlockConds": []
+    },
+    "x85016": {
+      "quoteTitle": "About Us: Companionship",
+      "quoteText": "Tell me a bit more about yourself. Your hobbies, favorite food, favorite color, what animal you'd like to have as a pet... If you and I are companions, it means we're connected, more closely than gears in a machine.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 6"
+      ]
+    },
+    "x85017": {
+      "quoteTitle": "About the Vision",
+      "quoteText": "After I got my Vision, I didn't need my helmet to go diving anymore. But... I can't bear to be without it. It cuts me off from the noise of the outside world, and makes me feel safe. My Vision, Pers, and my helmet... I draw my strength from them every time I take a breath.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x85018": {
+      "quoteTitle": "Something to Share",
+      "quoteText": "If you look up at the sky from far enough underwater, even the sun is soft on the eyes. That's why I like it down there.",
+      "unlockConds": []
+    },
+    "x85019": {
+      "quoteTitle": "Interesting Things: Beryl Conches",
+      "quoteText": "I've seen lots of Beryl Conches down in the depths. The patterns are so intricate, I often lose track of the time just staring at them. These fossils are all that's left of these beautiful creatures... I wonder how long before the rest of the world becomes part of this underwater museum, too?",
+      "unlockConds": []
+    },
+    "x85020": {
+      "quoteTitle": "Interesting Things: Lumitoile",
+      "quoteText": "Lumitoile attach themselves to many things. Sometimes on the reefs or docks, but most commonly on large underwater buildings. Do you think they're drawn to humans like Cicins are drawn to the light?",
+      "unlockConds": []
+    },
+    "x85021": {
+      "quoteTitle": "About \"Father\": Tears",
+      "quoteText": "\"Father\" doesn't like it when children cry. \"Father\" says tears are the product of emotion and weakness. So when \"Father\" scolds me, I hold it in until I'm underwater, where no one can hear me cry. At least I have the Romaritime Flowers to keep me company.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x85022": {
+      "quoteTitle": "About \"Father\": Teaching",
+      "quoteText": "When I was little, I was taught that we should be ready to give our lives for our family. But when \"Father\" took control, this philosophy changed. \"Father\" said that every one of us is important, and we have to value our own lives, be our strongest selves, and stand on our own two feet in this world... But actually, all of that's much harder than just following orders.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 6",
+        "Complete \"As Light Rain Falls Without Reason\""
+      ]
+    },
+    "x85023": {
+      "quoteTitle": "About Lyney: Magic Shows",
+      "quoteText": "At home, Lyney's always showing me his magic tricks. Whenever I smile, he grins excitedly and says the audience is definitely going to love this one... Do I really smile so rarely?",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x85024": {
+      "quoteTitle": "About Lyney: Mask",
+      "quoteText": "Lyney is our team leader, and acts like everyone's older brother... But I can tell that he puts on a brave face sometimes. I tried to talk to him about it once — told him that he doesn't need to wear a mask all the time. But he denied it, and we ended up having an argument... Since then, I've never brought it up with him again.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 6"
+      ]
+    },
+    "x85025": {
+      "quoteTitle": "About Lynette",
+      "quoteText": "If you assigned Lyney and Lynette with the same mission, they'd both do an outstanding job. But not me. Lynette is always comforting me, saying that everyone has their strengths, and how everyone relies on me to fix things around the house when they break down... If only I was half as good at anything else.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x85026": {
+      "quoteTitle": "About Neuvillette",
+      "quoteText": "One day when I surfaced after a dive, the Chief Justice was just standing there alone on the beach. I don't know whether he had something on his mind, or was just enjoying the view... Obviously, I didn't ask. I only locked eyes with him for a split-second before disappearing back underwater. Thinking back, I must have looked so guilty... *sigh*",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x85027": {
+      "quoteTitle": "About Furina: Avoiding the Question",
+      "quoteText": "Uh... I'm in no position to give a well-rounded opinion on the Hydro Archon, so... I'll pass. I mean, I've only seen her a few times... so I'm sure I have a somewhat skewed view of her.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x85028": {
+      "quoteTitle": "About Furina: Verdict",
+      "quoteText": "...Okay fine. I've seen what the Hydro Archon's like when she's sitting in the audience. In my view, she's a very charismatic speaker, but it's her silences that intrigue me more. Her eyes... they're like the darkness at the bottom of the ocean. Hiding a deep secret, afraid of anyone ever getting close to her... Ah! Sorry, I... I let my imagination get the better of me.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 6"
+      ]
+    },
+    "x85029": {
+      "quoteTitle": "About Navia",
+      "quoteText": "Lyney told me everything. I'm so grateful to you and Navia for your warmth and generosity. Please pass on my thanks when you see her... Huh? Tell her myself? ...Uh, I, uh... Ooh, I've suddenly got stomach cramps — sorry, gotta dash.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4",
+        "Complete \"As Light Rain Falls Without Reason\""
+      ]
+    },
+    "x85030": {
+      "quoteTitle": "About Charlotte",
+      "quoteText": "For some reason, Charlotte never believes me when I say I'm just an ordinary diver. She's convinced that my past is full of news stories waiting for her to dig up... Am I really that bad of a liar?",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x85031": {
+      "quoteTitle": "About Clorinde",
+      "quoteText": "I owe Clorinde my life, but she says she doesn't want anything from me in return... It's not a nice feeling, having put someone out so much, and only being able to offer empty thank-yous in return.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4",
+        "Complete \"Cataclysm's Quickening\""
+      ]
+    },
+    "x85032": {
+      "quoteTitle": "About Chevreuse",
+      "quoteText": "I hear that Chevreuse is a regular customer of Beaumont Workshop. She always purchases the most expensive and advanced components for her musket. If I make enough Mora, maybe one day I can afford to upgrade Pers's components.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x85033": {
+      "quoteTitle": "More About Freminet: I",
+      "quoteText": "I'm sorry, I can't really think of any good stories to share... the ones I do know will just bring down your mood.",
+      "unlockConds": []
+    },
+    "x85034": {
+      "quoteTitle": "More About Freminet: II",
+      "quoteText": "My past... If you promise not to look at me, or you'll let me wear my diving helmet... Maybe then I could try to tell you a little more. Personality's one part of it, but... the bigger reason is that I've been avoiding my past for so long now, it might be hard to talk about...",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 3"
+      ]
+    },
+    "x85035": {
+      "quoteTitle": "More About Freminet: III",
+      "quoteText": "I read in a book that when people die, they turn into stars and watch over us from the sky... I hate my real father. He abandoned my mother and me, so I don't care about him. But... if my mother looks down from the sky and sees that, after all this time in his new home, the child she protected with her life is still so timid that he can't fend for himself... Will she be... disappointed in me?",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4",
+        "Complete \"As Light Rain Falls Without Reason\""
+      ]
+    },
+    "x85036": {
+      "quoteTitle": "More About Freminet: IV",
+      "quoteText": "I don't like thinking about my time in the House of the Hearth under the previous director. All I'll say is... My habit of retreating into the sea started back then. \"Father\" changed not only me, but my view of our family, too. Then Lyney and Lynette joined the family... and for the first time ever, I gained some genuine companions.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 5",
+        "Complete \"As Light Rain Falls Without Reason\""
+      ]
+    },
+    "x85037": {
+      "quoteTitle": "More About Freminet: V",
+      "quoteText": "I once swore an oath that I would do whatever it takes to protect this family, and never look back. Now, I stay true to this oath not because it's the previous director's orders, or because it's what \"Father\" expects of me, but because it's my own desire. Please keep our family's secret safe... so that I can keep my promise.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 6",
+        "Complete \"As Light Rain Falls Without Reason\""
+      ]
+    },
+    "x85038": {
+      "quoteTitle": "Freminet's Hobbies",
+      "quoteText": "Apart from diving, my main hobby is dismantling mechanical things and modifying them. I also collect spare parts, and sometimes I build new clockwork toys out of them. ...Pers? No, Pers is more like family to me. We grew up together... No, I'm serious. I'm always tinkering with it to add more functionality... I truly hope that a day will come when Pers can fly free into the sky.",
+      "unlockConds": []
+    },
+    "x85039": {
+      "quoteTitle": "Freminet's Troubles",
+      "quoteText": "...That's a tough question. I don't have any critical issues that need addressing, but at the same time, there's a long laundry list of minor things which all take their toll. If I was a clockwork toy on the shelf, I wouldn't even know where to start trying to fix me up... But at the end of the day, I guess it all comes down to one thing... I'm just too weak.",
+      "unlockConds": []
+    },
+    "x85040": {
+      "quoteTitle": "Favorite Food",
+      "quoteText": "Seafood. Mainly fish and shrimp, crab's okay too. I'm really glad that Lyney and Lynette share my tastes, because it means we can eat meals together... I don't mind how the ingredients are cooked, though. I leave that decision up to them.",
+      "unlockConds": []
+    },
+    "x85041": {
+      "quoteTitle": "Least Favorite Food",
+      "quoteText": "I can't handle coffee. More than half a cup and before long, my heart starts racing and I can't calm my breathing down. Everyone says that coffee can boost your energy levels, but to me, it's torture...",
+      "unlockConds": []
+    },
+    "x85042": {
+      "quoteTitle": "Receiving a Gift: I",
+      "quoteText": "It's good. So good, I don't want to eat all of it in one go.",
+      "unlockConds": []
+    },
+    "x85043": {
+      "quoteTitle": "Receiving a Gift: II",
+      "quoteText": "Is cooking one of your hobbies? It shows. I can taste how much care you put into these delicious meals.",
+      "unlockConds": []
+    },
+    "x85044": {
+      "quoteTitle": "Receiving a Gift: III",
+      "quoteText": "Sorry... For a moment there I had the urge to run for my life. But that wouldn't be fair to you.",
+      "unlockConds": []
+    },
+    "x85045": {
+      "quoteTitle": "Birthday",
+      "quoteText": "Would you be willing to come with me somewhere? There's this place I know where the scenery is spectacular. I think it's even more magical than a fantasy novel. I have a secret hideout there, and I keep some glowing sea creatures as pets... I just want to give you a birthday experience like you've never had before, and then give you my birthday wishes... Will you give me the chance to do that?",
+      "unlockConds": []
+    },
+    "x85046": {
+      "quoteTitle": "Feelings About Ascension: Intro",
+      "quoteText": "Are... Are you sure?",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 1"
+      ]
+    },
+    "x85047": {
+      "quoteTitle": "Feelings About Ascension: Building Up",
+      "quoteText": "You didn't have to do this for me, you know. I'd obey you regardless.",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 2"
+      ]
+    },
+    "x85048": {
+      "quoteTitle": "Feelings About Ascension: Climax",
+      "quoteText": "Your time and energy is a precious resource. Shouldn't you... spend it on someone else?",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 4"
+      ]
+    },
+    "x85049": {
+      "quoteTitle": "Feelings About Ascension: Conclusion",
+      "quoteText": "How can I ever repay you for this? I don't know what to say, I... I don't have much practice at this, and right now I'm terrified of saying something stupid and upsetting you... and making you regret this whole thing... I'm sorry, is it okay if I just... say nothing, and just stay here with you for a while?",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 6"
+      ]
+    },
+    "x85050": {
+      "quoteTitle": "Elemental Skill: I",
+      "quoteText": "Pers!",
+      "unlockConds": []
+    },
+    "x85051": {
+      "quoteTitle": "Elemental Skill: II",
+      "quoteText": "Get in gear.",
+      "unlockConds": []
+    },
+    "x85052": {
+      "quoteTitle": "Elemental Skill: III",
+      "quoteText": "Frost is coming.",
+      "unlockConds": []
+    },
+    "x85053": {
+      "quoteTitle": "Elemental Burst: I",
+      "quoteText": "Going under.",
+      "unlockConds": []
+    },
+    "x85054": {
+      "quoteTitle": "Elemental Burst: II",
+      "quoteText": "Commencing cleanup.",
+      "unlockConds": []
+    },
+    "x85055": {
+      "quoteTitle": "Elemental Burst: III",
+      "quoteText": "Dead reckoning.",
+      "unlockConds": []
+    },
+    "x85056": {
+      "quoteTitle": "Opening Treasure Chest: I",
+      "quoteText": "If there's any scrap metal or parts you don't want, I'll take them.",
+      "unlockConds": []
+    },
+    "x85057": {
+      "quoteTitle": "Opening Treasure Chest: II",
+      "quoteText": "There's a lot of treasure here.",
+      "unlockConds": []
+    },
+    "x85058": {
+      "quoteTitle": "Opening Treasure Chest: III",
+      "quoteText": "Sort the items by type and store them for future use.",
+      "unlockConds": []
+    },
+    "x85059": {
+      "quoteTitle": "Low HP: I",
+      "quoteText": "I've had worse.",
+      "unlockConds": []
+    },
+    "x85060": {
+      "quoteTitle": "Low HP: II",
+      "quoteText": "I can take it...",
+      "unlockConds": []
+    },
+    "x85061": {
+      "quoteTitle": "Low HP: III",
+      "quoteText": "Just keep breathing...",
+      "unlockConds": []
+    },
+    "x85062": {
+      "quoteTitle": "Ally at Low HP: I",
+      "quoteText": "You're wounded...",
+      "unlockConds": []
+    },
+    "x85063": {
+      "quoteTitle": "Ally at Low HP: II",
+      "quoteText": "Um, maybe... You should...",
+      "unlockConds": []
+    },
+    "x85064": {
+      "quoteTitle": "Fallen: I",
+      "quoteText": "No home... to return to...",
+      "unlockConds": []
+    },
+    "x85065": {
+      "quoteTitle": "Fallen: II",
+      "quoteText": "Sinking... feeling...",
+      "unlockConds": []
+    },
+    "x85066": {
+      "quoteTitle": "Fallen: III",
+      "quoteText": "\"Father\"...",
+      "unlockConds": []
+    },
+    "x85067": {
+      "quoteTitle": "Heavy Hit Taken: I",
+      "quoteText": "Oh no...",
+      "unlockConds": []
+    },
+    "x85068": {
+      "quoteTitle": "Heavy Hit Taken: II",
+      "quoteText": "Please, no...",
+      "unlockConds": []
+    },
+    "x85069": {
+      "quoteTitle": "Joining Party: I",
+      "quoteText": "Yes, take me with you.",
+      "unlockConds": []
+    },
+    "x85070": {
+      "quoteTitle": "Joining Party: II",
+      "quoteText": "At your command.",
+      "unlockConds": []
+    },
+    "x85071": {
+      "quoteTitle": "Joining Party: III",
+      "quoteText": "Well, I've got nowhere to go...",
+      "unlockConds": []
+    }
+  },
+  "energy": [
+    {
+      "source": "Ball1",
+      "particles": "2",
+      "chance": "100%",
+      "cd": "0.3s"
+    },
+    {
+      "source": "Ball1_Burst",
+      "particles": "1",
+      "chance": "100%",
+      "cd": "0.3s"
+    },
+    {
+      "source": "Ball2",
+      "particles": "1",
+      "chance": "100%",
+      "cd": "0.3s"
+    }
+  ],
+  "attacks": [
+    {
+      "name": "ElementalArt_Strike",
+      "icd_source": "Tag: Elemental_Art (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV5/75",
+      "element": "Ice",
+      "attackType": "Melee",
+      "strikeType": "Blunt",
+      "damageParam": "Damage"
+    },
+    {
+      "name": "ArkheGrade",
+      "icd_source": "Tag: Elemental_Art (!)",
+      "icd_rule": "Independent",
+      "gauge": "0U",
+      "poise": "LV3/25",
+      "element": "Ice",
+      "attackType": "Melee",
+      "strikeType": "None",
+      "damageParam": "Arkhe_Damage"
+    },
+    {
+      "name": "ElementalArt_2",
+      "icd_source": "Tag: Elemental_Art (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV5/150",
+      "element": "Ice",
+      "attackType": "Melee",
+      "strikeType": "Blunt",
+      "damageParam": "Ice_Damage_Calculated"
+    },
+    {
+      "name": "ElementalArt_2",
+      "icd_source": "Tag: Elemental_Art (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV5/70",
+      "element": "Ice",
+      "attackType": "Melee",
+      "strikeType": "Blunt",
+      "damageParam": "Ice_Damage_Calculated"
+    },
+    {
+      "name": "SkillObj_ElementalArt_SecondAttack",
+      "icd_source": "Tag: Elemental_Art (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV5/70",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Blunt",
+      "damageParam": "Phy_Damage_Calculated"
+    },
+    {
+      "name": "ElementalArt_3",
+      "icd_source": "Tag: Elemental_Art (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV5/150",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Blunt",
+      "damageParam": "Phy0"
+    },
+    {
+      "name": "ElementalBurst_Strike",
+      "icd_source": "Tag: Elemental_Burst (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV3/200",
+      "element": "Ice",
+      "attackType": "Default",
+      "strikeType": "Blunt",
+      "damageParam": "Damage"
+    },
+    {
+      "name": "SkillObj_Additional_01_Material",
+      "icd_source": "Tag: Elemental_Art (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV1/25",
+      "element": "Ice",
+      "attackType": "Melee",
+      "strikeType": "Blunt",
+      "damageParam": "Art_01"
+    },
+    {
+      "name": "SkillObj_Additional_02_Material",
+      "icd_source": "Tag: Elemental_Art (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV1/25",
+      "element": "Ice",
+      "attackType": "Melee",
+      "strikeType": "Blunt",
+      "damageParam": "Art_02"
+    },
+    {
+      "name": "SkillObj_Additional_03_Material",
+      "icd_source": "Tag: Elemental_Art (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV1/25",
+      "element": "Ice",
+      "attackType": "Melee",
+      "strikeType": "Blunt",
+      "damageParam": "Art_03"
+    },
+    {
+      "name": "SkillObj_Additional_04_Material",
+      "icd_source": "Tag: Elemental_Art (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV1/25",
+      "element": "Ice",
+      "attackType": "Melee",
+      "strikeType": "Blunt",
+      "damageParam": "Art_04"
+    },
+    {
+      "name": "SkillObj_Additional_01_Material_Big",
+      "icd_source": "Tag: Elemental_Art (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV1/25",
+      "element": "Ice",
+      "attackType": "Melee",
+      "strikeType": "Blunt",
+      "damageParam": "Art_01_Big|2.000000|MUL"
+    },
+    {
+      "name": "SkillObj_Additional_02_Material_Big",
+      "icd_source": "Tag: Elemental_Art (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV1/25",
+      "element": "Ice",
+      "attackType": "Melee",
+      "strikeType": "Blunt",
+      "damageParam": "Art_02_Big|2.000000|MUL"
+    },
+    {
+      "name": "SkillObj_Additional_03_Material_Big",
+      "icd_source": "Tag: Elemental_Art (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV1/25",
+      "element": "Ice",
+      "attackType": "Melee",
+      "strikeType": "Blunt",
+      "damageParam": "Art_03_Big|2.000000|MUL"
+    },
+    {
+      "name": "SkillObj_Additional_04_Material_Big",
+      "icd_source": "Tag: Elemental_Art (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV1/25",
+      "element": "Ice",
+      "attackType": "Melee",
+      "strikeType": "Blunt",
+      "damageParam": "Art_04_Big|2.000000|MUL"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "0U",
+      "poise": "LV2/35",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Slash",
+      "damageParam": "FallingAnthem_Normal_Loop_Damage"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV4/150",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Blunt",
+      "damageParam": "FallingAnthem_Normal_Rank_1_Damage"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV7/200",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Blunt",
+      "damageParam": "FallingAnthem_Normal_Rank_2_Damage"
+    }
+  ],
+  "endure": {
+    "ability": "ElementalBurst",
+    "handler": "Utral_Buff",
+    "Actor_EndureDelta": 0.5
+  }
+}

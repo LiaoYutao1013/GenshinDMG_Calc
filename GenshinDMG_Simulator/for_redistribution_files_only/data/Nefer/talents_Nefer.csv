@@ -1,0 +1,8 @@
+Skill,Param,ScalingType,Level10
+Skill,CastEM,EM,2.20
+Skill,PhantasmEM,EM,1.45
+Skill,PhantasmATK,ATK,0.80
+Burst,CastEM,EM,2.95
+Burst,VeilBonus,DMG,0.14
+Reaction,LunarBloomBase,FLAT,2000
+Passive,C1EMBonus,EM,0.60

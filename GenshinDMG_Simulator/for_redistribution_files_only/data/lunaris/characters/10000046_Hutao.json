@@ -1,0 +1,1955 @@
+{
+  "info": {
+    "name": "Hu Tao",
+    "description": "The 77th Director of the Wangsheng Funeral Parlor. She took over the business at a rather young age.",
+    "rarity": "QUALITY_ORANGE",
+    "weapon": "WEAPON_POLE",
+    "birthday": "15/7",
+    "element": "Pyro",
+    "title": "Fragrance in Thaw",
+    "constellation": "Papilio Charontis",
+    "affiliation": "Wangsheng Funeral Parlor",
+    "cv": {
+      "EN": "Brianna Knickerbocker",
+      "CHS": "陶典",
+      "JP": "高橋李依",
+      "KR": "Kim Ha-ru"
+    },
+    "attributes": [
+      {
+        "level": 1,
+        "ascension": 0,
+        "hp": 1211,
+        "atk": 8,
+        "def": 68,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 2,
+        "ascension": 0,
+        "hp": 1311,
+        "atk": 9,
+        "def": 74,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 3,
+        "ascension": 0,
+        "hp": 1412,
+        "atk": 10,
+        "def": 80,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 4,
+        "ascension": 0,
+        "hp": 1513,
+        "atk": 10,
+        "def": 85,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 5,
+        "ascension": 0,
+        "hp": 1614,
+        "atk": 11,
+        "def": 91,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 6,
+        "ascension": 0,
+        "hp": 1716,
+        "atk": 12,
+        "def": 97,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 7,
+        "ascension": 0,
+        "hp": 1816,
+        "atk": 12,
+        "def": 102,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 8,
+        "ascension": 0,
+        "hp": 1918,
+        "atk": 13,
+        "def": 108,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 9,
+        "ascension": 0,
+        "hp": 2019,
+        "atk": 14,
+        "def": 114,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 10,
+        "ascension": 0,
+        "hp": 2120,
+        "atk": 15,
+        "def": 119,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 11,
+        "ascension": 0,
+        "hp": 2222,
+        "atk": 15,
+        "def": 125,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 12,
+        "ascension": 0,
+        "hp": 2323,
+        "atk": 16,
+        "def": 131,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 13,
+        "ascension": 0,
+        "hp": 2425,
+        "atk": 17,
+        "def": 137,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 14,
+        "ascension": 0,
+        "hp": 2528,
+        "atk": 17,
+        "def": 142,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 15,
+        "ascension": 0,
+        "hp": 2630,
+        "atk": 18,
+        "def": 148,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 16,
+        "ascension": 0,
+        "hp": 2731,
+        "atk": 19,
+        "def": 154,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 17,
+        "ascension": 0,
+        "hp": 2834,
+        "atk": 19,
+        "def": 160,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 18,
+        "ascension": 0,
+        "hp": 2936,
+        "atk": 20,
+        "def": 165,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 19,
+        "ascension": 0,
+        "hp": 3039,
+        "atk": 21,
+        "def": 171,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 20,
+        "ascension": 0,
+        "hp": 3141,
+        "atk": 21,
+        "def": 177,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 21,
+        "ascension": 1,
+        "hp": 4282,
+        "atk": 29,
+        "def": 241,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 22,
+        "ascension": 1,
+        "hp": 4384,
+        "atk": 30,
+        "def": 247,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 23,
+        "ascension": 1,
+        "hp": 4487,
+        "atk": 31,
+        "def": 253,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 24,
+        "ascension": 1,
+        "hp": 4590,
+        "atk": 31,
+        "def": 259,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 25,
+        "ascension": 1,
+        "hp": 4693,
+        "atk": 32,
+        "def": 264,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 26,
+        "ascension": 1,
+        "hp": 4797,
+        "atk": 33,
+        "def": 270,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 27,
+        "ascension": 1,
+        "hp": 4900,
+        "atk": 34,
+        "def": 276,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 28,
+        "ascension": 1,
+        "hp": 5003,
+        "atk": 34,
+        "def": 282,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 29,
+        "ascension": 1,
+        "hp": 5107,
+        "atk": 35,
+        "def": 288,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 30,
+        "ascension": 1,
+        "hp": 5210,
+        "atk": 36,
+        "def": 294,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 31,
+        "ascension": 1,
+        "hp": 5314,
+        "atk": 36,
+        "def": 299,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 32,
+        "ascension": 1,
+        "hp": 5418,
+        "atk": 37,
+        "def": 305,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 33,
+        "ascension": 1,
+        "hp": 5523,
+        "atk": 38,
+        "def": 311,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 34,
+        "ascension": 1,
+        "hp": 5625,
+        "atk": 38,
+        "def": 317,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 35,
+        "ascension": 1,
+        "hp": 5730,
+        "atk": 39,
+        "def": 323,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 36,
+        "ascension": 1,
+        "hp": 5835,
+        "atk": 40,
+        "def": 329,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 37,
+        "ascension": 1,
+        "hp": 5939,
+        "atk": 41,
+        "def": 335,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 38,
+        "ascension": 1,
+        "hp": 6043,
+        "atk": 41,
+        "def": 340,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 39,
+        "ascension": 1,
+        "hp": 6147,
+        "atk": 42,
+        "def": 346,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 40,
+        "ascension": 1,
+        "hp": 6253,
+        "atk": 43,
+        "def": 352,
+        "CRITDMG_": "0"
+      },
+      {
+        "level": 41,
+        "ascension": 2,
+        "hp": 7094,
+        "atk": 49,
+        "def": 400,
+        "CRITDMG_": "9.6"
+      },
+      {
+        "level": 42,
+        "ascension": 2,
+        "hp": 7200,
+        "atk": 49,
+        "def": 406,
+        "CRITDMG_": "9.6"
+      },
+      {
+        "level": 43,
+        "ascension": 2,
+        "hp": 7305,
+        "atk": 50,
+        "def": 412,
+        "CRITDMG_": "9.6"
+      },
+      {
+        "level": 44,
+        "ascension": 2,
+        "hp": 7409,
+        "atk": 51,
+        "def": 417,
+        "CRITDMG_": "9.6"
+      },
+      {
+        "level": 45,
+        "ascension": 2,
+        "hp": 7514,
+        "atk": 51,
+        "def": 423,
+        "CRITDMG_": "9.6"
+      },
+      {
+        "level": 46,
+        "ascension": 2,
+        "hp": 7620,
+        "atk": 52,
+        "def": 429,
+        "CRITDMG_": "9.6"
+      },
+      {
+        "level": 47,
+        "ascension": 2,
+        "hp": 7725,
+        "atk": 53,
+        "def": 435,
+        "CRITDMG_": "9.6"
+      },
+      {
+        "level": 48,
+        "ascension": 2,
+        "hp": 7830,
+        "atk": 54,
+        "def": 441,
+        "CRITDMG_": "9.6"
+      },
+      {
+        "level": 49,
+        "ascension": 2,
+        "hp": 7937,
+        "atk": 54,
+        "def": 447,
+        "CRITDMG_": "9.6"
+      },
+      {
+        "level": 50,
+        "ascension": 2,
+        "hp": 8042,
+        "atk": 55,
+        "def": 453,
+        "CRITDMG_": "9.6"
+      },
+      {
+        "level": 51,
+        "ascension": 3,
+        "hp": 9131,
+        "atk": 62,
+        "def": 514,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 52,
+        "ascension": 3,
+        "hp": 9238,
+        "atk": 63,
+        "def": 520,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 53,
+        "ascension": 3,
+        "hp": 9343,
+        "atk": 64,
+        "def": 526,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 54,
+        "ascension": 3,
+        "hp": 9450,
+        "atk": 65,
+        "def": 532,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 55,
+        "ascension": 3,
+        "hp": 9556,
+        "atk": 65,
+        "def": 538,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 56,
+        "ascension": 3,
+        "hp": 9663,
+        "atk": 66,
+        "def": 544,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 57,
+        "ascension": 3,
+        "hp": 9769,
+        "atk": 67,
+        "def": 550,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 58,
+        "ascension": 3,
+        "hp": 9876,
+        "atk": 68,
+        "def": 556,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 59,
+        "ascension": 3,
+        "hp": 9982,
+        "atk": 68,
+        "def": 562,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 60,
+        "ascension": 3,
+        "hp": 10089,
+        "atk": 69,
+        "def": 568,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 61,
+        "ascension": 4,
+        "hp": 10933,
+        "atk": 75,
+        "def": 616,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 62,
+        "ascension": 4,
+        "hp": 11039,
+        "atk": 76,
+        "def": 622,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 63,
+        "ascension": 4,
+        "hp": 11147,
+        "atk": 76,
+        "def": 628,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 64,
+        "ascension": 4,
+        "hp": 11254,
+        "atk": 77,
+        "def": 634,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 65,
+        "ascension": 4,
+        "hp": 11362,
+        "atk": 78,
+        "def": 640,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 66,
+        "ascension": 4,
+        "hp": 11469,
+        "atk": 78,
+        "def": 646,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 67,
+        "ascension": 4,
+        "hp": 11576,
+        "atk": 79,
+        "def": 652,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 68,
+        "ascension": 4,
+        "hp": 11684,
+        "atk": 80,
+        "def": 658,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 69,
+        "ascension": 4,
+        "hp": 11791,
+        "atk": 81,
+        "def": 664,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 70,
+        "ascension": 4,
+        "hp": 11899,
+        "atk": 81,
+        "def": 670,
+        "CRITDMG_": "19.2"
+      },
+      {
+        "level": 71,
+        "ascension": 5,
+        "hp": 12744,
+        "atk": 87,
+        "def": 718,
+        "CRITDMG_": "28.8"
+      },
+      {
+        "level": 72,
+        "ascension": 5,
+        "hp": 12853,
+        "atk": 88,
+        "def": 724,
+        "CRITDMG_": "28.8"
+      },
+      {
+        "level": 73,
+        "ascension": 5,
+        "hp": 12961,
+        "atk": 89,
+        "def": 730,
+        "CRITDMG_": "28.8"
+      },
+      {
+        "level": 74,
+        "ascension": 5,
+        "hp": 13069,
+        "atk": 89,
+        "def": 736,
+        "CRITDMG_": "28.8"
+      },
+      {
+        "level": 75,
+        "ascension": 5,
+        "hp": 13178,
+        "atk": 90,
+        "def": 742,
+        "CRITDMG_": "28.8"
+      },
+      {
+        "level": 76,
+        "ascension": 5,
+        "hp": 13286,
+        "atk": 91,
+        "def": 748,
+        "CRITDMG_": "28.8"
+      },
+      {
+        "level": 77,
+        "ascension": 5,
+        "hp": 13395,
+        "atk": 92,
+        "def": 755,
+        "CRITDMG_": "28.8"
+      },
+      {
+        "level": 78,
+        "ascension": 5,
+        "hp": 13504,
+        "atk": 92,
+        "def": 761,
+        "CRITDMG_": "28.8"
+      },
+      {
+        "level": 79,
+        "ascension": 5,
+        "hp": 13612,
+        "atk": 93,
+        "def": 767,
+        "CRITDMG_": "28.8"
+      },
+      {
+        "level": 80,
+        "ascension": 5,
+        "hp": 13721,
+        "atk": 94,
+        "def": 773,
+        "CRITDMG_": "28.8"
+      },
+      {
+        "level": 81,
+        "ascension": 6,
+        "hp": 14568,
+        "atk": 100,
+        "def": 821,
+        "CRITDMG_": "38.4"
+      },
+      {
+        "level": 82,
+        "ascension": 6,
+        "hp": 14677,
+        "atk": 100,
+        "def": 827,
+        "CRITDMG_": "38.4"
+      },
+      {
+        "level": 83,
+        "ascension": 6,
+        "hp": 14786,
+        "atk": 101,
+        "def": 833,
+        "CRITDMG_": "38.4"
+      },
+      {
+        "level": 84,
+        "ascension": 6,
+        "hp": 14895,
+        "atk": 102,
+        "def": 839,
+        "CRITDMG_": "38.4"
+      },
+      {
+        "level": 85,
+        "ascension": 6,
+        "hp": 15004,
+        "atk": 103,
+        "def": 845,
+        "CRITDMG_": "38.4"
+      },
+      {
+        "level": 86,
+        "ascension": 6,
+        "hp": 15114,
+        "atk": 103,
+        "def": 851,
+        "CRITDMG_": "38.4"
+      },
+      {
+        "level": 87,
+        "ascension": 6,
+        "hp": 15223,
+        "atk": 104,
+        "def": 858,
+        "CRITDMG_": "38.4"
+      },
+      {
+        "level": 88,
+        "ascension": 6,
+        "hp": 15333,
+        "atk": 105,
+        "def": 864,
+        "CRITDMG_": "38.4"
+      },
+      {
+        "level": 89,
+        "ascension": 6,
+        "hp": 15443,
+        "atk": 106,
+        "def": 870,
+        "CRITDMG_": "38.4"
+      },
+      {
+        "level": 90,
+        "ascension": 6,
+        "hp": 15552,
+        "atk": 106,
+        "def": 876,
+        "CRITDMG_": "38.4"
+      },
+      {
+        "level": 95,
+        "ascension": 6,
+        "hp": 16104,
+        "atk": 118,
+        "def": 907,
+        "CRITDMG_": "38.4"
+      },
+      {
+        "level": 100,
+        "ascension": 6,
+        "hp": 16658,
+        "atk": 130,
+        "def": 938,
+        "CRITDMG_": "38.4"
+      }
+    ]
+  },
+  "icons": {
+    "forward": "UI_AvatarIcon_Hutao",
+    "coop_img": "UI_CoopImg_Hutao"
+  },
+  "ascension": {
+    "x202": 7.0499E+6,
+    "exp": {
+      "x104001": 2,
+      "x104003": 418
+    },
+    "speciality": {
+      "x100029": 168
+    },
+    "elemental": {
+      "x104111": 1,
+      "x104112": 9,
+      "x104113": 9,
+      "x104114": 6
+    },
+    "worldmonster": {
+      "x112038": 18,
+      "x112039": 30,
+      "x112040": 36
+    },
+    "elitemonster": {
+      "x113016": 46
+    }
+  },
+  "skills": {
+    "normalattack": {
+      "name": "Secret Spear of Wangsheng",
+      "icon": "Skill_A_03",
+      "multipliers": {
+        "x1_HitDMG": [
+          "46.89%",
+          "50.08%",
+          "53.28%",
+          "57.54%",
+          "60.74%",
+          "64.47%",
+          "69.26%",
+          "74.06%",
+          "78.85%",
+          "83.65%",
+          "88.44%",
+          "93.24%",
+          "98.04%",
+          "102.83%",
+          "107.63%"
+        ],
+        "x2_HitDMG": [
+          "48.25%",
+          "51.54%",
+          "54.83%",
+          "59.22%",
+          "62.51%",
+          "66.35%",
+          "71.28%",
+          "76.22%",
+          "81.15%",
+          "86.09%",
+          "91.02%",
+          "95.96%",
+          "100.89%",
+          "105.83%",
+          "110.76%"
+        ],
+        "x3_HitDMG": [
+          "61.05%",
+          "65.21%",
+          "69.38%",
+          "74.92%",
+          "79.09%",
+          "83.94%",
+          "90.19%",
+          "96.43%",
+          "102.67%",
+          "108.92%",
+          "115.16%",
+          "121.41%",
+          "127.65%",
+          "133.89%",
+          "140.14%"
+        ],
+        "x4_HitDMG": [
+          "65.64%",
+          "70.12%",
+          "74.59%",
+          "80.56%",
+          "85.03%",
+          "90.26%",
+          "96.97%",
+          "103.68%",
+          "110.4%",
+          "117.11%",
+          "123.82%",
+          "130.54%",
+          "137.25%",
+          "143.96%",
+          "150.68%"
+        ],
+        "x5_HitDMG": [
+          "33.27%+35.2%",
+          "35.54%+37.6%",
+          "37.81%+40%",
+          "40.84%+43.2%",
+          "43.1%+45.6%",
+          "45.75%+48.4%",
+          "49.15%+52%",
+          "52.56%+55.6%",
+          "55.96%+59.2%",
+          "59.36%+62.8%",
+          "62.77%+66.4%",
+          "66.17%+70%",
+          "69.57%+73.6%",
+          "72.98%+77.2%",
+          "76.38%+80.8%"
+        ],
+        "x6_HitDMG": [
+          "85.96%",
+          "91.82%",
+          "97.68%",
+          "105.49%",
+          "111.36%",
+          "118.19%",
+          "126.98%",
+          "135.78%",
+          "144.57%",
+          "153.36%",
+          "162.15%",
+          "170.94%",
+          "179.73%",
+          "188.52%",
+          "197.31%"
+        ],
+        "ChargedAttack": [
+          "135.96%",
+          "145.23%",
+          "154.5%",
+          "166.86%",
+          "176.13%",
+          "186.94%",
+          "200.85%",
+          "214.76%",
+          "228.66%",
+          "242.56%",
+          "256.47%",
+          "270.37%",
+          "284.28%",
+          "298.18%",
+          "312.09%"
+        ],
+        "ChargedAttackStaminaCost": [
+          "25",
+          "25",
+          "25",
+          "25",
+          "25",
+          "25",
+          "25",
+          "25",
+          "25",
+          "25",
+          "25",
+          "25",
+          "25",
+          "25",
+          "25"
+        ],
+        "PlungeDMG": [
+          "65.42%",
+          "69.88%",
+          "74.34%",
+          "80.29%",
+          "84.75%",
+          "89.95%",
+          "96.64%",
+          "103.33%",
+          "110.02%",
+          "116.71%",
+          "123.4%",
+          "130.1%",
+          "136.79%",
+          "143.48%",
+          "150.17%"
+        ],
+        "Low_HighPlungeDMG": [
+          "130.81%/163.39%",
+          "139.73%/174.53%",
+          "148.65%/185.67%",
+          "160.54%/200.52%",
+          "169.46%/211.66%",
+          "179.86%/224.66%",
+          "193.24%/241.37%",
+          "206.62%/258.08%",
+          "220%/274.79%",
+          "233.38%/291.5%",
+          "246.76%/308.21%",
+          "260.13%/324.92%",
+          "273.51%/341.63%",
+          "286.89%/358.34%",
+          "300.27%/375.05%"
+        ]
+      },
+      "description": "<color=#FFD780FF>Normal Attack</color>\\nPerforms up to 6 consecutive spear strikes.\\n\\n<color=#FFD780FF>Charged Attack</color>\\nConsumes a certain amount of Stamina to lunge forward, dealing damage to opponents along the way.\\n\\n<color=#FFD780FF>Plunging Attack</color>\\nPlunges from mid-air to strike the ground below, damaging opponents along the path and dealing AoE DMG upon impact."
+    },
+    "elementalskill": {
+      "name": "Guide to Afterlife",
+      "icon": "Skill_S_Hutao_01",
+      "multipliers": {
+        "ActivationCost": [
+          "30% Current HP",
+          "30% Current HP",
+          "30% Current HP",
+          "30% Current HP",
+          "30% Current HP",
+          "30% Current HP",
+          "30% Current HP",
+          "30% Current HP",
+          "30% Current HP",
+          "30% Current HP",
+          "30% Current HP",
+          "30% Current HP",
+          "30% Current HP",
+          "30% Current HP",
+          "30% Current HP"
+        ],
+        "ATKIncrease": [
+          "3.84% Max HP",
+          "4.07% Max HP",
+          "4.3% Max HP",
+          "4.6% Max HP",
+          "4.83% Max HP",
+          "5.06% Max HP",
+          "5.36% Max HP",
+          "5.66% Max HP",
+          "5.96% Max HP",
+          "6.26% Max HP",
+          "6.55% Max HP",
+          "6.85% Max HP",
+          "7.15% Max HP",
+          "7.45% Max HP",
+          "7.75% Max HP"
+        ],
+        "BloodBlossomDMG": [
+          "64%",
+          "68.8%",
+          "73.6%",
+          "80%",
+          "84.8%",
+          "89.6%",
+          "96%",
+          "102.4%",
+          "108.8%",
+          "115.2%",
+          "121.6%",
+          "128%",
+          "136%",
+          "144%",
+          "152%"
+        ],
+        "BloodBlossomDuration": [
+          "8s",
+          "8s",
+          "8s",
+          "8s",
+          "8s",
+          "8s",
+          "8s",
+          "8s",
+          "8s",
+          "8s",
+          "8s",
+          "8s",
+          "8s",
+          "8s",
+          "8s"
+        ],
+        "Duration": [
+          "9s",
+          "9s",
+          "9s",
+          "9s",
+          "9s",
+          "9s",
+          "9s",
+          "9s",
+          "9s",
+          "9s",
+          "9s",
+          "9s",
+          "9s",
+          "9s",
+          "9s"
+        ],
+        "CD": [
+          "16s",
+          "16s",
+          "16s",
+          "16s",
+          "16s",
+          "16s",
+          "16s",
+          "16s",
+          "16s",
+          "16s",
+          "16s",
+          "16s",
+          "16s",
+          "16s",
+          "16s"
+        ]
+      },
+      "description": "Only an unwavering flame can cleanse the impurities of this world.\\nHu Tao consumes a set portion of her HP to knock the surrounding enemies back and enter the Paramita Papilio state.\\n\\n<color=#FFD780FF>Paramita Papilio</color>\\n·Increases Hu Tao's ATK based on her Max HP at the time of entering this state. ATK Bonus gained this way cannot exceed 400% of Hu Tao's Base ATK.\\n·Converts attack DMG to <color=#FF9999FF>Pyro DMG</color>, which cannot be overridden by any other elemental infusion.\\n·Charged Attacks apply the Blood Blossom effect to the enemies hit.\\n·Increases Hu Tao's resistance to interruption.\\n\\n<color=#FFD780FF>Blood Blossom</color>\\nEnemies affected by Blood Blossom will take <color=#FF9999FF>Pyro DMG</color> every 4s. This DMG is considered Elemental Skill DMG.\\nEach enemy can be affected by only one Blood Blossom effect at a time, and its duration may only be refreshed by Hu Tao herself.\\n\\n<color=#FFD780FF>Paramita Papilio</color> ends when its duration is over, or Hu Tao has left the battlefield or fallen.\\n\\n<i>Hu Tao's Secret Spear technique is based on several rules, the first of which is: \"The spear opens the path to the afterlife, and the butterflies bridge this world and the next.\"</i>"
+    },
+    "elementalburst": {
+      "name": "Spirit Soother",
+      "icon": "Skill_E_Hutao_01",
+      "multipliers": {
+        "SkillDMG": [
+          "303.27%",
+          "321.43%",
+          "339.59%",
+          "363.2%",
+          "381.36%",
+          "399.52%",
+          "423.13%",
+          "446.74%",
+          "470.34%",
+          "493.95%",
+          "517.56%",
+          "541.17%",
+          "564.78%",
+          "588.38%",
+          "611.99%"
+        ],
+        "LowHPSkillDMG": [
+          "379.09%",
+          "401.79%",
+          "424.49%",
+          "454%",
+          "476.7%",
+          "499.4%",
+          "528.91%",
+          "558.42%",
+          "587.93%",
+          "617.44%",
+          "646.95%",
+          "676.46%",
+          "705.97%",
+          "735.48%",
+          "764.99%"
+        ],
+        "SkillHPRegeneration": [
+          "6.26% Max HP",
+          "6.64% Max HP",
+          "7.01% Max HP",
+          "7.5% Max HP",
+          "7.87% Max HP",
+          "8.25% Max HP",
+          "8.74% Max HP",
+          "9.22% Max HP",
+          "9.71% Max HP",
+          "10.2% Max HP",
+          "10.69% Max HP",
+          "11.17% Max HP",
+          "11.66% Max HP",
+          "12.15% Max HP",
+          "12.64% Max HP"
+        ],
+        "LowHPSkillRegeneration": [
+          "8.35% Max HP",
+          "8.85% Max HP",
+          "9.35% Max HP",
+          "10% Max HP",
+          "10.5% Max HP",
+          "11% Max HP",
+          "11.65% Max HP",
+          "12.3% Max HP",
+          "12.95% Max HP",
+          "13.6% Max HP",
+          "14.25% Max HP",
+          "14.9% Max HP",
+          "15.55% Max HP",
+          "16.2% Max HP",
+          "16.85% Max HP"
+        ],
+        "CD": [
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s",
+          "15s"
+        ],
+        "EnergyCost": [
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60",
+          "60"
+        ]
+      },
+      "description": "Commands a blazing spirit to attack, dealing <color=#FF9999FF>Pyro DMG</color> in a large AoE.\\nUpon striking the enemy, regenerates a percentage of Hu Tao's Max HP. This effect can be triggered up to 5 times, based on the number of enemies hit.\\nIf Hu Tao's HP is below or equal to 50% when the enemy is hit, both the DMG and HP Regeneration are increased.\\n\\n<i>Supernatural activity by those who have already left this world is a source of great anxiety for the Wangsheng Funeral Parlor. In such cases, cremation always lets Hu Tao find peace of mind. The more anxious she feels, the stronger the flame.</i>"
+    },
+    "leveling": {
+      "books": {
+        "x104313": 9,
+        "x104314": 63,
+        "x104315": 114
+      },
+      "crown": {
+        "x104319": 3
+      },
+      "worldmonster": {
+        "x112038": 18,
+        "x112039": 66,
+        "x112040": 93
+      },
+      "weekly": {
+        "x113014": 18
+      }
+    }
+  },
+  "passives": {
+    "p1": {
+      "name": "Flutter By",
+      "description": "When a <color=#FFD780FF>Paramita Papilio</color> state activated by <color=#FFD780FF>Guide to Afterlife</color> ends, all allies in the party (excluding Hu Tao herself) will have their CRIT Rate increased by 12% for 8s.",
+      "icon": "UI_Talent_S_Hutao_05"
+    },
+    "p2": {
+      "name": "Sanguine Rouge",
+      "description": "When Hu Tao's HP is equal to or less than 50%, her <color=#FF9999FF>Pyro DMG Bonus</color> is increased by 33%.",
+      "icon": "UI_Talent_S_Hutao_06"
+    },
+    "p3": {
+      "name": "The More the Merrier",
+      "description": "When Hu Tao cooks a dish perfectly, she has an 18% chance to receive an additional \"Suspicious\" dish of the same type.",
+      "icon": "UI_Talent_Cook_ExtraFailedItem"
+    },
+    "p4": ""
+  },
+  "constellations": {
+    "const1": {
+      "name": "Crimson Bouquet",
+      "description": "While in a <color=#FFD780FF>Paramita Papilio</color> state activated by <color=#FFD780FF>Guide to Afterlife</color>, Hu Tao's Charged Attacks do not consume Stamina.",
+      "icon": "UI_Talent_S_Hutao_03"
+    },
+    "const2": {
+      "name": "Ominous Rainfall",
+      "description": "Increases the <color=#FFD780FF>Blood Blossom</color> DMG by an amount equal to 10% of Hu Tao's Max HP at the time the effect is applied.\\nAdditionally, <color=#FFD780FF>Spirit Soother</color> will also apply the <color=#FFD780FF>Blood Blossom</color> effect.",
+      "icon": "UI_Talent_S_Hutao_01"
+    },
+    "const3": {
+      "name": "Lingering Carmine",
+      "description": "Increases the Level of <color=#FFD780FF>Guide to Afterlife</color> by 3.\\nMaximum upgrade level is 15.",
+      "icon": "UI_Talent_U_Hutao_01"
+    },
+    "const4": {
+      "name": "Garden of Eternal Rest",
+      "description": "Upon defeating an enemy affected by a <color=#FFD780FF>Blood Blossom</color> that Hu Tao applied herself, all nearby allies in the party (excluding Hu Tao herself) will have their CRIT Rate increased by 12% for 15s.",
+      "icon": "UI_Talent_S_Hutao_02"
+    },
+    "const5": {
+      "name": "Floral Incense",
+      "description": "Increases the Level of <color=#FFD780FF>Spirit Soother</color> by 3.\\nMaximum upgrade level is 15.",
+      "icon": "UI_Talent_U_Hutao_02"
+    },
+    "const6": {
+      "name": "Butterfly's Embrace",
+      "description": "Triggers when Hu Tao's HP drops below 25%, or when she suffers a lethal strike:\\nHu Tao will not fall as a result of the DMG sustained. Additionally, for the next 10s, her All Elemental and Physical RES is increased by 200%, her CRIT Rate is increased by 100%, and her resistance to interruption is greatly increased.\\nThis effect triggers automatically when Hu Tao has 1 HP left.\\nCan only occur once every 60s.",
+      "icon": "UI_Talent_S_Hutao_04"
+    }
+  },
+  "hyperlinks": [],
+  "stories": {
+    "x36201": {
+      "storyTitle": "Character Details",
+      "storyText": "The 77th Director of the Wangsheng Funeral Parlor, a young lady managing the parlor's operations. Despite her position, she's an amiable person who puts on no airs.\\nHer antics are as plentiful as the sand on Yaoguang Shoal. She never ceases to shock people with her countless bizarre ideas.\\nHu Tao may seem like all play and no work, spending every free moment on leisure and being widely considered a laissez-faire business owner.\\nIt is only during funeral ceremonies, when she personally leads her undertakers through lamp-lit alleys, that she shows her dignified and solemn side.",
+      "unlockConds": []
+    },
+    "x36202": {
+      "storyTitle": "Character Story 1",
+      "storyText": "Funeral ceremonies allow mortals to leave this world with dignity.\\nAnd Liyue's Wangsheng Funeral Parlor is said to be painting the last strokes on the scrolls of people's lives in the most respectful way.\\nTraditional funerals include multiple steps such as holding a wake, burial, putting up a memorial plaque... All of which are subject to strict rules.\\nRegardless of their social standing and level of wealth, all who depart deserve a ceremony that would do them honor. This is the Wangsheng Funeral Parlor's client service philosophy.\\nOne would think that such a reputable organization ought to be led only by an individual of utmost learning and sagacity.\\nYet the heavy mantle of the 77th Director has fallen on the shoulders of a young lady like Hu Tao.\\nShe has got quite a reputation in Liyue. Whenever someone mentions Hu Tao, their neighbors find it extremely hard to navigate the conversation.\\nAlthough she is widely praised for her wit and shrewdness, her eccentric notions are not as welcome, as she often lets her imagination run wild.\\nAs a three-year-old, she would read through volumes of classic texts while doing handstands. At six, she would cut classes and fall asleep in coffins. When she was eight, she started living in the parlor and learning the etiquette of funeral ceremonies...\\nOne would never use the word \"measured\" to describe her behavior.\\nDuring her teenage years, Hu Tao was tasked with conducting a funeral ceremony for the first time.\\nThe parlor's undertakers and consultants were anticipating her debut with their stomachs in knots as if they were suspended over the peaks of Jueyun Karst.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 2
+      }
+    },
+    "x36203": {
+      "storyTitle": "Character Story 2",
+      "storyText": "Fortunately, Hu Tao treats the parlor's operations with the utmost importance and is always looking to grow her business.\\n\"At the Wangsheng Funeral Parlor, the living give us Mora to see the dead on their way. We have a responsibility to both parties, so we gotta make sure both sides are happy.\"\\nWhen it comes to the parlor's rules, Hu Tao knows them all like the back of her hand.\\nEach day when the parlor closes its doors, Hu Tao invites consultants from different walks of life to pass their teachings on to the undertakers.\\n\"The funeral tradition is like science. It cannot be performed based on impressions and personal habits.\"\\nOf all the lecturers, Zhongli is the most revered one. As such, his lessons have proven to be the most effective in cultivating the competence of Wangsheng Funeral Parlor's undertakers.\\nDespite often being teased by Hu Tao due to his old-fashioned style, he is also the person that she trusts the most.\\nApart from that, Hu Tao always instructs her undertakers to respect their clients' wishes and not insist on any particular form of funeral.\\n\"Some clients want nothing more than a peaceful ceremony, some opt for a more lively style of event. There are also wealthier clients who would request a funeral arrangement of the most pompous kind. The services we provide have to be tailor-made according to the clients' needs.\"\\nEver since Hu Tao took over, the parlor's operations have been solid and reliable, with ceremonies conducted so tactfully that quite a few superstitious people in Liyue have changed their attitudes towards funerals.\\nEven so, Hu Tao still has a tendency to wander off, disappearing as soon as her undertakers are busy listening to lectures.\\nThe hobbies and interests of this young director are just as eccentric as her personality, and yet it is difficult to say with certainty if those activities are of a purely leisurely nature.\\nHu Tao's shadow can be seen in the moonlit docks or at the highest, most precarious viewpoints in the mountains, where she's likely to take in the scenery and shape her thoughts into beautiful poetry.\\nShe loves to roam freely at night, looking for inspiration. When it strikes her, no matter where she is, she cannot help but compose a poem on the spot.\\nIf they are particularly lucky, the traveling merchants taking respite around the Huaguang Stone Forest can spot a mysterious girl keeping herself amused in solitude.\\nHu Tao can play a four-player card game accompanied by no one for hours on end.\\nThat said, the joys of engaging in such activities remain a mystery to all but Hu Tao herself.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 3
+      }
+    },
+    "x36204": {
+      "storyTitle": "Character Story 3",
+      "storyText": "The Ministry of Civil Affairs is guarded by two life-like stone lions, a symbol of power and authority.\\nHowever, Hu Tao, who happened to be passing by the ministry building one day, saw them in a different light. At first, she examined the lions with a thoughtful look, but soon enough, her pensive face gave way to a wide smile, as she slapped them on the fore-paws.\\nFrom that moment on, Hu Tao often visited and petted the stone statues. Not only would she talk to them, but also give them pet names — Whiskers for the one on the left and Mittens for the one on the right.\\nOn occasion, she would even bring a bucket of water and a big brush to bathe them, each move so careful and deliberate that one might think that they were her actual pets.\\nAs it happened, another feline, a living and breathing calico cat, could be found enjoying the local delicacies in front of Xinyue Kiosk, not too far from the ministry building. One day, some city folk came to play with the restaurant's favorite, providing an interesting foil for Hu Tao's peculiarities. Met with befuddled gazes of the bystanders, Hu Tao showed unwavering confidence.\\n\"Sure, your kitty's cute, but the same can be said about my Whiskers and Mittens. Their fur might be harder, but they're still just as fluffy! Any animal that brings people joy may become a pet. And when it comes to majestic looks, your little fur-ball simply can't measure up to my lions!\"\\nSuffice to say that this explanation was met with even greater consternation from the onlookers.\\nYet the group of people shocked the most and most often by Hu Tao's antics were the ministry guards. Soft footsteps could often be heard in front of the building at around midnight. Initially, the guards suspected that it had been a thief preparing to rob officials. To their unceasing surprise, it would turn out to just be a young lady playing with the stone lions.\\nThe guards were faced with an even bigger conundrum when, once everyone had reluctantly got used to her presence, Hu Tao discontinued her visits.\\nThat meant that the responsibility for cleaning the statues fell on the guards' shoulders once again.\\nSubsequently, they decided to keep guard by the lions for many days, anticipating Hu Tao's return. Once they finally had the opportunity to ask her why she would not visit anymore, they received the most absurd of answers.\\n\"Whiskers and Mittens are adults now and can take care of themselves! Excuse me, I'm running late for my heart-to-heart with a Statue of The Seven regarding the meaning of life!\"",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 4
+      }
+    },
+    "x36205": {
+      "storyTitle": "Character Story 4",
+      "storyText": "Not long after her initial meeting with the little zombie, Hu Tao decided that, as her self-proclaimed true friend, she should grant Qiqi eternal peace.\\nHu Tao would go on to kidnap Qiqi several times following much deliberation in every instance, including calculating the most auspicious time for the ceremony, aiming to follow the standard procedure of cremation, after which she would place Qiqi in a tomb on the outskirts of the city.\\nIn fact, she would have succeeded already if not for Baizhu's timely interventions.\\nEach time the Bubu Pharmacy's owner managed to catch up with them, Hu Tao had already had Qiqi packed in a bag, with only her head sticking out, staring in utter confusion as Hu Tao was vigorously digging a hole for the pyre.\\nAfterwards, Hu Tao sent Qiqi an apology letter, in which she expressed deep regret that she had not been able to lay Qiqi to rest fast enough.\\nIn Hu Tao's eyes, Qiqi passed away a long time ago, but has been trapped in this world and cannot free herself of her eternal suffering.\\nBaizhu, for his part, had grown ever more relentless in his pursuit of eternal life after meeting Qiqi. This act of defiance against the cycle of life and death was unacceptable to Hu Tao.\\nShe wanted to bury Qiqi not only out of consideration for her friend but also to restore the natural order.\\nBut Qiqi could not disagree more, as she was afraid of death and disliked Hu Tao for her attempts.\\nBecause the struggle between Hu Tao and her had been going on for so long, Qiqi has experienced a breakthrough. She has started to remember places where she might hide to avoid being captured by Hu Tao.\\nPerhaps it was due to those desperate survival efforts that Hu Tao decided to do something unusual and dig deeper into Qiqi's past.\\nThe story of her accident and the mystery of the adepti... That series of coincidences filled Hu Tao's heart with hesitation.\\nSince Qiqi's will to live is so strong, she should not be forced to move on. Given the circumstances, she could only be treated as a rare exception that eludes the natural laws.\\nEver since, Hu Tao's attitude towards Qiqi has changed drastically, to the point that she would pamper her.\\nUnfortunately, the damage has been done and Hu Tao has become Qiqi's bugbear. The little zombie may need several years more to let go of her grievances.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 5
+      }
+    },
+    "x36206": {
+      "storyTitle": "Character Story 5",
+      "storyText": "Hu Tao is not, in fact, best known for her role as Director, but for her other great accomplishment: the creation of poetry.\\nShe dubs herself the \"versemonger of the darkest alleys,\" and free verse flows forth untamed from her mouth whenever she has free time to be out on the streets.\\nThe \"Hilitune\" is Hu Tao's most famous work, well-loved not only by the people of the harbor, but ever on the lips of children as far as Qingce Village as well.\\nHobbyists and critics alike were greatly surprised by the simple but profound originality of the \"Hilitune\" and its creation, and went to Wanwen Bookhouse in droves to search for the works of this great poet. Unfortunately, Hu Tao's anthologies, named \"Fiddlesticks\" and \"Of Common Lives\" respectively, have yet to be published.\\nXingqiu, ever immersed in books, also wanted to meet this strange person, and so chose an auspicious date to visit, bringing a gift with him.\\nThe two hit it off immediately, and they exchanged pointers and impromptu poetry in Wangsheng's main hall — and when faced with the poetry of Xingqiu's traditional, artistic bent, Hu Tao could always return in kind with some strange and marvelous verse.\\nAnd there was meaning in the chaos, indeed, a rhythm to the bizarre that anyone could perceive, and it was catchy, too.\\nThus did she \"beat the old master with untrained fists,\" leaving Xingqiu at a loss for words.\\nAt length, the poetic spar ended amiably, and they have been friends ever since, reading and composing poetry with one another when they have the time to meet.\\nOver time, Chongyun, too, was pulled in to serve as an umpire, their laughter filling the streets.\\nThe poems born from these sessions would also be recorded by bystanders.\\nIf ever you should hear a pair of matched verses, one strict and the other playful, you are most likely to have heard one created jointly by Hu Tao and Xingqiu.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 6
+      }
+    },
+    "x36207": {
+      "storyTitle": "Harmony Hexagram Hat",
+      "storyText": "This hat is somewhat on the hard side, and the insignia of the Wangsheng Funeral Parlor adorns its front.\\nIt is said that this hat was passed from the 75th Director to Hu Tao. However, that director was large, musclebound, and had a head at least two sizes larger than hers.\\nUltimately, Hu Tao had to spend an entire day and night to modify the hat with her own hands such that its dimensions would fit hers. When she meets others, she tells them: this hat is magical, upholding good and repelling evil, and is a bringer of peace!\\nThe undertakers laugh and leave it at that, but the 77th Director clearly does treasure that hat.\\nNo matter the rain or storm, or if Hu Tao returns late covered in muck, that hat will remain spotless and clean.\\nThe plum blossom that adorns the side of the hat is plucked from a plum tree that Hu Tao planted and grew herself.\\nIts creation process is as follows: pluck and air-dry, then paint, lacquer, and outline carefully before sun-drying for three days and voila — a beautiful accessory, soft to the touch and bearing a delicate fragrance.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 4
+      }
+    },
+    "x36208": {
+      "storyTitle": "Vision",
+      "storyText": "This tale should begin with the funeral of Hu Tao's grandfather.\\nTen days before the funeral itself, Old Hu had passed away following a bout of illness. For its 75th Director, Wangsheng Funeral Parlor held a grand funeral, in accordance with the last wishes of the old man himself, to be conducted by Hu Tao.\\nOnly thirteen at the time, Hu Tao, who would later go on to become the Director in turn, made all the arrangements herself to the highest standard, greatly impressing the undertakers.\\nAfter the funeral, the thirteen-year-old Hu Tao grabbed her traveler's bag and crept out alone in the dead of night. In her bag were only a few rations, some water, and a means to create some light. She was headed to a mysterious and seldom-seen frontier.\\nHeading straight from Wuwang Hill, one may arrive at the \"border.\" It is the line that separates life and death, the secrets of which have been managed by Wangsheng Funeral Parlor for generations. According to legend, it is a place where the souls of past relatives and the spirits of those with unfulfilled aspirations linger. For Hu Tao, this journey was a chance to see her grandfather once more before he departed forever.\\nFor two days she journeyed unceasingly before finally arriving at her destination, yet was unable to locate her grandfather upon arrival. Between the innumerable spirits she walked, but not one of them resembled the old man.\\nShe stayed there the whole day before falling asleep in exhaustion, awakening to a night sky and heavy dew. Around her were gathered a few lone spirits, clapping and laughing:\\n\"Silly girl, why would Old Hu be here of all places? What were you thinking, looking for your relatives here?\"\\nNot one to be swayed so easily, Hu Tao continued to wait, day after day. Her rations gradually disappeared and her water supplies drained away, but her grandfather did not appear. In the end, it was a little old woman who came to her.\\nShe laid eyes on the exhausted Hu Tao and smiled as she spoke: \"Look at your stubbornness, you're exactly like Old Hu. It's a shame, but none of the Wangsheng Funeral Parlor Directors would ever linger here. You come from a family of plain speakers, so let me return the favor... Go back. Go back to where you came from.\"\\nThe old woman bid farewell to Hu Tao, before passing over the border and into the distance. Hu Tao watched as the figure of the mysterious woman grew smaller and disappeared, as a sense of doubt tinged with relief manifested itself.\\nAt last she came to the conclusion: her grandfather's absence was due to him having passed over the border as soon as he'd arrived, to the place where he was bound. He had been open and honest in life, leaving behind no regrets, so was it right for his departure to be framed in regretful terms?\\nWith a smile, she set forth on the return journey.\\nThe faraway moon had been casting a thin light on the way over but had now been replaced by the bright light of dawn. As she walked, Hu Tao thought of a saying that her grandfather had often quoted: \"Live in life, die in death. Follow your heart, do what you can.\"\\nIt was noon when Hu Tao arrived home. She climbed over the wall into the rear courtyard, went straight to her room, and unpacked her travel bag.\\nWith her food and water long gone, and the rest of her belongings unpacked, the bag she had taken for empty instead contained a colorful Vision. Just when had it arrived?\\nAs one of the few living that had dared to visit the border, perhaps Hu Tao's actions had moved some unknown god.\\nPerhaps this then constituted a heavenly gift... the ultimate recognition of her strength.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 6
+      }
+    }
+  },
+  "quotes": {
+    "x36009": {
+      "quoteTitle": "Hello",
+      "quoteText": "Yoh, now just why might you be looking for me, hm? Oh, you didn't know? I'm the 77th Director of the Wangsheng Funeral Parlor, Hu Tao. Though by the looks of you... Radiant glow, healthy posture... Yes, you're definitely here for something other than that which falls within my regular line of work, aren't you?",
+      "unlockConds": []
+    },
+    "x36010": {
+      "quoteTitle": "Chat: Wangsheng Funeral Parlor",
+      "quoteText": "Wanna come over for tea?",
+      "unlockConds": []
+    },
+    "x36011": {
+      "quoteTitle": "Chat: Customers",
+      "quoteText": "One client, two clients, three clients!",
+      "unlockConds": []
+    },
+    "x36012": {
+      "quoteTitle": "Chat: Taking a Break",
+      "quoteText": "When the sun's out, bathe in sunlight. But when the moon's out, bathe in moonlight~",
+      "unlockConds": []
+    },
+    "x36013": {
+      "quoteTitle": "When It Rains",
+      "quoteText": "*sigh* What a bummer...",
+      "unlockConds": []
+    },
+    "x36014": {
+      "quoteTitle": "When Thunder Strikes",
+      "quoteText": "Lightning! Let's bolt!",
+      "unlockConds": []
+    },
+    "x36015": {
+      "quoteTitle": "When It Snows",
+      "quoteText": "Snow!",
+      "unlockConds": []
+    },
+    "x36016": {
+      "quoteTitle": "When It's Windy",
+      "quoteText": "Ahhhh~ What a nice breeze~",
+      "unlockConds": []
+    },
+    "x36017": {
+      "quoteTitle": "When the Wind Is Blowing",
+      "quoteText": "My hat's gonna get blown away!",
+      "unlockConds": []
+    },
+    "x36018": {
+      "quoteTitle": "Good Morning",
+      "quoteText": "Well are those who rise in the early morn, while those late to bed I shall forewarn~",
+      "unlockConds": []
+    },
+    "x36019": {
+      "quoteTitle": "Good Afternoon",
+      "quoteText": "Yo! Afternoon! Had lunch?",
+      "unlockConds": []
+    },
+    "x36020": {
+      "quoteTitle": "Good Evening",
+      "quoteText": "Hee-hee, moon's out, and so am I!",
+      "unlockConds": []
+    },
+    "x36021": {
+      "quoteTitle": "Good Night",
+      "quoteText": "Oh, you sleepy? Get some rest, I'm gonna take a walk by myself...",
+      "unlockConds": []
+    },
+    "x36022": {
+      "quoteTitle": "About Hu Tao: Name",
+      "quoteText": "Hu as in \"Who put me in this coffin?\" and Tao as in \"I can't geT OUt!\" Hehe... No, not funny?",
+      "unlockConds": []
+    },
+    "x36023": {
+      "quoteTitle": "About Hu Tao: Favorite Tricks",
+      "quoteText": "Lemme show you some fire tricks. First... Fire! And then... Whoosh! Fire butterfly! Be free!",
+      "unlockConds": []
+    },
+    "x36024": {
+      "quoteTitle": "About Us: Curiosity",
+      "quoteText": "You've been all over, so you must've seen a lot. When you've got the time, tell me your story, yea?",
+      "unlockConds": []
+    },
+    "x36025": {
+      "quoteTitle": "About Us: Night",
+      "quoteText": "Run around all you like during the day, but you should be careful during the night. When I'm not around, best keep your wits about you.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 6"
+      ]
+    },
+    "x36026": {
+      "quoteTitle": "About Us: Helper",
+      "quoteText": "Need a hand, need a hand? I'm here! If you need some assistance, I'm here to give it my all to the very end!",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 6"
+      ]
+    },
+    "x36027": {
+      "quoteTitle": "About Us: Battle",
+      "quoteText": "Fighting's a pain. For me, it's not an objective so much as a means to an end. Using the means to reach the end, to fight for that which I will not compromise on — it's in this way that you and I are the same.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 6"
+      ]
+    },
+    "x36028": {
+      "quoteTitle": "About the Vision",
+      "quoteText": "Vision... Vision...? Oh, this thing? Yeah, whatever...",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x36029": {
+      "quoteTitle": "Something to Share",
+      "quoteText": "We are entrusted by the people to loyally see out their wishes. Wangsheng Funeral Parlor is special, in that it carries a dual responsibility, to those both of this realm, and the next.",
+      "unlockConds": []
+    },
+    "x36030": {
+      "quoteTitle": "Interesting Things",
+      "quoteText": "Some plants only grow in gloomier spots with ample moonlight. You ever seen any? Oh, no? Well, I'll have to show you next time.",
+      "unlockConds": []
+    },
+    "x36031": {
+      "quoteTitle": "About Zhongli",
+      "quoteText": "Zhongli looks young, but his personality is a bit dusty. Knows everything, but doesn't fret over anything. Hmm... Couldn't be that he's a...\\nHehe, forget it, whatever.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x36032": {
+      "quoteTitle": "About Qiqi",
+      "quoteText": "Have you seen Qiqi? Tell me where she is, quickly. I need to go seal her away, hee-hee!",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x36033": {
+      "quoteTitle": "About Baizhu",
+      "quoteText": "Baizhu? Ugh, that guy...",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x36034": {
+      "quoteTitle": "About Ningguang",
+      "quoteText": "Tianquan Ningguang... Well-off, a radiant gaze, exquisite face, in the know and capable of anything!",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x36035": {
+      "quoteTitle": "About Beidou",
+      "quoteText": "Beidou is well-known in Liyue. She doesn't know me, but that's cool, me just knowing about her is enough. Aw man... I really do wanna make friends with her.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x36036": {
+      "quoteTitle": "About Xingqiu",
+      "quoteText": "I hear master Xingqiu is writing a book? Standard novella, or a ghost story? I think I should go tell him about all the things I run into — that'd make for a really good read!",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x36037": {
+      "quoteTitle": "About Chongyun",
+      "quoteText": "All yang and no yin? Huh, who knew such people existed in this world?",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x36038": {
+      "quoteTitle": "About Xiao",
+      "quoteText": "What would I know of the adepti? Ai-yai-yai, that kind of stuff is top-secret! Don't come asking me about it!",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x36039": {
+      "quoteTitle": "About Keqing",
+      "quoteText": "The Yuheng, Keqing... she's quite hard to talk to. She's so uptight, hehe... Really makes me wanna mess with her. She wouldn't knock me in the head with her sword though, right? Or would she...?",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x36040": {
+      "quoteTitle": "About Xiangling",
+      "quoteText": "Xiangling's a riot! Only a little \"boo\" and she jumps, she's so easy to scare! Being in the industry that I am, I just love these kinds of people the most. Gotta keep it in check though, in case Guoba ends up toasting me instead.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x36041": {
+      "quoteTitle": "About Yun Jin",
+      "quoteText": "Yun Jin always appears so graceful on formal occasions, but you'd be surprised how friendly she is in private! I made a bet with her once, and the loser had to sing lyrics of the winner's choice in their own singing style. My my, I wish you could have heard her operatic version of the Hilitune!",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x36042": {
+      "quoteTitle": "About Shenhe",
+      "quoteText": "She is quite the fascinating individual, completely different from anyone else I've encountered. Do you think if I started eating divine herbs and drinking the dew of the mountains every single day, I'd be able to look as pure and pristine as she does? Oh~!",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x36043": {
+      "quoteTitle": "More About Hu Tao: I",
+      "quoteText": "♪Silly-churl, billy-churl, silly-billy hilichurl. Frilly-churl, willy-churl, frilly-willy hilichurl♪ \\nAh, hehe...",
+      "unlockConds": []
+    },
+    "x36044": {
+      "quoteTitle": "More About Hu Tao: II",
+      "quoteText": "Versemonger of the darkest alleys — that's me!",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 3"
+      ]
+    },
+    "x36045": {
+      "quoteTitle": "More About Hu Tao: III",
+      "quoteText": "If you ask me, there's nothing hard or scary about working at Wangsheng Funeral Parlor, it's just a pain is all. It's a shame — others see us going out to work at night and just don't understand — and that's what scares them. *sigh* You all just don't understand!",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x36046": {
+      "quoteTitle": "More About Hu Tao: IV",
+      "quoteText": "I'm Wangsheng Funeral Parlor's 77th Funeral Director, my grandfather was the 75th. First thing I took over was funeral affairs. Haha, surprising huh? And just like that, it's already been a few years... Time really does go by so quickly.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 5"
+      ]
+    },
+    "x36047": {
+      "quoteTitle": "More About Hu Tao: V",
+      "quoteText": "Balance must be maintained, and yet destinies remain variable. Death has its own rules, and yet is still hard to predict. Remember — no matter where, no matter when, no matter what the reason — one should never poke fun at death. Only once you know and respect death can you truly understand the value of life.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 6"
+      ]
+    },
+    "x36048": {
+      "quoteTitle": "Hu Tao's Hobbies",
+      "quoteText": "A bright moon aloft amid the vast, clear skies... Moments like these are just perfect for writing poetry.",
+      "unlockConds": []
+    },
+    "x36049": {
+      "quoteTitle": "Hu Tao's Troubles",
+      "quoteText": "*sigh* I gotta find something fun to do... Sitting around doing nothing is a fate worse than death.",
+      "unlockConds": []
+    },
+    "x36050": {
+      "quoteTitle": "Favorite Food",
+      "quoteText": "♪La~la~la~ Steamed fish with a side of prawn dumplings~",
+      "unlockConds": []
+    },
+    "x36051": {
+      "quoteTitle": "Least Favorite Food",
+      "quoteText": "Qingxin Slime Condensate... Bleugh... Surely this is Xiangling getting payback...",
+      "unlockConds": []
+    },
+    "x36052": {
+      "quoteTitle": "Birthday",
+      "quoteText": "Tonight the stars are dazzling and the moon majestic, it must be a special day... But just what day could it be... Haha, I know, I know! It's your birthday! It really is a great day.",
+      "unlockConds": []
+    },
+    "x36053": {
+      "quoteTitle": "Feelings About Ascension: Intro",
+      "quoteText": "O-ya? O-ya-ya-ya?",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 1"
+      ]
+    },
+    "x36054": {
+      "quoteTitle": "Feelings About Ascension: Building Up",
+      "quoteText": "Yeah, this is good, thanks!",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 2"
+      ]
+    },
+    "x36055": {
+      "quoteTitle": "Feelings About Ascension: Climax",
+      "quoteText": "I never imagined that I, Hu Tao, could ever be like this. Energy like a rushing torrent, a heart soaring like a gliding eagle! I feel great!",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 4"
+      ]
+    },
+    "x36056": {
+      "quoteTitle": "Feelings About Ascension: Conclusion",
+      "quoteText": "If I reach my full physical potential, then the next test is of the heart. It's largely thanks to you that I've been able to step foot into this uncharted territory. It is here that heart and soul are as one like clouds. Death is a constant for all among the multitudes that sit beneath the heavens.",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 6"
+      ]
+    },
+    "x36057": {
+      "quoteTitle": "Elemental Skill: I",
+      "quoteText": "Huh!",
+      "unlockConds": []
+    },
+    "x36058": {
+      "quoteTitle": "Elemental Skill: II",
+      "quoteText": "Chi!",
+      "unlockConds": []
+    },
+    "x36059": {
+      "quoteTitle": "Elemental Skill: III",
+      "quoteText": "Suh!",
+      "unlockConds": []
+    },
+    "x36060": {
+      "quoteTitle": "Elemental Burst: I",
+      "quoteText": "Time to go!",
+      "unlockConds": []
+    },
+    "x36061": {
+      "quoteTitle": "Elemental Burst: II",
+      "quoteText": "Cross over!",
+      "unlockConds": []
+    },
+    "x36062": {
+      "quoteTitle": "Elemental Burst: III",
+      "quoteText": "Pyre, pyre, pants on fire!",
+      "unlockConds": []
+    },
+    "x36063": {
+      "quoteTitle": "Sprint Start: I",
+      "quoteText": "Huyoh!",
+      "unlockConds": []
+    },
+    "x36064": {
+      "quoteTitle": "Sprint Start: II",
+      "quoteText": "Go~",
+      "unlockConds": []
+    },
+    "x36065": {
+      "quoteTitle": "Sprint Start: III",
+      "quoteText": "Hyu~",
+      "unlockConds": []
+    },
+    "x36066": {
+      "quoteTitle": "Deploying Wind Glider: I",
+      "quoteText": "With the wind~",
+      "unlockConds": []
+    },
+    "x36067": {
+      "quoteTitle": "Opening Treasure Chest: I",
+      "quoteText": "Jackpot!",
+      "unlockConds": []
+    },
+    "x36068": {
+      "quoteTitle": "Opening Treasure Chest: II",
+      "quoteText": "Oh, what a cute treasure coffin!",
+      "unlockConds": []
+    },
+    "x36069": {
+      "quoteTitle": "Opening Treasure Chest: III",
+      "quoteText": "If we bury it, maybe it'll spring back to life!",
+      "unlockConds": []
+    },
+    "x36070": {
+      "quoteTitle": "Low HP: I",
+      "quoteText": "Ayaya!",
+      "unlockConds": []
+    },
+    "x36071": {
+      "quoteTitle": "Low HP: II",
+      "quoteText": "Eeeeeee!",
+      "unlockConds": []
+    },
+    "x36072": {
+      "quoteTitle": "Low HP: III",
+      "quoteText": "This isn't good!",
+      "unlockConds": []
+    },
+    "x36073": {
+      "quoteTitle": "Ally at Low HP: I",
+      "quoteText": "Take it easy!",
+      "unlockConds": []
+    },
+    "x36074": {
+      "quoteTitle": "Ally at Low HP: II",
+      "quoteText": "Lemme have a go!",
+      "unlockConds": []
+    },
+    "x36075": {
+      "quoteTitle": "Fallen: I",
+      "quoteText": "Is it... my time?",
+      "unlockConds": []
+    },
+    "x36076": {
+      "quoteTitle": "Fallen: II",
+      "quoteText": "I'll remember that...",
+      "unlockConds": []
+    },
+    "x36077": {
+      "quoteTitle": "Fallen: III",
+      "quoteText": "Argh...",
+      "unlockConds": []
+    },
+    "x36078": {
+      "quoteTitle": "Heavy Hit Taken: I",
+      "quoteText": "Quit it!",
+      "unlockConds": []
+    },
+    "x36079": {
+      "quoteTitle": "Joining Party: I",
+      "quoteText": "Oh? Is it time for me to join you?",
+      "unlockConds": []
+    },
+    "x36080": {
+      "quoteTitle": "Joining Party: II",
+      "quoteText": "Good eye!",
+      "unlockConds": []
+    },
+    "x36081": {
+      "quoteTitle": "Joining Party: III",
+      "quoteText": "Send one, send 'em all!",
+      "unlockConds": []
+    },
+    "x36082": {
+      "quoteTitle": "Receiving a Gift: I",
+      "quoteText": "Splendid, splendid! Now, allow me to compose a poem in loving memory of this dish.",
+      "unlockConds": []
+    },
+    "x36083": {
+      "quoteTitle": "Receiving a Gift: II",
+      "quoteText": "Sure you don't want my help? C'mon, it's a great deal: cook twice the amount in the same time!",
+      "unlockConds": []
+    },
+    "x36084": {
+      "quoteTitle": "Receiving a Gift: III",
+      "quoteText": "Ugh, I declare this dish dead, rest in peace.",
+      "unlockConds": []
+    },
+    "x36085": {
+      "quoteTitle": "About Lan Yan",
+      "quoteText": "Lan Yan, you say? She's a lot stronger than she looks. She claims to only know a few of the Qimen arts, but she can get rid of dangerous things like fetor and illnesses! Aiya, there's only one problem... Removing all the bad stuff and making everyone all fit and strong isn't exactly good for the funeral business!",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    }
+  },
+  "energy": [
+    {
+      "source": "DropBall_Handler",
+      "particles": "2",
+      "chance": "100%",
+      "cd": "Instant"
+    },
+    {
+      "source": "DropBall_Handler",
+      "particles": "1",
+      "chance": "50%",
+      "cd": "Instant"
+    }
+  ],
+  "attacks": [
+    {
+      "name": "ExtraAttack_Bullet",
+      "icd_source": "Grp: Avatar_Pole_ExtraAttack (Tag Miss)",
+      "icd_rule": "24 hits / 0.5s",
+      "gauge": "1U",
+      "poise": "LV5/120",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Spear",
+      "damageParam": "Hutao_ExtraAttack_Damage"
+    },
+    {
+      "name": "ExtraAttack_Bullet",
+      "icd_source": "Grp: Avatar_Pole_ExtraAttack (Tag Miss)",
+      "icd_rule": "24 hits / 0.5s",
+      "gauge": "1U",
+      "poise": "LV6/120",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Spear",
+      "damageParam": "Hutao_ExtraAttack_Damage"
+    },
+    {
+      "name": "ExtraAttack_CrimsonPlum_Bullet",
+      "icd_source": "Grp: Avatar_Pole_ExtraAttack (Tag Miss)",
+      "icd_rule": "24 hits / 0.5s",
+      "gauge": "1U",
+      "poise": "LV5/120",
+      "element": "Fire",
+      "attackType": "Melee",
+      "strikeType": "Slash",
+      "damageParam": "Hutao_ExtraAttack_CrimsonPlum_Damage"
+    },
+    {
+      "name": "ExtraAttack_CrimsonPlum_Bullet",
+      "icd_source": "Grp: Avatar_Pole_ExtraAttack (Tag Miss)",
+      "icd_rule": "24 hits / 0.5s",
+      "gauge": "1U",
+      "poise": "LV6/120",
+      "element": "Fire",
+      "attackType": "Melee",
+      "strikeType": "Slash",
+      "damageParam": "Hutao_ExtraAttack_CrimsonPlum_Damage"
+    },
+    {
+      "name": "CrimsonPlum",
+      "icd_source": "Tag: Elemental_Art (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV1/1",
+      "element": "Fire",
+      "attackType": "Range",
+      "strikeType": "-",
+      "damageParam": "CrimsonPlum_Debuff_Damage"
+    },
+    {
+      "name": "CrimsonPlum",
+      "icd_source": "Grp: default",
+      "icd_rule": "Standard (3h/2.5s)",
+      "gauge": "0U",
+      "poise": "LV3/120",
+      "element": "Fire",
+      "attackType": "Default",
+      "strikeType": "-",
+      "damageParam": "-"
+    },
+    {
+      "name": "VermilionBite",
+      "icd_source": "Tag: Elemental_Burst (!)",
+      "icd_rule": "Independent",
+      "gauge": "2U",
+      "poise": "LV3/250",
+      "element": "Fire",
+      "attackType": "Default",
+      "strikeType": "-",
+      "damageParam": "VermilionBite_Damage"
+    },
+    {
+      "name": "VermilionBite",
+      "icd_source": "Tag: Elemental_Burst (!)",
+      "icd_rule": "Independent",
+      "gauge": "2U",
+      "poise": "LV3/250",
+      "element": "Fire",
+      "attackType": "Default",
+      "strikeType": "-",
+      "damageParam": "VermilionBite_LowHP_Damage"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "0U",
+      "poise": "LV2/25",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Slash",
+      "damageParam": "FallingAnthem_Normal_Loop_Damage"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "0U",
+      "poise": "LV2/25",
+      "element": "Fire",
+      "attackType": "Melee",
+      "strikeType": "Slash",
+      "damageParam": "FallingAnthem_Normal_Loop_Damage"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "0U",
+      "poise": "LV2/25",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Slash",
+      "damageParam": "FallingAnthem_Normal_Loop_Damage"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "0U",
+      "poise": "LV2/25",
+      "element": "Fire",
+      "attackType": "Melee",
+      "strikeType": "Slash",
+      "damageParam": "FallingAnthem_Normal_Loop_Damage"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV4/100",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Blunt",
+      "damageParam": "FallingAnthem_Normal_Rank_1_Damage"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV7/150",
+      "element": "-",
+      "attackType": "Melee",
+      "strikeType": "Blunt",
+      "damageParam": "FallingAnthem_Normal_Rank_2_Damage"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV4/100",
+      "element": "Fire",
+      "attackType": "Melee",
+      "strikeType": "Blunt",
+      "damageParam": "FallingAnthem_Normal_Rank_1_Damage"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV7/150",
+      "element": "Fire",
+      "attackType": "Melee",
+      "strikeType": "Blunt",
+      "damageParam": "FallingAnthem_Normal_Rank_2_Damage"
+    }
+  ],
+  "endure": [
+    {
+      "ability": "Constellation_Limbo_Trigger",
+      "handler": "UNIQUE_Constellation_Limbo_Trigger_Handler",
+      "Actor_EndureDelta": 0
+    },
+    {
+      "ability": "CrimsonPlum",
+      "handler": "UNIQUE_CrimsonPlum_Main_Handler",
+      "Actor_EndureDelta": 0.5
+    }
+  ]
+}

@@ -1,0 +1,2013 @@
+{
+  "info": {
+    "name": "Charlotte",
+    "description": "Indefatigable reporter of The Steambird, constantly on the hunt for the \"truth.\"",
+    "rarity": "QUALITY_PURPLE",
+    "weapon": "WEAPON_CATALYST",
+    "birthday": "10/4",
+    "element": "Cryo",
+    "title": "Lens of Verity",
+    "constellation": "Hualina Veritas",
+    "affiliation": "The Steambird",
+    "cv": {
+      "EN": "Rebecca Wang & Maya Aoki Tuttle",
+      "CHS": "阮从青",
+      "JP": "和氣あず未",
+      "KR": "Shin On-yu"
+    },
+    "attributes": [
+      {
+        "level": 1,
+        "ascension": 0,
+        "hp": 903,
+        "atk": 15,
+        "def": 46,
+        "ATK_": "0"
+      },
+      {
+        "level": 2,
+        "ascension": 0,
+        "hp": 978,
+        "atk": 16,
+        "def": 50,
+        "ATK_": "0"
+      },
+      {
+        "level": 3,
+        "ascension": 0,
+        "hp": 1052,
+        "atk": 17,
+        "def": 53,
+        "ATK_": "0"
+      },
+      {
+        "level": 4,
+        "ascension": 0,
+        "hp": 1127,
+        "atk": 18,
+        "def": 57,
+        "ATK_": "0"
+      },
+      {
+        "level": 5,
+        "ascension": 0,
+        "hp": 1201,
+        "atk": 19,
+        "def": 61,
+        "ATK_": "0"
+      },
+      {
+        "level": 6,
+        "ascension": 0,
+        "hp": 1275,
+        "atk": 21,
+        "def": 65,
+        "ATK_": "0"
+      },
+      {
+        "level": 7,
+        "ascension": 0,
+        "hp": 1349,
+        "atk": 22,
+        "def": 68,
+        "ATK_": "0"
+      },
+      {
+        "level": 8,
+        "ascension": 0,
+        "hp": 1424,
+        "atk": 23,
+        "def": 72,
+        "ATK_": "0"
+      },
+      {
+        "level": 9,
+        "ascension": 0,
+        "hp": 1499,
+        "atk": 24,
+        "def": 76,
+        "ATK_": "0"
+      },
+      {
+        "level": 10,
+        "ascension": 0,
+        "hp": 1573,
+        "atk": 25,
+        "def": 80,
+        "ATK_": "0"
+      },
+      {
+        "level": 11,
+        "ascension": 0,
+        "hp": 1648,
+        "atk": 27,
+        "def": 84,
+        "ATK_": "0"
+      },
+      {
+        "level": 12,
+        "ascension": 0,
+        "hp": 1722,
+        "atk": 28,
+        "def": 87,
+        "ATK_": "0"
+      },
+      {
+        "level": 13,
+        "ascension": 0,
+        "hp": 1797,
+        "atk": 29,
+        "def": 91,
+        "ATK_": "0"
+      },
+      {
+        "level": 14,
+        "ascension": 0,
+        "hp": 1871,
+        "atk": 30,
+        "def": 95,
+        "ATK_": "0"
+      },
+      {
+        "level": 15,
+        "ascension": 0,
+        "hp": 1946,
+        "atk": 31,
+        "def": 99,
+        "ATK_": "0"
+      },
+      {
+        "level": 16,
+        "ascension": 0,
+        "hp": 2021,
+        "atk": 32,
+        "def": 103,
+        "ATK_": "0"
+      },
+      {
+        "level": 17,
+        "ascension": 0,
+        "hp": 2095,
+        "atk": 34,
+        "def": 106,
+        "ATK_": "0"
+      },
+      {
+        "level": 18,
+        "ascension": 0,
+        "hp": 2170,
+        "atk": 35,
+        "def": 110,
+        "ATK_": "0"
+      },
+      {
+        "level": 19,
+        "ascension": 0,
+        "hp": 2244,
+        "atk": 36,
+        "def": 114,
+        "ATK_": "0"
+      },
+      {
+        "level": 20,
+        "ascension": 0,
+        "hp": 2319,
+        "atk": 37,
+        "def": 118,
+        "ATK_": "0"
+      },
+      {
+        "level": 21,
+        "ascension": 1,
+        "hp": 3067,
+        "atk": 49,
+        "def": 156,
+        "ATK_": "0"
+      },
+      {
+        "level": 22,
+        "ascension": 1,
+        "hp": 3142,
+        "atk": 51,
+        "def": 159,
+        "ATK_": "0"
+      },
+      {
+        "level": 23,
+        "ascension": 1,
+        "hp": 3217,
+        "atk": 52,
+        "def": 163,
+        "ATK_": "0"
+      },
+      {
+        "level": 24,
+        "ascension": 1,
+        "hp": 3291,
+        "atk": 53,
+        "def": 167,
+        "ATK_": "0"
+      },
+      {
+        "level": 25,
+        "ascension": 1,
+        "hp": 3366,
+        "atk": 54,
+        "def": 171,
+        "ATK_": "0"
+      },
+      {
+        "level": 26,
+        "ascension": 1,
+        "hp": 3440,
+        "atk": 55,
+        "def": 174,
+        "ATK_": "0"
+      },
+      {
+        "level": 27,
+        "ascension": 1,
+        "hp": 3515,
+        "atk": 57,
+        "def": 178,
+        "ATK_": "0"
+      },
+      {
+        "level": 28,
+        "ascension": 1,
+        "hp": 3589,
+        "atk": 58,
+        "def": 182,
+        "ATK_": "0"
+      },
+      {
+        "level": 29,
+        "ascension": 1,
+        "hp": 3664,
+        "atk": 59,
+        "def": 186,
+        "ATK_": "0"
+      },
+      {
+        "level": 30,
+        "ascension": 1,
+        "hp": 3738,
+        "atk": 60,
+        "def": 190,
+        "ATK_": "0"
+      },
+      {
+        "level": 31,
+        "ascension": 1,
+        "hp": 3813,
+        "atk": 61,
+        "def": 193,
+        "ATK_": "0"
+      },
+      {
+        "level": 32,
+        "ascension": 1,
+        "hp": 3888,
+        "atk": 63,
+        "def": 197,
+        "ATK_": "0"
+      },
+      {
+        "level": 33,
+        "ascension": 1,
+        "hp": 3962,
+        "atk": 64,
+        "def": 201,
+        "ATK_": "0"
+      },
+      {
+        "level": 34,
+        "ascension": 1,
+        "hp": 4037,
+        "atk": 65,
+        "def": 205,
+        "ATK_": "0"
+      },
+      {
+        "level": 35,
+        "ascension": 1,
+        "hp": 4111,
+        "atk": 66,
+        "def": 208,
+        "ATK_": "0"
+      },
+      {
+        "level": 36,
+        "ascension": 1,
+        "hp": 4186,
+        "atk": 67,
+        "def": 212,
+        "ATK_": "0"
+      },
+      {
+        "level": 37,
+        "ascension": 1,
+        "hp": 4260,
+        "atk": 68,
+        "def": 216,
+        "ATK_": "0"
+      },
+      {
+        "level": 38,
+        "ascension": 1,
+        "hp": 4335,
+        "atk": 70,
+        "def": 220,
+        "ATK_": "0"
+      },
+      {
+        "level": 39,
+        "ascension": 1,
+        "hp": 4410,
+        "atk": 71,
+        "def": 224,
+        "ATK_": "0"
+      },
+      {
+        "level": 40,
+        "ascension": 1,
+        "hp": 4484,
+        "atk": 72,
+        "def": 227,
+        "ATK_": "0"
+      },
+      {
+        "level": 41,
+        "ascension": 2,
+        "hp": 5038,
+        "atk": 81,
+        "def": 255,
+        "ATK_": "6"
+      },
+      {
+        "level": 42,
+        "ascension": 2,
+        "hp": 5112,
+        "atk": 82,
+        "def": 259,
+        "ATK_": "6"
+      },
+      {
+        "level": 43,
+        "ascension": 2,
+        "hp": 5187,
+        "atk": 83,
+        "def": 263,
+        "ATK_": "6"
+      },
+      {
+        "level": 44,
+        "ascension": 2,
+        "hp": 5261,
+        "atk": 85,
+        "def": 267,
+        "ATK_": "6"
+      },
+      {
+        "level": 45,
+        "ascension": 2,
+        "hp": 5336,
+        "atk": 86,
+        "def": 271,
+        "ATK_": "6"
+      },
+      {
+        "level": 46,
+        "ascension": 2,
+        "hp": 5410,
+        "atk": 87,
+        "def": 274,
+        "ATK_": "6"
+      },
+      {
+        "level": 47,
+        "ascension": 2,
+        "hp": 5485,
+        "atk": 88,
+        "def": 278,
+        "ATK_": "6"
+      },
+      {
+        "level": 48,
+        "ascension": 2,
+        "hp": 5559,
+        "atk": 89,
+        "def": 282,
+        "ATK_": "6"
+      },
+      {
+        "level": 49,
+        "ascension": 2,
+        "hp": 5633,
+        "atk": 91,
+        "def": 286,
+        "ATK_": "6"
+      },
+      {
+        "level": 50,
+        "ascension": 2,
+        "hp": 5708,
+        "atk": 92,
+        "def": 290,
+        "ATK_": "6"
+      },
+      {
+        "level": 51,
+        "ascension": 3,
+        "hp": 6421,
+        "atk": 103,
+        "def": 326,
+        "ATK_": "12"
+      },
+      {
+        "level": 52,
+        "ascension": 3,
+        "hp": 6496,
+        "atk": 104,
+        "def": 329,
+        "ATK_": "12"
+      },
+      {
+        "level": 53,
+        "ascension": 3,
+        "hp": 6571,
+        "atk": 106,
+        "def": 333,
+        "ATK_": "12"
+      },
+      {
+        "level": 54,
+        "ascension": 3,
+        "hp": 6645,
+        "atk": 107,
+        "def": 337,
+        "ATK_": "12"
+      },
+      {
+        "level": 55,
+        "ascension": 3,
+        "hp": 6720,
+        "atk": 108,
+        "def": 341,
+        "ATK_": "12"
+      },
+      {
+        "level": 56,
+        "ascension": 3,
+        "hp": 6794,
+        "atk": 109,
+        "def": 345,
+        "ATK_": "12"
+      },
+      {
+        "level": 57,
+        "ascension": 3,
+        "hp": 6869,
+        "atk": 110,
+        "def": 348,
+        "ATK_": "12"
+      },
+      {
+        "level": 58,
+        "ascension": 3,
+        "hp": 6943,
+        "atk": 112,
+        "def": 352,
+        "ATK_": "12"
+      },
+      {
+        "level": 59,
+        "ascension": 3,
+        "hp": 7018,
+        "atk": 113,
+        "def": 356,
+        "ATK_": "12"
+      },
+      {
+        "level": 60,
+        "ascension": 3,
+        "hp": 7093,
+        "atk": 114,
+        "def": 360,
+        "ATK_": "12"
+      },
+      {
+        "level": 61,
+        "ascension": 4,
+        "hp": 7646,
+        "atk": 123,
+        "def": 388,
+        "ATK_": "12"
+      },
+      {
+        "level": 62,
+        "ascension": 4,
+        "hp": 7721,
+        "atk": 124,
+        "def": 392,
+        "ATK_": "12"
+      },
+      {
+        "level": 63,
+        "ascension": 4,
+        "hp": 7795,
+        "atk": 125,
+        "def": 395,
+        "ATK_": "12"
+      },
+      {
+        "level": 64,
+        "ascension": 4,
+        "hp": 7870,
+        "atk": 127,
+        "def": 399,
+        "ATK_": "12"
+      },
+      {
+        "level": 65,
+        "ascension": 4,
+        "hp": 7944,
+        "atk": 128,
+        "def": 403,
+        "ATK_": "12"
+      },
+      {
+        "level": 66,
+        "ascension": 4,
+        "hp": 8019,
+        "atk": 129,
+        "def": 407,
+        "ATK_": "12"
+      },
+      {
+        "level": 67,
+        "ascension": 4,
+        "hp": 8094,
+        "atk": 130,
+        "def": 410,
+        "ATK_": "12"
+      },
+      {
+        "level": 68,
+        "ascension": 4,
+        "hp": 8168,
+        "atk": 131,
+        "def": 414,
+        "ATK_": "12"
+      },
+      {
+        "level": 69,
+        "ascension": 4,
+        "hp": 8243,
+        "atk": 133,
+        "def": 418,
+        "ATK_": "12"
+      },
+      {
+        "level": 70,
+        "ascension": 4,
+        "hp": 8317,
+        "atk": 134,
+        "def": 422,
+        "ATK_": "12"
+      },
+      {
+        "level": 71,
+        "ascension": 5,
+        "hp": 8871,
+        "atk": 143,
+        "def": 450,
+        "ATK_": "18"
+      },
+      {
+        "level": 72,
+        "ascension": 5,
+        "hp": 8945,
+        "atk": 144,
+        "def": 454,
+        "ATK_": "18"
+      },
+      {
+        "level": 73,
+        "ascension": 5,
+        "hp": 9020,
+        "atk": 145,
+        "def": 457,
+        "ATK_": "18"
+      },
+      {
+        "level": 74,
+        "ascension": 5,
+        "hp": 9095,
+        "atk": 146,
+        "def": 461,
+        "ATK_": "18"
+      },
+      {
+        "level": 75,
+        "ascension": 5,
+        "hp": 9169,
+        "atk": 147,
+        "def": 465,
+        "ATK_": "18"
+      },
+      {
+        "level": 76,
+        "ascension": 5,
+        "hp": 9244,
+        "atk": 149,
+        "def": 469,
+        "ATK_": "18"
+      },
+      {
+        "level": 77,
+        "ascension": 5,
+        "hp": 9318,
+        "atk": 150,
+        "def": 473,
+        "ATK_": "18"
+      },
+      {
+        "level": 78,
+        "ascension": 5,
+        "hp": 9392,
+        "atk": 151,
+        "def": 476,
+        "ATK_": "18"
+      },
+      {
+        "level": 79,
+        "ascension": 5,
+        "hp": 9466,
+        "atk": 152,
+        "def": 480,
+        "ATK_": "18"
+      },
+      {
+        "level": 80,
+        "ascension": 5,
+        "hp": 9541,
+        "atk": 153,
+        "def": 484,
+        "ATK_": "18"
+      },
+      {
+        "level": 81,
+        "ascension": 6,
+        "hp": 10095,
+        "atk": 162,
+        "def": 512,
+        "ATK_": "24"
+      },
+      {
+        "level": 82,
+        "ascension": 6,
+        "hp": 10169,
+        "atk": 164,
+        "def": 516,
+        "ATK_": "24"
+      },
+      {
+        "level": 83,
+        "ascension": 6,
+        "hp": 10244,
+        "atk": 165,
+        "def": 520,
+        "ATK_": "24"
+      },
+      {
+        "level": 84,
+        "ascension": 6,
+        "hp": 10318,
+        "atk": 166,
+        "def": 523,
+        "ATK_": "24"
+      },
+      {
+        "level": 85,
+        "ascension": 6,
+        "hp": 10393,
+        "atk": 167,
+        "def": 527,
+        "ATK_": "24"
+      },
+      {
+        "level": 86,
+        "ascension": 6,
+        "hp": 10467,
+        "atk": 168,
+        "def": 531,
+        "ATK_": "24"
+      },
+      {
+        "level": 87,
+        "ascension": 6,
+        "hp": 10542,
+        "atk": 170,
+        "def": 535,
+        "ATK_": "24"
+      },
+      {
+        "level": 88,
+        "ascension": 6,
+        "hp": 10616,
+        "atk": 171,
+        "def": 538,
+        "ATK_": "24"
+      },
+      {
+        "level": 89,
+        "ascension": 6,
+        "hp": 10691,
+        "atk": 172,
+        "def": 542,
+        "ATK_": "24"
+      },
+      {
+        "level": 90,
+        "ascension": 6,
+        "hp": 10766,
+        "atk": 173,
+        "def": 546,
+        "ATK_": "24"
+      },
+      {
+        "level": 95,
+        "ascension": 6,
+        "hp": 11138,
+        "atk": 195,
+        "def": 565,
+        "ATK_": "24"
+      },
+      {
+        "level": 100,
+        "ascension": 6,
+        "hp": 11511,
+        "atk": 217,
+        "def": 584,
+        "ATK_": "24"
+      }
+    ]
+  },
+  "icons": {
+    "forward": "UI_AvatarIcon_Charlotte",
+    "coop_img": "UI_CoopImg_Charlotte"
+  },
+  "ascension": {
+    "x202": 7.0499E+6,
+    "exp": {
+      "x104001": 2,
+      "x104003": 418
+    },
+    "speciality": {
+      "x101232": 168
+    },
+    "elemental": {
+      "x104161": 1,
+      "x104162": 9,
+      "x104163": 9,
+      "x104164": 6
+    },
+    "worldmonster": {
+      "x112083": 18,
+      "x112084": 30,
+      "x112085": 36
+    },
+    "elitemonster": {
+      "x113052": 46
+    }
+  },
+  "skills": {
+    "normalattack": {
+      "name": "Cool-Color Capture",
+      "icon": "Skill_A_Catalyst_MD",
+      "multipliers": {
+        "x1_HitDMG": [
+          "49.85%",
+          "53.58%",
+          "57.32%",
+          "62.31%",
+          "66.05%",
+          "69.78%",
+          "74.77%",
+          "79.75%",
+          "84.74%",
+          "89.72%",
+          "94.71%",
+          "99.69%",
+          "105.92%",
+          "112.15%",
+          "118.38%"
+        ],
+        "x2_HitDMG": [
+          "43.38%",
+          "46.63%",
+          "49.88%",
+          "54.22%",
+          "57.47%",
+          "60.73%",
+          "65.06%",
+          "69.4%",
+          "73.74%",
+          "78.08%",
+          "82.41%",
+          "86.75%",
+          "92.17%",
+          "97.59%",
+          "103.02%"
+        ],
+        "x3_HitDMG": [
+          "64.6%",
+          "69.45%",
+          "74.29%",
+          "80.75%",
+          "85.6%",
+          "90.44%",
+          "96.9%",
+          "103.36%",
+          "109.82%",
+          "116.28%",
+          "122.74%",
+          "129.2%",
+          "137.28%",
+          "145.35%",
+          "153.43%"
+        ],
+        "ChargedAttackDMG": [
+          "100.51%",
+          "108.05%",
+          "115.59%",
+          "125.64%",
+          "133.18%",
+          "140.72%",
+          "150.77%",
+          "160.82%",
+          "170.87%",
+          "180.92%",
+          "190.97%",
+          "201.02%",
+          "213.59%",
+          "226.15%",
+          "238.72%"
+        ],
+        "ChargedAttackStaminaCost": [
+          "50",
+          "50",
+          "50",
+          "50",
+          "50",
+          "50",
+          "50",
+          "50",
+          "50",
+          "50",
+          "50",
+          "50",
+          "50",
+          "50",
+          "50"
+        ],
+        "PlungeDMG": [
+          "56.83%",
+          "61.45%",
+          "66.08%",
+          "72.69%",
+          "77.31%",
+          "82.6%",
+          "89.87%",
+          "97.14%",
+          "104.41%",
+          "112.34%",
+          "120.27%",
+          "128.2%",
+          "136.12%",
+          "144.05%",
+          "151.98%"
+        ],
+        "Low_HighPlungeDMG": [
+          "113.63%/141.93%",
+          "122.88%/153.49%",
+          "132.13%/165.04%",
+          "145.35%/181.54%",
+          "154.59%/193.1%",
+          "165.16%/206.3%",
+          "179.7%/224.45%",
+          "194.23%/242.61%",
+          "208.77%/260.76%",
+          "224.62%/280.57%",
+          "240.48%/300.37%",
+          "256.34%/320.18%",
+          "272.19%/339.98%",
+          "288.05%/359.79%",
+          "303.9%/379.59%"
+        ],
+        "SpiritbreathThornDMG": [
+          "11.17%",
+          "12.01%",
+          "12.84%",
+          "13.96%",
+          "14.8%",
+          "15.64%",
+          "16.75%",
+          "17.87%",
+          "18.99%",
+          "20.1%",
+          "21.22%",
+          "22.34%",
+          "23.73%",
+          "25.13%",
+          "26.52%"
+        ],
+        "SpiritbreathThornDMGInterval": [
+          "6s",
+          "6s",
+          "6s",
+          "6s",
+          "6s",
+          "6s",
+          "6s",
+          "6s",
+          "6s",
+          "6s",
+          "6s",
+          "6s",
+          "6s",
+          "6s",
+          "6s"
+        ]
+      },
+      "description": "<color=#FFD780FF>Normal Attack</color>\\nTaking aim at targets using Monsieur Verite, her custom Kamera, Charlotte performs up to 3 consecutive attacks, dealing <color=#99FFFFFF>Cryo DMG</color>.\\n\\n<color=#FFD780FF>Charged Attack</color>\\nConsumes a fixed amount of Stamina, and after a moment's preparation, will deploy Monsieur Verite to deal <color=#99FFFFFF>AoE Cryo DMG</color>.\\n\\n<color=#FFD780FF>Plunging Attack</color>\\nGathering the power of Cryo, Charlotte plunges toward the ground, dealing DMG to all opponents in her path and dealing <color=#99FFFFFF>AoE Cryo DMG</color> upon landing.\\n\\n<color=#FFD780FF>Arkhe: Pneuma</color>\\nAt certain intervals, upon using a Charged Attack, Charlotte will cause a Spiritbreath Thorn to descend and pierce opponents, dealing Pneuma-aligned <color=#99FFFFFF>AoE Cryo DMG</color>."
+    },
+    "elementalskill": {
+      "name": "Framing: Freezing Point Composition",
+      "icon": "Skill_S_Charlotte_01",
+      "multipliers": {
+        "x_PhotoDMG_Press_": [
+          "67.2%",
+          "72.24%",
+          "77.28%",
+          "84%",
+          "89.04%",
+          "94.08%",
+          "100.8%",
+          "107.52%",
+          "114.24%",
+          "120.96%",
+          "127.68%",
+          "134.4%",
+          "142.8%",
+          "151.2%",
+          "159.6%"
+        ],
+        "PhotoDMG_Hold_": [
+          "139.2%",
+          "149.64%",
+          "160.08%",
+          "174%",
+          "184.44%",
+          "194.88%",
+          "208.8%",
+          "222.72%",
+          "236.64%",
+          "250.56%",
+          "264.48%",
+          "278.4%",
+          "295.8%",
+          "313.2%",
+          "330.6%"
+        ],
+        "x_SnappySilhouette_MarkDMG": [
+          "39.2%",
+          "42.14%",
+          "45.08%",
+          "49%",
+          "51.94%",
+          "54.88%",
+          "58.8%",
+          "62.72%",
+          "66.64%",
+          "70.56%",
+          "74.48%",
+          "78.4%",
+          "83.3%",
+          "88.2%",
+          "93.1%"
+        ],
+        "x_SnappySilhouette_MarkTriggerInterval": [
+          "1.5s",
+          "1.5s",
+          "1.5s",
+          "1.5s",
+          "1.5s",
+          "1.5s",
+          "1.5s",
+          "1.5s",
+          "1.5s",
+          "1.5s",
+          "1.5s",
+          "1.5s",
+          "1.5s",
+          "1.5s",
+          "1.5s"
+        ],
+        "x_SnappySilhouette_MarkDuration": [
+          "6s",
+          "6s",
+          "6s",
+          "6s",
+          "6s",
+          "6s",
+          "6s",
+          "6s",
+          "6s",
+          "6s",
+          "6s",
+          "6s",
+          "6s",
+          "6s",
+          "6s"
+        ],
+        "x_FocusedImpression_MarkDMG": [
+          "40.6%",
+          "43.65%",
+          "46.69%",
+          "50.75%",
+          "53.79%",
+          "56.84%",
+          "60.9%",
+          "64.96%",
+          "69.02%",
+          "73.08%",
+          "77.14%",
+          "81.2%",
+          "86.27%",
+          "91.35%",
+          "96.43%"
+        ],
+        "x_FocusedImpression_MarkTriggerInterval": [
+          "1.5s",
+          "1.5s",
+          "1.5s",
+          "1.5s",
+          "1.5s",
+          "1.5s",
+          "1.5s",
+          "1.5s",
+          "1.5s",
+          "1.5s",
+          "1.5s",
+          "1.5s",
+          "1.5s",
+          "1.5s",
+          "1.5s"
+        ],
+        "x_FocusedImpression_MarkDuration": [
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s"
+        ],
+        "CD": [
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s",
+          "12s"
+        ],
+        "FinisherFrameCastCD": [
+          "18s",
+          "18s",
+          "18s",
+          "18s",
+          "18s",
+          "18s",
+          "18s",
+          "18s",
+          "18s",
+          "18s",
+          "18s",
+          "18s",
+          "18s",
+          "18s",
+          "18s"
+        ]
+      },
+      "description": "Using the keen instincts of an ace reporter, Charlotte uses her photography skills to produce different effects based on whether the ability is Tapped or Held.\\n\\n<color=#FFD780FF>Tap</color>\\nTakes a snapshot using Monsieur Verite, dealing <color=#99FFFFFF>AoE Cryo DMG</color> to opponents in front of her and applying Snappy Silhouette to a maximum of 5 opponents. During this effect's duration, it will deal <color=#99FFFFFF>Cryo DMG</color> to affected opponents at intervals.\\n\\n<color=#FFD780FF>Hold</color>\\nPopping Monsieur Verite's viewfinder open, Charlotte enters Composition Mode, and during this time, the viewfinder will expand as you hold until you reach a Finisher Frame state. In this state, Charlotte can move and change direction freely.\\nWhen the hold state ends, Monsieur Verite will deal <color=#99FFFFFF>Cryo DMG</color> to all opponents locked on within the viewfinder, and apply the same Snappy Silhouette as Tap Mode does to them. If you unleash this ability only after reaching Finisher Frame, you will instead apply Focused Impression, which lasts longer and deals more DMG, although the Skill CD will be longer.\\nComposition Mode lasts a maximum of 15s and allows a maximum of 5 opponents to be selected.\\n\\n<i>\"Press photography requires simple shots with exceptional theming, but most of all, you need to have a knack for capturing the moment!\"</i>"
+    },
+    "elementalburst": {
+      "name": "Still Photo: Comprehensive Confirmation",
+      "icon": "Skill_E_Charlotte_01",
+      "multipliers": {
+        "CastHealing": [
+          "256.57% ATK+1608",
+          "275.82% ATK+1769",
+          "295.06% ATK+1944",
+          "320.72% ATK+2131",
+          "339.96% ATK+2332",
+          "359.2% ATK+2547",
+          "384.86% ATK+2775",
+          "410.52% ATK+3016",
+          "436.17% ATK+3271",
+          "461.83% ATK+3539",
+          "487.49% ATK+3820",
+          "513.15% ATK+4115",
+          "545.22% ATK+4424",
+          "577.29% ATK+4745",
+          "609.36% ATK+5081"
+        ],
+        "SkillDMG": [
+          "77.62%",
+          "83.44%",
+          "89.26%",
+          "97.02%",
+          "102.84%",
+          "108.66%",
+          "116.42%",
+          "124.19%",
+          "131.95%",
+          "139.71%",
+          "147.47%",
+          "155.23%",
+          "164.93%",
+          "174.64%",
+          "184.34%"
+        ],
+        "KameraContinuousRegeneration": [
+          "9.22% ATK+57",
+          "9.91% ATK+63",
+          "10.6% ATK+69",
+          "11.52% ATK+76",
+          "12.21% ATK+83",
+          "12.9% ATK+91",
+          "13.82% ATK+99",
+          "14.75% ATK+108",
+          "15.67% ATK+117",
+          "16.59% ATK+126",
+          "17.51% ATK+136",
+          "18.43% ATK+147",
+          "19.58% ATK+158",
+          "20.74% ATK+169",
+          "21.89% ATK+181"
+        ],
+        "KameraDMG": [
+          "6.47%",
+          "6.95%",
+          "7.44%",
+          "8.08%",
+          "8.57%",
+          "9.06%",
+          "9.7%",
+          "10.35%",
+          "11%",
+          "11.64%",
+          "12.29%",
+          "12.94%",
+          "13.74%",
+          "14.55%",
+          "15.36%"
+        ],
+        "NewsflashFieldDuration": [
+          "4s",
+          "4s",
+          "4s",
+          "4s",
+          "4s",
+          "4s",
+          "4s",
+          "4s",
+          "4s",
+          "4s",
+          "4s",
+          "4s",
+          "4s",
+          "4s",
+          "4s"
+        ],
+        "CD": [
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s",
+          "20s"
+        ],
+        "EnergyCost": [
+          "80",
+          "80",
+          "80",
+          "80",
+          "80",
+          "80",
+          "80",
+          "80",
+          "80",
+          "80",
+          "80",
+          "80",
+          "80",
+          "80",
+          "80"
+        ]
+      },
+      "description": "Condensing ice to create The Steambird's signature, Charlotte creates a Newsflash Field that will deal <color=#99FFFFFF>AoE Cryo DMG</color> and restores HP for all nearby party members based on Charlotte's ATK.\\n<color=#FFD780FF>Newsflash Field</color>\\n·While the ability is active, Monsieur Verite will deal <color=#99FFFFFF>Cryo DMG</color> at intervals to opponents within its AoE.\\n·Will continuously restore HP to active character(s) within its AoE based on Charlotte's ATK.\\n\\n<i>\"Hearing stories from multiple perspectives to recreate what really happened is key to a good report... I mean, that's how you can pick the best angle for your article!\"</i>"
+    },
+    "leveling": {
+      "crown": {
+        "x104319": 3
+      },
+      "books": {
+        "x104341": 9,
+        "x104342": 63,
+        "x104343": 114
+      },
+      "worldmonster": {
+        "x112083": 18,
+        "x112084": 66,
+        "x112085": 93
+      },
+      "weekly": {
+        "x113054": 18
+      }
+    }
+  },
+  "passives": {
+    "p1": {
+      "name": "Moment of Impact",
+      "description": "When opponents marked by \"Focused Impression\" are defeated, <color=#FFD780FF>Framing: Freezing Point Composition</color>'s CD will be decreased by 2s. This CD decrease can be triggered 4 times every 12s.",
+      "icon": "UI_Talent_S_Charlotte_05"
+    },
+    "p2": {
+      "name": "Diversified Investigation",
+      "description": "When the party contains 1/2/3 Fontainians other than herself, Charlotte gains a 5%/10%/15% Healing Bonus. When the party contains 1/2/3 non-Fontainians, Charlotte gains a 5%/10%/15% Cryo DMG Bonus.",
+      "icon": "UI_Talent_S_Charlotte_06"
+    },
+    "p3": {
+      "name": "First-Person Shutter",
+      "description": "After activating the Special Analysis Zoom Lens, Charlotte's \"Framing: Freezing Point Composition\" Hold Mode cannot trigger its original effects, but instead enables her to take photos in a rather unique manner...",
+      "icon": "UI_Talent_S_Charlotte_07"
+    },
+    "p4": ""
+  },
+  "constellations": {
+    "const1": {
+      "name": "A Need to Verify Facts",
+      "description": "After <color=#FFD780FF>Still Photo: Comprehensive Confirmation</color> heals a character, it will mark them with Verification, which will heal them once every 2s for 80% of Charlotte's ATK. This effect lasts 6s.",
+      "icon": "UI_Talent_S_Charlotte_01"
+    },
+    "const2": {
+      "name": "A Duty to Pursue Truth",
+      "description": "When using <color=#FFD780FF>Framing: Freezing Point Composition</color>, when Monsieur Verite hits 1/2/3 (or more) opponents, Charlotte's own ATK will be increased by 10%/20%/30% for 12s.",
+      "icon": "UI_Talent_S_Charlotte_02"
+    },
+    "const3": {
+      "name": "An Imperative to Independence",
+      "description": "Increases the Level of <color=#FFD780FF>Still Photo: Comprehensive Confirmation</color> by 3.\\nMaximum upgrade level is 15.",
+      "icon": "UI_Talent_U_Charlotte_01"
+    },
+    "const4": {
+      "name": "A Responsibility to Oversee",
+      "description": "When <color=#FFD780FF>Still Photo: Comprehensive Confirmation</color> hits an opponent marked by Snappy Silhouette or Focused Impression, it will deal 10% more DMG and restore 2 Energy to Charlotte. This restoration can be triggered 5 times every 20s.",
+      "icon": "UI_Talent_S_Charlotte_03"
+    },
+    "const5": {
+      "name": "A Principle of Conscience",
+      "description": "Increases the Level of <color=#FFD780FF>Framing: Freezing Point Composition</color> by 3.\\nMaximum upgrade level is 15.",
+      "icon": "UI_Talent_U_Charlotte_02"
+    },
+    "const6": {
+      "name": "A Summation of Interest",
+      "description": "When the active character's Normal and Charged Attacks hit an opponent marked by <color=#FFD780FF>Framing: Freezing Point Composition</color>'s Focused Impression, Monsieur Verite will initiate a coordinated attack that deals 180% of Charlotte's ATK as <color=#99FFFFFF>AoE Cryo DMG</color> and heals active character(s) within the AoE for 42% of Charlotte's ATK. This effect can be triggered once every 6s and both DMG and healing dealt in this way will be considered as having been done by Charlotte's Elemental Burst.",
+      "icon": "UI_Talent_S_Charlotte_04"
+    }
+  },
+  "hyperlinks": [],
+  "stories": {
+    "x88200": {
+      "storyTitle": "Character Details",
+      "storyText": "In the Court of Fontaine, a new \"story\" is born every minute.\\nFor example, Romaritime Harbor might suddenly swell with new ships, crewed by sailors of obviously non-Fontainian origin. Some fishmonger in Poisson might suddenly buy three months' worth of fish in a single month, or countless flyers boasting of a certain place where especially delicious fish can be found might suddenly appear in the Court...\\nIn the eyes of a mediocre reporter or ordinary city folk, these are \"independent\" tales, just like there will always be waves rippling across the sea's surface — such ordinary events are barely worth paying attention to at all.\\nClumsier journalists might even chase these waves, and dispiritedly end up merely following the wave's patterns, constantly pumping out \"surface-level stories\" of little interest.\\nBut in Charlotte's eyes, these waves are but the superficial representation of other forces. What is causing them to crest and break? That is the story she seeks.\\nPerhaps it is the wild winds wailing over the surface, or perhaps they are due to the Thalatta Submarine Canyon's complex seabed topography. Of course, you can't rule out the possibility of tremors from the Elton Trench either...\\nThese stories are the \"deep dives\" Charlotte desires.\\nA reporter should be an agile \"seeker\" — not a mere gauche \"recorder.\"\\nThis, then, is Charlotte's \"work doctrine.\"\\nAs to how she avoids being swept up in her \"deep dives\"... well, that's up to Euphrasie and her fellow citizens!",
+      "unlockConds": []
+    },
+    "x88201": {
+      "storyTitle": "Character Story 1",
+      "storyText": "Charlotte was fascinated with the world around her from a young age.\\nThe first Rainbow Rose that bloomed in the yard come spring, exceeding all others in vibrance. The children gladly padding about in puddles on the leaf-strewn streets after a storm and their hapless laughing families. The beauty of a solitary shell on the seashore, and the tiny crab surveying the world from underneath. The Blubber Profiterole she had with her family on her birthday, and the ever-so-slightly-too-deep color of the cream...\\nTo most, a flower is a flower, a shell is a shell, and a Profiterole is still a Profiterole even if it is a bit too sweet — that's just how the world is.\\nBut to Charlotte, these hidden \"details\" — only visible out of the corners of her eyes — are essential to understanding the world.\\nCharlotte's father, a seasoned reporter and professional nature photographer, noticed his daughter's interest in and knack for \"observation.\" Thus, on her tenth birthday, he gave her a custom-made Kamera, its dimensions and the positions of its buttons built specially for her.\\n\"Not all people are attentive enough to seek out and observe subtle differences, but this, Charlotte, is your unique talent.\"\\nThose were the words of her father, the \"Reporter of the Idylls,\" Galanopoulo.\\nFrom then on, there was a little junior reporter by the senior reporter's side. This father-daughter tag team could be found on streets wide and narrow, forests and rivers alike, raising two Kameras, one large and one small, taking countless still images of moving beauty.\\nEven though their \"interviews\" always caused the gentle yet strict Mrs. Gagnepetit to nag them incessantly, Charlotte's laughter never failed to be the quickest way to make her mother stop. And as for her soiled clothes and dirtied hat, those were left to the ever-capable Mr. Galanopoulo.\\nTo her, the whole world is a giant treasure trove.\\nAnd those pictures, for their part, are her special treasure maps.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 2
+      }
+    },
+    "x88202": {
+      "storyTitle": "Character Story 2",
+      "storyText": "Galanopoulo always emphasized one thing to Charlotte:\\n\"A picture of sufficiently great beauty cannot be ignored.\"\\nWith her consent, he sent the photos they'd taken to The Steambird. The editors were quickly taken with their photos — especially Charlotte's — and profusely praised Galanopoulo's ever-improving photography skills, reserving, just as before, prime placement for them in their publication.\\nThose pictures caused quite a stir in the Fontainian photography space when they were published, with critics stumbling over each other to flatter them, and newspaper hobbyists fighting to get copies to make their clipping collections yet more colorful and vivid.\\nBut when both critics or fellow journalists came calling and asked how Galanopoulo advanced his aesthetic sensibilities by leaps and bounds...\\nThe veteran reporter lightly pushed Charlotte forward, saying calmly: \"Ah, such pictures are beyond me. It's all my daughter's handiwork!\"\\nThe experienced, learned ladies and gentlemen who had come knocking could not but fall silent first, before expressing surprise, and then beginning to whisper amongst themselves and even venturing a few questions.\\nCharlotte blinked. The bewildered adults before her seemed every bit like little insects searching for shelter in a storm, waving their antennae this way and that, crying \"Where are the leaves? Where are the leaves?\"\\n\"Hey, everyone, look this way!\"\\nThe young child's cry caused them to collectively leap out of their worn skins, and everyone turned to look, only to be greeted by a custom-made Kamera and the click of a shutter.\\nIn that moment, all of it was captured on film — the furrowed brows, quirked lips, red faces, tangled hair, and waving arms, perfectly encapsulating those panicked bugs in the storm.\\nThe little reporter patted her Kamera and smiled toothily.\\n\"I'll call this one... 'No, No, That Won't Do!'\"",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 3
+      }
+    },
+    "x88203": {
+      "storyTitle": "Character Story 3",
+      "storyText": "After Charlotte's extraordinary photography skills had made her famous, she began receiving frequent visits from manuscript writers, magazine editors, news clipping collectors, and her father's reporter colleagues. Even Euphrasie, the Editor-in-Chief of The Steambird, was amongst them.\\nEuphrasie was straightforward about her intent. She hoped that Charlotte would agree to become a \"special correspondent\" — someone who would conduct interviews and write articles in addition to taking photographs.\\n...However, her father, despite his usual mild temperament, was strongly against it. He did not wish for his daughter to associate with those kinds of people, either full of ulterior motives or hypocrites.\\n\"Nature is fierce, but it is honest. Storms don't loose their fury without reason, nor do beasts bare their fangs without cause.\"\\n\"But people lie — they always do. A Kamera can only capture their faces, but the lens cannot target their hearts.\"\\nHe would respect Charlotte's decision, of course, but he preferred that Charlotte live a simpler, happier life, without sinking into the morass of humanity.\\nTo Charlotte, this world was a treasure trove, and pictures her treasure maps.\\nBut for the first time, she came to realize that this trove still harbored undiscovered \"truths.\"\\nThese truths were not themselves treasures, but were more akin to a procession of dark memories. Intentionally hidden, discarded, disguised, and then abandoned, with those having done so wishing that they would never be discovered, and that all events connected to them would simply end right there.\\nCharlotte knew that she could find them. She could dig up these truths, like digging tulip bulbs in a garden, like leading hermit crabs out of their shells, like finding pinecones hidden by squirrels.\\n...But she also felt like a bird glimpsing an onrushing flash flood, a cave rat foreseeing an earthquake, or a fish sensing a coming tsunami.\\nWith great ability comes great responsibility.\\nOne with the talent for uncovering \"truth\" was also responsible for bringing the \"truth\" to light.\\nThe only question was, did she have the courage to do so?\\nHer parents responded with silence, for they knew that their daughter had already made her choice. Charlotte was old enough, and all birds are destined to spread their wings and leave the nest someday.\\nThe next morning, Euphrasie went to work as usual, and there, waiting for her at the entrance to The Steambird, she saw Charlotte, ready with her Kamera and notepad.\\n\"Welcome to The Steambird, Charlotte.\"\\nEuphrasie extended a hand.\\n\"I believe the next La Verite Prize is yours to win.\"",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 4
+      }
+    },
+    "x88204": {
+      "storyTitle": "Character Story 4",
+      "storyText": "The La Verite Prize, established and funded by The Steambird, is the most prestigious prize a Fontainian reporter can win.\\nOnly the best of the best have ever won it: Hirailles and her tireless reporting on the investigative work of the Maison Gardiennage, the solitary Hobereau and his marine life photography honed over decades living by the sea, and of course, Dieuleveux, famed for his unbending, straight-talking nature, to the point where all threats and criticism simply bounced off his hide, never causing his quill to waver in the slightest.\\nAnd of course, the renowned genius reporter, Charlotte, has long since joined their storied number. In fact, her reporting stands out so far above the rest that she has won the prize several times in a row.\\nCritics have lavished her with praise, lauding her \"unequaled sense of composition,\" \"incomparably fresh angles,\" \"unquestionable impartiality,\" and \"unparalleled flair\"...\\nDetractors, on the other hand, believe that her successive triumphs are the result of collusion between The Steambird and the prize selection committee. How could such a young and unorthodox reporter be showered with glory, if not so the newspaper employing her could also bask in that glow? And why else would she be so close to the committee members, anyway?\\nEven so, her talents are beyond doubt. As another round of selection for the La Verite prize drew near, all her colleagues believed that she was guaranteed to emerge victorious once again.\\nThey'd seen how she infiltrated the haunts of criminal rings alone and secretly visited illegal sweatshops... For report after report, Charlotte had braved unspeakable dangers and endured unimaginable hardships to bring the truth to readers... Whether it be in her professional dedication to the profession, her masterful manuscripts, or her attitude toward reporting, Charlotte was worthy of the committee's favor.\\nThe question on everyone's minds, really — especially those of the sponsors — was \"Which one of her reports will she submit to the committee?\"\\nIt would, after all, be her ticket to the La Verite Prize, and that would make it a collectors' item of... considerable value, surely.\\nBut to everyone's astonishment, Charlotte unexpectedly declared that her submission would be a brand-new, never-before-published report, one that would reveal some heretofore unrivaled \"truth.\"\\nDear readers, to find out, please subscribe to The Steambird and look out for tomorrow's headline!",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 5
+      }
+    },
+    "x88205": {
+      "storyTitle": "Character Story 5",
+      "storyText": "\"Prestige Prize Proved Perniciously Partial — The Real La Verite.\"\\nThis was the headline on the day the award was to be announced.\\nIn it, Charlotte detailed the various monetary dealings that the long-serving members of the La Verite Award selection committee had engaged in over the previous decade, various inequities in their judgments, and provided an exhaustive list of reporters and reports who had been done dirty in the process.\\nHer report caused an uproar in the Court of Fontaine, with countless reporters surging to the committee offices — Charlotte, of course, among them.\\nAmidst a broadside of shutter clicks, Charlotte unleashed a barrage of meticulously-prepared questions from a thick notebook at the dumbstruck committee members, one after another. Red and shame-faced, the gentlemen flapped their clumsy lips as best they could, only to produce explications akin to porous cheese. In the end, they had to declare the questions out of order and in violation of normal procedure, before fleeing right before the gathered reporters' eyes.\\nCharlotte's \"report\" had barely begun, though.\\nShe continued publishing articles concerning the La Verite Award in The Steambird, even directing her pen against certain figures in the newspaper itself who had been connected to the La Verite selection committee, laying out the manner in which they had recommended reporters with whom they shared beneficial arrangements for awards, and how those reporters had returned the favors...\\nCharlotte's articles swept through the Fontainian media world like a tidal wave, and in response to public outcry, the Maison Gardiennage declared an official inquiry into the Award, suspending its activities and investigating all suspicious awardees.\\nCharlotte, for her part, temporarily lived inside The Steambird's offices, with all prospective visitors \"wanting a word with her\" being turned away by Euphrasie with extreme prejudice. It reached the point where the Maison Gardiennage even dispatched a guard detail to the newspaper's office entrance.\\nWith her own hand Charlotte had lifted a huge stone that none had wanted to peek under, and the creepy crawlies that had lurked in its cracks and crevices now had to face the searing sunlight of the \"truth.\"\\nThe Maison Gardiennage's investigation concluded three months later. Judges who had given unjust judgment, contestants who had contended to win glory undeserved, and editors who sought to edify themselves all received their just deserts.\\nThe La Verite Award selection committee was also wholly reorganized, now under various forms of new oversight. Once this was complete, the first thing they did was to give Charlotte the now utterly discredited award.\\nOf course, the trophy was but dead dross to her.\\nThe real honor she had received was that the \"truth\" she had revealed in her report — and the ones that followed in its wake, of course — now shone in the sun.",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 6
+      }
+    },
+    "x88206": {
+      "storyTitle": "\"Monsieur Verite\"",
+      "storyText": "A gift to Charlotte from her father that she carries with her to this day.\\nThough he still didn't wish for her to take on such complicated work, her father respected her decision to formally accept the job of being a special correspondent for The Steambird.\\nHe commissioned a friend skilled with machinery and modifying Kameras, and made extensive modifications to that small Kamera.\\nFor example: Making it easier to switch out the film canisters such that Charlotte could swap film with only one hand, or making the photographic compartment water, fire, impact, and explosion-proof, to the point that the Kamera's exterior casing could be utterly destroyed, yet the compartment containing the film would remain intact and unharmed...\\nHer father insisted on numerous modifications to which his friend initially opined, \"This isn't necessary, is it...?\" with a bitter smile. Nevertheless, in the end they agreed to make the modifications, including a high-powered loudspeaker that, when activated, unleashed an ear-splitting alarm, as well as a hidden self-defense system on the Kamera's side that ejected a concealed knife outward at high speed when the right button was pressed...\\nThey also included \"a shutter delay device,\" a \"lens self-coupling setup,\" and more...\\nAll the concerns and worries of her father were installed into the device along with all manner of contraptions, transforming it into an ever-reliable, unequaled super Kamera that reflected its owner perfectly.\\nAnd when the modifications were finished, Charlotte gave it a new name — \"Verite.\"\\nMeaning, of course, \"truth.\"",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 4
+      }
+    },
+    "x88207": {
+      "storyTitle": "Vision",
+      "storyText": "Charlotte does not, in fact, really know just when she obtained her Vision.\\nPreviously, she had been penning a new piece about problems in how salvage divers were treated, and had gone to interview Dollander, who employed a great number of said divers. The chubby-faced man did not seem keen on speaking the truth, and indeed was only interested in answering any questions insofar as he might redirect them. The divers he employed, too, proved quite tight-lipped.\\nDespite the serious damage that had been done to their lungs and eardrums, the long work hours exhausting them utterly, the decrepit divesuits they used, and the inedible food, they held their silence in front of Dollander. Their smug boss smiled triumphantly at her lack of progress.\\nBy the next day, Charlotte had procured a divesuit through personal connections and was ready to get close to the divers in secret as they worked, and use her Kamera to capture Dollander's ill-treatment of them firsthand. They were in a titanic undersea rift, a place where it was completely forbidden to work according to Fontainian diving regulations.\\nAfter that, Charlotte did not appear at work for a good long while. All the other Steambird reporters saw was a stream of Maison Gardiennage officers coming in and out of the office, with Euphrasie uncharacteristically ruffled, working late into the night every day.\\nSome reporters said that they saw someone dressed in outmoded clothes, drenched and shivering as they squatted at the office entrance.\\nSome said that an undersea earthquake had occurred in the Thalatta Submarine Canyon, where divers employed by some fellow named Dollander had been working, and that they had avoided injury by the skin of their teeth.\\nSome other reporters even said that this Dollander had secretly put out a bounty for a Kamera that was said to contain pictures important to him.\\nStill, Charlotte did not emerge.\\nBut reporters are most certainly not a passive lot. The Steambird's reporters began to act quietly and surreptitiously. Some utilized their personal connections to look into Dollander's business, while others followed the divers, and others still wrote pieces implicating Dollander...\\nWith The Steambird working at full steam, it was fearsomely quick indeed, and before long an extensive report on Dollander's illicit employment practices was complete.\\nHowever, without any photographic evidence to corroborate the article, the reporters felt it was...\\nJust then, the doors to the main entrance were suddenly flung wide open, and in strode Charlotte, clad in rags and sans spectacles and shoes. Placing Monsieur Verite on the table, she grinned.\\n\"I have the pictures right here!\"\\nNo questions were asked about what she'd been through. Instead, all worked as one, focusing on slotting each image into the report.\\nThe next day, The Steambird headline was this — \"Dollander: Undersea Scrooge,\" detailing his illegal employment practices, salary deductions, the harm done to the health of his employees, and other vile conduct. As for the article's author, it was listed as \"The Steambird Reporters.\"\\nThe night before that edition was to be published, Charlotte was, as always, in the printing room doing some final proofreading work.\\nWhen she finished reading the final word and put the manuscript down, she suddenly noticed that an icy-blue Vision had appeared beside her hand.\\nScrutinizing it, all she could manage was to mumble a few words:\\n\"I think we'll have to leave out this little detail...\"",
+      "unlockConds": {
+        "type": "FETTER_COND_FETTER_LEVEL",
+        "value": 6
+      }
+    }
+  },
+  "quotes": {
+    "x88000": {
+      "quoteTitle": "Hello",
+      "quoteText": "Hi there! I'm Charlotte, a journalist with The Steambird. It's a pleasure to meet you. If you've got time, would you be open to doing an exclusive interview? My journalistic instincts tell me that there's a treasure trove of news in you just bursting to get out!",
+      "unlockConds": []
+    },
+    "x88001": {
+      "quoteTitle": "Chat: News",
+      "quoteText": "If you keep your eyes peeled and your mind engaged, you'll find there's always a news story nearby just waiting to be discovered.",
+      "unlockConds": []
+    },
+    "x88002": {
+      "quoteTitle": "Chat: Journalists",
+      "quoteText": "There are lots of journalists in the Court of Fontaine, but not all of them hold themselves to a high professional standard. If you're ever looking to do an interview... I'm your best choice.",
+      "unlockConds": []
+    },
+    "x88003": {
+      "quoteTitle": "Chat: The Steambird",
+      "quoteText": "The Steambird is an excellent publication. They have many outstanding journalists and the Editor-in-Chief is always open to new ideas. But most importantly, they pay their writers on time.",
+      "unlockConds": []
+    },
+    "x88004": {
+      "quoteTitle": "When It Rains",
+      "quoteText": "Uh-oh, I better find a way to keep my Kamera dry!",
+      "unlockConds": []
+    },
+    "x88005": {
+      "quoteTitle": "When Thunder Strikes",
+      "quoteText": "Drat! Missed it again. I never quite manage to get a shot of the lightning strike...",
+      "unlockConds": []
+    },
+    "x88006": {
+      "quoteTitle": "When It Snows",
+      "quoteText": "Brrr! My fingers are frozen stiff. I can barely manage to press the shutter button.",
+      "unlockConds": []
+    },
+    "x88007": {
+      "quoteTitle": "When the Sun Is Out",
+      "quoteText": "Perfect lighting for a photo! C'mon, strike a pose. Don't forget to smile!",
+      "unlockConds": []
+    },
+    "x88008": {
+      "quoteTitle": "Good Morning",
+      "quoteText": "Morning! Did you read the paper yet? No? ...No worries, I'll read it for you...",
+      "unlockConds": []
+    },
+    "x88009": {
+      "quoteTitle": "Good Afternoon",
+      "quoteText": "Lunch time! Come with me — I know a great place!",
+      "unlockConds": []
+    },
+    "x88010": {
+      "quoteTitle": "Good Evening",
+      "quoteText": "Time for an evening chat. Any stories you're willing to share? I'd love to hear them. ...Oh, don't worry, I won't print any of them without your permission. You have my word.",
+      "unlockConds": []
+    },
+    "x88011": {
+      "quoteTitle": "Good Night",
+      "quoteText": "Good night. You go get some rest — I gotta head to The Steambird offices to do some final proofreading of some articles. See you tomorrow!",
+      "unlockConds": []
+    },
+    "x88012": {
+      "quoteTitle": "About Charlotte: Career",
+      "quoteText": "People aren't always very fond of journalists. You know what they say — lies are soft and malleable, but the truth is sharp and inflexible.",
+      "unlockConds": []
+    },
+    "x88013": {
+      "quoteTitle": "About Charlotte: Photography",
+      "quoteText": "I can't take a good photograph without an interesting subject. I really have to force myself to press the shutter button if I'm not excited by what I'm snapping.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x88014": {
+      "quoteTitle": "About Us: Exclusive Feature",
+      "quoteText": "Alright, the time has come for your interview. Ready to be a star? Just follow my lead and try to look good for the Kamera! You too, Paimon — you have the power of flight! Could you try to make it look a little more exciting?",
+      "unlockConds": []
+    },
+    "x88015": {
+      "quoteTitle": "About Us: Headliners",
+      "quoteText": "Good news — I've convinced Euphrasie to make you the next headliners of The Steambird! You'll be right up there on the front cover, there'll be a whole feature about you that I wrote myself, and— Huh? What do you mean, \"no need\"? C'mon, I've been pushing Euphrasie for ages on this! Can't you reconsider? I'll make it up to you, I promise! I'll treat you to a huge meal, pleeease?",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 6",
+        "Complete \"As Light Rain Falls Without Reason\""
+      ]
+    },
+    "x88016": {
+      "quoteTitle": "About the Vision",
+      "quoteText": "To be honest... I'd prefer to have an Anemo Vision. Being able to fly around freely would make getting to interviews sooo much easier! A Cryo Vision's not too bad, though. At least I don't need to worry about my Kamera overheating.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x88017": {
+      "quoteTitle": "Something to Share",
+      "quoteText": "\"Your credible source of the unbelievable truth!\" That's my journalistic motto. Hmm? ...Haha, yep, exactly — \"credible\" and \"incredible\" at the same time! What's that? ...Oh, if I had to choose, then obviously being credible is much more important! But most readers would sooner pay money for sensational stories than mundane facts... So we have to focus on the most incredible true stories to keep our readers engaged.",
+      "unlockConds": []
+    },
+    "x88018": {
+      "quoteTitle": "Interesting Things",
+      "quoteText": "Allow me to introduce the one and only Monsieur Verite. He's not just any Kamera — he's my trusty companion and assistant. See his little hat and bow tie? I had those custom made by Chiori. Pretty neat, huh? I've got loads of other outfits for him too, all in different styles. He comes dressed to impress for every interview, whatever the occasion!",
+      "unlockConds": []
+    },
+    "x88019": {
+      "quoteTitle": "About Navia",
+      "quoteText": "Now that her father's name's been cleared, and the case of the serial disappearances of young women is resolved, I guess Navia must be able to finally breathe a little easier. I don't know why, but somehow, she's found herself at the epicenter of all sorts of bad news lately... Luckily for her, I've been snatching up all the articles that mention her and doing whatever damage control I can before they get published. Heh, and uh... then getting told off constantly by Euphrasie for interfering... But y'know, I think Navia deserves a break, so I'm happy to take one for the team. Also, she agreed to do an in-depth exclusive interview, which definitely sweetens the deal!",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4",
+        "Complete \"As Light Rain Falls Without Reason\""
+      ]
+    },
+    "x88020": {
+      "quoteTitle": "About Lyney",
+      "quoteText": "Surprise, surprise — Lyney refused an interview with me once again. Do you know how many times that is now? ...Uh, actually, I've lost count. But never mind! Evading me only further confirms my suspicion that he's hiding the news story of a lifetime! As long as I keep digging, I'll find it — and when I do, it will shake the world like no other news report in history!",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x88021": {
+      "quoteTitle": "About Lynette",
+      "quoteText": "No matter what question you pose to her, Lynette just calmly lowers her eyes with an expressionless look on her face. It's like she's some sort of... clockwork doll. I'm really tempted to write an article titled something like: \"The Genius Magician's Puppet Assistant: Magic's Best-Kept Secret\"... but I have a sneaking suspicion that even that wouldn't get a reaction out of her.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x88022": {
+      "quoteTitle": "About Clorinde",
+      "quoteText": "Clorinde is one of the most well-known Champion Duelists in Fontaine, but she's also the most mysterious. I have a source who tells me that she uses some sort of mystical ritual to keep her weapon as good as new... Could this be the secret behind her famously undefeated track record in the Duelists' Ring? Ah, I'd love to spring that question on her one day... but I don't think I'll get the chance. She's publicly stated that she doesn't accept interviews.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x88023": {
+      "quoteTitle": "About Wriothesley",
+      "quoteText": "So... Did you get to meet the Duke in person? Yeah? Any nuggets of information that I should know about? Never mind the Credit Coupons, the Coupon Cafeteria, \"If a man will not work, he shall not eat\"... That's all just generic filler. I'm talking about personal anecdotes about the man of Meropide himself... What do you mean, \"confidentiality\"? Aw, not you, too! We had a deal! That does it — remember that gigantic feast I treated you to? I want my money back! Get your butts back to prison and do your time, you swindlers, you!",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4",
+        "Complete \"Cataclysm's Quickening\""
+      ]
+    },
+    "x88024": {
+      "quoteTitle": "About Emilie",
+      "quoteText": "Emilie makes the best perfume in the whole Court of Fontaine. She introduced me to this amazing one the other day that works as an insect repellent, anti-perspirant, and deodorant all in one! It's a total life-saver for someone like me who spends so much time zooming around all over the place. I actually sprayed some on my wrist today... Go on, take a whiff, it's heavenly!",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x88025": {
+      "quoteTitle": "About Chiori",
+      "quoteText": "I did a little snooping around at Chioriya Boutique once. Aside from the wealthy housewives of Fontaine and the box-ticking tourists from overseas, some of the regular customers there look like really rough characters! Big muscly types with scars on their face, guys in masks and hats with their swords drawn... But they always come bearing gifts and acting like humble servants. Uh... Well, mostly. Anyone with a bad attitude is literally sent flying back out the door. Seriously! I snapped a photo of a guy being thrown out once, he was like four feet in the air!",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x88026": {
+      "quoteTitle": "About Freminet",
+      "quoteText": "I've met Freminet a few times since being introduced. He quickly took an interest in Monsieur Verite — that's my Kamera-slash-assistant — and even made a few improvements to my lenses. I gotta say, though, my heart was in my mouth watching him completely dismantle Monsieur Verite in a matter of seconds... Amazing he managed to reassemble it just as swiftly. He seems very experienced — I was convinced he must have graduated from the Fontaine Research Institute, but he denied it.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4",
+        "Complete \"Masquerade of the Guilty\""
+      ]
+    },
+    "x88027": {
+      "quoteTitle": "About Neuvillette",
+      "quoteText": "If you want to interview the Iudex, you have to provide all the interview questions in advance and get them reviewed by the relevant department at the Palais Mermonia, who decide which questions to approve and which ones you're not allowed to ask... It's their way of making sure the interview goes off without a hitch. It's such a rigmarole. I'm losing the will to live just talking about it.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x88028": {
+      "quoteTitle": "About Furina",
+      "quoteText": "Lady Furina has a very captivating presence. She was born to be a star. Euphrasie once assigned a journalist to shadow her, but he quit not long into the assignment... From what I've heard, the reason he left was that Furina insisted on seeing every photo he took of her right away, and she'd make him redo it if she wasn't happy with how it turned out. Apparently, she was so picky that the poor guy once had to take 127 shots of her in the same pose before she was content...",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x88029": {
+      "quoteTitle": "More About Charlotte: I",
+      "quoteText": "I'm well aware that following the truth wherever it leads is risky business. But buried truths make exclusive news, so good luck trying to keep secrets from me when we need a good story... telling journalist like me in this world with a strong sense of journalistic integrity! Ahem! I make it my goal to provide the public with only the best exclusive news, through powerful, engaging, and honest reporting!",
+      "unlockConds": []
+    },
+    "x88030": {
+      "quoteTitle": "More About Charlotte: II",
+      "quoteText": "When I first started working as a journalist, I didn't know anything about how to write the news, so I had to figure it all out for myself by reading articles by other people. As well as The Steambird, I also looked at some other independent publications out there, which tend to be more specialized. For example, there's \"The Observer\" for celebrity gossip, \"Leisure Weekly,\" which focuses on competitive sport and other entertainment news, \"Top Chef\" for those who like to read... all the food critiques in one place, and \"Bedazzled!\" which is just sort of a glorified rumor and speculation mill. I learned a whole lot from reading all those papers. Or... Well, I at least learned how to master a bunch of different writing styles.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 3"
+      ]
+    },
+    "x88031": {
+      "quoteTitle": "More About Charlotte: III",
+      "quoteText": "I once spent six months working undercover for an exposé piece about a merchant who was selling shoddy food products. I disguised myself as a vagrant, infiltrated the back kitchen, took a job as a kitchen hand, and stuck around until I'd gathered enough solid evidence about their misdeeds. Then, I put it all in an article and had it published in the paper. The backlash was intense. They were punished for their crimes, sure, but that didn't stop them from launching a vicious campaign of vengeance against me almost immediately. I was coming home to threat letters sitting on my bedside table on a daily basis, and we'd also find mud slung on the front door to our office... The Steambird quickly filed a report to the Gardes, and I was sent to Mondstadt to report on Genius Invokation TCG. It took a while before I could safely return to Fontaine. These kind of things happen all the time. I honestly don't know Euphrasie deals with it...",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    },
+    "x88032": {
+      "quoteTitle": "More About Charlotte: IV",
+      "quoteText": "I've always been a very curious person. Even as a kid, long before I ever thought about going into journalism, I was always convinced that secrets and mysteries were lurking in every corner... To me, the world is a giant hoard of hidden treasure, with countless stories waiting to be uncovered. Every time I see something where I think a secret might be hiding, I snap a photo with my Kamera and add it to my collection. These photos are like my own personal treasure map... and I'm constantly going back to them, trying new ways to decipher them and expose the truth.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 5"
+      ]
+    },
+    "x88033": {
+      "quoteTitle": "More About Charlotte: V",
+      "quoteText": "I don't really care whether these hidden truths are significant, what they mean, or what the wider ramifications are... I just want to bring them into the light of day. To put it in adventurer terms, I guess for me... it's all about the thrill of the chase, and not the treasure at the end. I've also met a lot of people along the way: all my Fontaine friends, Euphrasie, who believes I was born to be a journalist, and people like you, who join me in the search for the truth. Without everyone's help, I'd probably still be that nosy kid who runs around furiously snapping photos like a lunatic... Anywho... It's not often that I get to be the interviewee, but... this has been a real pleasure.",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 6"
+      ]
+    },
+    "x88034": {
+      "quoteTitle": "Charlotte's Hobbies",
+      "quoteText": "I love collecting different Kamera lenses. They all have different strengths — some might have an incredible range of focal lengths, others might have a really wide field of view. Oh, and there's also more novelty ones that can apply special effects to the image. Take this one, for example — when you take a portrait photo with this, it turns their face all chubby... C'mon, I'll take one of you! And you, Paimon!",
+      "unlockConds": []
+    },
+    "x88035": {
+      "quoteTitle": "Charlotte's Troubles",
+      "quoteText": "I've ended up with a less-than-favorable reputation in some people's eyes — I think it's because I can sometimes be a little bit, um... intense in interviews. Now, whenever I show up to interview someone, they're always really wary of me... *sigh* But in my defense, with some people, you really have to put the pressure on or they won't open up...",
+      "unlockConds": []
+    },
+    "x88036": {
+      "quoteTitle": "Favorite Food",
+      "quoteText": "Hehe, sweet things are my weakness. However big the main meal, I can always manage a dessert or several. Or as my mother puts it... There's always a special place reserved in my stomach for dessert!",
+      "unlockConds": []
+    },
+    "x88037": {
+      "quoteTitle": "Least Favorite Food",
+      "quoteText": "Spicy food doesn't agree with me at all. It's like my stomach is fitted with a super-sensitive spice detector or something, 'cause even the mildest hint of chili will set it off. One small bite and the stomachache begins... and it always lasts for like an entire day, ugh...",
+      "unlockConds": []
+    },
+    "x88038": {
+      "quoteTitle": "Receiving a Gift: I",
+      "quoteText": "You're a good chef! Any interest in starting a culinary column in our paper? I know just how we could slot you in.",
+      "unlockConds": []
+    },
+    "x88039": {
+      "quoteTitle": "Receiving a Gift: II",
+      "quoteText": "Hey, not bad... Would you mind teaching me to make this some time?",
+      "unlockConds": []
+    },
+    "x88040": {
+      "quoteTitle": "Receiving a Gift: III",
+      "quoteText": "Whewee... This is uh, a juicy news story... with a gut-wrenching conclusion...",
+      "unlockConds": []
+    },
+    "x88041": {
+      "quoteTitle": "Birthday",
+      "quoteText": "Happy Birthday! Did you read today's Steambird yet? I put a birthday greeting in there for you, hehe... Wait, you still haven't bought a copy? No problem, I picked one up before leaving the office. Look — here it is! I fought pretty hard to get it on this page.",
+      "unlockConds": []
+    },
+    "x88042": {
+      "quoteTitle": "Feelings About Ascension: Intro",
+      "quoteText": "What a strange and wonderful feeling... I've gotta write this down for my records.",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 1"
+      ]
+    },
+    "x88043": {
+      "quoteTitle": "Feelings About Ascension: Building Up",
+      "quoteText": "So this stuff really does boost people's strength, huh? I thought it was all rumors, but now here I am, experiencing it for myself...",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 2"
+      ]
+    },
+    "x88044": {
+      "quoteTitle": "Feelings About Ascension: Climax",
+      "quoteText": "Have you done this for other people in the past, too? Were the materials you used different, and if so, how? Also, I'm wondering... Uh, sorry. Force of habit.",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 4"
+      ]
+    },
+    "x88045": {
+      "quoteTitle": "Feelings About Ascension: Conclusion",
+      "quoteText": "Holy smokes! My mind can think faster, my body has more energy... There's not a news story out there that can escape me now! But first things first — let's take a photo to commemorate this beautiful moment.",
+      "unlockConds": [
+        "Unlocks at Ascension Phase 6"
+      ]
+    },
+    "x88046": {
+      "quoteTitle": "Elemental Skill: I",
+      "quoteText": "Say cheese!",
+      "unlockConds": []
+    },
+    "x88047": {
+      "quoteTitle": "Elemental Skill: II",
+      "quoteText": "Smile!",
+      "unlockConds": []
+    },
+    "x88048": {
+      "quoteTitle": "Elemental Skill: III",
+      "quoteText": "Hold that pose!",
+      "unlockConds": []
+    },
+    "x88049": {
+      "quoteTitle": "Elemental Burst: I",
+      "quoteText": "Truth bomb!",
+      "unlockConds": []
+    },
+    "x88050": {
+      "quoteTitle": "Elemental Burst: II",
+      "quoteText": "Breaking news!",
+      "unlockConds": []
+    },
+    "x88051": {
+      "quoteTitle": "Elemental Burst: III",
+      "quoteText": "Hard-hitting exclusive!",
+      "unlockConds": []
+    },
+    "x88052": {
+      "quoteTitle": "Opening Treasure Chest: I",
+      "quoteText": "Ooh! This looks alright.",
+      "unlockConds": []
+    },
+    "x88053": {
+      "quoteTitle": "Opening Treasure Chest: II",
+      "quoteText": "I wish I could interview whoever left this stuff here.",
+      "unlockConds": []
+    },
+    "x88054": {
+      "quoteTitle": "Opening Treasure Chest: III",
+      "quoteText": "I doubt anyone's still looking for these...",
+      "unlockConds": []
+    },
+    "x88055": {
+      "quoteTitle": "Low HP: I",
+      "quoteText": "I'm getting this all on Kamera...",
+      "unlockConds": []
+    },
+    "x88056": {
+      "quoteTitle": "Low HP: II",
+      "quoteText": "There's still news to report!",
+      "unlockConds": []
+    },
+    "x88057": {
+      "quoteTitle": "Low HP: III",
+      "quoteText": "My Kamera's still working!",
+      "unlockConds": []
+    },
+    "x88058": {
+      "quoteTitle": "Ally at Low HP: I",
+      "quoteText": "Careful!",
+      "unlockConds": []
+    },
+    "x88059": {
+      "quoteTitle": "Ally at Low HP: II",
+      "quoteText": "I'm not writing your obituary!",
+      "unlockConds": []
+    },
+    "x88060": {
+      "quoteTitle": "Fallen: I",
+      "quoteText": "Take these photos to The Steambird...",
+      "unlockConds": []
+    },
+    "x88061": {
+      "quoteTitle": "Fallen: II",
+      "quoteText": "At least I documented everything...",
+      "unlockConds": []
+    },
+    "x88062": {
+      "quoteTitle": "Fallen: III",
+      "quoteText": "Headline... Still needs a headline...",
+      "unlockConds": []
+    },
+    "x88063": {
+      "quoteTitle": "Light Hit Taken: I",
+      "quoteText": "How rude!",
+      "unlockConds": []
+    },
+    "x88064": {
+      "quoteTitle": "Heavy Hit Taken: I",
+      "quoteText": "My Kamera!",
+      "unlockConds": []
+    },
+    "x88065": {
+      "quoteTitle": "Joining Party: I",
+      "quoteText": "Let's get this interview started!",
+      "unlockConds": []
+    },
+    "x88066": {
+      "quoteTitle": "Joining Party: II",
+      "quoteText": "What's the news?",
+      "unlockConds": []
+    },
+    "x88067": {
+      "quoteTitle": "Joining Party: III",
+      "quoteText": "Nearer to the action is closer to the truth!",
+      "unlockConds": []
+    },
+    "x88068": {
+      "quoteTitle": "About Escoffier",
+      "quoteText": "I've tried so many amazing dishes thanks to her! Between her work, the other chefs at her Hotel, and her apprentices, I can almost call myself a food critic at this point. I feel a little bad, getting to eat the finest food in Fontaine for free... But, I'm not complaining, either!",
+      "unlockConds": [
+        "Unlocks at Friendship Lv. 4"
+      ]
+    }
+  },
+  "energy": [
+    {
+      "source": "UNIQUE_DropBall_Click",
+      "particles": "3",
+      "chance": "100%",
+      "cd": "0.3s"
+    },
+    {
+      "source": "UNIQUE_DropBall_Hold",
+      "particles": "5",
+      "chance": "100%",
+      "cd": "0.3s"
+    },
+    {
+      "source": "UNIQUE_DropBall_Hold",
+      "particles": "3",
+      "chance": "100%",
+      "cd": "0.3s"
+    }
+  ],
+  "attacks": [
+    {
+      "name": "Attack01",
+      "icd_source": "Tag: NormalAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV1/9",
+      "element": "Ice",
+      "attackType": "Default",
+      "strikeType": "-",
+      "damageParam": "NormalAttack_01_Damage"
+    },
+    {
+      "name": "Attack01",
+      "icd_source": "Tag: NormalAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV1/9",
+      "element": "Ice",
+      "attackType": "Default",
+      "strikeType": "-",
+      "damageParam": "NormalAttack_01_Damage"
+    },
+    {
+      "name": "Attack01",
+      "icd_source": "Tag: NormalAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV1/9",
+      "element": "Ice",
+      "attackType": "Default",
+      "strikeType": "-",
+      "damageParam": "NormalAttack_01_Damage"
+    },
+    {
+      "name": "Attack02",
+      "icd_source": "Tag: NormalAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV1/8",
+      "element": "Ice",
+      "attackType": "Default",
+      "strikeType": "-",
+      "damageParam": "NormalAttack_02_Damage"
+    },
+    {
+      "name": "Attack02",
+      "icd_source": "Tag: NormalAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV1/8",
+      "element": "Ice",
+      "attackType": "Default",
+      "strikeType": "-",
+      "damageParam": "NormalAttack_02_Damage"
+    },
+    {
+      "name": "Attack02",
+      "icd_source": "Tag: NormalAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV1/8",
+      "element": "Ice",
+      "attackType": "Default",
+      "strikeType": "-",
+      "damageParam": "NormalAttack_02_Damage"
+    },
+    {
+      "name": "SkillObj_NormalAttack_03",
+      "icd_source": "Tag: NormalAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV2/12",
+      "element": "Ice",
+      "attackType": "Default",
+      "strikeType": "-",
+      "damageParam": "NormalAttack_03_Damage"
+    },
+    {
+      "name": "ExtraAttack_Gadget",
+      "icd_source": "Tag: ExtraAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "0U",
+      "poise": "LV1/20",
+      "element": "Ice",
+      "attackType": "Default",
+      "strikeType": "Pierce",
+      "damageParam": "ExtraAttack_Arkhe_Ratio"
+    },
+    {
+      "name": "ExtraAttack_Gadget",
+      "icd_source": "Tag: ExtraAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV3/80",
+      "element": "Ice",
+      "attackType": "Range",
+      "strikeType": "-",
+      "damageParam": "ExtraAttack_Damage"
+    },
+    {
+      "name": "ElementalArt_Click",
+      "icd_source": "Tag: Elemental_Art (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV2/50",
+      "element": "Ice",
+      "attackType": "Default",
+      "strikeType": "-",
+      "damageParam": "Click_Damage"
+    },
+    {
+      "name": "ElementalArtHold_RayCast",
+      "icd_source": "Tag: Elemental_Art (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV2/50",
+      "element": "Ice",
+      "attackType": "Range",
+      "strikeType": "-",
+      "damageParam": "QuitHold_Damage"
+    },
+    {
+      "name": "ElementalArtHold_RayCast",
+      "icd_source": "Tag: Charlotte_ArtDot",
+      "icd_rule": "2 hits / 12s",
+      "gauge": "1U",
+      "poise": "LV2/20",
+      "element": "Ice",
+      "attackType": "Range",
+      "strikeType": "-",
+      "damageParam": "ElementalArt_Dot_Strong_Damage"
+    },
+    {
+      "name": "ElementalArtHold_RayCast",
+      "icd_source": "Tag: Charlotte_ArtDot",
+      "icd_rule": "2 hits / 12s",
+      "gauge": "1U",
+      "poise": "LV2/20",
+      "element": "Ice",
+      "attackType": "Range",
+      "strikeType": "-",
+      "damageParam": "ElementalArt_Dot_Weak_Damage"
+    },
+    {
+      "name": "SkillObj_ElementalBurst_Stage",
+      "icd_source": "Tag: Charlotte_BurstCamera",
+      "icd_rule": "4 hits / 4s",
+      "gauge": "1U",
+      "poise": "LV1/25",
+      "element": "Ice",
+      "attackType": "Default",
+      "strikeType": "-",
+      "damageParam": "Stage_DamRatio"
+    },
+    {
+      "name": "SkillObj_ElementalBurst_Stage",
+      "icd_source": "Tag: Elemental_Burst (!)",
+      "icd_rule": "Independent",
+      "gauge": "2U",
+      "poise": "LV2/200",
+      "element": "Ice",
+      "attackType": "Default",
+      "strikeType": "-",
+      "damageParam": "ElementalBurst_DamOnceRatio"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "0U",
+      "poise": "LV2/5",
+      "element": "Ice",
+      "attackType": "Default",
+      "strikeType": "-",
+      "damageParam": "FallingAnthem_Normal_Loop_Damage"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV3/50",
+      "element": "Ice",
+      "attackType": "Default",
+      "strikeType": "-",
+      "damageParam": "FallingAnthem_Normal_Rank_1_Damage"
+    },
+    {
+      "name": "FallingAnthem",
+      "icd_source": "Tag: FallingAttack (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV3/100",
+      "element": "Ice",
+      "attackType": "Default",
+      "strikeType": "-",
+      "damageParam": "FallingAnthem_Normal_Rank_2_Damage"
+    },
+    {
+      "name": "Constellation_ExtraCamera_Gadget",
+      "icd_source": "Tag: Elemental_Burst (!)",
+      "icd_rule": "Independent",
+      "gauge": "1U",
+      "poise": "LV2/100",
+      "element": "Ice",
+      "attackType": "Default",
+      "strikeType": "-",
+      "damageParam": "Constellation_ExtraCameraDamage"
+    }
+  ],
+  "endure": {
+    "ability": "ElementalArtHold_RayCast",
+    "handler": "Focus",
+    "Actor_EndureDelta": 0.5
+  }
+}

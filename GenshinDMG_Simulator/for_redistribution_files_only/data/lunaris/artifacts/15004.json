@@ -1,0 +1,31 @@
+﻿{
+    "Id":  15004,
+    "SetId":  15004,
+    "EnName":  "Glacier and Snowfield",
+    "QualityType":  "QUALITY_ORANGE",
+    "SetIcon":  "UI_RelicIcon_15004_4",
+    "Effect2Pc":  "Cryo DMG Bonus +15%",
+    "Effect4Pc":  "Increases Superconduct DMG by 100%. Increases Melt DMG by 15%. Using an Elemental Burst increases Cryo DMG Bonus by 30% for 10s.",
+    "Pieces":  {
+                   "circlet":  {
+                                   "icon":  "UI_RelicIcon_15004_3",
+                                   "name":  "Crown of Glacier"
+                               },
+                   "flower":  {
+                                  "icon":  "UI_RelicIcon_15004_4",
+                                  "name":  "Heart of Frost"
+                              },
+                   "goblet":  {
+                                  "icon":  "UI_RelicIcon_15004_1",
+                                  "name":  "Goblet of Aquilo"
+                              },
+                   "plume":  {
+                                 "icon":  "UI_RelicIcon_15004_2",
+                                 "name":  "Plume of Snow"
+                             },
+                   "sands":  {
+                                 "icon":  "UI_RelicIcon_15004_5",
+                                 "name":  "Glacial Sand"
+                             }
+               }
+}

@@ -1,0 +1,2 @@
+Weapon,WeaponATK,HPBonus,FlatHP,ER,CritRate,CritDMG,HydroDMGBonus,NormalDMGBonus,SkillDMGBonus,BurstDMGBonus,ResShred,ArtifactSet1,ArtifactSet1Pieces,ArtifactSet2,ArtifactSet2Pieces,ArtifactSet4Active
+FavoniusLance,565,0.95,4780,1.5,0.6,1.7,0.466,0.15,0.18,0.2,0,NoblesseOblige,4,None,0,1

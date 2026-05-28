@@ -1,0 +1,31 @@
+﻿{
+    "Id":  15019,
+    "SetId":  15019,
+    "EnName":  "Shimenawa\u0027s Reminiscence",
+    "QualityType":  "QUALITY_ORANGE",
+    "SetIcon":  "UI_RelicIcon_15019_4",
+    "Effect2Pc":  "ATK +18%.",
+    "Effect4Pc":  "When casting an Elemental Skill, if the character has 15 or more Energy, they lose 15 Energy and Normal/Charged/Plunging Attack DMG is increased by 50% for 10s. This effect will not trigger again during that duration.",
+    "Pieces":  {
+                   "circlet":  {
+                                   "icon":  "UI_RelicIcon_15019_3",
+                                   "name":  "Capricious Visage"
+                               },
+                   "flower":  {
+                                  "icon":  "UI_RelicIcon_15019_4",
+                                  "name":  "Entangling Bloom"
+                              },
+                   "goblet":  {
+                                  "icon":  "UI_RelicIcon_15019_1",
+                                  "name":  "Hopeful Heart"
+                              },
+                   "plume":  {
+                                 "icon":  "UI_RelicIcon_15019_2",
+                                 "name":  "Shaft of Remembrance"
+                             },
+                   "sands":  {
+                                 "icon":  "UI_RelicIcon_15019_5",
+                                 "name":  "Morning Dew\u0027s Moment"
+                             }
+               }
+}

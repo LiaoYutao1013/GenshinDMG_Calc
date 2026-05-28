@@ -1,0 +1,31 @@
+﻿{
+    "Id":  15043,
+    "SetId":  15043,
+    "EnName":  "Aubade of Morningstar and Moon",
+    "QualityType":  "QUALITY_ORANGE",
+    "SetIcon":  "UI_RelicIcon_15043_4",
+    "Effect2Pc":  "Increases Elemental Mastery by 80.",
+    "Effect4Pc":  "When the equipping character is off-field, Lunar Reaction DMG is increased by 20%. When the party\u0027s Moonsign Level is at least Ascendant Gleam, Lunar Reaction DMG will be further increased by 40%. This effect will disappear after the equipping character is active for 3s.",
+    "Pieces":  {
+                   "circlet":  {
+                                   "icon":  "UI_RelicIcon_15043_3",
+                                   "name":  "Moonlit Offering\u0027s Silver Crown"
+                               },
+                   "flower":  {
+                                  "icon":  "UI_RelicIcon_15043_4",
+                                  "name":  "Moonlit Offering\u0027s Opulent Dream"
+                              },
+                   "goblet":  {
+                                  "icon":  "UI_RelicIcon_15043_1",
+                                  "name":  "Moonlit Offering\u0027s Libation"
+                              },
+                   "plume":  {
+                                 "icon":  "UI_RelicIcon_15043_2",
+                                 "name":  "Moonlit Offering\u0027s Parting Light"
+                             },
+                   "sands":  {
+                                 "icon":  "UI_RelicIcon_15043_5",
+                                 "name":  "Moonlit Offering\u0027s Final Hour"
+                             }
+               }
+}

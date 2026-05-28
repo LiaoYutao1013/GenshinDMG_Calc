@@ -1,0 +1,31 @@
+﻿{
+    "Id":  10001,
+    "SetId":  10001,
+    "EnName":  "Resolution of Sojourner",
+    "QualityType":  "QUALITY_PURPLE",
+    "SetIcon":  "UI_RelicIcon_10001_4",
+    "Effect2Pc":  "ATK +18%.",
+    "Effect4Pc":  "Increases Charged Attack CRIT Rate by 30%.",
+    "Pieces":  {
+                   "circlet":  {
+                                   "icon":  "UI_RelicIcon_10001_3",
+                                   "name":  "Crown of Parting"
+                               },
+                   "flower":  {
+                                  "icon":  "UI_RelicIcon_10001_4",
+                                  "name":  "Heart of Comradeship"
+                              },
+                   "goblet":  {
+                                  "icon":  "UI_RelicIcon_10001_1",
+                                  "name":  "Goblet of the Sojourner"
+                              },
+                   "plume":  {
+                                 "icon":  "UI_RelicIcon_10001_2",
+                                 "name":  "Feather of Homecoming"
+                             },
+                   "sands":  {
+                                 "icon":  "UI_RelicIcon_10001_5",
+                                 "name":  "Sundial of the Sojourner"
+                             }
+               }
+}

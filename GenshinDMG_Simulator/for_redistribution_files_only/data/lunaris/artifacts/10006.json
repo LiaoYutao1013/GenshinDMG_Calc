@@ -1,0 +1,31 @@
+﻿{
+    "Id":  10006,
+    "SetId":  10006,
+    "EnName":  "Martial Artist",
+    "QualityType":  "QUALITY_PURPLE",
+    "SetIcon":  "UI_RelicIcon_10006_4",
+    "Effect2Pc":  "Normal and Charged Attack DMG +15%",
+    "Effect4Pc":  "After using Elemental Skill, increases Normal Attack and Charged Attack DMG by 25% for 8s.",
+    "Pieces":  {
+                   "circlet":  {
+                                   "icon":  "UI_RelicIcon_10006_3",
+                                   "name":  "Martial Artist\u0027s Bandana"
+                               },
+                   "flower":  {
+                                  "icon":  "UI_RelicIcon_10006_4",
+                                  "name":  "Martial Artist\u0027s Red Flower"
+                              },
+                   "goblet":  {
+                                  "icon":  "UI_RelicIcon_10006_1",
+                                  "name":  "Martial Artist\u0027s Wine Cup"
+                              },
+                   "plume":  {
+                                 "icon":  "UI_RelicIcon_10006_2",
+                                 "name":  "Martial Artist\u0027s Feather Accessory"
+                             },
+                   "sands":  {
+                                 "icon":  "UI_RelicIcon_10006_5",
+                                 "name":  "Martial Artist\u0027s Water Hourglass"
+                             }
+               }
+}

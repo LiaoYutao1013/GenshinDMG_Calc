@@ -1,0 +1,7 @@
+# Default off-field Escoffier loop
+E
+Q
+Summon
+Summon
+Summon
+Summon

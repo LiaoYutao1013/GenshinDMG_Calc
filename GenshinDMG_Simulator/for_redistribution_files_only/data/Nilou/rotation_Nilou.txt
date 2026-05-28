@@ -1,0 +1,11 @@
+# Default simplified Nilou showcase rotation.
+E
+Dance1
+Dance2
+Dance3
+Aura
+Aura
+Q
+Bloom
+Bloom
+Bloom

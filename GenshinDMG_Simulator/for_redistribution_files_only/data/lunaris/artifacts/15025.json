@@ -1,0 +1,31 @@
+﻿{
+    "Id":  15025,
+    "SetId":  15025,
+    "EnName":  "Deepwood Memories",
+    "QualityType":  "QUALITY_ORANGE",
+    "SetIcon":  "UI_RelicIcon_15025_4",
+    "Effect2Pc":  "Dendro DMG Bonus +15%.",
+    "Effect4Pc":  "After Elemental Skills or Bursts hit opponents, the targets\u0027 Dendro RES will be decreased by 30% for 8s. This effect can be triggered even if the equipping character is not on the field.",
+    "Pieces":  {
+                   "circlet":  {
+                                   "icon":  "UI_RelicIcon_15025_3",
+                                   "name":  "Laurel Coronet"
+                               },
+                   "flower":  {
+                                  "icon":  "UI_RelicIcon_15025_4",
+                                  "name":  "Labyrinth Wayfarer"
+                              },
+                   "goblet":  {
+                                  "icon":  "UI_RelicIcon_15025_1",
+                                  "name":  "Lamp of the Lost"
+                              },
+                   "plume":  {
+                                 "icon":  "UI_RelicIcon_15025_2",
+                                 "name":  "Scholar of Vines"
+                             },
+                   "sands":  {
+                                 "icon":  "UI_RelicIcon_15025_5",
+                                 "name":  "A Time of Insight"
+                             }
+               }
+}

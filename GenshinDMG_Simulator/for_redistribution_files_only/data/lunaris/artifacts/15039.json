@@ -1,0 +1,31 @@
+﻿{
+    "Id":  15039,
+    "SetId":  15039,
+    "EnName":  "Long Night\u0027s Oath",
+    "QualityType":  "QUALITY_ORANGE",
+    "SetIcon":  "UI_RelicIcon_15039_4",
+    "Effect2Pc":  "Plunging Attack DMG increased by 25%.",
+    "Effect4Pc":  "After the equipping character\u0027s Plunging Attack/Charged Attack/Elemental Skill hits an opponent, they will gain 1/2/2 stack(s) of \"Radiance Everlasting.\" Plunging Attacks, Charged Attacks, or Elemental Skills can each trigger this effect once every 1s. Radiance Everlasting: Plunging Attacks deal 15% increased DMG for 6s. Max 5 stacks. Each stack\u0027s duration is counted independently.",
+    "Pieces":  {
+                   "circlet":  {
+                                   "icon":  "UI_RelicIcon_15039_3",
+                                   "name":  "Dyed Tassel"
+                               },
+                   "flower":  {
+                                  "icon":  "UI_RelicIcon_15039_4",
+                                  "name":  "Lightkeeper\u0027s Pledge"
+                              },
+                   "goblet":  {
+                                  "icon":  "UI_RelicIcon_15039_1",
+                                  "name":  "A Horn Unwinded"
+                              },
+                   "plume":  {
+                                 "icon":  "UI_RelicIcon_15039_2",
+                                 "name":  "Nightingale\u0027s Tail Feather"
+                             },
+                   "sands":  {
+                                 "icon":  "UI_RelicIcon_15039_5",
+                                 "name":  "Undying One\u0027s Mourning Bell"
+                             }
+               }
+}

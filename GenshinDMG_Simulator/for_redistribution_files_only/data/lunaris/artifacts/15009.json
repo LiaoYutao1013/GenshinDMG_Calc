@@ -1,0 +1,15 @@
+﻿{
+    "Id":  15009,
+    "SetId":  15009,
+    "EnName":  "Prayers for Illumination",
+    "QualityType":  "QUALITY_PURPLE",
+    "SetIcon":  "UI_RelicIcon_15009_3",
+    "Effect2Pc":  null,
+    "Effect4Pc":  null,
+    "Pieces":  {
+                   "circlet":  {
+                                   "icon":  "UI_RelicIcon_15009_3",
+                                   "name":  "Tiara of Flame"
+                               }
+               }
+}
