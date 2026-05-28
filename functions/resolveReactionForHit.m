@@ -418,6 +418,11 @@ function reaction = localResolvePrimaryReaction(enemyState, hitElement, forcedNa
                 reaction.ConsumedAura = "Cryo";
                 reaction.AuraIndex = localFindAuraIndex(enemyState, "Cryo");
                 return;
+            case 'dendro'
+                reaction.Name = "Bloom";
+                reaction.ConsumedAura = "Hydro";
+                reaction.AuraIndex = localFindAuraIndex(enemyState, "Hydro");
+                return;
         end
     end
 

@@ -110,6 +110,14 @@ function validateReactionEngineRegression()
     assert(double(shatter.EnemyState.Frozen.Gauge) < frozenGaugeBefore, ...
         'Shatter should consume Frozen gauge.');
 
+    frozenBloom = resolveReactionForHit(frozen.EnemyState, localMakeHit("Dendro", 1.0), build, teamContext, enemy, 0);
+    assert(strcmpi(char(frozenBloom.PrimaryReaction), 'Bloom'), ...
+        'Dendro on a Frozen target should still prioritize Bloom from the Hydro side of the Frozen aura pair.');
+    assert(numel(frozenBloom.EnemyState.DendroCores) == 1, ...
+        'Dendro on a Frozen target should still create a Dendro Core.');
+    assert(localAuraGauge(frozenBloom.EnemyState, "Hydro") < localAuraGauge(frozen.EnemyState, "Hydro"), ...
+        'Dendro on a Frozen target should consume the Hydro side of the Frozen aura pair.');
+
     state = createEnemyState(enemy, teamContext, "");
     state = localApplyAuraOnly(state, "Dendro", 1.0, build, teamContext, enemy);
     bloom = resolveReactionForHit(state, localMakeHit("Hydro", 1.0), build, teamContext, enemy, 0);
