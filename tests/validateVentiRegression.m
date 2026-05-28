@@ -65,5 +65,19 @@ function validateVentiRegression()
         && ~any(overrideAudit.Rows.ApplyGaugeFallback | overrideAudit.Rows.ICDFallback), ...
         'Venti regression should keep explicit gauge and ICD metadata for the scripted rotation.');
 
+    diluc = getDefaultCharacterConfig('Diluc');
+    hydroTimelineContext = buildTeamContext({cfg, diluc, barbara}, 20, struct('ReactionMode', "Approximate"), approximateEnemy);
+    [hydroTimelineDamage, ~, hydroTimelineBreakdown] = simulateVentiDPS( ...
+        build, approximateEnemy, cfg.RotationFile, cfg.TalentLevel, cfg.Constellation, hydroTimelineContext);
+    hydroTimelineInfuse = hydroTimelineBreakdown(string(hydroTimelineBreakdown.Action) == "QInfuse", :);
+    hydroTimelinePlan = planTeamRotation({cfg, diluc, barbara}, 20, baseEnemy, struct('ReactionMode', "Realistic"), struct());
+    hydroTimelineOrder = string(hydroTimelinePlan.ExecutionTable.Character);
+    assert(hydroTimelineDamage > 0 && height(hydroTimelineInfuse) == 1, ...
+        'Venti timeline-derived approximate regression should keep one positive absorbed-element burst row.');
+    assert(find(hydroTimelineOrder == "Barbara", 1, 'first') < find(hydroTimelineOrder == "Venti", 1, 'first'), ...
+        'Team auto-planning should place a practical aura applicator before Venti when burst absorption depends on pre-existing aura.');
+    assert(hydroTimelineInfuse.Damage < approximateInfuse.Damage, ...
+        'Venti approximate absorption should now react to the planned team timeline instead of treating every mixed Hydro/Pyro team as the same static priority case.');
+
     disp('validateVentiRegression passed');
 end

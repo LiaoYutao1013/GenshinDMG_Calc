@@ -492,7 +492,7 @@ function order = localBuildExecutionOrder(scores, roles, memberJobs, archetypeIn
     memberCount = numel(scores);
     sortMatrix = zeros(memberCount, 4);
     for i = 1:memberCount
-        sortMatrix(i, 1) = localRolePriority(roles(i));
+        sortMatrix(i, 1) = localRolePriority(roles(i), scores(i), archetypeInfo);
         sortMatrix(i, 2) = localJobPriority(memberJobs(i), roles(i), scores(i), archetypeInfo);
         sortMatrix(i, 3) = -scores(i).SupportScore;
         sortMatrix(i, 4) = -scores(i).CarryScore;
@@ -501,7 +501,11 @@ function order = localBuildExecutionOrder(scores, roles, memberJobs, archetypeIn
     order = sorted(:, 1).';
 end
 
-function priority = localRolePriority(role)
+function priority = localRolePriority(role, score, archetypeInfo)
+    if nargin >= 3 && localShouldAdvanceAuraApplicator(score, archetypeInfo)
+        priority = 1;
+        return;
+    end
     switch char(role)
         case 'Support'
             priority = 1;
@@ -514,6 +518,10 @@ end
 
 function priority = localJobPriority(job, role, score, archetypeInfo)
     job = string(job);
+    if localShouldAdvanceAuraApplicator(score, archetypeInfo)
+        priority = 4;
+        return;
+    end
     priority = localOpenerPriority(score.NormalizedName, role, archetypeInfo) - getFieldOrDefault(score, 'OpenerScore', 0);
     switch char(job)
         case 'Opener'
@@ -725,6 +733,24 @@ function priority = localOpenerPriority(normalizedName, role, archetypeInfo)
                 priority = min(priority, 8);
             end
     end
+end
+
+function tf = localShouldAdvanceAuraApplicator(score, archetypeInfo)
+    tf = false;
+    normalizedName = string(getFieldOrDefault(score, 'NormalizedName', ""));
+    teamNames = string(getFieldOrDefault(archetypeInfo, 'NormalizedNames', strings(1, 0)));
+    hasAnemoAbsorber = any(teamNames == "venti") || any(teamNames == "kaedeharakazuha") ...
+        || any(teamNames == "sucrose") || any(teamNames == "sayu");
+    if ~hasAnemoAbsorber
+        return;
+    end
+    if any(normalizedName == ["venti", "kaedeharakazuha", "sucrose", "sayu"])
+        return;
+    end
+    if getFieldOrDefault(score, 'CarryScore', 0) < max(6.0, getFieldOrDefault(score, 'SupportScore', 0))
+        return;
+    end
+    tf = any(normalizedName == ["amber", "barbara", "xiangling", "rosaria", "layla", "diona", "mona", "xingqiu", "yelan"]);
 end
 
 function memberPlan = localBuildMemberPlan(member, seed, role, targetBudget, archetypeInfo, job)

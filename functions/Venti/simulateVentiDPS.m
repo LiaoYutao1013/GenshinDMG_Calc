@@ -1,9 +1,10 @@
-﻿function [totalDMG, dps, breakdown, rotationTime, audit] = simulateVentiDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
+function [totalDMG, dps, breakdown, rotationTime, audit] = simulateVentiDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
     % Venti explicit tap / hold E and burst script with approximation.
     % Tap and hold skill damage, burst DoT, and absorbed-element follow-up
     % are modeled as separate actions with constellation bonuses applied.
-    % Remaining approximation: approximate mode still falls back to team
-    % priority Pyro > Hydro > Electro > Cryo when no explicit aura exists.
+    % Remaining approximation: approximate mode now consults a planned team
+    % timeline before falling back to static Pyro > Hydro > Electro > Cryo
+    % priority when neither explicit nor timeline-derived aura is available.
     if nargin < 3 || isempty(seqFile)
         seqFile = fullfile(fileparts(mfilename('fullpath')), '..', '..', 'data', 'Venti', 'rotation_Venti.txt');
     end
@@ -71,6 +72,11 @@ function element = localResolveAbsorbedElement(teamContext, enemy)
         end
     end
 
+    element = localResolveTimelineDerivedAbsorbedElement(teamContext, enemy);
+    if strlength(element) > 0
+        return;
+    end
+
     if ~localUsesApproximateAbsorptionFallback(teamContext, enemy)
         element = "";
         return;
@@ -136,5 +142,119 @@ function tf = localHasAura(enemyState, auraElement)
             tf = true;
             return;
         end
+    end
+end
+
+function element = localResolveTimelineDerivedAbsorbedElement(teamContext, enemy)
+    element = "";
+    reactionMode = string(getFieldOrDefault(teamContext, 'ReactionMode', ""));
+    if ~strcmpi(char(reactionMode), 'Approximate')
+        return;
+    end
+
+    memberNames = string(getFieldOrDefault(teamContext, 'MemberNames', strings(1, 0)));
+    if isempty(memberNames) || ~any(memberNames == "Venti")
+        return;
+    end
+
+    members = localBuildTimelineMembers(teamContext);
+    if isempty(members)
+        return;
+    end
+
+    rotationDuration = double(getFieldOrDefault(teamContext, 'RotationDuration', 20));
+    if ~isfinite(rotationDuration) || rotationDuration <= 0
+        rotationDuration = 20;
+    end
+
+    sharedBuffs = struct('ReactionMode', "Realistic");
+    realisticEnemy = enemy;
+    if ~isstruct(realisticEnemy)
+        realisticEnemy = struct();
+    end
+    realisticEnemy.ReactionMode = "Realistic";
+    realisticEnemy.AutoSupportAura = false;
+    realisticEnemy = rmfieldIfExists(realisticEnemy, 'InitialAuraElement');
+    realisticEnemy = rmfieldIfExists(realisticEnemy, 'InitialAuraGauge');
+
+    try
+        rotationPlan = planTeamRotation(members, rotationDuration, realisticEnemy, sharedBuffs, struct());
+        baseContext = buildTeamContext(members, rotationDuration, sharedBuffs, realisticEnemy);
+        timelineResult = simulateTeamTimeline(members, rotationPlan, baseContext, realisticEnemy, struct());
+    catch
+        return;
+    end
+
+    timeline = getFieldOrDefault(timelineResult, 'TimelineTable', table());
+    if isempty(timeline) || ~istable(timeline)
+        return;
+    end
+
+    ventiRows = timeline(string(timeline.Character) == "Venti" & string(timeline.Action) == "Q", :);
+    if isempty(ventiRows)
+        return;
+    end
+
+    burstStart = double(ventiRows.StartTime(1));
+    priorRows = timeline(timeline.StartTime <= burstStart + 1e-9, :);
+    if isempty(priorRows)
+        return;
+    end
+
+    elementalRows = priorRows(priorRows.CanApplyAura, :);
+    if isempty(elementalRows)
+        return;
+    end
+
+    pyroScore = localTimelineAbsorbScore(elementalRows, "Pyro", burstStart);
+    hydroScore = localTimelineAbsorbScore(elementalRows, "Hydro", burstStart);
+    electroScore = localTimelineAbsorbScore(elementalRows, "Electro", burstStart);
+    cryoScore = localTimelineAbsorbScore(elementalRows, "Cryo", burstStart);
+    scores = [pyroScore, hydroScore, electroScore, cryoScore];
+    priority = ["Pyro", "Hydro", "Electro", "Cryo"];
+    [bestScore, bestIndex] = max(scores);
+    if bestScore > 0
+        element = priority(bestIndex);
+    end
+end
+
+function score = localTimelineAbsorbScore(rows, element, burstStart)
+    score = 0;
+    targetRows = rows(string(rows.HitElement) == string(element) | contains(string(rows.AuraState), string(element) + ":", 'IgnoreCase', true), :);
+    if isempty(targetRows)
+        return;
+    end
+
+    endTimes = double(targetRows.EndTime);
+    timeGap = max(0, burstStart - max(endTimes));
+    recencyScore = max(0, 1.5 - timeGap);
+    auraPersistence = 0;
+    for i = height(targetRows):-1:1
+        auraText = string(targetRows.AuraState(i));
+        if contains(auraText, string(element) + ":", 'IgnoreCase', true)
+            auraPersistence = 1.0;
+            break;
+        end
+    end
+    hitScore = 0.15 * min(height(targetRows), 4);
+    score = recencyScore + auraPersistence + hitScore;
+end
+
+function members = localBuildTimelineMembers(teamContext)
+    names = string(getFieldOrDefault(teamContext, 'MemberNames', strings(1, 0)));
+    constellations = double(getFieldOrDefault(teamContext, 'MemberConstellations', zeros(1, numel(names))));
+    members = cell(1, numel(names));
+    for i = 1:numel(names)
+        if strlength(names(i)) == 0
+            members = {};
+            return;
+        end
+        members{i} = getDefaultCharacterConfig(char(names(i)), struct('Constellation', constellations(min(i, numel(constellations)))));
+    end
+end
+
+function value = rmfieldIfExists(value, fieldName)
+    if isstruct(value) && isfield(value, fieldName)
+        value = rmfield(value, fieldName);
     end
 end
