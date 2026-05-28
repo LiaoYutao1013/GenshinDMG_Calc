@@ -238,7 +238,7 @@ classdef GenshinDMGApp < handle
             overviewGrid.Padding = [0 0 0 0];
 
             obj.TeamHTML = uihtml(overviewGrid, ...
-                'HTMLSource', obj.resolveUiHtmlSource('team-shell.html'), ...
+                'HTMLSource', obj.buildUiHtmlSource('team'), ...
                 'Tooltip', '队伍概览');
             obj.TeamHTML.Layout.Row = 1;
             obj.TeamHTML.Layout.Column = 1;
@@ -472,7 +472,7 @@ classdef GenshinDMGApp < handle
             editorOverviewGrid.Padding = [0 0 0 0];
 
             obj.EditorHTML = uihtml(editorOverviewGrid, ...
-                'HTMLSource', obj.resolveUiHtmlSource('editor-shell.html'), ...
+                'HTMLSource', obj.buildUiHtmlSource('editor'), ...
                 'Tooltip', '当前构筑概览');
             obj.EditorHTML.Layout.Row = 1;
             obj.EditorHTML.Layout.Column = 1;
@@ -1173,7 +1173,7 @@ classdef GenshinDMGApp < handle
         end
 
         function htmlSource = resolveDashboardHtmlSource(obj)
-            htmlSource = obj.resolveUiHtmlSource('dashboard-shell.html');
+            htmlSource = obj.buildUiHtmlSource('dashboard');
         end
 
         function htmlSource = resolveUiHtmlSource(obj, htmlName) %#ok<INUSD>
@@ -1201,6 +1201,51 @@ classdef GenshinDMGApp < handle
                 'font-weight:700}</style></head><body><div class="wrap"><div class="card">' ...
                 '<div class="label">GenshinDMG Simulator</div><div class="value">Dashboard unavailable</div>' ...
                 '<div class="label">The main simulator UI is still available.</div></div></div></body></html>'];
+        end
+
+        function htmlSource = buildUiHtmlSource(obj, viewName)
+            cssSource = obj.readUiResourceText(fullfile('css', 'genshin-app.css'));
+            jsSource = obj.readUiResourceText(fullfile('js', 'genshin-app.js'));
+            jsSource = strrep(jsSource, '</script>', '<\/script>');
+            viewName = char(string(viewName));
+
+            htmlSource = sprintf([ ...
+                '<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">' ...
+                '<meta name="viewport" content="width=device-width, initial-scale=1">' ...
+                '<style>%s</style></head><body>' ...
+                '<main id="app" class="ui-shell %s-shell" data-view="%s"></main>' ...
+                '<script>%s</script>' ...
+                '<script>function setup(htmlComponent){window.GenshinDMGUI.setup(htmlComponent);}</script>' ...
+                '</body></html>'], ...
+                cssSource, viewName, viewName, jsSource);
+        end
+
+        function text = readUiResourceText(obj, relativePath)
+            resourcePath = obj.resolveUiResourcePath(relativePath);
+            if strlength(resourcePath) == 0
+                text = '';
+                return;
+            end
+            text = fileread(resourcePath);
+        end
+
+        function resourcePath = resolveUiResourcePath(obj, relativePath) %#ok<INUSD>
+            appFolder = fileparts(mfilename('fullpath'));
+            projectRoot = fileparts(fileparts(appFolder));
+            candidates = { ...
+                fullfile(appFolder, 'ui', relativePath), ...
+                fullfile(projectRoot, 'functions', 'app', 'ui', relativePath), ...
+                fullfile(projectRoot, 'app', 'ui', relativePath), ...
+                fullfile(ctfroot, 'functions', 'app', 'ui', relativePath), ...
+                fullfile(ctfroot, 'app', 'ui', relativePath)};
+
+            resourcePath = "";
+            for i = 1:numel(candidates)
+                if isfile(candidates{i})
+                    resourcePath = string(candidates{i});
+                    return;
+                end
+            end
         end
 
         function fileUrl = localFileUrl(obj, filePath) %#ok<INUSD>

@@ -36,6 +36,10 @@
     render();
   }
 
+  window.GenshinDMGUI = {
+    setup: setup,
+    render: render
+  };
   window.setup = setup;
 
   function data() {
