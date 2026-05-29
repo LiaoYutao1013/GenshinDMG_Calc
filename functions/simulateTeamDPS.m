@@ -376,6 +376,10 @@ function memberSummary = localAttachEnergySummary(memberSummary, timelineResult)
     burstCost = nan(height(memberSummary), 1);
     canLoop = false(height(memberSummary), 1);
     missingEnergy = nan(height(memberSummary), 1);
+    nextBurstWindowTime = nan(height(memberSummary), 1);
+    earliestReadyTime = nan(height(memberSummary), 1);
+    canBurstOnNextWindow = false(height(memberSummary), 1);
+    nextWindowReadiness = nan(height(memberSummary), 1);
 
     for i = 1:height(memberSummary)
         idx = find(strcmpi(string(memberSummary.Character(i)), string(energySummary.Character)), 1, 'first');
@@ -386,12 +390,28 @@ function memberSummary = localAttachEnergySummary(memberSummary, timelineResult)
         burstCost(i) = energySummary.BurstCost(idx);
         canLoop(i) = energySummary.CanBurstNextCycle(idx);
         missingEnergy(i) = energySummary.MissingEnergy(idx);
+        if ismember('NextBurstWindowTime', energySummary.Properties.VariableNames)
+            nextBurstWindowTime(i) = energySummary.NextBurstWindowTime(idx);
+        end
+        if ismember('EarliestBurstReadyTime', energySummary.Properties.VariableNames)
+            earliestReadyTime(i) = energySummary.EarliestBurstReadyTime(idx);
+        end
+        if ismember('CanBurstOnNextWindow', energySummary.Properties.VariableNames)
+            canBurstOnNextWindow(i) = energySummary.CanBurstOnNextWindow(idx);
+        end
+        if ismember('NextWindowReadiness', energySummary.Properties.VariableNames)
+            nextWindowReadiness(i) = energySummary.NextWindowReadiness(idx);
+        end
     end
 
     memberSummary.EndEnergy = endEnergy;
     memberSummary.BurstCost = burstCost;
     memberSummary.CanBurstNextCycle = canLoop;
     memberSummary.MissingEnergy = missingEnergy;
+    memberSummary.NextBurstWindowTime = nextBurstWindowTime;
+    memberSummary.EarliestBurstReadyTime = earliestReadyTime;
+    memberSummary.CanBurstOnNextWindow = canBurstOnNextWindow;
+    memberSummary.NextWindowReadiness = nextWindowReadiness;
 end
 
 function memberSummary = localAttachTimelineSummary(memberSummary, timelineResult)
@@ -485,13 +505,26 @@ function warnings = localBuildPlanningWarnings(rotationPlan, timelineResult, rot
 
     energySummary = getFieldOrDefault(timelineResult, 'EnergySummary', table());
     if ~isempty(energySummary) && istable(energySummary) && height(energySummary) > 0
-        loopMask = logical(energySummary.UsedBurst) & ~logical(energySummary.CanBurstNextCycle);
+        if ismember('CanBurstOnNextWindow', energySummary.Properties.VariableNames)
+            loopMask = logical(energySummary.UsedBurst) & ~logical(energySummary.CanBurstOnNextWindow);
+        else
+            loopMask = logical(energySummary.UsedBurst) & ~logical(energySummary.CanBurstNextCycle);
+        end
         if any(loopMask)
             deficitRows = energySummary(loopMask, :);
             deficitText = strings(height(deficitRows), 1);
             for i = 1:height(deficitRows)
-                deficitText(i) = sprintf('%s %.1f', ...
-                    char(string(deficitRows.Character(i))), double(deficitRows.MissingEnergy(i)));
+                if ismember('NextBurstWindowTime', deficitRows.Properties.VariableNames) ...
+                        && ismember('EarliestBurstReadyTime', deficitRows.Properties.VariableNames) ...
+                        && isfinite(double(deficitRows.NextBurstWindowTime(i))) ...
+                        && isfinite(double(deficitRows.EarliestBurstReadyTime(i)))
+                    deficitText(i) = sprintf('%s %.1fs late', ...
+                        char(string(deficitRows.Character(i))), ...
+                        double(deficitRows.EarliestBurstReadyTime(i) - deficitRows.NextBurstWindowTime(i)));
+                else
+                    deficitText(i) = sprintf('%s %.1f', ...
+                        char(string(deficitRows.Character(i))), double(deficitRows.MissingEnergy(i)));
+                end
             end
             warnings(end + 1, 1) = "Loop energy missing: " + join(deficitText, ", ");
         end
