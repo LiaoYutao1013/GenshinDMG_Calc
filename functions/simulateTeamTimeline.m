@@ -78,12 +78,19 @@ function timelineResult = simulateTeamTimeline(members, rotationPlan, teamContex
         end
         deltaTime = max(0, event.StartTime - currentTime);
         if deltaTime > 1e-9
-            [enemyState, timedPackets] = advanceEnemyStateTime( ...
-                enemyState, deltaTime, eventTriggerElement, teamContext);
-            [timedReactionRows, actionOrder] = localBuildTimedReactionTimelineRows( ...
-                timedPackets, enemyState, activeForegroundCharacter, actionOrder);
-            if ~isempty(timedReactionRows)
-                timelineRows = [timelineRows; timedReactionRows]; %#ok<AGROW>
+            swapWindow = [NaN, NaN];
+            swapLabel = "";
+            if previousForegroundKnown && logical(getFieldOrDefault(meta, 'ConsumesActiveWindow', true)) ...
+                    && previousForegroundCharacter ~= "" && event.Character ~= previousForegroundCharacter ...
+                    && event.StartTime - previousForegroundEndTime > 1e-9
+                swapWindow = [max(currentTime, previousForegroundEndTime), event.StartTime];
+                swapLabel = "Swap";
+            end
+            [enemyState, intervalRows, timedPackets, actionOrder] = localAdvanceIntervalRows( ...
+                enemyState, currentTime, event.StartTime, eventTriggerElement, ...
+                teamContext, activeForegroundCharacter, actionOrder, swapWindow, swapLabel);
+            if ~isempty(intervalRows)
+                timelineRows = [timelineRows; intervalRows]; %#ok<AGROW>
             end
             [runtimeReactionEvents, runtimeTriggeredWindows, runtimeTriggeredLastTriggerTimes] = ...
                 localResolveBackgroundReactionTriggeredEvents( ...
@@ -91,18 +98,6 @@ function timelineResult = simulateTeamTimeline(members, rotationPlan, teamContex
                 runtimeTriggeredLastTriggerTimes, rotationDuration);
             if ~isempty(runtimeReactionEvents)
                 actionQueue = localSortActionEvents([runtimeReactionEvents, actionQueue]);
-            end
-            if previousForegroundKnown && logical(getFieldOrDefault(meta, 'ConsumesActiveWindow', true)) ...
-                    && previousForegroundCharacter ~= "" && event.Character ~= previousForegroundCharacter ...
-                    && event.StartTime - previousForegroundEndTime > 1e-9
-                actionOrder = actionOrder + 1;
-                timelineRows(end + 1, :) = { ... %#ok<AGROW>
-                    actionOrder, previousForegroundEndTime, event.StartTime, "Team", activeForegroundCharacter, ...
-                    "Swap", "Swap", "Team", "Utility", "", 0, ...
-                    false, "", "", "", "", ...
-                    "", localAuraSummary(enemyState), ...
-                    localQuickenGauge(enemyState), localFrozenGauge(enemyState), localCoreCount(enemyState), ...
-                    0, "", false, "", "", "", "", "", ""};
             end
             currentTime = event.StartTime;
         end
@@ -225,21 +220,16 @@ function timelineResult = simulateTeamTimeline(members, rotationPlan, teamContex
     end
 
     if currentTime < rotationDuration
-        [enemyState, timedPackets] = advanceEnemyStateTime( ...
-            enemyState, rotationDuration - currentTime, triggerElement, teamContext);
-        [timedReactionRows, actionOrder] = localBuildTimedReactionTimelineRows( ...
-            timedPackets, enemyState, activeForegroundCharacter, actionOrder);
-        if ~isempty(timedReactionRows)
-            timelineRows = [timelineRows; timedReactionRows]; %#ok<AGROW>
+        tailStart = currentTime;
+        if previousForegroundKnown
+            tailStart = max(tailStart, previousForegroundEndTime);
         end
-        if ~isempty(timedPackets)
-            actionOrder = actionOrder + 1;
-            timelineRows(end + 1, :) = { ... %#ok<AGROW>
-                actionOrder, currentTime, rotationDuration, "Team", activeForegroundCharacter, "Tail", "Tail", ...
-                "Team", "Utility", "", 0, false, "", "", "", "", ...
-                "", localAuraSummary(enemyState), ...
-                localQuickenGauge(enemyState), localFrozenGauge(enemyState), localCoreCount(enemyState), ...
-                0, "", false, "", "", "", "", "", ""};
+        [enemyState, intervalRows, ~, actionOrder] = localAdvanceIntervalRows( ...
+            enemyState, currentTime, rotationDuration, triggerElement, ...
+            teamContext, activeForegroundCharacter, actionOrder, ...
+            [tailStart, rotationDuration], "Tail");
+        if ~isempty(intervalRows)
+            timelineRows = [timelineRows; intervalRows]; %#ok<AGROW>
         end
     end
     [energyState, pendingEnergyDrops, pendingEnergyRows] = localResolvePendingEnergyDrops( ...
@@ -1035,7 +1025,7 @@ function packets = localBuildDirectReactionTriggerPackets(reactionResult, trigge
     if ~isempty(triggered)
         reactionNames = [reactionNames; triggered(:)]; %#ok<AGROW>
     end
-    reactionNames = unique(reactionNames(strlength(reactionNames) > 0), 'stable');
+    reactionNames = localUniqueReactionNames(reactionNames);
     if isempty(reactionNames)
         return;
     end
@@ -1524,6 +1514,50 @@ function tableOut = localTimelineTable(rows)
         'QuickenGauge', 'FrozenGauge', 'DendroCoreCount', 'OwnerEnergyDelta', 'EffectTag', ...
         'ConsumesActiveWindow', 'BackgroundDriverKind', 'BackgroundDriverMode', ...
         'TriggerSourceType', 'TriggerSourceCharacter', 'TriggerSourceAction', 'TriggerPacketSource'});
+    tableOut = localSortTimelineTable(tableOut);
+end
+
+function tableOut = localSortTimelineTable(tableOut)
+    if isempty(tableOut) || height(tableOut) <= 1
+        return;
+    end
+
+    sourcePriority = zeros(height(tableOut), 1);
+    for rowIndex = 1:height(tableOut)
+        sourcePriority(rowIndex) = localTimelineRowPriority(tableOut(rowIndex, :));
+    end
+    sortTable = table( ...
+        double(tableOut.StartTime), ...
+        double(tableOut.EndTime), ...
+        sourcePriority, ...
+        double(tableOut.Order), ...
+        'VariableNames', {'StartTime', 'EndTime', 'Priority', 'Order'});
+    [~, order] = sortrows(sortTable, {'StartTime', 'EndTime', 'Priority', 'Order'});
+    tableOut = tableOut(order, :);
+    tableOut.Order = (1:height(tableOut)).';
+end
+
+function priority = localTimelineRowPriority(row)
+    sourceType = string(getFieldOrDefault(row, 'SourceType', "MemberAction"));
+    action = string(getFieldOrDefault(row, 'Action', ""));
+    switch char(sourceType)
+        case 'MemberAction'
+            priority = 1;
+        case 'TriggeredFollowUp'
+            priority = 2;
+        case 'EffectTick'
+            priority = 3;
+        case 'TimedReaction'
+            priority = 4;
+        case 'Team'
+            if strcmpi(char(action), 'Swap')
+                priority = 5;
+            else
+                priority = 6;
+            end
+        otherwise
+            priority = 7;
+    end
 end
 
 function tableOut = localBuildEnergySummaryTable(energyState)
@@ -1618,7 +1652,7 @@ function text = localJoinReactions(primaryReaction, triggeredReactions)
     if ~isempty(triggeredReactions)
         parts = [parts; string(triggeredReactions(:))]; %#ok<AGROW>
     end
-    parts = unique(parts(strlength(parts) > 0), 'stable');
+    parts = localUniqueReactionNames(parts);
     if isempty(parts)
         text = "";
     else
@@ -1631,11 +1665,88 @@ function text = localJoinReactionNames(packets)
     for i = 1:numel(packets)
         names(end + 1, 1) = string(getFieldOrDefault(packets(i), 'ReactionName', "")); %#ok<AGROW>
     end
-    names = unique(names(strlength(names) > 0), 'stable');
+    names = localUniqueReactionNames(names);
     if isempty(names)
         text = "";
     else
         text = join(names, ", ");
+    end
+end
+
+function names = localUniqueReactionNames(names)
+    names = string(names(:));
+    names = names(strlength(names) > 0);
+    if isempty(names)
+        return;
+    end
+
+    seenKeys = strings(0, 1);
+    keepMask = false(size(names));
+    for nameIndex = 1:numel(names)
+        key = lower(strtrim(names(nameIndex)));
+        if ~any(seenKeys == key)
+            seenKeys(end + 1, 1) = key; %#ok<AGROW>
+            keepMask(nameIndex) = true;
+        end
+    end
+    names = names(keepMask);
+end
+
+function [enemyState, rows, packets, actionOrder] = localAdvanceIntervalRows( ...
+        enemyState, startTime, endTime, triggerElement, teamContext, activeCharacter, actionOrder, gapWindow, gapAction)
+    rows = cell(0, 30);
+    packets = struct([]);
+    if nargin < 8 || isempty(gapWindow)
+        gapWindow = [NaN, NaN];
+    end
+    if nargin < 9
+        gapAction = "";
+    end
+    if endTime <= startTime + 1e-9
+        return;
+    end
+
+    cursor = startTime;
+    while cursor < endTime - 1e-9
+        [~, probePackets] = advanceEnemyStateTime(enemyState, endTime - cursor, triggerElement, teamContext);
+        segmentEnd = endTime;
+        if ~isempty(probePackets)
+            triggerTimes = arrayfun(@(packet) double(getFieldOrDefault(packet, 'TriggerTime', NaN)), probePackets);
+            triggerTimes = triggerTimes(isfinite(triggerTimes) & triggerTimes > cursor + 1e-9);
+            if ~isempty(triggerTimes)
+                segmentEnd = min(endTime, min(triggerTimes));
+            end
+        end
+
+        [enemyState, segmentPackets] = advanceEnemyStateTime(enemyState, segmentEnd - cursor, triggerElement, teamContext);
+        if ~isempty(segmentPackets)
+            if isempty(packets)
+                packets = segmentPackets;
+            else
+                packets = [packets, segmentPackets]; %#ok<AGROW>
+            end
+        end
+
+        gapStart = max(cursor, double(gapWindow(1)));
+        gapEnd = min(segmentEnd, double(gapWindow(2)));
+        if strlength(string(gapAction)) > 0 && gapEnd > gapStart + 1e-9
+            actionOrder = actionOrder + 1;
+            rows(end + 1, :) = { ... %#ok<AGROW>
+                actionOrder, gapStart, gapEnd, "Team", activeCharacter, ...
+                gapAction, gapAction, "Team", "Utility", "", 0, ...
+                false, "", "", "", "", ...
+                "", localAuraSummary(enemyState), localQuickenGauge(enemyState), ...
+                localFrozenGauge(enemyState), localCoreCount(enemyState), ...
+                0, "", false, "", "", "", "", "", ""};
+        end
+        if ~isempty(segmentPackets)
+            [timedReactionRows, actionOrder] = localBuildTimedReactionTimelineRows( ...
+                segmentPackets, enemyState, activeCharacter, actionOrder);
+            if ~isempty(timedReactionRows)
+                rows = [rows; timedReactionRows]; %#ok<AGROW>
+            end
+        end
+        cursor = segmentEnd;
     end
 end
 
