@@ -180,20 +180,33 @@ function carryCandidates = localBuildCarryCandidateIndices(scores, archetypeInfo
     carryScores = [scores.CarryScore];
     supportScores = [scores.SupportScore];
     [~, carryOrder] = sort(carryScores, 'descend');
+    confidence = double(getFieldOrDefault(archetypeInfo, 'Confidence', 0));
+    primary = string(getFieldOrDefault(archetypeInfo, 'PrimaryArchetype', ""));
 
     carryCandidates = zeros(1, 0);
     recommended = getFieldOrDefault(archetypeInfo, 'RecommendedCarryIndices', []);
     if ~isempty(recommended)
         recommended = recommended(recommended >= 1 & recommended <= numel(scores));
-        carryCandidates = [carryCandidates, recommended(:).']; %#ok<AGROW>
+        for i = 1:numel(recommended)
+            candidateIndex = recommended(i);
+            if ~localIsViableCarryCandidate(scores(candidateIndex), primary, confidence)
+                continue;
+            end
+            carryCandidates(end + 1) = candidateIndex; %#ok<AGROW>
+        end
     end
 
     if ~isempty(carryOrder)
-        carryCandidates = [carryCandidates, carryOrder(1)]; %#ok<AGROW>
+        if localIsViableCarryCandidate(scores(carryOrder(1)), primary, confidence)
+            carryCandidates = [carryCandidates, carryOrder(1)]; %#ok<AGROW>
+        end
         topScore = carryScores(carryOrder(1));
         for orderIndex = 2:numel(carryOrder)
             candidateIndex = carryOrder(orderIndex);
             carryLead = carryScores(candidateIndex) - supportScores(candidateIndex);
+            if ~localIsViableCarryCandidate(scores(candidateIndex), primary, confidence)
+                continue;
+            end
             if carryScores(candidateIndex) < topScore - 0.75
                 continue;
             end
@@ -210,6 +223,24 @@ function carryCandidates = localBuildCarryCandidateIndices(scores, archetypeInfo
     if isempty(carryCandidates)
         carryCandidates = 1;
     end
+end
+
+function tf = localIsViableCarryCandidate(score, primary, confidence)
+    normalizedName = string(getFieldOrDefault(score, 'NormalizedName', ""));
+    carryScore = double(getFieldOrDefault(score, 'CarryScore', 0));
+    supportScore = double(getFieldOrDefault(score, 'SupportScore', 0));
+
+    tf = true;
+    if ~localShouldDefaultToSupport(normalizedName)
+        return;
+    end
+    if confidence >= 0.85 && any(primary == ["Freeze", "Vaporize", "Melt", "Plunge", ...
+            "GeoHypercarry", "AnemoHypercarry", "Mono", "Hyperbloom", ...
+            "Bloom", "Burgeon", "Overload", "Aggravate", "Spread"])
+        return;
+    end
+
+    tf = carryScore >= max(6.5, supportScore + 0.5);
 end
 
 function plans = localBuildRolePlans( ...

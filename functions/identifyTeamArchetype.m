@@ -486,11 +486,22 @@ function order = localFallbackCarryOrder(names, elements)
                 "mavuika", "chasca", "kinich", "varesa", "keqing", "yoimiya", "wriothesley"])
             weights(i) = weights(i) + 4.0;
         end
+        if localIsSupportLeanName(names(i))
+            weights(i) = weights(i) - 2.0;
+        end
         if any(elements(i) == ["Pyro", "Hydro", "Cryo", "Electro", "Dendro", "Anemo", "Geo"])
             weights(i) = weights(i) + 0.5;
         end
     end
     [~, order] = sort(weights, 'descend');
+end
+
+function tf = localIsSupportLeanName(name)
+    name = localNormalizeName(name);
+    tf = any(name == ["furina", "yelan", "xingqiu", "xianyun", "jean", "bennett", ...
+        "zhongli", "mona", "nahida", "chevreuse", "xilonen", "citlali", ...
+        "faruzan", "gorou", "sucrose", "kaedeharakazuha", "baizhu", "yaoyao", ...
+        "charlotte", "diona", "layla", "thoma", "barbara", "sangonomiyakokomi"]);
 end
 
 function pairs = localPreferredAuraPairs(primary, secondary)
