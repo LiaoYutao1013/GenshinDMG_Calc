@@ -164,7 +164,7 @@ function timelineResult = simulateTeamTimeline(members, rotationPlan, teamContex
         end
 
         [energyState, pendingEnergyDrops, currentEnergyRows, ownerEnergyDelta] = localApplyEnergyEvent( ...
-            energyState, pendingEnergyDrops, event.MemberIndex, meta, event.EndTime);
+            energyState, pendingEnergyDrops, event.MemberIndex, meta, event.EndTime, event.StartTime);
         if ~isempty(currentEnergyRows)
             energyRows = [energyRows; currentEnergyRows]; %#ok<AGROW>
         end
@@ -1283,9 +1283,12 @@ function energyState = localInitializeEnergyState(members)
     end
 end
 
-function [energyState, pendingDrops, rows, ownerDelta] = localApplyEnergyEvent(energyState, pendingDrops, ownerIndex, meta, eventTime)
+function [energyState, pendingDrops, rows, ownerDelta] = localApplyEnergyEvent(energyState, pendingDrops, ownerIndex, meta, eventTime, eventStartTime)
     if nargin < 5 || isempty(eventTime)
         eventTime = 0;
+    end
+    if nargin < 6 || isempty(eventStartTime)
+        eventStartTime = eventTime;
     end
 
     rows = cell(0, 7);
@@ -1322,14 +1325,24 @@ function [energyState, pendingDrops, rows, ownerDelta] = localApplyEnergyEvent(e
     flatTeam = double(getFieldOrDefault(meta, 'FlatEnergyTeam', 0));
 
     if particles > 1e-9
+        spawnTime = localResolveEnergyDropSpawnTime(meta, eventStartTime, eventTime, "Particle");
+        arrivalTime = spawnTime + localResolveEnergyDropDelay(meta, "Particle");
         pendingDrops(end + 1) = localMakePendingEnergyDrop( ... %#ok<AGROW>
             ownerIndex, energyState(ownerIndex).DisplayName, string(meta.Action), ownerElement, ...
-            particles, eventTime + localResolveEnergyDropDelay(meta, "Particle"), "ParticleCatch");
+            particles, arrivalTime, "ParticleCatch");
+        rows(end + 1, :) = { ... %#ok<AGROW>
+            spawnTime, energyState(ownerIndex).DisplayName, string(meta.Action), ...
+            energyState(ownerIndex).DisplayName, 0, energyState(ownerIndex).CurrentEnergy, "ParticleSpawn"};
     end
     if orbs > 1e-9
+        spawnTime = localResolveEnergyDropSpawnTime(meta, eventStartTime, eventTime, "Orb");
+        arrivalTime = spawnTime + localResolveEnergyDropDelay(meta, "Orb");
         pendingDrops(end + 1) = localMakePendingEnergyDrop( ... %#ok<AGROW>
             ownerIndex, energyState(ownerIndex).DisplayName, string(meta.Action), ownerElement, ...
-            orbs, eventTime + localResolveEnergyDropDelay(meta, "Orb"), "OrbCatch");
+            orbs, arrivalTime, "OrbCatch");
+        rows(end + 1, :) = { ... %#ok<AGROW>
+            spawnTime, energyState(ownerIndex).DisplayName, string(meta.Action), ...
+            energyState(ownerIndex).DisplayName, 0, energyState(ownerIndex).CurrentEnergy, "OrbSpawn"};
     end
 
     if abs(flatSelf) <= 1e-9 && abs(flatTeam) <= 1e-9
@@ -1482,12 +1495,36 @@ function delay = localResolveEnergyDropDelay(meta, dropKind)
     end
     switch lower(char(string(dropKind)))
         case 'orb'
-            delay = double(getFieldOrDefault(meta, 'EstimatedOrbTravelDelay', 1.2));
+            delay = double(getFieldOrDefault(meta, 'EstimatedOrbTravelDelay', 1.08));
         otherwise
-            % Approximate particle catch timing used by the team simulator
-            % until per-action spawn/catch timing is wired from character data.
-            delay = double(getFieldOrDefault(meta, 'EstimatedParticleTravelDelay', 1.0));
+            delay = double(getFieldOrDefault(meta, 'EstimatedParticleTravelDelay', 0.90));
     end
+    if ~isscalar(delay) || ~isfinite(delay) || delay < 0
+        if strcmpi(char(string(dropKind)), 'orb')
+            delay = 1.08;
+        else
+            delay = 0.90;
+        end
+    end
+end
+
+function spawnTime = localResolveEnergyDropSpawnTime(meta, eventStartTime, eventEndTime, dropKind)
+    if nargin < 4
+        dropKind = "Particle";
+    end
+
+    actionWindow = max(0, double(eventEndTime) - double(eventStartTime));
+    spawnDelay = double(getFieldOrDefault(meta, 'EstimatedEnergySpawnDelay', NaN));
+    if ~isscalar(spawnDelay) || ~isfinite(spawnDelay)
+        switch lower(char(string(dropKind)))
+            case 'orb'
+                spawnDelay = min(actionWindow, max(0.12, 0.45 * actionWindow));
+            otherwise
+                spawnDelay = min(actionWindow, max(0.08, 0.35 * actionWindow));
+        end
+    end
+    spawnDelay = max(0, min(actionWindow, spawnDelay));
+    spawnTime = double(eventStartTime) + spawnDelay;
 end
 
 function drop = localMakePendingEnergyDrop(ownerIndex, sourceCharacter, action, sourceElement, amount, arrivalTime, eventType)

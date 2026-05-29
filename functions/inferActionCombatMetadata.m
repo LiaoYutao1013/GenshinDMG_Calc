@@ -42,6 +42,9 @@ function meta = inferActionCombatMetadata(member, action, archetypeInfo, teamCon
         'PreferredAura', "", ...
         'EstimatedParticles', 0.0, ...
         'EstimatedOrbs', 0.0, ...
+        'EstimatedEnergySpawnDelay', NaN, ...
+        'EstimatedParticleTravelDelay', NaN, ...
+        'EstimatedOrbTravelDelay', NaN, ...
         'FlatEnergySelf', 0.0, ...
         'FlatEnergyTeam', 0.0, ...
         'ConsumesBurstEnergy', false, ...
@@ -99,6 +102,8 @@ function meta = inferActionCombatMetadata(member, action, archetypeInfo, teamCon
     meta.PreferredAura = localResolvePreferredAura(meta.HitElement, archetypeInfo);
     [meta.EstimatedParticles, meta.EstimatedOrbs] = localResolveEnergyPacket( ...
         normalizedName, lowerAction, meta.ActionClass, meta.HitElement);
+    [meta.EstimatedEnergySpawnDelay, meta.EstimatedParticleTravelDelay, meta.EstimatedOrbTravelDelay] = ...
+        localResolveEnergyTiming(normalizedName, lowerAction, meta.ActionClass);
     meta.FlatEnergySelf = localResolveFlatEnergySelf(member, normalizedName, lowerAction, teamContext);
     meta.FlatEnergyTeam = localResolveFlatEnergyTeam(normalizedName, lowerAction, teamContext);
     [meta.EffectDuration, meta.EffectTag, meta.EffectFirstTickDelay, ...
@@ -1086,6 +1091,108 @@ function [particles, orbs] = localResolveEnergyPacket(normalizedName, lowerActio
 
     if strlength(string(hitElement)) == 0 || strcmpi(char(hitElement), 'physical')
         particles = 0;
+    end
+end
+
+function [spawnDelay, particleTravelDelay, orbTravelDelay] = localResolveEnergyTiming(normalizedName, lowerAction, actionClass)
+    spawnDelay = NaN;
+    particleTravelDelay = NaN;
+    orbTravelDelay = NaN;
+
+    switch char(actionClass)
+        case 'Skill'
+            spawnDelay = 0.10;
+        case 'Burst'
+            spawnDelay = 0.20;
+        otherwise
+            spawnDelay = 0.05;
+    end
+
+    switch char(normalizedName)
+        case 'xingqiu'
+            if strcmp(lowerAction, 'e')
+                spawnDelay = 0.18;
+                particleTravelDelay = 0.92;
+            end
+        case 'yelan'
+            if strcmp(lowerAction, 'e')
+                spawnDelay = 0.22;
+                particleTravelDelay = 0.88;
+            end
+        case 'xianyun'
+            if strcmp(lowerAction, 'e')
+                spawnDelay = 0.28;
+                particleTravelDelay = 0.84;
+            end
+        case 'jean'
+            if strcmp(lowerAction, 'e')
+                spawnDelay = 0.16;
+                particleTravelDelay = 0.86;
+            end
+        case 'furina'
+            if strcmp(lowerAction, 'e')
+                spawnDelay = 0.30;
+                particleTravelDelay = 0.96;
+            end
+        case 'barbara'
+            if strcmp(lowerAction, 'e')
+                spawnDelay = 0.20;
+                particleTravelDelay = 0.90;
+            end
+        case 'lisa'
+            if any(strcmp(lowerAction, {'e', 'epress'}))
+                spawnDelay = 0.12;
+                particleTravelDelay = 0.90;
+            elseif strcmp(lowerAction, 'ehold')
+                spawnDelay = 0.42;
+                particleTravelDelay = 0.96;
+            end
+        case 'kaedeharakazuha'
+            if strcmp(lowerAction, 'epress')
+                spawnDelay = 0.14;
+                particleTravelDelay = 0.82;
+            elseif strcmp(lowerAction, 'ehold')
+                spawnDelay = 0.24;
+                particleTravelDelay = 0.88;
+            end
+        case 'bennett'
+            if any(strcmp(lowerAction, {'e', 'epress'}))
+                spawnDelay = 0.12;
+                particleTravelDelay = 0.84;
+            elseif strcmp(lowerAction, 'ehold')
+                spawnDelay = 0.24;
+                particleTravelDelay = 0.90;
+            end
+        case 'xiangling'
+            if strcmp(lowerAction, 'e')
+                spawnDelay = 0.34;
+                particleTravelDelay = 1.02;
+            end
+        case 'fischl'
+            if strcmp(lowerAction, 'e')
+                spawnDelay = 0.24;
+                particleTravelDelay = 0.90;
+            end
+        case 'kukishinobu'
+            if strcmp(lowerAction, 'e')
+                spawnDelay = 0.16;
+                particleTravelDelay = 0.86;
+            end
+    end
+
+    if isnan(particleTravelDelay)
+        switch char(actionClass)
+            case 'Skill'
+                particleTravelDelay = 0.90;
+            case 'Burst'
+                particleTravelDelay = 0.98;
+            otherwise
+                particleTravelDelay = 0.86;
+        end
+    end
+
+    if isnan(orbTravelDelay)
+        orbTravelDelay = particleTravelDelay + 0.18;
     end
 end
 

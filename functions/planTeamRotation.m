@@ -63,15 +63,18 @@ function plan = planTeamRotation(members, rotationDuration, enemy, sharedBuffs, 
             role, memberJobs(memberIndex), rotationDuration, teamInfo.Archetype);
 
         plans(memberIndex) = localBuildMemberPlan( ...
-            members{memberIndex}, seeds(memberIndex), role, targetBudget, teamInfo.Archetype, memberJobs(memberIndex));
+            members{memberIndex}, seeds(memberIndex), scores(memberIndex), ...
+            role, targetBudget, teamInfo.Archetype, memberJobs(memberIndex));
         otherReservedDuration = otherReservedDuration + plans(memberIndex).EstimatedDuration;
     end
 
     reservedOther = otherReservedDuration + swapBuffer * max(0, memberCount - 1);
     carryBudget = rotationDuration - min(reservedOther, 0.65 * rotationDuration);
     carryBudget = max(6.0, carryBudget);
+    carryBudget = localResolveCarryBudget(carryBudget, scores(carryIndex), members{carryIndex}.Name, rotationDuration, teamInfo.Archetype);
     plans(carryIndex) = localBuildMemberPlan( ...
-        members{carryIndex}, seeds(carryIndex), "Carry", carryBudget, teamInfo.Archetype, memberJobs(carryIndex));
+        members{carryIndex}, seeds(carryIndex), scores(carryIndex), ...
+        "Carry", carryBudget, teamInfo.Archetype, memberJobs(carryIndex));
 
     planRoot = localCreatePlanDirectory();
     [plans, memberOrder, executionTable] = localScheduleMemberPlans( ...
@@ -579,6 +582,7 @@ function budget = localResolveMemberBudget(role, job, rotationDuration, archetyp
     role = string(role);
     job = string(job);
     primary = string(getFieldOrDefault(archetypeInfo, 'PrimaryArchetype', ""));
+    confidence = double(getFieldOrDefault(archetypeInfo, 'Confidence', 0));
 
     if role == "Hybrid"
         budget = min(6.0, max(4.0, 0.30 * rotationDuration));
@@ -603,6 +607,15 @@ function budget = localResolveMemberBudget(role, job, rotationDuration, archetyp
         budget = max(budget, min(6.5, 0.32 * rotationDuration));
     elseif any(primary == ["Freeze", "Vaporize", "Melt", "Plunge", "GeoHypercarry", "AnemoHypercarry", "Mono"])
         budget = min(budget, 4.8);
+    end
+
+    if confidence < 0.65 && primary == "Hypercarry"
+        switch char(role)
+            case 'Support'
+                budget = max(budget, min(5.2, max(3.2, 0.24 * rotationDuration)));
+            case 'Hybrid'
+                budget = max(budget, min(6.2, max(4.6, 0.32 * rotationDuration)));
+        end
     end
 end
 
@@ -791,7 +804,7 @@ function tf = localShouldAdvanceAuraApplicator(score, archetypeInfo)
     tf = any(normalizedName == ["amber", "barbara", "xiangling", "rosaria", "layla", "diona", "mona", "xingqiu", "yelan"]);
 end
 
-function memberPlan = localBuildMemberPlan(member, seed, role, targetBudget, archetypeInfo, job)
+function memberPlan = localBuildMemberPlan(member, seed, score, role, targetBudget, archetypeInfo, job)
     memberPlan = localEmptyMemberPlan();
     memberPlan.Name = string(member.Name);
     memberPlan.DisplayName = string(getFieldOrDefault(member, 'DisplayName', member.Name));
@@ -803,11 +816,30 @@ function memberPlan = localBuildMemberPlan(member, seed, role, targetBudget, arc
 
     switch char(role)
         case 'Carry'
-            [tokens, source] = localBuildCarryTokens(member, seed, archetypeInfo, memberPlan.Job);
+            if localShouldUseHybridCarryFallback(score, member.Name, archetypeInfo)
+                [tokens, source] = localBuildHybridTokens(member, seed, archetypeInfo, memberPlan.Job);
+                if isempty(tokens) || (numel(tokens) == 1 && strcmpi(tokens{1}, 'AUTO'))
+                    [tokens, source] = localBuildSupportTokens(member, seed, archetypeInfo, memberPlan.Job);
+                    source = "support-lean-carry";
+                else
+                    source = "hybrid-carry-fallback";
+                end
+            else
+                [tokens, source] = localBuildCarryTokens(member, seed, archetypeInfo, memberPlan.Job);
+            end
         case 'Hybrid'
             [tokens, source] = localBuildHybridTokens(member, seed, archetypeInfo, memberPlan.Job);
         otherwise
-            [tokens, source] = localBuildSupportTokens(member, seed, archetypeInfo, memberPlan.Job);
+            if localShouldUseHybridSupportFallback(seed, score, member.Name, archetypeInfo)
+                [tokens, source] = localBuildHybridTokens(member, seed, archetypeInfo, memberPlan.Job);
+                if isempty(tokens) || (numel(tokens) == 1 && strcmpi(tokens{1}, 'AUTO'))
+                    [tokens, source] = localBuildSupportTokens(member, seed, archetypeInfo, memberPlan.Job);
+                else
+                    source = "hybrid-support-fallback";
+                end
+            else
+                [tokens, source] = localBuildSupportTokens(member, seed, archetypeInfo, memberPlan.Job);
+            end
     end
 
     if isempty(tokens)
@@ -816,6 +848,9 @@ function memberPlan = localBuildMemberPlan(member, seed, role, targetBudget, arc
     end
     tokens = localNormalizeTokenList(tokens);
     allowExpand = localResolvePlanExpansionPolicy(role, member.Name, archetypeInfo);
+    if strcmpi(char(string(source)), 'hybrid-support-fallback')
+        allowExpand = true;
+    end
     tokens = localConformTokensToBudget(tokens, targetBudget, member.Name, allowExpand);
 
     memberPlan.PlanningSource = string(source);
@@ -826,6 +861,67 @@ function memberPlan = localBuildMemberPlan(member, seed, role, targetBudget, arc
         memberPlan.EstimatedDuration = targetBudget;
     end
     memberPlan.Preview = localPreviewRotation(tokens);
+end
+
+function carryBudget = localResolveCarryBudget(carryBudget, score, characterName, rotationDuration, archetypeInfo)
+    carryBudget = max(0, double(carryBudget));
+    confidence = double(getFieldOrDefault(archetypeInfo, 'Confidence', 0));
+    if localShouldUseHybridCarryFallback(score, characterName, archetypeInfo)
+        cappedBudget = max(4.8, min(7.5, 0.38 * double(rotationDuration)));
+        if confidence < 0.70
+            cappedBudget = min(cappedBudget, max(4.6, 0.34 * double(rotationDuration)));
+        end
+        carryBudget = min(carryBudget, cappedBudget);
+    end
+end
+
+function tf = localShouldUseHybridCarryFallback(score, characterName, archetypeInfo)
+    normalizedName = localNormalizeName(characterName);
+    supportLead = double(getFieldOrDefault(score, 'SupportScore', 0)) - double(getFieldOrDefault(score, 'CarryScore', 0));
+    confidence = double(getFieldOrDefault(archetypeInfo, 'Confidence', 0));
+    primary = string(getFieldOrDefault(archetypeInfo, 'PrimaryArchetype', ""));
+
+    tf = false;
+    if supportLead < 2.0
+        return;
+    end
+    if ~localShouldDefaultToSupport(normalizedName)
+        return;
+    end
+    if confidence >= 0.85 && any(primary == ["Freeze", "Vaporize", "Melt", "Plunge", "GeoHypercarry", "AnemoHypercarry", "Hyperbloom", "Bloom", "Burgeon", "Overload", "Aggravate", "Spread"])
+        return;
+    end
+    tf = true;
+end
+
+function tf = localShouldUseHybridSupportFallback(seed, score, characterName, archetypeInfo)
+    normalizedName = localNormalizeName(characterName);
+    confidence = double(getFieldOrDefault(archetypeInfo, 'Confidence', 0));
+    primary = string(getFieldOrDefault(archetypeInfo, 'PrimaryArchetype', ""));
+    referenceTokens = getFieldOrDefault(seed, 'ReferenceTokens', {});
+    explicitTokens = getFieldOrDefault(seed, 'ExplicitTokens', {});
+    supportLead = double(getFieldOrDefault(score, 'SupportScore', 0)) - double(getFieldOrDefault(score, 'CarryScore', 0));
+
+    tf = false;
+    if confidence >= 0.65 || primary ~= "Hypercarry"
+        return;
+    end
+    if ~localShouldDefaultToSupport(normalizedName)
+        return;
+    end
+    if supportLead < 1.0
+        return;
+    end
+    if ~isempty(explicitTokens)
+        return;
+    end
+    if isempty(referenceTokens)
+        return;
+    end
+
+    supportDuration = localEstimateRotationDuration(localBuildSupportTokensFromSeed(referenceTokens), characterName);
+    referenceDuration = localEstimateRotationDuration(referenceTokens, characterName);
+    tf = referenceDuration >= supportDuration + 1.0;
 end
 
 function memberPlan = localFitMemberPlanToBudget(memberPlan, characterName, targetBudget)
