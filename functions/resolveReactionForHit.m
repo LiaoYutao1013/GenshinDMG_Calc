@@ -721,8 +721,13 @@ function enemyState = localAddOrReplaceAura(enemyState, auraElement, gaugeUnits)
 
     for i = 1:numel(enemyState.Auras)
         if strcmpi(char(enemyState.Auras(i).Element), char(string(auraElement)))
-            enemyState.Auras(i).Gauge = max(enemyState.Auras(i).Gauge, gaugeUnits);
-            enemyState.Auras(i).DecayPerSecond = localDefaultDecayPerSecond(auraElement, enemyState.Auras(i).Gauge);
+            existingGauge = double(getFieldOrDefault(enemyState.Auras(i), 'Gauge', 0));
+            existingDecay = double(getFieldOrDefault(enemyState.Auras(i), 'DecayPerSecond', ...
+                localDefaultDecayPerSecond(auraElement, existingGauge)));
+            remainingLifetime = existingGauge / max(existingDecay, 1e-9);
+            refreshedLifetime = max(remainingLifetime, localResolveAuraLifetime(auraElement, gaugeUnits));
+            enemyState.Auras(i).Gauge = max(existingGauge, gaugeUnits);
+            enemyState.Auras(i).DecayPerSecond = enemyState.Auras(i).Gauge / max(refreshedLifetime, 1.0);
             enemyState.Auras(i).AppliedTime = getFieldOrDefault(enemyState, 'Time', 0);
             enemyState.Auras(i).AppliedSequence = nextSeq;
             return;
@@ -1213,15 +1218,22 @@ function aura = localMakeAura(element, gaugeUnits, appliedTime, appliedSequence)
 end
 
 function decayPerSecond = localDefaultDecayPerSecond(auraElement, gaugeUnits)
+    duration = localResolveAuraLifetime(auraElement, gaugeUnits);
+    gaugeUnits = max(0.25, double(gaugeUnits));
+    decayPerSecond = gaugeUnits / max(duration, 1.0);
+end
+
+function duration = localResolveAuraLifetime(auraElement, gaugeUnits)
     auraElement = lower(char(string(auraElement)));
     gaugeUnits = max(0.25, double(gaugeUnits));
     switch auraElement
         case {'pyro', 'hydro', 'cryo', 'electro', 'dendro'}
-            duration = 9.5 * gaugeUnits;
+            % Approximate the standard origin-aura lifetime in seconds from the
+            % raw applied gauge, then convert it into a linear gauge decay rate.
+            duration = 2.5 * gaugeUnits + 7.0;
         otherwise
-            duration = 8.0 * gaugeUnits;
+            duration = 2.0 * gaugeUnits + 6.0;
     end
-    decayPerSecond = 1.0 / max(duration, 1.0);
 end
 
 function result = localMakeEmptyResult(enemyState)

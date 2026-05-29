@@ -2158,6 +2158,7 @@ classdef GenshinDMGApp < handle
                 obj.renderBarChart(teamResult.Summary);
                 obj.renderTimeline(slotIndices, teamResult);
                 obj.setStatus(obj.localBuildTeamStatus(teamResult, numel(slotIndices)));
+                obj.showTeamPlanningNotice(teamResult);
             catch ME
                 obj.showSimulationError(ME);
             end
@@ -3248,6 +3249,36 @@ classdef GenshinDMGApp < handle
             obj.setStatus('模拟失败，请检查输入。');
             detail = obj.buildSimulationErrorDialog(ME);
             uialert(obj.Figure, detail, '模拟失败', 'Icon', 'error');
+        end
+
+        function showTeamPlanningNotice(obj, teamResult)
+            warnings = string(getFieldOrDefault(teamResult, 'PlanningWarnings', strings(0, 1)));
+            selectionMode = string(getFieldOrDefault(getFieldOrDefault(teamResult, 'PlannedRotation', struct()), 'SelectionMode', ""));
+            selectionSummary = string(getFieldOrDefault(getFieldOrDefault(teamResult, 'PlannedRotation', struct()), 'SelectionSummary', ""));
+            candidateCount = double(getFieldOrDefault(getFieldOrDefault(teamResult, 'PlannedRotation', struct()), 'CandidateCount', 0));
+
+            if isempty(warnings) && strlength(selectionMode) == 0
+                return;
+            end
+
+            detailLines = strings(0, 1);
+            if strlength(selectionMode) > 0
+                detailLines(end + 1, 1) = sprintf('自动排轴已启用团队候选评分。当前方案：%s', char(selectionMode)); %#ok<AGROW>
+            end
+            if candidateCount > 0
+                detailLines(end + 1, 1) = sprintf('已评估候选方案数量：%d', candidateCount); %#ok<AGROW>
+            end
+            if strlength(selectionSummary) > 0
+                detailLines(end + 1, 1) = sprintf('方案摘要：%s', char(selectionSummary)); %#ok<AGROW>
+            end
+            if ~isempty(warnings)
+                detailLines(end + 1, 1) = "本次模拟仍存在以下可读警告："; %#ok<AGROW>
+                for i = 1:min(numel(warnings), 6)
+                    detailLines(end + 1, 1) = "- " + warnings(i); %#ok<AGROW>
+                end
+            end
+
+            uialert(obj.Figure, char(join(detailLines, newline)), '团队排轴提示', 'Icon', 'info');
         end
 
         function detail = buildSimulationErrorDialog(obj, ME)

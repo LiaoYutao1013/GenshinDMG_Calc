@@ -45,49 +45,30 @@ function plan = planTeamRotation(members, rotationDuration, enemy, sharedBuffs, 
     scores = localApplyTeamSynergyScores(scores, teamInfo);
     scores = localApplyArchetypeScores(scores, teamInfo);
 
-    [roles, carryIndex, memberJobs] = localAssignMemberRoles(scores, teamInfo.Archetype, teamInfo);
-    order = localBuildExecutionOrder(scores, roles, memberJobs, teamInfo.Archetype);
-
-    plans = repmat(localEmptyMemberPlan(), 1, memberCount);
-    otherReservedDuration = 0;
     swapBuffer = getFieldOrDefault(options, 'SwapBuffer', 0.20);
+    planningSharedBuffs = localBuildPlanningSharedBuffs(sharedBuffs, members);
+    planningTeamContext = buildTeamContext(members, rotationDuration, planningSharedBuffs, enemy);
+    planningTeamContext.ArchetypeInfo = teamInfo.Archetype;
 
-    for orderPos = 1:numel(order)
-        memberIndex = order(orderPos);
-        if memberIndex == carryIndex
-            continue;
-        end
-
-        role = roles(memberIndex);
-        targetBudget = localResolveMemberBudget( ...
-            role, memberJobs(memberIndex), rotationDuration, teamInfo.Archetype);
-
-        plans(memberIndex) = localBuildMemberPlan( ...
-            members{memberIndex}, seeds(memberIndex), scores(memberIndex), ...
-            role, targetBudget, teamInfo.Archetype, memberJobs(memberIndex));
-        otherReservedDuration = otherReservedDuration + plans(memberIndex).EstimatedDuration;
-    end
-
-    reservedOther = otherReservedDuration + swapBuffer * max(0, memberCount - 1);
-    carryBudget = rotationDuration - min(reservedOther, 0.65 * rotationDuration);
-    carryBudget = max(6.0, carryBudget);
-    carryBudget = localResolveCarryBudget(carryBudget, scores(carryIndex), members{carryIndex}.Name, rotationDuration, teamInfo.Archetype);
-    plans(carryIndex) = localBuildMemberPlan( ...
-        members{carryIndex}, seeds(carryIndex), scores(carryIndex), ...
-        "Carry", carryBudget, teamInfo.Archetype, memberJobs(carryIndex));
-
+    candidate = localSelectBestPlanCandidate( ...
+        members, seeds, scores, teamInfo, rotationDuration, enemy, ...
+        planningTeamContext, swapBuffer, options);
     planRoot = localCreatePlanDirectory();
     [plans, memberOrder, executionTable] = localScheduleMemberPlans( ...
-        order, members, plans, rotationDuration, swapBuffer, planRoot);
+        candidate.OrderSeed, members, candidate.MemberPlans, rotationDuration, swapBuffer, planRoot, true);
 
     plan = struct( ...
         'RotationDuration', rotationDuration, ...
-        'CarryIndex', carryIndex, ...
+        'CarryIndex', candidate.CarryIndex, ...
         'ExecutionOrder', memberOrder, ...
         'PlanDirectory', string(planRoot), ...
         'MemberPlans', plans, ...
         'ArchetypeInfo', teamInfo.Archetype, ...
-        'ExecutionTable', executionTable);
+        'ExecutionTable', executionTable, ...
+        'CandidateCount', candidate.CandidateCount, ...
+        'SelectionScore', candidate.Score, ...
+        'SelectionMode', string(candidate.CandidateLabel), ...
+        'SelectionSummary', string(candidate.Summary));
 end
 
 function teamInfo = localBuildTeamInfo(members, sharedBuffs)
@@ -143,8 +124,347 @@ function requestedStart = localResolveRequestedStartTime(member)
     end
 end
 
+function planningSharedBuffs = localBuildPlanningSharedBuffs(sharedBuffs, members)
+    planningSharedBuffs = sharedBuffs;
+    if isfield(planningSharedBuffs, 'ApproxFurinaBonus')
+        return;
+    end
+
+    for i = 1:numel(members)
+        if strcmpi(char(string(getFieldOrDefault(members{i}, 'Name', ""))), 'Furina')
+            planningSharedBuffs.ApproxFurinaBonus = 0;
+            return;
+        end
+    end
+end
+
+function candidate = localSelectBestPlanCandidate( ...
+        members, seeds, scores, teamInfo, rotationDuration, enemy, ...
+        planningTeamContext, swapBuffer, options)
+    carryCandidates = localBuildCarryCandidateIndices(scores, teamInfo.Archetype);
+    scoredCandidates = repmat(localEmptyPlanCandidate(), 1, 0);
+
+    for carryPos = 1:numel(carryCandidates)
+        forcedCarryIndex = carryCandidates(carryPos);
+        [roles, carryIndex, memberJobs] = localAssignMemberRoles( ...
+            scores, teamInfo.Archetype, teamInfo, forcedCarryIndex);
+        basePlans = localBuildRolePlans( ...
+            members, seeds, scores, roles, memberJobs, carryIndex, ...
+            rotationDuration, teamInfo.Archetype, swapBuffer);
+        baseOrder = localBuildExecutionOrder(scores, roles, memberJobs, teamInfo.Archetype);
+        orderCandidates = localBuildOrderCandidates(baseOrder, members, carryIndex);
+
+        for orderPos = 1:numel(orderCandidates)
+            currentOrder = orderCandidates{orderPos};
+            candidatePlans = localCloneMemberPlans(basePlans);
+            [candidatePlans, memberOrder, executionTable] = localScheduleMemberPlans( ...
+                currentOrder, members, candidatePlans, rotationDuration, swapBuffer, "", false);
+            label = sprintf('timeline-ranked carry=%s order=%d', ...
+                char(string(getFieldOrDefault(members{carryIndex}, 'DisplayName', members{carryIndex}.Name))), ...
+                orderPos);
+            scoredCandidates(end + 1) = localEvaluatePlanCandidate( ... %#ok<AGROW>
+                label, members, candidatePlans, currentOrder, memberOrder, executionTable, ...
+                carryIndex, roles, memberJobs, teamInfo.Archetype, rotationDuration, ...
+                planningTeamContext, enemy, options);
+        end
+    end
+
+    assert(~isempty(scoredCandidates), 'Team rotation planner should always evaluate at least one candidate.');
+    [~, bestIndex] = max([scoredCandidates.Score]);
+    candidate = scoredCandidates(bestIndex);
+
+    candidate.CandidateCount = numel(scoredCandidates);
+end
+
+function carryCandidates = localBuildCarryCandidateIndices(scores, archetypeInfo)
+    carryScores = [scores.CarryScore];
+    supportScores = [scores.SupportScore];
+    [~, carryOrder] = sort(carryScores, 'descend');
+
+    carryCandidates = zeros(1, 0);
+    recommended = getFieldOrDefault(archetypeInfo, 'RecommendedCarryIndices', []);
+    if ~isempty(recommended)
+        recommended = recommended(recommended >= 1 & recommended <= numel(scores));
+        carryCandidates = [carryCandidates, recommended(:).']; %#ok<AGROW>
+    end
+
+    if ~isempty(carryOrder)
+        carryCandidates = [carryCandidates, carryOrder(1)]; %#ok<AGROW>
+        topScore = carryScores(carryOrder(1));
+        for orderIndex = 2:numel(carryOrder)
+            candidateIndex = carryOrder(orderIndex);
+            carryLead = carryScores(candidateIndex) - supportScores(candidateIndex);
+            if carryScores(candidateIndex) < topScore - 0.75
+                continue;
+            end
+            if carryLead < -0.25
+                continue;
+            end
+            carryCandidates(end + 1) = candidateIndex; %#ok<AGROW>
+            break;
+        end
+    end
+
+    carryCandidates = unique(carryCandidates, 'stable');
+    carryCandidates = carryCandidates(carryCandidates >= 1 & carryCandidates <= numel(scores));
+    if isempty(carryCandidates)
+        carryCandidates = 1;
+    end
+end
+
+function plans = localBuildRolePlans( ...
+        members, seeds, scores, roles, memberJobs, carryIndex, ...
+        rotationDuration, archetypeInfo, swapBuffer)
+    plans = repmat(localEmptyMemberPlan(), 1, numel(members));
+    order = localBuildExecutionOrder(scores, roles, memberJobs, archetypeInfo);
+    otherReservedDuration = 0;
+
+    for orderPos = 1:numel(order)
+        memberIndex = order(orderPos);
+        if memberIndex == carryIndex
+            continue;
+        end
+
+        role = roles(memberIndex);
+        targetBudget = localResolveMemberBudget( ...
+            role, memberJobs(memberIndex), rotationDuration, archetypeInfo);
+        plans(memberIndex) = localBuildMemberPlan( ...
+            members{memberIndex}, seeds(memberIndex), scores(memberIndex), ...
+            role, targetBudget, archetypeInfo, memberJobs(memberIndex));
+        otherReservedDuration = otherReservedDuration + plans(memberIndex).EstimatedDuration;
+    end
+
+    reservedOther = otherReservedDuration + swapBuffer * max(0, numel(members) - 1);
+    carryBudget = rotationDuration - min(reservedOther, 0.65 * rotationDuration);
+    carryBudget = max(6.0, carryBudget);
+    carryBudget = localResolveCarryBudget( ...
+        carryBudget, scores(carryIndex), members{carryIndex}.Name, ...
+        rotationDuration, archetypeInfo);
+    plans(carryIndex) = localBuildMemberPlan( ...
+        members{carryIndex}, seeds(carryIndex), scores(carryIndex), ...
+        "Carry", carryBudget, archetypeInfo, memberJobs(carryIndex));
+end
+
+function orderCandidates = localBuildOrderCandidates(baseOrder, members, carryIndex)
+    orderCandidates = {baseOrder};
+    nonCarry = setdiff(baseOrder, carryIndex, 'stable');
+
+    if ~isempty(nonCarry)
+        orderCandidates{end + 1} = [nonCarry, carryIndex]; %#ok<AGROW>
+        orderCandidates{end + 1} = [carryIndex, nonCarry]; %#ok<AGROW>
+    end
+    if numel(nonCarry) > 1
+        orderCandidates{end + 1} = [nonCarry(end:-1:1), carryIndex]; %#ok<AGROW>
+        orderCandidates{end + 1} = [[nonCarry(2:end), nonCarry(1)], carryIndex]; %#ok<AGROW>
+    end
+
+    requestedStarts = nan(1, numel(members));
+    for i = 1:numel(members)
+        requestedStarts(i) = localResolveRequestedStartTime(members{i});
+    end
+    explicitMembers = find(isfinite(requestedStarts));
+    if ~isempty(explicitMembers)
+        anchoredOrder = [explicitMembers(:).', setdiff(baseOrder, explicitMembers, 'stable')];
+        orderCandidates{end + 1} = anchoredOrder; %#ok<AGROW>
+    end
+
+    signatures = strings(0, 1);
+    uniqueCandidates = cell(0, 1);
+    for orderIndex = 1:numel(orderCandidates)
+        candidate = orderCandidates{orderIndex};
+        signature = strjoin(string(candidate), '-');
+        if any(signatures == signature)
+            continue;
+        end
+        signatures(end + 1, 1) = signature; %#ok<AGROW>
+        uniqueCandidates{end + 1, 1} = candidate; %#ok<AGROW>
+    end
+    orderCandidates = uniqueCandidates;
+end
+
+function candidate = localEvaluatePlanCandidate( ...
+        label, members, memberPlans, orderSeed, memberOrder, executionTable, ...
+        carryIndex, roles, memberJobs, archetypeInfo, rotationDuration, ...
+        planningTeamContext, enemy, options)
+    rotationPlan = struct( ...
+        'RotationDuration', rotationDuration, ...
+        'CarryIndex', carryIndex, ...
+        'ExecutionOrder', memberOrder, ...
+        'PlanDirectory', "", ...
+        'MemberPlans', memberPlans, ...
+        'ArchetypeInfo', archetypeInfo, ...
+        'ExecutionTable', executionTable);
+    timelineResult = simulateTeamTimeline(members, rotationPlan, planningTeamContext, enemy, options);
+    [score, summary] = localScorePlanCandidate(rotationPlan, timelineResult, roles, memberJobs, rotationDuration);
+
+    candidate = localEmptyPlanCandidate();
+    candidate.CandidateLabel = string(label);
+    candidate.Score = score;
+    candidate.Summary = string(summary);
+    candidate.CarryIndex = carryIndex;
+    candidate.Roles = roles;
+    candidate.MemberJobs = memberJobs;
+    candidate.OrderSeed = orderSeed;
+    candidate.MemberPlans = memberPlans;
+    candidate.ExecutionOrder = memberOrder;
+    candidate.ExecutionTable = executionTable;
+    candidate.TimelineResult = timelineResult;
+end
+
+function [score, summary] = localScorePlanCandidate(rotationPlan, timelineResult, roles, memberJobs, rotationDuration)
+    timelineSummary = getFieldOrDefault(timelineResult, 'TimelineSummary', struct());
+    energySummary = getFieldOrDefault(timelineResult, 'EnergySummary', table());
+    timelineTable = getFieldOrDefault(timelineResult, 'TimelineTable', table());
+
+    idleFrac = max(0, double(getFieldOrDefault(timelineSummary, 'IdleTime', 0))) / max(rotationDuration, 1e-6);
+    overlapFrac = max(0, double(getFieldOrDefault(timelineSummary, 'OverlapTime', 0))) / max(rotationDuration, 1e-6);
+    occupiedTime = max(0, double(getFieldOrDefault(timelineSummary, 'MemberOccupiedTime', 0))) ...
+        + max(0, double(getFieldOrDefault(timelineSummary, 'AutonomousBackgroundTime', 0))) ...
+        + max(0, double(getFieldOrDefault(timelineSummary, 'ActionTriggeredBackgroundTime', 0))) ...
+        + max(0, double(getFieldOrDefault(timelineSummary, 'ReactionTriggeredBackgroundTime', 0)));
+    occupiedFrac = min(1.25, occupiedTime / max(rotationDuration, 1e-6));
+    loopReadiness = min(1, max(0, double(getFieldOrDefault(timelineResult, 'LoopReadiness', 0))));
+
+    reactionDensity = 0;
+    if istable(timelineTable) && height(timelineTable) > 0 && ismember('Reactions', string(timelineTable.Properties.VariableNames))
+        reactionRows = sum(strlength(strtrim(string(timelineTable.Reactions))) > 0);
+        reactionDensity = min(1, reactionRows / max(height(timelineTable), 1));
+    end
+
+    missingRatio = 0;
+    if istable(energySummary) && height(energySummary) > 0
+        burstMask = logical(energySummary.UsedBurst);
+        if any(burstMask)
+            missingEnergy = sum(max(0, double(energySummary.MissingEnergy(burstMask))));
+            burstCost = sum(max(1, double(energySummary.BurstCost(burstMask))));
+            missingRatio = min(2.0, missingEnergy / max(burstCost, 1));
+        end
+    end
+
+    setupCoverage = localComputeSetupCoverage(rotationPlan);
+    orderPenalty = localComputeOrderPenalty(rotationPlan, roles, memberJobs);
+    score = 4.0 * loopReadiness ...
+        + 2.5 * occupiedFrac ...
+        + 0.8 * reactionDensity ...
+        + 1.0 * localComputeBurstCoverage(rotationPlan) ...
+        + 1.2 * localComputeCarryWindowQuality(rotationPlan, rotationDuration) ...
+        + 0.6 * setupCoverage ...
+        - 3.0 * idleFrac ...
+        - 5.0 * overlapFrac ...
+        - 2.4 * missingRatio ...
+        - 0.35 * orderPenalty;
+
+    summary = sprintf('score=%.3f loop=%.2f idle=%.2fs overlap=%.2fs energy=%.2f', ...
+        score, loopReadiness, ...
+        double(getFieldOrDefault(timelineSummary, 'IdleTime', 0)), ...
+        double(getFieldOrDefault(timelineSummary, 'OverlapTime', 0)), ...
+        missingRatio);
+end
+
+function setupCoverage = localComputeSetupCoverage(rotationPlan)
+    setupCoverage = 0.5;
+    carryIndex = double(getFieldOrDefault(rotationPlan, 'CarryIndex', 0));
+    memberPlans = getFieldOrDefault(rotationPlan, 'MemberPlans', struct([]));
+    if carryIndex < 1 || carryIndex > numel(memberPlans)
+        return;
+    end
+
+    carryStart = double(getFieldOrDefault(memberPlans(carryIndex), 'StartTime', 0));
+    carryEnd = double(getFieldOrDefault(memberPlans(carryIndex), 'EndTime', carryStart));
+    if carryEnd <= carryStart + 1e-9
+        return;
+    end
+
+    setupTime = 0;
+    for i = 1:numel(memberPlans)
+        if i == carryIndex
+            continue;
+        end
+        memberStart = double(getFieldOrDefault(memberPlans(i), 'StartTime', 0));
+        memberEnd = double(getFieldOrDefault(memberPlans(i), 'EndTime', memberStart));
+        setupTime = setupTime + max(0, min(carryStart, memberEnd) - memberStart);
+    end
+
+    setupCoverage = min(1, setupTime / max(carryStart, 0.6));
+end
+
+function penalty = localComputeOrderPenalty(rotationPlan, roles, memberJobs)
+    penalty = 0;
+    memberPlans = getFieldOrDefault(rotationPlan, 'MemberPlans', struct([]));
+    carryIndex = double(getFieldOrDefault(rotationPlan, 'CarryIndex', 0));
+    carryStart = inf;
+    if carryIndex >= 1 && carryIndex <= numel(memberPlans)
+        carryStart = double(getFieldOrDefault(memberPlans(carryIndex), 'StartTime', inf));
+    end
+
+    for i = 1:numel(memberPlans)
+        memberStart = double(getFieldOrDefault(memberPlans(i), 'StartTime', 0));
+        if i ~= carryIndex && string(memberJobs(i)) == "Opener" && memberStart > carryStart + 1e-9
+            penalty = penalty + 1.0;
+        end
+        if i ~= carryIndex && string(roles(i)) == "Support" && memberStart > carryStart + 2.5
+            penalty = penalty + 0.5;
+        end
+    end
+end
+
+function burstCoverage = localComputeBurstCoverage(rotationPlan)
+    burstCoverage = 0;
+    memberPlans = getFieldOrDefault(rotationPlan, 'MemberPlans', struct([]));
+    if isempty(memberPlans)
+        return;
+    end
+    burstCount = 0;
+    for i = 1:numel(memberPlans)
+        if localPlanContainsBurst(getFieldOrDefault(memberPlans(i), 'RotationTokens', {}))
+            burstCount = burstCount + 1;
+        end
+    end
+    burstCoverage = burstCount / max(numel(memberPlans), 1);
+end
+
+function quality = localComputeCarryWindowQuality(rotationPlan, rotationDuration)
+    quality = 0;
+    carryIndex = double(getFieldOrDefault(rotationPlan, 'CarryIndex', 0));
+    memberPlans = getFieldOrDefault(rotationPlan, 'MemberPlans', struct([]));
+    if carryIndex < 1 || carryIndex > numel(memberPlans)
+        return;
+    end
+
+    carryDuration = double(getFieldOrDefault(memberPlans(carryIndex), 'EstimatedDuration', 0));
+    if carryDuration <= 0
+        return;
+    end
+    targetDuration = min(7.0, max(4.0, 0.28 * rotationDuration));
+    quality = 1.0 - min(1.0, abs(carryDuration - targetDuration) / max(targetDuration, 1e-6));
+    if carryDuration < 3.0
+        quality = quality - 0.5;
+    end
+    quality = max(-1.0, quality);
+end
+
+function tf = localPlanContainsBurst(tokens)
+    tokens = localNormalizeTokenList(tokens);
+    tf = false;
+    for i = 1:numel(tokens)
+        if localIsBurstToken(tokens{i})
+            tf = true;
+            return;
+        end
+    end
+end
+
+function plans = localCloneMemberPlans(plans)
+    for i = 1:numel(plans)
+        plans(i).RotationTokens = localNormalizeTokenList(getFieldOrDefault(plans(i), 'RotationTokens', {}));
+    end
+end
+
 function [plans, memberOrder, executionTable] = localScheduleMemberPlans( ...
-        defaultOrder, members, plans, rotationDuration, swapBuffer, planRoot)
+        defaultOrder, members, plans, rotationDuration, swapBuffer, planRoot, writeFiles)
+    if nargin < 7 || isempty(writeFiles)
+        writeFiles = true;
+    end
     memberCount = numel(members);
     requestedStarts = nan(1, memberCount);
     defaultPositions = zeros(1, memberCount);
@@ -237,8 +557,12 @@ function [plans, memberOrder, executionTable] = localScheduleMemberPlans( ...
     for orderPos = 1:numel(memberOrder)
         memberIndex = memberOrder(orderPos);
         plans(memberIndex).Order = orderPos;
-        plans(memberIndex).TempRotationFile = localWritePlanFile( ...
-            planRoot, orderPos, members{memberIndex}.Name, plans(memberIndex).RotationText);
+        if writeFiles
+            plans(memberIndex).TempRotationFile = localWritePlanFile( ...
+                planRoot, orderPos, members{memberIndex}.Name, plans(memberIndex).RotationText);
+        else
+            plans(memberIndex).TempRotationFile = "";
+        end
 
         executionRows(end + 1, :) = { ... %#ok<AGROW>
             orderPos, ...
@@ -464,8 +788,13 @@ function scores = localApplyArchetypeScores(scores, teamInfo)
     end
 end
 
-function [roles, carryIndex, memberJobs] = localAssignMemberRoles(scores, archetypeInfo, teamInfo)
-    carryIndex = localChooseCarryIndex(scores, archetypeInfo);
+function [roles, carryIndex, memberJobs] = localAssignMemberRoles(scores, archetypeInfo, teamInfo, forcedCarryIndex)
+    if nargin >= 4 && ~isempty(forcedCarryIndex) ...
+            && isfinite(forcedCarryIndex) && forcedCarryIndex >= 1 && forcedCarryIndex <= numel(scores)
+        carryIndex = double(forcedCarryIndex);
+    else
+        carryIndex = localChooseCarryIndex(scores, archetypeInfo);
+    end
     roles = repmat("Support", 1, numel(scores));
     memberJobs = repmat("Sustain", 1, numel(scores));
     preferredJobs = string(getFieldOrDefault(archetypeInfo, 'PreferredJobs', strings(1, numel(scores))));
@@ -1857,6 +2186,22 @@ function memberPlan = localEmptyMemberPlan()
         'SeedSource', "", ...
         'SeedIsExplicit', false, ...
         'TempRotationFile', "");
+end
+
+function candidate = localEmptyPlanCandidate()
+    candidate = struct( ...
+        'CandidateLabel', "", ...
+        'Score', -inf, ...
+        'Summary', "", ...
+        'CarryIndex', 0, ...
+        'Roles', strings(1, 0), ...
+        'MemberJobs', strings(1, 0), ...
+        'OrderSeed', zeros(1, 0), ...
+        'MemberPlans', struct([]), ...
+        'ExecutionOrder', zeros(1, 0), ...
+        'ExecutionTable', table(), ...
+        'TimelineResult', struct(), ...
+        'CandidateCount', 0);
 end
 
 function tokens = localNormalizeTokenList(tokens)

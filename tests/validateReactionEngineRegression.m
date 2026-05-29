@@ -12,6 +12,12 @@ function validateReactionEngineRegression()
 
     state = createEnemyState(enemy, teamContext, "");
     state = localApplyAuraOnly(state, "Pyro", 1.0, build, teamContext, enemy);
+    [agedPyro, ~] = advanceEnemyStateTime(state, 4.0, "", teamContext);
+    refreshedPyro = localApplyAuraOnly(agedPyro, "Pyro", 1.0, build, teamContext, enemy);
+    [agedSinglePyro, ~] = advanceEnemyStateTime(agedPyro, 6.0, "", teamContext);
+    [agedRefreshedPyro, ~] = advanceEnemyStateTime(refreshedPyro, 6.0, "", teamContext);
+    assert(localAuraGauge(agedSinglePyro, "Pyro") <= 1e-6 && localAuraGauge(agedRefreshedPyro, "Pyro") > 1e-6, ...
+        'Reapplying the same aura after partial decay should now refresh the remaining aura lifetime instead of keeping the old expiry unchanged.');
     forwardVape = resolveReactionForHit(state, localMakeHit("Hydro", 1.0), build, teamContext, enemy, 0);
     assert(strcmpi(char(forwardVape.PrimaryReaction), 'Vaporize'), ...
         'Expected Vaporize to trigger from Hydro on Pyro.');

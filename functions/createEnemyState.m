@@ -131,12 +131,12 @@ function decayPerSecond = localDefaultDecayPerSecond(auraElement, gaugeUnits)
 
     switch auraElement
         case {'pyro', 'hydro', 'cryo', 'electro', 'dendro'}
-            duration = 9.5 * gaugeUnits;
+            duration = 2.5 * gaugeUnits + 7.0;
         otherwise
-            duration = 8.0 * gaugeUnits;
+            duration = 2.0 * gaugeUnits + 6.0;
     end
 
-    decayPerSecond = 1.0 / max(duration, 1.0);
+    decayPerSecond = gaugeUnits / max(duration, 1.0);
 end
 
 function aura = localInferSupportAura(triggerElement, teamContext)
