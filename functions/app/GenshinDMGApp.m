@@ -97,6 +97,7 @@ classdef GenshinDMGApp < handle
         ComparisonAxes
         ComparisonTabGroup
         ComparisonPages
+        EditorFigure
     end
 
     methods
@@ -128,6 +129,9 @@ classdef GenshinDMGApp < handle
 
         function delete(obj)
             % 关闭 APP 时安全释放窗口句柄。
+            if ~isempty(obj.EditorFigure) && isvalid(obj.EditorFigure)
+                delete(obj.EditorFigure);
+            end
             if ~isempty(obj.Figure) && isvalid(obj.Figure)
                 delete(obj.Figure);
             end
@@ -199,18 +203,17 @@ classdef GenshinDMGApp < handle
             % 构建主界面布局。
             obj.Figure = uifigure( ...
                 'Name', 'Genshin DMG Calc Visual App', ...
-                'Position', [80 40 1720 980], ...
+                'Position', [80 40 1440 980], ...
                 'Color', [0.95 0.96 0.98], ...
                 'AutoResizeChildren', 'off');
 
-            mainGrid = uigridlayout(obj.Figure, [1 3]);
-            mainGrid.ColumnWidth = {360, 560, '1x'};
+            mainGrid = uigridlayout(obj.Figure, [1 2]);
+            mainGrid.ColumnWidth = {380, '1x'};
             mainGrid.RowHeight = {'1x'};
             mainGrid.Padding = [14 14 14 14];
             mainGrid.ColumnSpacing = 14;
 
             obj.createTeamPanel(mainGrid);
-            obj.createEditorPanel(mainGrid);
             obj.createResultPanel(mainGrid);
         end
 
@@ -327,7 +330,7 @@ classdef GenshinDMGApp < handle
                     'Text', '编辑', ...
                     'BackgroundColor', [0.90 0.76 0.48], ...
                     'FontColor', [0.16 0.13 0.08], ...
-                    'ButtonPushedFcn', @(~, ~) obj.selectSlot(i));
+                    'ButtonPushedFcn', @(~, ~) obj.openEditorForSlot(i));
                 editButton.Layout.Row = 1;
                 editButton.Layout.Column = 4;
                 obj.SlotEditButtons{i} = editButton;
@@ -439,7 +442,46 @@ classdef GenshinDMGApp < handle
             end
         end
 
-        function createEditorPanel(obj, parent)
+        function createEditorWindow(obj)
+            if ~isempty(obj.EditorFigure) && isvalid(obj.EditorFigure)
+                obj.EditorFigure.Visible = 'on';
+                drawnow limitrate;
+                return;
+            end
+
+            mainPos = obj.Figure.Position;
+            screenSize = get(groot, 'ScreenSize');
+            editorWidth = 620;
+            editorHeight = min(980, max(720, screenSize(4) - 80));
+            editorX = min(mainPos(1) + mainPos(3) + 20, screenSize(3) - editorWidth - 20);
+            editorX = max(20, editorX);
+            editorY = min(max(40, mainPos(2)), screenSize(4) - editorHeight - 60);
+            obj.EditorFigure = uifigure( ...
+                'Name', '角色详情编辑', ...
+                'Position', [editorX editorY editorWidth editorHeight], ...
+                'Color', [0.95 0.96 0.98], ...
+                'AutoResizeChildren', 'off', ...
+                'CloseRequestFcn', @(src, ~) obj.hideEditorWindow(src));
+
+            editorRoot = uigridlayout(obj.EditorFigure, [1 1]);
+            editorRoot.RowHeight = {'1x'};
+            editorRoot.ColumnWidth = {'1x'};
+            editorRoot.Padding = [10 10 10 10];
+            obj.createEditorPanel(editorRoot, 1);
+        end
+
+        function hideEditorWindow(obj, src)
+            if nargin < 2 || isempty(src) || ~isvalid(src)
+                return;
+            end
+            obj.saveSelectedSlotState();
+            src.Visible = 'off';
+        end
+
+        function createEditorPanel(obj, parent, layoutColumn)
+            if nargin < 3 || isempty(layoutColumn)
+                layoutColumn = 1;
+            end
             % 中间角色编辑区域。
             editorPanel = uipanel(parent, ...
                 'Title', '当前角色编辑', ...
@@ -447,7 +489,7 @@ classdef GenshinDMGApp < handle
                 'BackgroundColor', [0.99 0.99 1.00], ...
                 'ForegroundColor', [0.18 0.23 0.33]);
             editorPanel.Layout.Row = 1;
-            editorPanel.Layout.Column = 2;
+            editorPanel.Layout.Column = layoutColumn;
 
             editorGrid = uigridlayout(editorPanel, [4 1]);
             editorGrid.RowHeight = {34, 340, '1x', 240};
@@ -694,7 +736,7 @@ classdef GenshinDMGApp < handle
                 'BackgroundColor', [0.99 0.99 1.00], ...
                 'ForegroundColor', [0.18 0.23 0.33]);
             resultPanel.Layout.Row = 1;
-            resultPanel.Layout.Column = 3;
+            resultPanel.Layout.Column = 2;
 
             resultGrid = uigridlayout(resultPanel, [3 1]);
             resultGrid.RowHeight = {156, 360, '1x'};
@@ -1592,12 +1634,24 @@ classdef GenshinDMGApp < handle
         function selectSlot(obj, slotIndex)
             % 切换当前编辑的角色槽。
             obj.saveSelectedSlotState();
-            obj.SelectedSlot = slotIndex;
+            obj.SelectedSlot = max(1, min(numel(obj.Slots), round(slotIndex)));
             obj.refreshSelectionVisuals();
             obj.refreshEditorForSelectedSlot();
         end
 
+        function openEditorForSlot(obj, slotIndex)
+            if nargin < 2 || isempty(slotIndex)
+                slotIndex = obj.SelectedSlot;
+            end
+            obj.selectSlot(slotIndex);
+            obj.createEditorWindow();
+            obj.refreshEditorForSelectedSlot();
+        end
+
         function refreshEditorForSelectedSlot(obj)
+            if isempty(obj.SelectedSlotLabel) || ~isvalid(obj.SelectedSlotLabel)
+                return;
+            end
             % 将当前队伍槽的内容加载到中间编辑区。
             slot = obj.Slots(obj.SelectedSlot);
 
@@ -1672,7 +1726,9 @@ classdef GenshinDMGApp < handle
 
         function saveSelectedSlotState(obj)
             % 将中间编辑区的构筑表和轮转文本写回当前选中槽位。
-            if isempty(obj.BuildTable) || isempty(obj.RotationTextArea) || isempty(obj.Slots)
+            if isempty(obj.BuildTable) || isempty(obj.RotationTextArea) || isempty(obj.Slots) ...
+                    || ~isvalid(obj.BuildTable) || ~isvalid(obj.RotationTextArea)
+                return;
             end
             if obj.SelectedSlot < 1 || obj.SelectedSlot > numel(obj.Slots)
                 return;
@@ -1993,7 +2049,11 @@ classdef GenshinDMGApp < handle
             enemy = struct( ...
                 'Level', obj.EnemyLevelField.Value, ...
                 'Res', obj.EnemyResField.Value, ...
-                'DefReduct', obj.EnemyDefField.Value);
+                'DefReduct', obj.EnemyDefField.Value, ...
+                'ReactionMode', "Realistic", ...
+                'AutoSupportAura', false, ...
+                'EnemyCount', 1, ...
+                'TargetCount', 1);
         end
 
         function [members, slotIndices] = buildEnabledMembers(obj)
@@ -3167,13 +3227,53 @@ classdef GenshinDMGApp < handle
                 'DPS', NaN, ...
                 'RotationTime', NaN);
             obj.setStatus('模拟失败，请检查输入。');
-            % 展示模拟错误，同时保留堆栈首条关键信息。
-            detail = ME.message;
-            if ~isempty(ME.stack)
-                detail = sprintf('%s\n\n发生位置：%s (line %d)', ...
-                    ME.message, ME.stack(1).name, ME.stack(1).line);
+            detail = obj.buildSimulationErrorDialog(ME);
+            uialert(obj.Figure, detail, '模拟失败', 'Icon', 'error');
+        end
+
+        function detail = buildSimulationErrorDialog(obj, ME)
+            summary = string(ME.message);
+            if strlength(summary) == 0
+                summary = "未返回具体错误信息。";
             end
-            uialert(obj.Figure, detail, '模拟失败');
+
+            location = "未知位置";
+            if ~isempty(ME.stack)
+                location = sprintf('%s (line %d)', ME.stack(1).name, ME.stack(1).line);
+            end
+
+            hints = obj.buildSimulationErrorHints(ME);
+            hintText = join("- " + hints(:), newline);
+            detail = sprintf(['错误摘要：%s\n\n' ...
+                '发生位置：%s\n\n' ...
+                '模拟时常见可能原因：\n%s\n\n' ...
+                '建议：先恢复默认轮转/默认构筑后重试；若队伍含 Furina，请优先检查组队轮转与起手顺序。'], ...
+                char(summary), char(location), char(hintText));
+        end
+
+        function hints = buildSimulationErrorHints(obj, ME)
+            %#ok<INUSD>
+            hints = [ ...
+                "轮转文本包含未知 token、空行格式异常，或角色切换后仍保留了旧角色轮转"; ...
+                "构筑表中存在空值、非数值字段，或武器/圣遗物/精炼配置与当前角色不匹配"; ...
+                "队伍自动排轴、时间线、能量循环或元素附着推导失败"; ...
+                "角色专用脚本暂未覆盖当前命座/天赋/动作组合" ...
+            ];
+
+            enabledNames = strings(0, 1);
+            if ~isempty(obj.Slots)
+                enabledNames = string({obj.Slots([obj.Slots.Enabled]).CharacterKey}).';
+            end
+            loweredMessage = lower(char(string(ME.message)));
+            if any(strcmpi(enabledNames, 'Furina')) || contains(loweredMessage, 'furina')
+                hints(end + 1, 1) = "Furina 组队会额外推导共享增伤与队伍时间线；如果报错，常见触发点是组队轮转、队友起手顺序或临时轮转文件异常";
+            end
+            if contains(loweredMessage, 'rotation') || contains(loweredMessage, 'token')
+                hints(end + 1, 1) = "当前报错已经命中轮转/动作解析链路，请优先检查轮转文本是否仍适配当前角色";
+            end
+            if contains(loweredMessage, 'artifact') || contains(loweredMessage, 'weapon') || contains(loweredMessage, 'build')
+                hints(end + 1, 1) = "当前报错已经命中构筑链路，请优先检查 build 表格和武器、圣遗物下拉项";
+            end
         end
 
         function onSlotCharacterChanged(obj, slotIndex, newCharacter)

@@ -94,11 +94,49 @@ function validateFurinaRegression()
     assert(getFieldOrDefault(furinaTeam, 'ApproxFurinaBonus', 0) > getFieldOrDefault(soloFurinaTeam, 'ApproxFurinaBonus', 0), ...
         'Furina timeline-derived team bonus should increase when a more realistic multi-member rotation can build better HP rhythm and burst coverage.');
 
+    guiStyleEnemy = struct('Level', 90, 'Res', 0.10, 'DefReduct', 0, ...
+        'ReactionMode', "Realistic", 'AutoSupportAura', false, 'EnemyCount', 1, 'TargetCount', 1);
+    guiStyleTeamSpec = struct( ...
+        'Members', {{cfg, barbara, lisa}}, ...
+        'RotationDuration', 20, ...
+        'SharedBuffs', struct());
+    guiStyleTeamResult = simulateTeamDPS(guiStyleTeamSpec, guiStyleEnemy);
+    assert(isstruct(guiStyleTeamResult) && isfield(guiStyleTeamResult, 'DPS') ...
+            && isfinite(guiStyleTeamResult.DPS) && guiStyleTeamResult.DPS > 0, ...
+        'Furina should complete a full team simulation through the unified team entry without throwing team-mode errors.');
+
+    startFigureCount = numel(findall(groot, 'Type', 'Figure'));
+    app = GenshinDMGApp();
+    appCleanup = onCleanup(@() localDeleteIfValid(app)); %#ok<NASGU>
+    drawnow;
+
+    afterLaunchFigureCount = numel(findall(groot, 'Type', 'Figure'));
+    assert(afterLaunchFigureCount == startFigureCount + 1, ...
+        'App startup should keep the single-character editor in a lazy separate window instead of occupying main UI space.');
+
+    app.runTeam();
+    drawnow;
+    assert(string(app.LastSimulationMode) == "整队", ...
+        'App Furina regression should complete through the GUI team entry.');
+    assert(isstruct(app.LastTeamResult) && isfield(app.LastTeamResult, 'DPS') ...
+            && isfinite(app.LastTeamResult.DPS) && app.LastTeamResult.DPS > 0, ...
+        'App Furina regression should produce a positive team DPS result.');
+
+    afterTeamFigureCount = numel(findall(groot, 'Type', 'Figure'));
+    assert(afterTeamFigureCount == startFigureCount + 1, ...
+        'Running a team simulation should not auto-open the single-character editor window.');
+
     disp('validateFurinaRegression passed');
 end
 
 function localDeleteIfExists(path)
     if exist(path, 'file') == 2
         delete(path);
+    end
+end
+
+function localDeleteIfValid(handleObj)
+    if ~isempty(handleObj) && isvalid(handleObj)
+        delete(handleObj);
     end
 end
