@@ -109,6 +109,9 @@ function meta = inferActionCombatMetadata(member, action, archetypeInfo, teamCon
         meta.TriggeredFollowUpForegroundOnly, meta.TriggeredFollowUpMaxCount] = localResolveTriggeredFollowUpProfile( ...
         normalizedName, lowerAction, meta.EffectTag, meta.EffectDuration, constellation);
     meta = localApplyCharacterSpecificMetadata(meta, member, normalizedName, lowerAction, teamContext);
+    if strlength(string(meta.StrikeType)) == 0
+        meta.StrikeType = localResolveDefaultStrikeType(weaponType, lowerAction, meta.ActionClass);
+    end
 
     forcedReaction = localResolveForcedReaction(lowerAction);
     if strlength(forcedReaction) > 0
@@ -367,6 +370,24 @@ function preferredAura = localResolvePreferredAura(hitElement, archetypeInfo)
     fieldName = char(string(hitElement));
     if isstruct(auraPairs) && isfield(auraPairs, fieldName)
         preferredAura = string(getFieldOrDefault(auraPairs, fieldName, ""));
+    end
+end
+
+function strikeType = localResolveDefaultStrikeType(weaponType, lowerAction, actionClass)
+    strikeType = "";
+    actionClass = string(actionClass);
+    if actionClass == "Plunge"
+        strikeType = "Blunt";
+        return;
+    end
+
+    if any(actionClass == ["Normal", "Charged", "Plunge"]) && strcmpi(char(weaponType), 'Claymore')
+        strikeType = "Blunt";
+        return;
+    end
+
+    if any(strcmp(lowerAction, {'shatter', 'overload'}))
+        strikeType = "Blunt";
     end
 end
 
