@@ -3,7 +3,7 @@ function imagePath = getPortraitForCharacter(characterName, cacheDir)
     % 资源查找顺序调整为：
     % 1. 优先读取项目内 art/portraits 的本地素材；
     % 2. 若旧缓存目录中已有资源，则迁移 / 复用；
-    % 3. 若本地不存在，再尝试联网下载并保存回 art/portraits；
+    % 3. 若本地不存在，再从 Lunaris 联网下载并保存回 art/portraits；
     % 4. 最后才生成占位图，避免 GUI 直接报错。
     projectRoot = localProjectRoot();
     localDir = fullfile(projectRoot, 'art', 'portraits');
@@ -23,10 +23,20 @@ function imagePath = getPortraitForCharacter(characterName, cacheDir)
 
     fileBase = char(avatarKey);
     imagePath = fullfile(localDir, [fileBase '.png']);
+    aliasImagePath = fullfile(localDir, [char(string(characterName)) '.png']);
     legacyPath = fullfile(requestedDir, [fileBase '.png']);
     failMarkerPath = fullfile(localDir, [fileBase '.missing']);
+    placeholderPath = fullfile(localDir, [fileBase '_placeholder.png']);
 
     if isfile(imagePath)
+        return;
+    end
+    if isfile(aliasImagePath)
+        imagePath = aliasImagePath;
+        return;
+    end
+    if isfile(placeholderPath)
+        imagePath = placeholderPath;
         return;
     end
     if requestedDir ~= string(localDir) && isfile(legacyPath)
@@ -53,6 +63,7 @@ function imagePath = getPortraitForCharacter(characterName, cacheDir)
         end
     end
 
+    localDeleteFailedDownloadSidecars(localDir, fileBase);
     localWriteFailMarker(failMarkerPath);
     imagePath = localCreatePlaceholder(localDir, fileBase, displayName);
 end
@@ -73,11 +84,13 @@ function dirPath = localNormalizePortraitDir(cacheDir, defaultDir)
 end
 
 function urls = localBuildAvatarCandidates(avatarKey)
-    baseUrl = "https://enka.network/ui/";
+    avatarKey = string(avatarKey);
+    baseUrl = "https://api.lunaris.moe/data/assets/";
     urls = { ...
-        char(baseUrl + "UI_AvatarIcon_" + avatarKey + ".png"), ...
-        char(baseUrl + "UI_Gacha_AvatarIcon_" + avatarKey + ".png"), ...
-        char(baseUrl + "UI_Gacha_AvatarImg_" + avatarKey + ".png")};
+        char(baseUrl + "avataricon/UI_AvatarIcon_" + avatarKey + ".png"), ...
+        char(baseUrl + "avataricon/UI_AvatarIcon_" + avatarKey + ".webp"), ...
+        char(baseUrl + "gachaicon/UI_Gacha_AvatarIcon_" + avatarKey + ".png"), ...
+        char(baseUrl + "gachaicon/UI_Gacha_AvatarIcon_" + avatarKey + ".webp")};
 end
 
 function imagePath = localCreatePlaceholder(cacheDir, fileBase, displayName)
@@ -151,5 +164,17 @@ function localWriteFailMarker(markerPath)
     fid = fopen(markerPath, 'w');
     if fid ~= -1
         fclose(fid);
+    end
+end
+
+function localDeleteFailedDownloadSidecars(cacheDir, fileBase)
+    sidecars = { ...
+        fullfile(cacheDir, [fileBase '.png.html']), ...
+        fullfile(cacheDir, [fileBase '.webp.html']), ...
+        fullfile(cacheDir, [fileBase '.html'])};
+    for i = 1:numel(sidecars)
+        if isfile(sidecars{i})
+            delete(sidecars{i});
+        end
     end
 end

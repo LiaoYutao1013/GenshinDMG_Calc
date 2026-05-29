@@ -13,13 +13,17 @@ function imagePath = getEquipmentBadge(kind, key, displayName, subLabel, cacheDi
     localEnsureDir(assetDir);
     localEnsureDir(legacyDir);
 
-    [fileStem, remoteUrl] = localResolveRemoteAsset(kind, key);
+    [fileStem, remoteUrl, remoteExt] = localResolveRemoteAsset(kind, key);
     if strlength(fileStem) == 0
         fileStem = localSafeFileStem(key);
     end
 
-    imagePath = fullfile(assetDir, char(fileStem + ".png"));
-    legacyPath = fullfile(legacyDir, char(fileStem + ".png"));
+    if strlength(remoteExt) == 0
+        remoteExt = ".png";
+    end
+
+    imagePath = localExistingAssetPath(assetDir, fileStem, remoteExt);
+    legacyPath = localExistingAssetPath(legacyDir, fileStem, remoteExt);
     failMarkerPath = fullfile(assetDir, char(fileStem + ".missing"));
     badgePath = fullfile(assetDir, char(fileStem + "_badge.png"));
 
@@ -32,14 +36,21 @@ function imagePath = getEquipmentBadge(kind, key, displayName, subLabel, cacheDi
             return;
         end
     end
+    hasRemoteAsset = strlength(remoteUrl) > 0;
+    if ~hasRemoteAsset && isfile(badgePath)
+        imagePath = badgePath;
+        return;
+    end
 
-    if ~isfile(failMarkerPath) && strlength(remoteUrl) > 0
+    if ~isfile(failMarkerPath) && hasRemoteAsset
+        imagePath = fullfile(assetDir, char(fileStem + remoteExt));
         try
             websave(imagePath, char(remoteUrl), weboptions('Timeout', 5));
         catch
             % 真实图标下载失败时，后续自动回退到本地 badge。
         end
         if ~isfile(imagePath)
+            localDeleteFailedDownloadSidecars(assetDir, fileStem, remoteExt);
             localWriteFailMarker(failMarkerPath);
         end
     end
@@ -86,16 +97,18 @@ function folderName = localKindFolderName(kind)
     end
 end
 
-function [fileStem, remoteUrl] = localResolveRemoteAsset(kind, key)
+function [fileStem, remoteUrl, remoteExt] = localResolveRemoteAsset(kind, key)
+    remoteExt = ".png";
     kind = lower(char(string(kind)));
     switch kind
         case 'artifact'
-            [fileStem, remoteUrl] = localResolveArtifactAsset(key);
+            [fileStem, remoteUrl, remoteExt] = localResolveArtifactAsset(key);
         case 'weapon'
             iconKey = localLookupWeaponIconKey(key);
             if strlength(iconKey) > 0
                 fileStem = iconKey;
-                remoteUrl = "https://enka.network/ui/" + iconKey + ".png";
+                remoteUrl = "https://api.lunaris.moe/data/assets/weaponicon/" + iconKey + ".png";
+                remoteExt = ".png";
             else
                 fileStem = localSafeFileStem(key);
                 remoteUrl = "";
@@ -106,9 +119,10 @@ function [fileStem, remoteUrl] = localResolveRemoteAsset(kind, key)
     end
 end
 
-function [fileStem, remoteUrl] = localResolveArtifactAsset(setId)
+function [fileStem, remoteUrl, remoteExt] = localResolveArtifactAsset(setId)
     fileStem = localSafeFileStem(setId);
     remoteUrl = "";
+    remoteExt = ".png";
     registry = getArtifactSetRegistry();
     idx = find(string({registry.Id}) == string(setId), 1, 'first');
     if isempty(idx)
@@ -123,17 +137,57 @@ function [fileStem, remoteUrl] = localResolveArtifactAsset(setId)
     remoteUrl = "https://api.lunaris.moe/data/assets/artifacts/" + iconKey + ".png";
 end
 
+function assetPath = localExistingAssetPath(assetDir, fileStem, preferredExt)
+    candidates = [ ...
+        fullfile(assetDir, char(fileStem + preferredExt)), ...
+        fullfile(assetDir, char(fileStem + ".png")), ...
+        fullfile(assetDir, char(fileStem + ".webp")), ...
+        fullfile(assetDir, char(fileStem + ".jpg")), ...
+        fullfile(assetDir, char(fileStem + ".jpeg"))];
+    for i = 1:numel(candidates)
+        if isfile(candidates{i})
+            assetPath = candidates{i};
+            return;
+        end
+    end
+
+    assetPath = fullfile(assetDir, char(fileStem + preferredExt));
+end
+
 function iconKey = localLookupWeaponIconKey(weaponName)
     iconKey = "";
     persistent weaponIndex
+
+    directIconKey = string(weaponName);
+    if startsWith(directIconKey, "UI_EquipIcon_")
+        iconKey = directIconKey;
+        return;
+    end
 
     if isempty(weaponIndex)
         weaponIndex = localBuildWeaponIconIndex();
     end
 
+    idx = localFindWeaponIndex(weaponIndex, string(weaponName));
+    if ~isempty(idx)
+        iconKey = string(weaponIndex(idx).IconKey);
+        return;
+    end
+
+    exactNames = string({weaponIndex.Name});
+    idx = find(exactNames == string(weaponName), 1, 'first');
+    if ~isempty(idx)
+        iconKey = string(weaponIndex(idx).IconKey);
+        return;
+    end
+
     normalizedName = localNormalizeLookupKey(weaponName);
+    if strlength(normalizedName) == 0
+        return;
+    end
+
     normalizedNames = string({weaponIndex.NormalizedName});
-    idx = find(normalizedNames == normalizedName, 1, 'first');
+    idx = find(normalizedNames == normalizedName & strlength(normalizedNames) > 0, 1, 'first');
     if ~isempty(idx)
         iconKey = string(weaponIndex(idx).IconKey);
         return;
@@ -143,6 +197,12 @@ function iconKey = localLookupWeaponIconKey(weaponName)
         'craneechoingcall', 'UI_EquipIcon_Catalyst_MountainGale'; ...
         'cranesechoingcall', 'UI_EquipIcon_Catalyst_MountainGale'; ...
         'crane''sechoingcall', 'UI_EquipIcon_Catalyst_MountainGale'; ...
+        'astralvulturebow', 'UI_EquipIcon_Bow_Qoyllorsnova'; ...
+        'astralvulturescrimsonplumage', 'UI_EquipIcon_Bow_Qoyllorsnova'; ...
+        'obsidianwhisper', 'UI_EquipIcon_Catalyst_Figurines'; ...
+        'starcallerswatch', 'UI_EquipIcon_Catalyst_Figurines'; ...
+        'symphonist', 'UI_EquipIcon_Pole_Trident'; ...
+        'symphonistofscents', 'UI_EquipIcon_Pole_Trident'; ...
         'favoniuslance', 'UI_EquipIcon_Pole_Zephyrus'; ...
         'rightfulreward', 'UI_EquipIcon_Pole_Mechanic'; ...
         'keyofkhajnisut', 'UI_EquipIcon_Sword_Deshret'; ...
@@ -158,8 +218,35 @@ function iconKey = localLookupWeaponIconKey(weaponName)
     end
 end
 
+function idx = localFindWeaponIndex(weaponIndex, weaponName)
+    idx = [];
+    if isempty(weaponIndex)
+        return;
+    end
+
+    query = localNormalizeLookupKey(weaponName);
+    if strlength(query) == 0
+        return;
+    end
+
+    normalizedNames = string({weaponIndex.NormalizedName});
+    idx = find(normalizedNames == query & strlength(normalizedNames) > 0, 1, 'first');
+    if ~isempty(idx)
+        return;
+    end
+
+    for i = 1:numel(weaponIndex)
+        aliases = string(weaponIndex(i).Aliases);
+        aliases = aliases(strlength(aliases) > 0);
+        if any(aliases == query)
+            idx = i;
+            return;
+        end
+    end
+end
+
 function index = localBuildWeaponIconIndex()
-    index = struct('Name', {}, 'NormalizedName', {}, 'IconKey', {});
+    index = struct('Name', {}, 'NormalizedName', {}, 'IconKey', {}, 'Aliases', {});
 
     projectRoot = localProjectRoot();
     jsPath = fullfile(projectRoot, 'data', 'WeaponExcelConfigData.js');
@@ -176,12 +263,80 @@ function index = localBuildWeaponIconIndex()
         index(end + 1) = struct( ... %#ok<AGROW>
             'Name', name, ...
             'NormalizedName', localNormalizeLookupKey(name), ...
-            'IconKey', icon);
+            'IconKey', icon, ...
+            'Aliases', strings(1, 0));
+    end
+
+    index = localMergeLunarisWeaponAliases(index);
+end
+
+function index = localMergeLunarisWeaponAliases(index)
+    listData = getLunarisWeaponList(localProjectRoot(), false);
+    if ~isstruct(listData) || isempty(fieldnames(listData))
+        return;
+    end
+
+    index = localAppendMissingLunarisWeapons(index, listData);
+
+    keysList = fieldnames(listData);
+    for i = 1:numel(keysList)
+        item = listData.(keysList{i});
+        icon = string(getFieldOrDefault(item, 'weaponIcon', getFieldOrDefault(item, 'icon', "")));
+        if strlength(icon) == 0
+            continue;
+        end
+        idx = find(string({index.IconKey}) == icon, 1, 'first');
+        if isempty(idx)
+            continue;
+        end
+
+        aliases = localWeaponAliasesFromLunarisItem(item);
+        index(idx).Aliases = unique([string(index(idx).Aliases), aliases], 'stable');
     end
 end
 
+function index = localAppendMissingLunarisWeapons(index, listData)
+    keysList = fieldnames(listData);
+    for i = 1:numel(keysList)
+        item = listData.(keysList{i});
+        icon = string(getFieldOrDefault(item, 'weaponIcon', getFieldOrDefault(item, 'icon', "")));
+        if strlength(icon) == 0
+            continue;
+        end
+        if any(string({index.IconKey}) == icon)
+            continue;
+        end
+
+        displayName = string(getFieldOrDefault(item, 'enName', getFieldOrDefault(item, 'name', icon)));
+        index(end + 1) = struct( ... %#ok<AGROW>
+            'Name', displayName, ...
+            'NormalizedName', localNormalizeLookupKey(displayName), ...
+            'IconKey', icon, ...
+            'Aliases', localWeaponAliasesFromLunarisItem(item));
+    end
+end
+
+function aliases = localWeaponAliasesFromLunarisItem(item)
+    names = [ ...
+        string(getFieldOrDefault(item, 'enName', "")), ...
+        string(getFieldOrDefault(item, 'name', "")), ...
+        string(getFieldOrDefault(item, 'chsName', "")), ...
+        string(getFieldOrDefault(item, 'ptName', "")), ...
+        string(getFieldOrDefault(item, 'ruName', ""))];
+    aliases = strings(1, 0);
+    for j = 1:numel(names)
+        alias = localNormalizeLookupKey(names(j));
+        if strlength(alias) > 0
+            aliases(end + 1) = alias; %#ok<AGROW>
+        end
+    end
+    aliases = unique(aliases, 'stable');
+end
+
 function normalized = localNormalizeLookupKey(text)
-    normalized = lower(regexprep(char(string(text)), '[^a-zA-Z0-9\u4e00-\u9fa5]', ''));
+    raw = char(string(text));
+    keep = isstrprop(raw, 'alphanum');
+    normalized = lower(raw(keep));
     normalized = string(normalized);
 end
 
@@ -287,6 +442,18 @@ end
 function localWriteFailMarker(markerPath)
     fid = fopen(markerPath, 'w');
     if fid ~= -1
+        fprintf(fid, 'missing\n');
         fclose(fid);
+    end
+end
+
+function localDeleteFailedDownloadSidecars(assetDir, fileStem, remoteExt)
+    sidecars = [ ...
+        fullfile(assetDir, char(fileStem + remoteExt + ".html")), ...
+        fullfile(assetDir, char(fileStem + ".html"))];
+    for i = 1:numel(sidecars)
+        if isfile(sidecars{i})
+            delete(sidecars{i});
+        end
     end
 end

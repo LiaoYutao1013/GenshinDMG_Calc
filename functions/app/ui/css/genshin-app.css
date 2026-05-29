@@ -449,7 +449,7 @@ button:focus-visible,
   max-width: 100%;
   padding: 12px;
   display: grid;
-  grid-template-rows: auto auto auto minmax(0, 1fr) auto;
+  grid-template-rows: auto auto minmax(0, 1fr) auto;
   gap: 10px;
   overflow: auto;
   overflow-x: hidden;
@@ -463,8 +463,7 @@ button:focus-visible,
   gap: 10px;
 }
 
-.metrics,
-.details {
+.metrics {
   min-width: 0;
   display: grid;
   gap: 8px;
@@ -474,12 +473,7 @@ button:focus-visible,
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
-.details {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
-.metric,
-.detail {
+.metric {
   min-width: 0;
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -533,20 +527,6 @@ button:focus-visible,
   white-space: nowrap;
   color: var(--muted);
   font-size: 11px;
-}
-
-.detail {
-  padding: 7px 9px;
-}
-
-.detail-value {
-  margin-top: 4px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  font-size: 13px;
-  line-height: 1.15;
-  font-weight: 800;
 }
 
 .result-visuals {
@@ -738,11 +718,6 @@ button:focus-visible,
     grid-template-rows: auto auto auto auto auto;
   }
 
-  .metrics,
-  .details {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
   .result-visuals {
     grid-template-columns: 1fr;
   }
@@ -751,6 +726,12 @@ button:focus-visible,
   .summary-list,
   .timeline {
     max-height: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .metrics {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -766,7 +747,6 @@ button:focus-visible,
 
   .slot-grid,
   .metrics,
-  .details,
   .result-visuals,
   .build-grid {
     grid-template-columns: 1fr;
@@ -827,7 +807,6 @@ button:focus-visible,
     grid-template-rows: auto auto minmax(0, 1fr);
   }
 
-  .details,
   .timeline-card {
     display: none;
   }
@@ -842,11 +821,6 @@ button:focus-visible,
   .metric {
     padding-top: 8px;
     padding-bottom: 7px;
-  }
-
-  .detail {
-    padding-top: 6px;
-    padding-bottom: 6px;
   }
 
   .bar-list,

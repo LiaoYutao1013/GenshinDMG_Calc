@@ -49,8 +49,6 @@ classdef GenshinDMGApp < handle
         SelectedWeaponBadge
         SelectedArtifactBadge
         ArtifactSetDropdown
-        ArtifactSet2Dropdown
-        ArtifactModeDropdown
         SelectedWeaponDropdown
         SelectedConstellationSpinner
         SelectedTalentSpinner
@@ -574,10 +572,10 @@ classdef GenshinDMGApp < handle
             obj.SelectedWeaponBadge.Layout.Row = 2;
             obj.SelectedWeaponBadge.Layout.Column = 2;
 
-            artifactCtrlGrid = uigridlayout(badgeGrid, [3 1]);
+            artifactCtrlGrid = uigridlayout(badgeGrid, [1 1]);
             artifactCtrlGrid.Layout.Row = [1 2];
             artifactCtrlGrid.Layout.Column = 3;
-            artifactCtrlGrid.RowHeight = {28, 28, 28};
+            artifactCtrlGrid.RowHeight = {28};
             artifactCtrlGrid.ColumnWidth = {'1x'};
             artifactCtrlGrid.RowSpacing = 6;
             artifactCtrlGrid.Padding = [0 0 0 0];
@@ -590,19 +588,6 @@ classdef GenshinDMGApp < handle
                 'ValueChangedFcn', @(src, ~) obj.onSelectedArtifactSetChanged(src.Value));
             obj.ArtifactSetDropdown.Layout.Row = 1;
             obj.ArtifactSetDropdown.Layout.Column = 1;
-            obj.ArtifactSet2Dropdown = uidropdown(artifactCtrlGrid, ...
-                'Items', artifactLabels, ...
-                'ItemsData', artifactIds, ...
-                'ValueChangedFcn', @(src, ~) obj.onSelectedArtifactSet2Changed(src.Value));
-            obj.ArtifactSet2Dropdown.Layout.Row = 2;
-            obj.ArtifactSet2Dropdown.Layout.Column = 1;
-
-            obj.ArtifactModeDropdown = uidropdown(artifactCtrlGrid, ...
-                'Items', {'4件套', '2+2 混搭', '2件套', '无套装'}, ...
-                'ItemsData', {'4pc', '2p2p', '2pc', '0pc'}, ...
-                'ValueChangedFcn', @(src, ~) obj.onSelectedArtifactModeChanged(src.Value));
-            obj.ArtifactModeDropdown.Layout.Row = 3;
-            obj.ArtifactModeDropdown.Layout.Column = 1;
 
             detailCtrlGrid = uigridlayout(heroGrid, [2 4]);
             detailCtrlGrid.Layout.Row = 2;
@@ -1444,6 +1429,9 @@ classdef GenshinDMGApp < handle
                     case "selectSlot"
                         slotIndex = obj.getHtmlEventNumber(eventData, 'slotIndex', obj.SelectedSlot);
                         obj.selectSlot(max(1, min(numel(obj.Slots), round(slotIndex))));
+                    case "openEditor"
+                        slotIndex = obj.getHtmlEventNumber(eventData, 'slotIndex', obj.SelectedSlot);
+                        obj.openEditorForSlot(max(1, min(numel(obj.Slots), round(slotIndex))));
                     case "toggleSlot"
                         slotIndex = obj.getHtmlEventNumber(eventData, 'slotIndex', obj.SelectedSlot);
                         slotIndex = max(1, min(numel(obj.Slots), round(slotIndex)));
@@ -1669,8 +1657,6 @@ classdef GenshinDMGApp < handle
             end
 
             obj.assignDropdownItems(obj.ArtifactSetDropdown, obj.ArtifactSetDropdown.Items, obj.ArtifactSetDropdown.ItemsData, char(slot.ArtifactSet1));
-            obj.assignDropdownItems(obj.ArtifactSet2Dropdown, obj.ArtifactSet2Dropdown.Items, obj.ArtifactSet2Dropdown.ItemsData, char(slot.ArtifactSet2));
-            obj.assignDropdownItems(obj.ArtifactModeDropdown, obj.ArtifactModeDropdown.Items, obj.ArtifactModeDropdown.ItemsData, obj.resolveArtifactMode(slot));
             obj.SelectedConstellationSpinner.Value = slot.Constellation;
             obj.SelectedTalentSpinner.Value = slot.TalentLevel;
             obj.SelectedRefinementSpinner.Value = slot.WeaponRefinement;
@@ -3316,7 +3302,7 @@ classdef GenshinDMGApp < handle
             obj.saveSelectedSlotState();
             slot = obj.Slots(slotIndex);
             slot.ArtifactSet1 = string(artifactSetId);
-            slot = obj.applyArtifactModeToSlot(slot, obj.resolveArtifactMode(slot));
+            slot = obj.applyArtifactModeToSlot(slot, '4pc');
             slot.Build = obj.applyArtifactSelectionToBuild(slot.Build, slot);
             [slot.ArtifactBadgePath, slot.WeaponBadgePath] = obj.resolveEquipmentBadgePaths(slot);
             obj.Slots(slotIndex) = slot;
@@ -3454,31 +3440,7 @@ classdef GenshinDMGApp < handle
             % 中间编辑区的套装选择回写。
             slot = obj.Slots(obj.SelectedSlot);
             slot.ArtifactSet1 = string(setId);
-            slot.Build = obj.applyArtifactSelectionToBuild(slot.Build, slot);
-            [slot.ArtifactBadgePath, slot.WeaponBadgePath] = obj.resolveEquipmentBadgePaths(slot);
-            obj.Slots(obj.SelectedSlot) = slot;
-            obj.refreshSlotCard(obj.SelectedSlot);
-            obj.refreshEditorForSelectedSlot();
-        end
-
-        function onSelectedArtifactSet2Changed(obj, setId)
-            % 中间编辑区第二套圣遗物回写。
-            slot = obj.Slots(obj.SelectedSlot);
-            slot.ArtifactSet2 = string(setId);
-            if obj.resolveArtifactMode(slot) ~= "2p2p" && slot.ArtifactSet2 ~= "None"
-                slot = obj.applyArtifactModeToSlot(slot, '2p2p');
-            end
-            slot.Build = obj.applyArtifactSelectionToBuild(slot.Build, slot);
-            [slot.ArtifactBadgePath, slot.WeaponBadgePath] = obj.resolveEquipmentBadgePaths(slot);
-            obj.Slots(obj.SelectedSlot) = slot;
-            obj.refreshSlotCard(obj.SelectedSlot);
-            obj.refreshEditorForSelectedSlot();
-        end
-
-        function onSelectedArtifactModeChanged(obj, modeValue)
-            % 中间编辑区的套装件数模式切换回写。
-            slot = obj.Slots(obj.SelectedSlot);
-            slot = obj.applyArtifactModeToSlot(slot, modeValue);
+            slot = obj.applyArtifactModeToSlot(slot, '4pc');
             slot.Build = obj.applyArtifactSelectionToBuild(slot.Build, slot);
             [slot.ArtifactBadgePath, slot.WeaponBadgePath] = obj.resolveEquipmentBadgePaths(slot);
             obj.Slots(obj.SelectedSlot) = slot;
@@ -3488,6 +3450,14 @@ classdef GenshinDMGApp < handle
 
         function slot = applyArtifactModeToSlot(obj, slot, modeValue) %#ok<MANU>
             % 按 GUI 模式将件数分配回槽位状态。
+            if string(slot.ArtifactSet1) == "None"
+                slot.ArtifactSet1Pieces = 0;
+                slot.ArtifactSet2 = "None";
+                slot.ArtifactSet2Pieces = 0;
+                slot.ArtifactSet4Active = 0;
+                return;
+            end
+
             switch char(string(modeValue))
                 case '4pc'
                     slot.ArtifactSet1Pieces = 4;

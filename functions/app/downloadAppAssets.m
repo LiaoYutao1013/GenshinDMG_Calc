@@ -2,7 +2,7 @@ function summary = downloadAppAssets()
     % 批量下载 GUI 所需素材，并整理到项目内的 art 目录。
     % 下载范围：
     % 1. 角色头像：getCharacterRegistry 中全部角色；
-    % 2. 武器图标：data/weapons.csv 中全部武器；
+    % 2. 武器图标：data/WeaponExcelConfigData.js 中全部武器；
     % 3. 圣遗物套装图标：getArtifactSetRegistry 中全部套装。
     initProjectPaths();
 
@@ -30,12 +30,11 @@ function summary = downloadAppAssets()
         end
     end
 
-    weapons = readtable(fullfile(projectRoot, 'data', 'weapons.csv'), 'TextType', 'string');
-    weaponNames = unique(weapons.Name, 'stable');
+    weapons = localReadWeapons(projectRoot);
     weaponReal = 0;
     weaponFallback = 0;
-    for i = 1:numel(weaponNames)
-        path = string(getEquipmentBadge('weapon', weaponNames(i), weaponNames(i), "", weaponDir, [0.55 0.64 0.76]));
+    for i = 1:numel(weapons)
+        path = string(getEquipmentBadge('weapon', weapons(i).Key, weapons(i).Name, "", weaponDir, [0.55 0.64 0.76]));
         if contains(path, "_badge.png")
             weaponFallback = weaponFallback + 1;
         else
@@ -69,5 +68,55 @@ end
 function localEnsureDir(dirPath)
     if exist(dirPath, 'dir') ~= 7
         mkdir(dirPath);
+    end
+end
+
+function weapons = localReadWeapons(projectRoot)
+    weapons = struct('Key', {}, 'Name', {});
+
+    jsPath = fullfile(projectRoot, 'data', 'WeaponExcelConfigData.js');
+    if exist(jsPath, 'file') == 2
+        raw = fileread(jsPath);
+        tokens = regexp(raw, '"Name"\s*:\s*"([^"]+)"[\s\S]*?"Icons"\s*:\s*"([^"]+)"', 'tokens');
+        for i = 1:numel(tokens)
+            weapons(end + 1) = struct('Key', string(tokens{i}{2}), 'Name', string(tokens{i}{1})); %#ok<AGROW>
+        end
+    end
+
+    lunarisWeapons = localReadLunarisWeapons(projectRoot);
+    if ~isempty(lunarisWeapons)
+        weapons = [weapons, lunarisWeapons]; %#ok<AGROW>
+    elseif isempty(weapons)
+        fallbackTable = readtable(fullfile(projectRoot, 'data', 'weapons.csv'), 'TextType', 'string');
+        for i = 1:height(fallbackTable)
+            weapons(end + 1) = struct('Key', fallbackTable.Name(i), 'Name', fallbackTable.Name(i)); %#ok<AGROW>
+        end
+    end
+
+    if isempty(weapons)
+        return;
+    end
+
+    keys = string({weapons.Key});
+    [~, uniqueIdx] = unique(keys, 'stable');
+    weapons = weapons(uniqueIdx);
+end
+
+function weapons = localReadLunarisWeapons(projectRoot)
+    weapons = struct('Key', {}, 'Name', {});
+    listData = getLunarisWeaponList(projectRoot, true);
+    if ~isstruct(listData) || isempty(fieldnames(listData))
+        return;
+    end
+
+    keysList = fieldnames(listData);
+    for i = 1:numel(keysList)
+        item = listData.(keysList{i});
+        iconKey = string(getFieldOrDefault(item, 'weaponIcon', getFieldOrDefault(item, 'icon', "")));
+        if strlength(iconKey) == 0
+            continue;
+        end
+        displayName = string(getFieldOrDefault(item, 'enName', getFieldOrDefault(item, 'name', iconKey)));
+        weapons(end + 1) = struct('Key', iconKey, 'Name', displayName); %#ok<AGROW>
     end
 end

@@ -141,7 +141,7 @@
           ${badgeHtml(slot.artifactBadgeUrl, "圣遗物")}
         </div>
         <div class="slot-actions">
-          <button type="button" class="icon-btn" data-action="selectSlot" data-slot="${escapeHtml(slot.index)}" title="选择此槽位" aria-label="编辑 ${escapeHtml(slot.displayName)}">编辑</button>
+          <button type="button" class="icon-btn" data-action="openEditor" data-slot="${escapeHtml(slot.index)}" title="打开角色信息编辑窗口" aria-label="编辑 ${escapeHtml(slot.displayName)}">编辑</button>
           <button type="button" class="icon-btn" data-action="toggleSlot" data-slot="${escapeHtml(slot.index)}" aria-pressed="${slot.enabled ? "true" : "false"}" title="切换队伍计算状态">${slot.enabled ? "停用" : "启用"}</button>
         </div>
       </article>`;
@@ -167,6 +167,7 @@
             </div>
           </div>
           <div class="editor-actions">
+            <button type="button" class="text-btn primary" data-action="openEditor" data-slot="${escapeHtml(slot.index || 0)}" title="打开角色信息编辑窗口">编辑信息</button>
             <button type="button" class="text-btn primary" data-action="runSingle" title="运行当前角色模拟">单人模拟</button>
             <button type="button" class="text-btn gold" data-action="refreshTimeline" title="刷新输出轴预览">刷新轴</button>
             <button type="button" class="text-btn" data-action="resetSlot" title="重置当前角色">重置</button>
@@ -174,7 +175,6 @@
           <div class="build-grid" aria-label="构筑摘要">
             ${buildItem("武器", slot.weaponName)}
             ${buildItem("圣遗物", slot.artifactName)}
-            ${buildItem("套装模式", slot.artifactMode)}
             ${buildItem("构筑预设", slot.presetName)}
             ${buildItem("命座 / 天赋 / 精炼", slot.talentSummary)}
             ${buildItem("起轴时间", slot.startTime)}
@@ -219,14 +219,6 @@
           ${metricHtml("time", "循环时长", currentData.rotationValue, currentData.rotationNote)}
           ${metricHtml("slot", "当前槽位", currentData.slotValue, currentData.slotNote)}
         </section>
-        <section class="details" aria-label="构筑摘要">
-          ${detailHtml("角色", currentData.characterName)}
-          ${detailHtml("武器", currentData.weaponName)}
-          ${detailHtml("圣遗物", currentData.artifactName)}
-          ${detailHtml("预设", currentData.presetName)}
-          ${detailHtml("命座 / 天赋", currentData.talentSummary)}
-          ${detailHtml("模式", currentData.modeSummary)}
-        </section>
         <section class="result-visuals" aria-label="结果可视化">
           <article class="visual-card">
             <div class="visual-title">成员 DPS</div>
@@ -251,14 +243,6 @@
         <div class="metric-value">${escapeHtml(value)}</div>
         <div class="note">${escapeHtml(note)}</div>
       </article>`;
-  }
-
-  function detailHtml(label, value) {
-    return `
-      <div class="detail">
-        <div class="label">${escapeHtml(label)}</div>
-        <div class="detail-value" title="${escapeHtml(value)}">${escapeHtml(value)}</div>
-      </div>`;
   }
 
   function chartRowsHtml(rows) {

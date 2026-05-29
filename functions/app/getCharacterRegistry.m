@@ -209,6 +209,12 @@ function aliasMap = localCharacterAliasMap()
     aliasMap('Kokomi') = struct('Key', "SangonomiyaKokomi", 'DisplayName', "Sangonomiya Kokomi", 'AvatarKey', "Kokomi", 'Include', true);
     aliasMap('Sara') = struct('Key', "KujouSara", 'DisplayName', "Kujou Sara", 'AvatarKey', "Sara", 'Include', true);
     aliasMap('Kazuha') = struct('Key', "KaedeharaKazuha", 'DisplayName', "Kaedehara Kazuha", 'AvatarKey', "Kazuha", 'Include', true);
+    aliasMap('Alhatham') = struct('Key', "Alhaitham", 'DisplayName', "Alhaitham", 'AvatarKey', "Alhatham", 'Include', true);
+    aliasMap('Ambor') = struct('Key', "Amber", 'DisplayName', "Amber", 'AvatarKey', "Ambor", 'Include', true);
+    aliasMap('Momoka') = struct('Key', "Kirara", 'DisplayName', "Kirara", 'AvatarKey', "Momoka", 'Include', true);
+    aliasMap('Noel') = struct('Key', "Noelle", 'DisplayName', "Noelle", 'AvatarKey', "Noel", 'Include', true);
+    aliasMap('Tohma') = struct('Key', "Thoma", 'DisplayName', "Thoma", 'AvatarKey', "Tohma", 'Include', true);
+    aliasMap('Feiyan') = struct('Key', "Yanfei", 'DisplayName', "Yanfei", 'AvatarKey', "Feiyan", 'Include', true);
     aliasMap('Sandrone') = struct('Key', "Sandrone", 'DisplayName', "Sandrone", 'AvatarKey', "MarionetteNew", 'Include', true);
     aliasMap('MarionetteNew') = struct('Key', "Sandrone", 'DisplayName', "Sandrone", 'AvatarKey', "MarionetteNew", 'Include', true);
 end
