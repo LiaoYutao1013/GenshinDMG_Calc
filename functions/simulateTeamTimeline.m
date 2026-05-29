@@ -80,6 +80,11 @@ function timelineResult = simulateTeamTimeline(members, rotationPlan, teamContex
         if deltaTime > 1e-9
             [enemyState, timedPackets] = advanceEnemyStateTime( ...
                 enemyState, deltaTime, eventTriggerElement, teamContext);
+            [timedReactionRows, actionOrder] = localBuildTimedReactionTimelineRows( ...
+                timedPackets, enemyState, activeForegroundCharacter, actionOrder);
+            if ~isempty(timedReactionRows)
+                timelineRows = [timelineRows; timedReactionRows]; %#ok<AGROW>
+            end
             [runtimeReactionEvents, runtimeTriggeredWindows, runtimeTriggeredLastTriggerTimes] = ...
                 localResolveBackgroundReactionTriggeredEvents( ...
                 timedPackets, event.StartTime, runtimeTriggeredWindows, ...
@@ -95,7 +100,7 @@ function timelineResult = simulateTeamTimeline(members, rotationPlan, teamContex
                     actionOrder, previousForegroundEndTime, event.StartTime, "Team", activeForegroundCharacter, ...
                     "Swap", "Swap", "Team", "Utility", "", 0, ...
                     false, "", "", "", "", ...
-                    localJoinReactionNames(timedPackets), localAuraSummary(enemyState), ...
+                    "", localAuraSummary(enemyState), ...
                     localQuickenGauge(enemyState), localFrozenGauge(enemyState), localCoreCount(enemyState), ...
                     0, "", false, "", "", "", "", "", ""};
             end
@@ -222,12 +227,17 @@ function timelineResult = simulateTeamTimeline(members, rotationPlan, teamContex
     if currentTime < rotationDuration
         [enemyState, timedPackets] = advanceEnemyStateTime( ...
             enemyState, rotationDuration - currentTime, triggerElement, teamContext);
+        [timedReactionRows, actionOrder] = localBuildTimedReactionTimelineRows( ...
+            timedPackets, enemyState, activeForegroundCharacter, actionOrder);
+        if ~isempty(timedReactionRows)
+            timelineRows = [timelineRows; timedReactionRows]; %#ok<AGROW>
+        end
         if ~isempty(timedPackets)
             actionOrder = actionOrder + 1;
             timelineRows(end + 1, :) = { ... %#ok<AGROW>
                 actionOrder, currentTime, rotationDuration, "Team", activeForegroundCharacter, "Tail", "Tail", ...
                 "Team", "Utility", "", 0, false, "", "", "", "", ...
-                localJoinReactionNames(timedPackets), localAuraSummary(enemyState), ...
+                "", localAuraSummary(enemyState), ...
                 localQuickenGauge(enemyState), localFrozenGauge(enemyState), localCoreCount(enemyState), ...
                 0, "", false, "", "", "", "", "", ""};
         end
@@ -1626,6 +1636,72 @@ function text = localJoinReactionNames(packets)
         text = "";
     else
         text = join(names, ", ");
+    end
+end
+
+function [rows, actionOrder] = localBuildTimedReactionTimelineRows(packets, enemyState, activeCharacter, actionOrder)
+    rows = cell(0, 30);
+    if isempty(packets)
+        return;
+    end
+
+    orderedPackets = localSortReactionPackets(packets);
+    for packetIndex = 1:numel(orderedPackets)
+        packet = orderedPackets(packetIndex);
+        reactionName = string(getFieldOrDefault(packet, 'ReactionName', ""));
+        if strlength(reactionName) == 0
+            continue;
+        end
+        triggerTime = double(getFieldOrDefault(packet, 'TriggerTime', NaN));
+        if ~isfinite(triggerTime)
+            triggerTime = 0;
+        end
+
+        actionOrder = actionOrder + 1;
+        rows(end + 1, :) = { ... %#ok<AGROW>
+            actionOrder, triggerTime, triggerTime, ...
+            localResolveTimedReactionCharacter(packet), activeCharacter, ...
+            "Reaction", reactionName, "TimedReaction", "Reaction", ...
+            string(getFieldOrDefault(packet, 'ReactionElement', "")), ...
+            0, false, "not_applicable", "", "", "not_applicable", ...
+            reactionName, localAuraSummary(enemyState), localQuickenGauge(enemyState), ...
+            localFrozenGauge(enemyState), localCoreCount(enemyState), ...
+            0, "", false, "", "", ...
+            string(getFieldOrDefault(packet, 'SourceType', "")), ...
+            string(getFieldOrDefault(packet, 'SourceCharacter', "")), ...
+            string(getFieldOrDefault(packet, 'SourceAction', "")), ...
+            string(getFieldOrDefault(packet, 'PacketSource', ""))};
+    end
+end
+
+function packets = localSortReactionPackets(packets)
+    if isempty(packets)
+        return;
+    end
+
+    sortRows = zeros(numel(packets), 3);
+    for packetIndex = 1:numel(packets)
+        triggerTime = double(getFieldOrDefault(packets(packetIndex), 'TriggerTime', inf));
+        if ~isfinite(triggerTime)
+            triggerTime = inf;
+        end
+        sortRows(packetIndex, :) = [triggerTime, packetIndex, packetIndex];
+    end
+    order = sortrows(sortRows, [1 2 3]);
+    packets = packets(order(:, 3).');
+end
+
+function characterName = localResolveTimedReactionCharacter(packet)
+    characterName = string(getFieldOrDefault(packet, 'SourceCharacter', ""));
+    if strlength(characterName) > 0
+        return;
+    end
+
+    sourceType = string(getFieldOrDefault(packet, 'SourceType', ""));
+    if sourceType == "ReactionTrigger"
+        characterName = "Team";
+    else
+        characterName = "Enemy";
     end
 end
 
