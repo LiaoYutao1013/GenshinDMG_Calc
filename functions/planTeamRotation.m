@@ -289,25 +289,40 @@ function seed = localBuildMemberSeed(member)
     seed.SeedRotationText = string(rotationText);
     seed.Source = string(source);
     seed.Tokens = tokens;
-    seed.HasAuto = isempty(tokens) || (numel(tokens) == 1 && strcmpi(tokens{1}, 'AUTO'));
-    seed.ExplicitTokens = localDropAutoToken(tokens);
-    seed.EstimatedDuration = localEstimateRotationDuration(seed.ExplicitTokens, member.Name);
+    seed.ReferenceTokens = localDropAutoToken(tokens);
+    seed.IsExplicit = logical(localResolveSeedExplicitness(member, rotationFile));
+    if seed.IsExplicit
+        seed.HasAuto = isempty(tokens) || (numel(tokens) == 1 && strcmpi(tokens{1}, 'AUTO'));
+        seed.ExplicitTokens = localDropAutoToken(tokens);
+    else
+        seed.HasAuto = true;
+        seed.ExplicitTokens = {};
+    end
+    seed.EstimatedDuration = localEstimateRotationDuration(seed.ReferenceTokens, member.Name);
 end
 
 function [rotationFile, rotationText, tokens, source] = localReadSeedRotation(member)
-    rotationFile = string(getFieldOrDefault(member, 'RotationFile', ""));
+    defaultCfg = getDefaultCharacterConfig(member.Name);
+    defaultRotationFile = string(getFieldOrDefault(defaultCfg, 'RotationFile', ""));
+    memberRotationFile = string(getFieldOrDefault(member, 'RotationFile', ""));
     rotationText = "";
     tokens = {};
-    source = "member";
+    isExplicit = localResolveSeedExplicitness(member, memberRotationFile);
 
-    if strlength(rotationFile) > 0 && exist(char(rotationFile), 'file') == 2
+    if isExplicit && strlength(memberRotationFile) > 0 && exist(char(memberRotationFile), 'file') == 2
+        rotationFile = memberRotationFile;
+        source = "member-explicit";
         rotationText = string(fileread(char(rotationFile)));
         tokens = readRotationTokens(char(rotationFile));
     else
-        defaultCfg = getDefaultCharacterConfig(member.Name);
-        rotationFile = string(defaultCfg.RotationFile);
+        rotationFile = defaultRotationFile;
         source = "default";
         if strlength(rotationFile) > 0 && exist(char(rotationFile), 'file') == 2
+            rotationText = string(fileread(char(rotationFile)));
+            tokens = readRotationTokens(char(rotationFile));
+        elseif strlength(memberRotationFile) > 0 && exist(char(memberRotationFile), 'file') == 2
+            rotationFile = memberRotationFile;
+            source = "member-fallback";
             rotationText = string(fileread(char(rotationFile)));
             tokens = readRotationTokens(char(rotationFile));
         end
@@ -319,6 +334,29 @@ function [rotationFile, rotationText, tokens, source] = localReadSeedRotation(me
     if isempty(tokens)
         tokens = {'AUTO'};
     end
+end
+
+function isExplicit = localResolveSeedExplicitness(member, rotationFile)
+    explicitValue = getFieldOrDefault(member, 'HasExplicitRotationSeed', []);
+    if ~isempty(explicitValue)
+        isExplicit = logical(explicitValue);
+        return;
+    end
+
+    rotationFile = string(rotationFile);
+    if strlength(rotationFile) == 0
+        isExplicit = false;
+        return;
+    end
+
+    defaultCfg = getDefaultCharacterConfig(member.Name);
+    defaultRotationFile = string(getFieldOrDefault(defaultCfg, 'RotationFile', ""));
+    if strlength(defaultRotationFile) == 0
+        isExplicit = true;
+        return;
+    end
+
+    isExplicit = ~strcmpi(char(rotationFile), char(defaultRotationFile));
 end
 
 function score = localInferMemberScores(member, seed, teamInfo) %#ok<INUSD>
@@ -761,6 +799,7 @@ function memberPlan = localBuildMemberPlan(member, seed, role, targetBudget, arc
     memberPlan.Job = string(job);
     memberPlan.TargetBudget = targetBudget;
     memberPlan.SeedSource = seed.Source;
+    memberPlan.SeedIsExplicit = logical(getFieldOrDefault(seed, 'IsExplicit', false));
 
     switch char(role)
         case 'Carry'
@@ -828,7 +867,8 @@ end
 function [tokens, source] = localBuildSupportTokens(member, seed, archetypeInfo, job)
     normalizedName = localNormalizeName(member.Name);
     namedTokens = localNamedSupportTokens(normalizedName, archetypeInfo, job);
-    useNamedTokens = ~isempty(namedTokens) ...
+    useNamedTokens = ~logical(getFieldOrDefault(seed, 'IsExplicit', false)) ...
+        && ~isempty(namedTokens) ...
         && (seed.HasAuto || localShouldPreferNamedSupportTemplate(normalizedName));
 
     if useNamedTokens && ~isempty(namedTokens)
@@ -840,6 +880,12 @@ function [tokens, source] = localBuildSupportTokens(member, seed, archetypeInfo,
     if ~isempty(seed.ExplicitTokens)
         tokens = localBuildSupportTokensFromSeed(seed.ExplicitTokens);
         source = "seed-support";
+        return;
+    end
+
+    if ~isempty(getFieldOrDefault(seed, 'ReferenceTokens', {}))
+        tokens = localBuildSupportTokensFromSeed(seed.ReferenceTokens);
+        source = "reference-support";
         return;
     end
 
@@ -855,15 +901,24 @@ end
 function [tokens, source] = localBuildHybridTokens(member, seed, archetypeInfo, job)
     normalizedName = localNormalizeName(member.Name);
     namedTokens = localNamedHybridTokens(normalizedName, archetypeInfo, job);
-    if ~isempty(namedTokens) && (seed.HasAuto || localShouldPreferNamedHybridTemplate(normalizedName))
+    if ~logical(getFieldOrDefault(seed, 'IsExplicit', false)) ...
+            && ~isempty(namedTokens) ...
+            && (seed.HasAuto || localShouldPreferNamedHybridTemplate(normalizedName))
         tokens = namedTokens;
         source = "named-hybrid";
         return;
     end
 
     if seed.HasAuto
-        tokens = {'AUTO'};
-        source = "auto-hybrid";
+        supportTokens = localBuildSupportTokensFromSeed(getFieldOrDefault(seed, 'ReferenceTokens', {}));
+        onFieldTail = localBuildOnFieldTail(getFieldOrDefault(seed, 'ReferenceTokens', {}));
+        tokens = [supportTokens(:); onFieldTail(:)].';
+        if isempty(tokens)
+            tokens = {'AUTO'};
+            source = "auto-hybrid";
+        else
+            source = "reference-hybrid";
+        end
         return;
     end
 
@@ -879,15 +934,21 @@ end
 function [tokens, source] = localBuildCarryTokens(member, seed, archetypeInfo, job) %#ok<INUSD>
     normalizedName = localNormalizeName(member.Name);
     namedTokens = localNamedCarryTokens(normalizedName, archetypeInfo, job);
-    if ~isempty(namedTokens)
+    if ~logical(getFieldOrDefault(seed, 'IsExplicit', false)) && ~isempty(namedTokens)
         tokens = namedTokens;
         source = "named-carry";
         return;
     end
 
     if seed.HasAuto
-        tokens = {'AUTO'};
-        source = "auto-carry";
+        referenceTokens = getFieldOrDefault(seed, 'ReferenceTokens', {});
+        if isempty(referenceTokens)
+            tokens = {'AUTO'};
+            source = "auto-carry";
+        else
+            tokens = referenceTokens;
+            source = "reference-carry";
+        end
         return;
     end
 
@@ -1635,7 +1696,9 @@ function seed = localEmptySeed()
         'SeedRotationText', "", ...
         'Source', "", ...
         'Tokens', {cell(0, 1)}, ...
+        'ReferenceTokens', {cell(0, 1)}, ...
         'ExplicitTokens', {cell(0, 1)}, ...
+        'IsExplicit', false, ...
         'HasAuto', false, ...
         'EstimatedDuration', 0);
 end
@@ -1696,6 +1759,7 @@ function memberPlan = localEmptyMemberPlan()
         'Preview', "", ...
         'PlanningSource', "", ...
         'SeedSource', "", ...
+        'SeedIsExplicit', false, ...
         'TempRotationFile', "");
 end
 

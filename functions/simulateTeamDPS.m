@@ -31,10 +31,19 @@ function [teamResult, memberResults] = simulateTeamDPS(teamSpec, enemy)
         members = localApplyPlannedRotationFiles(members, rotationPlan);
     end
 
-    % 在统一排轴确定后，再构造共享团队上下文。
-    % 这样所有成员读取到的是同一份队伍增益与敌人状态设定。
-    teamContext = buildTeamContext(members, rotationDuration, sharedBuffs, enemy);
+    % 先在不递归推导 Furina 共享增伤的上下文下构造真实队伍时间线，
+    % 再把时间线摘要回填到最终 teamContext，避免 Furina 队伍二次排轴/二次时间线。
+    planningSharedBuffs = localBuildPlanningSharedBuffs(sharedBuffs, members);
+    teamContext = buildTeamContext(members, rotationDuration, planningSharedBuffs, enemy);
     teamContext.ArchetypeInfo = getFieldOrDefault(rotationPlan, 'ArchetypeInfo', identifyTeamArchetype(members, sharedBuffs));
+    timelineResult = simulateTeamTimeline(members, rotationPlan, teamContext, enemy, planOptions);
+
+    finalSharedBuffs = localAttachTimelineSharedBuffs(sharedBuffs, timelineResult);
+    teamContext = buildTeamContext(members, rotationDuration, finalSharedBuffs, enemy);
+    teamContext.ArchetypeInfo = getFieldOrDefault(rotationPlan, 'ArchetypeInfo', identifyTeamArchetype(members, sharedBuffs));
+    teamContext.TimelineSummary = getFieldOrDefault(timelineResult, 'TimelineSummary', struct());
+    teamContext.MemberTimelineSummary = getFieldOrDefault(timelineResult, 'MemberTimelineSummary', table());
+    teamContext.EnergySummary = getFieldOrDefault(timelineResult, 'EnergySummary', table());
 
     memberCells = cell(1, numel(members));
     combinedBreakdown = table();
@@ -58,7 +67,6 @@ function [teamResult, memberResults] = simulateTeamDPS(teamSpec, enemy)
     memberResults = [memberCells{:}];
     totalDMG = sum([memberResults.TotalDMG]);
     teamDPS = totalDMG / rotationDuration;
-    timelineResult = simulateTeamTimeline(members, rotationPlan, teamContext, enemy, planOptions);
 
     [plannedRoles, plannedJobs, plannedStarts, plannedEnds, plannedDurations] = localCollectPlanSummary(rotationPlan, members);
     memberSummary = table( ...
@@ -100,6 +108,29 @@ function [teamResult, memberResults] = simulateTeamDPS(teamSpec, enemy)
         'PlanningWarnings', planningWarnings, ...
         'MemberRotationFiles', localCollectPlanFiles(rotationPlan, members), ...
         'MemberRotationTexts', localCollectPlanTexts(rotationPlan, members));
+end
+
+function planningSharedBuffs = localBuildPlanningSharedBuffs(sharedBuffs, members)
+    planningSharedBuffs = sharedBuffs;
+    hasFurina = false;
+    for i = 1:numel(members)
+        if strcmpi(char(string(getFieldOrDefault(members{i}, 'Name', ""))), 'Furina')
+            hasFurina = true;
+            break;
+        end
+    end
+
+    if hasFurina && isempty(getFieldOrDefault(sharedBuffs, 'ApproxFurinaBonus', []))
+        planningSharedBuffs.ApproxFurinaBonus = 0;
+    end
+end
+
+function sharedBuffs = localAttachTimelineSharedBuffs(sharedBuffs, timelineResult)
+    sharedBuffs.TimelineSummary = getFieldOrDefault(timelineResult, 'TimelineSummary', struct());
+    sharedBuffs.MemberTimelineSummary = getFieldOrDefault(timelineResult, 'MemberTimelineSummary', table());
+    sharedBuffs.EnergySummary = getFieldOrDefault(timelineResult, 'EnergySummary', table());
+    sharedBuffs.LoopReadiness = double(getFieldOrDefault(timelineResult, 'LoopReadiness', 0));
+    sharedBuffs.CanLoopNextCycle = logical(getFieldOrDefault(timelineResult, 'CanLoopNextCycle', false));
 end
 
 function [members, rotationDuration, sharedBuffs, planOptions] = localResolveTeamSpec(teamSpec)

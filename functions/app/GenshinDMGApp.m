@@ -190,6 +190,7 @@ classdef GenshinDMGApp < handle
                 'ArtifactSet2', "None", ...
                 'ArtifactSet2Pieces', 0, ...
                 'ArtifactSet4Active', 1, ...
+                'RotationEdited', false, ...
                 'StartTime', 0, ...
                 'Enabled', true, ...
                 'PortraitPath', "", ...
@@ -1531,6 +1532,7 @@ classdef GenshinDMGApp < handle
             slot.BuildPresetId = "default";
             slot.Build = cfg.Build;
             slot.RotationText = getCharacterDefaultRotationText(cfg.Name);
+            slot.RotationEdited = false;
             slot.Constellation = getFieldOrDefault(cfg, 'Constellation', 0);
             slot.TalentLevel = getFieldOrDefault(cfg, 'TalentLevel', 10);
             slot.WeaponList = listWeaponsForCharacter(cfg.Name);
@@ -1726,6 +1728,7 @@ classdef GenshinDMGApp < handle
                 slot.Build = materializeArtifactPieceModel(slot.CharacterKey, slot.Build, struct());
             end
             slot.RotationText = obj.getRotationTextValue();
+            slot.RotationEdited = obj.isCustomRotationText(slot.CharacterKey, slot.RotationText);
             slot.WeaponName = string(getFieldOrDefault(slot.Build, 'Weapon', slot.WeaponName));
             slot.WeaponRefinement = max(1, min(5, getFieldOrDefault(slot.Build, 'WeaponRefinement', slot.WeaponRefinement)));
             slot.ArtifactSet1 = string(getFieldOrDefault(slot.Build, 'ArtifactSet1', slot.ArtifactSet1));
@@ -1749,6 +1752,19 @@ classdef GenshinDMGApp < handle
             else
                 rotationText = string(rawValue);
             end
+        end
+
+        function normalized = normalizeRotationText(obj, rotationText) %#ok<MANU>
+            lines = splitlines(string(rotationText));
+            lines = strip(lines(:));
+            lines = lines(strlength(lines) > 0);
+            normalized = join(lines, newline);
+        end
+
+        function tf = isCustomRotationText(obj, characterKey, rotationText)
+            defaultText = getCharacterDefaultRotationText(characterKey);
+            tf = ~strcmp(char(obj.normalizeRotationText(rotationText)), ...
+                char(obj.normalizeRotationText(defaultText)));
         end
 
         function updatePresetDropdown(obj, slotIndex)
@@ -1992,41 +2008,57 @@ classdef GenshinDMGApp < handle
             end
         end
 
-        function memberCfg = buildMemberConfig(obj, slotIndex)
+        function memberCfg = buildMemberConfig(obj, slotIndex, respectTeamAutoPlan)
             % 将 GUI 队伍槽状态转换成统一模拟入口需要的角色配置。
+            if nargin < 3
+                respectTeamAutoPlan = false;
+            end
             slot = obj.Slots(slotIndex);
             rotationText = slot.RotationText;
             if strlength(strtrim(rotationText)) == 0
                 rotationText = getCharacterDefaultRotationText(slot.CharacterKey);
             end
-
-            tempRotationPath = writeTempRotationFile( ...
-                obj.TempRotationDir, slot.CharacterKey, slotIndex, rotationText);
+            hasCustomRotation = logical(getFieldOrDefault(slot, 'RotationEdited', false)) ...
+                || obj.isCustomRotationText(slot.CharacterKey, rotationText);
+            useExplicitRotationSeed = ~respectTeamAutoPlan || hasCustomRotation;
 
             overrides = struct( ...
                 'Constellation', slot.Constellation, ...
                 'TalentLevel', slot.TalentLevel, ...
                 'Build', slot.Build, ...
                 'StartTime', slot.StartTime, ...
-                'RotationFile', tempRotationPath);
+                'HasExplicitRotationSeed', useExplicitRotationSeed);
+            if useExplicitRotationSeed
+                tempRotationPath = writeTempRotationFile( ...
+                    obj.TempRotationDir, slot.CharacterKey, slotIndex, rotationText);
+                overrides.RotationFile = tempRotationPath;
+            end
             memberCfg = getDefaultCharacterConfig(char(slot.CharacterKey), overrides);
         end
 
-        function memberCfg = buildComparisonMemberConfig(obj, slotIndex, slot)
+        function memberCfg = buildComparisonMemberConfig(obj, slotIndex, slot, respectTeamAutoPlan)
+            if nargin < 4
+                respectTeamAutoPlan = false;
+            end
             rotationText = slot.RotationText;
             if strlength(strtrim(rotationText)) == 0
                 rotationText = getCharacterDefaultRotationText(slot.CharacterKey);
             end
-
-            tempRotationPath = writeTempRotationFile( ...
-                obj.TempRotationDir, slot.CharacterKey, slotIndex, rotationText);
+            hasCustomRotation = logical(getFieldOrDefault(slot, 'RotationEdited', false)) ...
+                || obj.isCustomRotationText(slot.CharacterKey, rotationText);
+            useExplicitRotationSeed = ~respectTeamAutoPlan || hasCustomRotation;
 
             overrides = struct( ...
                 'Constellation', slot.Constellation, ...
                 'TalentLevel', slot.TalentLevel, ...
                 'Build', slot.Build, ...
                 'StartTime', slot.StartTime, ...
-                'RotationFile', tempRotationPath);
+                'HasExplicitRotationSeed', useExplicitRotationSeed);
+            if useExplicitRotationSeed
+                tempRotationPath = writeTempRotationFile( ...
+                    obj.TempRotationDir, slot.CharacterKey, slotIndex, rotationText);
+                overrides.RotationFile = tempRotationPath;
+            end
             memberCfg = getDefaultCharacterConfig(char(slot.CharacterKey), overrides);
         end
 
@@ -2048,7 +2080,7 @@ classdef GenshinDMGApp < handle
             slotIndices = [];
             for i = 1:numel(obj.Slots)
                 if obj.Slots(i).Enabled
-                    members{end + 1} = obj.buildMemberConfig(i); %#ok<AGROW>
+                    members{end + 1} = obj.buildMemberConfig(i, true); %#ok<AGROW>
                     slotIndices(end + 1) = i; %#ok<AGROW>
                 end
             end
@@ -2059,7 +2091,7 @@ classdef GenshinDMGApp < handle
             slotIndices = [];
             for i = 1:numel(slots)
                 if slots(i).Enabled
-                    members{end + 1} = obj.buildComparisonMemberConfig(i, slots(i)); %#ok<AGROW>
+                    members{end + 1} = obj.buildComparisonMemberConfig(i, slots(i), true); %#ok<AGROW>
                     slotIndices(end + 1) = i; %#ok<AGROW>
                 end
             end
@@ -2080,7 +2112,7 @@ classdef GenshinDMGApp < handle
             % 按当前选中角色执行单人模拟。
             obj.saveSelectedSlotState();
             try
-                memberCfg = obj.buildMemberConfig(obj.SelectedSlot);
+                memberCfg = obj.buildMemberConfig(obj.SelectedSlot, false);
                 result = simulateCharacterDPS(memberCfg, obj.buildEnemy());
                 obj.LastTeamResult = struct();
                 obj.LastMemberResults = result;
@@ -3138,7 +3170,8 @@ classdef GenshinDMGApp < handle
             message = sprintf('Team simulation done: %s | Slots %d | Loop %s | Readiness %.2f | Overlap %.2fs | Idle %.2fs', ...
                 char(archetype), slotCount, obj.localOnOff(canLoop), readiness, overlapTime, idleTime);
             if ~isempty(warnings)
-                message = sprintf('%s | Warnings %d', message, numel(warnings));
+                message = sprintf('%s | Warnings %d | %s', ...
+                    message, numel(warnings), char(warnings(1)));
             end
         end
 
@@ -3423,6 +3456,7 @@ classdef GenshinDMGApp < handle
             % 用户编辑轮转文本后的回写逻辑。
             slot = obj.Slots(obj.SelectedSlot);
             slot.RotationText = obj.getRotationTextValue();
+            slot.RotationEdited = obj.isCustomRotationText(slot.CharacterKey, slot.RotationText);
             obj.Slots(obj.SelectedSlot) = slot;
             obj.refreshTimelinePreview();
         end
@@ -3431,6 +3465,7 @@ classdef GenshinDMGApp < handle
             % 恢复当前角色默认轮转文本。
             slot = obj.Slots(obj.SelectedSlot);
             slot.RotationText = getCharacterDefaultRotationText(slot.CharacterKey);
+            slot.RotationEdited = false;
             obj.Slots(obj.SelectedSlot) = slot;
             obj.RotationTextArea.Value = obj.rotationStringToTextAreaValue(slot.RotationText);
             obj.refreshTimelinePreview();

@@ -793,28 +793,12 @@ function bonus = localApproxFurinaBonus(members, rotationDuration, sharedBuffs, 
     furinaMember = members{furinaIndex};
     constellation = getFieldOrDefault(furinaMember, 'Constellation', 0);
 
-    timelineSharedBuffs = sharedBuffs;
-    timelineSharedBuffs.ApproxFurinaBonus = 0;
-    timelineContext = struct( ...
-        'RotationDuration', rotationDuration, ...
-        'ReactionMode', getFieldOrDefault(sharedBuffs, 'ReactionMode', localResolveReactionMode(sharedBuffs, enemy)), ...
-        'AllDMGBonus', baseAllDMGBonus, ...
-        'ApproxFurinaBonus', 0, ...
-        'MemberCount', numel(members));
-
-    try
-        rotationPlan = planTeamRotation(members, rotationDuration, enemy, timelineSharedBuffs, struct());
-        timelineResult = simulateTeamTimeline(members, rotationPlan, timelineContext, enemy, struct());
-        timelineSummary = getFieldOrDefault(timelineResult, 'TimelineSummary', struct());
-        energySummary = getFieldOrDefault(timelineResult, 'EnergySummary', table());
-        memberTimeline = getFieldOrDefault(timelineResult, 'MemberTimelineSummary', table());
-    catch
-        bonus = localFallbackFurinaBonus(constellation);
-        return;
-    end
+    timelineSummary = getFieldOrDefault(sharedBuffs, 'TimelineSummary', struct());
+    energySummary = getFieldOrDefault(sharedBuffs, 'EnergySummary', table());
+    memberTimeline = getFieldOrDefault(sharedBuffs, 'MemberTimelineSummary', table());
 
     if isempty(memberTimeline) || ~istable(memberTimeline)
-        bonus = localFallbackFurinaBonus(constellation);
+        bonus = localHeuristicFurinaBonus(members, rotationDuration, constellation);
         return;
     end
 
@@ -825,7 +809,7 @@ function bonus = localApproxFurinaBonus(members, rotationDuration, sharedBuffs, 
     end
 
     if isempty(furinaTimelineRow)
-        bonus = localFallbackFurinaBonus(constellation);
+        bonus = localHeuristicFurinaBonus(members, rotationDuration, constellation);
         return;
     end
 
@@ -838,14 +822,14 @@ function bonus = localApproxFurinaBonus(members, rotationDuration, sharedBuffs, 
     actionDensity = min(1, (partyOccupancy + swapTime) / max(rotationDuration, 1e-6));
 
     if isempty(energySummary) || ~istable(energySummary)
-        furinaLoopReady = 0;
+        furinaLoopReady = min(1, double(getFieldOrDefault(sharedBuffs, 'LoopReadiness', 0)));
     else
         furinaEnergyRow = energySummary(string(energySummary.Character) == furinaName, :);
         if isempty(furinaEnergyRow)
             furinaEnergyRow = energySummary(string(energySummary.Character) == "Furina", :);
         end
         if isempty(furinaEnergyRow)
-            furinaLoopReady = double(getFieldOrDefault(timelineResult, 'LoopReadiness', 0));
+            furinaLoopReady = min(1, double(getFieldOrDefault(sharedBuffs, 'LoopReadiness', 0)));
         else
             furinaLoopReady = min(1, double(furinaEnergyRow.EndEnergy(1)) / max(1, double(furinaEnergyRow.BurstCost(1))));
         end
@@ -854,6 +838,35 @@ function bonus = localApproxFurinaBonus(members, rotationDuration, sharedBuffs, 
     rotationCoverage = 0.55 + 0.25 * actionDensity + 0.20 * furinaLoopReady;
     salonCoverage = min(1, 0.40 + 0.80 * supportShare + 0.30 * onFieldShare);
     teamHPRhythm = min(1, 0.60 + 0.25 * actionDensity + 0.15 * min(1, max(0, numel(members) - 1) / 3));
+    baseCap = 0.75 + 0.15 * double(constellation >= 1) + 0.18 * double(constellation >= 2);
+    bonus = baseCap * rotationCoverage * salonCoverage * teamHPRhythm;
+    bonus = max(0.20, bonus);
+end
+
+function bonus = localHeuristicFurinaBonus(members, rotationDuration, constellation)
+    memberCount = numel(members);
+    normalizedNames = strings(1, memberCount);
+    for i = 1:memberCount
+        normalizedNames(i) = lower(regexprep(char(string(getFieldOrDefault(members{i}, 'Name', ""))), '[^a-z0-9]', ''));
+    end
+
+    supportCount = max(0, memberCount - 1);
+    healerNames = [ ...
+        "barbara", "jean", "xianyun", "charlotte", "baizhu", "yaoyao", ...
+        "diona", "mika", "qiqi", "sigewinne", "sangonomiyakokomi"];
+    offFieldNames = [ ...
+        "yelan", "xingqiu", "fischl", "xiangling", "nahida", "escoffier", "citlali", "nicole"];
+    hasHealer = any(ismember(normalizedNames, healerNames));
+    hasBusyOffField = any(ismember(normalizedNames, offFieldNames));
+
+    actionDensity = min(1, 0.50 + 0.10 * supportCount + 0.08 * double(rotationDuration >= 18) + 0.06 * double(hasBusyOffField));
+    onFieldShare = min(1, 0.12 + 0.03 * supportCount);
+    supportShare = min(1, 0.32 + 0.18 * supportCount + 0.08 * double(hasBusyOffField));
+    furinaLoopReady = min(1, 0.46 + 0.10 * supportCount + 0.12 * double(hasHealer));
+
+    rotationCoverage = 0.50 + 0.25 * actionDensity + 0.25 * furinaLoopReady;
+    salonCoverage = min(1, 0.32 + 0.82 * supportShare + 0.20 * onFieldShare);
+    teamHPRhythm = min(1, 0.50 + 0.16 * supportCount + 0.12 * double(hasHealer));
     baseCap = 0.75 + 0.15 * double(constellation >= 1) + 0.18 * double(constellation >= 2);
     bonus = baseCap * rotationCoverage * salonCoverage * teamHPRhythm;
     bonus = max(0.20, bonus);
