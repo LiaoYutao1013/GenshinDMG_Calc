@@ -45,6 +45,7 @@ function timelineResult = simulateTeamTimeline(members, rotationPlan, teamContex
         actionEvents, rotationPlan, archetypeInfo, teamContext, rotationDuration);
     actionQueue = localSortActionEvents(actionEvents);
     energyState = localInitializeEnergyState(members);
+    pendingEnergyDrops = repmat(localEmptyPendingEnergyDrop(), 1, 0);
     compiledBuilds = localCompileBuilds(members, teamContext);
     runtimeTriggeredWindows = repmat(localEmptyActiveWindow(), 1, 0);
     runtimeTriggeredLastTriggerTimes = containers.Map('KeyType', 'char', 'ValueType', 'double');
@@ -70,6 +71,11 @@ function timelineResult = simulateTeamTimeline(members, rotationPlan, teamContex
         meta = localResolveEventMeta(event, archetypeInfo, teamContext);
         eventTriggerElement = string(getFieldOrDefault(meta, 'HitElement', event.HitElement));
         runtimeTriggeredWindows = localPruneExpiredActiveWindows(runtimeTriggeredWindows, event.StartTime);
+        [energyState, pendingEnergyDrops, pendingEnergyRows] = localResolvePendingEnergyDrops( ...
+            energyState, pendingEnergyDrops, activeForegroundCharacter, event.StartTime);
+        if ~isempty(pendingEnergyRows)
+            energyRows = [energyRows; pendingEnergyRows]; %#ok<AGROW>
+        end
         deltaTime = max(0, event.StartTime - currentTime);
         if deltaTime > 1e-9
             [enemyState, timedPackets] = advanceEnemyStateTime( ...
@@ -157,8 +163,8 @@ function timelineResult = simulateTeamTimeline(members, rotationPlan, teamContex
             end
         end
 
-        [energyState, currentEnergyRows, ownerEnergyDelta] = localApplyEnergyEvent( ...
-            energyState, event.MemberIndex, meta, event.EndTime);
+        [energyState, pendingEnergyDrops, currentEnergyRows, ownerEnergyDelta] = localApplyEnergyEvent( ...
+            energyState, pendingEnergyDrops, event.MemberIndex, meta, event.EndTime);
         if ~isempty(currentEnergyRows)
             energyRows = [energyRows; currentEnergyRows]; %#ok<AGROW>
         end
@@ -226,6 +232,13 @@ function timelineResult = simulateTeamTimeline(members, rotationPlan, teamContex
                 0, "", false, "", "", "", "", "", ""};
         end
     end
+    [energyState, pendingEnergyDrops, pendingEnergyRows] = localResolvePendingEnergyDrops( ...
+        energyState, pendingEnergyDrops, activeForegroundCharacter, rotationDuration);
+    if ~isempty(pendingEnergyRows)
+        energyRows = [energyRows; pendingEnergyRows]; %#ok<AGROW>
+    end
+    %#ok<NASGU>
+    pendingEnergyDrops = pendingEnergyDrops;
 
     timelineTable = localTimelineTable(timelineRows);
     energyTable = localBuildEnergySummaryTable(energyState);
@@ -1252,6 +1265,7 @@ function energyState = localInitializeEnergyState(members)
             getFieldOrDefault(members{i}, 'Constellation', 0));
         build = getFieldOrDefault(members{i}, 'Build', struct());
         er = double(getFieldOrDefault(build, 'ER', 1.0));
+        startEnergy = localResolveStartingEnergy(members{i}, burstCost);
         if er <= 0
             er = 1.0;
         end
@@ -1264,13 +1278,13 @@ function energyState = localInitializeEnergyState(members)
         energyState(i).Element = string(getCharacterElement(members{i}.Name));
         energyState(i).ER = er;
         energyState(i).BurstCost = burstCost;
-        energyState(i).StartEnergy = burstCost;
-        energyState(i).CurrentEnergy = burstCost;
+        energyState(i).StartEnergy = startEnergy;
+        energyState(i).CurrentEnergy = startEnergy;
     end
 end
 
-function [energyState, rows, ownerDelta] = localApplyEnergyEvent(energyState, ownerIndex, meta, eventTime)
-    if nargin < 4 || isempty(eventTime)
+function [energyState, pendingDrops, rows, ownerDelta] = localApplyEnergyEvent(energyState, pendingDrops, ownerIndex, meta, eventTime)
+    if nargin < 5 || isempty(eventTime)
         eventTime = 0;
     end
 
@@ -1307,18 +1321,23 @@ function [energyState, rows, ownerDelta] = localApplyEnergyEvent(energyState, ow
     flatSelf = double(getFieldOrDefault(meta, 'FlatEnergySelf', 0));
     flatTeam = double(getFieldOrDefault(meta, 'FlatEnergyTeam', 0));
 
-    for i = 1:numel(energyState)
-        sameElement = strcmpi(char(energyState(i).Element), char(ownerElement));
-        if i == ownerIndex
-            particleEnergy = particles * (3.0 * double(sameElement) + 1.0 * double(~sameElement));
-            orbEnergy = orbs * (9.0 * double(sameElement) + 3.0 * double(~sameElement));
-        else
-            particleEnergy = particles * (1.8 * double(sameElement) + 0.6 * double(~sameElement));
-            orbEnergy = orbs * (5.4 * double(sameElement) + 1.8 * double(~sameElement));
-        end
+    if particles > 1e-9
+        pendingDrops(end + 1) = localMakePendingEnergyDrop( ... %#ok<AGROW>
+            ownerIndex, energyState(ownerIndex).DisplayName, string(meta.Action), ownerElement, ...
+            particles, eventTime + localResolveEnergyDropDelay(meta, "Particle"), "ParticleCatch");
+    end
+    if orbs > 1e-9
+        pendingDrops(end + 1) = localMakePendingEnergyDrop( ... %#ok<AGROW>
+            ownerIndex, energyState(ownerIndex).DisplayName, string(meta.Action), ownerElement, ...
+            orbs, eventTime + localResolveEnergyDropDelay(meta, "Orb"), "OrbCatch");
+    end
 
-        deltaEnergy = (particleEnergy + orbEnergy) * energyState(i).ER ...
-            + flatTeam / max(numel(energyState), 1);
+    if abs(flatSelf) <= 1e-9 && abs(flatTeam) <= 1e-9
+        return;
+    end
+
+    for i = 1:numel(energyState)
+        deltaEnergy = flatTeam / max(numel(energyState), 1);
         if i == ownerIndex
             deltaEnergy = deltaEnergy + flatSelf;
         end
@@ -1331,11 +1350,155 @@ function [energyState, rows, ownerDelta] = localApplyEnergyEvent(energyState, ow
             energyState(i).CurrentEnergy + deltaEnergy);
         rows(end + 1, :) = { ... %#ok<AGROW>
             eventTime, energyState(ownerIndex).DisplayName, string(meta.Action), ...
-            energyState(i).DisplayName, deltaEnergy, energyState(i).CurrentEnergy, "EnergyGain"};
+            energyState(i).DisplayName, deltaEnergy, energyState(i).CurrentEnergy, "FlatEnergyGain"};
         if i == ownerIndex
             ownerDelta = ownerDelta + deltaEnergy;
         end
     end
+end
+
+function startEnergy = localResolveStartingEnergy(member, burstCost)
+    build = getFieldOrDefault(member, 'Build', struct());
+    startEnergy = getFieldOrDefault(member, 'StartEnergy', []);
+    if isempty(startEnergy)
+        startEnergy = getFieldOrDefault(member, 'InitialEnergy', []);
+    end
+    if isempty(startEnergy)
+        startEnergy = getFieldOrDefault(build, 'StartEnergy', []);
+    end
+    if isempty(startEnergy)
+        startEnergy = getFieldOrDefault(build, 'InitialEnergy', []);
+    end
+    if isempty(startEnergy)
+        startEnergy = burstCost;
+    end
+
+    startEnergy = double(startEnergy);
+    if ~isscalar(startEnergy) || ~isfinite(startEnergy)
+        startEnergy = burstCost;
+    end
+    startEnergy = min(max(0, startEnergy), burstCost);
+end
+
+function [energyState, pendingDrops, rows] = localResolvePendingEnergyDrops(energyState, pendingDrops, activeCharacter, upToTime)
+    rows = cell(0, 7);
+    if nargin < 4 || isempty(upToTime) || ~isfinite(upToTime)
+        upToTime = inf;
+    end
+    if isempty(pendingDrops)
+        return;
+    end
+
+    arrivalRows = zeros(numel(pendingDrops), 2);
+    for dropIndex = 1:numel(pendingDrops)
+        arrivalRows(dropIndex, :) = [double(getFieldOrDefault(pendingDrops(dropIndex), 'ArrivalTime', inf)), dropIndex];
+    end
+    arrivalRows = sortrows(arrivalRows, [1 2]);
+
+    kept = repmat(localEmptyPendingEnergyDrop(), 1, 0);
+    for rowIndex = 1:size(arrivalRows, 1)
+        drop = pendingDrops(arrivalRows(rowIndex, 2));
+        if double(getFieldOrDefault(drop, 'ArrivalTime', inf)) > upToTime + 1e-9
+            kept(end + 1) = drop; %#ok<AGROW>
+            continue;
+        end
+
+        recipientIndex = localResolveEnergyRecipientIndex(energyState, activeCharacter, getFieldOrDefault(drop, 'OwnerIndex', 0));
+        [energyState, catchRows] = localApplyPendingEnergyDrop(energyState, drop, recipientIndex);
+        if ~isempty(catchRows)
+            rows = [rows; catchRows]; %#ok<AGROW>
+        end
+    end
+    pendingDrops = kept;
+end
+
+function recipientIndex = localResolveEnergyRecipientIndex(energyState, activeCharacter, fallbackIndex)
+    recipientIndex = 0;
+    activeCharacter = string(activeCharacter);
+    if strlength(activeCharacter) > 0
+        for i = 1:numel(energyState)
+            if strcmpi(char(energyState(i).DisplayName), char(activeCharacter)) ...
+                    || strcmpi(char(energyState(i).Name), char(activeCharacter))
+                recipientIndex = i;
+                break;
+            end
+        end
+    end
+
+    if recipientIndex < 1 || recipientIndex > numel(energyState)
+        recipientIndex = max(1, min(numel(energyState), round(double(fallbackIndex))));
+    end
+end
+
+function [energyState, rows] = localApplyPendingEnergyDrop(energyState, drop, recipientIndex)
+    rows = cell(0, 7);
+    if isempty(energyState)
+        return;
+    end
+
+    sourceElement = string(getFieldOrDefault(drop, 'SourceElement', ""));
+    amount = double(getFieldOrDefault(drop, 'Amount', 0));
+    arrivalTime = double(getFieldOrDefault(drop, 'ArrivalTime', 0));
+    sourceCharacter = string(getFieldOrDefault(drop, 'SourceCharacter', ""));
+    action = string(getFieldOrDefault(drop, 'Action', ""));
+    eventType = string(getFieldOrDefault(drop, 'EventType', "ParticleCatch"));
+    if amount <= 1e-9
+        return;
+    end
+
+    isOrb = strcmpi(char(eventType), 'OrbCatch');
+    for i = 1:numel(energyState)
+        sameElement = strcmpi(char(energyState(i).Element), char(sourceElement));
+        if i == recipientIndex
+            if isOrb
+                unitEnergy = 9.0 * double(sameElement) + 3.0 * double(~sameElement);
+            else
+                unitEnergy = 3.0 * double(sameElement) + 1.0 * double(~sameElement);
+            end
+        else
+            if isOrb
+                unitEnergy = 5.4 * double(sameElement) + 1.8 * double(~sameElement);
+            else
+                unitEnergy = 1.8 * double(sameElement) + 0.6 * double(~sameElement);
+            end
+        end
+
+        deltaEnergy = amount * unitEnergy * energyState(i).ER;
+        if abs(deltaEnergy) <= 1e-9
+            continue;
+        end
+
+        energyState(i).CurrentEnergy = min(energyState(i).BurstCost, ...
+            energyState(i).CurrentEnergy + deltaEnergy);
+        rows(end + 1, :) = { ... %#ok<AGROW>
+            arrivalTime, sourceCharacter, action, ...
+            energyState(i).DisplayName, deltaEnergy, energyState(i).CurrentEnergy, char(eventType)};
+    end
+end
+
+function delay = localResolveEnergyDropDelay(meta, dropKind)
+    if nargin < 2
+        dropKind = "Particle";
+    end
+    switch lower(char(string(dropKind)))
+        case 'orb'
+            delay = double(getFieldOrDefault(meta, 'EstimatedOrbTravelDelay', 1.2));
+        otherwise
+            % Approximate particle catch timing used by the team simulator
+            % until per-action spawn/catch timing is wired from character data.
+            delay = double(getFieldOrDefault(meta, 'EstimatedParticleTravelDelay', 1.0));
+    end
+end
+
+function drop = localMakePendingEnergyDrop(ownerIndex, sourceCharacter, action, sourceElement, amount, arrivalTime, eventType)
+    drop = struct( ...
+        'OwnerIndex', double(ownerIndex), ...
+        'SourceCharacter', string(sourceCharacter), ...
+        'Action', string(action), ...
+        'SourceElement', string(sourceElement), ...
+        'Amount', double(amount), ...
+        'ArrivalTime', double(arrivalTime), ...
+        'EventType', string(eventType));
 end
 
 function tableOut = localTimelineTable(rows)
@@ -1717,6 +1880,17 @@ function event = localEmptyEvent()
         'Duration', 0, ...
         'HitElement', "", ...
         'CombatMeta', struct());
+end
+
+function drop = localEmptyPendingEnergyDrop()
+    drop = struct( ...
+        'OwnerIndex', 0, ...
+        'SourceCharacter', "", ...
+        'Action', "", ...
+        'SourceElement', "", ...
+        'Amount', 0, ...
+        'ArrivalTime', inf, ...
+        'EventType', "ParticleCatch");
 end
 
 function window = localEmptyActiveWindow()
