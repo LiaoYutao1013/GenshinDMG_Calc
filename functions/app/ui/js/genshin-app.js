@@ -95,17 +95,21 @@
 
   function renderTeam(root, currentData) {
     const slots = Array.isArray(currentData.slots) ? currentData.slots : [];
+    const tone = safeTone(currentData.statusTone);
     root.innerHTML = `
-      <section class="team">
+      <section class="team" aria-label="队伍预览">
         <header class="team-top">
           <div>
             <div class="eyebrow">队伍概览</div>
             <div class="title">${escapeHtml(currentData.activeCount)}/${escapeHtml(currentData.totalSlots)} 启用</div>
             <div class="subtle">${escapeHtml(currentData.teamDuration)} · ${escapeHtml(currentData.enemySummary)}</div>
           </div>
-          <button class="text-btn primary" data-action="runTeam" title="运行整队模拟">运行</button>
+          <div class="team-actions">
+            <span class="pill compact ${escapeHtml(tone)}" role="status">${escapeHtml(currentData.statusLabel)}</span>
+            <button type="button" class="text-btn primary" data-action="runTeam" title="运行整队模拟" aria-label="运行整队模拟">整队模拟</button>
+          </div>
         </header>
-        <section class="slot-grid">
+        <section class="slot-grid" aria-label="队伍槽位">
           ${slots.map(slotCardHtml).join("")}
         </section>
       </section>`;
@@ -121,8 +125,8 @@
       : `<span class="fallback">${escapeHtml(text(slot.displayName, "?").slice(0, 1))}</span>`;
 
     return `
-      <article class="slot-card${selectedClass}${disabledClass}">
-        <div class="portrait">${portrait}</div>
+      <article class="slot-card${selectedClass}${disabledClass}" aria-current="${slot.isSelected ? "true" : "false"}">
+        <div class="portrait" title="${escapeHtml(slot.displayName)}">${portrait}</div>
         <div class="slot-main">
           <div class="slot-name">${escapeHtml(slot.displayName)}</div>
           <div class="slot-key">${escapeHtml(slot.characterKey)}</div>
@@ -137,8 +141,8 @@
           ${badgeHtml(slot.artifactBadgeUrl, "圣遗物")}
         </div>
         <div class="slot-actions">
-          <button class="icon-btn" data-action="selectSlot" data-slot="${escapeHtml(slot.index)}" title="选择此槽位">编辑</button>
-          <button class="icon-btn" data-action="toggleSlot" data-slot="${escapeHtml(slot.index)}" title="切换队伍计算状态">${slot.enabled ? "停用" : "启用"}</button>
+          <button type="button" class="icon-btn" data-action="selectSlot" data-slot="${escapeHtml(slot.index)}" title="选择此槽位" aria-label="编辑 ${escapeHtml(slot.displayName)}">编辑</button>
+          <button type="button" class="icon-btn" data-action="toggleSlot" data-slot="${escapeHtml(slot.index)}" aria-pressed="${slot.enabled ? "true" : "false"}" title="切换队伍计算状态">${slot.enabled ? "停用" : "启用"}</button>
         </div>
       </article>`;
   }
@@ -150,7 +154,7 @@
       : `<span class="fallback">${escapeHtml(text(slot.displayName, "?").slice(0, 1))}</span>`;
 
     root.innerHTML = `
-      <section class="editor">
+      <section class="editor" aria-label="当前角色构筑预览">
         <article class="editor-card">
           <div class="editor-portrait">${portrait}</div>
           <div class="editor-title">
@@ -163,11 +167,11 @@
             </div>
           </div>
           <div class="editor-actions">
-            <button class="text-btn primary" data-action="runSingle" title="运行当前角色模拟">单人模拟</button>
-            <button class="text-btn gold" data-action="refreshTimeline" title="刷新输出轴预览">刷新轴</button>
-            <button class="text-btn" data-action="resetSlot" title="重置当前角色">重置</button>
+            <button type="button" class="text-btn primary" data-action="runSingle" title="运行当前角色模拟">单人模拟</button>
+            <button type="button" class="text-btn gold" data-action="refreshTimeline" title="刷新输出轴预览">刷新轴</button>
+            <button type="button" class="text-btn" data-action="resetSlot" title="重置当前角色">重置</button>
           </div>
-          <div class="build-grid">
+          <div class="build-grid" aria-label="构筑摘要">
             ${buildItem("武器", slot.weaponName)}
             ${buildItem("圣遗物", slot.artifactName)}
             ${buildItem("套装模式", slot.artifactMode)}
@@ -197,19 +201,17 @@
   }
 
   function renderDashboard(root, currentData) {
-    const tone = ["success", "warn", "error", "ready", "idle"].indexOf(currentData.statusTone) >= 0
-      ? currentData.statusTone
-      : "idle";
+    const tone = safeTone(currentData.statusTone);
 
     root.innerHTML = `
-      <section class="dashboard">
+      <section class="dashboard" aria-label="计算结果仪表盘">
         <header class="dashboard-header">
           <div>
             <div class="eyebrow">结果面板</div>
             <div class="title">${escapeHtml(currentData.headline)}</div>
             <div class="subtle">${escapeHtml(currentData.subtitle)}</div>
           </div>
-          <div class="pill ${escapeHtml(tone)}">${escapeHtml(currentData.statusLabel)}</div>
+          <div class="pill ${escapeHtml(tone)}" role="status">${escapeHtml(currentData.statusLabel)}</div>
         </header>
         <section class="metrics" aria-label="核心指标">
           ${metricHtml("total", "总伤害", currentData.totalDamageValue, currentData.totalDamageNote)}
@@ -244,7 +246,7 @@
 
   function metricHtml(kind, label, value, note) {
     return `
-      <article class="metric ${escapeHtml(kind)}">
+      <article class="metric ${escapeHtml(kind)}" aria-label="${escapeHtml(label)} ${escapeHtml(value)}">
         <div class="label">${escapeHtml(label)}</div>
         <div class="metric-value">${escapeHtml(value)}</div>
         <div class="note">${escapeHtml(note)}</div>
@@ -335,6 +337,10 @@
       <div class="timeline-block tone-${tone}" style="left:${left}%;width:${width}%;" title="${escapeHtml(block.label)}">
         <span>${escapeHtml(block.label)}</span>
       </div>`;
+  }
+
+  function safeTone(tone) {
+    return ["success", "warn", "error", "ready", "idle"].indexOf(tone) >= 0 ? tone : "idle";
   }
 
   function bindActionButtons(root) {
