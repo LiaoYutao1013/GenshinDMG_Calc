@@ -241,7 +241,7 @@ function timelineResult = simulateTeamTimeline(members, rotationPlan, teamContex
     pendingEnergyDrops = pendingEnergyDrops;
 
     timelineTable = localTimelineTable(timelineRows);
-    energyTable = localBuildEnergySummaryTable(energyState);
+    energyTable = localBuildEnergySummaryTable(energyState, energyRows, rotationPlan, rotationDuration);
     energyTimeline = localBuildEnergyTimelineTable(energyRows);
     activeEffectsTable = localBuildEffectTable(effectRows);
     timelineSummary = localBuildTimelineSummary(timelineTable, rotationDuration);
@@ -249,8 +249,8 @@ function timelineResult = simulateTeamTimeline(members, rotationPlan, teamContex
 
     burstMask = energyTable.UsedBurst;
     if any(burstMask)
-        canLoop = all(energyTable.CanBurstNextCycle(burstMask));
-        loopReadiness = min(energyTable.EndEnergy(burstMask) ./ max(energyTable.BurstCost(burstMask), 1));
+        canLoop = all(energyTable.CanBurstOnNextWindow(burstMask));
+        loopReadiness = min(energyTable.NextWindowReadiness(burstMask));
     else
         canLoop = true;
         loopReadiness = 1;
@@ -1597,10 +1597,19 @@ function priority = localTimelineRowPriority(row)
     end
 end
 
-function tableOut = localBuildEnergySummaryTable(energyState)
+function tableOut = localBuildEnergySummaryTable(energyState, energyRows, rotationPlan, rotationDuration)
     if isempty(energyState)
         tableOut = table();
         return;
+    end
+    if nargin < 2 || isempty(energyRows)
+        energyRows = cell(0, 7);
+    end
+    if nargin < 3 || isempty(rotationPlan)
+        rotationPlan = struct();
+    end
+    if nargin < 4 || isempty(rotationDuration)
+        rotationDuration = inf;
     end
 
     names = strings(numel(energyState), 1);
@@ -1612,6 +1621,11 @@ function tableOut = localBuildEnergySummaryTable(energyState)
     usedBurst = false(numel(energyState), 1);
     canBurst = false(numel(energyState), 1);
     missingEnergy = zeros(numel(energyState), 1);
+    nextBurstWindowTime = nan(numel(energyState), 1);
+    earliestReadyTime = nan(numel(energyState), 1);
+    canBurstOnNextWindow = false(numel(energyState), 1);
+    nextWindowReadiness = zeros(numel(energyState), 1);
+    energyTimeline = localBuildEnergyTimelineTable(energyRows);
 
     for i = 1:numel(energyState)
         names(i) = energyState(i).DisplayName;
@@ -1623,11 +1637,138 @@ function tableOut = localBuildEnergySummaryTable(energyState)
         usedBurst(i) = energyState(i).UsedBurst;
         canBurst(i) = endEnergy(i) >= burstCost(i) - 1e-6;
         missingEnergy(i) = max(0, burstCost(i) - endEnergy(i));
+        nextBurstWindowTime(i) = localResolveNextBurstWindowTime(rotationPlan, i, names(i), rotationDuration);
+        earliestReadyTime(i) = localResolveEarliestBurstReadyTime( ...
+            energyTimeline, names(i), burstCost(i), startEnergy(i), usedBurst(i));
+        if usedBurst(i)
+            canBurstOnNextWindow(i) = isfinite(nextBurstWindowTime(i)) ...
+                && isfinite(earliestReadyTime(i)) ...
+                && earliestReadyTime(i) <= nextBurstWindowTime(i) + 1e-9;
+        else
+            canBurstOnNextWindow(i) = canBurst(i);
+        end
+        if ~isfinite(nextBurstWindowTime(i))
+            nextWindowReadiness(i) = min(1, endEnergy(i) / max(burstCost(i), 1));
+        elseif ~isfinite(earliestReadyTime(i))
+            nextWindowReadiness(i) = 0;
+        elseif nextBurstWindowTime(i) <= 1e-9
+            nextWindowReadiness(i) = double(canBurstOnNextWindow(i));
+        else
+            nextWindowReadiness(i) = min(1, nextBurstWindowTime(i) / max(earliestReadyTime(i), 1e-9));
+            if canBurstOnNextWindow(i)
+                nextWindowReadiness(i) = 1;
+            end
+        end
     end
 
     tableOut = table(names, elements, burstCost, startEnergy, endEnergy, er, usedBurst, canBurst, missingEnergy, ...
+        nextBurstWindowTime, earliestReadyTime, canBurstOnNextWindow, nextWindowReadiness, ...
         'VariableNames', {'Character', 'Element', 'BurstCost', 'StartEnergy', 'EndEnergy', ...
-        'ER', 'UsedBurst', 'CanBurstNextCycle', 'MissingEnergy'});
+        'ER', 'UsedBurst', 'CanBurstNextCycle', 'MissingEnergy', ...
+        'NextBurstWindowTime', 'EarliestBurstReadyTime', 'CanBurstOnNextWindow', 'NextWindowReadiness'});
+end
+
+function nextTime = localResolveNextBurstWindowTime(rotationPlan, memberIndex, characterName, rotationDuration)
+    nextTime = inf;
+    memberPlans = getFieldOrDefault(rotationPlan, 'MemberPlans', struct([]));
+    if isempty(memberPlans)
+        return;
+    end
+
+    planIndices = memberIndex;
+    if memberIndex < 1 || memberIndex > numel(memberPlans)
+        planIndices = 1:numel(memberPlans);
+    end
+
+    for i = planIndices
+        currentName = string(getFieldOrDefault(memberPlans(i), 'DisplayName', getFieldOrDefault(memberPlans(i), 'Name', "")));
+        if memberIndex < 1 || memberIndex > numel(memberPlans)
+            if ~strcmpi(char(currentName), char(string(characterName))) ...
+                    && ~strcmpi(char(string(getFieldOrDefault(memberPlans(i), 'Name', ""))), char(string(characterName)))
+                continue;
+            end
+        end
+
+        if i < 1 || i > numel(memberPlans)
+            continue;
+        end
+
+        tokens = localNormalizeTimelineTokens(getFieldOrDefault(memberPlans(i), 'RotationTokens', {}));
+        cursor = double(getFieldOrDefault(memberPlans(i), 'StartTime', 0));
+        for tokenIndex = 1:numel(tokens)
+            token = string(tokens{tokenIndex});
+            if localIsTimelineBurstToken(token)
+                nextTime = rotationDuration + cursor;
+                return;
+            end
+            cursor = cursor + estimateActionDuration(char(string(getFieldOrDefault(memberPlans(i), 'Name', currentName))), char(token), 0.60);
+        end
+        return;
+    end
+end
+
+function readyTime = localResolveEarliestBurstReadyTime(energyTimeline, characterName, burstCost, startEnergy, usedBurst)
+    if nargin < 5
+        usedBurst = false;
+    end
+
+    if ~usedBurst && startEnergy >= burstCost - 1e-6
+        readyTime = 0;
+        return;
+    end
+
+    readyTime = inf;
+    if isempty(energyTimeline) || ~istable(energyTimeline) || height(energyTimeline) == 0
+        return;
+    end
+
+    relevantRows = energyTimeline(strcmpi(string(energyTimeline.Recipient), string(characterName)), :);
+    if isempty(relevantRows)
+        return;
+    end
+    relevantRows = sortrows(relevantRows, 'Time');
+    searchStartTime = -inf;
+    if usedBurst
+        burstRows = relevantRows(strcmpi(string(relevantRows.EventType), 'BurstCost'), :);
+        if isempty(burstRows)
+            return;
+        end
+        searchStartTime = max(double(burstRows.Time));
+    end
+    for rowIndex = 1:height(relevantRows)
+        if double(relevantRows.Time(rowIndex)) < searchStartTime - 1e-9
+            continue;
+        end
+        if double(relevantRows.RecipientEnergy(rowIndex)) >= burstCost - 1e-6
+            readyTime = double(relevantRows.Time(rowIndex));
+            return;
+        end
+    end
+end
+
+function tf = localIsTimelineBurstToken(token)
+    token = lower(strtrim(char(string(token))));
+    tf = strcmp(token, 'q') || strcmp(token, 'burst') || ~isempty(regexp(token, '^q\d+$', 'once')) ...
+        || any(strcmp(token, {'qphysical', 'qpyro'}));
+end
+
+function tokens = localNormalizeTimelineTokens(tokens)
+    if isempty(tokens)
+        tokens = {};
+        return;
+    end
+    if isstring(tokens)
+        tokens = cellstr(tokens(:));
+        return;
+    end
+    if ischar(tokens)
+        tokens = cellstr(string(tokens(:)));
+        return;
+    end
+    if ~iscell(tokens)
+        tokens = cellstr(string(tokens(:)));
+        return;
+    end
 end
 
 function tableOut = localBuildEnergyTimelineTable(rows)
