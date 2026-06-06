@@ -14,7 +14,7 @@ function [totalDMG, dps, breakdown, rotationTime, audit] = simulateBarbaraDPS(bu
         constellation = 0;
     end
     if nargin < 6 || isempty(teamContext)
-        teamContext = buildTeamContext({struct('Name', 'Barbara', 'Constellation', constellation, 'Build', build)}, 20, struct());
+        teamContext = buildTeamContext({struct('Name', 'Barbara', 'Constellation', constellation, 'Build', build)}, 20, struct(), enemy);
     end
 
     hydroBonusWindow = 0.15 * double(constellation >= 2);

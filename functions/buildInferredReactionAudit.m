@@ -53,9 +53,12 @@ function audit = buildInferredReactionAudit(member, actions, teamContext, rotati
             'ApplyGaugeFallback', 'ICDFallback'});
     end
 
+    enemyState = localResolveAuditEnemyState(member, teamContext);
     audit = struct( ...
         'Character', string(getFieldOrDefault(member, 'Name', "")), ...
         'RotationFile', string(rotationFile), ...
+        'TeamContextReactionMode', string(getFieldOrDefault(teamContext, 'ReactionMode', "")), ...
+        'EnemyStateAutoSupportAura', logical(getFieldOrDefault(enemyState, 'AutoSupportAura', false)), ...
         'Rows', rows);
 end
 
@@ -150,4 +153,18 @@ function rows = localMakeEmptyAuditRows()
         'VariableTypes', {'string', 'string', 'double', 'string', 'string', 'string', 'string', 'string', 'logical', 'logical'}, ...
         'VariableNames', {'Action', 'ActionKey', 'ApplyGauge', 'ApplyGaugeSource', 'ICDRule', 'ICDSource', ...
         'LunarisAttackName', 'LunarisDamageParam', 'ApplyGaugeFallback', 'ICDFallback'});
+end
+
+function enemyState = localResolveAuditEnemyState(member, teamContext)
+    enemyState = getFieldOrDefault(teamContext, 'EnemyState', struct());
+    if isstruct(enemyState) && ~isempty(fieldnames(enemyState))
+        return;
+    end
+
+    enemy = struct('ReactionMode', string(getFieldOrDefault(teamContext, 'ReactionMode', "")));
+    if isfield(teamContext, 'AutoSupportAura')
+        enemy.AutoSupportAura = logical(getFieldOrDefault(teamContext, 'AutoSupportAura', false));
+    end
+
+    enemyState = createEnemyState(enemy, teamContext, string(getFieldOrDefault(member, 'Element', "")));
 end

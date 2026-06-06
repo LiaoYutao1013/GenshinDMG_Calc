@@ -12,7 +12,7 @@ function [totalDMG, dps, breakdown, rotationTime, audit] = simulateAmberDPS(buil
         constellation = 0;
     end
     if nargin < 6 || isempty(teamContext)
-        teamContext = buildTeamContext({struct('Name', 'Amber', 'Constellation', constellation, 'Build', build)}, 20, struct());
+        teamContext = buildTeamContext({struct('Name', 'Amber', 'Constellation', constellation, 'Build', build)}, 20, struct(), enemy);
     end
 
     weakpointAtkBonus = 0.15;

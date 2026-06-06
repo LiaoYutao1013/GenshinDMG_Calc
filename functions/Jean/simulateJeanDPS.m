@@ -14,7 +14,7 @@ function [totalDMG, dps, breakdown, rotationTime, audit] = simulateJeanDPS(build
         constellation = 0;
     end
     if nargin < 6 || isempty(teamContext)
-        teamContext = buildTeamContext({struct('Name', 'Jean', 'Constellation', constellation, 'Build', build)}, 20, struct());
+        teamContext = buildTeamContext({struct('Name', 'Jean', 'Constellation', constellation, 'Build', build)}, 20, struct(), enemy);
     end
 
     c1HoldBonus = 0.40 * double(constellation >= 1);
