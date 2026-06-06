@@ -796,6 +796,7 @@ function bonus = localApproxFurinaBonus(members, rotationDuration, sharedBuffs, 
     timelineSummary = getFieldOrDefault(sharedBuffs, 'TimelineSummary', struct());
     energySummary = getFieldOrDefault(sharedBuffs, 'EnergySummary', table());
     memberTimeline = getFieldOrDefault(sharedBuffs, 'MemberTimelineSummary', table());
+    activeEffects = getFieldOrDefault(sharedBuffs, 'ActiveEffectsTable', table());
 
     if isempty(memberTimeline) || ~istable(memberTimeline)
         bonus = localHeuristicFurinaBonus(members, rotationDuration, constellation);
@@ -817,8 +818,9 @@ function bonus = localApproxFurinaBonus(members, rotationDuration, sharedBuffs, 
     furinaBackgroundTime = max(0, double(furinaTimelineRow.BackgroundEventTime(1)));
     partyOccupancy = max(0, double(getFieldOrDefault(timelineSummary, 'MemberOccupiedTime', 0)));
     swapTime = max(0, double(getFieldOrDefault(timelineSummary, 'SwapTime', 0)));
+    [fanfareCoverage, salonWindowCoverage] = localResolveFurinaEffectCoverage(activeEffects, furinaName, rotationDuration);
     onFieldShare = min(1, furinaScheduledTime / max(rotationDuration, 1e-6));
-    supportShare = min(1, furinaBackgroundTime / max(rotationDuration, 1e-6));
+    supportShare = min(1, max(furinaBackgroundTime / max(rotationDuration, 1e-6), salonWindowCoverage));
     actionDensity = min(1, (partyOccupancy + swapTime) / max(rotationDuration, 1e-6));
 
     if isempty(energySummary) || ~istable(energySummary)
@@ -835,12 +837,74 @@ function bonus = localApproxFurinaBonus(members, rotationDuration, sharedBuffs, 
         end
     end
 
-    rotationCoverage = 0.55 + 0.25 * actionDensity + 0.20 * furinaLoopReady;
-    salonCoverage = min(1, 0.40 + 0.80 * supportShare + 0.30 * onFieldShare);
-    teamHPRhythm = min(1, 0.60 + 0.25 * actionDensity + 0.15 * min(1, max(0, numel(members) - 1) / 3));
+    rotationCoverage = min(1, 0.50 + 0.20 * actionDensity + 0.15 * furinaLoopReady + 0.15 * fanfareCoverage);
+    salonCoverage = min(1, 0.25 + 0.60 * supportShare + 0.25 * fanfareCoverage + 0.15 * onFieldShare);
+    teamHPRhythm = min(1, 0.50 + 0.20 * fanfareCoverage + 0.20 * supportShare ...
+        + 0.10 * actionDensity + 0.10 * min(1, max(0, numel(members) - 1) / 3));
     baseCap = 0.75 + 0.15 * double(constellation >= 1) + 0.18 * double(constellation >= 2);
     bonus = baseCap * rotationCoverage * salonCoverage * teamHPRhythm;
     bonus = max(0.20, bonus);
+end
+
+function [fanfareCoverage, salonCoverage] = localResolveFurinaEffectCoverage(activeEffects, furinaName, rotationDuration)
+    fanfareCoverage = 0;
+    salonCoverage = 0;
+    if isempty(activeEffects) || ~istable(activeEffects) || height(activeEffects) == 0
+        return;
+    end
+
+    if ~ismember('Character', string(activeEffects.Properties.VariableNames)) ...
+            || ~ismember('EffectTag', string(activeEffects.Properties.VariableNames))
+        return;
+    end
+
+    characterMask = string(activeEffects.Character) == furinaName | string(activeEffects.Character) == "Furina";
+    if ~any(characterMask)
+        return;
+    end
+
+    furinaRows = activeEffects(characterMask, :);
+    fanfareCoverage = localResolveEffectTagCoverage(furinaRows, "Fanfare", rotationDuration);
+    salonCoverage = localResolveEffectTagCoverage(furinaRows, "SalonMembers", rotationDuration);
+end
+
+function coverage = localResolveEffectTagCoverage(effectRows, effectTag, rotationDuration)
+    coverage = 0;
+    if isempty(effectRows) || ~istable(effectRows) || height(effectRows) == 0
+        return;
+    end
+
+    tagRows = effectRows(string(effectRows.EffectTag) == string(effectTag), :);
+    if isempty(tagRows)
+        return;
+    end
+
+    starts = double(tagRows.StartTime);
+    ends = double(tagRows.EndTime);
+    validMask = isfinite(starts) & isfinite(ends) & ends > starts;
+    starts = starts(validMask);
+    ends = ends(validMask);
+    if isempty(starts)
+        return;
+    end
+
+    intervals = sortrows([starts(:), ends(:)], [1 2]);
+    coveredDuration = 0;
+    currentStart = intervals(1, 1);
+    currentEnd = intervals(1, 2);
+    for i = 2:size(intervals, 1)
+        nextStart = intervals(i, 1);
+        nextEnd = intervals(i, 2);
+        if nextStart <= currentEnd + 1e-9
+            currentEnd = max(currentEnd, nextEnd);
+        else
+            coveredDuration = coveredDuration + max(0, currentEnd - currentStart);
+            currentStart = nextStart;
+            currentEnd = nextEnd;
+        end
+    end
+    coveredDuration = coveredDuration + max(0, currentEnd - currentStart);
+    coverage = min(1, coveredDuration / max(rotationDuration, 1e-6));
 end
 
 function bonus = localHeuristicFurinaBonus(members, rotationDuration, constellation)

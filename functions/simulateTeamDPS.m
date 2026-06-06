@@ -129,6 +129,7 @@ function sharedBuffs = localAttachTimelineSharedBuffs(sharedBuffs, timelineResul
     sharedBuffs.TimelineSummary = getFieldOrDefault(timelineResult, 'TimelineSummary', struct());
     sharedBuffs.MemberTimelineSummary = getFieldOrDefault(timelineResult, 'MemberTimelineSummary', table());
     sharedBuffs.EnergySummary = getFieldOrDefault(timelineResult, 'EnergySummary', table());
+    sharedBuffs.ActiveEffectsTable = getFieldOrDefault(timelineResult, 'ActiveEffectsTable', table());
     sharedBuffs.LoopReadiness = double(getFieldOrDefault(timelineResult, 'LoopReadiness', 0));
     sharedBuffs.CanLoopNextCycle = logical(getFieldOrDefault(timelineResult, 'CanLoopNextCycle', false));
 end
