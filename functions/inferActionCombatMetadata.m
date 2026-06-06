@@ -846,6 +846,18 @@ function meta = localApplyCharacterSpecificMetadata(meta, member, normalizedName
             elseif any(strcmp(lowerAction, {'supporttap', 'supporthold'})) && constellation >= 1
                 meta.FlatEnergySelf = meta.FlatEnergySelf + 6;
             end
+
+        case 'venti'
+            if strcmp(lowerAction, 'q')
+                meta.HitElement = "";
+                meta.ApplyElement = "";
+                meta.ApplyGauge = 0.0;
+                meta.CanApplyAura = false;
+                meta.AllowAmplify = false;
+                meta.AllowCatalyze = false;
+                meta.EffectTickElement = "Anemo";
+                meta.EffectTickPreferredAura = meta.PreferredAura;
+            end
     end
 end
 
