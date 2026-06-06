@@ -65,7 +65,60 @@ function timelineResult = simulateTeamTimeline(members, rotationPlan, teamContex
     previousForegroundEndTime = 0;
     previousForegroundKnown = false;
 
-    while ~isempty(actionQueue)
+    while ~isempty(actionQueue) || currentTime < rotationDuration - 1e-9
+        if isempty(actionQueue)
+            nextEvent = localEmptyEvent();
+            nextMeta = struct();
+            nextEventTime = rotationDuration;
+        else
+            nextEvent = actionQueue(1);
+            nextMeta = localResolveEventMeta(nextEvent, archetypeInfo, teamContext);
+            nextEventTime = min(rotationDuration, double(nextEvent.StartTime));
+        end
+
+        intervalEndTime = min(rotationDuration, nextEventTime);
+        [intervalEndTime, hasMidIntervalTimedReaction] = localResolveNextIntervalStopTime( ...
+            enemyState, currentTime, intervalEndTime, triggerElement, teamContext);
+        if intervalEndTime > currentTime + 1e-9
+            runtimeTriggeredWindows = localPruneExpiredActiveWindows(runtimeTriggeredWindows, intervalEndTime);
+            [energyState, pendingEnergyDrops, pendingEnergyRows] = localResolvePendingEnergyDrops( ...
+                energyState, pendingEnergyDrops, activeForegroundCharacter, intervalEndTime);
+            if ~isempty(pendingEnergyRows)
+                energyRows = [energyRows; pendingEnergyRows]; %#ok<AGROW>
+            end
+
+            [gapWindow, gapLabel] = localResolveIntervalGapWindow( ...
+                currentTime, intervalEndTime, nextEvent, nextMeta, previousForegroundKnown, ...
+                previousForegroundCharacter, previousForegroundEndTime, rotationDuration);
+            intervalTriggerElement = triggerElement;
+            if ~isempty(actionQueue)
+                intervalTriggerElement = string(getFieldOrDefault(nextMeta, 'HitElement', nextEvent.HitElement));
+            end
+
+            [enemyState, intervalRows, timedPackets, actionOrder] = localAdvanceIntervalRows( ...
+                enemyState, currentTime, intervalEndTime, intervalTriggerElement, ...
+                teamContext, activeForegroundCharacter, actionOrder, gapWindow, gapLabel);
+            if ~isempty(intervalRows)
+                timelineRows = [timelineRows; intervalRows]; %#ok<AGROW>
+            end
+
+            [runtimeReactionEvents, runtimeTriggeredWindows, runtimeTriggeredLastTriggerTimes] = ...
+                localResolveBackgroundReactionTriggeredEvents( ...
+                timedPackets, intervalEndTime, runtimeTriggeredWindows, ...
+                runtimeTriggeredLastTriggerTimes, rotationDuration);
+            if ~isempty(runtimeReactionEvents)
+                actionQueue = localSortActionEvents([runtimeReactionEvents, actionQueue]);
+            end
+            currentTime = intervalEndTime;
+            if hasMidIntervalTimedReaction
+                continue;
+            end
+        end
+
+        if isempty(actionQueue)
+            continue;
+        end
+
         event = actionQueue(1);
         actionQueue(1) = [];
         meta = localResolveEventMeta(event, archetypeInfo, teamContext);
@@ -77,30 +130,6 @@ function timelineResult = simulateTeamTimeline(members, rotationPlan, teamContex
             energyRows = [energyRows; pendingEnergyRows]; %#ok<AGROW>
         end
         deltaTime = max(0, event.StartTime - currentTime);
-        if deltaTime > 1e-9
-            swapWindow = [NaN, NaN];
-            swapLabel = "";
-            if previousForegroundKnown && logical(getFieldOrDefault(meta, 'ConsumesActiveWindow', true)) ...
-                    && previousForegroundCharacter ~= "" && event.Character ~= previousForegroundCharacter ...
-                    && event.StartTime - previousForegroundEndTime > 1e-9
-                swapWindow = [max(currentTime, previousForegroundEndTime), event.StartTime];
-                swapLabel = "Swap";
-            end
-            [enemyState, intervalRows, timedPackets, actionOrder] = localAdvanceIntervalRows( ...
-                enemyState, currentTime, event.StartTime, eventTriggerElement, ...
-                teamContext, activeForegroundCharacter, actionOrder, swapWindow, swapLabel);
-            if ~isempty(intervalRows)
-                timelineRows = [timelineRows; intervalRows]; %#ok<AGROW>
-            end
-            [runtimeReactionEvents, runtimeTriggeredWindows, runtimeTriggeredLastTriggerTimes] = ...
-                localResolveBackgroundReactionTriggeredEvents( ...
-                timedPackets, event.StartTime, runtimeTriggeredWindows, ...
-                runtimeTriggeredLastTriggerTimes, rotationDuration);
-            if ~isempty(runtimeReactionEvents)
-                actionQueue = localSortActionEvents([runtimeReactionEvents, actionQueue]);
-            end
-            currentTime = event.StartTime;
-        end
 
         hitDescriptor = struct( ...
             'HitElement', meta.HitElement, ...
@@ -219,19 +248,6 @@ function timelineResult = simulateTeamTimeline(members, rotationPlan, teamContex
         end
     end
 
-    if currentTime < rotationDuration
-        tailStart = currentTime;
-        if previousForegroundKnown
-            tailStart = max(tailStart, previousForegroundEndTime);
-        end
-        [enemyState, intervalRows, ~, actionOrder] = localAdvanceIntervalRows( ...
-            enemyState, currentTime, rotationDuration, triggerElement, ...
-            teamContext, activeForegroundCharacter, actionOrder, ...
-            [tailStart, rotationDuration], "Tail");
-        if ~isempty(intervalRows)
-            timelineRows = [timelineRows; intervalRows]; %#ok<AGROW>
-        end
-    end
     [energyState, pendingEnergyDrops, pendingEnergyRows] = localResolvePendingEnergyDrops( ...
         energyState, pendingEnergyDrops, activeForegroundCharacter, rotationDuration);
     if ~isempty(pendingEnergyRows)
@@ -412,6 +428,55 @@ function meta = localResolveEventMeta(event, archetypeInfo, teamContext)
     meta = inferActionCombatMetadata(event.Member, event.Action, archetypeInfo, teamContext);
 end
 
+function [stopTime, hasMidIntervalTimedReaction] = localResolveNextIntervalStopTime( ...
+        enemyState, startTime, targetTime, triggerElement, teamContext)
+    stopTime = double(targetTime);
+    hasMidIntervalTimedReaction = false;
+    if stopTime <= double(startTime) + 1e-9
+        return;
+    end
+
+    [~, probePackets] = advanceEnemyStateTime(enemyState, stopTime - double(startTime), triggerElement, teamContext);
+    if isempty(probePackets)
+        return;
+    end
+
+    triggerTimes = arrayfun(@(packet) double(getFieldOrDefault(packet, 'TriggerTime', NaN)), probePackets);
+    triggerTimes = triggerTimes(isfinite(triggerTimes) ...
+        & triggerTimes > double(startTime) + 1e-9 ...
+        & triggerTimes < double(targetTime) - 1e-9);
+    if isempty(triggerTimes)
+        return;
+    end
+
+    stopTime = min(triggerTimes);
+    hasMidIntervalTimedReaction = true;
+end
+
+function [gapWindow, gapLabel] = localResolveIntervalGapWindow( ...
+        currentTime, intervalEndTime, nextEvent, nextMeta, previousForegroundKnown, ...
+        previousForegroundCharacter, previousForegroundEndTime, rotationDuration)
+    gapWindow = [NaN, NaN];
+    gapLabel = "";
+    if strlength(string(getFieldOrDefault(nextEvent, 'Character', ""))) == 0
+        tailStart = currentTime;
+        if previousForegroundKnown
+            tailStart = max(tailStart, previousForegroundEndTime);
+        end
+        gapWindow = [tailStart, min(rotationDuration, intervalEndTime)];
+        gapLabel = "Tail";
+        return;
+    end
+
+    if previousForegroundKnown && logical(getFieldOrDefault(nextMeta, 'ConsumesActiveWindow', true)) ...
+            && previousForegroundCharacter ~= "" ...
+            && string(getFieldOrDefault(nextEvent, 'Character', "")) ~= previousForegroundCharacter ...
+            && double(getFieldOrDefault(nextEvent, 'StartTime', intervalEndTime)) - previousForegroundEndTime > 1e-9
+        gapWindow = [max(currentTime, previousForegroundEndTime), double(getFieldOrDefault(nextEvent, 'StartTime', intervalEndTime))];
+        gapLabel = "Swap";
+    end
+end
+
 function [canApplyAura, icdStates, snapshot] = localResolveTimelineAuraICD(icdStates, event, meta, deltaTime)
     if nargin < 4 || isempty(deltaTime)
         deltaTime = 0;
@@ -572,48 +637,24 @@ function specs = localCollectBackgroundDriverSpecs(meta)
     tickCount = double(getFieldOrDefault(meta, 'EffectTickCount', 0));
     tickInterval = double(getFieldOrDefault(meta, 'EffectTickInterval', 0));
     effectDuration = double(getFieldOrDefault(meta, 'EffectDuration', 0));
-    if strlength(tickAction) > 0 && tickCount > 0 && tickInterval > 0 && effectDuration > 0
+    if strlength(tickAction) > 0 && tickCount > 0 && tickInterval > 0 && effectDuration > 0 ...
+            && ~localShouldSkipAutonomousTickSpec(meta)
         autonomousMode = localResolveAutonomousBackgroundDriverMode(meta);
-        % Resolve reaction-triggered pseudo-periodic effects at runtime instead of pre-expanding fixed ticks.
-        if autonomousMode == "ReactionPeriodicApprox"
-            spec = localEmptyBackgroundDriverSpec();
-            spec.DriverKind = "Triggered";
-            spec.DriverMode = "ReactionEventTrigger";
-            if strlength(followUpAction) > 0
-                spec.Action = followUpAction;
-                spec.Element = string(getFieldOrDefault(meta, 'TriggeredFollowUpElement', ""));
-                spec.PreferredAura = string(getFieldOrDefault(meta, 'TriggeredFollowUpPreferredAura', ""));
-                spec.FirstDelay = double(getFieldOrDefault(meta, 'TriggeredFollowUpDelay', localResolveReactionTriggerDelay(meta)));
-                spec.Gauge = double(getFieldOrDefault(meta, 'TriggeredFollowUpGauge', getFieldOrDefault(meta, 'EffectTickGauge', 0)));
-                spec.InternalCooldown = double(getFieldOrDefault(meta, 'TriggeredFollowUpInternalCooldown', tickInterval));
-                spec.EligibleClasses = string(getFieldOrDefault(meta, 'TriggeredFollowUpEligibleClasses', strings(1, 0)));
-                spec.MaxTriggers = double(getFieldOrDefault(meta, 'TriggeredFollowUpMaxCount', inf));
-            else
-                spec.Action = tickAction;
-                spec.FirstDelay = localResolveReactionTriggerDelay(meta);
-                spec.Gauge = double(getFieldOrDefault(meta, 'EffectTickGauge', 0));
-                spec.InternalCooldown = tickInterval;
-            end
-            spec.ForegroundOnly = false;
-            specs(end + 1) = spec; %#ok<AGROW>
-        else
-            spec = localEmptyBackgroundDriverSpec();
-            spec.DriverKind = "Autonomous";
-            spec.DriverMode = autonomousMode;
-            spec.Action = tickAction;
-            spec.Element = string(getFieldOrDefault(meta, 'EffectTickElement', ""));
-            spec.PreferredAura = string(getFieldOrDefault(meta, 'EffectTickPreferredAura', ""));
-            spec.FirstDelay = double(getFieldOrDefault(meta, 'EffectFirstTickDelay', 0));
-            spec.Interval = tickInterval;
-            spec.Count = tickCount;
-            spec.Gauge = double(getFieldOrDefault(meta, 'EffectTickGauge', 0));
-            specs(end + 1) = spec; %#ok<AGROW>
-        end
+        spec = localEmptyBackgroundDriverSpec();
+        spec.DriverKind = "Autonomous";
+        spec.DriverMode = autonomousMode;
+        spec.Action = tickAction;
+        spec.Element = string(getFieldOrDefault(meta, 'EffectTickElement', ""));
+        spec.PreferredAura = string(getFieldOrDefault(meta, 'EffectTickPreferredAura', ""));
+        spec.FirstDelay = double(getFieldOrDefault(meta, 'EffectFirstTickDelay', 0));
+        spec.Interval = tickInterval;
+        spec.Count = tickCount;
+        spec.Gauge = double(getFieldOrDefault(meta, 'EffectTickGauge', 0));
+        specs(end + 1) = spec; %#ok<AGROW>
     end
 
     followUpMode = localResolveTriggeredBackgroundDriverMode(meta);
-    if strlength(followUpAction) > 0 && effectDuration > 0 ...
-            && followUpMode ~= "ReactionEventTrigger"
+    if strlength(followUpAction) > 0 && effectDuration > 0
         spec = localEmptyBackgroundDriverSpec();
         spec.DriverKind = "Triggered";
         spec.DriverMode = followUpMode;
@@ -654,6 +695,16 @@ function specs = localCollectBackgroundDriverSpecs(meta)
     end
 end
 
+function tf = localShouldSkipAutonomousTickSpec(meta)
+    tag = lower(char(string(getFieldOrDefault(meta, 'EffectTag', ""))));
+    switch tag
+        case 'seedofskandha'
+            tf = true;
+        otherwise
+            tf = false;
+    end
+end
+
 function mode = localResolveAutonomousBackgroundDriverMode(meta)
     tag = lower(char(string(getFieldOrDefault(meta, 'EffectTag', ""))));
     switch tag
@@ -666,8 +717,6 @@ function mode = localResolveAutonomousBackgroundDriverMode(meta)
             mode = "CompanionPeriodic";
         case {'pyronado', 'heraldoffrost', 'sanctifyingring', 'seamlessshield', 'glacialwaltz'}
             mode = "OrbitingPeriodic";
-        case {'seedofskandha'}
-            mode = "ReactionPeriodicApprox";
         otherwise
             mode = "AutonomousTick";
     end
@@ -710,16 +759,6 @@ function mode = localResolveTriggeredBackgroundDriverMode(meta)
             else
                 mode = "ForegroundAnyActionTrigger";
             end
-    end
-end
-
-function delay = localResolveReactionTriggerDelay(meta)
-    tag = lower(char(string(getFieldOrDefault(meta, 'EffectTag', ""))));
-    switch tag
-        case 'seedofskandha'
-            delay = 0.15;
-        otherwise
-            delay = 0.10;
     end
 end
 
