@@ -3257,7 +3257,13 @@ classdef GenshinDMGApp < handle
             selectionSummary = string(getFieldOrDefault(getFieldOrDefault(teamResult, 'PlannedRotation', struct()), 'SelectionSummary', ""));
             candidateCount = double(getFieldOrDefault(getFieldOrDefault(teamResult, 'PlannedRotation', struct()), 'CandidateCount', 0));
 
-            if isempty(warnings) && strlength(selectionMode) == 0
+            if ~isempty(warnings)
+                warningText = strtrim(warnings);
+                structuralMask = ~startsWith(warningText, "Loop energy missing:", 'IgnoreCase', true);
+                warnings = warnings(structuralMask);
+            end
+
+            if isempty(warnings)
                 return;
             end
 

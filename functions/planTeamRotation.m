@@ -1209,7 +1209,7 @@ function memberPlan = localBuildMemberPlan(member, seed, score, role, targetBudg
     tokens = localNormalizeTokenList(tokens);
     allowExpand = localResolvePlanExpansionPolicy(role, member.Name, archetypeInfo);
     if strcmpi(char(string(source)), 'hybrid-support-fallback')
-        allowExpand = true;
+        allowExpand = false;
     end
     tokens = localConformTokensToBudget(tokens, targetBudget, member.Name, allowExpand);
 
@@ -1227,9 +1227,10 @@ function carryBudget = localResolveCarryBudget(carryBudget, score, characterName
     carryBudget = max(0, double(carryBudget));
     confidence = double(getFieldOrDefault(archetypeInfo, 'Confidence', 0));
     if localShouldUseHybridCarryFallback(score, characterName, archetypeInfo)
-        cappedBudget = max(4.8, min(7.5, 0.38 * double(rotationDuration)));
+        cappedBudget = max(5.4, min(8.6, 0.43 * double(rotationDuration)));
         if confidence < 0.70
-            cappedBudget = min(cappedBudget, max(4.6, 0.34 * double(rotationDuration)));
+            cappedBudget = max(cappedBudget, min(double(rotationDuration) - 3.6, ...
+                max(8.6, 0.44 * double(rotationDuration))));
         end
         carryBudget = min(carryBudget, cappedBudget);
     end
@@ -1366,9 +1367,17 @@ function [tokens, source] = localBuildHybridTokens(member, seed, archetypeInfo, 
     end
 
     if seed.HasAuto
-        supportTokens = localBuildSupportTokensFromSeed(getFieldOrDefault(seed, 'ReferenceTokens', {}));
+        if localShouldDefaultToSupport(normalizedName)
+            [supportTokens, ~] = localBuildSupportTokens(member, seed, archetypeInfo, job);
+        else
+            supportTokens = localBuildSupportTokensFromSeed(getFieldOrDefault(seed, 'ReferenceTokens', {}));
+        end
         onFieldTail = localBuildOnFieldTail(getFieldOrDefault(seed, 'ReferenceTokens', {}));
+        onFieldTail = localLimitHybridTail(onFieldTail, member.Name, job, archetypeInfo);
         tokens = [supportTokens(:); onFieldTail(:)].';
+        if localShouldDefaultToSupport(normalizedName) && string(job) == "Carry"
+            tokens = localExpandSupportLeanCarryTokens(tokens, onFieldTail, member.Name);
+        end
         if isempty(tokens)
             tokens = {'AUTO'};
             source = "auto-hybrid";
@@ -1380,11 +1389,90 @@ function [tokens, source] = localBuildHybridTokens(member, seed, archetypeInfo, 
 
     supportTokens = localBuildSupportTokensFromSeed(seed.ExplicitTokens);
     onFieldTail = localBuildOnFieldTail(seed.ExplicitTokens);
+    onFieldTail = localLimitHybridTail(onFieldTail, member.Name, job, archetypeInfo);
     tokens = [supportTokens(:); onFieldTail(:)].';
     if isempty(tokens)
         tokens = seed.ExplicitTokens;
     end
     source = "seed-hybrid";
+end
+
+function tail = localLimitHybridTail(tail, characterName, job, archetypeInfo)
+    tail = localNormalizeTokenList(tail);
+    if isempty(tail)
+        return;
+    end
+
+    maxDuration = 1.60;
+    maxCount = 4;
+    job = string(job);
+    primary = localArchetypeKey(archetypeInfo, 'PrimaryArchetype');
+
+    if job == "Driver" || any(primary == ["Hyperbloom", "Aggravate", "Spread"])
+        maxDuration = 2.20;
+        maxCount = 5;
+    elseif job == "Carry"
+        maxDuration = 1.90;
+        maxCount = 4;
+    end
+
+    limited = cell(0, 1);
+    elapsed = 0;
+    for i = 1:numel(tail)
+        token = tail{i};
+        duration = localEstimateActionDuration(characterName, token, 0.60);
+        if ~isfinite(duration) || duration <= 0
+            duration = 0.60;
+        end
+        if ~isempty(limited) && (elapsed + duration > maxDuration + 1e-9 || numel(limited) >= maxCount)
+            break;
+        end
+        limited{end + 1, 1} = token; %#ok<AGROW>
+        elapsed = elapsed + duration;
+    end
+
+    if ~isempty(limited)
+        tail = limited;
+    else
+        tail = tail(1:min(1, numel(tail)));
+    end
+end
+
+function tokens = localExpandSupportLeanCarryTokens(tokens, tail, characterName)
+    tokens = localNormalizeTokenList(tokens);
+    tail = localNormalizeTokenList(tail);
+    if isempty(tokens) || isempty(tail)
+        return;
+    end
+
+    targetDuration = 4.20;
+    hardCap = 5.20;
+    currentDuration = localEstimateRotationDuration(tokens, characterName);
+    loopGuard = 0;
+
+    while currentDuration < targetDuration - 0.20 && loopGuard < 6
+        appended = false;
+        for i = 1:numel(tail)
+            nextToken = tail{i};
+            nextDuration = localEstimateActionDuration(characterName, nextToken, 0.60);
+            if ~isfinite(nextDuration) || nextDuration <= 0
+                nextDuration = 0.60;
+            end
+            if currentDuration + nextDuration > hardCap + 1e-9
+                return;
+            end
+            tokens{end + 1, 1} = nextToken; %#ok<AGROW>
+            currentDuration = currentDuration + nextDuration;
+            appended = true;
+            if currentDuration >= targetDuration - 0.20
+                return;
+            end
+        end
+        if ~appended
+            return;
+        end
+        loopGuard = loopGuard + 1;
+    end
 end
 
 function [tokens, source] = localBuildCarryTokens(member, seed, archetypeInfo, job) %#ok<INUSD>
@@ -1652,7 +1740,7 @@ function tokens = localNamedSupportTokens(normalizedName, archetypeInfo, job)
         case 'xingqiu'
             tokens = {'E', 'Q'};
         case 'yelan'
-            tokens = {'E', 'Q'};
+            tokens = {'E', 'Q', 'Throw'};
         case 'fischl'
             tokens = {'E'};
         case 'beidou'
