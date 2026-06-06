@@ -81,8 +81,11 @@ function timelineResult = simulateTeamTimeline(members, rotationPlan, teamContex
             enemyState, currentTime, intervalEndTime, triggerElement, teamContext);
         if intervalEndTime > currentTime + 1e-9
             runtimeTriggeredWindows = localPruneExpiredActiveWindows(runtimeTriggeredWindows, intervalEndTime);
+            boundaryCatchCharacter = localResolveBoundaryCatchCharacter( ...
+                activeForegroundCharacter, nextEvent, nextMeta, actionQueue, ...
+                archetypeInfo, teamContext, intervalEndTime);
             [energyState, pendingEnergyDrops, pendingEnergyRows] = localResolvePendingEnergyDrops( ...
-                energyState, pendingEnergyDrops, activeForegroundCharacter, intervalEndTime);
+                energyState, pendingEnergyDrops, activeForegroundCharacter, intervalEndTime, boundaryCatchCharacter);
             if ~isempty(pendingEnergyRows)
                 energyRows = [energyRows; pendingEnergyRows]; %#ok<AGROW>
             end
@@ -120,12 +123,15 @@ function timelineResult = simulateTeamTimeline(members, rotationPlan, teamContex
         end
 
         event = actionQueue(1);
-        actionQueue(1) = [];
         meta = localResolveEventMeta(event, archetypeInfo, teamContext);
+        boundaryCatchCharacter = localResolveBoundaryCatchCharacter( ...
+            activeForegroundCharacter, event, meta, actionQueue(2:end), ...
+            archetypeInfo, teamContext, event.StartTime);
+        actionQueue(1) = [];
         eventTriggerElement = string(getFieldOrDefault(meta, 'HitElement', event.HitElement));
         runtimeTriggeredWindows = localPruneExpiredActiveWindows(runtimeTriggeredWindows, event.StartTime);
         [energyState, pendingEnergyDrops, pendingEnergyRows] = localResolvePendingEnergyDrops( ...
-            energyState, pendingEnergyDrops, activeForegroundCharacter, event.StartTime);
+            energyState, pendingEnergyDrops, activeForegroundCharacter, event.StartTime, boundaryCatchCharacter);
         if ~isempty(pendingEnergyRows)
             energyRows = [energyRows; pendingEnergyRows]; %#ok<AGROW>
         end
@@ -249,7 +255,7 @@ function timelineResult = simulateTeamTimeline(members, rotationPlan, teamContex
     end
 
     [energyState, pendingEnergyDrops, pendingEnergyRows] = localResolvePendingEnergyDrops( ...
-        energyState, pendingEnergyDrops, activeForegroundCharacter, rotationDuration);
+        energyState, pendingEnergyDrops, activeForegroundCharacter, rotationDuration, "");
     if ~isempty(pendingEnergyRows)
         energyRows = [energyRows; pendingEnergyRows]; %#ok<AGROW>
     end
@@ -1432,10 +1438,14 @@ function startEnergy = localResolveStartingEnergy(member, burstCost)
     startEnergy = min(max(0, startEnergy), burstCost);
 end
 
-function [energyState, pendingDrops, rows] = localResolvePendingEnergyDrops(energyState, pendingDrops, activeCharacter, upToTime)
+function [energyState, pendingDrops, rows] = localResolvePendingEnergyDrops( ...
+        energyState, pendingDrops, activeCharacter, upToTime, boundaryCharacter)
     rows = cell(0, 7);
     if nargin < 4 || isempty(upToTime) || ~isfinite(upToTime)
         upToTime = inf;
+    end
+    if nargin < 5
+        boundaryCharacter = "";
     end
     if isempty(pendingDrops)
         return;
@@ -1455,13 +1465,64 @@ function [energyState, pendingDrops, rows] = localResolvePendingEnergyDrops(ener
             continue;
         end
 
-        recipientIndex = localResolveEnergyRecipientIndex(energyState, activeCharacter, getFieldOrDefault(drop, 'OwnerIndex', 0));
+        recipientCharacter = string(activeCharacter);
+        if strlength(string(boundaryCharacter)) > 0 ...
+                && abs(double(getFieldOrDefault(drop, 'ArrivalTime', inf)) - double(upToTime)) <= 1e-9
+            recipientCharacter = string(boundaryCharacter);
+        end
+
+        recipientIndex = localResolveEnergyRecipientIndex( ...
+            energyState, recipientCharacter, getFieldOrDefault(drop, 'OwnerIndex', 0));
         [energyState, catchRows] = localApplyPendingEnergyDrop(energyState, drop, recipientIndex);
         if ~isempty(catchRows)
             rows = [rows; catchRows]; %#ok<AGROW>
         end
     end
     pendingDrops = kept;
+end
+
+function boundaryCharacter = localResolveBoundaryCatchCharacter( ...
+        activeCharacter, primaryEvent, primaryMeta, siblingEvents, archetypeInfo, teamContext, targetTime)
+    boundaryCharacter = "";
+    targetTime = double(targetTime);
+
+    if localEventStartsAtTime(primaryEvent, targetTime) ...
+            && logical(getFieldOrDefault(primaryMeta, 'ConsumesActiveWindow', true))
+        candidate = string(getFieldOrDefault(primaryEvent, 'Character', ""));
+        if strlength(candidate) > 0
+            boundaryCharacter = candidate;
+            return;
+        end
+    end
+
+    for eventIndex = 1:numel(siblingEvents)
+        currentEvent = siblingEvents(eventIndex);
+        if ~localEventStartsAtTime(currentEvent, targetTime)
+            if double(getFieldOrDefault(currentEvent, 'StartTime', inf)) > targetTime + 1e-9
+                break;
+            end
+            continue;
+        end
+
+        currentMeta = getFieldOrDefault(currentEvent, 'CombatMeta', struct());
+        if isempty(fieldnames(currentMeta))
+            currentMeta = localResolveEventMeta(currentEvent, archetypeInfo, teamContext);
+        end
+        if ~logical(getFieldOrDefault(currentMeta, 'ConsumesActiveWindow', true))
+            continue;
+        end
+
+        candidate = string(getFieldOrDefault(currentEvent, 'Character', ""));
+        if strlength(candidate) > 0
+            boundaryCharacter = candidate;
+            return;
+        end
+    end
+end
+
+function tf = localEventStartsAtTime(event, targetTime)
+    eventTime = double(getFieldOrDefault(event, 'StartTime', inf));
+    tf = isfinite(eventTime) && abs(eventTime - double(targetTime)) <= 1e-9;
 end
 
 function recipientIndex = localResolveEnergyRecipientIndex(energyState, activeCharacter, fallbackIndex)
