@@ -3,8 +3,9 @@ function [totalDMG, dps, breakdown, rotationTime, audit] = simulateVentiDPS(buil
     % Tap and hold skill damage, burst DoT, and absorbed-element follow-up
     % are modeled as separate actions with constellation bonuses applied.
     % Remaining approximation: approximate mode now consults a planned team
-    % timeline before falling back to static Pyro > Hydro > Electro > Cryo
-    % priority when neither explicit nor timeline-derived aura is available.
+    % timeline and the burst boundary aura state before falling back to
+    % static Pyro > Hydro > Electro > Cryo priority when neither explicit
+    % nor timeline-derived aura is available.
     if nargin < 3 || isempty(seqFile)
         seqFile = fullfile(fileparts(mfilename('fullpath')), '..', '..', 'data', 'Venti', 'rotation_Venti.txt');
     end
@@ -190,13 +191,26 @@ function element = localResolveTimelineDerivedAbsorbedElement(teamContext, enemy
         return;
     end
 
-    ventiRows = timeline(string(timeline.Character) == "Venti" & string(timeline.Action) == "Q", :);
-    if isempty(ventiRows)
+    burstRows = timeline(string(timeline.Character) == "Venti" ...
+        & string(timeline.SourceType) == "MemberAction" ...
+        & ismember(string(timeline.Action), ["Q", "QDot"]), :);
+    if isempty(burstRows)
         return;
     end
 
-    burstStart = double(ventiRows.StartTime(1));
-    priorRows = timeline(timeline.StartTime <= burstStart + 1e-9, :);
+    burstRow = burstRows(1, :);
+    boundaryElement = localResolveBoundaryAuraElement(timeline, burstRow);
+    if strlength(boundaryElement) > 0
+        element = boundaryElement;
+        return;
+    end
+
+    burstStart = double(burstRow.StartTime(1));
+    burstOrder = double(burstRow.Order(1));
+    priorRows = timeline( ...
+        double(timeline.StartTime) < burstStart - 1e-9 ...
+        | (abs(double(timeline.StartTime) - burstStart) <= 1e-9 ...
+            & double(timeline.Order) < burstOrder), :);
     if isempty(priorRows)
         return;
     end
@@ -216,6 +230,30 @@ function element = localResolveTimelineDerivedAbsorbedElement(teamContext, enemy
     if bestScore > 0
         element = priority(bestIndex);
     end
+end
+
+function element = localResolveBoundaryAuraElement(timeline, burstRow)
+    element = "";
+    if isempty(timeline) || ~istable(timeline) || isempty(burstRow)
+        return;
+    end
+
+    burstStart = double(getFieldOrDefault(burstRow, 'StartTime', NaN));
+    burstOrder = double(getFieldOrDefault(burstRow, 'Order', NaN));
+    if ~isfinite(burstStart) || ~isfinite(burstOrder)
+        return;
+    end
+
+    priorMask = double(timeline.StartTime) < burstStart - 1e-9 ...
+        | (abs(double(timeline.StartTime) - burstStart) <= 1e-9 ...
+            & double(timeline.Order) < burstOrder);
+    priorRows = timeline(priorMask, :);
+    if isempty(priorRows)
+        return;
+    end
+
+    auraText = string(priorRows.AuraState(end));
+    element = localResolveAuraStatePriorityElement(auraText);
 end
 
 function score = localTimelineAbsorbScore(rows, element, burstStart)
@@ -238,6 +276,21 @@ function score = localTimelineAbsorbScore(rows, element, burstStart)
     end
     hitScore = 0.15 * min(height(targetRows), 4);
     score = recencyScore + auraPersistence + hitScore;
+end
+
+function element = localResolveAuraStatePriorityElement(auraText)
+    element = "";
+    if strlength(string(auraText)) == 0 || strcmpi(char(string(auraText)), 'None')
+        return;
+    end
+
+    priority = ["Pyro", "Hydro", "Electro", "Cryo"];
+    for i = 1:numel(priority)
+        if contains(string(auraText), priority(i) + ":", 'IgnoreCase', true)
+            element = priority(i);
+            return;
+        end
+    end
 end
 
 function members = localBuildTimelineMembers(teamContext)
