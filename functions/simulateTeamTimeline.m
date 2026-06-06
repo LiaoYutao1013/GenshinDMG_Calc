@@ -1259,12 +1259,14 @@ end
 function priority = localEventSourcePriority(event)
     sourceType = string(getFieldOrDefault(event, 'SourceType', "MemberAction"));
     switch char(sourceType)
-        case 'TriggeredFollowUp'
-            priority = 2;
         case 'EffectTick'
+            priority = 1;
+        case 'MemberAction'
+            priority = 2;
+        case 'TriggeredFollowUp'
             priority = 3;
         otherwise
-            priority = 1;
+            priority = 4;
     end
 end
 
@@ -1678,11 +1680,11 @@ function priority = localTimelineRowPriority(row)
     sourceType = string(getFieldOrDefault(row, 'SourceType', "MemberAction"));
     action = string(getFieldOrDefault(row, 'Action', ""));
     switch char(sourceType)
-        case 'MemberAction'
-            priority = 1;
-        case 'TriggeredFollowUp'
-            priority = 2;
         case 'EffectTick'
+            priority = 1;
+        case 'MemberAction'
+            priority = 2;
+        case 'TriggeredFollowUp'
             priority = 3;
         case 'TimedReaction'
             priority = 4;
