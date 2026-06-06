@@ -1686,7 +1686,7 @@ function tokens = localNamedSupportTokens(normalizedName, archetypeInfo, job)
     tokens = {};
     switch char(normalizedName)
         case 'venti'
-            tokens = {'EHold', 'Q', 'QDot'};
+            tokens = {'EHold', 'Q'};
         case 'furina'
             if any(primary == ["Bloom", "Hyperbloom", "Burgeon"])
                 tokens = {'E', 'Q'};

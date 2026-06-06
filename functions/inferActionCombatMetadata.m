@@ -1383,6 +1383,11 @@ function [duration, tag, firstTickDelay, tickInterval, tickCount, tickAction, ti
                 duration = 15.0;
                 tag = "FortunePreservingTalisman";
             end
+        case 'venti'
+            if strcmp(lowerAction, 'q')
+                duration = 8.0;
+                tag = "WindsGrandOde";
+            end
         case 'kaeya'
             if strcmp(lowerAction, 'q')
                 duration = 8.0;
@@ -1545,6 +1550,14 @@ function [firstTickDelay, tickInterval, tickCount, tickAction, tickGauge] = ...
                 tickAction = "HeraldTick";
                 tickInterval = 2.00;
                 tickGauge = 1.0;
+            end
+
+        case 'venti'
+            if strcmp(effectTag, "WindsGrandOde")
+                tickAction = "QDot";
+                tickInterval = 0.40;
+                tickGauge = 1.0;
+                tickCount = 20;
             end
 
         case 'kaeya'
