@@ -11,7 +11,7 @@ function [totalDMG, dps, breakdown, rotationTime, audit] = simulateJahodaDPS(bui
         constellation = 0;
     end
     if nargin < 6 || isempty(teamContext)
-        teamContext = buildTeamContext({struct('Name', 'Jahoda', 'Constellation', constellation, 'Build', build)}, 20, struct());
+        teamContext = buildTeamContext({struct('Name', 'Jahoda', 'Constellation', constellation, 'Build', build)}, 20, struct(), enemy);
     end
 
     normalLevel = localClampTalentLevel(talentLevel);
