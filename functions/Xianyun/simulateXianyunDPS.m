@@ -16,7 +16,7 @@ function [totalDMG, dps, breakdown, rotationTime, audit] = simulateXianyunDPS(bu
         constellation = 0;
     end
     if nargin < 6 || isempty(teamContext)
-        teamContext = buildTeamContext({struct('Name', 'Xianyun', 'Constellation', constellation, 'Build', build)}, 20, struct());
+        teamContext = buildTeamContext({struct('Name', 'Xianyun', 'Constellation', constellation, 'Build', build)}, 20, struct(), enemy);
     end
 
     thisFolder = fileparts(mfilename('fullpath'));

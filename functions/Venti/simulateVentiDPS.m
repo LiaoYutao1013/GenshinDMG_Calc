@@ -15,7 +15,7 @@ function [totalDMG, dps, breakdown, rotationTime, audit] = simulateVentiDPS(buil
         constellation = 0;
     end
     if nargin < 6 || isempty(teamContext)
-        teamContext = buildTeamContext({struct('Name', 'Venti', 'Constellation', constellation, 'Build', build)}, 20, struct());
+        teamContext = buildTeamContext({struct('Name', 'Venti', 'Constellation', constellation, 'Build', build)}, 20, struct(), enemy);
     end
 
     absorbedElement = localResolveAbsorbedElement(teamContext, enemy);

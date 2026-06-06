@@ -12,7 +12,7 @@ function [totalDMG, dps, breakdown, rotationTime, audit] = simulateNicoleDPS(bui
         constellation = 0;
     end
     if nargin < 6 || isempty(teamContext) || ~isfield(teamContext, 'NicoleProjectionOwnerElement')
-        teamContext = buildTeamContext({struct('Name', 'Nicole', 'Constellation', constellation, 'TalentLevel', talentLevel, 'Build', build)}, 20, struct());
+        teamContext = buildTeamContext({struct('Name', 'Nicole', 'Constellation', constellation, 'TalentLevel', talentLevel, 'Build', build)}, 20, struct(), enemy);
     end
 
     thisFolder = fileparts(mfilename('fullpath'));

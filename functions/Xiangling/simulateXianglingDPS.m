@@ -14,7 +14,7 @@ function [totalDMG, dps, breakdown, rotationTime, audit] = simulateXianglingDPS(
         constellation = 0;
     end
     if nargin < 6 || isempty(teamContext)
-        teamContext = buildTeamContext({struct('Name', 'Xiangling', 'Constellation', constellation, 'Build', build)}, 20, struct());
+        teamContext = buildTeamContext({struct('Name', 'Xiangling', 'Constellation', constellation, 'Build', build)}, 20, struct(), enemy);
     end
 
     vapeReady = getFieldOrDefault(teamContext, 'HydroCount', 0) >= 1;
