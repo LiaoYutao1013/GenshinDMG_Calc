@@ -208,6 +208,16 @@ function [totalDMG, dps, breakdown, rotationTime, audit] = simulateFurinaDPS(bui
         end
     end
 
+    [state, explicitTimelineBreakdown, explicitTimelineDMG, explicitTimelineHeal] = ...
+        localReplayExplicitTimelineCompanionTicks( ...
+        state, build, localTeamContext, talent, talentLevel, maxHP, hydroMult, ...
+        useExplicitCompanionActions);
+    totalDMG = totalDMG + explicitTimelineDMG;
+    totalHeal = totalHeal + explicitTimelineHeal;
+    if ~isempty(explicitTimelineBreakdown)
+        breakdown = [breakdown; explicitTimelineBreakdown]; %#ok<AGROW>
+    end
+
     if rotationTime <= 0
         rotationTime = getFieldOrDefault(teamContext, 'RotationDuration', 20);
     end
@@ -648,6 +658,98 @@ function [state, backgroundBreakdown, totalDMG, totalHeal] = localAdvanceStateWi
             totalHeal = totalHeal + tickHeal;
         end
         state = localResetCompanionTickDelay(state, false);
+    end
+end
+
+function [state, breakdown, totalDMG, totalHeal] = localReplayExplicitTimelineCompanionTicks( ...
+        state, build, teamContext, talent, talentLevel, maxHP, hydroMult, useExplicitCompanionActions)
+    totalDMG = 0;
+    totalHeal = 0;
+    breakdown = table('Size', [0 3], 'VariableTypes', {'string', 'double', 'string'}, ...
+        'VariableNames', {'Action', 'Damage', 'Note'});
+    if useExplicitCompanionActions
+        return;
+    end
+
+    timelineTable = getFieldOrDefault(teamContext, 'TimelineTable', table());
+    if isempty(timelineTable) || ~istable(timelineTable) || height(timelineTable) == 0
+        return;
+    end
+    requiredColumns = ["Character", "SourceType", "Action", "StartTime", "EndTime", "EffectTag"];
+    if ~all(ismember(requiredColumns, string(timelineTable.Properties.VariableNames)))
+        return;
+    end
+
+    furinaMemberRows = timelineTable(strcmpi(string(timelineTable.Character), "Furina") ...
+        & strcmpi(string(timelineTable.SourceType), "MemberAction"), :);
+    if isempty(furinaMemberRows)
+        return;
+    end
+    memberActionEnd = max(double(furinaMemberRows.EndTime));
+    if ~isfinite(memberActionEnd)
+        return;
+    end
+
+    explicitRows = timelineTable(strcmpi(string(timelineTable.Character), "Furina") ...
+        & strcmpi(string(timelineTable.SourceType), "EffectTick"), :);
+    if isempty(explicitRows)
+        return;
+    end
+
+    actionNames = string(explicitRows.Action);
+    effectTags = string(explicitRows.EffectTag);
+    supportedMask = startsWith(actionNames, "SalonTick", 'IgnoreCase', true) ...
+        | startsWith(actionNames, "Singer", 'IgnoreCase', true) ...
+        | strcmpi(effectTags, "SalonMembers");
+    explicitRows = explicitRows(supportedMask, :);
+    if isempty(explicitRows)
+        return;
+    end
+
+    explicitRows = sortrows(explicitRows, {'StartTime', 'EndTime', 'Action'});
+    explicitRows = explicitRows(double(explicitRows.StartTime) > memberActionEnd + 1e-9, :);
+    if isempty(explicitRows)
+        return;
+    end
+
+    cursorTime = memberActionEnd;
+    state.NextCompanionTickDelay = inf;
+    for rowIndex = 1:height(explicitRows)
+        tickStart = double(explicitRows.StartTime(rowIndex));
+        if ~isfinite(tickStart)
+            continue;
+        end
+
+        deltaTime = max(0, tickStart - cursorTime);
+        if deltaTime > 1e-9
+            state = localStepFurinaState(state, deltaTime);
+        end
+
+        actionName = string(explicitRows.Action(rowIndex));
+        if startsWith(actionName, "Singer", 'IgnoreCase', true)
+            state.ArkheMode = "Pneuma";
+        else
+            state.ArkheMode = "Ousia";
+        end
+
+        [state, resolvedAction, tickDamage, tickHeal, tickNote] = localResolveCompanionAutoTick( ...
+            state, build, teamContext, talent, talentLevel, maxHP, hydroMult);
+        if tickDamage > 0
+            breakdown = [breakdown; {resolvedAction, tickDamage, tickNote}]; %#ok<AGROW>
+            totalDMG = totalDMG + tickDamage;
+        end
+        if tickHeal > 0
+            breakdown = [breakdown; {resolvedAction + "_Heal", tickHeal, "Healing"}]; %#ok<AGROW>
+            totalHeal = totalHeal + tickHeal;
+        end
+        tickEnd = tickStart;
+        if ismember('EndTime', explicitRows.Properties.VariableNames)
+            tickEnd = double(explicitRows.EndTime(rowIndex));
+            if ~isfinite(tickEnd)
+                tickEnd = tickStart;
+            end
+        end
+        cursorTime = max(cursorTime, tickEnd);
     end
 end
 

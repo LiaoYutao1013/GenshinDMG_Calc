@@ -282,12 +282,16 @@ function orderCandidates = localBuildOrderCandidates(baseOrder, members, carryIn
     nonCarry = setdiff(baseOrder, carryIndex, 'stable');
 
     if ~isempty(nonCarry)
-        orderCandidates{end + 1} = [nonCarry, carryIndex]; %#ok<AGROW>
-        orderCandidates{end + 1} = [carryIndex, nonCarry]; %#ok<AGROW>
-    end
-    if numel(nonCarry) > 1
-        orderCandidates{end + 1} = [nonCarry(end:-1:1), carryIndex]; %#ok<AGROW>
-        orderCandidates{end + 1} = [[nonCarry(2:end), nonCarry(1)], carryIndex]; %#ok<AGROW>
+        permutations = localPermuteNumericOrder(nonCarry);
+        baseCarryPosition = find(baseOrder == carryIndex, 1, 'first');
+        insertPositions = localBuildCarryInsertPositions(numel(nonCarry), baseCarryPosition);
+        for permIndex = 1:numel(permutations)
+            currentNonCarry = permutations{permIndex};
+            for insertIndex = 1:numel(insertPositions)
+                candidate = localInsertCarryIntoOrder(currentNonCarry, carryIndex, insertPositions(insertIndex));
+                orderCandidates{end + 1} = candidate; %#ok<AGROW>
+            end
+        end
     end
 
     requestedStarts = nan(1, numel(members));
@@ -312,6 +316,59 @@ function orderCandidates = localBuildOrderCandidates(baseOrder, members, carryIn
         uniqueCandidates{end + 1, 1} = candidate; %#ok<AGROW>
     end
     orderCandidates = uniqueCandidates;
+end
+
+function positions = localBuildCarryInsertPositions(nonCarryCount, preferredPosition)
+    positions = zeros(1, 0);
+    if nargin < 2 || isempty(preferredPosition) || ~isfinite(preferredPosition)
+        preferredPosition = nonCarryCount + 1;
+    end
+    preferredPosition = max(1, min(nonCarryCount + 1, round(preferredPosition)));
+    positions(end + 1) = preferredPosition; %#ok<AGROW>
+    positions(end + 1) = nonCarryCount + 1; %#ok<AGROW>
+    positions(end + 1) = max(1, nonCarryCount); %#ok<AGROW>
+    positions(end + 1) = 1; %#ok<AGROW>
+    for i = 1:(nonCarryCount + 1)
+        positions(end + 1) = i; %#ok<AGROW>
+    end
+    positions = unique(positions, 'stable');
+end
+
+function candidate = localInsertCarryIntoOrder(nonCarryOrder, carryIndex, insertPosition)
+    nonCarryOrder = reshape(nonCarryOrder, 1, []);
+    if isempty(nonCarryOrder)
+        candidate = carryIndex;
+        return;
+    end
+    insertPosition = max(1, min(numel(nonCarryOrder) + 1, round(insertPosition)));
+    if insertPosition <= 1
+        candidate = [carryIndex, nonCarryOrder];
+    elseif insertPosition > numel(nonCarryOrder)
+        candidate = [nonCarryOrder, carryIndex];
+    else
+        candidate = [nonCarryOrder(1:insertPosition - 1), carryIndex, nonCarryOrder(insertPosition:end)];
+    end
+end
+
+function permutations = localPermuteNumericOrder(values)
+    values = reshape(values, 1, []);
+    if isempty(values)
+        permutations = {zeros(1, 0)};
+        return;
+    end
+    if numel(values) == 1
+        permutations = {values};
+        return;
+    end
+
+    permutations = cell(0, 1);
+    for i = 1:numel(values)
+        remaining = values([1:i - 1, i + 1:end]);
+        childPermutations = localPermuteNumericOrder(remaining);
+        for childIndex = 1:numel(childPermutations)
+            permutations{end + 1, 1} = [values(i), childPermutations{childIndex}]; %#ok<AGROW>
+        end
+    end
 end
 
 function candidate = localEvaluatePlanCandidate( ...
@@ -670,11 +727,11 @@ function seed = localBuildMemberSeed(member)
     seed.SeedRotationText = string(rotationText);
     seed.Source = string(source);
     seed.Tokens = tokens;
-    seed.ReferenceTokens = localDropAutoToken(tokens);
+    seed.ReferenceTokens = localBuildReferenceSeedTokens(tokens, member.Name);
     seed.IsExplicit = logical(localResolveSeedExplicitness(member, rotationFile));
     if seed.IsExplicit
         seed.HasAuto = isempty(tokens) || (numel(tokens) == 1 && strcmpi(tokens{1}, 'AUTO'));
-        seed.ExplicitTokens = localDropAutoToken(tokens);
+        seed.ExplicitTokens = localStandardizePlanningTokens(localDropAutoToken(tokens), member.Name);
     else
         seed.HasAuto = true;
         seed.ExplicitTokens = {};
@@ -1229,9 +1286,11 @@ function memberPlan = localBuildMemberPlan(member, seed, score, role, targetBudg
         tokens = {'AUTO'};
         source = "fallback";
     end
-    tokens = localNormalizeTokenList(tokens);
+    tokens = localStandardizePlanningTokens(tokens, member.Name);
     allowExpand = localResolvePlanExpansionPolicy(role, member.Name, archetypeInfo);
-    if strcmpi(char(string(source)), 'hybrid-support-fallback')
+    if strcmpi(char(string(source)), 'hybrid-support-fallback') ...
+            || strcmpi(char(string(source)), 'hybrid-carry-fallback') ...
+            || strcmpi(char(string(source)), 'support-lean-carry')
         allowExpand = false;
     end
     tokens = localConformTokensToBudget(tokens, targetBudget, member.Name, allowExpand);
@@ -1426,7 +1485,7 @@ function tail = localLimitHybridTail(tail, characterName, job, archetypeInfo)
         return;
     end
 
-    maxDuration = 1.60;
+    maxDuration = 1.45;
     maxCount = 4;
     job = string(job);
     primary = localArchetypeKey(archetypeInfo, 'PrimaryArchetype');
@@ -1435,8 +1494,11 @@ function tail = localLimitHybridTail(tail, characterName, job, archetypeInfo)
         maxDuration = 2.20;
         maxCount = 5;
     elseif job == "Carry"
-        maxDuration = 1.90;
+        maxDuration = 1.95;
         maxCount = 4;
+    elseif job == "Sustain"
+        maxDuration = 1.00;
+        maxCount = 2;
     end
 
     limited = cell(0, 1);
@@ -1468,15 +1530,18 @@ function tokens = localExpandSupportLeanCarryTokens(tokens, tail, characterName)
         return;
     end
 
-    targetDuration = 4.20;
-    hardCap = 5.20;
+    % Keep support-lean carries in a bounded driver window instead of
+    % reusing a whole repeated solo loop when filling the remaining budget.
+    targetDuration = 8.80;
+    hardCap = 9.40;
     currentDuration = localEstimateRotationDuration(tokens, characterName);
+    extensionCycle = localResolveSupportLeanCarryExtensionCycle(tail, characterName);
     loopGuard = 0;
 
     while currentDuration < targetDuration - 0.20 && loopGuard < 6
         appended = false;
-        for i = 1:numel(tail)
-            nextToken = tail{i};
+        for i = 1:numel(extensionCycle)
+            nextToken = extensionCycle{i};
             nextDuration = localEstimateActionDuration(characterName, nextToken, 0.60);
             if ~isfinite(nextDuration) || nextDuration <= 0
                 nextDuration = 0.60;
@@ -1495,6 +1560,23 @@ function tokens = localExpandSupportLeanCarryTokens(tokens, tail, characterName)
             return;
         end
         loopGuard = loopGuard + 1;
+    end
+end
+
+function cycle = localResolveSupportLeanCarryExtensionCycle(tail, characterName)
+    cycle = localNormalizeTokenList(tail);
+    normalizedName = localNormalizeName(characterName);
+    if isempty(cycle)
+        return;
+    end
+
+    if normalizedName == "furina"
+        tokenStrings = string(cycle);
+        hasNormalTail = any(startsWith(tokenStrings, "N"));
+        hasCA = any(strcmpi(tokenStrings, "CA"));
+        if hasNormalTail && ~hasCA
+            cycle{end + 1, 1} = 'CA'; %#ok<AGROW>
+        end
     end
 end
 
@@ -2201,6 +2283,129 @@ function tokens = localDropAutoToken(tokens)
     end
     if numel(tokens) == 1 && strcmpi(tokens{1}, 'AUTO')
         tokens = {};
+    end
+end
+
+function tokens = localBuildReferenceSeedTokens(tokens, characterName)
+    tokens = localDropAutoToken(tokens);
+    tokens = localStandardizePlanningTokens(tokens, characterName);
+    if isempty(tokens)
+        return;
+    end
+
+    cycleTokens = localCompressRepeatedSeedCycle(tokens, characterName);
+    if ~isempty(cycleTokens)
+        tokens = cycleTokens;
+    end
+end
+
+function standardized = localStandardizePlanningTokens(tokens, characterName)
+    tokens = localNormalizeTokenList(tokens);
+    standardized = cell(0, 1);
+    normalizedName = localNormalizeName(characterName);
+
+    for i = 1:numel(tokens)
+        token = string(strtrim(char(tokens{i})));
+        if strlength(token) == 0
+            continue;
+        end
+
+        lowerToken = lower(token);
+        if lowerToken == "normal"
+            expanded = localDefaultNormalSequence(normalizedName);
+        elseif lowerToken == "heavy" && normalizedName == "furina"
+            expanded = {'CA'};
+        else
+            expanded = {char(token)};
+        end
+
+        for j = 1:numel(expanded)
+            standardized{end + 1, 1} = expanded{j}; %#ok<AGROW>
+        end
+    end
+end
+
+function sequence = localDefaultNormalSequence(normalizedName)
+    switch char(normalizedName)
+        case 'furina'
+            sequence = {'N1', 'N2', 'N3', 'N4'};
+        case {'xianyun', 'jean', 'barbara', 'kaeya', 'diluc', 'xiangling', 'razor'}
+            sequence = {'N1', 'N2', 'N3'};
+        otherwise
+            sequence = {'N1'};
+    end
+end
+
+function tokens = localCompressRepeatedSeedCycle(tokens, characterName)
+    tokens = localNormalizeTokenList(tokens);
+    if numel(tokens) < 6
+        return;
+    end
+
+    maxCycleLength = min(12, floor(numel(tokens) / 2));
+    for cycleLength = 2:maxCycleLength
+        if mod(numel(tokens), cycleLength) ~= 0
+            continue;
+        end
+        cycle = tokens(1:cycleLength);
+        repeatCount = numel(tokens) / cycleLength;
+        if repeatCount < 2
+            continue;
+        end
+
+        matches = true;
+        for repeatIndex = 2:repeatCount
+            startPos = (repeatIndex - 1) * cycleLength + 1;
+            endPos = repeatIndex * cycleLength;
+            if ~isequal(string(tokens(startPos:endPos)), string(cycle))
+                matches = false;
+                break;
+            end
+        end
+        if matches
+            tokens = localTrimReferenceCycleToSingleWindow(cycle, characterName);
+            return;
+        end
+    end
+end
+
+function cycle = localTrimReferenceCycleToSingleWindow(cycle, characterName)
+    cycle = localNormalizeTokenList(cycle);
+    if isempty(cycle)
+        return;
+    end
+
+    maxDuration = 8.8;
+    if localNormalizeName(characterName) == "furina"
+        maxDuration = 7.4;
+    end
+
+    trimmed = cell(0, 1);
+    elapsed = 0;
+    burstSeen = false;
+    for i = 1:numel(cycle)
+        token = string(cycle{i});
+        duration = localEstimateActionDuration(characterName, token, 0.60);
+        if ~isfinite(duration) || duration <= 0
+            duration = 0.60;
+        end
+
+        if ~isempty(trimmed) && elapsed + duration > maxDuration + 1e-9
+            break;
+        end
+
+        trimmed{end + 1, 1} = char(token); %#ok<AGROW>
+        elapsed = elapsed + duration;
+        if localIsBurstToken(token)
+            burstSeen = true;
+        end
+        if burstSeen && elapsed >= maxDuration - 0.8
+            break;
+        end
+    end
+
+    if ~isempty(trimmed)
+        cycle = trimmed;
     end
 end
 
