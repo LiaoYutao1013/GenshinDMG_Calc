@@ -575,7 +575,7 @@ function [enemyState, residualApplyGauge] = localConsumeAuraForAmplify(enemyStat
     reactionName = lower(char(string(reaction.Name)));
     auraGauge = double(getFieldOrDefault(enemyState.Auras(reaction.AuraIndex), 'Gauge', 0));
     reactionCoeff = localResolveReactionCoefficient(reactionName, auraElement);
-    taxedTriggerGauge = localApplyAuraTax(applyGauge);
+    taxedTriggerGauge = localResolveTaxedTriggerGauge(reactionName, applyGauge);
     residualApplyGauge = max(0, taxedTriggerGauge - auraGauge / max(reactionCoeff, eps));
 
     if strcmp(reactionName, 'vaporize')
@@ -618,6 +618,16 @@ function gauge = localApplyAuraTax(applyGauge)
     gauge = max(0, 0.8 * double(applyGauge));
 end
 
+function gauge = localResolveTaxedTriggerGauge(reactionName, applyGauge)
+    reactionName = lower(char(string(reactionName)));
+    switch reactionName
+        case {'swirl', 'crystallize'}
+            gauge = max(0, 0.5 * double(applyGauge));
+        otherwise
+            gauge = localApplyAuraTax(applyGauge);
+    end
+end
+
 function coeff = localResolveReactionCoefficient(reactionName, auraElement)
     reactionName = lower(char(string(reactionName)));
     auraElement = lower(char(string(auraElement)));
@@ -648,7 +658,7 @@ function [enemyState, quickenGauge, residualApplyGauge] = localConsumeAuraForQui
     end
 
     auraGauge = double(getFieldOrDefault(enemyState.Auras(reaction.AuraIndex), 'Gauge', 0));
-    taxedTriggerGauge = localApplyAuraTax(applyGauge);
+    taxedTriggerGauge = localResolveTaxedTriggerGauge(reaction.Name, applyGauge);
     quickenGauge = min(auraGauge, taxedTriggerGauge);
     [enemyState, residualApplyGauge] = localConsumeAuraForAmplify(enemyState, reaction, applyGauge);
 end

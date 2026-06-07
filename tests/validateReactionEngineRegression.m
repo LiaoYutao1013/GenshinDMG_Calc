@@ -58,6 +58,24 @@ function validateReactionEngineRegression()
         'Equal-gauge Superconduct should not fabricate a residual Cryo aura when the trigger gauge is fully spent into the reaction.');
 
     state = createEnemyState(enemy, teamContext, "");
+    state = localApplyAuraOnly(state, "Electro", 0.8, build, teamContext, enemy);
+    crystallize = resolveReactionForHit(state, localMakeHit("Geo", 1.0), build, teamContext, enemy, 0);
+    assert(strcmpi(char(crystallize.PrimaryReaction), 'Crystallize'), ...
+        'Expected Crystallize to trigger from Geo on Electro.');
+    assert(localAuraGauge(crystallize.EnemyState, "Electro") > 0 ...
+            && abs(localAuraGauge(crystallize.EnemyState, "Electro") - 0.3) < 1e-9, ...
+        'Crystallize should only consume a 0.5x Geo trigger tax from a matching 0.8U aura instead of deleting it outright.');
+
+    state = createEnemyState(enemy, teamContext, "");
+    state = localApplyAuraOnly(state, "Electro", 0.8, build, teamContext, enemy);
+    swirl = resolveReactionForHit(state, localMakeHit("Anemo", 1.0), build, teamContext, enemy, 0);
+    assert(strcmpi(char(swirl.PrimaryReaction), 'Swirl'), ...
+        'Expected Swirl to trigger from Anemo on Electro.');
+    assert(localAuraGauge(swirl.EnemyState, "Electro") > 0 ...
+            && abs(localAuraGauge(swirl.EnemyState, "Electro") - 0.3) < 1e-9, ...
+        'Swirl should only consume a 0.5x Anemo trigger tax from a matching 0.8U aura instead of deleting it outright.');
+
+    state = createEnemyState(enemy, teamContext, "");
     state = localApplyAuraOnly(state, "Hydro", 1.0, build, teamContext, enemy);
     electroCharged = resolveReactionForHit(state, localMakeHit("Electro", 1.0), build, teamContext, enemy, 0);
     assert(strcmpi(char(electroCharged.PrimaryReaction), 'ElectroCharged'), ...

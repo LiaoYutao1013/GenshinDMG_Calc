@@ -885,7 +885,11 @@ function meta = localApplyCharacterSpecificMetadata(meta, member, normalizedName
             end
 
         case 'venti'
-            if strcmp(lowerAction, 'q')
+            if strcmp(lowerAction, 'ehold')
+                meta.ApplyGauge = 1.0;
+                meta.CanApplyAura = true;
+                meta.ApplyGaugeSource = "metadata";
+            elseif strcmp(lowerAction, 'q')
                 meta.HitElement = "";
                 meta.ApplyElement = "";
                 meta.ApplyGauge = 0.0;
