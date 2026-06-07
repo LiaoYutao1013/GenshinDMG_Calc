@@ -428,7 +428,11 @@ function reaction = localResolvePrimaryReaction(enemyState, hitElement, forcedNa
         end
     end
 
-    [auraIndex, auraElement] = localPickAura(enemyState);
+    if any(strcmp(hitElement, {'anemo', 'geo'}))
+        [auraIndex, auraElement] = localResolveAnemoGeoPriorityAura(enemyState);
+    else
+        [auraIndex, auraElement] = localPickAura(enemyState);
+    end
     auraElementLower = lower(char(string(auraElement)));
 
     if getFieldOrDefault(enemyState.Quicken, 'Active', false)
@@ -549,6 +553,16 @@ function [auraIndex, auraElement] = localPickAura(enemyState)
         auraIndex = sortRows(1, 4);
     end
     auraElement = string(enemyState.Auras(auraIndex).Element);
+end
+
+function [auraIndex, auraElement] = localResolveAnemoGeoPriorityAura(enemyState)
+    if localHasCoexistingAura(enemyState, "Hydro", "Electro")
+        auraIndex = localFindAuraIndex(enemyState, "Electro");
+        auraElement = "Electro";
+        return;
+    end
+
+    [auraIndex, auraElement] = localPickAura(enemyState);
 end
 
 function auraIndex = localFindAuraIndex(enemyState, auraElement)
