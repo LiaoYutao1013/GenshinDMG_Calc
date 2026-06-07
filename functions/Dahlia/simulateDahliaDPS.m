@@ -160,12 +160,139 @@ function [totalDMG, dps, breakdown, rotationTime, audit] = simulateDahliaDPS(bui
 end
 
 function aura = localResolveDahliaAura(teamContext)
+    [timelineAura, usedTimeline] = localResolveDahliaAuraFromTimeline(teamContext);
+    if usedTimeline
+        aura = timelineAura;
+        return;
+    end
+
     if getFieldOrDefault(teamContext, 'PyroCount', 0) >= 1
         aura = "Pyro";
     elseif getFieldOrDefault(teamContext, 'CryoCount', 0) >= 1
         aura = "Cryo";
     else
         aura = "";
+    end
+end
+
+function [aura, usedTimeline] = localResolveDahliaAuraFromTimeline(teamContext)
+    aura = "";
+    usedTimeline = false;
+
+    timelineTable = getFieldOrDefault(teamContext, 'TimelineTable', table());
+    if isempty(timelineTable) || ~istable(timelineTable) || height(timelineTable) == 0
+        return;
+    end
+    if ~all(ismember({'Character', 'Action', 'StartTime'}, timelineTable.Properties.VariableNames))
+        return;
+    end
+
+    rowCharacters = string(timelineTable.Character);
+    rowActions = string(timelineTable.Action);
+    anchorMask = strcmpi(rowCharacters, "Dahlia") ...
+        & any(rowActions == ["ETap", "EHold", "Q"], 2);
+    if ~any(anchorMask)
+        return;
+    end
+
+    usedTimeline = true;
+    anchorRow = localResolveDahliaAnchorRow(timelineTable(anchorMask, :));
+    priorRows = localResolveDahliaPriorRows(timelineTable, anchorRow);
+    if isempty(priorRows)
+        return;
+    end
+
+    latestRow = priorRows(end, :);
+    if ismember('AuraState', latestRow.Properties.VariableNames)
+        auraState = string(latestRow.AuraState(1));
+        if strlength(strtrim(auraState)) > 0
+            aura = localResolveDahliaAuraState(auraState);
+            return;
+        end
+    end
+
+    aura = localResolveDahliaAuraFromRecentHits(priorRows);
+end
+
+function anchorRow = localResolveDahliaAnchorRow(rows)
+    sortKey = double(rows.StartTime);
+    if ismember('Order', rows.Properties.VariableNames)
+        sortRows = [sortKey, double(rows.Order), (1:height(rows)).'];
+        sortRows = sortrows(sortRows, [1 2 3]);
+        order = sortRows(:, 3);
+    else
+        [~, order] = sort(sortKey);
+    end
+    anchorRow = rows(order(1), :);
+end
+
+function priorRows = localResolveDahliaPriorRows(timelineTable, anchorRow)
+    startTimes = double(timelineTable.StartTime);
+    priorMask = startTimes < double(anchorRow.StartTime(1)) - 1e-9;
+
+    if ismember('Order', timelineTable.Properties.VariableNames) ...
+            && ismember('Order', anchorRow.Properties.VariableNames)
+        sameTimeMask = abs(startTimes - double(anchorRow.StartTime(1))) <= 1e-9 ...
+            & double(timelineTable.Order) < double(anchorRow.Order(1));
+        priorMask = priorMask | sameTimeMask;
+    end
+
+    priorRows = timelineTable(priorMask, :);
+    if isempty(priorRows)
+        return;
+    end
+
+    if ismember('Order', priorRows.Properties.VariableNames)
+        sortRows = [double(priorRows.StartTime), double(priorRows.Order), (1:height(priorRows)).'];
+        sortRows = sortrows(sortRows, [1 2 3]);
+        priorRows = priorRows(sortRows(:, 3), :);
+    else
+        [~, order] = sort(double(priorRows.StartTime));
+        priorRows = priorRows(order, :);
+    end
+end
+
+function aura = localResolveDahliaAuraState(auraState)
+    aura = "";
+    priority = ["Pyro", "Cryo"];
+    auraText = string(auraState);
+    for i = 1:numel(priority)
+        if contains(auraText, priority(i) + ":", 'IgnoreCase', true)
+            aura = priority(i);
+            return;
+        end
+    end
+end
+
+function aura = localResolveDahliaAuraFromRecentHits(priorRows)
+    aura = "";
+    if isempty(priorRows)
+        return;
+    end
+
+    hitElements = repmat("", height(priorRows), 1);
+    if ismember('HitElement', priorRows.Properties.VariableNames)
+        hitElements = string(priorRows.HitElement);
+    end
+
+    applyGauge = zeros(height(priorRows), 1);
+    if ismember('ApplyGauge', priorRows.Properties.VariableNames)
+        applyGauge = double(priorRows.ApplyGauge);
+    end
+
+    priority = ["Pyro", "Cryo"];
+    for rowIndex = height(priorRows):-1:1
+        if applyGauge(rowIndex) <= 0
+            continue;
+        end
+
+        rowElement = string(hitElements(rowIndex));
+        for priorityIndex = 1:numel(priority)
+            if strcmpi(rowElement, priority(priorityIndex))
+                aura = priority(priorityIndex);
+                return;
+            end
+        end
     end
 end
 
