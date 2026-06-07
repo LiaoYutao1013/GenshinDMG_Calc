@@ -752,6 +752,114 @@ function meta = localApplyCharacterSpecificMetadata(meta, member, normalizedName
                 meta.AllowCatalyze = ownerAllowCatalyze;
             end
 
+        case 'ororon'
+            preferredAura = localResolveOroronPreferredAura(teamContext);
+            if strcmp(lowerAction, 'e')
+                meta.HitElement = "Electro";
+                meta.ApplyElement = "Electro";
+                meta.ApplyGauge = 1.0;
+                meta.CanApplyAura = true;
+                meta.AllowAmplify = false;
+                meta.AllowCatalyze = true;
+                meta.PreferredAura = preferredAura;
+                meta.ICDRule = "Standard (3h/2.5s)";
+                meta.ICDGroup = "Ororon_SpiritOrb";
+                meta.ICDSource = "explicit";
+                meta.EffectDuration = 15.0;
+                meta.EffectTag = "OroronHypersense";
+
+                reactionProfile = localMakeTriggeredFollowUpProfile( ...
+                    "Hypersense", 0.60, 1.0, "Electro", preferredAura, 1.80, ...
+                    strings(1, 0), false, 8, "ReactionEventTrigger", ...
+                    ["ElectroCharged", "LunarCharged"], strings(1, 0), false);
+                reactionProfile.DisallowedTriggerCharacters = "Ororon";
+                reactionProfile.ICDRule = "Standard (3h/2.5s)";
+                reactionProfile.ICDGroup = "Ororon_Hypersense";
+                reactionProfile.ICDSource = "explicit";
+                reactionProfile.TriggerICDGroup = "Ororon_Hypersense";
+                meta = localAppendTriggeredFollowUpProfile(meta, reactionProfile);
+
+                nightsoulProfile = localMakeTriggeredFollowUpProfile( ...
+                    "Hypersense", 0.60, 1.0, "Electro", preferredAura, 1.80, ...
+                    strings(1, 0), false, 8, "ForegroundAnyActionTrigger", ...
+                    strings(1, 0), strings(1, 0), false);
+                nightsoulProfile.AllowedTriggerCharacters = localOroronNightsoulAllyNames();
+                nightsoulProfile.RequireElementalTrigger = true;
+                nightsoulProfile.ICDRule = "Standard (3h/2.5s)";
+                nightsoulProfile.ICDGroup = "Ororon_Hypersense";
+                nightsoulProfile.ICDSource = "explicit";
+                nightsoulProfile.TriggerICDGroup = "Ororon_Hypersense";
+                meta = localAppendTriggeredFollowUpProfile(meta, nightsoulProfile);
+            elseif strcmp(lowerAction, 'bounce')
+                meta.ActionClass = "FollowUp";
+                meta.ConsumesActiveWindow = false;
+                meta.HitElement = "Electro";
+                meta.ApplyElement = "Electro";
+                meta.ApplyGauge = 1.0;
+                meta.CanApplyAura = true;
+                meta.AllowAmplify = false;
+                meta.AllowCatalyze = true;
+                meta.PreferredAura = preferredAura;
+                meta.ICDRule = "Standard (3h/2.5s)";
+                meta.ICDGroup = "Ororon_SpiritOrb";
+                meta.ICDSource = "explicit";
+            elseif strcmp(lowerAction, 'q')
+                meta.HitElement = "Electro";
+                meta.ApplyElement = "Electro";
+                meta.ApplyGauge = 1.0;
+                meta.CanApplyAura = true;
+                meta.AllowAmplify = false;
+                meta.AllowCatalyze = true;
+                meta.PreferredAura = preferredAura;
+                meta.ICDRule = "Independent";
+                meta.ICDGroup = "Ororon_Burst";
+                meta.ICDSource = "explicit";
+                meta.EffectDuration = 9.0;
+                meta.EffectTag = "SupersonicOculus";
+                if constellation >= 4
+                    meta.EffectFirstTickDelay = 0.60;
+                    meta.EffectTickInterval = 1.20;
+                    meta.EffectTickCount = 8;
+                else
+                    meta.EffectFirstTickDelay = 1.50;
+                    meta.EffectTickInterval = 1.50;
+                    meta.EffectTickCount = 6;
+                end
+                meta.EffectTickAction = "Wave";
+                meta.EffectTickGauge = 1.0;
+                meta.EffectTickElement = "Electro";
+                meta.EffectTickPreferredAura = preferredAura;
+                meta.EffectTickICDRule = "7 hits / 3s";
+                meta.EffectTickICDGroup = "Ororon_Oculus";
+                meta.EffectTickICDSource = "explicit";
+            elseif strcmp(lowerAction, 'wave')
+                meta.ActionClass = "FollowUp";
+                meta.ConsumesActiveWindow = false;
+                meta.HitElement = "Electro";
+                meta.ApplyElement = "Electro";
+                meta.ApplyGauge = 1.0;
+                meta.CanApplyAura = true;
+                meta.AllowAmplify = false;
+                meta.AllowCatalyze = true;
+                meta.PreferredAura = preferredAura;
+                meta.ICDRule = "7 hits / 3s";
+                meta.ICDGroup = "Ororon_Oculus";
+                meta.ICDSource = "explicit";
+            elseif any(strcmp(lowerAction, {'hypersense', 'c6echo'}))
+                meta.ActionClass = "FollowUp";
+                meta.ConsumesActiveWindow = false;
+                meta.HitElement = "Electro";
+                meta.ApplyElement = "Electro";
+                meta.ApplyGauge = 1.0;
+                meta.CanApplyAura = true;
+                meta.AllowAmplify = false;
+                meta.AllowCatalyze = true;
+                meta.PreferredAura = preferredAura;
+                meta.ICDRule = "Standard (3h/2.5s)";
+                meta.ICDGroup = "Ororon_Hypersense";
+                meta.ICDSource = "explicit";
+            end
+
         case 'fischl'
             if strcmp(string(getFieldOrDefault(meta, 'EffectTag', "")), "Oz")
                 meta.TriggeredFollowUpElement = "Electro";
@@ -1009,6 +1117,32 @@ function aura = localResolveDahliaPreferredAura(teamContext)
     else
         aura = "";
     end
+end
+
+function aura = localResolveOroronPreferredAura(teamContext)
+    archetypeInfo = getFieldOrDefault(teamContext, 'ArchetypeInfo', struct());
+    aura = localResolvePreferredAura("Electro", archetypeInfo);
+    if strlength(aura) > 0
+        return;
+    end
+
+    if getFieldOrDefault(teamContext, 'HydroCount', 0) >= 1
+        aura = "Hydro";
+    elseif getFieldOrDefault(teamContext, 'DendroCount', 0) >= 1
+        aura = "Dendro";
+    elseif getFieldOrDefault(teamContext, 'CryoCount', 0) >= 1
+        aura = "Cryo";
+    elseif getFieldOrDefault(teamContext, 'PyroCount', 0) >= 1
+        aura = "Pyro";
+    else
+        aura = "";
+    end
+end
+
+function names = localOroronNightsoulAllyNames()
+    names = [ ...
+        "Chasca", "Citlali", "Iansan", "Ifa", "Kachina", ...
+        "Kinich", "Mavuika", "Xilonen"];
 end
 
 function [aura, usedTimeline] = localResolveDahliaAuraFromTimeline(teamContext)
@@ -2784,6 +2918,9 @@ function meta = localAppendTriggeredFollowUpProfile(meta, profile)
 end
 
 function profile = localMakeTriggeredFollowUpProfile(action, delay, gauge, element, preferredAura, internalCooldown, eligibleClasses, foregroundOnly, maxTriggerCount, driverMode, reactionNames, packetSources, requireForegroundTrigger)
+    if nargin < 13
+        requireForegroundTrigger = false;
+    end
     profile = localEmptyTriggeredFollowUpProfile();
     profile.Action = string(action);
     profile.Delay = double(delay);
@@ -2814,7 +2951,16 @@ function profile = localEmptyTriggeredFollowUpProfile()
         'DriverMode', "", ...
         'AllowedReactionNames', strings(1, 0), ...
         'AllowedPacketSources', strings(1, 0), ...
-        'RequireForegroundTrigger', false);
+        'RequireForegroundTrigger', false, ...
+        'AllowedTriggerCharacters', strings(1, 0), ...
+        'DisallowedTriggerCharacters', strings(1, 0), ...
+        'AllowedTriggerSourceTypes', strings(1, 0), ...
+        'RequireElementalTrigger', false, ...
+        'ICDRule', "", ...
+        'ICDGroup', "", ...
+        'ICDSource', "", ...
+        'StrikeType', "", ...
+        'TriggerICDGroup', "");
 end
 
 function meta = localAppendHealthEventSpec(meta, spec)

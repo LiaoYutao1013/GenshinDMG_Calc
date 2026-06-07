@@ -250,6 +250,30 @@ function override = localResolveKnownAttackOverride(normalizedName, lowerAction)
                     override.DamageParam = "Art02_Damage";
             end
 
+        case 'ororon'
+            switch lowerAction
+                case {'e', 'bounce'}
+                    override.AttackName = "Bullet_ElementalArt";
+                    override.DamageParam = "ElementalArt_Damage";
+                    override.ICDGroup = "Ororon_SpiritOrb";
+                case 'q'
+                    override.AttackName = "ElementalBurst";
+                    override.DamageParam = "ElementalBurst_ReleaseDamage";
+                    override.ICDGroup = "Ororon_Burst";
+                case 'wave'
+                    override.AttackName = "SkillObj_ElementalBurst_Rotate";
+                    override.DamageParam = "ElementalBurst_RotateDamage|ElementalBurst_RotateDamage|Nyx_BurstAdd|MUL|NyxValue_BurstCache|MUL|ADD";
+                    override.ICDGroup = "Ororon_Oculus";
+                case 'hypersense'
+                    override.AttackName = "NyxState";
+                    override.DamageParam = "Damage_ExpendNyx";
+                    override.ICDGroup = "Ororon_Hypersense";
+                case 'c6echo'
+                    override.AttackName = "Constellation_AttackUp";
+                    override.DamageParam = "Damage_Constellation6|Damage_ExpendNyx|MUL";
+                    override.ICDGroup = "Ororon_Hypersense";
+            end
+
         case 'jahoda'
             switch lowerAction
                 case 'meowball'

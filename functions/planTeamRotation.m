@@ -2439,6 +2439,14 @@ function duration = localEstimateActionDuration(characterName, action, fallbackD
             duration = 0.70;
         otherwise
             switch lower(char(string(characterName)))
+                case 'ororon'
+                    if strcmp(lowerAction, 'e')
+                        duration = 0.60;
+                    elseif strcmp(lowerAction, 'q')
+                        duration = 0.95;
+                    elseif strcmp(lowerAction, 'hypersense')
+                        duration = 0.20;
+                    end
                 case 'dahlia'
                     if strcmp(lowerAction, 'etap')
                         duration = 0.60;

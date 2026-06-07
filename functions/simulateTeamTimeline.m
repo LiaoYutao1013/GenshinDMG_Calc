@@ -405,6 +405,8 @@ function tokens = localExpandCharacterActionTokens(tokens, member)
         switch characterName
             case 'varka'
                 appendList = localExpandVarkaTimelineToken(token, constellation);
+            case 'ororon'
+                appendList = localExpandOroronTimelineToken(token, constellation);
         end
         expanded = [expanded; appendList(:)]; %#ok<AGROW>
     end
@@ -426,6 +428,21 @@ function appendList = localExpandVarkaTimelineToken(token, constellation)
             end
         case {'Q', 'BURST'}
             appendList = {'Q1', 'Q2'};
+        otherwise
+            appendList = {char(token)};
+    end
+end
+
+function appendList = localExpandOroronTimelineToken(token, constellation)
+    normalized = upper(strtrim(char(string(token))));
+    switch normalized
+        case {'E', 'SKILL'}
+            appendList = {'E', 'Bounce'};
+        case {'Q', 'BURST'}
+            appendList = {'Q'};
+            if constellation >= 6
+                appendList{end + 1} = 'C6Echo'; %#ok<AGROW>
+            end
         otherwise
             appendList = {char(token)};
     end
@@ -694,6 +711,10 @@ function specs = localCollectBackgroundDriverSpecs(meta)
         spec.Interval = tickInterval;
         spec.Count = tickCount;
         spec.Gauge = double(getFieldOrDefault(meta, 'EffectTickGauge', 0));
+        spec.ICDRule = string(getFieldOrDefault(meta, 'EffectTickICDRule', ""));
+        spec.ICDGroup = string(getFieldOrDefault(meta, 'EffectTickICDGroup', ""));
+        spec.ICDSource = string(getFieldOrDefault(meta, 'EffectTickICDSource', ""));
+        spec.StrikeType = string(getFieldOrDefault(meta, 'EffectTickStrikeType', ""));
         specs(end + 1) = spec; %#ok<AGROW>
     end
 
@@ -711,6 +732,11 @@ function specs = localCollectBackgroundDriverSpecs(meta)
         spec.EligibleClasses = string(getFieldOrDefault(meta, 'TriggeredFollowUpEligibleClasses', strings(1, 0)));
         spec.ForegroundOnly = logical(getFieldOrDefault(meta, 'TriggeredFollowUpForegroundOnly', true));
         spec.MaxTriggers = double(getFieldOrDefault(meta, 'TriggeredFollowUpMaxCount', inf));
+        spec.ICDRule = string(getFieldOrDefault(meta, 'TriggeredFollowUpICDRule', ""));
+        spec.ICDGroup = string(getFieldOrDefault(meta, 'TriggeredFollowUpICDGroup', ""));
+        spec.ICDSource = string(getFieldOrDefault(meta, 'TriggeredFollowUpICDSource', ""));
+        spec.StrikeType = string(getFieldOrDefault(meta, 'TriggeredFollowUpStrikeType', ""));
+        spec.TriggerICDGroup = string(getFieldOrDefault(meta, 'TriggeredFollowUpSharedICDGroup', ""));
         specs(end + 1) = spec; %#ok<AGROW>
     end
 
@@ -735,6 +761,15 @@ function specs = localCollectBackgroundDriverSpecs(meta)
         spec.AllowedReactionNames = string(getFieldOrDefault(profile, 'AllowedReactionNames', strings(1, 0)));
         spec.AllowedPacketSources = string(getFieldOrDefault(profile, 'AllowedPacketSources', strings(1, 0)));
         spec.RequireForegroundTrigger = logical(getFieldOrDefault(profile, 'RequireForegroundTrigger', false));
+        spec.AllowedTriggerCharacters = string(getFieldOrDefault(profile, 'AllowedTriggerCharacters', strings(1, 0)));
+        spec.DisallowedTriggerCharacters = string(getFieldOrDefault(profile, 'DisallowedTriggerCharacters', strings(1, 0)));
+        spec.AllowedTriggerSourceTypes = string(getFieldOrDefault(profile, 'AllowedTriggerSourceTypes', strings(1, 0)));
+        spec.RequireElementalTrigger = logical(getFieldOrDefault(profile, 'RequireElementalTrigger', false));
+        spec.ICDRule = string(getFieldOrDefault(profile, 'ICDRule', ""));
+        spec.ICDGroup = string(getFieldOrDefault(profile, 'ICDGroup', ""));
+        spec.ICDSource = string(getFieldOrDefault(profile, 'ICDSource', ""));
+        spec.StrikeType = string(getFieldOrDefault(profile, 'StrikeType', ""));
+        spec.TriggerICDGroup = string(getFieldOrDefault(profile, 'TriggerICDGroup', ""));
         specs(end + 1) = spec; %#ok<AGROW>
     end
 end
@@ -895,6 +930,30 @@ function [driverEvents, activeWindows, lastTriggerTimes] = localResolveBackgroun
                 && ~logical(getFieldOrDefault(driverMeta, 'ConsumesActiveWindow', true))
             continue;
         end
+        allowedTriggerSourceTypes = string(getFieldOrDefault(driverSpec, 'AllowedTriggerSourceTypes', strings(1, 0)));
+        if ~isempty(allowedTriggerSourceTypes) ...
+                && ~any(strcmpi(char(string(getFieldOrDefault(driverEvent, 'SourceType', ""))), ...
+                cellstr(allowedTriggerSourceTypes(:))))
+            continue;
+        end
+        triggerCharacter = string(getFieldOrDefault(driverEvent, 'Character', ""));
+        allowedTriggerCharacters = string(getFieldOrDefault(driverSpec, 'AllowedTriggerCharacters', strings(1, 0)));
+        if ~isempty(allowedTriggerCharacters) ...
+                && ~any(strcmpi(char(triggerCharacter), cellstr(allowedTriggerCharacters(:))))
+            continue;
+        end
+        disallowedTriggerCharacters = string(getFieldOrDefault(driverSpec, 'DisallowedTriggerCharacters', strings(1, 0)));
+        if ~isempty(disallowedTriggerCharacters) ...
+                && any(strcmpi(char(triggerCharacter), cellstr(disallowedTriggerCharacters(:))))
+            continue;
+        end
+        if logical(getFieldOrDefault(driverSpec, 'RequireElementalTrigger', false))
+            triggerElement = string(getFieldOrDefault(driverMeta, 'HitElement', ""));
+            triggerGauge = double(getFieldOrDefault(driverMeta, 'ApplyGauge', 0));
+            if ~(localIsElementalDamageElement(triggerElement) && (triggerGauge > 0 || strlength(triggerElement) > 0))
+                continue;
+            end
+        end
 
         key = localBuildBackgroundTriggerKey(window, driverSpec);
         icd = double(getFieldOrDefault(driverSpec, 'InternalCooldown', 0));
@@ -955,6 +1014,23 @@ function [driverEvents, activeWindows, lastTriggerTimes] = localResolveBackgroun
             end
             allowedReactionNames = string(getFieldOrDefault(driverSpec, 'AllowedReactionNames', strings(1, 0)));
             if ~isempty(allowedReactionNames) && ~any(strcmpi(char(reactionName), cellstr(allowedReactionNames(:))))
+                continue;
+            end
+            allowedTriggerSourceTypes = string(getFieldOrDefault(driverSpec, 'AllowedTriggerSourceTypes', strings(1, 0)));
+            triggerSourceType = string(getFieldOrDefault(packet, 'SourceType', "ReactionPacket"));
+            if ~isempty(allowedTriggerSourceTypes) ...
+                    && ~any(strcmpi(char(triggerSourceType), cellstr(allowedTriggerSourceTypes(:))))
+                continue;
+            end
+            triggerCharacter = string(getFieldOrDefault(packet, 'SourceCharacter', ""));
+            allowedTriggerCharacters = string(getFieldOrDefault(driverSpec, 'AllowedTriggerCharacters', strings(1, 0)));
+            if ~isempty(allowedTriggerCharacters) ...
+                    && ~any(strcmpi(char(triggerCharacter), cellstr(allowedTriggerCharacters(:))))
+                continue;
+            end
+            disallowedTriggerCharacters = string(getFieldOrDefault(driverSpec, 'DisallowedTriggerCharacters', strings(1, 0)));
+            if ~isempty(disallowedTriggerCharacters) ...
+                    && any(strcmpi(char(triggerCharacter), cellstr(disallowedTriggerCharacters(:))))
                 continue;
             end
             allowedPacketSources = string(getFieldOrDefault(driverSpec, 'AllowedPacketSources', strings(1, 0)));
@@ -1035,12 +1111,16 @@ end
 
 function key = localBuildBackgroundTriggerKey(window, driverSpec)
     % Build a per-window trigger key so different background windows do not share ICD state.
+    triggerICDGroup = string(getFieldOrDefault(driverSpec, 'TriggerICDGroup', ""));
+    if strlength(triggerICDGroup) == 0
+        triggerICDGroup = string(getFieldOrDefault(driverSpec, 'Action', "")) + ":" ...
+            + string(getFieldOrDefault(driverSpec, 'DriverMode', ""));
+    end
     key = char(lower(string(getFieldOrDefault(window, 'Character', "")) + ":" ...
         + string(getFieldOrDefault(window, 'StartTime', 0)) + ":" ...
         + string(getFieldOrDefault(window, 'EndTime', 0)) + ":" ...
         + string(getFieldOrDefault(window, 'EffectTag', "")) + ":" ...
-        + string(getFieldOrDefault(driverSpec, 'Action', "")) + ":" ...
-        + string(getFieldOrDefault(driverSpec, 'DriverMode', ""))));
+        + triggerICDGroup));
 end
 
 function [driverKind, driverMode, driverAction, driverInterval, driverCount] = localDescribeBackgroundDrivers(meta)
@@ -1186,6 +1266,18 @@ function event = localBuildTriggeredFollowUpEvent(window, sourceMeta, driverEven
     followUpMeta.BackgroundDriverKind = string(getFieldOrDefault(driverSpec, 'DriverKind', "Triggered"));
     followUpMeta.BackgroundDriverMode = string(getFieldOrDefault(driverSpec, 'DriverMode', "ForegroundAnyActionTrigger"));
     followUpMeta.EffectTag = string(getFieldOrDefault(sourceMeta, 'EffectTag', ""));
+    if strlength(string(getFieldOrDefault(driverSpec, 'ICDRule', ""))) > 0
+        followUpMeta.ICDRule = string(getFieldOrDefault(driverSpec, 'ICDRule', ""));
+    end
+    if strlength(string(getFieldOrDefault(driverSpec, 'ICDGroup', ""))) > 0
+        followUpMeta.ICDGroup = string(getFieldOrDefault(driverSpec, 'ICDGroup', ""));
+    end
+    if strlength(string(getFieldOrDefault(driverSpec, 'ICDSource', ""))) > 0
+        followUpMeta.ICDSource = string(getFieldOrDefault(driverSpec, 'ICDSource', ""));
+    end
+    if strlength(string(getFieldOrDefault(driverSpec, 'StrikeType', ""))) > 0
+        followUpMeta.StrikeType = string(getFieldOrDefault(driverSpec, 'StrikeType', ""));
+    end
     followUpMeta = resolveInferredAuraMetadata(window.Member, event.Action, followUpMeta);
     event.CombatMeta = followUpMeta;
 end
@@ -1248,6 +1340,18 @@ function event = localBuildSyntheticEffectTickEvent(baseEvent, baseMeta, tickInd
     tickMeta.BackgroundDriverKind = string(getFieldOrDefault(driverSpec, 'DriverKind', "Autonomous"));
     tickMeta.BackgroundDriverMode = string(getFieldOrDefault(driverSpec, 'DriverMode', "AutonomousTick"));
     tickMeta.EffectTag = string(getFieldOrDefault(baseMeta, 'EffectTag', ""));
+    if strlength(string(getFieldOrDefault(driverSpec, 'ICDRule', ""))) > 0
+        tickMeta.ICDRule = string(getFieldOrDefault(driverSpec, 'ICDRule', ""));
+    end
+    if strlength(string(getFieldOrDefault(driverSpec, 'ICDGroup', ""))) > 0
+        tickMeta.ICDGroup = string(getFieldOrDefault(driverSpec, 'ICDGroup', ""));
+    end
+    if strlength(string(getFieldOrDefault(driverSpec, 'ICDSource', ""))) > 0
+        tickMeta.ICDSource = string(getFieldOrDefault(driverSpec, 'ICDSource', ""));
+    end
+    if strlength(string(getFieldOrDefault(driverSpec, 'StrikeType', ""))) > 0
+        tickMeta.StrikeType = string(getFieldOrDefault(driverSpec, 'StrikeType', ""));
+    end
     tickMeta = resolveInferredAuraMetadata(baseEvent.Member, event.Action, tickMeta);
     event.CombatMeta = tickMeta;
 end
@@ -1263,13 +1367,22 @@ function spec = localEmptyBackgroundDriverSpec()
         'Interval', 0, ...
         'Count', 0, ...
         'Gauge', 0, ...
+        'ICDRule', "", ...
+        'ICDGroup', "", ...
+        'ICDSource', "", ...
+        'StrikeType', "", ...
         'InternalCooldown', 0, ...
         'EligibleClasses', strings(1, 0), ...
         'ForegroundOnly', true, ...
         'MaxTriggers', inf, ...
         'AllowedReactionNames', strings(1, 0), ...
         'AllowedPacketSources', strings(1, 0), ...
-        'RequireForegroundTrigger', false);
+        'RequireForegroundTrigger', false, ...
+        'AllowedTriggerCharacters', strings(1, 0), ...
+        'DisallowedTriggerCharacters', strings(1, 0), ...
+        'AllowedTriggerSourceTypes', strings(1, 0), ...
+        'RequireElementalTrigger', false, ...
+        'TriggerICDGroup', "");
 end
 
 function packet = localEmptyReactionPacket()

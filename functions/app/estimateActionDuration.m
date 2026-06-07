@@ -1,6 +1,5 @@
 function duration = estimateActionDuration(characterName, action, fallbackDuration)
-    % 为 GUI 输出轴提供通用动作耗时估计。
-    % 该估计只用于可视化时间轴，不参与底层伤害模拟。
+    % Generic GUI-side action duration estimate for timeline previews.
     if nargin < 3 || isempty(fallbackDuration)
         fallbackDuration = 0.60;
     end
@@ -81,8 +80,15 @@ function duration = estimateActionDuration(characterName, action, fallbackDurati
         case "q2"
             duration = 0.34;
         otherwise
-            % 针对少量角色动作 token 做额外修正。
             switch lower(char(string(characterName)))
+                case 'ororon'
+                    if strcmp(lowerAction, 'e')
+                        duration = 0.60;
+                    elseif strcmp(lowerAction, 'q')
+                        duration = 0.95;
+                    elseif any(strcmp(lowerAction, ["bounce", "hypersense", "c6echo"]))
+                        duration = 0.20;
+                    end
                 case 'skirk'
                     if any(strcmp(lowerAction, ["n4a", "n4b", "n5"]))
                         duration = 0.60;

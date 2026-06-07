@@ -33,7 +33,8 @@ function [totalDMG, dps, breakdown, rotationTime, audit] = simulateOroronDPS(bui
     burstLevel = localClampTalentLevel(talentLevel + 3 * double(constellation >= 3));
 
     enemyTargetCount = max(1, round(getFieldOrDefault(enemy, 'TargetCount', ...
-        getFieldOrDefault(enemy, 'EnemyCount', 1))));
+        getFieldOrDefault(teamContext, 'TargetCount', ...
+        getFieldOrDefault(enemy, 'EnemyCount', getFieldOrDefault(teamContext, 'EnemyCount', 1))))));
     spiritOrbHitCount = min(enemyTargetCount, 4 + 2 * double(constellation >= 1));
     bounceHitCount = max(0, spiritOrbHitCount - 1);
     bounceTimeline = 0.18 * ones(1, bounceHitCount);
@@ -51,6 +52,8 @@ function [totalDMG, dps, breakdown, rotationTime, audit] = simulateOroronDPS(bui
 
     c1NighttideBonus = 0.50 * double(constellation >= 1);
     hypersenseActive = hypersenseProcCount > 0;
+    [expandedSeqFile, cleanupObj] = localPrepareRotationFile( ... %#ok<NASGU>
+        seqFile, constellation, bounceHitCount, hypersenseProcCount);
 
     actions = struct();
     actions.E = struct( ...
@@ -189,7 +192,72 @@ function [totalDMG, dps, breakdown, rotationTime, audit] = simulateOroronDPS(bui
         'Actions', actions);
 
     [totalDMG, dps, breakdown, rotationTime, audit] = simulateSimpleCharacterDPS( ...
-        'Ororon', build, enemy, seqFile, talentLevel, constellation, teamContext, spec);
+        'Ororon', build, enemy, expandedSeqFile, talentLevel, constellation, teamContext, spec);
+end
+
+function [expandedSeqFile, cleanupObj] = localPrepareRotationFile(seqFile, constellation, bounceHitCount, hypersenseProcCount)
+    rawTokens = {};
+    if strlength(string(seqFile)) > 0 && exist(char(string(seqFile)), 'file') == 2
+        rawTokens = readRotationTokens(seqFile);
+    end
+    if isempty(rawTokens) || (numel(rawTokens) == 1 && strcmpi(char(string(rawTokens{1})), 'AUTO'))
+        rawTokens = localDefaultPublicRotation();
+    end
+
+    expandedTokens = localExpandRotationTokens(rawTokens, constellation, bounceHitCount, hypersenseProcCount);
+    expandedSeqFile = [tempname, '.txt'];
+    fid = fopen(expandedSeqFile, 'w');
+    if fid < 0
+        error('simulateOroronDPS:RotationFile', 'Unable to create temporary rotation file.');
+    end
+    for i = 1:numel(expandedTokens)
+        fprintf(fid, '%s\n', expandedTokens{i});
+    end
+    fclose(fid);
+    cleanupObj = onCleanup(@() localDeleteTempFile(expandedSeqFile));
+end
+
+function tokens = localExpandRotationTokens(rawTokens, constellation, bounceHitCount, hypersenseProcCount)
+    normalized = upper(strtrim(string(rawTokens)));
+    tokens = cell(0, 1);
+    explicitHypersense = any(normalized == "HYPERSENSE");
+    publicActionSeen = false;
+
+    for i = 1:numel(rawTokens)
+        current = normalized(i);
+        nextWindow = strings(1, 0);
+        if i < numel(rawTokens)
+            nextWindow = normalized(i + 1:min(numel(rawTokens), i + 2));
+        end
+
+        switch current
+            case {'E', 'SKILL'}
+                publicActionSeen = true;
+                tokens{end + 1, 1} = 'E'; %#ok<AGROW>
+                if bounceHitCount > 0 && ~any(nextWindow == "BOUNCE")
+                    tokens{end + 1, 1} = 'Bounce'; %#ok<AGROW>
+                end
+            case {'Q', 'BURST'}
+                publicActionSeen = true;
+                tokens{end + 1, 1} = 'Q'; %#ok<AGROW>
+                if constellation >= 6 && ~any(nextWindow == "C6ECHO")
+                    tokens{end + 1, 1} = 'C6Echo'; %#ok<AGROW>
+                end
+                if ~any(nextWindow == "WAVE")
+                    tokens{end + 1, 1} = 'Wave'; %#ok<AGROW>
+                end
+            otherwise
+                tokens{end + 1, 1} = char(rawTokens{i}); %#ok<AGROW>
+        end
+    end
+
+    if publicActionSeen && hypersenseProcCount > 0 && ~explicitHypersense
+        tokens{end + 1, 1} = 'Hypersense'; %#ok<AGROW>
+    end
+end
+
+function tokens = localDefaultPublicRotation()
+    tokens = {'E', 'Q'};
 end
 
 function attackName = localWaveAttackName(constellation)
@@ -579,4 +647,10 @@ end
 
 function level = localClampTalentLevel(level)
     level = max(1, min(15, round(level)));
+end
+
+function localDeleteTempFile(filePath)
+    if exist(filePath, 'file') == 2
+        delete(filePath);
+    end
 end
