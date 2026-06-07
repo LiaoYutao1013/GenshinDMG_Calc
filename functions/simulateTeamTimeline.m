@@ -317,6 +317,7 @@ function actionEvents = localBuildActionEvents(members, rotationPlan, rotationDu
         end
         tokens = localExpandCharacterActionTokens(tokens, members{i});
         disableRuntimeExpansion = localPlanHasExplicitFollowUpTokens(tokens);
+        memberPlanOrder = localResolveMemberPlanOrder(rotationPlan, plan, i);
 
         cursor = getFieldOrDefault(plan, 'StartTime', 0);
         for tokenIndex = 1:numel(tokens)
@@ -335,6 +336,8 @@ function actionEvents = localBuildActionEvents(members, rotationPlan, rotationDu
             event.Member = members{i};
             event.Character = string(getFieldOrDefault(members{i}, 'DisplayName', members{i}.Name));
             event.MemberRole = string(getFieldOrDefault(plan, 'Role', ""));
+            event.PlanOrder = memberPlanOrder;
+            event.SequenceIndex = tokenIndex;
             event.Action = action;
             event.StartTime = cursor;
             event.EndTime = min(rotationDuration, cursor + duration);
@@ -350,8 +353,25 @@ function actionEvents = localBuildActionEvents(members, rotationPlan, rotationDu
     if isempty(actionEvents)
         return;
     end
-    [~, order] = sort([actionEvents.StartTime]);
-    actionEvents = actionEvents(order);
+    actionEvents = localSortActionEvents(actionEvents);
+end
+
+function planOrder = localResolveMemberPlanOrder(rotationPlan, plan, memberIndex)
+    planOrder = double(getFieldOrDefault(plan, 'Order', NaN));
+    if isfinite(planOrder) && planOrder > 0
+        return;
+    end
+
+    executionOrder = double(getFieldOrDefault(rotationPlan, 'ExecutionOrder', zeros(1, 0)));
+    if ~isempty(executionOrder)
+        executionMatch = find(executionOrder == memberIndex, 1, 'first');
+        if ~isempty(executionMatch)
+            planOrder = executionMatch;
+            return;
+        end
+    end
+
+    planOrder = double(memberIndex);
 end
 
 function tokens = localExpandCharacterActionTokens(tokens, member)
@@ -792,6 +812,8 @@ function windows = localBuildBackgroundDriverWindows(baseEvent, baseMeta, rotati
         window.Member = baseEvent.Member;
         window.Character = baseEvent.Character;
         window.MemberRole = baseEvent.MemberRole;
+        window.PlanOrder = double(getFieldOrDefault(baseEvent, 'PlanOrder', 0));
+        window.SequenceIndex = double(getFieldOrDefault(baseEvent, 'SequenceIndex', 0));
         window.EffectTag = string(getFieldOrDefault(baseMeta, 'EffectTag', ""));
         window.StartTime = baseEvent.StartTime;
         window.EndTime = effectEndTime;
@@ -1102,6 +1124,8 @@ function event = localBuildTriggeredFollowUpEvent(window, sourceMeta, driverEven
     event.Member = window.Member;
     event.Character = window.Character;
     event.MemberRole = window.MemberRole;
+    event.PlanOrder = double(getFieldOrDefault(window, 'PlanOrder', 0));
+    event.SequenceIndex = double(getFieldOrDefault(window, 'SequenceIndex', 0));
     event.SourceType = "TriggeredFollowUp";
     event.Action = string(getFieldOrDefault(driverSpec, 'Action', getFieldOrDefault(sourceMeta, 'TriggeredFollowUpAction', "")));
     event.StartTime = min(rotationDuration, driverEvent.EndTime + double(getFieldOrDefault(driverSpec, 'FirstDelay', getFieldOrDefault(sourceMeta, 'TriggeredFollowUpDelay', 0.08))));
@@ -1162,6 +1186,8 @@ function event = localBuildSyntheticEffectTickEvent(baseEvent, baseMeta, tickInd
     event.Member = baseEvent.Member;
     event.Character = baseEvent.Character;
     event.MemberRole = baseEvent.MemberRole;
+    event.PlanOrder = double(getFieldOrDefault(baseEvent, 'PlanOrder', 0));
+    event.SequenceIndex = double(getFieldOrDefault(baseEvent, 'SequenceIndex', 0));
     event.SourceType = "EffectTick";
     event.Action = string(getFieldOrDefault(driverSpec, 'Action', getFieldOrDefault(baseMeta, 'EffectTickAction', "EffectTick"))) + "#" + string(tickIndex);
     event.StartTime = tickTime;
@@ -1280,15 +1306,27 @@ function actionEvents = localSortActionEvents(actionEvents)
         return;
     end
 
-    sortRows = zeros(numel(actionEvents), 3);
+    sortRows = zeros(numel(actionEvents), 5);
     for eventIndex = 1:numel(actionEvents)
+        planOrder = double(getFieldOrDefault(actionEvents(eventIndex), 'PlanOrder', inf));
+        if ~isscalar(planOrder) || ~isfinite(planOrder) || planOrder <= 0
+            planOrder = inf;
+        end
+
+        sequenceIndex = double(getFieldOrDefault(actionEvents(eventIndex), 'SequenceIndex', inf));
+        if ~isscalar(sequenceIndex) || ~isfinite(sequenceIndex) || sequenceIndex < 0
+            sequenceIndex = inf;
+        end
+
         sortRows(eventIndex, :) = [ ...
             actionEvents(eventIndex).StartTime, ...
             localEventSourcePriority(actionEvents(eventIndex)), ...
+            planOrder, ...
+            sequenceIndex, ...
             eventIndex];
     end
-    order = sortrows(sortRows, [1 2 3]);
-    actionEvents = actionEvents(order(:, 3).');
+    order = sortrows(sortRows, [1 2 3 4 5]);
+    actionEvents = actionEvents(order(:, 5).');
 end
 
 function builds = localCompileBuilds(members, teamContext)
@@ -2456,6 +2494,8 @@ function event = localEmptyEvent()
         'Member', struct(), ...
         'Character', "", ...
         'MemberRole', "", ...
+        'PlanOrder', 0, ...
+        'SequenceIndex', 0, ...
         'SourceType', "MemberAction", ...
         'TriggerSourceType', "", ...
         'TriggerSourceCharacter', "", ...
@@ -2487,6 +2527,8 @@ function window = localEmptyActiveWindow()
         'Member', struct(), ...
         'Character', "", ...
         'MemberRole', "", ...
+        'PlanOrder', 0, ...
+        'SequenceIndex', 0, ...
         'EffectTag', "", ...
         'StartTime', 0, ...
         'EndTime', 0, ...
