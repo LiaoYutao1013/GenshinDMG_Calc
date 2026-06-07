@@ -903,11 +903,140 @@ function meta = localApplyCharacterSpecificMetadata(meta, member, normalizedName
 end
 
 function aura = localResolveAinoPreferredAura(teamContext)
+    [timelineAura, usedTimeline] = localResolveAinoAuraFromTimeline(teamContext);
+    if usedTimeline
+        aura = timelineAura;
+        return;
+    end
+
     aura = "";
     if getFieldOrDefault(teamContext, 'PyroCount', 0) >= 1
         aura = "Pyro";
     elseif getFieldOrDefault(teamContext, 'CryoCount', 0) >= 1
         aura = "Cryo";
+    end
+end
+
+function [aura, usedTimeline] = localResolveAinoAuraFromTimeline(teamContext)
+    aura = "";
+    usedTimeline = false;
+
+    timelineTable = getFieldOrDefault(teamContext, 'TimelineTable', table());
+    if isempty(timelineTable) || ~istable(timelineTable) || height(timelineTable) == 0
+        return;
+    end
+    if ~all(ismember({'Character', 'Action', 'StartTime'}, timelineTable.Properties.VariableNames))
+        return;
+    end
+
+    rowCharacters = string(timelineTable.Character);
+    rowActions = string(timelineTable.Action);
+    anchorMask = strcmpi(rowCharacters, "Aino") ...
+        & any(rowActions == ["E1", "E2", "Q", "C2Ball"], 2);
+    if ~any(anchorMask)
+        return;
+    end
+
+    usedTimeline = true;
+    anchorRow = localResolveAinoAnchorRow(timelineTable(anchorMask, :));
+    priorRows = localResolveAinoPriorRows(timelineTable, anchorRow);
+    if isempty(priorRows)
+        return;
+    end
+
+    latestRow = priorRows(end, :);
+    if ismember('AuraState', latestRow.Properties.VariableNames)
+        auraState = string(latestRow.AuraState(1));
+        if strlength(strtrim(auraState)) > 0
+            aura = localResolveAinoAuraState(auraState);
+            if strlength(aura) > 0
+                return;
+            end
+        end
+    end
+
+    aura = localResolveAinoAuraFromRecentHits(priorRows);
+end
+
+function anchorRow = localResolveAinoAnchorRow(rows)
+    sortKey = double(rows.StartTime);
+    if ismember('Order', rows.Properties.VariableNames)
+        sortRows = [sortKey, double(rows.Order), (1:height(rows)).'];
+        sortRows = sortrows(sortRows, [1 2 3]);
+        order = sortRows(:, 3);
+    else
+        [~, order] = sort(sortKey);
+    end
+    anchorRow = rows(order(1), :);
+end
+
+function priorRows = localResolveAinoPriorRows(timelineTable, anchorRow)
+    startTimes = double(timelineTable.StartTime);
+    priorMask = startTimes < double(anchorRow.StartTime(1)) - 1e-9;
+
+    if ismember('Order', timelineTable.Properties.VariableNames) ...
+            && ismember('Order', anchorRow.Properties.VariableNames)
+        sameTimeMask = abs(startTimes - double(anchorRow.StartTime(1))) <= 1e-9 ...
+            & double(timelineTable.Order) < double(anchorRow.Order(1));
+        priorMask = priorMask | sameTimeMask;
+    end
+
+    priorRows = timelineTable(priorMask, :);
+    if isempty(priorRows)
+        return;
+    end
+
+    if ismember('Order', priorRows.Properties.VariableNames)
+        sortRows = [double(priorRows.StartTime), double(priorRows.Order), (1:height(priorRows)).'];
+        sortRows = sortrows(sortRows, [1 2 3]);
+        priorRows = priorRows(sortRows(:, 3), :);
+    else
+        [~, order] = sort(double(priorRows.StartTime));
+        priorRows = priorRows(order, :);
+    end
+end
+
+function aura = localResolveAinoAuraState(auraState)
+    aura = "";
+    priority = ["Pyro", "Cryo"];
+    auraText = string(auraState);
+    for i = 1:numel(priority)
+        if contains(auraText, priority(i) + ":", 'IgnoreCase', true)
+            aura = priority(i);
+            return;
+        end
+    end
+end
+
+function aura = localResolveAinoAuraFromRecentHits(priorRows)
+    aura = "";
+    if isempty(priorRows)
+        return;
+    end
+
+    hitElements = repmat("", height(priorRows), 1);
+    if ismember('HitElement', priorRows.Properties.VariableNames)
+        hitElements = string(priorRows.HitElement);
+    end
+
+    applyGauge = zeros(height(priorRows), 1);
+    if ismember('ApplyGauge', priorRows.Properties.VariableNames)
+        applyGauge = double(priorRows.ApplyGauge);
+    end
+
+    priority = ["Pyro", "Cryo"];
+    for rowIndex = height(priorRows):-1:1
+        if applyGauge(rowIndex) <= 0
+            continue;
+        end
+
+        rowElement = string(hitElements(rowIndex));
+        for priorityIndex = 1:numel(priority)
+            if strcmpi(rowElement, priority(priorityIndex))
+                aura = priority(priorityIndex);
+                return;
+            end
+        end
     end
 end
 
@@ -1114,6 +1243,12 @@ function aura = localResolveJahodaPreferredAura(element, teamContext)
 end
 
 function element = localResolveIfaBurstElement(teamContext)
+    [timelineElement, usedTimeline] = localResolveIfaBurstElementFromTimeline(teamContext);
+    if usedTimeline
+        element = timelineElement;
+        return;
+    end
+
     priority = ["Pyro", "Hydro", "Electro", "Cryo"];
     counts = [ ...
         getFieldOrDefault(teamContext, 'PyroCount', 0), ...
@@ -1128,6 +1263,132 @@ function element = localResolveIfaBurstElement(teamContext)
             element = priority(i);
         end
     end
+end
+
+function [element, usedTimeline] = localResolveIfaBurstElementFromTimeline(teamContext)
+    element = "";
+    usedTimeline = false;
+
+    timelineTable = getFieldOrDefault(teamContext, 'TimelineTable', table());
+    if isempty(timelineTable) || ~istable(timelineTable) || height(timelineTable) == 0
+        return;
+    end
+    if ~all(ismember({'Character', 'Action', 'StartTime'}, timelineTable.Properties.VariableNames))
+        return;
+    end
+
+    rowCharacters = string(timelineTable.Character);
+    rowActions = string(timelineTable.Action);
+    ifaMask = strcmpi(rowCharacters, "Ifa") & strcmpi(rowActions, "Q");
+    if ~any(ifaMask)
+        return;
+    end
+
+    usedTimeline = true;
+    burstRow = localResolveIfaBurstAnchorRow(timelineTable(ifaMask, :));
+    priorRows = localResolveIfaBurstPriorRows(timelineTable, burstRow);
+    if isempty(priorRows)
+        return;
+    end
+
+    latestRow = priorRows(end, :);
+    if ismember('AuraState', latestRow.Properties.VariableNames)
+        auraState = string(latestRow.AuraState(1));
+        if strlength(strtrim(auraState)) > 0
+            element = localResolveIfaAuraStateElement(auraState);
+            if strlength(element) > 0
+                return;
+            end
+        end
+    end
+
+    element = localResolveIfaBurstElementFromRecentHits(priorRows);
+end
+
+function burstRow = localResolveIfaBurstAnchorRow(ifaRows)
+    sortKey = double(ifaRows.StartTime);
+    if ismember('Order', ifaRows.Properties.VariableNames)
+        sortRows = [sortKey, double(ifaRows.Order), (1:height(ifaRows)).'];
+        sortRows = sortrows(sortRows, [1 2 3]);
+        order = sortRows(:, 3);
+    else
+        [~, order] = sort(sortKey);
+    end
+    burstRow = ifaRows(order(1), :);
+end
+
+function priorRows = localResolveIfaBurstPriorRows(timelineTable, burstRow)
+    startTimes = double(timelineTable.StartTime);
+    priorMask = startTimes < double(burstRow.StartTime(1)) - 1e-9;
+
+    if ismember('Order', timelineTable.Properties.VariableNames) ...
+            && ismember('Order', burstRow.Properties.VariableNames)
+        sameTimeMask = abs(startTimes - double(burstRow.StartTime(1))) <= 1e-9 ...
+            & double(timelineTable.Order) < double(burstRow.Order(1));
+        priorMask = priorMask | sameTimeMask;
+    end
+
+    priorRows = timelineTable(priorMask, :);
+    if isempty(priorRows)
+        return;
+    end
+
+    if ismember('Order', priorRows.Properties.VariableNames)
+        sortRows = [double(priorRows.StartTime), double(priorRows.Order), (1:height(priorRows)).'];
+        sortRows = sortrows(sortRows, [1 2 3]);
+        priorRows = priorRows(sortRows(:, 3), :);
+    else
+        [~, order] = sort(double(priorRows.StartTime));
+        priorRows = priorRows(order, :);
+    end
+end
+
+function element = localResolveIfaAuraStateElement(auraState)
+    element = "";
+    priority = localResolveIfaAbsorptionPriority();
+    auraText = string(auraState);
+    for i = 1:numel(priority)
+        if contains(auraText, priority(i) + ":", 'IgnoreCase', true)
+            element = priority(i);
+            return;
+        end
+    end
+end
+
+function element = localResolveIfaBurstElementFromRecentHits(priorRows)
+    element = "";
+    if isempty(priorRows)
+        return;
+    end
+
+    hitElements = repmat("", height(priorRows), 1);
+    if ismember('HitElement', priorRows.Properties.VariableNames)
+        hitElements = string(priorRows.HitElement);
+    end
+
+    applyGauge = zeros(height(priorRows), 1);
+    if ismember('ApplyGauge', priorRows.Properties.VariableNames)
+        applyGauge = double(priorRows.ApplyGauge);
+    end
+
+    priority = localResolveIfaAbsorptionPriority();
+    for rowIndex = height(priorRows):-1:1
+        if applyGauge(rowIndex) <= 0
+            continue;
+        end
+
+        rowElement = string(hitElements(rowIndex));
+        for priorityIndex = 1:numel(priority)
+            if strcmpi(rowElement, priority(priorityIndex))
+                element = priority(priorityIndex);
+                return;
+            end
+        end
+    end
+end
+
+function priority = localResolveIfaAbsorptionPriority()
+    priority = ["Pyro", "Hydro", "Electro", "Cryo"];
 end
 
 function aura = localResolveIfaPreferredAura(element, teamContext)

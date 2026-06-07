@@ -35,6 +35,8 @@ function validateAinoTimelineAuraRegression()
         aino.Build, enemy, aino.RotationFile, aino.TalentLevel, aino.Constellation, pyroContext);
     [~, ~, cryoBreakdown] = simulateAinoDPS( ...
         aino.Build, enemy, aino.RotationFile, aino.TalentLevel, aino.Constellation, cryoContext);
+    pyroMeta = inferActionCombatMetadata(aino, 'Q', struct(), pyroContext);
+    cryoMeta = inferActionCombatMetadata(aino, 'Q', struct(), cryoContext);
 
     pyroRows = pyroBreakdown(strcmp(string(pyroBreakdown.Action), "E1"), :);
     cryoRows = cryoBreakdown(strcmp(string(cryoBreakdown.Action), "E1"), :);
@@ -42,6 +44,9 @@ function validateAinoTimelineAuraRegression()
     assert(height(pyroRows) == 1 && height(cryoRows) == 1 ...
         && pyroRows.Damage(1) > cryoRows.Damage(1), ...
         'Aino approximate support-aura selection should follow the timeline-derived Pyro/Cryo state.');
+    assert(string(pyroMeta.EffectTickPreferredAura) == "Pyro" ...
+        && string(cryoMeta.EffectTickPreferredAura) == "Cryo", ...
+        'Aino timeline metadata should now follow the same Pyro/Cryo support-aura state as the direct simulator.');
 
     disp('validateAinoTimelineAuraRegression passed');
 end

@@ -93,6 +93,9 @@ function validateIfaRegression()
         cfgC0.Build, timelineEnemy, cfgC0.RotationFile, cfgC0.TalentLevel, cfgC0.Constellation, pyroContext);
     [~, ~, emptyAuraBreakdown] = simulateIfaDPS( ...
         cfgC0.Build, timelineEnemy, cfgC0.RotationFile, cfgC0.TalentLevel, cfgC0.Constellation, emptyAuraContext);
+    hydroMeta = inferActionCombatMetadata(cfgC0, 'Q', struct(), hydroContext);
+    pyroMeta = inferActionCombatMetadata(cfgC0, 'Q', struct(), pyroContext);
+    emptyAuraMeta = inferActionCombatMetadata(cfgC0, 'Q', struct(), emptyAuraContext);
 
     hydroMarkRows = hydroBreakdown(strcmp(string(hydroBreakdown.Action), "Mark"), :);
     pyroMarkRows = pyroBreakdown(strcmp(string(pyroBreakdown.Action), "Mark"), :);
@@ -104,6 +107,12 @@ function validateIfaRegression()
         'Ifa should absorb Pyro when the real pre-burst aura state is Pyro.');
     assert(isempty(emptyAuraMarkRows), ...
         'Ifa should skip Sedation Mark explosions when the real pre-burst aura state is empty.');
+    assert(string(hydroMeta.EffectTickElement) == "Hydro" ...
+        && string(pyroMeta.EffectTickElement) == "Pyro", ...
+        'Ifa timeline metadata should preserve the same Hydro/Pyro absorption outcome as the direct simulator.');
+    assert(double(emptyAuraMeta.EffectTickGauge) == 0 ...
+        && strlength(string(emptyAuraMeta.EffectTickElement)) == 0, ...
+        'Ifa timeline metadata should clear burst mark application when the real pre-burst aura state is empty.');
 
     disp('validateIfaRegression passed');
 end
