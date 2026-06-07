@@ -1,9 +1,10 @@
 function [totalDMG, dps, breakdown, rotationTime, audit] = simulateFischlDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
-    % Fischl explicit summon / Oz / burst refresh script with approximation.
+    % Fischl explicit summon / Oz / burst refresh script with AUTO follow-up inference.
     % Summon impact, Oz turret shots, burst impact, and Oz refresh shots are
     % modeled as separate actions with explicit gauge and ICD data.
-    % Remaining approximation: standalone AUTO rotation still does not infer
-    % how often A4 and C6 follow-up attacks should be triggered.
+    % Remaining approximation: pure standalone AUTO mode without team
+    % timeline data still cannot know how often A4 and C6 follow-ups are
+    % triggered, so only team-timeline-backed AUTO sims infer them.
     if nargin < 3 || isempty(seqFile)
         seqFile = fullfile(fileparts(mfilename('fullpath')), '..', '..', 'data', 'Fischl', 'rotation_Fischl.txt');
     end
@@ -79,4 +80,106 @@ function [totalDMG, dps, breakdown, rotationTime, audit] = simulateFischlDPS(bui
 
     [totalDMG, dps, breakdown, rotationTime, audit] = simulateSimpleCharacterDPS( ...
         'Fischl', build, enemy, seqFile, talentLevel, constellation, teamContext, spec);
+
+    autoFollowUpPlan = localResolveAutoFollowUpPlan(seqFile, teamContext, constellation);
+    if autoFollowUpPlan.Enabled
+        [extraDamage, extraBreakdown, extraAuditRows] = localResolveAutoFollowUpRows( ...
+            build, enemy, talentLevel, constellation, teamContext, spec, autoFollowUpPlan);
+        if extraDamage > 0
+            totalDMG = totalDMG + extraDamage;
+            dps = totalDMG / max(rotationTime, 1e-6);
+        end
+        if ~isempty(extraBreakdown)
+            breakdown = [breakdown; extraBreakdown]; %#ok<AGROW>
+        end
+        if isstruct(audit) && isfield(audit, 'Rows') && ~isempty(extraAuditRows)
+            if isempty(audit.Rows)
+                audit.Rows = extraAuditRows;
+            else
+                audit.Rows = [audit.Rows; extraAuditRows]; %#ok<AGROW>
+            end
+        end
+    end
+end
+
+function plan = localResolveAutoFollowUpPlan(seqFile, teamContext, constellation)
+    plan = struct( ...
+        'Enabled', false, ...
+        'C6Count', 0, ...
+        'A4Count', 0, ...
+        'Source', "");
+
+    actions = {};
+    if strlength(string(seqFile)) > 0 && exist(char(string(seqFile)), 'file') == 2
+        actions = readRotationTokens(char(string(seqFile)));
+    end
+
+    if ~isempty(actions)
+        actionNames = upper(string(actions(:)));
+        hasExplicitFollowUps = any(actionNames == "OZJOINTATTACK" | actionNames == "OZA4RETRIBUTION");
+        autoMode = numel(actionNames) == 1 && actionNames(1) == "AUTO";
+        if hasExplicitFollowUps || ~autoMode
+            return;
+        end
+    end
+
+    memberTimeline = getFieldOrDefault(teamContext, 'MemberTimelineSummary', table());
+    if isempty(memberTimeline) || ~istable(memberTimeline) || height(memberTimeline) == 0
+        return;
+    end
+
+    row = memberTimeline(string(memberTimeline.Character) == "Fischl", :);
+    if isempty(row)
+        return;
+    end
+
+    plan.C6Count = max(0, round(double(getFieldOrDefault(row, 'ActionTriggeredBackgroundCount', 0)))) ...
+        * double(constellation >= 6);
+    plan.A4Count = max(0, round(double(getFieldOrDefault(row, 'ReactionTriggeredBackgroundCount', 0))));
+    plan.Enabled = plan.C6Count > 0 || plan.A4Count > 0;
+    if plan.Enabled
+        plan.Source = "team timeline";
+    end
+end
+
+function [extraDamage, extraBreakdown, extraAuditRows] = localResolveAutoFollowUpRows( ...
+        build, enemy, talentLevel, constellation, teamContext, spec, plan)
+    extraDamage = 0;
+    extraBreakdown = table('Size', [0 3], 'VariableTypes', {'string', 'double', 'string'}, ...
+        'VariableNames', {'Action', 'Damage', 'Note'});
+    extraAuditRows = table();
+
+    followUpList = { ...
+        struct('Action', "OzJointAttack", 'Count', plan.C6Count, 'OutputAction', "OzJointAttackAuto"), ...
+        struct('Action', "OzA4Retribution", 'Count', plan.A4Count, 'OutputAction', "OzA4RetributionAuto")};
+
+    for index = 1:numel(followUpList)
+        followUp = followUpList{index};
+        if followUp.Count <= 0
+            continue;
+        end
+
+        singleSpec = spec;
+        singleSpec.DefaultRotation = {{char(followUp.Action)}};
+        [singleDamage, ~, singleBreakdown, ~, singleAudit] = simulateSimpleCharacterDPS( ...
+            'Fischl', build, enemy, "", talentLevel, constellation, teamContext, singleSpec);
+        if isempty(singleBreakdown) || height(singleBreakdown) == 0
+            continue;
+        end
+
+        scaledDamage = singleDamage * followUp.Count;
+        note = string(singleBreakdown.Note(1)) + " (auto x" + string(followUp.Count) + " via " + string(plan.Source) + ")";
+        extraDamage = extraDamage + scaledDamage;
+        extraBreakdown = [extraBreakdown; {followUp.OutputAction, scaledDamage, note}]; %#ok<AGROW>
+
+        if isstruct(singleAudit) && isfield(singleAudit, 'Rows') && ~isempty(singleAudit.Rows)
+            auditRow = singleAudit.Rows(1, :);
+            auditRow.Action = followUp.OutputAction;
+            if isempty(extraAuditRows)
+                extraAuditRows = auditRow;
+            else
+                extraAuditRows = [extraAuditRows; auditRow]; %#ok<AGROW>
+            end
+        end
+    end
 end
