@@ -79,7 +79,8 @@ function meta = inferActionCombatMetadata(member, action, archetypeInfo, teamCon
         'ResolveReactionAsDamage', false, ...
         'ForceReactionName', "", ...
         'ReactionElement', "", ...
-        'ExpectedReaction', "");
+        'ExpectedReaction', "", ...
+        'HealthEventSpecs', repmat(localEmptyHealthEventSpec(), 1, 0));
 
     meta.ActionClass = localResolveActionClass(lowerAction);
     meta.ConsumesActiveWindow = ~any(meta.ActionClass == ["FollowUp", "Reaction", "Utility"]);
@@ -413,6 +414,8 @@ function meta = localApplyCharacterSpecificMetadata(meta, member, normalizedName
                 meta.CanApplyAura = false;
                 meta.AllowAmplify = false;
                 meta.AllowCatalyze = false;
+                meta = localAppendHealthEventSpec(meta, ...
+                    localMakeHealthEventSpec("Heal", "ActionEnd", "ActiveCharacter", 1.0, "ChevreuseHeal"));
             end
 
         case 'furina'
@@ -424,6 +427,19 @@ function meta = localApplyCharacterSpecificMetadata(meta, member, normalizedName
                 meta.CanApplyAura = false;
                 meta.AllowAmplify = false;
                 meta.AllowCatalyze = false;
+                if strcmp(lowerAction, 'singer')
+                    meta = localAppendHealthEventSpec(meta, ...
+                        localMakeHealthEventSpec("Heal", "ActionEnd", "ActiveCharacter", 1.0, "SingerHeal"));
+                else
+                    meta = localAppendHealthEventSpec(meta, ...
+                        localMakeHealthEventSpec("Drain", "ActionEnd", "AllMembers", 1.0, "SalonDrain"));
+                end
+            elseif strcmp(lowerAction, 'e')
+                % Furina team-mode support defaults to Salon members. The
+                % exact HP percentage and Arkhe-specific cap interactions
+                % remain approximated as abstract HP swing units.
+                meta = localAppendHealthEventSpec(meta, ...
+                    localMakeHealthEventSpec("Drain", "EffectTick", "AllMembers", 1.0, "SalonDrain"));
             end
 
         case 'iansan'
@@ -448,6 +464,23 @@ function meta = localApplyCharacterSpecificMetadata(meta, member, normalizedName
                 meta.AllowCatalyze = false;
             elseif strcmp(lowerAction, 'starwicker')
                 meta.ConsumesActiveWindow = true;
+                meta = localAppendHealthEventSpec(meta, ...
+                    localMakeHealthEventSpec("Heal", "ActionEnd", "AllMembers", 1.0, "StarwickerHeal"));
+            elseif strcmp(lowerAction, 'q')
+                meta = localAppendHealthEventSpec(meta, ...
+                    localMakeHealthEventSpec("Heal", "ActionEnd", "AllMembers", 1.0, "AdeptalAssistanceHeal"));
+            end
+
+        case 'barbara'
+            if strcmp(lowerAction, 'q')
+                meta = localAppendHealthEventSpec(meta, ...
+                    localMakeHealthEventSpec("Heal", "ActionEnd", "AllMembers", 1.0, "ShiningMiracleHeal"));
+            end
+
+        case 'jean'
+            if strcmp(lowerAction, 'qcast')
+                meta = localAppendHealthEventSpec(meta, ...
+                    localMakeHealthEventSpec("Heal", "ActionEnd", "AllMembers", 1.0, "DandelionBreezeHeal"));
             end
 
         case 'varesa'
@@ -1808,6 +1841,30 @@ function profile = localEmptyTriggeredFollowUpProfile()
         'AllowedReactionNames', strings(1, 0), ...
         'AllowedPacketSources', strings(1, 0), ...
         'RequireForegroundTrigger', false);
+end
+
+function meta = localAppendHealthEventSpec(meta, spec)
+    specs = getFieldOrDefault(meta, 'HealthEventSpecs', repmat(localEmptyHealthEventSpec(), 1, 0));
+    specs(end + 1) = spec; %#ok<AGROW>
+    meta.HealthEventSpecs = specs;
+end
+
+function spec = localMakeHealthEventSpec(kind, trigger, targetScope, unitsPerTarget, eventName)
+    spec = localEmptyHealthEventSpec();
+    spec.Kind = string(kind);
+    spec.Trigger = string(trigger);
+    spec.TargetScope = string(targetScope);
+    spec.UnitsPerTarget = double(unitsPerTarget);
+    spec.EventName = string(eventName);
+end
+
+function spec = localEmptyHealthEventSpec()
+    spec = struct( ...
+        'Kind', "", ...
+        'Trigger', "", ...
+        'TargetScope', "", ...
+        'UnitsPerTarget', 0.0, ...
+        'EventName', "");
 end
 
 function expectedReaction = localInferExpectedReaction(hitElement, preferredAura, archetypeInfo)

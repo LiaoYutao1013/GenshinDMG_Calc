@@ -34,6 +34,7 @@ function timelineResult = simulateTeamTimeline(members, rotationPlan, teamContex
             'EnergySummary', table(), ...
             'EnergyTimeline', table(), ...
             'ActiveEffectsTable', table(), ...
+            'HealthEventTable', table(), ...
             'FinalEnemyState', createEnemyState(enemy, teamContext, ""), ...
             'CanLoopNextCycle', false, ...
             'LoopReadiness', 0);
@@ -59,6 +60,7 @@ function timelineResult = simulateTeamTimeline(members, rotationPlan, teamContex
     timelineRows = cell(0, 30);
     energyRows = cell(0, 6);
     effectRows = cell(0, 11);
+    healthRows = cell(0, 11);
     actionOrder = 0;
 
     previousForegroundCharacter = "";
@@ -226,6 +228,11 @@ function timelineResult = simulateTeamTimeline(members, rotationPlan, teamContex
                 event.MemberRole, effectKind, effectMode, effectAction, effectInterval, effectCount};
         end
 
+        currentHealthRows = localCollectHealthEventRows(event, meta, members, activeForegroundCharacter);
+        if ~isempty(currentHealthRows)
+            healthRows = [healthRows; currentHealthRows]; %#ok<AGROW>
+        end
+
         actionOrder = actionOrder + 1;
         timelineRows(end + 1, :) = { ... %#ok<AGROW>
             actionOrder, event.StartTime, event.EndTime, event.Character, activeForegroundCharacter, ...
@@ -271,6 +278,7 @@ function timelineResult = simulateTeamTimeline(members, rotationPlan, teamContex
     energyTable = localBuildEnergySummaryTable(rotationEndEnergyState, energyRows, rotationPlan, rotationDuration);
     energyTimeline = localBuildEnergyTimelineTable(energyRows);
     activeEffectsTable = localBuildEffectTable(effectRows);
+    healthEventTable = localBuildHealthEventTable(healthRows);
     timelineSummary = localBuildTimelineSummary(timelineTable, rotationDuration);
     memberTimelineTable = localBuildMemberTimelineTable(timelineTable, members);
 
@@ -288,6 +296,7 @@ function timelineResult = simulateTeamTimeline(members, rotationPlan, teamContex
         'EnergySummary', energyTable, ...
         'EnergyTimeline', energyTimeline, ...
         'ActiveEffectsTable', activeEffectsTable, ...
+        'HealthEventTable', healthEventTable, ...
         'TimelineSummary', timelineSummary, ...
         'MemberTimelineSummary', memberTimelineTable, ...
         'FinalEnemyState', enemyState, ...
@@ -2049,6 +2058,106 @@ function tableOut = localBuildEffectTable(rows)
     tableOut = cell2table(rows, 'VariableNames', { ...
         'Character', 'Action', 'EffectTag', 'StartTime', 'EndTime', 'Role', ...
         'DriverKind', 'DriverMode', 'DriverAction', 'DriverInterval', 'DriverCount'});
+end
+
+function rows = localCollectHealthEventRows(event, meta, members, activeForegroundCharacter)
+    rows = cell(0, 11);
+    defaultSpec = struct('Kind', "", 'Trigger', "", 'TargetScope', "", 'UnitsPerTarget', 0, 'EventName', "");
+    specs = getFieldOrDefault(meta, 'HealthEventSpecs', repmat(defaultSpec, 1, 0));
+    if isempty(specs)
+        return;
+    end
+
+    sourceType = string(getFieldOrDefault(event, 'SourceType', "MemberAction"));
+    eventTime = double(getFieldOrDefault(event, 'EndTime', getFieldOrDefault(event, 'StartTime', 0)));
+    if ~isfinite(eventTime)
+        eventTime = double(getFieldOrDefault(event, 'StartTime', 0));
+    end
+    resolvedActiveCharacter = localResolveHealthEventActiveCharacter(event, meta, activeForegroundCharacter);
+    effectTag = string(getFieldOrDefault(meta, 'EffectTag', ""));
+
+    for specIndex = 1:numel(specs)
+        spec = specs(specIndex);
+        if ~localShouldEmitHealthEventSpec(spec, sourceType)
+            continue;
+        end
+
+        targetCount = localResolveHealthEventTargetCount(spec, members, resolvedActiveCharacter);
+        unitsPerTarget = max(0, double(getFieldOrDefault(spec, 'UnitsPerTarget', 0)));
+        totalUnits = targetCount * unitsPerTarget;
+        if targetCount <= 0 || totalUnits <= 0
+            continue;
+        end
+
+        rows(end + 1, :) = { ... %#ok<AGROW>
+            eventTime, ...
+            string(getFieldOrDefault(event, 'Character', "")), ...
+            string(getFieldOrDefault(event, 'Action', "")), ...
+            sourceType, ...
+            string(getFieldOrDefault(spec, 'Kind', "")), ...
+            string(getFieldOrDefault(spec, 'EventName', "")), ...
+            string(getFieldOrDefault(spec, 'TargetScope', "")), ...
+            targetCount, ...
+            unitsPerTarget, ...
+            totalUnits, ...
+            effectTag};
+    end
+end
+
+function tf = localShouldEmitHealthEventSpec(spec, sourceType)
+    trigger = lower(char(string(getFieldOrDefault(spec, 'Trigger', ""))));
+    sourceType = lower(char(string(sourceType)));
+    switch trigger
+        case 'actionend'
+            tf = strcmp(sourceType, 'memberaction');
+        case 'effecttick'
+            tf = strcmp(sourceType, 'effecttick');
+        case 'triggeredfollowup'
+            tf = strcmp(sourceType, 'triggeredfollowup');
+        otherwise
+            tf = false;
+    end
+end
+
+function characterName = localResolveHealthEventActiveCharacter(event, meta, activeForegroundCharacter)
+    if logical(getFieldOrDefault(meta, 'ConsumesActiveWindow', true))
+        characterName = string(getFieldOrDefault(event, 'Character', ""));
+        return;
+    end
+
+    characterName = string(activeForegroundCharacter);
+    if strlength(characterName) == 0
+        characterName = string(getFieldOrDefault(event, 'Character', ""));
+    end
+end
+
+function targetCount = localResolveHealthEventTargetCount(spec, members, resolvedActiveCharacter)
+    targetCount = 0;
+    scope = lower(char(string(getFieldOrDefault(spec, 'TargetScope', ""))));
+    memberCount = numel(members);
+    switch scope
+        case {'allmembers', 'party', 'teammates'}
+            targetCount = memberCount;
+        case {'allothermembers', 'othermembers'}
+            targetCount = max(0, memberCount - 1);
+        case {'activecharacter', 'foregroundcharacter', 'owneronly'}
+            targetCount = double(strlength(string(resolvedActiveCharacter)) > 0);
+        otherwise
+            targetCount = 0;
+    end
+end
+
+function tableOut = localBuildHealthEventTable(rows)
+    if isempty(rows)
+        tableOut = table();
+        return;
+    end
+
+    tableOut = cell2table(rows, 'VariableNames', { ...
+        'Time', 'Character', 'Action', 'SourceType', 'EventKind', ...
+        'EventName', 'TargetScope', 'TargetCount', 'UnitsPerTarget', ...
+        'TotalUnits', 'EffectTag'});
+    tableOut = sortrows(tableOut, {'Time', 'Character', 'Action'});
 end
 
 function summary = localAuraSummary(enemyState)

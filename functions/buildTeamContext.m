@@ -438,6 +438,7 @@ function teamContext = buildTeamContext(members, rotationDuration, sharedBuffs, 
         'EnergySummary', getFieldOrDefault(sharedBuffs, 'EnergySummary', table()), ...
         'EnergyTimeline', getFieldOrDefault(sharedBuffs, 'EnergyTimeline', table()), ...
         'ActiveEffectsTable', getFieldOrDefault(sharedBuffs, 'ActiveEffectsTable', table()), ...
+        'HealthEventTable', getFieldOrDefault(sharedBuffs, 'HealthEventTable', table()), ...
         'FinalEnemyState', getFieldOrDefault(sharedBuffs, 'FinalEnemyState', struct()), ...
         'CanLoopNextCycle', logical(getFieldOrDefault(sharedBuffs, 'CanLoopNextCycle', false)), ...
         'LoopReadiness', double(getFieldOrDefault(sharedBuffs, 'LoopReadiness', 0)), ...
@@ -806,6 +807,7 @@ function bonus = localApproxFurinaBonus(members, rotationDuration, sharedBuffs, 
     energySummary = getFieldOrDefault(sharedBuffs, 'EnergySummary', table());
     memberTimeline = getFieldOrDefault(sharedBuffs, 'MemberTimelineSummary', table());
     activeEffects = getFieldOrDefault(sharedBuffs, 'ActiveEffectsTable', table());
+    healthEvents = getFieldOrDefault(sharedBuffs, 'HealthEventTable', table());
 
     if isempty(memberTimeline) || ~istable(memberTimeline)
         bonus = localHeuristicFurinaBonus(members, rotationDuration, constellation);
@@ -831,6 +833,8 @@ function bonus = localApproxFurinaBonus(members, rotationDuration, sharedBuffs, 
     onFieldShare = min(1, furinaScheduledTime / max(rotationDuration, 1e-6));
     supportShare = min(1, max(furinaBackgroundTime / max(rotationDuration, 1e-6), salonWindowCoverage));
     actionDensity = min(1, (partyOccupancy + swapTime) / max(rotationDuration, 1e-6));
+    [healthRhythm, drainCoverage, healCoverage, healthDerived] = localResolveFurinaHealthRhythm( ...
+        healthEvents, furinaName, rotationDuration, numel(members));
 
     if isempty(energySummary) || ~istable(energySummary)
         furinaLoopReady = min(1, double(getFieldOrDefault(sharedBuffs, 'LoopReadiness', 0)));
@@ -846,10 +850,18 @@ function bonus = localApproxFurinaBonus(members, rotationDuration, sharedBuffs, 
         end
     end
 
+    if healthDerived
+        fanfareCoverage = max(fanfareCoverage, max(drainCoverage, healCoverage));
+        salonWindowCoverage = max(salonWindowCoverage, drainCoverage);
+    end
     rotationCoverage = min(1, 0.50 + 0.20 * actionDensity + 0.15 * furinaLoopReady + 0.15 * fanfareCoverage);
-    salonCoverage = min(1, 0.25 + 0.60 * supportShare + 0.25 * fanfareCoverage + 0.15 * onFieldShare);
-    teamHPRhythm = min(1, 0.50 + 0.20 * fanfareCoverage + 0.20 * supportShare ...
-        + 0.10 * actionDensity + 0.10 * min(1, max(0, numel(members) - 1) / 3));
+    salonCoverage = min(1, 0.25 + 0.60 * max(supportShare, salonWindowCoverage) + 0.25 * fanfareCoverage + 0.15 * onFieldShare);
+    if healthDerived
+        teamHPRhythm = healthRhythm;
+    else
+        teamHPRhythm = min(1, 0.50 + 0.20 * fanfareCoverage + 0.20 * supportShare ...
+            + 0.10 * actionDensity + 0.10 * min(1, max(0, numel(members) - 1) / 3));
+    end
     baseCap = 0.75 + 0.15 * double(constellation >= 1) + 0.18 * double(constellation >= 2);
     bonus = baseCap * rotationCoverage * salonCoverage * teamHPRhythm;
     bonus = max(0.20, bonus);
@@ -914,6 +926,58 @@ function coverage = localResolveEffectTagCoverage(effectRows, effectTag, rotatio
     end
     coveredDuration = coveredDuration + max(0, currentEnd - currentStart);
     coverage = min(1, coveredDuration / max(rotationDuration, 1e-6));
+end
+
+function [rhythm, drainCoverage, healCoverage, derived] = localResolveFurinaHealthRhythm( ...
+        healthEvents, furinaName, rotationDuration, memberCount)
+    rhythm = 0;
+    drainCoverage = 0;
+    healCoverage = 0;
+    derived = false;
+    if isempty(healthEvents) || ~istable(healthEvents) || height(healthEvents) == 0
+        return;
+    end
+
+    requiredColumns = ["Time", "Character", "EventKind", "TargetCount", "TotalUnits"];
+    if ~all(ismember(requiredColumns, string(healthEvents.Properties.VariableNames)))
+        return;
+    end
+
+    hasFurinaRows = any(string(healthEvents.Character) == furinaName | string(healthEvents.Character) == "Furina");
+    if ~hasFurinaRows
+        return;
+    end
+
+    drainRows = healthEvents(strcmpi(string(healthEvents.EventKind), "Drain"), :);
+    healRows = healthEvents(strcmpi(string(healthEvents.EventKind), "Heal"), :);
+    drainCoverage = localResolveHealthEventCoverage(drainRows, rotationDuration);
+    healCoverage = localResolveHealthEventCoverage(healRows, rotationDuration);
+
+    totalUnits = sum(max(0, double(healthEvents.TotalUnits)));
+    eventRows = height(healthEvents);
+    targetScale = max(1, double(memberCount));
+    eventDensity = min(1, eventRows / max(1, round(rotationDuration / 1.5)));
+    unitScale = min(1, totalUnits / max(1, 8 * targetScale));
+    rhythm = min(1, 0.30 + 0.28 * drainCoverage + 0.22 * healCoverage + 0.12 * eventDensity + 0.08 * unitScale);
+    derived = true;
+end
+
+function coverage = localResolveHealthEventCoverage(eventRows, rotationDuration)
+    coverage = 0;
+    if isempty(eventRows) || ~istable(eventRows) || height(eventRows) == 0
+        return;
+    end
+    times = double(eventRows.Time);
+    targetCounts = max(0, double(eventRows.TargetCount));
+    totalUnits = max(0, double(eventRows.TotalUnits));
+    validMask = isfinite(times) & targetCounts > 0 & totalUnits > 0;
+    times = times(validMask);
+    totalUnits = totalUnits(validMask);
+    if isempty(times)
+        return;
+    end
+    weights = min(1, totalUnits);
+    coverage = min(1, sum(weights) / max(rotationDuration / 2, 1));
 end
 
 function bonus = localHeuristicFurinaBonus(members, rotationDuration, constellation)

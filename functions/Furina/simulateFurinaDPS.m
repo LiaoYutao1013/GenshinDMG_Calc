@@ -3,8 +3,9 @@ function [totalDMG, dps, breakdown, rotationTime, audit] = simulateFurinaDPS(bui
     % Arkhe mode swaps, companion windows, burst, and C6 infusions are
     % modeled as separate stateful actions while Salon/Singer activity can
     % be derived from the active duration window itself.
-    % Remaining approximation: fanfare still follows timeline-density
-    % heuristics because full party HP-loss/heal event logs are not modeled.
+    % Remaining approximation: fanfare now prefers explicit team HP event
+    % logs, but missing heal/self-HP event sources still fall back to
+    % timeline rhythm heuristics.
     if nargin < 3 || isempty(seqFile)
         seqFile = char(resolveCharacterDataFile('Furina', 'rotation'));
     end
@@ -408,6 +409,8 @@ function profile = localResolveFurinaTimelineProfile(teamContext, constellation)
         'SupportShare', min(1, 0.30 + 0.16 * max(0, memberCount - 1)), ...
         'FanfareCoverage', 0, ...
         'SalonCoverage', 0, ...
+        'HealCoverage', 0, ...
+        'DrainCoverage', 0, ...
         'LoopReadiness', 0.45 + 0.10 * double(memberCount >= 3), ...
         'SharedBonusTarget', max(0, double(getFieldOrDefault(teamContext, 'ApproxFurinaBonus', 0.20))), ...
         'TimelineDerived', false, ...
@@ -422,6 +425,7 @@ function profile = localResolveFurinaTimelineProfile(teamContext, constellation)
     activeEffects = getFieldOrDefault(teamContext, 'ActiveEffectsTable', table());
     energySummary = getFieldOrDefault(teamContext, 'EnergySummary', table());
     memberTimeline = getFieldOrDefault(teamContext, 'MemberTimelineSummary', table());
+    healthEvents = getFieldOrDefault(teamContext, 'HealthEventTable', table());
 
     if isstruct(timelineSummary) && ~isempty(fieldnames(timelineSummary))
         occupiedTime = double(getFieldOrDefault(timelineSummary, 'MemberOccupiedTime', 0));
@@ -433,6 +437,19 @@ function profile = localResolveFurinaTimelineProfile(teamContext, constellation)
         profile.FanfareCoverage = localResolveEffectCoverage(activeEffects, "Fanfare", rotationDuration);
         profile.SalonCoverage = localResolveEffectCoverage(activeEffects, "SalonMembers", rotationDuration);
         profile.TimelineDerived = true;
+    end
+
+    if istable(healthEvents) && height(healthEvents) > 0
+        [healthRhythm, drainCoverage, healCoverage, healthDerived] = ...
+            localResolveHealthEventRhythm(healthEvents, rotationDuration, memberCount);
+        if healthDerived
+            profile.DrainCoverage = drainCoverage;
+            profile.HealCoverage = healCoverage;
+            profile.FanfareCoverage = max(profile.FanfareCoverage, max(drainCoverage, healCoverage));
+            profile.SalonCoverage = max(profile.SalonCoverage, drainCoverage);
+            profile.TeamRhythm = max(profile.TeamRhythm, healthRhythm);
+            profile.TimelineDerived = true;
+        end
     end
 
     if istable(memberTimeline) && height(memberTimeline) > 0
@@ -453,18 +470,63 @@ function profile = localResolveFurinaTimelineProfile(teamContext, constellation)
     end
 
     sharedBonusScale = min(1, profile.SharedBonusTarget / max(0.75 + 0.15 * double(constellation >= 1), 1e-6));
-    profile.TeamRhythm = min(1, 0.30 ...
+    profile.TeamRhythm = min(1, max(profile.TeamRhythm, 0.30 ...
         + 0.18 * profile.ActionDensity ...
-        + 0.16 * profile.SupportShare ...
-        + 0.14 * profile.FanfareCoverage ...
+        + 0.14 * profile.SupportShare ...
+        + 0.12 * profile.FanfareCoverage ...
         + 0.10 * profile.SalonCoverage ...
+        + 0.10 * profile.HealCoverage ...
+        + 0.10 * profile.DrainCoverage ...
         + 0.12 * profile.LoopReadiness ...
-        + 0.12 * sharedBonusScale);
+        + 0.14 * sharedBonusScale));
     profile.AutoSalonAmp = 1.00 + 0.40 * profile.TeamRhythm;
     profile.AutoSalonRamp = 0.02 + 0.02 * profile.TeamRhythm;
     profile.AutoSingerHealBonus = 0.04 + 0.08 * profile.TeamRhythm;
     profile.OusiaFanfareGain = 9 + 8 * profile.TeamRhythm + 3 * double(constellation >= 2);
     profile.PneumaFanfareGain = 11 + 10 * profile.TeamRhythm + 4 * double(constellation >= 2);
+end
+
+function [rhythm, drainCoverage, healCoverage, derived] = localResolveHealthEventRhythm( ...
+        healthEvents, rotationDuration, memberCount)
+    rhythm = 0;
+    drainCoverage = 0;
+    healCoverage = 0;
+    derived = false;
+    requiredColumns = ["Time", "EventKind", "TargetCount", "TotalUnits"];
+    if ~istable(healthEvents) || height(healthEvents) == 0 ...
+            || ~all(ismember(requiredColumns, string(healthEvents.Properties.VariableNames)))
+        return;
+    end
+
+    drainRows = healthEvents(strcmpi(string(healthEvents.EventKind), "Drain"), :);
+    healRows = healthEvents(strcmpi(string(healthEvents.EventKind), "Heal"), :);
+    drainCoverage = localResolveHealthEventCoverage(drainRows, rotationDuration);
+    healCoverage = localResolveHealthEventCoverage(healRows, rotationDuration);
+    if drainCoverage <= 0 && healCoverage <= 0
+        return;
+    end
+
+    totalUnits = sum(max(0, double(healthEvents.TotalUnits)));
+    eventDensity = min(1, height(healthEvents) / max(1, round(rotationDuration / 1.5)));
+    unitScale = min(1, totalUnits / max(1, 8 * double(max(1, memberCount))));
+    rhythm = min(1, 0.28 + 0.30 * drainCoverage + 0.24 * healCoverage + 0.10 * eventDensity + 0.08 * unitScale);
+    derived = true;
+end
+
+function coverage = localResolveHealthEventCoverage(eventRows, rotationDuration)
+    coverage = 0;
+    if isempty(eventRows) || ~istable(eventRows) || height(eventRows) == 0
+        return;
+    end
+
+    times = double(eventRows.Time);
+    totalUnits = max(0, double(eventRows.TotalUnits));
+    targetCounts = max(0, double(eventRows.TargetCount));
+    validMask = isfinite(times) & totalUnits > 0 & targetCounts > 0;
+    if ~any(validMask)
+        return;
+    end
+    coverage = min(1, sum(min(1, totalUnits(validMask))) / max(rotationDuration / 2, 1));
 end
 
 function coverage = localResolveEffectCoverage(activeEffects, effectTag, rotationDuration)
