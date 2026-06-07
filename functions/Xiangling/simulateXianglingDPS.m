@@ -2,8 +2,9 @@ function [totalDMG, dps, breakdown, rotationTime, audit] = simulateXianglingDPS(
     % Xiangling explicit Guoba / Pyronado script with approximation.
     % Guoba sprays, Pyronado opening slashes, sustained spins, and C2
     % implode are modeled as separate scripted actions.
-    % Remaining approximation: the Guoba chili pickup is modeled as a
-    % delayed mid-rotation split instead of position-validated pickup timing.
+    % Remaining approximation: when CombatEventTable does not include an
+    % explicit Guoba chili pickup event, the split still falls back to the
+    % legacy mid-rotation timing.
     if nargin < 3 || isempty(seqFile)
         seqFile = fullfile(fileparts(mfilename('fullpath')), '..', '..', 'data', 'Xiangling', 'rotation_Xiangling.txt');
     end
@@ -55,7 +56,13 @@ function [totalDMG, dps, breakdown, rotationTime, audit] = simulateXianglingDPS(
         'BaseActionDamageBonus', 0.15 * double(constellation >= 6), 'AllowAmplify', double(vapeReady), ...
         'SkillWindowExtraResShred', guobaResShred, ...
         'LunarisAttackName', "FireCircle03", 'LunarisDamageParam', "XiangLing_ProudSkill33_P4_Damage_Percentage", ...
-        'ApplyGauge', 1.0, 'ICDRule', "Independent", 'Note', "Pyronado spins before chili");
+        'ApplyGauge', 1.0, 'ICDRule', "Independent", ...
+        'TotalSpinHits', pyronadoDurationHits, ...
+        'TotalSpinDuration', 9.80 + 4.00 * double(constellation >= 4), ...
+        'DefaultEarlyHits', pyronadoEarlyHits, ...
+        'DefaultEarlyDuration', 4.75, ...
+        'DefaultLateDuration', 5.05 + 4.00 * double(constellation >= 4), ...
+        'Note', "Pyronado spins before chili");
     actions.Pyronado = struct('TalentGroup', "Burst", 'Param', "PyronadoDMG", 'DamageField', "BurstDMGBonus", ...
         'ActionElement', "Pyro", 'BaseMultiplier', 1.00, 'HitCount', pyronadoLateHits, ...
         'BaseActionDamageBonus', 0.15 * double(constellation >= 6), 'AllowAmplify', double(vapeReady), ...
@@ -72,10 +79,100 @@ function [totalDMG, dps, breakdown, rotationTime, audit] = simulateXianglingDPS(
         'Element', "Pyro", ...
         'ScalingMode', "ATK", ...
         'DefaultActionTime', 0.72, ...
+        'InitializeStateFn', @localInitializeState, ...
+        'BeforeActionFn', @localBeforeAction, ...
         'DefaultRotation', {{'E', 'QSlash1', 'QSlash2', 'QSlash3', 'PyronadoEarly', 'Chili', 'Pyronado', 'N5Explode'}}, ...
         'ActionTimeMap', struct('E', 0.80, 'QSlash1', 0.15, 'QSlash2', 0.15, 'QSlash3', 0.15, 'PyronadoEarly', 4.75, 'Chili', 0.10, 'Pyronado', 5.05 + 4.00 * double(constellation >= 4), 'N5Explode', 0.10), ...
         'Actions', actions);
 
     [totalDMG, dps, breakdown, rotationTime, audit] = simulateSimpleCharacterDPS( ...
         'Xiangling', build, enemy, seqFile, talentLevel, constellation, teamContext, spec);
+end
+
+function state = localInitializeState(state, hookContext) %#ok<INUSD>
+    state.PyronadoPlan = struct('Resolved', false);
+end
+
+function [state, actionSpec, actionTime, note] = localBeforeAction( ...
+        state, actionKey, actionSpec, actionTime, note, hookContext)
+    if any(actionKey == ["PyronadoEarly", "Chili", "Pyronado"])
+        [state, plan] = localResolvePyronadoPickupPlan(state, actionSpec, hookContext);
+        if actionKey == "PyronadoEarly"
+            actionSpec.HitCount = plan.EarlyHits;
+            actionTime = plan.EarlyDuration;
+        elseif actionKey == "Pyronado"
+            actionSpec.HitCount = plan.LateHits;
+            actionTime = plan.LateDuration;
+        end
+
+        if plan.ExplicitPickup
+            note = localAppendNote(note, sprintf('pickup@%.2fs', plan.PickupTime));
+        end
+    end
+end
+
+function [state, plan] = localResolvePyronadoPickupPlan(state, actionSpec, hookContext)
+    plan = getFieldOrDefault(state, 'PyronadoPlan', struct('Resolved', false));
+    if isstruct(plan) && logical(getFieldOrDefault(plan, 'Resolved', false))
+        return;
+    end
+
+    totalHits = max(2, round(double(getFieldOrDefault(actionSpec, 'TotalSpinHits', 10))));
+    totalSpinDuration = max(0, double(getFieldOrDefault(actionSpec, 'TotalSpinDuration', 9.80)));
+    defaultEarlyHits = max(1, min(totalHits - 1, round(double(getFieldOrDefault(actionSpec, 'DefaultEarlyHits', 5)))));
+    defaultEarlyDuration = max(0, double(getFieldOrDefault(actionSpec, 'DefaultEarlyDuration', 4.75)));
+    defaultLateDuration = max(0, double(getFieldOrDefault(actionSpec, 'DefaultLateDuration', totalSpinDuration - defaultEarlyDuration)));
+
+    plan = struct( ...
+        'Resolved', true, ...
+        'ExplicitPickup', false, ...
+        'PickupTime', NaN, ...
+        'EarlyHits', defaultEarlyHits, ...
+        'LateHits', max(1, totalHits - defaultEarlyHits), ...
+        'EarlyDuration', defaultEarlyDuration, ...
+        'LateDuration', defaultLateDuration);
+
+    currentTime = double(getFieldOrDefault(hookContext, 'ElapsedTime', 0));
+    if totalSpinDuration <= 0
+        state.PyronadoPlan = plan;
+        return;
+    end
+
+    pickupRows = queryCombatEvents(getFieldOrDefault(hookContext, 'TeamContext', struct()), struct( ...
+        'EventKind', "Pickup", ...
+        'EventName', ["GuobaChili", "Chili"], ...
+        'TimeRange', [currentTime, currentTime + totalSpinDuration]));
+    if isempty(pickupRows)
+        state.PyronadoPlan = plan;
+        return;
+    end
+
+    pickupTime = double(pickupRows.Time(1));
+    if ~isfinite(pickupTime)
+        state.PyronadoPlan = plan;
+        return;
+    end
+
+    earlyDuration = min(totalSpinDuration, max(0, pickupTime - currentTime));
+    lateDuration = max(0, totalSpinDuration - earlyDuration);
+    interval = totalSpinDuration / max(totalHits, 1);
+    hitTimes = interval * 0.5 + interval * (0:(totalHits - 1));
+    earlyHits = sum(hitTimes <= earlyDuration + 1e-9);
+    earlyHits = max(1, min(totalHits - 1, earlyHits));
+
+    plan.ExplicitPickup = true;
+    plan.PickupTime = pickupTime;
+    plan.EarlyDuration = earlyDuration;
+    plan.LateDuration = lateDuration;
+    plan.EarlyHits = earlyHits;
+    plan.LateHits = totalHits - earlyHits;
+    state.PyronadoPlan = plan;
+end
+
+function note = localAppendNote(baseNote, suffix)
+    if strlength(string(baseNote)) == 0
+        note = string(suffix);
+    else
+        note = string(baseNote) + ", " + string(suffix);
+    end
 end

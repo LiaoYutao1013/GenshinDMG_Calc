@@ -11,8 +11,10 @@ function validateKaeyaRegression()
         'TargetCount', 1);
 
     cfg0 = getDefaultCharacterConfig('Kaeya', struct('Constellation', 0, 'TalentLevel', 10));
+    cfg2 = getDefaultCharacterConfig('Kaeya', struct('Constellation', 2, 'TalentLevel', 10));
     cfg6 = getDefaultCharacterConfig('Kaeya', struct('Constellation', 6, 'TalentLevel', 10));
     ctx0 = buildTeamContext({cfg0}, 20, struct('ReactionMode', "Realistic"), enemy);
+    ctx2 = buildTeamContext({cfg2}, 20, struct('ReactionMode', "Realistic"), enemy);
     ctx6 = buildTeamContext({cfg6}, 20, struct('ReactionMode', "Realistic"), enemy);
     shortRotation = [tempname, '.txt'];
     cleanupShortRotation = onCleanup(@() localDeleteIfExists(shortRotation)); %#ok<NASGU>
@@ -33,10 +35,31 @@ function validateKaeyaRegression()
         cfg6.Build, cryoAuraEnemy, shortRotation, cfg6.TalentLevel, cfg6.Constellation, ctx6CryoAura);
     [damage6NoAura, ~, breakdown6NoAura] = simulateKaeyaDPS( ...
         cfg6.Build, enemy, shortRotation, cfg6.TalentLevel, cfg6.Constellation, ctx6);
+    burstOnlyRotation = [tempname, '.txt'];
+    cleanupBurstRotation = onCleanup(@() localDeleteIfExists(burstOnlyRotation)); %#ok<NASGU>
+    fid = fopen(burstOnlyRotation, 'w');
+    assert(fid > 0, 'Failed to create temporary Kaeya burst regression rotation file.');
+    fprintf(fid, 'Q\n');
+    fclose(fid);
+    defeatEvents = table( ...
+        [2.0; 4.0], ...
+        ["Kaeya"; "Kaeya"], ...
+        ["Defeat"; "Defeat"], ...
+        ["EnemyDefeat"; "EnemyDefeat"], ...
+        ["Q"; "Q"], ...
+        [2.5; 2.5], ...
+        'VariableNames', {'Time', 'Character', 'EventKind', 'EventName', 'SourceAction', 'Value'});
+    defeatCtx = buildTeamContext({cfg2}, 20, struct('ReactionMode', "Realistic", 'CombatEventTable', defeatEvents), enemy);
+    [damage2NoDefeat, ~, breakdown2NoDefeat] = simulateKaeyaDPS( ...
+        cfg2.Build, enemy, burstOnlyRotation, cfg2.TalentLevel, cfg2.Constellation, ctx2);
+    [damage2Defeat, ~, breakdown2Defeat] = simulateKaeyaDPS( ...
+        cfg2.Build, enemy, burstOnlyRotation, cfg2.TalentLevel, cfg2.Constellation, defeatCtx);
 
     actions0 = string(breakdown0.Action);
     q0 = breakdown0(actions0 == "Q", :);
     q6 = breakdown6(string(breakdown6.Action) == "Q", :);
+    q2NoDefeat = breakdown2NoDefeat(string(breakdown2NoDefeat.Action) == "Q", :);
+    q2Defeat = breakdown2Defeat(string(breakdown2Defeat.Action) == "Q", :);
     ca0 = breakdown0(actions0 == "CA", :);
     notes6 = string(breakdown6.Note);
     notes6CryoAura = string(breakdown6CryoAura.Note);
@@ -66,6 +89,14 @@ function validateKaeyaRegression()
     assert(~any(audit0.Rows.ApplyGaugeFallback | audit0.Rows.ICDFallback) ...
         && ~any(audit6.Rows.ApplyGaugeFallback | audit6.Rows.ICDFallback), ...
         'Kaeya regression should keep explicit gauge and ICD metadata for the scripted rotation.');
+    assert(height(q2NoDefeat) == 1 && contains(string(q2NoDefeat.Note), "x8"), ...
+        'Kaeya C2 without explicit enemy defeats should keep the baseline 8-tick burst note.');
+    assert(height(q2Defeat) == 1 ...
+            && contains(string(q2Defeat.Note), "C2 ext +5.0s") ...
+            && contains(string(q2Defeat.Note), "x13"), ...
+        'Kaeya C2 should extend Glacial Waltz when explicit defeat events are supplied.');
+    assert(damage2Defeat > damage2NoDefeat, ...
+        'Kaeya C2 explicit-defeat regression should outdamage the no-defeat burst sample through the added burst ticks.');
 
     disp('validateKaeyaRegression passed');
 end
