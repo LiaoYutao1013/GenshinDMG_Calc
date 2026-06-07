@@ -133,7 +133,7 @@ function result = resolveReactionForHit(enemyState, hitDescriptor, build, teamCo
 
         case {'electrocharged', 'overload', 'superconduct', 'stellarconduct', 'swirl', 'crystallize', 'bloom', 'burning', ...
                 'lunarcharged', 'lunarcrystallize', 'lunarbloom'}
-            result = localResolveTransformativeReaction( ...
+            [result, postReactionApplyGauge] = localResolveTransformativeReaction( ...
                 result, directReaction, hitDescriptor, build, teamContext, enemy, applyGauge);
 
         otherwise
@@ -164,12 +164,14 @@ function result = resolveReactionForHit(enemyState, hitDescriptor, build, teamCo
     result.TriggeredReactions = unique(result.TriggeredReactions(strlength(result.TriggeredReactions) > 0), 'stable');
 end
 
-function result = localResolveTransformativeReaction(result, directReaction, hitDescriptor, build, teamContext, enemy, applyGauge)
+function [result, residualApplyGauge] = localResolveTransformativeReaction(result, directReaction, hitDescriptor, build, teamContext, enemy, applyGauge)
     reactionName = string(directReaction.Name);
     reactionBonus = getFieldOrDefault(hitDescriptor, 'ReactionBonus', 0);
     customBase = localResolveCustomReactionBase(hitDescriptor, build, reactionName);
+    residualApplyGauge = applyGauge;
     if localShouldConsumeAuraOnDirectTransformativeReaction(reactionName)
-        result.EnemyState = localConsumeAuraForDirectReaction(result.EnemyState, directReaction, applyGauge);
+        [result.EnemyState, residualApplyGauge] = localConsumeAuraForAmplify( ...
+            result.EnemyState, directReaction, applyGauge);
     end
     if localShouldConsumeQuickenOnTransformativeReaction(reactionName, directReaction, result.EnemyState)
         result.EnemyState = localConsumeQuickenForAuraReaction(result.EnemyState, applyGauge);
@@ -685,11 +687,11 @@ function enemyState = localApplyPostReactionAura(enemyState, applyElement, apply
                 return;
             end
             enemyState = localAddOrReplaceAura(enemyState, applyElement, max(0, applyGauge));
-        case {'vaporize', 'melt', 'overload', 'superconduct', 'stellarconduct', 'swirl', 'crystallize'}
+        case {'overload', 'superconduct', 'stellarconduct', 'swirl', 'crystallize'}
             if strcmpi(char(applyElement), 'anemo') || strcmpi(char(applyElement), 'geo')
                 return;
             end
-            enemyState = localAddOrReplaceAura(enemyState, applyElement, max(0, 0.4 * applyGauge));
+            enemyState = localAddOrReplaceAura(enemyState, applyElement, max(0, applyGauge));
         case 'electrocharged'
             if strcmpi(char(applyElement), 'anemo') || strcmpi(char(applyElement), 'geo')
                 return;
@@ -1140,7 +1142,7 @@ end
 
 function tf = localShouldConsumeAuraOnDirectTransformativeReaction(reactionName)
     switch lower(char(string(reactionName)))
-        case {'bloom', 'burning'}
+        case {'overload', 'superconduct', 'stellarconduct', 'swirl', 'crystallize', 'bloom', 'burning'}
             tf = true;
         otherwise
             tf = false;

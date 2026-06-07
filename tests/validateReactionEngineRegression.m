@@ -37,6 +37,27 @@ function validateReactionEngineRegression()
         'Reverse Vaporize should not fabricate a residual Pyro aura when Hydro remains dominant.');
 
     state = createEnemyState(enemy, teamContext, "");
+    state = localApplyAuraOnly(state, "Electro", 1.0, build, teamContext, enemy);
+    overload = resolveReactionForHit(state, localMakeHit("Pyro", 1.0), build, teamContext, enemy, 0);
+    assert(strcmpi(char(overload.PrimaryReaction), 'Overload'), ...
+        'Expected Overload to trigger from Pyro on Electro.');
+    assert(localAuraGauge(overload.EnemyState, "Electro") < 1.0, ...
+        'Overload should consume part of the existing Electro aura instead of leaving it untouched.');
+    assert(localAuraGauge(overload.EnemyState, "Pyro") == 0, ...
+        'Equal-gauge Overload should not fabricate a residual Pyro aura when the trigger gauge is fully spent into the reaction.');
+
+    state = createEnemyState(enemy, teamContext, "");
+    state = localApplyAuraOnly(state, "Electro", 1.0, build, teamContext, enemy);
+    superconduct = resolveReactionForHit(state, localMakeHit("Cryo", 1.0), build, teamContext, enemy, 0);
+    assert(any(strcmpi(cellstr(string(superconduct.TriggeredReactions)), 'superconduct')) ...
+            || strcmpi(char(superconduct.PrimaryReaction), 'Superconduct'), ...
+        'Expected Superconduct to trigger from Cryo on Electro.');
+    assert(localAuraGauge(superconduct.EnemyState, "Electro") < 1.0, ...
+        'Superconduct should consume part of the existing Electro aura instead of leaving it untouched.');
+    assert(localAuraGauge(superconduct.EnemyState, "Cryo") == 0, ...
+        'Equal-gauge Superconduct should not fabricate a residual Cryo aura when the trigger gauge is fully spent into the reaction.');
+
+    state = createEnemyState(enemy, teamContext, "");
     state = localApplyAuraOnly(state, "Hydro", 1.0, build, teamContext, enemy);
     electroCharged = resolveReactionForHit(state, localMakeHit("Electro", 1.0), build, teamContext, enemy, 0);
     assert(strcmpi(char(electroCharged.PrimaryReaction), 'ElectroCharged'), ...
