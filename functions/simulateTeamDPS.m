@@ -126,10 +126,13 @@ function planningSharedBuffs = localBuildPlanningSharedBuffs(sharedBuffs, member
 end
 
 function sharedBuffs = localAttachTimelineSharedBuffs(sharedBuffs, timelineResult)
+    sharedBuffs.TimelineTable = getFieldOrDefault(timelineResult, 'TimelineTable', table());
     sharedBuffs.TimelineSummary = getFieldOrDefault(timelineResult, 'TimelineSummary', struct());
     sharedBuffs.MemberTimelineSummary = getFieldOrDefault(timelineResult, 'MemberTimelineSummary', table());
     sharedBuffs.EnergySummary = getFieldOrDefault(timelineResult, 'EnergySummary', table());
+    sharedBuffs.EnergyTimeline = getFieldOrDefault(timelineResult, 'EnergyTimeline', table());
     sharedBuffs.ActiveEffectsTable = getFieldOrDefault(timelineResult, 'ActiveEffectsTable', table());
+    sharedBuffs.FinalEnemyState = getFieldOrDefault(timelineResult, 'FinalEnemyState', struct());
     sharedBuffs.LoopReadiness = double(getFieldOrDefault(timelineResult, 'LoopReadiness', 0));
     sharedBuffs.CanLoopNextCycle = logical(getFieldOrDefault(timelineResult, 'CanLoopNextCycle', false));
 end

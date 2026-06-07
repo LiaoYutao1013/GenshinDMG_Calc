@@ -3,7 +3,8 @@ function [totalDMG, dps, breakdown, rotationTime, audit] = simulateOroronDPS(bui
     % Focus:
     % - target-aware Spirit Orb bounce count.
     % - burst pulse cadence with C4 faster-rotation handling.
-    % - A1 Hypersense proc estimation from team archetype signals.
+    % - A1 Hypersense proc estimation from team timeline signals with
+    %   archetype fallback when no team timeline is available.
     % - constellation-aware Nighttide, Spiritual Supersense, and C6 echo damage.
     if nargin < 3 || isempty(seqFile)
         seqFile = fullfile(fileparts(mfilename('fullpath')), '..', '..', 'data', 'Ororon', 'rotation_Ororon.txt');
@@ -236,6 +237,13 @@ function [hitCount, timeline] = localBuildTriggeredHitTimeline(procCount, target
 end
 
 function procCount = localEstimateHypersenseProcCount(teamContext, electroChargedReady, natlanSupportReady, enemyTargetCount)
+    [timelineProcCount, usedTimeline] = localEstimateHypersenseProcCountFromTimeline( ...
+        teamContext, electroChargedReady, natlanSupportReady);
+    if usedTimeline
+        procCount = min(8, max(0, timelineProcCount));
+        return;
+    end
+
     procCount = 0;
     if ~(electroChargedReady || natlanSupportReady)
         return;
@@ -275,6 +283,160 @@ function procCount = localEstimateHypersenseProcCount(teamContext, electroCharge
 
     procCount = min([8, pointBudgetProcCount, triggerOpportunityCount]);
     procCount = max(0, procCount);
+end
+
+function [procCount, usedTimeline] = localEstimateHypersenseProcCountFromTimeline( ...
+        teamContext, electroChargedReady, natlanSupportReady)
+    procCount = 0;
+    usedTimeline = false;
+
+    timelineTable = getFieldOrDefault(teamContext, 'TimelineTable', table());
+    if isempty(timelineTable) || ~istable(timelineTable) || height(timelineTable) == 0
+        return;
+    end
+    if ~all(ismember({'Character', 'StartTime'}, timelineTable.Properties.VariableNames))
+        return;
+    end
+
+    usedTimeline = true;
+    if ~(electroChargedReady || natlanSupportReady)
+        return;
+    end
+
+    triggerStartTime = localResolveOroronTriggerStartTime(timelineTable);
+    pointGainTimes = zeros(0, 1);
+    if electroChargedReady
+        pointGainTimes = localCollectHypersenseReactionTimes(timelineTable, triggerStartTime);
+    end
+
+    opportunityTimes = pointGainTimes;
+    if natlanSupportReady
+        opportunityTimes = [opportunityTimes; ... %#ok<AGROW>
+            localCollectHypersenseNightsoulOpportunityTimes(timelineTable, triggerStartTime)];
+    end
+
+    pointGainEventCount = min(10, numel(localUniqueTimelineTimes(pointGainTimes)));
+    pointBudgetProcCount = floor((40 * double(natlanSupportReady) + 5 * pointGainEventCount) / 10);
+    triggerOpportunityCount = localCountTimelineCooldownOpportunities(opportunityTimes, 1.80);
+
+    procCount = min([8, pointBudgetProcCount, triggerOpportunityCount]);
+    procCount = max(0, procCount);
+end
+
+function startTime = localResolveOroronTriggerStartTime(timelineTable)
+    startTime = 0;
+    rowCharacters = string(timelineTable.Character);
+    ororonMask = strcmpi(rowCharacters, "Ororon");
+    if ~any(ororonMask)
+        return;
+    end
+
+    ororonRows = timelineTable(ororonMask, :);
+    candidateTimes = double(ororonRows.StartTime);
+    if ismember('Action', ororonRows.Properties.VariableNames)
+        actionNames = string(ororonRows.Action);
+        skillMask = strcmpi(actionNames, "E") | strcmpi(actionNames, "Q");
+        if any(skillMask)
+            candidateTimes = double(ororonRows.StartTime(skillMask));
+        end
+    end
+    candidateTimes = candidateTimes(isfinite(candidateTimes));
+    if isempty(candidateTimes)
+        return;
+    end
+    startTime = min(candidateTimes);
+end
+
+function times = localCollectHypersenseReactionTimes(timelineTable, triggerStartTime)
+    times = zeros(0, 1);
+    if ~ismember('Reaction', timelineTable.Properties.VariableNames)
+        return;
+    end
+
+    rowCharacters = string(timelineTable.Character);
+    reactionText = lower(strtrim(string(timelineTable.Reaction)));
+    timeMask = double(timelineTable.StartTime) >= triggerStartTime - 1e-9;
+    reactionMask = contains(reactionText, "electro-charged") | contains(reactionText, "lunar-charged");
+    allyMask = ~strcmpi(rowCharacters, "Ororon") & ~strcmpi(rowCharacters, "Team");
+
+    times = localUniqueTimelineTimes(double(timelineTable.StartTime(timeMask & reactionMask & allyMask)));
+end
+
+function times = localCollectHypersenseNightsoulOpportunityTimes(timelineTable, triggerStartTime)
+    rowCount = height(timelineTable);
+    if rowCount == 0
+        times = zeros(0, 1);
+        return;
+    end
+
+    rowCharacters = string(timelineTable.Character);
+    hitElements = repmat("", rowCount, 1);
+    if ismember('HitElement', timelineTable.Properties.VariableNames)
+        hitElements = string(timelineTable.HitElement);
+    end
+
+    applyGauge = zeros(rowCount, 1);
+    if ismember('ApplyGauge', timelineTable.Properties.VariableNames)
+        applyGauge = double(timelineTable.ApplyGauge);
+    end
+
+    sourceTypes = repmat("", rowCount, 1);
+    if ismember('SourceType', timelineTable.Properties.VariableNames)
+        sourceTypes = string(timelineTable.SourceType);
+    end
+
+    actionClasses = repmat("", rowCount, 1);
+    if ismember('ActionClass', timelineTable.Properties.VariableNames)
+        actionClasses = string(timelineTable.ActionClass);
+    end
+
+    allyMask = arrayfun(@localIsOroronNightsoulAlly, rowCharacters);
+    elementalMask = applyGauge > 0 | strlength(strtrim(hitElements)) > 0;
+    timeMask = double(timelineTable.StartTime) >= triggerStartTime - 1e-9;
+    sourceMask = ~strcmpi(sourceTypes, "TimedReaction") & ~strcmpi(actionClasses, "Utility");
+
+    times = localUniqueTimelineTimes(double(timelineTable.StartTime( ...
+        allyMask & elementalMask & timeMask & sourceMask)));
+end
+
+function tf = localIsOroronNightsoulAlly(characterName)
+    tf = false;
+    if strlength(strtrim(string(characterName))) == 0
+        return;
+    end
+
+    nightsoulRoster = [ ...
+        "Chasca", "Citlali", "Iansan", "Ifa", "Kachina", ...
+        "Kinich", "Mavuika", "Ororon", "Xilonen"];
+    tf = any(strcmpi(string(characterName), nightsoulRoster)) ...
+        && ~strcmpi(string(characterName), "Ororon");
+end
+
+function times = localUniqueTimelineTimes(times)
+    times = double(times(:));
+    times = times(isfinite(times));
+    if isempty(times)
+        times = zeros(0, 1);
+        return;
+    end
+    times = unique(times, 'stable');
+end
+
+function count = localCountTimelineCooldownOpportunities(times, cooldown)
+    count = 0;
+    times = sort(localUniqueTimelineTimes(times));
+    if isempty(times)
+        return;
+    end
+
+    lastAccepted = -inf;
+    for timeIndex = 1:numel(times)
+        if times(timeIndex) < lastAccepted + cooldown - 1e-9
+            continue;
+        end
+        count = count + 1;
+        lastAccepted = times(timeIndex);
+    end
 end
 
 function events = localEstimateHypersensePointGainEvents( ...

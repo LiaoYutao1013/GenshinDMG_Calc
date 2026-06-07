@@ -169,7 +169,7 @@ function [totalDMG, dps, breakdown, rotationTime, audit] = simulateIfaDPS(build,
             'AllowAmplify', double(any(strcmpi(absorbedElement, {'Hydro', 'Pyro', 'Cryo'})) && (pyroCount + hydroCount + cryoCount) >= 1), ...
             'AllowTransformative', double(burstReactionReady), ...
             'PreferredAmplifyAura', localResolvePreferredAura(absorbedElement, teamContext), ...
-            'Note', "Sedation Mark explosions");
+            'Note', localBuildIfaMarkNote(absorbedElement));
     end
 
     defaultRotation = {'Q'};
@@ -199,6 +199,12 @@ function [totalDMG, dps, breakdown, rotationTime, audit] = simulateIfaDPS(build,
 end
 
 function element = localResolveIfaBurstElement(teamContext)
+    [timelineElement, usedTimeline] = localResolveIfaBurstElementFromTimeline(teamContext);
+    if usedTimeline
+        element = timelineElement;
+        return;
+    end
+
     priority = ["Pyro", "Hydro", "Electro", "Cryo"];
     counts = [ ...
         getFieldOrDefault(teamContext, 'PyroCount', 0), ...
@@ -214,6 +220,144 @@ function element = localResolveIfaBurstElement(teamContext)
             element = priority(i);
         end
     end
+end
+
+function [element, usedTimeline] = localResolveIfaBurstElementFromTimeline(teamContext)
+    element = "Anemo";
+    usedTimeline = false;
+
+    timelineTable = getFieldOrDefault(teamContext, 'TimelineTable', table());
+    if isempty(timelineTable) || ~istable(timelineTable) || height(timelineTable) == 0
+        return;
+    end
+    if ~all(ismember({'Character', 'Action', 'StartTime'}, timelineTable.Properties.VariableNames))
+        return;
+    end
+
+    rowCharacters = string(timelineTable.Character);
+    rowActions = string(timelineTable.Action);
+    ifaMask = strcmpi(rowCharacters, "Ifa") & strcmpi(rowActions, "Q");
+    if ~any(ifaMask)
+        return;
+    end
+
+    usedTimeline = true;
+    burstRow = localResolveIfaBurstAnchorRow(timelineTable(ifaMask, :));
+    priorRows = localResolveIfaBurstPriorRows(timelineTable, burstRow);
+    if isempty(priorRows)
+        return;
+    end
+
+    latestRow = priorRows(end, :);
+    if ismember('AuraState', latestRow.Properties.VariableNames)
+        auraState = string(latestRow.AuraState(1));
+        if strlength(strtrim(auraState)) > 0
+            element = localResolveIfaAuraStateElement(auraState);
+            return;
+        end
+    end
+
+    element = localResolveIfaBurstElementFromRecentHits(priorRows);
+end
+
+function burstRow = localResolveIfaBurstAnchorRow(ifaRows)
+    sortKey = double(ifaRows.StartTime);
+    if ismember('Order', ifaRows.Properties.VariableNames)
+        sortRows = [sortKey, double(ifaRows.Order), (1:height(ifaRows)).'];
+        sortRows = sortrows(sortRows, [1 2 3]);
+        order = sortRows(:, 3);
+    else
+        [~, order] = sort(sortKey);
+    end
+    burstRow = ifaRows(order(1), :);
+end
+
+function priorRows = localResolveIfaBurstPriorRows(timelineTable, burstRow)
+    startTimes = double(timelineTable.StartTime);
+    priorMask = startTimes < double(burstRow.StartTime(1)) - 1e-9;
+
+    if ismember('Order', timelineTable.Properties.VariableNames) ...
+            && ismember('Order', burstRow.Properties.VariableNames)
+        sameTimeMask = abs(startTimes - double(burstRow.StartTime(1))) <= 1e-9 ...
+            & double(timelineTable.Order) < double(burstRow.Order(1));
+        priorMask = priorMask | sameTimeMask;
+    end
+
+    priorRows = timelineTable(priorMask, :);
+    if isempty(priorRows)
+        return;
+    end
+
+    if ismember('Order', priorRows.Properties.VariableNames)
+        sortRows = [double(priorRows.StartTime), double(priorRows.Order), (1:height(priorRows)).'];
+        sortRows = sortrows(sortRows, [1 2 3]);
+        priorRows = priorRows(sortRows(:, 3), :);
+    else
+        [~, order] = sort(double(priorRows.StartTime));
+        priorRows = priorRows(order, :);
+    end
+end
+
+function element = localResolveIfaAuraStateElement(auraState)
+    element = "Anemo";
+    priority = localResolveIfaAbsorptionPriority();
+    auraText = string(auraState);
+    for i = 1:numel(priority)
+        if contains(auraText, priority(i) + ":", 'IgnoreCase', true)
+            element = priority(i);
+            return;
+        end
+    end
+end
+
+function element = localResolveIfaBurstElementFromRecentHits(priorRows)
+    element = "Anemo";
+    if isempty(priorRows)
+        return;
+    end
+
+    hitElements = repmat("", height(priorRows), 1);
+    if ismember('HitElement', priorRows.Properties.VariableNames)
+        hitElements = string(priorRows.HitElement);
+    end
+
+    applyGauge = zeros(height(priorRows), 1);
+    if ismember('ApplyGauge', priorRows.Properties.VariableNames)
+        applyGauge = double(priorRows.ApplyGauge);
+    end
+
+    priority = localResolveIfaAbsorptionPriority();
+    for rowIndex = height(priorRows):-1:1
+        if applyGauge(rowIndex) <= 0
+            continue;
+        end
+
+        rowElement = string(hitElements(rowIndex));
+        if any(strcmpi(rowElement, priority))
+            element = localResolveIfaPriorityElement(rowElement);
+            return;
+        end
+    end
+end
+
+function priority = localResolveIfaAbsorptionPriority()
+    priority = ["Pyro", "Hydro", "Electro", "Cryo"];
+end
+
+function element = localResolveIfaPriorityElement(element)
+    priority = localResolveIfaAbsorptionPriority();
+    element = string(element);
+    for i = 1:numel(priority)
+        if strcmpi(element, priority(i))
+            element = priority(i);
+            return;
+        end
+    end
+    element = "Anemo";
+end
+
+function note = localBuildIfaMarkNote(absorbedElement)
+    note = "Sedation Mark explosions (" + string(absorbedElement) + " absorb)";
 end
 
 function aura = localResolvePreferredAura(element, teamContext)
