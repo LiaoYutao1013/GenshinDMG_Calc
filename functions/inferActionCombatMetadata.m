@@ -766,6 +766,99 @@ function meta = localApplyCharacterSpecificMetadata(meta, member, normalizedName
                     ["DirectHitReaction"], true));
             end
 
+        case 'dahlia'
+            aura = localResolveDahliaPreferredAura(teamContext);
+            if any(strcmp(lowerAction, {'e', 'etap', 'ehold', 'q'}))
+                meta.PreferredAura = aura;
+            end
+
+        case 'lanyan'
+            absorbedElement = localResolveLanYanAbsorbedElement(teamContext);
+            absorbedAura = localResolveLanYanPreferredAura(absorbedElement, teamContext);
+            swirlAura = localResolveLanYanSwirlAura(absorbedElement);
+            absorbedReady = strlength(absorbedElement) > 0;
+            extraAction = any(strcmp(lowerAction, {'eringextra', 'eabsorbextra'}));
+            if extraAction && constellation < 1
+                if strcmp(lowerAction, 'eabsorbextra')
+                    meta.ActionClass = "FollowUp";
+                    meta.ConsumesActiveWindow = false;
+                end
+                meta.HitElement = "";
+                meta.ApplyElement = "";
+                meta.ApplyGauge = 0.0;
+                meta.CanApplyAura = false;
+                meta.AllowAmplify = false;
+                meta.AllowCatalyze = false;
+                meta.PreferredAura = "";
+                meta.EffectDuration = 0.0;
+                meta.EffectTag = "";
+                meta.EffectFirstTickDelay = 0.0;
+                meta.EffectTickInterval = 0.0;
+                meta.EffectTickCount = 0;
+                meta.EffectTickAction = "";
+                meta.EffectTickGauge = 0.0;
+                meta.EffectTickElement = "";
+                meta.EffectTickPreferredAura = "";
+            elseif strcmp(lowerAction, 'e')
+                meta.PreferredAura = swirlAura;
+                meta.EffectDuration = 0.48;
+                meta.EffectTag = "LanYanAbsorbedRing";
+                meta.EffectFirstTickDelay = 0.0;
+                meta.EffectTickAction = "EAbsorb";
+                meta.EffectTickInterval = 0.24;
+                meta.EffectTickCount = 3 * (1 + double(constellation >= 1));
+                meta.EffectTickGauge = double(absorbedReady);
+                meta.EffectTickElement = absorbedElement;
+                meta.EffectTickPreferredAura = absorbedAura;
+            elseif any(strcmp(lowerAction, {'edash', 'ering', 'eringextra', 'q'}))
+                if any(strcmp(lowerAction, {'edash', 'ering', 'eringextra'}))
+                    meta.ActionClass = "Skill";
+                    meta.ConsumesActiveWindow = true;
+                    meta.HitElement = "Anemo";
+                    meta.ApplyElement = "Anemo";
+                    meta.ApplyGauge = 1.0;
+                    meta.CanApplyAura = true;
+                    meta.AllowAmplify = false;
+                    meta.AllowCatalyze = false;
+                end
+                meta.PreferredAura = swirlAura;
+                if any(strcmp(lowerAction, {'ering', 'eringextra'}))
+                    meta.EffectDuration = 0.48;
+                    meta.EffectTag = "LanYanAbsorbedRing";
+                    meta.EffectFirstTickDelay = 0.0;
+                    if strcmp(lowerAction, 'eringextra')
+                        meta.EffectTickAction = "EAbsorbExtra";
+                    else
+                        meta.EffectTickAction = "EAbsorb";
+                    end
+                    meta.EffectTickInterval = 0.24;
+                    meta.EffectTickCount = 3;
+                    meta.EffectTickGauge = double(absorbedReady);
+                    meta.EffectTickElement = absorbedElement;
+                    meta.EffectTickPreferredAura = absorbedAura;
+                end
+            elseif any(strcmp(lowerAction, {'eabsorb', 'eabsorbextra'}))
+                meta.ActionClass = "FollowUp";
+                meta.ConsumesActiveWindow = false;
+                if absorbedReady
+                    meta.HitElement = absorbedElement;
+                    meta.ApplyElement = absorbedElement;
+                    meta.ApplyGauge = 1.0;
+                    meta.CanApplyAura = true;
+                    meta.AllowAmplify = any(strcmpi(absorbedElement, {'Hydro', 'Pyro', 'Cryo'}));
+                    meta.AllowCatalyze = strcmpi(absorbedElement, 'Electro');
+                    meta.PreferredAura = absorbedAura;
+                else
+                    meta.HitElement = "";
+                    meta.ApplyElement = "";
+                    meta.ApplyGauge = 0.0;
+                    meta.CanApplyAura = false;
+                    meta.AllowAmplify = false;
+                    meta.AllowCatalyze = false;
+                    meta.PreferredAura = "";
+                end
+            end
+
         case 'aino'
             aura = localResolveAinoPreferredAura(teamContext);
             if any(strcmp(lowerAction, {'e', 'e2'})) && constellation >= 1
@@ -899,6 +992,335 @@ function meta = localApplyCharacterSpecificMetadata(meta, member, normalizedName
                 meta.EffectTickElement = "Anemo";
                 meta.EffectTickPreferredAura = meta.PreferredAura;
             end
+    end
+end
+
+function aura = localResolveDahliaPreferredAura(teamContext)
+    [timelineAura, usedTimeline] = localResolveDahliaAuraFromTimeline(teamContext);
+    if usedTimeline
+        aura = timelineAura;
+        return;
+    end
+
+    if getFieldOrDefault(teamContext, 'PyroCount', 0) >= 1
+        aura = "Pyro";
+    elseif getFieldOrDefault(teamContext, 'CryoCount', 0) >= 1
+        aura = "Cryo";
+    else
+        aura = "";
+    end
+end
+
+function [aura, usedTimeline] = localResolveDahliaAuraFromTimeline(teamContext)
+    aura = "";
+    usedTimeline = false;
+
+    timelineTable = getFieldOrDefault(teamContext, 'TimelineTable', table());
+    if isempty(timelineTable) || ~istable(timelineTable) || height(timelineTable) == 0
+        return;
+    end
+    if ~all(ismember({'Character', 'Action', 'StartTime'}, timelineTable.Properties.VariableNames))
+        return;
+    end
+
+    rowCharacters = string(timelineTable.Character);
+    rowActions = string(timelineTable.Action);
+    anchorMask = strcmpi(rowCharacters, "Dahlia") ...
+        & any(rowActions == ["E", "ETap", "EHold", "Q"], 2);
+    if ~any(anchorMask)
+        return;
+    end
+
+    usedTimeline = true;
+    anchorRow = localResolveDahliaAnchorRow(timelineTable(anchorMask, :));
+    priorRows = localResolveDahliaPriorRows(timelineTable, anchorRow);
+    if isempty(priorRows)
+        return;
+    end
+
+    latestRow = priorRows(end, :);
+    if ismember('AuraState', latestRow.Properties.VariableNames)
+        auraState = string(latestRow.AuraState(1));
+        if strlength(strtrim(auraState)) > 0
+            aura = localResolveDahliaAuraState(auraState);
+            return;
+        end
+    end
+
+    aura = localResolveDahliaAuraFromRecentHits(priorRows);
+end
+
+function anchorRow = localResolveDahliaAnchorRow(rows)
+    sortKey = double(rows.StartTime);
+    if ismember('Order', rows.Properties.VariableNames)
+        sortRows = [sortKey, double(rows.Order), (1:height(rows)).'];
+        sortRows = sortrows(sortRows, [1 2 3]);
+        order = sortRows(:, 3);
+    else
+        [~, order] = sort(sortKey);
+    end
+    anchorRow = rows(order(1), :);
+end
+
+function priorRows = localResolveDahliaPriorRows(timelineTable, anchorRow)
+    startTimes = double(timelineTable.StartTime);
+    priorMask = startTimes < double(anchorRow.StartTime(1)) - 1e-9;
+
+    if ismember('Order', timelineTable.Properties.VariableNames) ...
+            && ismember('Order', anchorRow.Properties.VariableNames)
+        sameTimeMask = abs(startTimes - double(anchorRow.StartTime(1))) <= 1e-9 ...
+            & double(timelineTable.Order) < double(anchorRow.Order(1));
+        priorMask = priorMask | sameTimeMask;
+    end
+
+    priorRows = timelineTable(priorMask, :);
+    if isempty(priorRows)
+        return;
+    end
+
+    if ismember('Order', priorRows.Properties.VariableNames)
+        sortRows = [double(priorRows.StartTime), double(priorRows.Order), (1:height(priorRows)).'];
+        sortRows = sortrows(sortRows, [1 2 3]);
+        priorRows = priorRows(sortRows(:, 3), :);
+    else
+        [~, order] = sort(double(priorRows.StartTime));
+        priorRows = priorRows(order, :);
+    end
+end
+
+function aura = localResolveDahliaAuraState(auraState)
+    aura = "";
+    priority = ["Pyro", "Cryo"];
+    auraText = string(auraState);
+    for i = 1:numel(priority)
+        if contains(auraText, priority(i) + ":", 'IgnoreCase', true)
+            aura = priority(i);
+            return;
+        end
+    end
+end
+
+function aura = localResolveDahliaAuraFromRecentHits(priorRows)
+    aura = "";
+    if isempty(priorRows)
+        return;
+    end
+
+    hitElements = repmat("", height(priorRows), 1);
+    if ismember('HitElement', priorRows.Properties.VariableNames)
+        hitElements = string(priorRows.HitElement);
+    end
+
+    applyGauge = zeros(height(priorRows), 1);
+    if ismember('ApplyGauge', priorRows.Properties.VariableNames)
+        applyGauge = double(priorRows.ApplyGauge);
+    end
+
+    priority = ["Pyro", "Cryo"];
+    for rowIndex = height(priorRows):-1:1
+        if applyGauge(rowIndex) <= 0
+            continue;
+        end
+
+        rowElement = string(hitElements(rowIndex));
+        for priorityIndex = 1:numel(priority)
+            if strcmpi(rowElement, priority(priorityIndex))
+                aura = priority(priorityIndex);
+                return;
+            end
+        end
+    end
+end
+
+function element = localResolveLanYanAbsorbedElement(teamContext)
+    [timelineElement, usedTimeline] = localResolveLanYanElementFromTimeline(teamContext);
+    if usedTimeline
+        element = timelineElement;
+        return;
+    end
+
+    priority = localResolveLanYanAbsorptionPriority();
+    counts = [ ...
+        getFieldOrDefault(teamContext, 'PyroCount', 0), ...
+        getFieldOrDefault(teamContext, 'HydroCount', 0), ...
+        getFieldOrDefault(teamContext, 'ElectroCount', 0), ...
+        getFieldOrDefault(teamContext, 'CryoCount', 0)];
+    bestCount = 0;
+    element = "";
+    for i = 1:numel(priority)
+        if counts(i) > bestCount
+            bestCount = counts(i);
+            element = priority(i);
+        end
+    end
+end
+
+function [element, usedTimeline] = localResolveLanYanElementFromTimeline(teamContext)
+    element = "";
+    usedTimeline = false;
+
+    timelineTable = getFieldOrDefault(teamContext, 'TimelineTable', table());
+    if isempty(timelineTable) || ~istable(timelineTable) || height(timelineTable) == 0
+        return;
+    end
+    if ~all(ismember({'Character', 'Action', 'StartTime'}, timelineTable.Properties.VariableNames))
+        return;
+    end
+
+    rowCharacters = string(timelineTable.Character);
+    rowActions = string(timelineTable.Action);
+    anchorMask = strcmpi(rowCharacters, "LanYan") ...
+        & any(rowActions == ["E", "EDash", "ERing", "ERingExtra", "EAbsorb", "EAbsorbExtra"], 2);
+    if ~any(anchorMask)
+        return;
+    end
+
+    usedTimeline = true;
+    anchorRow = localResolveLanYanAnchorRow(timelineTable(anchorMask, :));
+    priorRows = localResolveLanYanPriorRows(timelineTable, anchorRow);
+    if isempty(priorRows)
+        return;
+    end
+
+    latestRow = priorRows(end, :);
+    if ismember('AuraState', latestRow.Properties.VariableNames)
+        auraState = string(latestRow.AuraState(1));
+        if strlength(strtrim(auraState)) > 0
+            element = localResolveLanYanAuraStateElement(auraState);
+            return;
+        end
+    end
+
+    element = localResolveLanYanElementFromRecentHits(priorRows);
+end
+
+function anchorRow = localResolveLanYanAnchorRow(rows)
+    sortKey = double(rows.StartTime);
+    if ismember('Order', rows.Properties.VariableNames)
+        sortRows = [sortKey, double(rows.Order), (1:height(rows)).'];
+        sortRows = sortrows(sortRows, [1 2 3]);
+        order = sortRows(:, 3);
+    else
+        [~, order] = sort(sortKey);
+    end
+    anchorRow = rows(order(1), :);
+end
+
+function priorRows = localResolveLanYanPriorRows(timelineTable, anchorRow)
+    startTimes = double(timelineTable.StartTime);
+    priorMask = startTimes < double(anchorRow.StartTime(1)) - 1e-9;
+
+    if ismember('Order', timelineTable.Properties.VariableNames) ...
+            && ismember('Order', anchorRow.Properties.VariableNames)
+        sameTimeMask = abs(startTimes - double(anchorRow.StartTime(1))) <= 1e-9 ...
+            & double(timelineTable.Order) < double(anchorRow.Order(1));
+        priorMask = priorMask | sameTimeMask;
+    end
+
+    priorRows = timelineTable(priorMask, :);
+    if isempty(priorRows)
+        return;
+    end
+
+    if ismember('Order', priorRows.Properties.VariableNames)
+        sortRows = [double(priorRows.StartTime), double(priorRows.Order), (1:height(priorRows)).'];
+        sortRows = sortrows(sortRows, [1 2 3]);
+        priorRows = priorRows(sortRows(:, 3), :);
+    else
+        [~, order] = sort(double(priorRows.StartTime));
+        priorRows = priorRows(order, :);
+    end
+end
+
+function element = localResolveLanYanAuraStateElement(auraState)
+    element = "";
+    priority = localResolveLanYanAbsorptionPriority();
+    auraText = string(auraState);
+    for i = 1:numel(priority)
+        if contains(auraText, priority(i) + ":", 'IgnoreCase', true)
+            element = priority(i);
+            return;
+        end
+    end
+end
+
+function element = localResolveLanYanElementFromRecentHits(priorRows)
+    element = "";
+    if isempty(priorRows)
+        return;
+    end
+
+    hitElements = repmat("", height(priorRows), 1);
+    if ismember('HitElement', priorRows.Properties.VariableNames)
+        hitElements = string(priorRows.HitElement);
+    end
+
+    applyGauge = zeros(height(priorRows), 1);
+    if ismember('ApplyGauge', priorRows.Properties.VariableNames)
+        applyGauge = double(priorRows.ApplyGauge);
+    end
+
+    priority = localResolveLanYanAbsorptionPriority();
+    for rowIndex = height(priorRows):-1:1
+        if applyGauge(rowIndex) <= 0
+            continue;
+        end
+
+        rowElement = string(hitElements(rowIndex));
+        if any(strcmpi(rowElement, priority))
+            element = localResolveLanYanPriorityElement(rowElement);
+            return;
+        end
+    end
+end
+
+function priority = localResolveLanYanAbsorptionPriority()
+    priority = ["Pyro", "Hydro", "Electro", "Cryo"];
+end
+
+function element = localResolveLanYanPriorityElement(element)
+    priority = localResolveLanYanAbsorptionPriority();
+    element = string(element);
+    for i = 1:numel(priority)
+        if strcmpi(element, priority(i))
+            element = priority(i);
+            return;
+        end
+    end
+    element = "";
+end
+
+function aura = localResolveLanYanPreferredAura(element, teamContext)
+    switch lower(char(string(element)))
+        case 'hydro'
+            aura = "Pyro";
+            if getFieldOrDefault(teamContext, 'PyroCount', 0) <= 0
+                aura = "";
+            end
+        case 'pyro'
+            if getFieldOrDefault(teamContext, 'HydroCount', 0) >= 1
+                aura = "Hydro";
+            elseif getFieldOrDefault(teamContext, 'CryoCount', 0) >= 1
+                aura = "Cryo";
+            else
+                aura = "";
+            end
+        case 'cryo'
+            if getFieldOrDefault(teamContext, 'PyroCount', 0) >= 1
+                aura = "Pyro";
+            else
+                aura = "";
+            end
+        otherwise
+            aura = "";
+    end
+end
+
+function aura = localResolveLanYanSwirlAura(element)
+    if any(strcmpi(string(element), ["Pyro", "Hydro", "Electro", "Cryo"]))
+        aura = string(element);
+    else
+        aura = "";
     end
 end
 

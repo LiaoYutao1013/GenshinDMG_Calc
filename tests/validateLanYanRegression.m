@@ -83,6 +83,17 @@ function validateLanYanRegression()
         cfgC0.Build, enemy, cfgC0.RotationFile, cfgC0.TalentLevel, cfgC0.Constellation, pyroContext);
     [~, ~, emptyAuraBreakdown] = simulateLanYanDPS( ...
         cfgC0.Build, enemy, cfgC0.RotationFile, cfgC0.TalentLevel, cfgC0.Constellation, emptyAuraContext);
+    hydroAbsorbMeta = inferActionCombatMetadata(cfgC0, 'EAbsorb', struct(), hydroContext);
+    pyroAbsorbMeta = inferActionCombatMetadata(cfgC0, 'EAbsorb', struct(), pyroContext);
+    emptyAuraAbsorbMeta = inferActionCombatMetadata(cfgC0, 'EAbsorb', struct(), emptyAuraContext);
+    hydroRingMeta = inferActionCombatMetadata(cfgC0, 'ERing', struct(), hydroContext);
+    pyroRingMeta = inferActionCombatMetadata(cfgC0, 'ERing', struct(), pyroContext);
+    emptyAuraRingMeta = inferActionCombatMetadata(cfgC0, 'ERing', struct(), emptyAuraContext);
+    hydroPublicSkillMeta = inferActionCombatMetadata(cfgC0, 'E', struct(), hydroContext);
+    plan = planTeamRotation(absorbMembers, 20, enemy, struct('ReactionMode', "Realistic"), struct());
+    planNames = string({plan.MemberPlans.Name});
+    lanYanPlan = plan.MemberPlans(find(strcmpi(planNames, "LanYan"), 1, 'first'));
+    lanYanTokens = string(lanYanPlan.RotationTokens);
 
     hydroAbsorbRows = hydroAbsorbBreakdown(strcmp(string(hydroAbsorbBreakdown.Action), "EAbsorb"), :);
     pyroAbsorbRows = pyroAbsorbBreakdown(strcmp(string(pyroAbsorbBreakdown.Action), "EAbsorb"), :);
@@ -94,6 +105,21 @@ function validateLanYanRegression()
         'LanYan should absorb Pyro when the real skill-entry aura is Pyro.');
     assert(isempty(emptyAuraAbsorbRows), ...
         'LanYan should skip absorbed ring actions when no real aura is present at skill entry.');
+    assert(string(hydroAbsorbMeta.HitElement) == "Hydro" ...
+        && string(pyroAbsorbMeta.HitElement) == "Pyro", ...
+        'LanYan absorbed-action metadata should preserve the same Hydro/Pyro absorption outcome as the direct simulator.');
+    assert(double(emptyAuraAbsorbMeta.ApplyGauge) == 0 ...
+        && strlength(string(emptyAuraAbsorbMeta.HitElement)) == 0, ...
+        'LanYan absorbed-action metadata should clear elemental application when no real aura is present.');
+    assert(string(hydroRingMeta.EffectTickElement) == "Hydro" ...
+        && string(pyroRingMeta.EffectTickElement) == "Pyro" ...
+        && string(hydroPublicSkillMeta.EffectTickElement) == "Hydro", ...
+        'LanYan public skill metadata should carry the same absorbed-element follow-up package used by the direct simulator.');
+    assert(double(emptyAuraRingMeta.EffectTickGauge) == 0 ...
+        && strlength(string(emptyAuraRingMeta.EffectTickElement)) == 0, ...
+        'LanYan ring follow-up metadata should disable absorbed ticks when the real skill-entry aura is empty.');
+    assert(isequal(lanYanTokens(:)', ["EDash", "ERing", "Q"]), ...
+        'LanYan AUTO support planning should use the public dash, ring, and burst tokens instead of the generic E/Q fallback.');
 
     disp('validateLanYanRegression passed');
 end

@@ -2162,6 +2162,14 @@ function tokens = localNamedSupportTokens(normalizedName, archetypeInfo, job)
             tokens = {'EHold', 'Q'};
         case 'charlotte'
             tokens = {'E', 'Q'};
+        case 'dahlia'
+            if primary == "Freeze"
+                tokens = {'EHold', 'Q'};
+            else
+                tokens = {'ETap', 'Q'};
+            end
+        case 'lanyan'
+            tokens = {'EDash', 'ERing', 'Q'};
         case 'jean'
             tokens = {'E', 'Q'};
         case 'barbara'
@@ -2323,7 +2331,8 @@ function tokens = localGenericSupportTokens(normalizedName)
         case {'yelan', 'xingqiu', 'xiangling', 'fischl', 'nahida', 'baizhu', 'collei', 'yaoyao', ...
                 'sucrose', 'kaedeharakazuha', 'xilonen', 'iansan', 'xianyun', 'rosaria', ...
                 'diona', 'layla', 'kirara', 'thoma', 'charlotte', 'jean', 'barbara', ...
-                'sangonomiyakokomi', 'albedo', 'ororon', 'kachina', 'sayu', 'yunjin', 'kujousara'}
+                'sangonomiyakokomi', 'albedo', 'ororon', 'kachina', 'sayu', 'yunjin', 'kujousara', ...
+                'dahlia', 'lanyan'}
             tokens = {'E', 'Q'};
         otherwise
             tokens = {'E', 'Q'};
@@ -2402,6 +2411,12 @@ function duration = localEstimateActionDuration(characterName, action, fallbackD
             duration = 0.90;
         case {"switchpneuma", "switchousia"}
             duration = 0.25;
+        case {"edash"}
+            duration = 0.45;
+        case {"ering"}
+            duration = 0.85;
+        case {"eringextra", "eabsorb", "eabsorbextra"}
+            duration = 0.01;
         case {"usher", "cheval", "crab"}
             duration = 1.45;
         case "singer"
@@ -2424,6 +2439,18 @@ function duration = localEstimateActionDuration(characterName, action, fallbackD
             duration = 0.70;
         otherwise
             switch lower(char(string(characterName)))
+                case 'dahlia'
+                    if strcmp(lowerAction, 'etap')
+                        duration = 0.60;
+                    elseif strcmp(lowerAction, 'ehold')
+                        duration = 0.88;
+                    elseif strcmp(lowerAction, 'q')
+                        duration = 1.00;
+                    end
+                case 'lanyan'
+                    if strcmp(lowerAction, 'q')
+                        duration = 1.00;
+                    end
                 case 'skirk'
                     if any(strcmp(lowerAction, ["n4a", "n4b", "n5"]))
                         duration = 0.60;
@@ -2773,7 +2800,7 @@ function tf = localShouldDefaultToSupport(normalizedName)
         "xiangling", "fischl", "kaedeharakazuha", "sucrose", "zhongli", "faruzan", ...
         "gorou", "yunjin", "kujousara", "rosaria", "diona", "layla", "thoma", ...
         "kirara", "baizhu", "yaoyao", "collei", "charlotte", "jean", "barbara", ...
-        "sangonomiyakokomi", "albedo", "ororon", "kachina", "sayu"]);
+        "sangonomiyakokomi", "albedo", "ororon", "kachina", "sayu", "dahlia", "lanyan"]);
 end
 
 function tf = localShouldPreferNamedSupportTemplate(normalizedName)
@@ -2783,6 +2810,7 @@ function tf = localShouldPreferNamedSupportTemplate(normalizedName)
         "chevreuse", "kukishinobu", "baizhu", "yaoyao", "kirara", "thoma", "rosaria", ...
         "layla", "diona", "charlotte", "barbara", "sangonomiyakokomi", ...
         "kujousara", "iansan", "ororon", "kachina", "albedo", "yunjin", ...
+        "dahlia", "lanyan", ...
         "faruzan", "gorou", "bennett", "mona", "sucrose", "shenhe"]);
 end
 

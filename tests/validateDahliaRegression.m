@@ -54,12 +54,27 @@ function validateDahliaRegression()
         cfgC5.Build, approximateEnemy, cfgC5.RotationFile, cfgC5.TalentLevel, cfgC5.Constellation, pyroContext);
     [~, ~, cryoBreakdown] = simulateDahliaDPS( ...
         cfgC5.Build, approximateEnemy, cfgC5.RotationFile, cfgC5.TalentLevel, cfgC5.Constellation, cryoContext);
+    pyroMetaHold = inferActionCombatMetadata(cfgC5, 'EHold', struct(), pyroContext);
+    cryoMetaHold = inferActionCombatMetadata(cfgC5, 'EHold', struct(), cryoContext);
+    pyroMetaPublic = inferActionCombatMetadata(cfgC5, 'E', struct(), pyroContext);
+    cryoMetaPublic = inferActionCombatMetadata(cfgC5, 'E', struct(), cryoContext);
     pyroHoldRows = pyroBreakdown(strcmp(string(pyroBreakdown.Action), "EHold"), :);
     cryoHoldRows = cryoBreakdown(strcmp(string(cryoBreakdown.Action), "EHold"), :);
+    freezePlan = planTeamRotation({cfgC5, kaeya}, 20, enemy, struct('ReactionMode', "Realistic"), struct());
+    freezePlanNames = string({freezePlan.MemberPlans.Name});
+    freezeDahliaPlan = freezePlan.MemberPlans(find(strcmpi(freezePlanNames, "Dahlia"), 1, 'first'));
+    freezeDahliaTokens = string(freezeDahliaPlan.RotationTokens);
 
     assert(height(pyroHoldRows) == 1 && height(cryoHoldRows) == 1 ...
         && pyroHoldRows.Damage(1) > cryoHoldRows.Damage(1), ...
         'Dahlia approximate support-aura selection should follow the timeline-derived Pyro/Cryo state.');
+    assert(string(pyroMetaHold.PreferredAura) == "Pyro" ...
+        && string(cryoMetaHold.PreferredAura) == "Cryo" ...
+        && string(pyroMetaPublic.PreferredAura) == "Pyro" ...
+        && string(cryoMetaPublic.PreferredAura) == "Cryo", ...
+        'Dahlia timeline metadata should preserve the same Pyro/Cryo support-aura choice for both explicit and public skill tokens.');
+    assert(isequal(freezeDahliaTokens(:)', ["EHold", "Q"]), ...
+        'Dahlia AUTO support planning should use the freeze-ready public hold skill and burst tokens.');
 
     disp('validateDahliaRegression passed');
 end
