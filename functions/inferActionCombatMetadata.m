@@ -172,6 +172,7 @@ function actionClass = localResolveActionClass(lowerAction)
         return;
     end
     if strcmp(lowerAction, 'e') || strcmp(lowerAction, 'skill') ...
+            || strcmp(lowerAction, 'etap') || startsWith(lowerAction, 'etap') ...
             || startsWith(lowerAction, 'ehold') || startsWith(lowerAction, 'epress') ...
             || ~isempty(regexp(lowerAction, '^e\d+$', 'once')) ...
             || ~isempty(regexp(lowerAction, '^resete\d+$', 'once')) ...
@@ -475,6 +476,9 @@ function meta = localApplyCharacterSpecificMetadata(meta, member, normalizedName
             if strcmp(lowerAction, 'q')
                 meta = localAppendHealthEventSpec(meta, ...
                     localMakeHealthEventSpec("Heal", "ActionEnd", "AllMembers", 1.0, "ShiningMiracleHeal"));
+            elseif strcmp(lowerAction, 'e')
+                meta = localAppendHealthEventSpec(meta, ...
+                    localMakeHealthEventSpec("Heal", "EffectTick", "ActiveCharacter", 1.0, "MelodyLoopHeal"));
             end
 
         case 'jean'
@@ -1471,6 +1475,11 @@ function [duration, tag, firstTickDelay, tickInterval, tickCount, tickAction, ti
                 duration = 12.0;
                 tag = "Kurage";
             end
+        case 'barbara'
+            if strcmp(lowerAction, 'e')
+                duration = 15.0;
+                tag = "MelodyLoop";
+            end
         case 'kukishinobu'
             if strcmp(lowerAction, 'e')
                 duration = 12.0;
@@ -1633,6 +1642,15 @@ function [firstTickDelay, tickInterval, tickCount, tickAction, tickGauge] = ...
                 tickAction = "KurageTick";
                 tickInterval = 2.00;
                 tickGauge = 1.0;
+            end
+
+        case 'barbara'
+            if strcmp(effectTag, "MelodyLoop")
+                tickAction = "RingTick";
+                firstTickDelay = 5.00;
+                tickInterval = 5.00;
+                tickGauge = 1.0;
+                tickCount = 3;
             end
 
         case 'zhongli'

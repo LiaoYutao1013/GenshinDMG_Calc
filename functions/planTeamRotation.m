@@ -163,10 +163,18 @@ function candidate = localSelectBestPlanCandidate( ...
             label = sprintf('timeline-ranked carry=%s order=%d', ...
                 char(string(getFieldOrDefault(members{carryIndex}, 'DisplayName', members{carryIndex}.Name))), ...
                 orderPos);
-            scoredCandidates(end + 1) = localEvaluatePlanCandidate( ... %#ok<AGROW>
+            baseCandidate = localEvaluatePlanCandidate( ...
                 label, members, candidatePlans, currentOrder, memberOrder, executionTable, ...
                 carryIndex, roles, memberJobs, teamInfo.Archetype, rotationDuration, ...
                 planningTeamContext, enemy, options);
+            scoredCandidates(end + 1) = baseCandidate; %#ok<AGROW>
+
+            energyRelaxedCandidates = localBuildEnergyRelaxedCandidates( ...
+                baseCandidate, members, teamInfo.Archetype, rotationDuration, ...
+                planningTeamContext, enemy, options, swapBuffer);
+            if ~isempty(energyRelaxedCandidates)
+                scoredCandidates = [scoredCandidates, energyRelaxedCandidates]; %#ok<AGROW>
+            end
         end
     end
 
@@ -399,6 +407,278 @@ function candidate = localEvaluatePlanCandidate( ...
     candidate.ExecutionOrder = memberOrder;
     candidate.ExecutionTable = executionTable;
     candidate.TimelineResult = timelineResult;
+end
+
+function candidates = localBuildEnergyRelaxedCandidates( ...
+        baseCandidate, members, archetypeInfo, rotationDuration, ...
+        planningTeamContext, enemy, options, swapBuffer)
+    candidates = repmat(localEmptyPlanCandidate(), 1, 0);
+    energySummary = getFieldOrDefault(getFieldOrDefault(baseCandidate, 'TimelineResult', struct()), 'EnergySummary', table());
+    if isempty(energySummary) || ~istable(energySummary) || height(energySummary) == 0
+        return;
+    end
+    timelineSummary = getFieldOrDefault(getFieldOrDefault(baseCandidate, 'TimelineResult', struct()), 'TimelineSummary', struct());
+    metrics = getFieldOrDefault(baseCandidate, 'Metrics', struct());
+    idleTime = double(getFieldOrDefault(timelineSummary, 'IdleTime', 0));
+    missingRatio = double(getFieldOrDefault(metrics, 'MissingEnergyRatio', 0));
+    if missingRatio < 0.55 || idleTime <= max(4.0, 0.20 * rotationDuration)
+        return;
+    end
+
+    deficitSets = localBuildEnergyRelaxedDeficitSets(energySummary, baseCandidate.MemberPlans, baseCandidate.Roles);
+    if isempty(deficitSets)
+        return;
+    end
+
+    signatures = strings(0, 1);
+    signatures(end + 1, 1) = localBuildPlanSignature(baseCandidate.MemberPlans); %#ok<AGROW>
+    for setIndex = 1:numel(deficitSets)
+        memberIndices = deficitSets{setIndex};
+        if isempty(memberIndices)
+            continue;
+        end
+
+        adjustedPlans = localCloneMemberPlans(baseCandidate.MemberPlans);
+        changed = false;
+        for memberPos = 1:numel(memberIndices)
+            memberIndex = memberIndices(memberPos);
+            [adjustedPlans(memberIndex), memberChanged] = localRelaxMemberPlanBursts( ...
+                adjustedPlans(memberIndex), members{memberIndex}.Name);
+            changed = changed || memberChanged;
+        end
+        if ~changed
+            continue;
+        end
+
+        signature = localBuildPlanSignature(adjustedPlans);
+        if any(signatures == signature)
+            continue;
+        end
+        signatures(end + 1, 1) = signature; %#ok<AGROW>
+
+        [adjustedPlans, memberOrder, executionTable] = localScheduleMemberPlans( ...
+            baseCandidate.OrderSeed, members, adjustedPlans, rotationDuration, swapBuffer, "", false);
+        label = sprintf('%s energy-relaxed-%d', char(baseCandidate.CandidateLabel), setIndex);
+        candidates(end + 1) = localEvaluatePlanCandidate( ... %#ok<AGROW>
+            label, members, adjustedPlans, baseCandidate.OrderSeed, memberOrder, executionTable, ...
+            baseCandidate.CarryIndex, baseCandidate.Roles, baseCandidate.MemberJobs, ...
+            archetypeInfo, rotationDuration, planningTeamContext, enemy, options);
+    end
+end
+
+function deficitSets = localBuildEnergyRelaxedDeficitSets(energySummary, memberPlans, roles)
+    deficitSets = cell(0, 1);
+    if isempty(memberPlans) || isempty(roles)
+        return;
+    end
+
+    deficitIndices = zeros(1, 0);
+    supportDeficitIndices = zeros(1, 0);
+    deficitAmounts = zeros(1, 0);
+    for memberIndex = 1:min(numel(memberPlans), numel(roles))
+        currentName = string(getFieldOrDefault(memberPlans(memberIndex), 'DisplayName', getFieldOrDefault(memberPlans(memberIndex), 'Name', "")));
+        summaryIndex = localFindEnergySummaryRow(energySummary, currentName);
+        if isempty(summaryIndex)
+            continue;
+        end
+
+        usedBurst = logical(energySummary.UsedBurst(summaryIndex));
+        if ~usedBurst
+            continue;
+        end
+
+        if ismember('CanBurstOnNextWindow', energySummary.Properties.VariableNames)
+            canLoop = logical(energySummary.CanBurstOnNextWindow(summaryIndex));
+        else
+            canLoop = logical(energySummary.CanBurstNextCycle(summaryIndex));
+        end
+        if canLoop
+            continue;
+        end
+
+        deficitIndices(end + 1) = memberIndex; %#ok<AGROW>
+        deficitAmounts(end + 1) = double(energySummary.MissingEnergy(summaryIndex)); %#ok<AGROW>
+        if string(roles(memberIndex)) ~= "Carry"
+            supportDeficitIndices(end + 1) = memberIndex; %#ok<AGROW>
+        end
+    end
+
+    if isempty(deficitIndices)
+        return;
+    end
+
+    if ~isempty(supportDeficitIndices)
+        deficitSets{end + 1, 1} = supportDeficitIndices; %#ok<AGROW>
+    end
+    deficitSets{end + 1, 1} = deficitIndices; %#ok<AGROW>
+    if numel(deficitIndices) > 1
+        [~, worstIndex] = max(deficitAmounts);
+        deficitSets{end + 1, 1} = deficitIndices(worstIndex); %#ok<AGROW>
+    end
+
+    signatures = strings(0, 1);
+    uniqueSets = cell(0, 1);
+    for setIndex = 1:numel(deficitSets)
+        currentSet = unique(deficitSets{setIndex}, 'stable');
+        if isempty(currentSet)
+            continue;
+        end
+        signature = strjoin(string(currentSet), '-');
+        if any(signatures == signature)
+            continue;
+        end
+        signatures(end + 1, 1) = signature; %#ok<AGROW>
+        uniqueSets{end + 1, 1} = currentSet; %#ok<AGROW>
+    end
+    deficitSets = uniqueSets;
+end
+
+function summaryIndex = localFindEnergySummaryRow(energySummary, memberName)
+    summaryIndex = [];
+    if isempty(energySummary) || ~istable(energySummary) || height(energySummary) == 0
+        return;
+    end
+
+    target = string(memberName);
+    names = string(energySummary.Character);
+    displayIndex = find(strcmpi(strtrim(names), strtrim(target)), 1, 'first');
+    if ~isempty(displayIndex)
+        summaryIndex = displayIndex;
+    end
+end
+
+function [memberPlan, changed] = localRelaxMemberPlanBursts(memberPlan, characterName)
+    changed = false;
+    tokens = localNormalizeTokenList(getFieldOrDefault(memberPlan, 'RotationTokens', {}));
+    if isempty(tokens) || (numel(tokens) == 1 && strcmpi(tokens{1}, 'AUTO'))
+        return;
+    end
+    if string(getFieldOrDefault(memberPlan, 'Role', "")) == "Carry" ...
+            && ~localCanRelaxCarryBurstTokens(tokens)
+        return;
+    end
+
+    relaxedTokens = localStripBurstTokens(tokens);
+    if isempty(relaxedTokens)
+        relaxedTokens = localStripBurstTokens(localBuildSupportTokensFromSeed(tokens));
+    end
+    if isempty(relaxedTokens)
+        relaxedTokens = localFallbackNonBurstTokens(tokens);
+    end
+    if isempty(relaxedTokens)
+        return;
+    end
+
+    relaxedTokens = localNormalizeTokenList(relaxedTokens);
+    relaxedBudget = localResolveEnergyRelaxedBudget(memberPlan, relaxedTokens, characterName);
+    relaxedTokens = localConformTokensToBudget( ...
+        relaxedTokens, relaxedBudget, characterName, true);
+    if isequal(string(relaxedTokens), string(tokens))
+        return;
+    end
+
+    memberPlan.RotationTokens = relaxedTokens;
+    memberPlan.RotationText = localRotationTextFromTokens(relaxedTokens);
+    memberPlan.Preview = localPreviewRotation(relaxedTokens);
+    memberPlan.EstimatedDuration = localEstimateRotationDuration(relaxedTokens, characterName);
+    source = string(getFieldOrDefault(memberPlan, 'PlanningSource', ""));
+    if strlength(source) == 0
+        source = "energy-relaxed";
+    else
+        source = source + "-energy-relaxed";
+    end
+    memberPlan.PlanningSource = source;
+    changed = true;
+end
+
+function targetBudget = localResolveEnergyRelaxedBudget(memberPlan, tokens, characterName)
+    baseBudget = max(0, double(getFieldOrDefault(memberPlan, 'TargetBudget', 0)));
+    currentDuration = localEstimateRotationDuration(tokens, characterName);
+    role = string(getFieldOrDefault(memberPlan, 'Role', ""));
+
+    switch char(role)
+        case 'Carry'
+            targetBudget = max(baseBudget, currentDuration);
+        case 'Hybrid'
+            targetBudget = max(currentDuration, min(baseBudget, currentDuration + 2.20));
+        otherwise
+            targetBudget = max(currentDuration, min(baseBudget, currentDuration + 1.80));
+    end
+end
+
+function tokens = localStripBurstTokens(tokens)
+    tokens = localNormalizeTokenList(tokens);
+    if isempty(tokens)
+        return;
+    end
+
+    kept = cell(0, 1);
+    for tokenIndex = 1:numel(tokens)
+        token = string(tokens{tokenIndex});
+        if localIsBurstToken(token)
+            continue;
+        end
+        kept{end + 1, 1} = char(token); %#ok<AGROW>
+    end
+    tokens = kept;
+end
+
+function tokens = localFallbackNonBurstTokens(seedTokens)
+    tokens = cell(0, 1);
+    if isempty(seedTokens)
+        return;
+    end
+
+    normalized = localNormalizeTokenList(seedTokens);
+    for tokenIndex = 1:numel(normalized)
+        token = string(normalized{tokenIndex});
+        if localIsBurstToken(token)
+            continue;
+        end
+        if localIsElementalSkillToken(token) || localIsPersistentSupportToken(token) ...
+                || localIsOnFieldToken(token) || localIsSwitchToken(token)
+            tokens{end + 1, 1} = char(token); %#ok<AGROW>
+        end
+        if numel(tokens) >= 4
+            break;
+        end
+    end
+end
+
+function tf = localCanRelaxCarryBurstTokens(tokens)
+    tokens = localNormalizeTokenList(tokens);
+    strippedTokens = localStripBurstTokens(tokens);
+    if isempty(strippedTokens)
+        tf = false;
+        return;
+    end
+
+    tf = true;
+    for tokenIndex = 1:numel(strippedTokens)
+        token = lower(char(string(strippedTokens{tokenIndex})));
+        if ~isempty(regexp(token, '^(b\d+|bca)$', 'once'))
+            tf = false;
+            return;
+        end
+        if any(strcmp(token, {'qmirror', 'beam', 'drain', 'droplet', 'plungslash', 'plungimpact'}))
+            tf = false;
+            return;
+        end
+        if contains(token, 'mirror')
+            tf = false;
+            return;
+        end
+    end
+end
+
+function signature = localBuildPlanSignature(memberPlans)
+    parts = strings(1, numel(memberPlans));
+    for memberIndex = 1:numel(memberPlans)
+        tokens = localNormalizeTokenList(getFieldOrDefault(memberPlans(memberIndex), 'RotationTokens', {}));
+        parts(memberIndex) = string(getFieldOrDefault(memberPlans(memberIndex), 'Name', "")) ...
+            + ":" + strjoin(string(tokens), ",");
+    end
+    signature = strjoin(parts, " | ");
 end
 
 function [score, summary, metrics] = localScorePlanCandidate(rotationPlan, timelineResult, roles, memberJobs, rotationDuration)

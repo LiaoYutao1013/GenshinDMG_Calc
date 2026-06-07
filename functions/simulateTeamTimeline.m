@@ -253,7 +253,11 @@ function timelineResult = simulateTeamTimeline(members, rotationPlan, teamContex
             string(getFieldOrDefault(event, 'TriggerSourceAction', "")), ...
             string(getFieldOrDefault(event, 'TriggerPacketSource', ""))};
 
-        currentTime = max(currentTime, event.StartTime);
+        if logical(getFieldOrDefault(meta, 'ConsumesActiveWindow', true))
+            currentTime = max(currentTime, event.StartTime);
+        else
+            currentTime = max(currentTime, event.EndTime);
+        end
         if logical(getFieldOrDefault(meta, 'ConsumesActiveWindow', true))
             previousForegroundCharacter = event.Character;
             previousForegroundEndTime = event.EndTime;
