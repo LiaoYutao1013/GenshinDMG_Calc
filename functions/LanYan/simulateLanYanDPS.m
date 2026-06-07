@@ -147,7 +147,7 @@ function [totalDMG, dps, breakdown, rotationTime, audit] = simulateLanYanDPS(bui
             'AllowCatalyze', double(allowAbsorbCatalyze), ...
             'AllowTransformative', double(allowAbsorbTransformative), ...
             'PreferredAmplifyAura', localResolveLanYanAura(absorbedElement, teamContext), ...
-            'Note', "Absorbed ring damage");
+            'Note', localBuildLanYanAbsorbNote("Absorbed ring damage", absorbedElement));
 
         if constellation >= 1
             actions.ERingExtra = struct( ...
@@ -186,7 +186,7 @@ function [totalDMG, dps, breakdown, rotationTime, audit] = simulateLanYanDPS(bui
                 'AllowCatalyze', double(allowAbsorbCatalyze), ...
                 'AllowTransformative', double(allowAbsorbTransformative), ...
                 'PreferredAmplifyAura', localResolveLanYanAura(absorbedElement, teamContext), ...
-                'Note', "C1 absorbed extra ring");
+                'Note', localBuildLanYanAbsorbNote("C1 absorbed extra ring", absorbedElement));
         end
     end
     actions.Q = struct( ...
@@ -275,6 +275,12 @@ function attackName = localResolveLanYanRingAttack(absorbedReady, element, useEx
 end
 
 function element = localResolveLanYanElement(teamContext)
+    [timelineElement, usedTimeline] = localResolveLanYanElementFromTimeline(teamContext);
+    if usedTimeline
+        element = timelineElement;
+        return;
+    end
+
     priority = ["Pyro", "Hydro", "Electro", "Cryo"];
     counts = [ ...
         getFieldOrDefault(teamContext, 'PyroCount', 0), ...
@@ -289,6 +295,141 @@ function element = localResolveLanYanElement(teamContext)
             element = priority(i);
         end
     end
+end
+
+function [element, usedTimeline] = localResolveLanYanElementFromTimeline(teamContext)
+    element = "";
+    usedTimeline = false;
+
+    timelineTable = getFieldOrDefault(teamContext, 'TimelineTable', table());
+    if isempty(timelineTable) || ~istable(timelineTable) || height(timelineTable) == 0
+        return;
+    end
+    if ~all(ismember({'Character', 'Action', 'StartTime'}, timelineTable.Properties.VariableNames))
+        return;
+    end
+
+    rowCharacters = string(timelineTable.Character);
+    rowActions = string(timelineTable.Action);
+    anchorMask = strcmpi(rowCharacters, "LanYan") ...
+        & any(rowActions == ["EDash", "ERing", "ERingExtra", "EAbsorb", "EAbsorbExtra"], 2);
+    if ~any(anchorMask)
+        return;
+    end
+
+    usedTimeline = true;
+    anchorRow = localResolveLanYanAnchorRow(timelineTable(anchorMask, :));
+    priorRows = localResolveLanYanPriorRows(timelineTable, anchorRow);
+    if isempty(priorRows)
+        return;
+    end
+
+    latestRow = priorRows(end, :);
+    if ismember('AuraState', latestRow.Properties.VariableNames)
+        auraState = string(latestRow.AuraState(1));
+        if strlength(strtrim(auraState)) > 0
+            element = localResolveLanYanAuraStateElement(auraState);
+            return;
+        end
+    end
+
+    element = localResolveLanYanElementFromRecentHits(priorRows);
+end
+
+function anchorRow = localResolveLanYanAnchorRow(rows)
+    sortKey = double(rows.StartTime);
+    if ismember('Order', rows.Properties.VariableNames)
+        sortRows = [sortKey, double(rows.Order), (1:height(rows)).'];
+        sortRows = sortrows(sortRows, [1 2 3]);
+        order = sortRows(:, 3);
+    else
+        [~, order] = sort(sortKey);
+    end
+    anchorRow = rows(order(1), :);
+end
+
+function priorRows = localResolveLanYanPriorRows(timelineTable, anchorRow)
+    startTimes = double(timelineTable.StartTime);
+    priorMask = startTimes < double(anchorRow.StartTime(1)) - 1e-9;
+
+    if ismember('Order', timelineTable.Properties.VariableNames) ...
+            && ismember('Order', anchorRow.Properties.VariableNames)
+        sameTimeMask = abs(startTimes - double(anchorRow.StartTime(1))) <= 1e-9 ...
+            & double(timelineTable.Order) < double(anchorRow.Order(1));
+        priorMask = priorMask | sameTimeMask;
+    end
+
+    priorRows = timelineTable(priorMask, :);
+    if isempty(priorRows)
+        return;
+    end
+
+    if ismember('Order', priorRows.Properties.VariableNames)
+        sortRows = [double(priorRows.StartTime), double(priorRows.Order), (1:height(priorRows)).'];
+        sortRows = sortrows(sortRows, [1 2 3]);
+        priorRows = priorRows(sortRows(:, 3), :);
+    else
+        [~, order] = sort(double(priorRows.StartTime));
+        priorRows = priorRows(order, :);
+    end
+end
+
+function element = localResolveLanYanAuraStateElement(auraState)
+    element = "";
+    priority = localResolveLanYanAbsorptionPriority();
+    auraText = string(auraState);
+    for i = 1:numel(priority)
+        if contains(auraText, priority(i) + ":", 'IgnoreCase', true)
+            element = priority(i);
+            return;
+        end
+    end
+end
+
+function element = localResolveLanYanElementFromRecentHits(priorRows)
+    element = "";
+    if isempty(priorRows)
+        return;
+    end
+
+    hitElements = repmat("", height(priorRows), 1);
+    if ismember('HitElement', priorRows.Properties.VariableNames)
+        hitElements = string(priorRows.HitElement);
+    end
+
+    applyGauge = zeros(height(priorRows), 1);
+    if ismember('ApplyGauge', priorRows.Properties.VariableNames)
+        applyGauge = double(priorRows.ApplyGauge);
+    end
+
+    priority = localResolveLanYanAbsorptionPriority();
+    for rowIndex = height(priorRows):-1:1
+        if applyGauge(rowIndex) <= 0
+            continue;
+        end
+
+        rowElement = string(hitElements(rowIndex));
+        if any(strcmpi(rowElement, priority))
+            element = localResolveLanYanPriorityElement(rowElement);
+            return;
+        end
+    end
+end
+
+function priority = localResolveLanYanAbsorptionPriority()
+    priority = ["Pyro", "Hydro", "Electro", "Cryo"];
+end
+
+function element = localResolveLanYanPriorityElement(element)
+    priority = localResolveLanYanAbsorptionPriority();
+    element = string(element);
+    for i = 1:numel(priority)
+        if strcmpi(element, priority(i))
+            element = priority(i);
+            return;
+        end
+    end
+    element = "";
 end
 
 function attackName = localResolveLanYanAbsorbAttack(element, useExtra)
@@ -336,4 +477,8 @@ function aura = localResolveLanYanAura(element, teamContext)
         otherwise
             aura = "";
     end
+end
+
+function note = localBuildLanYanAbsorbNote(baseNote, absorbedElement)
+    note = string(baseNote) + " (" + string(absorbedElement) + " absorb)";
 end
