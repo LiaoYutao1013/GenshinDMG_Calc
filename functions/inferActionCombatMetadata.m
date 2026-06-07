@@ -916,6 +916,12 @@ function tf = localHasAscendantMoonsign(teamContext)
 end
 
 function element = localResolveJahodaConvertedElement(teamContext)
+    [timelineElement, usedTimeline] = localResolveJahodaConvertedElementFromTimeline(teamContext);
+    if usedTimeline
+        element = timelineElement;
+        return;
+    end
+
     priority = ["Pyro", "Hydro", "Electro", "Cryo"];
     counts = [ ...
         getFieldOrDefault(teamContext, 'PyroCount', 0), ...
@@ -930,6 +936,133 @@ function element = localResolveJahodaConvertedElement(teamContext)
             element = priority(i);
         end
     end
+end
+
+function [element, usedTimeline] = localResolveJahodaConvertedElementFromTimeline(teamContext)
+    element = "";
+    usedTimeline = false;
+
+    timelineTable = getFieldOrDefault(teamContext, 'TimelineTable', table());
+    if isempty(timelineTable) || ~istable(timelineTable) || height(timelineTable) == 0
+        return;
+    end
+    if ~all(ismember({'Character', 'Action', 'StartTime'}, timelineTable.Properties.VariableNames))
+        return;
+    end
+
+    rowCharacters = string(timelineTable.Character);
+    rowActions = string(timelineTable.Action);
+    anchorMask = strcmpi(rowCharacters, "Jahoda") ...
+        & any(rowActions == ["FlaskFull", "FlaskPartial", "Smoke", "Q"], 2);
+    if ~any(anchorMask)
+        return;
+    end
+
+    usedTimeline = true;
+    anchorRow = localResolveJahodaAnchorRow(timelineTable(anchorMask, :));
+    priorRows = localResolveJahodaPriorRows(timelineTable, anchorRow);
+    if isempty(priorRows)
+        return;
+    end
+
+    latestRow = priorRows(end, :);
+    if ismember('AuraState', latestRow.Properties.VariableNames)
+        auraState = string(latestRow.AuraState(1));
+        if strlength(strtrim(auraState)) > 0
+            element = localResolveJahodaAuraStateElement(auraState);
+            if strlength(element) > 0
+                return;
+            end
+        end
+    end
+
+    element = localResolveJahodaElementFromRecentHits(priorRows);
+end
+
+function anchorRow = localResolveJahodaAnchorRow(rows)
+    sortKey = double(rows.StartTime);
+    if ismember('Order', rows.Properties.VariableNames)
+        sortRows = [sortKey, double(rows.Order), (1:height(rows)).'];
+        sortRows = sortrows(sortRows, [1 2 3]);
+        order = sortRows(:, 3);
+    else
+        [~, order] = sort(sortKey);
+    end
+    anchorRow = rows(order(1), :);
+end
+
+function priorRows = localResolveJahodaPriorRows(timelineTable, anchorRow)
+    startTimes = double(timelineTable.StartTime);
+    priorMask = startTimes < double(anchorRow.StartTime(1)) - 1e-9;
+
+    if ismember('Order', timelineTable.Properties.VariableNames) ...
+            && ismember('Order', anchorRow.Properties.VariableNames)
+        sameTimeMask = abs(startTimes - double(anchorRow.StartTime(1))) <= 1e-9 ...
+            & double(timelineTable.Order) < double(anchorRow.Order(1));
+        priorMask = priorMask | sameTimeMask;
+    end
+
+    priorRows = timelineTable(priorMask, :);
+    if isempty(priorRows)
+        return;
+    end
+
+    if ismember('Order', priorRows.Properties.VariableNames)
+        sortRows = [double(priorRows.StartTime), double(priorRows.Order), (1:height(priorRows)).'];
+        sortRows = sortrows(sortRows, [1 2 3]);
+        priorRows = priorRows(sortRows(:, 3), :);
+    else
+        [~, order] = sort(double(priorRows.StartTime));
+        priorRows = priorRows(order, :);
+    end
+end
+
+function element = localResolveJahodaAuraStateElement(auraState)
+    element = "";
+    priority = localResolveJahodaPriority();
+    auraText = string(auraState);
+    for i = 1:numel(priority)
+        if contains(auraText, priority(i) + ":", 'IgnoreCase', true)
+            element = priority(i);
+            return;
+        end
+    end
+end
+
+function element = localResolveJahodaElementFromRecentHits(priorRows)
+    element = "";
+    if isempty(priorRows)
+        return;
+    end
+
+    hitElements = repmat("", height(priorRows), 1);
+    if ismember('HitElement', priorRows.Properties.VariableNames)
+        hitElements = string(priorRows.HitElement);
+    end
+
+    applyGauge = zeros(height(priorRows), 1);
+    if ismember('ApplyGauge', priorRows.Properties.VariableNames)
+        applyGauge = double(priorRows.ApplyGauge);
+    end
+
+    priority = localResolveJahodaPriority();
+    for rowIndex = height(priorRows):-1:1
+        if applyGauge(rowIndex) <= 0
+            continue;
+        end
+
+        rowElement = string(hitElements(rowIndex));
+        for priorityIndex = 1:numel(priority)
+            if strcmpi(rowElement, priority(priorityIndex))
+                element = priority(priorityIndex);
+                return;
+            end
+        end
+    end
+end
+
+function priority = localResolveJahodaPriority()
+    priority = ["Pyro", "Hydro", "Electro", "Cryo"];
 end
 
 function elements = localResolveJahodaEnhancementElements(teamContext, constellation, moonsignActive)
