@@ -259,11 +259,16 @@ function timelineResult = simulateTeamTimeline(members, rotationPlan, teamContex
     if ~isempty(pendingEnergyRows)
         energyRows = [energyRows; pendingEnergyRows]; %#ok<AGROW>
     end
-    %#ok<NASGU>
-    pendingEnergyDrops = pendingEnergyDrops;
+    rotationEndEnergyState = energyState;
+    [~, projectedEnergyRows] = localResolvePostCyclePendingEnergyDrops( ...
+        energyState, pendingEnergyDrops, activeForegroundCharacter, ...
+        members, rotationPlan, archetypeInfo, teamContext, rotationDuration);
+    if ~isempty(projectedEnergyRows)
+        energyRows = [energyRows; projectedEnergyRows]; %#ok<AGROW>
+    end
 
     timelineTable = localTimelineTable(timelineRows);
-    energyTable = localBuildEnergySummaryTable(energyState, energyRows, rotationPlan, rotationDuration);
+    energyTable = localBuildEnergySummaryTable(rotationEndEnergyState, energyRows, rotationPlan, rotationDuration);
     energyTimeline = localBuildEnergyTimelineTable(energyRows);
     activeEffectsTable = localBuildEffectTable(effectRows);
     timelineSummary = localBuildTimelineSummary(timelineTable, rotationDuration);
@@ -1481,6 +1486,122 @@ function [energyState, pendingDrops, rows] = localResolvePendingEnergyDrops( ...
         end
     end
     pendingDrops = kept;
+end
+
+function [energyState, rows] = localResolvePostCyclePendingEnergyDrops( ...
+        energyState, pendingDrops, activeCharacter, members, rotationPlan, ...
+        archetypeInfo, teamContext, rotationDuration)
+    rows = cell(0, 7);
+    if isempty(pendingDrops) || ~isfinite(rotationDuration) || rotationDuration <= 0
+        return;
+    end
+
+    maxArrivalTime = localMaxPendingEnergyArrivalTime(pendingDrops);
+    if ~isfinite(maxArrivalTime) || maxArrivalTime <= rotationDuration + 1e-9
+        return;
+    end
+
+    futureEvents = localBuildRepeatedFutureActionEvents( ...
+        members, rotationPlan, rotationDuration, maxArrivalTime);
+    currentActiveCharacter = string(activeCharacter);
+
+    while ~isempty(pendingDrops)
+        nextArrivalTime = localMinPendingEnergyArrivalTime(pendingDrops);
+        if ~isfinite(nextArrivalTime)
+            break;
+        end
+
+        nextEventTime = inf;
+        nextEvent = localEmptyEvent();
+        nextMeta = struct();
+        if ~isempty(futureEvents)
+            nextEvent = futureEvents(1);
+            nextMeta = getFieldOrDefault(nextEvent, 'CombatMeta', struct());
+            if isempty(fieldnames(nextMeta))
+                nextMeta = localResolveEventMeta(nextEvent, archetypeInfo, teamContext);
+            end
+            nextEventTime = double(getFieldOrDefault(nextEvent, 'StartTime', inf));
+        end
+
+        if nextEventTime <= nextArrivalTime + 1e-9
+            boundaryCatchCharacter = localResolveBoundaryCatchCharacter( ...
+                currentActiveCharacter, nextEvent, nextMeta, futureEvents(2:end), ...
+                archetypeInfo, teamContext, nextEventTime);
+            [energyState, pendingDrops, catchRows] = localResolvePendingEnergyDrops( ...
+                energyState, pendingDrops, currentActiveCharacter, ...
+                nextEventTime, boundaryCatchCharacter);
+            if ~isempty(catchRows)
+                rows = [rows; catchRows]; %#ok<AGROW>
+            end
+
+            futureEvents(1) = [];
+            if logical(getFieldOrDefault(nextMeta, 'ConsumesActiveWindow', true))
+                currentActiveCharacter = string(getFieldOrDefault(nextEvent, 'Character', currentActiveCharacter));
+            end
+            continue;
+        end
+
+        [energyState, pendingDrops, catchRows] = localResolvePendingEnergyDrops( ...
+            energyState, pendingDrops, currentActiveCharacter, nextArrivalTime, "");
+        if ~isempty(catchRows)
+            rows = [rows; catchRows]; %#ok<AGROW>
+        end
+    end
+end
+
+function futureEvents = localBuildRepeatedFutureActionEvents( ...
+        members, rotationPlan, rotationDuration, maxArrivalTime)
+    futureEvents = repmat(localEmptyEvent(), 1, 0);
+    if ~isfinite(rotationDuration) || rotationDuration <= 0 ...
+            || ~isfinite(maxArrivalTime) || maxArrivalTime <= rotationDuration + 1e-9
+        return;
+    end
+
+    baseEvents = localBuildActionEvents(members, rotationPlan, rotationDuration);
+    if isempty(baseEvents)
+        return;
+    end
+
+    cycleCount = max(1, ceil(max(0, maxArrivalTime - rotationDuration) / max(rotationDuration, 1e-9)));
+    for cycleIndex = 1:cycleCount
+        shiftedEvents = baseEvents;
+        timeShift = cycleIndex * rotationDuration;
+        for eventIndex = 1:numel(shiftedEvents)
+            shiftedEvents(eventIndex).StartTime = double(shiftedEvents(eventIndex).StartTime) + timeShift;
+            shiftedEvents(eventIndex).EndTime = double(shiftedEvents(eventIndex).EndTime) + timeShift;
+        end
+        futureEvents = [futureEvents, shiftedEvents]; %#ok<AGROW>
+    end
+    futureEvents = localSortActionEvents(futureEvents);
+end
+
+function arrivalTime = localMinPendingEnergyArrivalTime(pendingDrops)
+    arrivalTime = inf;
+    if isempty(pendingDrops)
+        return;
+    end
+
+    for dropIndex = 1:numel(pendingDrops)
+        currentArrival = double(getFieldOrDefault(pendingDrops(dropIndex), 'ArrivalTime', inf));
+        if currentArrival < arrivalTime
+            arrivalTime = currentArrival;
+        end
+    end
+end
+
+function arrivalTime = localMaxPendingEnergyArrivalTime(pendingDrops)
+    arrivalTime = -inf;
+    if isempty(pendingDrops)
+        arrivalTime = inf;
+        return;
+    end
+
+    for dropIndex = 1:numel(pendingDrops)
+        currentArrival = double(getFieldOrDefault(pendingDrops(dropIndex), 'ArrivalTime', -inf));
+        if currentArrival > arrivalTime
+            arrivalTime = currentArrival;
+        end
+    end
 end
 
 function boundaryCharacter = localResolveBoundaryCatchCharacter( ...
