@@ -33,6 +33,8 @@ function validateFurinaRegression()
         'Furina talent export should persist the singer flat-heal AuxLevel column.');
     assert(height(healRows10) == 2, 'Furina Singer regression should record one heal row per Singer tick.');
     assert(all(healRows10.Damage > 0), 'Furina Singer heal rows should stay positive.');
+    assert(~any(strcmp(string(breakdown10.Action), "SingerAuto_Heal")), ...
+        'Explicit Singer actions should suppress auto-generated Singer background heals.');
     assert(sum(healRows15.Damage) > sum(healRows10.Damage), ...
         'Furina Singer heal should scale upward when the aux flat heal value increases by talent level.');
     assert(damage10 > 0 && damage15 > 0, ...
@@ -107,6 +109,14 @@ function validateFurinaRegression()
     assert(getFieldOrDefault(guiStyleTeamResult.TeamContext, 'ApproxFurinaBonus', 0) ...
             > getFieldOrDefault(furinaTeam, 'ApproxFurinaBonus', 0), ...
         'Furina team context should now raise the shared burst bonus when real Fanfare and Salon window coverage is available from the team timeline.');
+
+    teamFurinaRows = guiStyleTeamResult.Breakdown(strcmp(string(guiStyleTeamResult.Breakdown.Character), "Furina"), :);
+    autoSalonRows = teamFurinaRows(strcmp(string(teamFurinaRows.Action), "SalonTick"), :);
+    qRows = teamFurinaRows(strcmp(string(teamFurinaRows.Action), "Q"), :);
+    assert(height(autoSalonRows) >= 1 && sum(autoSalonRows.Damage) > 0, ...
+        'Furina team simulation should derive positive SalonTick background damage from the active companion window.');
+    assert(height(qRows) == 1 && contains(string(qRows.Note), "fanfare=0"), ...
+        'Furina C0 burst should start at zero fanfare instead of the old scripted 150-point opening state.');
 
     startFigureCount = numel(findall(groot, 'Type', 'Figure'));
     app = GenshinDMGApp();

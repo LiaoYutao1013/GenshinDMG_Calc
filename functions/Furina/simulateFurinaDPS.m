@@ -1,9 +1,10 @@
 function [totalDMG, dps, breakdown, rotationTime, audit] = simulateFurinaDPS(build, enemy, seqFile, talentLevel, constellation, teamContext)
-    % Furina explicit Arkhe / Salon script with approximation.
-    % Arkhe mode swaps, Salon member attacks, Singer heals, burst, and C6
-    % infusions are modeled as separate stateful actions.
-    % Remaining approximation: party HP drift, fanfare gain, and Salon ramp
-    % still use scripted team-size heuristics instead of full team timelines.
+    % Furina explicit Arkhe / Salon script with timeline-backed background ticks.
+    % Arkhe mode swaps, companion windows, burst, and C6 infusions are
+    % modeled as separate stateful actions while Salon/Singer activity can
+    % be derived from the active duration window itself.
+    % Remaining approximation: fanfare still follows timeline-density
+    % heuristics because full party HP-loss/heal event logs are not modeled.
     if nargin < 3 || isempty(seqFile)
         seqFile = char(resolveCharacterDataFile('Furina', 'rotation'));
     end
@@ -22,6 +23,10 @@ function [totalDMG, dps, breakdown, rotationTime, audit] = simulateFurinaDPS(bui
     actions = localResolveRotation(seqFile);
 
     localTeamContext = localRemoveFurinaApprox(teamContext);
+    timelineProfile = localResolveFurinaTimelineProfile(teamContext, constellation);
+    companionTickMeta = localResolveFurinaCompanionTickMetadata( ...
+        struct('Name', 'Furina', 'Constellation', constellation), localTeamContext);
+    useExplicitCompanionActions = localUsesExplicitCompanionActions(actions);
     maxHP = base.BaseHP(1) * (1 + getFieldOrDefault(build, 'HPBonus', 0)) + getFieldOrDefault(build, 'FlatHP', 0);
     atk = (base.BaseATK(1) + getFieldOrDefault(build, 'WeaponATK', 0)) ...
         * (1 + getFieldOrDefault(build, 'AtkBonus', 0) + getFieldOrDefault(localTeamContext, 'ATKBonus', 0)) ...
@@ -37,12 +42,20 @@ function [totalDMG, dps, breakdown, rotationTime, audit] = simulateFurinaDPS(bui
         'SalonTicks', 0, ...
         'SingerTicks', 0, ...
         'BurstTime', 0, ...
-        'Fanfare', 150 * double(constellation >= 1), ...
+        'Fanfare', 0, ...
         'FanfareCap', 300 + 100 * double(constellation >= 1), ...
         'OverflowFanfare', 0, ...
         'C6Time', 0, ...
         'C6HitsLeft', 0, ...
-        'ThornCooldown', 0);
+        'ThornCooldown', 0, ...
+        'Constellation', constellation, ...
+        'AutoCompanionEnabled', ~useExplicitCompanionActions, ...
+        'NextCompanionTickDelay', inf, ...
+        'OusiaFirstTickDelay', companionTickMeta.OusiaFirstTickDelay, ...
+        'OusiaTickInterval', companionTickMeta.OusiaTickInterval, ...
+        'PneumaFirstTickDelay', companionTickMeta.PneumaFirstTickDelay, ...
+        'PneumaTickInterval', companionTickMeta.PneumaTickInterval, ...
+        'TimelineProfile', timelineProfile);
 
     totalDMG = 0;
     totalHeal = 0;
@@ -62,6 +75,7 @@ function [totalDMG, dps, breakdown, rotationTime, audit] = simulateFurinaDPS(bui
                 state.SalonTime = 30.0;
                 state.SalonTicks = 0;
                 state.SingerTicks = 0;
+                state = localResetCompanionTickDelay(state, true);
                 foamMV = localTalentRowValue(talent, 11, localSkillTalentLevel(talentLevel, constellation));
                 dmg = localHPScaledDamage(maxHP, foamMV, "Hydro", build, localTeamContext, state, ...
                     getFieldOrDefault(build, 'SkillDMGBonus', 0), hydroMult);
@@ -74,10 +88,12 @@ function [totalDMG, dps, breakdown, rotationTime, audit] = simulateFurinaDPS(bui
 
             case 'SWITCHPNEUMA'
                 state.ArkheMode = "Pneuma";
+                state = localResetCompanionTickDelay(state, true);
                 note = "Switched to Pneuma";
 
             case 'SWITCHOUSIA'
                 state.ArkheMode = "Ousia";
+                state = localResetCompanionTickDelay(state, true);
                 note = "Switched to Ousia";
 
             case {'N1', 'N2', 'N3', 'N4'}
@@ -158,7 +174,7 @@ function [totalDMG, dps, breakdown, rotationTime, audit] = simulateFurinaDPS(bui
                 dmg = localHPScaledDamage(maxHP, qMV, "Hydro", build, localTeamContext, state, ...
                     getFieldOrDefault(build, 'BurstDMGBonus', 0), hydroMult);
                 state.BurstTime = 18.0;
-                state.Fanfare = min(state.FanfareCap, 150 + 75 * double(constellation >= 1));
+                state.Fanfare = min(state.FanfareCap, 150 * double(constellation >= 1));
                 state.OverflowFanfare = 0;
                 note = sprintf('Burst active, fanfare=%d', round(state.Fanfare));
 
@@ -182,7 +198,13 @@ function [totalDMG, dps, breakdown, rotationTime, audit] = simulateFurinaDPS(bui
             breakdown = [breakdown; {action + "_Heal", heal, "Healing"}]; %#ok<AGROW>
         end
         rotationTime = rotationTime + actionTime;
-        state = localAdvanceState(state, actionTime);
+        [state, backgroundBreakdown, backgroundDMG, backgroundHeal] = localAdvanceStateWithBackground( ...
+            state, actionTime, build, localTeamContext, talent, talentLevel, maxHP, hydroMult);
+        totalDMG = totalDMG + backgroundDMG;
+        totalHeal = totalHeal + backgroundHeal;
+        if ~isempty(backgroundBreakdown)
+            breakdown = [breakdown; backgroundBreakdown]; %#ok<AGROW>
+        end
     end
 
     if rotationTime <= 0
@@ -296,11 +318,11 @@ function state = localGainFanfare(state, gainAmount)
         return;
     end
 
-    gainMultiplier = 1 + 2.5 * double(state.FanfareCap > 300);
+    gainMultiplier = 1 + 2.5 * double(getFieldOrDefault(state, 'Constellation', 0) >= 2);
     effectiveGain = gainAmount * gainMultiplier;
     cappedGain = min(state.FanfareCap - state.Fanfare, effectiveGain);
     state.Fanfare = min(state.FanfareCap, state.Fanfare + effectiveGain);
-    if state.FanfareCap > 300
+    if getFieldOrDefault(state, 'Constellation', 0) >= 2
         state.OverflowFanfare = min(400, state.OverflowFanfare + max(0, effectiveGain - max(cappedGain, 0)));
     end
 end
@@ -367,11 +389,267 @@ function teamContext = localRemoveFurinaApprox(teamContext)
     teamContext.ApproxFurinaBonus = 0;
 end
 
-function state = localAdvanceState(state, actionTime)
+function tf = localUsesExplicitCompanionActions(actions)
+    if isempty(actions)
+        tf = false;
+        return;
+    end
+
+    actionNames = upper(string(actions(:)));
+    tf = any(actionNames == "USHER" | actionNames == "CHEVAL" ...
+        | actionNames == "CRAB" | actionNames == "SINGER");
+end
+
+function profile = localResolveFurinaTimelineProfile(teamContext, constellation)
+    memberCount = max(1, double(getFieldOrDefault(teamContext, 'MemberCount', 1)));
+    rotationDuration = max(1e-6, double(getFieldOrDefault(teamContext, 'RotationDuration', 20)));
+    profile = struct( ...
+        'ActionDensity', min(1, 0.45 + 0.12 * max(0, memberCount - 1)), ...
+        'SupportShare', min(1, 0.30 + 0.16 * max(0, memberCount - 1)), ...
+        'FanfareCoverage', 0, ...
+        'SalonCoverage', 0, ...
+        'LoopReadiness', 0.45 + 0.10 * double(memberCount >= 3), ...
+        'SharedBonusTarget', max(0, double(getFieldOrDefault(teamContext, 'ApproxFurinaBonus', 0.20))), ...
+        'TimelineDerived', false, ...
+        'TeamRhythm', 0.50, ...
+        'AutoSalonAmp', 1.10, ...
+        'AutoSalonRamp', 0.03, ...
+        'AutoSingerHealBonus', 0.05, ...
+        'OusiaFanfareGain', 12 + 3 * double(constellation >= 2), ...
+        'PneumaFanfareGain', 15 + 4 * double(constellation >= 2));
+
+    timelineSummary = getFieldOrDefault(teamContext, 'TimelineSummary', struct());
+    activeEffects = getFieldOrDefault(teamContext, 'ActiveEffectsTable', table());
+    energySummary = getFieldOrDefault(teamContext, 'EnergySummary', table());
+    memberTimeline = getFieldOrDefault(teamContext, 'MemberTimelineSummary', table());
+
+    if isstruct(timelineSummary) && ~isempty(fieldnames(timelineSummary))
+        occupiedTime = double(getFieldOrDefault(timelineSummary, 'MemberOccupiedTime', 0));
+        swapTime = double(getFieldOrDefault(timelineSummary, 'SwapTime', 0));
+        profile.ActionDensity = min(1, max(0, (occupiedTime + swapTime) / rotationDuration));
+    end
+
+    if istable(activeEffects) && height(activeEffects) > 0
+        profile.FanfareCoverage = localResolveEffectCoverage(activeEffects, "Fanfare", rotationDuration);
+        profile.SalonCoverage = localResolveEffectCoverage(activeEffects, "SalonMembers", rotationDuration);
+        profile.TimelineDerived = true;
+    end
+
+    if istable(memberTimeline) && height(memberTimeline) > 0
+        furinaRow = memberTimeline(string(memberTimeline.Character) == "Furina", :);
+        if ~isempty(furinaRow)
+            backgroundTime = max(0, double(getFieldOrDefault(furinaRow, 'BackgroundEventTime', 0)));
+            profile.SupportShare = min(1, max(backgroundTime / rotationDuration, profile.SalonCoverage));
+            profile.TimelineDerived = true;
+        end
+    end
+
+    if istable(energySummary) && height(energySummary) > 0
+        furinaEnergy = energySummary(string(energySummary.Character) == "Furina", :);
+        if ~isempty(furinaEnergy)
+            profile.LoopReadiness = min(1, double(furinaEnergy.EndEnergy(1)) / max(1, double(furinaEnergy.BurstCost(1))));
+            profile.TimelineDerived = true;
+        end
+    end
+
+    sharedBonusScale = min(1, profile.SharedBonusTarget / max(0.75 + 0.15 * double(constellation >= 1), 1e-6));
+    profile.TeamRhythm = min(1, 0.30 ...
+        + 0.18 * profile.ActionDensity ...
+        + 0.16 * profile.SupportShare ...
+        + 0.14 * profile.FanfareCoverage ...
+        + 0.10 * profile.SalonCoverage ...
+        + 0.12 * profile.LoopReadiness ...
+        + 0.12 * sharedBonusScale);
+    profile.AutoSalonAmp = 1.00 + 0.40 * profile.TeamRhythm;
+    profile.AutoSalonRamp = 0.02 + 0.02 * profile.TeamRhythm;
+    profile.AutoSingerHealBonus = 0.04 + 0.08 * profile.TeamRhythm;
+    profile.OusiaFanfareGain = 9 + 8 * profile.TeamRhythm + 3 * double(constellation >= 2);
+    profile.PneumaFanfareGain = 11 + 10 * profile.TeamRhythm + 4 * double(constellation >= 2);
+end
+
+function coverage = localResolveEffectCoverage(activeEffects, effectTag, rotationDuration)
+    coverage = 0;
+    if isempty(activeEffects) || ~istable(activeEffects) || height(activeEffects) == 0
+        return;
+    end
+    if ~ismember('EffectTag', activeEffects.Properties.VariableNames) ...
+            || ~ismember('StartTime', activeEffects.Properties.VariableNames) ...
+            || ~ismember('EndTime', activeEffects.Properties.VariableNames)
+        return;
+    end
+
+    rows = activeEffects(string(activeEffects.EffectTag) == string(effectTag), :);
+    if isempty(rows)
+        return;
+    end
+
+    starts = double(rows.StartTime);
+    ends = double(rows.EndTime);
+    validMask = isfinite(starts) & isfinite(ends) & ends > starts;
+    starts = starts(validMask);
+    ends = ends(validMask);
+    if isempty(starts)
+        return;
+    end
+
+    intervals = sortrows([starts(:), ends(:)], [1 2]);
+    covered = 0;
+    currentStart = intervals(1, 1);
+    currentEnd = intervals(1, 2);
+    for i = 2:size(intervals, 1)
+        nextStart = intervals(i, 1);
+        nextEnd = intervals(i, 2);
+        if nextStart <= currentEnd + 1e-9
+            currentEnd = max(currentEnd, nextEnd);
+        else
+            covered = covered + max(0, currentEnd - currentStart);
+            currentStart = nextStart;
+            currentEnd = nextEnd;
+        end
+    end
+    covered = covered + max(0, currentEnd - currentStart);
+    coverage = min(1, covered / max(rotationDuration, 1e-6));
+end
+
+function meta = localResolveFurinaCompanionTickMetadata(member, teamContext)
+    combatMeta = inferActionCombatMetadata(member, "E", getFieldOrDefault(teamContext, 'ArchetypeInfo', struct()), teamContext);
+    ousiaInterval = max(0, double(getFieldOrDefault(combatMeta, 'EffectTickInterval', 0)));
+    ousiaFirstDelay = max(0, double(getFieldOrDefault(combatMeta, 'EffectFirstTickDelay', ousiaInterval)));
+    if ousiaInterval <= 0
+        ousiaInterval = 2.40;
+    end
+    if ousiaFirstDelay <= 0
+        ousiaFirstDelay = ousiaInterval;
+    end
+
+    pneumaInterval = localActionTime("SINGER");
+    meta = struct( ...
+        'OusiaFirstTickDelay', ousiaFirstDelay, ...
+        'OusiaTickInterval', ousiaInterval, ...
+        'PneumaFirstTickDelay', pneumaInterval, ...
+        'PneumaTickInterval', pneumaInterval);
+end
+
+function state = localResetCompanionTickDelay(state, useFirstDelay)
+    if nargin < 2
+        useFirstDelay = false;
+    end
+    if ~logical(getFieldOrDefault(state, 'AutoCompanionEnabled', false)) || state.SalonTime <= 0
+        state.NextCompanionTickDelay = inf;
+        return;
+    end
+
+    if state.ArkheMode == "Pneuma"
+        if useFirstDelay
+            state.NextCompanionTickDelay = max(0, state.PneumaFirstTickDelay);
+        else
+            state.NextCompanionTickDelay = max(0, state.PneumaTickInterval);
+        end
+    else
+        if useFirstDelay
+            state.NextCompanionTickDelay = max(0, state.OusiaFirstTickDelay);
+        else
+            state.NextCompanionTickDelay = max(0, state.OusiaTickInterval);
+        end
+    end
+end
+
+function [state, backgroundBreakdown, totalDMG, totalHeal] = localAdvanceStateWithBackground( ...
+        state, actionTime, build, teamContext, talent, talentLevel, maxHP, hydroMult)
+    totalDMG = 0;
+    totalHeal = 0;
+    backgroundBreakdown = table('Size', [0 3], 'VariableTypes', {'string', 'double', 'string'}, ...
+        'VariableNames', {'Action', 'Damage', 'Note'});
+    remaining = max(0, actionTime);
+
+    while remaining > 1e-9
+        nextTickDelay = localResolveNextCompanionTickDelay(state);
+        if ~isfinite(nextTickDelay) || nextTickDelay > remaining + 1e-9
+            state = localStepFurinaState(state, remaining);
+            remaining = 0;
+            break;
+        end
+
+        if nextTickDelay > 0
+            state = localStepFurinaState(state, nextTickDelay);
+            remaining = remaining - nextTickDelay;
+        end
+
+        [state, tickAction, tickDamage, tickHeal, tickNote] = localResolveCompanionAutoTick( ...
+            state, build, teamContext, talent, talentLevel, maxHP, hydroMult);
+        if tickDamage > 0
+            backgroundBreakdown = [backgroundBreakdown; {tickAction, tickDamage, tickNote}]; %#ok<AGROW>
+            totalDMG = totalDMG + tickDamage;
+        end
+        if tickHeal > 0
+            backgroundBreakdown = [backgroundBreakdown; {tickAction + "_Heal", tickHeal, "Healing"}]; %#ok<AGROW>
+            totalHeal = totalHeal + tickHeal;
+        end
+        state = localResetCompanionTickDelay(state, false);
+    end
+end
+
+function nextTickDelay = localResolveNextCompanionTickDelay(state)
+    nextTickDelay = inf;
+    if ~logical(getFieldOrDefault(state, 'AutoCompanionEnabled', false)) || state.SalonTime <= 0
+        return;
+    end
+    nextTickDelay = max(0, double(getFieldOrDefault(state, 'NextCompanionTickDelay', inf)));
+end
+
+function [state, actionName, dmg, heal, note] = localResolveCompanionAutoTick( ...
+        state, build, teamContext, talent, talentLevel, maxHP, hydroMult)
+    actionName = "SalonTick";
+    dmg = 0;
+    heal = 0;
+    note = "";
+    if state.SalonTime <= 0
+        return;
+    end
+
+    profile = getFieldOrDefault(state, 'TimelineProfile', struct());
+    if state.ArkheMode == "Pneuma"
+        state.SingerTicks = state.SingerTicks + 1;
+        [healRate, healFlat] = localSingerHeal(talent, talentLevel);
+        heal = localHealingAmount(maxHP, healRate, healFlat, build, state);
+        heal = heal * (1 + getFieldOrDefault(profile, 'AutoSingerHealBonus', 0));
+        state = localGainFanfare(state, getFieldOrDefault(profile, 'PneumaFanfareGain', 11));
+        actionName = "SingerAuto";
+        note = sprintf('Singer auto heal #%d', state.SingerTicks);
+        return;
+    end
+
+    state.SalonTicks = state.SalonTicks + 1;
+    [salonMV, subtypeName] = localAutoSalonMV(talent, talentLevel, state.SalonTicks, state.Constellation);
+    hpPassiveBonus = min(0.28, max(0, maxHP - 30000) / 1000 * 0.007);
+    tickRamp = 1 + getFieldOrDefault(profile, 'AutoSalonRamp', 0.03) * max(0, state.SalonTicks - 1);
+    dmg = localHPScaledDamage(maxHP, salonMV, "Hydro", build, teamContext, state, ...
+        getFieldOrDefault(build, 'SkillDMGBonus', 0) + hpPassiveBonus, hydroMult) ...
+        * getFieldOrDefault(profile, 'AutoSalonAmp', 1.10) * tickRamp;
+    state = localGainFanfare(state, getFieldOrDefault(profile, 'OusiaFanfareGain', 9));
+    note = sprintf('%s auto hit #%d', subtypeName, state.SalonTicks);
+end
+
+function [mv, subtypeName] = localAutoSalonMV(talent, talentLevel, tickIndex, constellation)
+    sequenceIndex = mod(max(0, tickIndex - 1), 3) + 1;
+    switch sequenceIndex
+        case 1
+            [mv, subtypeName] = localSalonMV(talent, "USHER", localSkillTalentLevel(talentLevel, constellation));
+        case 2
+            [mv, subtypeName] = localSalonMV(talent, "CHEVAL", localSkillTalentLevel(talentLevel, constellation));
+        otherwise
+            [mv, subtypeName] = localSalonMV(talent, "CRAB", localSkillTalentLevel(talentLevel, constellation));
+    end
+end
+
+function state = localStepFurinaState(state, actionTime)
     state.SalonTime = max(0, state.SalonTime - actionTime);
     state.BurstTime = max(0, state.BurstTime - actionTime);
     state.C6Time = max(0, state.C6Time - actionTime);
     state.ThornCooldown = max(0, state.ThornCooldown - actionTime);
+    if logical(getFieldOrDefault(state, 'AutoCompanionEnabled', false)) && isfinite(state.NextCompanionTickDelay)
+        state.NextCompanionTickDelay = max(0, state.NextCompanionTickDelay - actionTime);
+    end
     if state.BurstTime <= 0
         state.Fanfare = 0;
         state.OverflowFanfare = 0;
@@ -382,6 +660,7 @@ function state = localAdvanceState(state, actionTime)
     if state.SalonTime <= 0
         state.SalonTicks = 0;
         state.SingerTicks = 0;
+        state.NextCompanionTickDelay = inf;
     end
 end
 
