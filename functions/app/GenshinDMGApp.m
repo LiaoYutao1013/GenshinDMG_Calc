@@ -39,15 +39,11 @@ classdef GenshinDMGApp < handle
         SlotEnableCheckboxes
         SlotEditButtons
         SlotPortraits
-        SlotWeaponBadges
-        SlotArtifactBadges
         SlotFooters
 
         SelectedSlotLabel
         SelectedPortrait
         SelectedSummaryText
-        SelectedWeaponBadge
-        SelectedArtifactBadge
         ArtifactSetDropdown
         SelectedWeaponDropdown
         SelectedConstellationSpinner
@@ -176,9 +172,7 @@ classdef GenshinDMGApp < handle
                 'RotationEdited', false, ...
                 'StartTime', 0, ...
                 'Enabled', true, ...
-                'PortraitPath', "", ...
-                'WeaponBadgePath', "", ...
-                'ArtifactBadgePath', "");
+                'PortraitPath', "");
         end
 
         function createUI(obj)
@@ -236,8 +230,6 @@ classdef GenshinDMGApp < handle
             obj.SlotEnableCheckboxes = cell(1, slotCount);
             obj.SlotEditButtons = cell(1, slotCount);
             obj.SlotPortraits = cell(1, slotCount);
-            obj.SlotWeaponBadges = cell(1, slotCount);
-            obj.SlotArtifactBadges = cell(1, slotCount);
             obj.SlotFooters = cell(1, slotCount);
             [artifactLabels, artifactIds] = getArtifactSetChoices();
 
@@ -255,27 +247,17 @@ classdef GenshinDMGApp < handle
                 obj.SlotPanels{i} = slotPanel;
 
                 slotGrid = uigridlayout(slotPanel, [7 4]);
-                slotGrid.ColumnWidth = {96, 52, '1x', 92};
-                slotGrid.RowHeight = {24, 28, 52, 28, 28, 48, 22};
-                slotGrid.ColumnSpacing = 8;
-                slotGrid.RowSpacing = 6;
-                slotGrid.Padding = [10 10 10 10];
+                slotGrid.ColumnWidth = {70, 48, '1x', 76};
+                slotGrid.RowHeight = {22, 26, 26, 26, 26, 42, 20};
+                slotGrid.ColumnSpacing = 6;
+                slotGrid.RowSpacing = 4;
+                slotGrid.Padding = [8 8 8 8];
                 slotGrid.BackgroundColor = [1.00 1.00 1.00];
 
                 avatar = uiimage(slotGrid, 'ScaleMethod', 'fill');
                 avatar.Layout.Row = [1 7];
                 avatar.Layout.Column = 1;
                 obj.SlotPortraits{i} = avatar;
-
-                artifactBadge = uiimage(slotGrid, 'ScaleMethod', 'fit');
-                artifactBadge.Layout.Row = 3;
-                artifactBadge.Layout.Column = 2;
-                obj.SlotArtifactBadges{i} = artifactBadge;
-
-                weaponBadge = uiimage(slotGrid, 'ScaleMethod', 'fit');
-                weaponBadge.Layout.Row = 4;
-                weaponBadge.Layout.Column = 2;
-                obj.SlotWeaponBadges{i} = weaponBadge;
 
                 headerLabel = uilabel(slotGrid, ...
                     'Text', sprintf('槽位 %d', i), ...
@@ -301,6 +283,13 @@ classdef GenshinDMGApp < handle
                 characterDropdown.Layout.Column = [2 4];
                 obj.SlotCharacterDropdowns{i} = characterDropdown;
 
+                artifactLabel = uilabel(slotGrid, ...
+                    'Text', '套装', ...
+                    'FontSize', 11, ...
+                    'FontColor', [0.42 0.46 0.54]);
+                artifactLabel.Layout.Row = 3;
+                artifactLabel.Layout.Column = 2;
+
                 artifactDropdown = uidropdown(slotGrid, ...
                     'Items', artifactLabels, ...
                     'ItemsData', artifactIds, ...
@@ -308,6 +297,13 @@ classdef GenshinDMGApp < handle
                 artifactDropdown.Layout.Row = 3;
                 artifactDropdown.Layout.Column = [3 4];
                 obj.SlotArtifactDropdowns{i} = artifactDropdown;
+
+                weaponLabel = uilabel(slotGrid, ...
+                    'Text', '武器', ...
+                    'FontSize', 11, ...
+                    'FontColor', [0.42 0.46 0.54]);
+                weaponLabel.Layout.Row = 4;
+                weaponLabel.Layout.Column = 2;
 
                 weaponDropdown = uidropdown(slotGrid, ...
                     'Items', {''}, ...
@@ -450,7 +446,7 @@ classdef GenshinDMGApp < handle
             editorPanel.Layout.Column = layoutColumn;
 
             editorGrid = uigridlayout(editorPanel, [4 1]);
-            editorGrid.RowHeight = {34, 340, '1x', 240};
+            editorGrid.RowHeight = {34, 250, '1x', 240};
             editorGrid.ColumnWidth = {'1x'};
             editorGrid.RowSpacing = 12;
             editorGrid.Padding = [12 12 12 12];
@@ -471,9 +467,9 @@ classdef GenshinDMGApp < handle
             heroCard.Layout.Column = 1;
 
             heroGrid = uigridlayout(heroCard, [3 2]);
-            heroGrid.ColumnWidth = {180, '1x'};
-            heroGrid.RowHeight = {132, 90, '1x'};
-            heroGrid.ColumnSpacing = 14;
+            heroGrid.ColumnWidth = {140, '1x'};
+            heroGrid.RowHeight = {60, 50, '1x'};
+            heroGrid.ColumnSpacing = 10;
             heroGrid.Padding = [10 10 10 10];
             heroGrid.BackgroundColor = [0.96 0.97 0.99];
 
@@ -481,12 +477,12 @@ classdef GenshinDMGApp < handle
             obj.SelectedPortrait.Layout.Row = [1 3];
             obj.SelectedPortrait.Layout.Column = 1;
 
-            badgeGrid = uigridlayout(heroGrid, [2 3]);
+            badgeGrid = uigridlayout(heroGrid, [2 1]);
             badgeGrid.Layout.Row = 1;
             badgeGrid.Layout.Column = 2;
-            badgeGrid.RowHeight = {20, '1x'};
-            badgeGrid.ColumnWidth = {120, 120, '1x'};
-            badgeGrid.ColumnSpacing = 8;
+            badgeGrid.RowHeight = {20, 28};
+            badgeGrid.ColumnWidth = {'1x'};
+            badgeGrid.ColumnSpacing = 0;
             badgeGrid.RowSpacing = 4;
             badgeGrid.Padding = [0 0 0 0];
             badgeGrid.BackgroundColor = [0.96 0.97 0.99];
@@ -495,33 +491,12 @@ classdef GenshinDMGApp < handle
             artifactLabel.Layout.Row = 1;
             artifactLabel.Layout.Column = 1;
 
-            weaponLabel = uilabel(badgeGrid, 'Text', '武器', 'FontWeight', 'bold', 'FontColor', [0.18 0.24 0.34]);
-            weaponLabel.Layout.Row = 1;
-            weaponLabel.Layout.Column = 2;
-
-            obj.SelectedArtifactBadge = uiimage(badgeGrid, 'ScaleMethod', 'fit');
-            obj.SelectedArtifactBadge.Layout.Row = 2;
-            obj.SelectedArtifactBadge.Layout.Column = 1;
-
-            obj.SelectedWeaponBadge = uiimage(badgeGrid, 'ScaleMethod', 'fit');
-            obj.SelectedWeaponBadge.Layout.Row = 2;
-            obj.SelectedWeaponBadge.Layout.Column = 2;
-
-            artifactCtrlGrid = uigridlayout(badgeGrid, [1 1]);
-            artifactCtrlGrid.Layout.Row = [1 2];
-            artifactCtrlGrid.Layout.Column = 3;
-            artifactCtrlGrid.RowHeight = {28};
-            artifactCtrlGrid.ColumnWidth = {'1x'};
-            artifactCtrlGrid.RowSpacing = 6;
-            artifactCtrlGrid.Padding = [0 0 0 0];
-            artifactCtrlGrid.BackgroundColor = [0.96 0.97 0.99];
-
             [artifactLabels, artifactIds] = getArtifactSetChoices();
-            obj.ArtifactSetDropdown = uidropdown(artifactCtrlGrid, ...
+            obj.ArtifactSetDropdown = uidropdown(badgeGrid, ...
                 'Items', artifactLabels, ...
                 'ItemsData', artifactIds, ...
                 'ValueChangedFcn', @(src, ~) obj.onSelectedArtifactSetChanged(src.Value));
-            obj.ArtifactSetDropdown.Layout.Row = 1;
+            obj.ArtifactSetDropdown.Layout.Row = 2;
             obj.ArtifactSetDropdown.Layout.Column = 1;
 
             detailCtrlGrid = uigridlayout(heroGrid, [2 4]);
@@ -842,7 +817,8 @@ classdef GenshinDMGApp < handle
             lines(end + 1, 1) = "[Estimated action timeline]";
             lines = obj.appendPreviewTimelineLines(lines, obj.SelectedSlot, ...
                 double(getFieldOrDefault(result, 'RotationTime', 0)));
-            lines = obj.appendReportTable(lines, "Damage breakdown", getFieldOrDefault(result, 'Breakdown', table()));
+            lines = obj.appendDamageBreakdownWithBuffs(lines, ...
+                getFieldOrDefault(result, 'Breakdown', table()), table(), table(), struct());
         end
 
         function lines = appendTeamResultReport(obj, lines)
@@ -880,13 +856,17 @@ classdef GenshinDMGApp < handle
                 lines = obj.appendBuildPanelLines(lines, i);
             end
 
-            lines = obj.appendTeamContextBuffLines(lines, getFieldOrDefault(result, 'TeamContext', struct()));
+            teamContext = getFieldOrDefault(result, 'TeamContext', struct());
+            lines = obj.appendTeamContextBuffLines(lines, teamContext);
             lines = obj.appendReportTable(lines, "Rotation plan", getFieldOrDefault(result, 'ExecutionTable', table()));
             lines = obj.appendReportTable(lines, "Complete execution timeline", getFieldOrDefault(result, 'TimelineTable', table()));
             lines = obj.appendReportTable(lines, "Energy summary", getFieldOrDefault(result, 'EnergySummary', table()));
             lines = obj.appendReportTable(lines, "Energy events", getFieldOrDefault(result, 'EnergyTimeline', table()));
             lines = obj.appendReportTable(lines, "Active effects and buffs", getFieldOrDefault(result, 'ActiveEffectsTable', table()));
-            lines = obj.appendReportTable(lines, "Damage breakdown", getFieldOrDefault(result, 'Breakdown', table()));
+            lines = obj.appendDamageBreakdownWithBuffs(lines, ...
+                getFieldOrDefault(result, 'Breakdown', table()), ...
+                getFieldOrDefault(result, 'TimelineTable', table()), ...
+                getFieldOrDefault(result, 'ActiveEffectsTable', table()), teamContext);
 
             warnings = string(getFieldOrDefault(result, 'PlanningWarnings', strings(0, 1)));
             lines(end + 1, 1) = "";
@@ -902,7 +882,7 @@ classdef GenshinDMGApp < handle
 
         function lines = appendBuildPanelLines(obj, lines, slotIndex)
             slot = obj.Slots(slotIndex);
-            lines(end + 1, 1) = sprintf('%s | Weapon: %s R%d | Artifact: %s (%d pc) | C%d | Talent %d | Start %.2f s', ...
+            lines(end + 1, 1) = sprintf('%s | Weapon: %s R%d | Artifact: %s (%d pc) | Constellation: C%d | Talent %d | Start %.2f s', ...
                 char(slot.DisplayName), char(string(slot.WeaponName)), round(slot.WeaponRefinement), ...
                 char(string(slot.ArtifactSet1)), round(slot.ArtifactSet1Pieces), round(slot.Constellation), ...
                 round(slot.TalentLevel), slot.StartTime);
@@ -935,21 +915,117 @@ classdef GenshinDMGApp < handle
                 return;
             end
 
-            fields = fieldnames(teamContext);
-            buffLines = strings(0, 1);
-            for i = 1:numel(fields)
-                fieldName = fields{i};
-                value = teamContext.(fieldName);
-                isBuffField = any(contains(fieldName, {'Bonus', 'Buff', 'Shred', 'Crit', 'EM', 'Amplify'}, 'IgnoreCase', true));
-                if isBuffField && (isnumeric(value) || islogical(value)) && isscalar(value) && isfinite(double(value)) && double(value) ~= 0
-                    buffLines(end + 1, 1) = string(fieldName) + "=" + obj.formatReportValue(value); %#ok<AGROW>
-                end
-            end
+            buffLines = obj.collectTeamBuffValues(teamContext);
             if isempty(buffLines)
                 lines(end + 1, 1) = "(no non-zero scalar team buff fields)";
             else
                 lines = [lines; "  " + buffLines]; %#ok<AGROW>
             end
+        end
+
+        function buffLines = collectTeamBuffValues(obj, teamContext)
+            buffLines = strings(0, 1);
+            if ~isstruct(teamContext) || isempty(fieldnames(teamContext))
+                return;
+            end
+
+            fields = fieldnames(teamContext);
+            for i = 1:numel(fields)
+                fieldName = fields{i};
+                value = teamContext.(fieldName);
+                isBuffField = any(contains(fieldName, {'Bonus', 'Buff', 'Shred', 'Crit', 'EM', 'Amplify'}, 'IgnoreCase', true));
+                if isBuffField && (isnumeric(value) || islogical(value)) && isscalar(value) ...
+                        && isfinite(double(value)) && double(value) ~= 0
+                    buffLines(end + 1, 1) = string(fieldName) + "=" + obj.formatReportValue(value); %#ok<AGROW>
+                end
+            end
+        end
+
+        function lines = appendDamageBreakdownWithBuffs(obj, lines, breakdown, timeline, activeEffects, teamContext)
+            lines(end + 1, 1) = "";
+            lines(end + 1, 1) = "[Damage breakdown with active buffs]";
+            if ~istable(breakdown) || height(breakdown) == 0
+                lines(end + 1, 1) = "(none)";
+                return;
+            end
+
+            staticBuffs = obj.collectTeamBuffValues(teamContext);
+            variableNames = string(breakdown.Properties.VariableNames);
+            for rowIndex = 1:height(breakdown)
+                values = strings(1, numel(variableNames));
+                for columnIndex = 1:numel(variableNames)
+                    raw = breakdown{rowIndex, char(variableNames(columnIndex))};
+                    if iscell(raw) && numel(raw) == 1
+                        raw = raw{1};
+                    end
+                    values(columnIndex) = variableNames(columnIndex) + "=" + obj.formatReportValue(raw);
+                end
+
+                character = obj.reportTableValue(breakdown, rowIndex, 'Character');
+                action = obj.reportTableValue(breakdown, rowIndex, 'Action');
+                occurrence = obj.damageActionOccurrence(breakdown, rowIndex, character, action);
+                [damageTime, timeText] = obj.lookupDamageTime(timeline, character, action, occurrence);
+                timedBuffs = obj.activeBuffsAtTime(activeEffects, damageTime);
+                allBuffs = [staticBuffs; timedBuffs];
+                if isempty(allBuffs)
+                    buffText = "none";
+                else
+                    buffText = strjoin(unique(allBuffs, 'stable'), ", ");
+                end
+                lines(end + 1, 1) = sprintf('%4d | %s | Time=%s | ActiveBuffs=%s', ...
+                    rowIndex, char(strjoin(values, " | ")), char(timeText), char(buffText));
+            end
+        end
+
+        function occurrence = damageActionOccurrence(obj, breakdown, rowIndex, character, action) %#ok<INUSD>
+            occurrence = 1;
+            if rowIndex <= 1 || strlength(action) == 0
+                return;
+            end
+            for i = 1:rowIndex - 1
+                previousCharacter = obj.reportTableValue(breakdown, i, 'Character');
+                previousAction = obj.reportTableValue(breakdown, i, 'Action');
+                if strcmpi(char(previousCharacter), char(character)) && strcmpi(char(previousAction), char(action))
+                    occurrence = occurrence + 1;
+                end
+            end
+        end
+
+        function [damageTime, timeText] = lookupDamageTime(obj, timeline, character, action, occurrence) %#ok<INUSD>
+            damageTime = NaN;
+            timeText = "unresolved";
+            requiredColumns = {'Character', 'Action', 'EndTime'};
+            if ~istable(timeline) || ~all(ismember(requiredColumns, timeline.Properties.VariableNames)) ...
+                    || strlength(action) == 0
+                return;
+            end
+
+            matches = strcmpi(string(timeline.Action), action);
+            if strlength(character) > 0
+                matches = matches & strcmpi(string(timeline.Character), character);
+            end
+            indices = find(matches);
+            if numel(indices) < occurrence
+                return;
+            end
+
+            damageTime = double(timeline.EndTime(indices(occurrence)));
+            timeText = string(sprintf('%.2f s', damageTime));
+        end
+
+        function buffLines = activeBuffsAtTime(obj, activeEffects, damageTime) %#ok<INUSD>
+            buffLines = strings(0, 1);
+            requiredColumns = {'EffectTag', 'StartTime', 'EndTime'};
+            if ~isfinite(damageTime) || ~istable(activeEffects) ...
+                    || ~all(ismember(requiredColumns, activeEffects.Properties.VariableNames))
+                return;
+            end
+
+            isActive = double(activeEffects.StartTime) <= damageTime + 1e-9 ...
+                & double(activeEffects.EndTime) >= damageTime - 1e-9;
+            effectTags = strtrim(string(activeEffects.EffectTag(isActive)));
+            effectTags = effectTags(strlength(effectTags) > 0);
+            buffLines = unique(effectTags, 'stable');
         end
 
         function lines = appendPreviewTimelineLines(obj, lines, slotIndices, rotationTime)
@@ -1113,7 +1189,6 @@ classdef GenshinDMGApp < handle
 
             slot.Build = obj.applyWeaponStatsToBuild(slot.Build, slot.WeaponList, slot.WeaponName, slot.WeaponRefinement);
             slot.Build = obj.applyArtifactSelectionToBuild(slot.Build, slot);
-            [slot.ArtifactBadgePath, slot.WeaponBadgePath] = obj.resolveEquipmentBadgePaths(slot);
             obj.Slots(slotIndex) = slot;
         end
 
@@ -1156,12 +1231,6 @@ classdef GenshinDMGApp < handle
 
             if strlength(slot.PortraitPath) > 0 && isfile(slot.PortraitPath)
                 obj.SlotPortraits{slotIndex}.ImageSource = char(slot.PortraitPath);
-            end
-            if strlength(slot.WeaponBadgePath) > 0 && isfile(slot.WeaponBadgePath)
-                obj.SlotWeaponBadges{slotIndex}.ImageSource = char(slot.WeaponBadgePath);
-            end
-            if strlength(slot.ArtifactBadgePath) > 0 && isfile(slot.ArtifactBadgePath)
-                obj.SlotArtifactBadges{slotIndex}.ImageSource = char(slot.ArtifactBadgePath);
             end
             obj.syncDashboard();
         end
@@ -1208,12 +1277,6 @@ classdef GenshinDMGApp < handle
 
             if strlength(slot.PortraitPath) > 0 && isfile(slot.PortraitPath)
                 obj.SelectedPortrait.ImageSource = char(slot.PortraitPath);
-            end
-            if strlength(slot.WeaponBadgePath) > 0 && isfile(slot.WeaponBadgePath)
-                obj.SelectedWeaponBadge.ImageSource = char(slot.WeaponBadgePath);
-            end
-            if strlength(slot.ArtifactBadgePath) > 0 && isfile(slot.ArtifactBadgePath)
-                obj.SelectedArtifactBadge.ImageSource = char(slot.ArtifactBadgePath);
             end
 
             obj.assignDropdownItems(obj.ArtifactSetDropdown, obj.ArtifactSetDropdown.Items, obj.ArtifactSetDropdown.ItemsData, char(slot.ArtifactSet1));
@@ -1294,7 +1357,6 @@ classdef GenshinDMGApp < handle
             slot.ArtifactSet2 = string(getFieldOrDefault(slot.Build, 'ArtifactSet2', slot.ArtifactSet2));
             slot.ArtifactSet2Pieces = getFieldOrDefault(slot.Build, 'ArtifactSet2Pieces', slot.ArtifactSet2Pieces);
             slot.ArtifactSet4Active = getFieldOrDefault(slot.Build, 'ArtifactSet4Active', slot.ArtifactSet4Active);
-            [slot.ArtifactBadgePath, slot.WeaponBadgePath] = obj.resolveEquipmentBadgePaths(slot);
             obj.Slots(obj.SelectedSlot) = slot;
 
             obj.refreshSlotCard(obj.SelectedSlot);
@@ -1504,41 +1566,6 @@ classdef GenshinDMGApp < handle
                 build.(sprintf('Artifact%sSet', slotNames{i})) = setLayout{i};
             end
             build = materializeArtifactPieceModel(slot.CharacterKey, build, struct());
-        end
-
-        function [artifactBadgePath, weaponBadgePath] = resolveEquipmentBadgePaths(obj, slot)
-            % 为当前槽位生成套装图标与武器图标。
-            [artifactDisplayName, artifactShort, artifactColor] = getArtifactSetTheme(slot.ArtifactSet1);
-            appFolder = fileparts(mfilename('fullpath'));
-            projectRoot = fileparts(fileparts(appFolder));
-            badgeDir = fullfile(projectRoot, 'art');
-            artifactSubLabel = sprintf('%s | %s', artifactShort, obj.resolveArtifactModeLabel(slot));
-            artifactBadgePath = string(getEquipmentBadge('artifact', slot.ArtifactSet1, artifactDisplayName, artifactSubLabel, badgeDir, artifactColor));
-
-            weaponColor = obj.localWeaponBadgeColor(slot);
-            weaponSubLabel = sprintf('R%d', slot.WeaponRefinement);
-            weaponBadgePath = string(getEquipmentBadge('weapon', slot.WeaponName, slot.WeaponName, weaponSubLabel, badgeDir, weaponColor));
-        end
-
-        function color = localWeaponBadgeColor(obj, slot) %#ok<MANU>
-            if isempty(slot.WeaponList)
-                color = [0.55 0.64 0.76];
-                return;
-            end
-            idx = find(string(slot.WeaponList.Name) == slot.WeaponName, 1, 'first');
-            if isempty(idx)
-                color = [0.55 0.64 0.76];
-                return;
-            end
-            rank = slot.WeaponList.Rank(idx);
-            switch rank
-                case 5
-                    color = [0.86 0.66 0.22];
-                case 4
-                    color = [0.58 0.46 0.80];
-                otherwise
-                    color = [0.45 0.58 0.74];
-            end
         end
 
         function modeValue = resolveArtifactMode(obj, slot) %#ok<MANU>
@@ -2403,7 +2430,6 @@ classdef GenshinDMGApp < handle
                     return;
             end
 
-            [slot.ArtifactBadgePath, slot.WeaponBadgePath] = obj.resolveEquipmentBadgePaths(slot);
             obj.Slots(obj.SelectedSlot) = slot;
             obj.refreshSlotCard(obj.SelectedSlot);
             obj.refreshEditorForSelectedSlot();
@@ -2639,7 +2665,6 @@ classdef GenshinDMGApp < handle
             slot.WeaponList = listWeaponsForCharacter(slot.CharacterKey);
             slot.Build = obj.applyWeaponStatsToBuild(slot.Build, slot.WeaponList, slot.WeaponName, slot.WeaponRefinement);
             slot.Build = obj.applyArtifactSelectionToBuild(slot.Build, slot);
-            [slot.ArtifactBadgePath, slot.WeaponBadgePath] = obj.resolveEquipmentBadgePaths(slot);
             obj.Slots(slotIndex) = slot;
             obj.refreshSlotCard(slotIndex);
             if obj.SelectedSlot == slotIndex
@@ -2654,7 +2679,6 @@ classdef GenshinDMGApp < handle
             slot.ArtifactSet1 = string(artifactSetId);
             slot = obj.applyArtifactModeToSlot(slot, '4pc');
             slot.Build = obj.applyArtifactSelectionToBuild(slot.Build, slot);
-            [slot.ArtifactBadgePath, slot.WeaponBadgePath] = obj.resolveEquipmentBadgePaths(slot);
             obj.Slots(slotIndex) = slot;
             obj.refreshSlotCard(slotIndex);
             if obj.SelectedSlot == slotIndex
@@ -2680,7 +2704,6 @@ classdef GenshinDMGApp < handle
             slot = obj.Slots(obj.SelectedSlot);
             slot.WeaponName = string(weaponName);
             slot.Build = obj.applyWeaponStatsToBuild(slot.Build, slot.WeaponList, slot.WeaponName, slot.WeaponRefinement);
-            [slot.ArtifactBadgePath, slot.WeaponBadgePath] = obj.resolveEquipmentBadgePaths(slot);
             obj.Slots(obj.SelectedSlot) = slot;
             obj.refreshSlotCard(obj.SelectedSlot);
             obj.refreshEditorForSelectedSlot();
@@ -2730,7 +2753,6 @@ classdef GenshinDMGApp < handle
             slot = obj.Slots(obj.SelectedSlot);
             slot.WeaponRefinement = round(value);
             slot.Build = obj.applyWeaponStatsToBuild(slot.Build, slot.WeaponList, slot.WeaponName, slot.WeaponRefinement);
-            [slot.ArtifactBadgePath, slot.WeaponBadgePath] = obj.resolveEquipmentBadgePaths(slot);
             obj.Slots(obj.SelectedSlot) = slot;
             obj.refreshSlotCard(obj.SelectedSlot);
             obj.refreshEditorForSelectedSlot();
@@ -2762,7 +2784,6 @@ classdef GenshinDMGApp < handle
             slot.ArtifactSet4Active = getFieldOrDefault(slot.Build, 'ArtifactSet4Active', slot.ArtifactSet4Active);
             slot.Build = obj.applyWeaponStatsToBuild(slot.Build, slot.WeaponList, slot.WeaponName, slot.WeaponRefinement);
             slot.Build = obj.applyArtifactSelectionToBuild(slot.Build, slot);
-            [slot.ArtifactBadgePath, slot.WeaponBadgePath] = obj.resolveEquipmentBadgePaths(slot);
             obj.Slots(obj.SelectedSlot) = slot;
 
             obj.refreshSlotCard(obj.SelectedSlot);
@@ -2794,7 +2815,6 @@ classdef GenshinDMGApp < handle
             slot.ArtifactSet1 = string(setId);
             slot = obj.applyArtifactModeToSlot(slot, '4pc');
             slot.Build = obj.applyArtifactSelectionToBuild(slot.Build, slot);
-            [slot.ArtifactBadgePath, slot.WeaponBadgePath] = obj.resolveEquipmentBadgePaths(slot);
             obj.Slots(obj.SelectedSlot) = slot;
             obj.refreshSlotCard(obj.SelectedSlot);
             obj.refreshEditorForSelectedSlot();
