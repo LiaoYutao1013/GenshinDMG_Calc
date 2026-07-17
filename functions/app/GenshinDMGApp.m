@@ -62,29 +62,16 @@ classdef GenshinDMGApp < handle
         EnemyResField
         EnemyDefField
         StatusLabel
-        TeamHTML
-        EditorHTML
-        DashboardHTML
         LastStatusMessage
         LastResultMetrics
-        LastSummaryRows
-        LastBreakdownRows
+        LastResultReport = ""
 
         RunSingleButton
         RunTeamButton
         ResetSlotButton
         RefreshTimelineButton
 
-        TotalDamageValueLabel
-        TeamDPSValueLabel
-        RotationValueLabel
-
-        SummaryTable
-        EnergyTable
-        BreakdownTable
-        EffectsTable
-        TimelineAxes
-        BarAxes
+        ResultConsole
         ComparisonModeDropdown
         ComparisonLimitSpinner
         ComparisonImplementedOnlyCheckbox
@@ -110,8 +97,6 @@ classdef GenshinDMGApp < handle
             obj.TempRotationDir = fullfile(tempdir, 'genshin_dmg_calc_rotations');
             obj.LastStatusMessage = "界面已加载，等待模拟。";
             obj.LastComparisonResults = table();
-            obj.LastSummaryRows = struct([]);
-            obj.LastBreakdownRows = struct([]);
             obj.LastResultMetrics = struct( ...
                 'HasResult', false, ...
                 'TotalDamage', NaN, ...
@@ -151,10 +136,8 @@ classdef GenshinDMGApp < handle
         end
 
         function runComparison(obj, mode)
-            if nargin >= 2 && ~isempty(mode)
-                obj.setComparisonMode(mode);
-            end
-            obj.runComparisonAnalysis();
+            %#ok<INUSD>
+            obj.setStatus('Comparison charts are not available in the native UI result workflow.');
         end
     end
 
@@ -226,36 +209,12 @@ classdef GenshinDMGApp < handle
             teamPanel.Layout.Row = 1;
             teamPanel.Layout.Column = 1;
 
-            teamRootGrid = uigridlayout(teamPanel, [1 1]);
-            teamRootGrid.RowHeight = {'1x'};
+            teamRootGrid = uigridlayout(teamPanel, [5 1]);
+            teamRootGrid.RowHeight = {28, '1x', '1x', '1x', '1x'};
             teamRootGrid.ColumnWidth = {'1x'};
-            teamRootGrid.Padding = [8 8 8 8];
-
-            teamTabs = uitabgroup(teamRootGrid);
-            teamTabs.Layout.Row = 1;
-            teamTabs.Layout.Column = 1;
-            overviewTab = uitab(teamTabs, 'Title', 'HTML 队伍');
-            configTab = uitab(teamTabs, 'Title', '配置控件');
-            teamTabs.SelectedTab = overviewTab;
-
-            overviewGrid = uigridlayout(overviewTab, [1 1]);
-            overviewGrid.RowHeight = {'1x'};
-            overviewGrid.ColumnWidth = {'1x'};
-            overviewGrid.Padding = [0 0 0 0];
-
-            obj.TeamHTML = uihtml(overviewGrid, ...
-                'HTMLSource', obj.buildUiHtmlSource('team'), ...
-                'Tooltip', '队伍概览');
-            obj.TeamHTML.Layout.Row = 1;
-            obj.TeamHTML.Layout.Column = 1;
-            obj.TeamHTML.HTMLEventReceivedFcn = @(~, event) obj.onHtmlEvent(event);
-            obj.TeamHTML.Data = obj.buildAppShellData();
-
-            teamGrid = uigridlayout(configTab, [5 1]);
-            teamGrid.RowHeight = {28, '1x', '1x', '1x', '1x'};
-            teamGrid.ColumnWidth = {'1x'};
-            teamGrid.RowSpacing = 10;
-            teamGrid.Padding = [10 10 10 10];
+            teamRootGrid.RowSpacing = 10;
+            teamRootGrid.Padding = [10 10 10 10];
+            teamGrid = teamRootGrid;
 
             header = uilabel(teamGrid, ...
                 'Text', '选择 4 名角色，分别配置构筑、武器、命座与起轴时间。', ...
@@ -504,36 +463,11 @@ classdef GenshinDMGApp < handle
             obj.SelectedSlotLabel.Layout.Row = 1;
             obj.SelectedSlotLabel.Layout.Column = 1;
 
-            editorTabs = uitabgroup(editorGrid);
-            editorTabs.Layout.Row = 2;
-            editorTabs.Layout.Column = 1;
-            editorOverviewTab = uitab(editorTabs, 'Title', 'HTML 概览');
-            editorConfigTab = uitab(editorTabs, 'Title', '配置控件');
-            editorTabs.SelectedTab = editorOverviewTab;
-
-            editorOverviewGrid = uigridlayout(editorOverviewTab, [1 1]);
-            editorOverviewGrid.RowHeight = {'1x'};
-            editorOverviewGrid.ColumnWidth = {'1x'};
-            editorOverviewGrid.Padding = [0 0 0 0];
-
-            obj.EditorHTML = uihtml(editorOverviewGrid, ...
-                'HTMLSource', obj.buildUiHtmlSource('editor'), ...
-                'Tooltip', '当前构筑概览');
-            obj.EditorHTML.Layout.Row = 1;
-            obj.EditorHTML.Layout.Column = 1;
-            obj.EditorHTML.HTMLEventReceivedFcn = @(~, event) obj.onHtmlEvent(event);
-            obj.EditorHTML.Data = obj.buildAppShellData();
-
-            editorConfigGrid = uigridlayout(editorConfigTab, [1 1]);
-            editorConfigGrid.RowHeight = {'1x'};
-            editorConfigGrid.ColumnWidth = {'1x'};
-            editorConfigGrid.Padding = [0 0 0 0];
-
-            heroCard = uipanel(editorConfigGrid, ...
+            heroCard = uipanel(editorGrid, ...
                 'Title', '角色概览', ...
                 'BackgroundColor', [0.96 0.97 0.99], ...
                 'ForegroundColor', [0.28 0.34 0.44]);
-            heroCard.Layout.Row = 1;
+            heroCard.Layout.Row = 2;
             heroCard.Layout.Column = 1;
 
             heroGrid = uigridlayout(heroCard, [3 2]);
@@ -715,17 +649,17 @@ classdef GenshinDMGApp < handle
         end
 
         function createResultPanel(obj, parent)
-            % 右侧结果与图表区域。
+            % 右侧模拟参数与命令窗口式结果输出。
             resultPanel = uipanel(parent, ...
-                'Title', '计算结果与可视化', ...
+                'Title', '模拟结果', ...
                 'FontWeight', 'bold', ...
                 'BackgroundColor', [0.99 0.99 1.00], ...
                 'ForegroundColor', [0.18 0.23 0.33]);
             resultPanel.Layout.Row = 1;
             resultPanel.Layout.Column = 2;
 
-            resultGrid = uigridlayout(resultPanel, [3 1]);
-            resultGrid.RowHeight = {156, 360, '1x'};
+            resultGrid = uigridlayout(resultPanel, [2 1]);
+            resultGrid.RowHeight = {156, '1x'};
             resultGrid.ColumnWidth = {'1x'};
             resultGrid.RowSpacing = 12;
             resultGrid.Padding = [12 12 12 12];
@@ -826,686 +760,310 @@ classdef GenshinDMGApp < handle
             obj.RefreshTimelineButton.Layout.Row = 3;
             obj.RefreshTimelineButton.Layout.Column = 6;
 
-            dashboardPath = obj.resolveDashboardHtmlSource();
-            obj.DashboardHTML = uihtml(resultGrid, ...
-                'HTMLSource', dashboardPath, ...
-                'Tooltip', '伤害仪表盘');
-            obj.DashboardHTML.Layout.Row = 2;
-            obj.DashboardHTML.Layout.Column = 1;
-            obj.DashboardHTML.HTMLEventReceivedFcn = @(~, event) obj.onHtmlEvent(event);
-            obj.DashboardHTML.Data = obj.buildAppShellData();
+            outputPanel = uipanel(resultGrid, ...
+                'Title', '命令窗口式模拟输出', ...
+                'BackgroundColor', [0.08 0.10 0.14], ...
+                'ForegroundColor', [0.87 0.91 0.96]);
+            outputPanel.Layout.Row = 2;
+            outputPanel.Layout.Column = 1;
 
-            tabs = uitabgroup(resultGrid);
-            tabs.Layout.Row = 3;
-            tabs.Layout.Column = 1;
+            outputGrid = uigridlayout(outputPanel, [1 1]);
+            outputGrid.RowHeight = {'1x'};
+            outputGrid.ColumnWidth = {'1x'};
+            outputGrid.Padding = [8 8 8 8];
 
-            summaryTab = uitab(tabs, 'Title', '成员汇总');
-            energyTab = uitab(tabs, 'Title', '能量恢复过程');
-            breakdownTab = uitab(tabs, 'Title', '伤害明细');
-            effectsTab = uitab(tabs, 'Title', '持续效果');
-            timelineTab = uitab(tabs, 'Title', '输出轴');
-            chartTab = uitab(tabs, 'Title', '成员对比');
-
-            comparisonTab = uitab(tabs, 'Title', '对比分析');
-
-            obj.SummaryTable = uitable(summaryTab, ...
-                'Position', [8 8 760 560], ...
-                'RowName', {});
-
-            obj.EnergyTable = uitable(energyTab, ...
-                'Position', [8 8 760 560], ...
-                'RowName', {});
-
-            obj.BreakdownTable = uitable(breakdownTab, ...
-                'Position', [8 8 760 560], ...
-                'RowName', {});
-
-            obj.EffectsTable = uitable(effectsTab, ...
-                'Position', [8 8 760 560], ...
-                'RowName', {});
-
-            obj.TimelineAxes = uiaxes(timelineTab, 'Position', [12 12 750 552]);
-            title(obj.TimelineAxes, '输出轴预览');
-            xlabel(obj.TimelineAxes, 'Time (s)');
-            ylabel(obj.TimelineAxes, 'Character');
-            grid(obj.TimelineAxes, 'on');
-
-            obj.BarAxes = uiaxes(chartTab, 'Position', [12 12 750 552]);
-            title(obj.BarAxes, '成员 DPS 对比');
-            ylabel(obj.BarAxes, 'DPS');
-            grid(obj.BarAxes, 'on');
-
-            obj.createComparisonTab(comparisonTab);
-        end
-
-        function [panel, valueLabel] = createKpiCard(obj, parent, columnIndex, titleText, accentColor) %#ok<INUSD>
-            % 生成顶部 KPI 卡片。
-            panel = uipanel(parent, ...
-                'BackgroundColor', [1.00 1.00 1.00], ...
-                'ForegroundColor', accentColor);
-            panel.Layout.Row = 1;
-            panel.Layout.Column = columnIndex;
-
-            grid = uigridlayout(panel, [2 1]);
-            grid.RowHeight = {24, '1x'};
-            grid.ColumnWidth = {'1x'};
-            grid.Padding = [10 10 10 10];
-            grid.RowSpacing = 2;
-            grid.BackgroundColor = [1.00 1.00 1.00];
-
-            titleLabel = uilabel(grid, ...
-                'Text', titleText, ...
-                'FontWeight', 'bold', ...
-                'FontColor', accentColor, ...
-                'FontSize', 12);
-            titleLabel.Layout.Row = 1;
-            titleLabel.Layout.Column = 1;
-
-            valueLabel = uilabel(grid, ...
-                'Text', '--', ...
-                'FontWeight', 'bold', ...
-                'FontSize', 20, ...
-                'FontColor', [0.18 0.22 0.30]);
-            valueLabel.Layout.Row = 2;
-            valueLabel.Layout.Column = 1;
-        end
-
-        function createComparisonTab(obj, parent)
-            compareGrid = uigridlayout(parent, [2 1]);
-            compareGrid.RowHeight = {58, '1x'};
-            compareGrid.ColumnWidth = {'1x'};
-            compareGrid.RowSpacing = 8;
-            compareGrid.Padding = [8 8 8 8];
-
-            controlPanel = uipanel(compareGrid, ...
-                'Title', '对比设置', ...
-                'BackgroundColor', [0.96 0.97 0.99], ...
-                'ForegroundColor', [0.28 0.34 0.44]);
-            controlPanel.Layout.Row = 1;
-            controlPanel.Layout.Column = 1;
-
-            controlGrid = uigridlayout(controlPanel, [1 6]);
-            controlGrid.RowHeight = {30};
-            controlGrid.ColumnWidth = {64, 78, 132, 92, 92, '1x'};
-            controlGrid.ColumnSpacing = 8;
-            controlGrid.Padding = [8 6 8 6];
-            controlGrid.BackgroundColor = [0.96 0.97 0.99];
-
-            modeLabel = uilabel(controlGrid, 'Text', 'Top N', 'FontColor', [0.30 0.34 0.42]);
-            modeLabel.Layout.Row = 1;
-            modeLabel.Layout.Column = 1;
-
-            obj.ComparisonLimitSpinner = uispinner(controlGrid, ...
-                'Limits', [3 80], ...
-                'RoundFractionalValues', 'on', ...
-                'Step', 1, ...
-                'Value', 20);
-            obj.ComparisonLimitSpinner.Layout.Row = 1;
-            obj.ComparisonLimitSpinner.Layout.Column = 2;
-
-            obj.ComparisonImplementedOnlyCheckbox = uicheckbox(controlGrid, ...
-                'Text', '仅已建模套装', ...
-                'Value', true);
-            obj.ComparisonImplementedOnlyCheckbox.Layout.Row = 1;
-            obj.ComparisonImplementedOnlyCheckbox.Layout.Column = 3;
-
-            obj.ComparisonStatusLabel = uilabel(controlGrid, ...
-                'Text', '每个对比功能已拆分到下方独立标签页；百分比基准为该角色专武。', ...
+            obj.ResultConsole = uitextarea(outputGrid, ...
+                'Editable', 'off', ...
+                'FontName', 'Consolas', ...
                 'FontSize', 12, ...
-                'FontColor', [0.36 0.39 0.47]);
-            obj.ComparisonStatusLabel.Layout.Row = 1;
-            obj.ComparisonStatusLabel.Layout.Column = [4 6];
-
-            obj.ComparisonTabGroup = uitabgroup(compareGrid, ...
-                'SelectionChangedFcn', @(~, event) obj.setComparisonMode(event.NewValue.UserData));
-            obj.ComparisonTabGroup.Layout.Row = 2;
-            obj.ComparisonTabGroup.Layout.Column = 1;
-
-            obj.ComparisonPages = struct();
-            obj.ComparisonPages.weapon_single = obj.createComparisonPage( ...
-                obj.ComparisonTabGroup, 'weapon_single', '武器排名', ...
-                '当前角色分别装备同类型武器时的期望伤害排名。');
-            obj.ComparisonPages.artifact_single = obj.createComparisonPage( ...
-                obj.ComparisonTabGroup, 'artifact_single', '圣遗物排名', ...
-                '当前角色分别装备各 4 件套时的期望伤害排名。');
-            obj.ComparisonPages.artifact_team = obj.createComparisonPage( ...
-                obj.ComparisonTabGroup, 'artifact_team', '圣遗物进队', ...
-                '当前角色更换 4 件套后，在当前启用队伍中的总伤害排名。');
-            obj.ComparisonPages.artifact_constellation = obj.createComparisonPage( ...
-                obj.ComparisonTabGroup, 'artifact_constellation', '套装命座', ...
-                '当前角色在同一套圣遗物下 C0-C6 的期望伤害排名。');
-            obj.ComparisonPages.constellation_team_gain = obj.createComparisonPage( ...
-                obj.ComparisonTabGroup, 'constellation_team_gain', '命座团队提升', ...
-                '当前角色 C0-C6 对当前启用队伍总伤害的提升分布。');
-
-            obj.setComparisonMode('weapon_single');
-        end
-
-        function page = createComparisonPage(obj, parent, mode, titleText, description)
-            tab = uitab(parent, 'Title', titleText);
-            tab.UserData = char(string(mode));
-
-            pageGrid = uigridlayout(tab, [4 1]);
-            pageGrid.RowHeight = {36, 28, 34, '1x'};
-            pageGrid.ColumnWidth = {'1x'};
-            pageGrid.RowSpacing = 8;
-            pageGrid.Padding = [8 8 8 8];
-
-            header = uilabel(pageGrid, ...
-                'Text', description, ...
-                'FontSize', 12, ...
-                'FontWeight', 'bold', ...
-                'FontColor', [0.18 0.23 0.33]);
-            header.Layout.Row = 1;
-            header.Layout.Column = 1;
-
-            roleLabel = uilabel(pageGrid, ...
-                'Text', '角色：--', ...
-                'FontWeight', 'bold', ...
-                'FontColor', [0.24 0.29 0.38]);
-            roleLabel.Layout.Row = 2;
-            roleLabel.Layout.Column = 1;
-
-            actionGrid = uigridlayout(pageGrid, [1 3]);
-            actionGrid.Layout.Row = 3;
-            actionGrid.Layout.Column = 1;
-            actionGrid.ColumnWidth = {104, 118, '1x'};
-            actionGrid.RowHeight = {'1x'};
-            actionGrid.ColumnSpacing = 8;
-            actionGrid.Padding = [0 0 0 0];
-
-            runButton = uibutton(actionGrid, 'push', ...
-                'Text', '运行本页', ...
-                'BackgroundColor', [0.46 0.70 0.82], ...
-                'FontColor', [0.08 0.12 0.16], ...
-                'ButtonPushedFcn', @(~, ~) obj.runComparisonAnalysis(mode));
-            runButton.Layout.Row = 1;
-            runButton.Layout.Column = 1;
-
-            applyButton = uibutton(actionGrid, 'push', ...
-                'Text', '应用第 1 名', ...
-                'ButtonPushedFcn', @(~, ~) obj.applyBestComparisonCandidate(mode));
-            applyButton.Layout.Row = 1;
-            applyButton.Layout.Column = 2;
-
-            statusLabel = uilabel(actionGrid, ...
-                'Text', '等待计算。', ...
-                'FontColor', [0.36 0.39 0.47]);
-            statusLabel.Layout.Row = 1;
-            statusLabel.Layout.Column = 3;
-
-            contentGrid = uigridlayout(pageGrid, [1 2]);
-            contentGrid.Layout.Row = 4;
-            contentGrid.Layout.Column = 1;
-            contentGrid.ColumnWidth = {'1.15x', '1x'};
-            contentGrid.RowHeight = {'1x'};
-            contentGrid.ColumnSpacing = 8;
-            contentGrid.Padding = [0 0 0 0];
-
-            resultTable = uitable(contentGrid, 'RowName', {});
-            resultTable.Layout.Row = 1;
-            resultTable.Layout.Column = 1;
-
-            resultAxes = uiaxes(contentGrid);
-            resultAxes.Layout.Row = 1;
-            resultAxes.Layout.Column = 2;
-            title(resultAxes, titleText);
-            ylabel(resultAxes, '期望伤害');
-            grid(resultAxes, 'on');
-
-            page = struct( ...
-                'Mode', string(mode), ...
-                'Tab', tab, ...
-                'Table', resultTable, ...
-                'Axes', resultAxes, ...
-                'HeaderLabel', header, ...
-                'RoleLabel', roleLabel, ...
-                'StatusLabel', statusLabel, ...
-                'RunButton', runButton, ...
-                'ApplyBestButton', applyButton);
-        end
-
-        function data = buildDashboardData(obj)
-            slot = obj.Slots(obj.SelectedSlot);
-            activeCount = nnz([obj.Slots.Enabled]);
-            totalSlots = numel(obj.Slots);
-
-            hasResult = false;
-            totalDamageValue = '--';
-            dpsValue = '--';
-            rotationValue = '--';
-            totalDamageNote = '尚未运行';
-            dpsNote = sprintf('%d/%d 启用', activeCount, totalSlots);
-            rotationNote = sprintf('起始 %.1f s', slot.StartTime);
-
-            if isstruct(obj.LastResultMetrics) ...
-                    && isfield(obj.LastResultMetrics, 'HasResult') ...
-                    && logical(obj.LastResultMetrics.HasResult)
-                hasResult = true;
-                totalDamageValue = obj.formatLargeNumber(obj.LastResultMetrics.TotalDamage);
-                dpsValue = obj.formatLargeNumber(obj.LastResultMetrics.DPS);
-                rotationValue = sprintf('%.2f s', obj.LastResultMetrics.RotationTime);
-                totalDamageNote = char(obj.LastSimulationMode);
-            end
-
-            statusMessage = string(obj.LastStatusMessage);
-            if strlength(strtrim(statusMessage)) == 0
-                statusMessage = "等待模拟。";
-            end
-            statusTone = obj.classifyStatusTone(statusMessage, hasResult);
-
-            data = struct( ...
-                'headline', '伤害仪表盘', ...
-                'subtitle', char(statusMessage), ...
-                'statusTone', char(statusTone), ...
-                'statusLabel', char(obj.statusToneLabel(statusTone)), ...
-                'totalDamageValue', totalDamageValue, ...
-                'totalDamageNote', totalDamageNote, ...
-                'dpsValue', dpsValue, ...
-                'dpsNote', dpsNote, ...
-                'rotationValue', rotationValue, ...
-                'rotationNote', rotationNote, ...
-                'slotValue', sprintf('槽位 %d', obj.SelectedSlot), ...
-                'slotNote', sprintf('R%d · %.1f s · %s', slot.WeaponRefinement, slot.StartTime, char(obj.localOnOff(slot.Enabled))), ...
-                'characterName', char(slot.DisplayName), ...
-                'weaponName', char(slot.WeaponName), ...
-                'artifactName', sprintf('%s · %s', char(slot.ArtifactSet1), char(obj.resolveArtifactModeLabel(slot))), ...
-                'presetName', char(obj.lookupPresetLabel(slot)), ...
-                'talentSummary', sprintf('C%d · Lv.%d · R%d', slot.Constellation, slot.TalentLevel, slot.WeaponRefinement), ...
-                'modeSummary', sprintf('%s · %d/%d 启用', char(obj.LastSimulationMode), activeCount, totalSlots));
-        end
-
-        function data = buildAppShellData(obj)
-            dashboard = obj.buildDashboardData();
-            slotCards = obj.buildSlotCardData();
-            selectedSlot = slotCards(obj.SelectedSlot);
-            [durationValue, enemyLevel, enemyRes, enemyDef] = obj.currentSimulationInputs();
-
-            data = dashboard;
-            data.dashboard = dashboard;
-            data.slots = slotCards;
-            data.selectedSlot = selectedSlot;
-            data.selectedSlotIndex = obj.SelectedSlot;
-            data.activeCount = nnz([obj.Slots.Enabled]);
-            data.totalSlots = numel(obj.Slots);
-            data.teamDuration = sprintf('%.1f s', durationValue);
-            data.enemySummary = sprintf('Lv.%d / 抗性 %.2f / 减防 %.2f', ...
-                round(enemyLevel), enemyRes, enemyDef);
-            data.statusMessage = char(obj.LastStatusMessage);
-            data.lastMode = char(obj.LastSimulationMode);
-            data.summaryRows = obj.LastSummaryRows;
-            data.breakdownRows = obj.LastBreakdownRows;
-            data.chartRows = obj.buildHtmlChartRows(obj.LastSummaryRows);
-            [data.timelineRows, data.timelineBlocks] = obj.buildHtmlTimelineData();
-        end
-
-        function [durationValue, enemyLevel, enemyRes, enemyDef] = currentSimulationInputs(obj)
-            durationValue = 20;
-            enemyLevel = obj.Enemy.Level;
-            enemyRes = obj.Enemy.Res;
-            enemyDef = obj.Enemy.DefReduct;
-
-            if ~isempty(obj.TeamDurationField) && isvalid(obj.TeamDurationField)
-                durationValue = obj.TeamDurationField.Value;
-            end
-            if ~isempty(obj.EnemyLevelField) && isvalid(obj.EnemyLevelField)
-                enemyLevel = obj.EnemyLevelField.Value;
-            end
-            if ~isempty(obj.EnemyResField) && isvalid(obj.EnemyResField)
-                enemyRes = obj.EnemyResField.Value;
-            end
-            if ~isempty(obj.EnemyDefField) && isvalid(obj.EnemyDefField)
-                enemyDef = obj.EnemyDefField.Value;
-            end
-        end
-
-        function slotCards = buildSlotCardData(obj)
-            slotTemplate = struct( ...
-                'index', 0, ...
-                'isSelected', false, ...
-                'enabled', false, ...
-                'displayName', '', ...
-                'characterKey', '', ...
-                'weaponName', '', ...
-                'artifactName', '', ...
-                'artifactMode', '', ...
-                'presetName', '', ...
-                'talentSummary', '', ...
-                'startTime', '', ...
-                'portraitUrl', '', ...
-                'weaponBadgeUrl', '', ...
-                'artifactBadgeUrl', '');
-            slotCards = repmat(slotTemplate, 1, numel(obj.Slots));
-
-            for i = 1:numel(obj.Slots)
-                slot = obj.Slots(i);
-                slotCards(i).index = i;
-                slotCards(i).isSelected = i == obj.SelectedSlot;
-                slotCards(i).enabled = logical(slot.Enabled);
-                slotCards(i).displayName = char(slot.DisplayName);
-                slotCards(i).characterKey = char(slot.CharacterKey);
-                slotCards(i).weaponName = char(slot.WeaponName);
-                slotCards(i).artifactName = char(slot.ArtifactSet1);
-                slotCards(i).artifactMode = char(obj.resolveArtifactModeLabel(slot));
-                slotCards(i).presetName = char(obj.lookupPresetLabel(slot));
-                slotCards(i).talentSummary = sprintf('C%d / Lv.%d / R%d', ...
-                    slot.Constellation, slot.TalentLevel, slot.WeaponRefinement);
-                slotCards(i).startTime = sprintf('%.1f s', slot.StartTime);
-                slotCards(i).portraitUrl = obj.localImageDataUri(slot.PortraitPath);
-                slotCards(i).weaponBadgeUrl = obj.localImageDataUri(slot.WeaponBadgePath);
-                slotCards(i).artifactBadgeUrl = obj.localImageDataUri(slot.ArtifactBadgePath);
-            end
-        end
-
-        function chartRows = buildHtmlChartRows(obj, summaryRows) %#ok<INUSD>
-            chartTemplate = struct('label', '', 'value', 0, 'valueLabel', '', 'width', 0);
-            chartRows = repmat(chartTemplate, 0, 1);
-            if isempty(summaryRows)
-                return;
-            end
-
-            values = [summaryRows.StandaloneDPS];
-            maxValue = max(values);
-            if isempty(maxValue) || maxValue <= 0
-                maxValue = 1;
-            end
-
-            chartRows = repmat(chartTemplate, 1, numel(summaryRows));
-            for i = 1:numel(summaryRows)
-                chartRows(i).label = summaryRows(i).Character;
-                chartRows(i).value = summaryRows(i).StandaloneDPS;
-                chartRows(i).valueLabel = obj.formatLargeNumber(summaryRows(i).StandaloneDPS);
-                chartRows(i).width = max(4, min(100, 100 * summaryRows(i).StandaloneDPS / maxValue));
-            end
-        end
-
-        function [timelineRows, timelineBlocks] = buildHtmlTimelineData(obj)
-            rowTemplate = struct('rowIndex', 0, 'slotIndex', 0, 'label', '');
-            blockTemplate = struct('rowIndex', 0, 'label', '', 'left', 0, 'width', 0, 'tone', 1);
-            timelineRows = repmat(rowTemplate, 0, 1);
-            timelineBlocks = repmat(blockTemplate, 0, 1);
-
-            slotIndices = find([obj.Slots.Enabled]);
-            if isempty(slotIndices)
-                slotIndices = obj.SelectedSlot;
-            end
-
-            [durationValue, ~, ~, ~] = obj.currentSimulationInputs();
-            durationValue = max(1, durationValue);
-            timelineRows = repmat(rowTemplate, 1, numel(slotIndices));
-
-            for rowIndex = 1:numel(slotIndices)
-                slotIndex = slotIndices(rowIndex);
-                slot = obj.Slots(slotIndex);
-                timelineRows(rowIndex).rowIndex = rowIndex;
-                timelineRows(rowIndex).slotIndex = slotIndex;
-                timelineRows(rowIndex).label = char(slot.DisplayName);
-
-                actions = parseRotationTextTokens(slot.RotationText);
-                resultRotationTime = obj.lookupResultRotationTime(rowIndex);
-                [durations, labels] = obj.estimateTimelineBlocks(slot, actions, resultRotationTime);
-                if isempty(durations)
-                    durations = 1.0;
-                    labels = {char(slot.CharacterKey)};
-                end
-
-                currentTime = slot.StartTime;
-                for j = 1:numel(durations)
-                    startTime = currentTime;
-                    endTime = currentTime + durations(j);
-                    visibleStart = max(0, startTime);
-                    visibleEnd = min(durationValue, endTime);
-                    currentTime = endTime;
-                    if visibleEnd <= visibleStart
-                        continue;
-                    end
-
-                    block = blockTemplate;
-                    block.rowIndex = rowIndex;
-                    block.label = labels{j};
-                    block.left = 100 * visibleStart / durationValue;
-                    block.width = max(2, 100 * (visibleEnd - visibleStart) / durationValue);
-                    block.tone = mod(rowIndex - 1, 4) + 1;
-                    timelineBlocks(end + 1) = block; %#ok<AGROW>
-                end
-            end
-        end
-
-        function rotationTime = lookupResultRotationTime(obj, resultIndex)
-            rotationTime = [];
-            if isempty(obj.LastMemberResults) || ~isstruct(obj.LastMemberResults)
-                return;
-            end
-            if numel(obj.LastMemberResults) >= resultIndex ...
-                    && isfield(obj.LastMemberResults(resultIndex), 'RotationTime')
-                rotationTime = obj.LastMemberResults(resultIndex).RotationTime;
-            end
+                'FontColor', [0.90 0.94 0.98], ...
+                'BackgroundColor', [0.06 0.08 0.12], ...
+                'Value', {'>> 等待运行模拟。'});
+            obj.ResultConsole.Layout.Row = 1;
+            obj.ResultConsole.Layout.Column = 1;
         end
 
         function syncDashboard(obj)
-            data = obj.buildAppShellData();
-            htmlComponents = {obj.TeamHTML, obj.EditorHTML, obj.DashboardHTML};
-            for i = 1:numel(htmlComponents)
-                component = htmlComponents{i};
-                if ~isempty(component) && isvalid(component)
-                    component.Data = data;
-                end
+            obj.updateResultConsole(false);
+        end
+
+        function updateResultConsole(obj, printToCommandWindow)
+            if nargin < 2
+                printToCommandWindow = false;
+            end
+
+            lines = obj.buildResultReportLines();
+            obj.LastResultReport = strjoin(lines, newline);
+
+            if ~isempty(obj.ResultConsole) && isvalid(obj.ResultConsole)
+                obj.ResultConsole.Value = cellstr(lines);
+            end
+
+            if printToCommandWindow
+                fprintf('%s\n', char(obj.LastResultReport));
             end
         end
 
-        function htmlSource = resolveDashboardHtmlSource(obj)
-            htmlSource = obj.buildUiHtmlSource('dashboard');
-        end
+        function lines = buildResultReportLines(obj)
+            lines = strings(0, 1);
+            lines(end + 1, 1) = ">> Genshin DMG Calc simulation report";
+            lines(end + 1, 1) = "   Generated: " + string(datetime('now', 'Format', 'yyyy-MM-dd HH:mm:ss'));
+            lines(end + 1, 1) = "   Status: " + string(obj.LastStatusMessage);
+            lines(end + 1, 1) = "";
+            lines(end + 1, 1) = "[Simulation inputs]";
+            lines(end + 1, 1) = sprintf('Rotation duration: %.2f s | Enemy Lv.%g | RES %.2f | DEF reduction %.2f', ...
+                obj.TeamDurationField.Value, obj.EnemyLevelField.Value, obj.EnemyResField.Value, obj.EnemyDefField.Value);
 
-        function htmlSource = resolveUiHtmlSource(obj, htmlName) %#ok<INUSD>
-            appFolder = fileparts(mfilename('fullpath'));
-            projectRoot = fileparts(fileparts(appFolder));
-            candidates = { ...
-                fullfile(appFolder, 'ui', 'html', htmlName), ...
-                fullfile(projectRoot, 'functions', 'app', 'ui', 'html', htmlName), ...
-                fullfile(projectRoot, 'app', 'ui', 'html', htmlName), ...
-                fullfile(ctfroot, 'functions', 'app', 'ui', 'html', htmlName), ...
-                fullfile(ctfroot, 'app', 'ui', 'html', htmlName), ...
-                fullfile(appFolder, 'GenshinDMGDashboard.html')};
-
-            for i = 1:numel(candidates)
-                if isfile(candidates{i})
-                    htmlSource = candidates{i};
-                    return;
-                end
-            end
-
-            htmlSource = ['<!doctype html><html><head><meta charset="utf-8">' ...
-                '<style>html,body{margin:0;width:100%;height:100%;font-family:Segoe UI,Arial,sans-serif;' ...
-                'background:#f6f8fb;color:#1f2937}.wrap{padding:14px}.card{background:#fff;border:1px solid #d9e1ec;' ...
-                'border-radius:8px;padding:12px}.label{font-size:12px;color:#667085}.value{margin-top:6px;font-size:22px;' ...
-                'font-weight:700}</style></head><body><div class="wrap"><div class="card">' ...
-                '<div class="label">GenshinDMG Simulator</div><div class="value">Dashboard unavailable</div>' ...
-                '<div class="label">The main simulator UI is still available.</div></div></div></body></html>'];
-        end
-
-        function htmlSource = buildUiHtmlSource(obj, viewName)
-            cssSource = obj.readUiResourceText(fullfile('css', 'genshin-app.css'));
-            jsSource = obj.readUiResourceText(fullfile('js', 'genshin-app.js'));
-            jsSource = strrep(jsSource, '</script>', '<\/script>');
-            viewName = char(string(viewName));
-
-            htmlSource = sprintf([ ...
-                '<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">' ...
-                '<meta name="viewport" content="width=device-width, initial-scale=1">' ...
-                '<style>%s</style></head><body>' ...
-                '<main id="app" class="ui-shell %s-shell" data-view="%s"></main>' ...
-                '<script>%s</script>' ...
-                '<script>function setup(htmlComponent){window.GenshinDMGUI.setup(htmlComponent);}</script>' ...
-                '</body></html>'], ...
-                cssSource, viewName, viewName, jsSource);
-        end
-
-        function text = readUiResourceText(obj, relativePath)
-            resourcePath = obj.resolveUiResourcePath(relativePath);
-            if strlength(resourcePath) == 0
-                text = '';
-                return;
-            end
-            text = fileread(resourcePath);
-        end
-
-        function resourcePath = resolveUiResourcePath(obj, relativePath) %#ok<INUSD>
-            appFolder = fileparts(mfilename('fullpath'));
-            projectRoot = fileparts(fileparts(appFolder));
-            candidates = { ...
-                fullfile(appFolder, 'ui', relativePath), ...
-                fullfile(projectRoot, 'functions', 'app', 'ui', relativePath), ...
-                fullfile(projectRoot, 'app', 'ui', relativePath), ...
-                fullfile(ctfroot, 'functions', 'app', 'ui', relativePath), ...
-                fullfile(ctfroot, 'app', 'ui', relativePath)};
-
-            resourcePath = "";
-            for i = 1:numel(candidates)
-                if isfile(candidates{i})
-                    resourcePath = string(candidates{i});
-                    return;
-                end
-            end
-        end
-
-        function fileUrl = localFileUrl(obj, filePath) %#ok<INUSD>
-            fileUrl = '';
-            if strlength(string(filePath)) == 0 || ~isfile(filePath)
-                return;
-            end
-
-            normalizedPath = strrep(char(filePath), '\', '/');
-            if ispc
-                fileUrl = ['file:///' normalizedPath];
+            hasResult = isstruct(obj.LastResultMetrics) && isfield(obj.LastResultMetrics, 'HasResult') ...
+                && logical(obj.LastResultMetrics.HasResult);
+            if hasResult && isstruct(obj.LastTeamResult) && isfield(obj.LastTeamResult, 'TotalDMG')
+                lines = obj.appendTeamResultReport(lines);
+            elseif hasResult && ~isempty(obj.LastMemberResults)
+                lines = obj.appendSingleResultReport(lines);
             else
-                fileUrl = ['file://' normalizedPath];
-            end
-            fileUrl = strrep(fileUrl, ' ', '%20');
-        end
-
-        function dataUri = localImageDataUri(obj, filePath) %#ok<INUSD>
-            dataUri = '';
-            filePath = string(filePath);
-            if strlength(filePath) == 0 || ~isfile(filePath)
-                return;
-            end
-
-            [~, ~, ext] = fileparts(filePath);
-            mimeType = obj.imageMimeType(ext);
-            if strlength(mimeType) == 0
-                return;
-            end
-
-            fid = fopen(filePath, 'r');
-            if fid < 0
-                return;
-            end
-            bytes = fread(fid, Inf, '*uint8')';
-            fclose(fid);
-            dataUri = ['data:' char(mimeType) ';base64,' matlab.net.base64encode(bytes)];
-        end
-
-        function mimeType = imageMimeType(obj, ext) %#ok<INUSD>
-            switch lower(char(string(ext)))
-                case '.png'
-                    mimeType = "image/png";
-                case {'.jpg', '.jpeg'}
-                    mimeType = "image/jpeg";
-                case '.gif'
-                    mimeType = "image/gif";
-                case '.webp'
-                    mimeType = "image/webp";
-                otherwise
-                    mimeType = "";
+                lines(end + 1, 1) = "";
+                lines(end + 1, 1) = "[Rotation preview]";
+                lines = obj.appendPreviewTimelineLines(lines);
             end
         end
 
-        function onHtmlEvent(obj, event)
-            eventName = string(event.HTMLEventName);
-            eventData = event.HTMLEventData;
+        function lines = appendSingleResultReport(obj, lines)
+            result = obj.LastMemberResults(1);
+            slot = obj.Slots(obj.SelectedSlot);
+            lines(end + 1, 1) = "";
+            lines(end + 1, 1) = "[Single character result]";
+            lines(end + 1, 1) = sprintf('Character: %s | Total damage: %.0f | DPS: %.2f | Rotation: %.2f s', ...
+                char(string(getFieldOrDefault(result, 'DisplayName', slot.DisplayName))), ...
+                double(getFieldOrDefault(result, 'TotalDMG', 0)), ...
+                double(getFieldOrDefault(result, 'DPS', 0)), ...
+                double(getFieldOrDefault(result, 'RotationTime', 0)));
+            lines = obj.appendBuildPanelLines(lines, obj.SelectedSlot);
+            lines(end + 1, 1) = "";
+            lines(end + 1, 1) = "[Estimated action timeline]";
+            lines = obj.appendPreviewTimelineLines(lines, obj.SelectedSlot, ...
+                double(getFieldOrDefault(result, 'RotationTime', 0)));
+            lines = obj.appendReportTable(lines, "Damage breakdown", getFieldOrDefault(result, 'Breakdown', table()));
+        end
 
-            try
-                switch eventName
-                    case "selectSlot"
-                        slotIndex = obj.getHtmlEventNumber(eventData, 'slotIndex', obj.SelectedSlot);
-                        obj.selectSlot(max(1, min(numel(obj.Slots), round(slotIndex))));
-                    case "openEditor"
-                        slotIndex = obj.getHtmlEventNumber(eventData, 'slotIndex', obj.SelectedSlot);
-                        obj.openEditorForSlot(max(1, min(numel(obj.Slots), round(slotIndex))));
-                    case "toggleSlot"
-                        slotIndex = obj.getHtmlEventNumber(eventData, 'slotIndex', obj.SelectedSlot);
-                        slotIndex = max(1, min(numel(obj.Slots), round(slotIndex)));
-                        obj.Slots(slotIndex).Enabled = ~logical(obj.Slots(slotIndex).Enabled);
-                        obj.refreshSlotCard(slotIndex);
-                        if obj.SelectedSlot == slotIndex
-                            obj.refreshEditorForSelectedSlot();
-                        end
-                        obj.refreshTimelinePreview();
-                    case "runSingle"
-                        obj.runSingleSimulation();
-                    case "runTeam"
-                        obj.runTeamSimulation();
-                    case "refreshTimeline"
-                        obj.refreshTimelinePreview();
-                    case "resetSlot"
-                        obj.onResetCurrentSlot();
-                    case "restoreRotation"
-                        obj.onRestoreDefaultRotation();
+        function lines = appendTeamResultReport(obj, lines)
+            result = obj.LastTeamResult;
+            totalDamage = double(getFieldOrDefault(result, 'TotalDMG', 0));
+            rotationDuration = double(getFieldOrDefault(result, 'RotationDuration', obj.TeamDurationField.Value));
+            lines(end + 1, 1) = "";
+            lines(end + 1, 1) = "[Team result]";
+            lines(end + 1, 1) = sprintf('Total damage: %.0f | Team DPS: %.2f | Rotation: %.2f s | Next cycle: %s | Readiness: %.2f', ...
+                totalDamage, double(getFieldOrDefault(result, 'DPS', 0)), rotationDuration, ...
+                char(obj.localOnOff(logical(getFieldOrDefault(result, 'CanLoopNextCycle', false)))), ...
+                double(getFieldOrDefault(result, 'LoopReadiness', 0)));
+
+            summary = getFieldOrDefault(result, 'Summary', table());
+            if istable(summary) && height(summary) > 0
+                lines(end + 1, 1) = "";
+                lines(end + 1, 1) = "[Member damage and contribution]";
+                for i = 1:height(summary)
+                    character = obj.reportTableValue(summary, i, 'Character');
+                    damage = obj.reportTableNumber(summary, i, 'TotalDMG');
+                    teamDps = obj.reportTableNumber(summary, i, 'TeamCycleDPS');
+                    standaloneDps = obj.reportTableNumber(summary, i, 'StandaloneDPS');
+                    share = 0;
+                    if totalDamage > 0
+                        share = 100 * damage / totalDamage;
+                    end
+                    lines(end + 1, 1) = sprintf('%s | Damage %.0f | Share %.2f%% | Team-cycle DPS %.2f | Standalone DPS %.2f', ...
+                        char(character), damage, share, teamDps, standaloneDps);
                 end
-            catch ME
-                obj.setStatus(sprintf('HTML 事件处理失败：%s', ME.message));
+            end
+
+            lines(end + 1, 1) = "";
+            lines(end + 1, 1) = "[Character build panels]";
+            for i = find([obj.Slots.Enabled])
+                lines = obj.appendBuildPanelLines(lines, i);
+            end
+
+            lines = obj.appendTeamContextBuffLines(lines, getFieldOrDefault(result, 'TeamContext', struct()));
+            lines = obj.appendReportTable(lines, "Rotation plan", getFieldOrDefault(result, 'ExecutionTable', table()));
+            lines = obj.appendReportTable(lines, "Complete execution timeline", getFieldOrDefault(result, 'TimelineTable', table()));
+            lines = obj.appendReportTable(lines, "Energy summary", getFieldOrDefault(result, 'EnergySummary', table()));
+            lines = obj.appendReportTable(lines, "Energy events", getFieldOrDefault(result, 'EnergyTimeline', table()));
+            lines = obj.appendReportTable(lines, "Active effects and buffs", getFieldOrDefault(result, 'ActiveEffectsTable', table()));
+            lines = obj.appendReportTable(lines, "Damage breakdown", getFieldOrDefault(result, 'Breakdown', table()));
+
+            warnings = string(getFieldOrDefault(result, 'PlanningWarnings', strings(0, 1)));
+            lines(end + 1, 1) = "";
+            lines(end + 1, 1) = "[Planning warnings]";
+            if isempty(warnings)
+                lines(end + 1, 1) = "(none)";
+            else
+                for i = 1:numel(warnings)
+                    lines(end + 1, 1) = "- " + warnings(i);
+                end
             end
         end
 
-        function value = getHtmlEventNumber(obj, eventData, fieldName, fallback) %#ok<INUSD>
-            value = fallback;
-            if isstruct(eventData) && isfield(eventData, fieldName)
-                value = eventData.(fieldName);
-            elseif isa(eventData, 'containers.Map') && isKey(eventData, fieldName)
-                value = eventData(fieldName);
+        function lines = appendBuildPanelLines(obj, lines, slotIndex)
+            slot = obj.Slots(slotIndex);
+            lines(end + 1, 1) = sprintf('%s | Weapon: %s R%d | Artifact: %s (%d pc) | C%d | Talent %d | Start %.2f s', ...
+                char(slot.DisplayName), char(string(slot.WeaponName)), round(slot.WeaponRefinement), ...
+                char(string(slot.ArtifactSet1)), round(slot.ArtifactSet1Pieces), round(slot.Constellation), ...
+                round(slot.TalentLevel), slot.StartTime);
+
+            if ~isstruct(slot.Build) || isempty(fieldnames(slot.Build))
+                lines(end + 1, 1) = "  Panel: (no build values)";
+                return;
             end
-            if isstring(value) || ischar(value)
-                parsedValue = str2double(value);
-                if ~isnan(parsedValue)
-                    value = parsedValue;
+
+            fields = fieldnames(slot.Build);
+            values = strings(0, 1);
+            for i = 1:numel(fields)
+                value = slot.Build.(fields{i});
+                if (isnumeric(value) || islogical(value) || isstring(value) || ischar(value)) && numel(value) <= 12
+                    values(end + 1, 1) = string(fields{i}) + "=" + obj.formatReportValue(value); %#ok<AGROW>
+                end
+            end
+            if isempty(values)
+                lines(end + 1, 1) = "  Panel: (no scalar build values)";
+            else
+                lines(end + 1, 1) = "  Panel: " + strjoin(values, " | ");
+            end
+        end
+
+        function lines = appendTeamContextBuffLines(obj, lines, teamContext) %#ok<INUSD>
+            lines(end + 1, 1) = "";
+            lines(end + 1, 1) = "[Current team buffs]";
+            if ~isstruct(teamContext) || isempty(fieldnames(teamContext))
+                lines(end + 1, 1) = "(none)";
+                return;
+            end
+
+            fields = fieldnames(teamContext);
+            buffLines = strings(0, 1);
+            for i = 1:numel(fields)
+                fieldName = fields{i};
+                value = teamContext.(fieldName);
+                isBuffField = any(contains(fieldName, {'Bonus', 'Buff', 'Shred', 'Crit', 'EM', 'Amplify'}, 'IgnoreCase', true));
+                if isBuffField && (isnumeric(value) || islogical(value)) && isscalar(value) && isfinite(double(value)) && double(value) ~= 0
+                    buffLines(end + 1, 1) = string(fieldName) + "=" + obj.formatReportValue(value); %#ok<AGROW>
+                end
+            end
+            if isempty(buffLines)
+                lines(end + 1, 1) = "(no non-zero scalar team buff fields)";
+            else
+                lines = [lines; "  " + buffLines]; %#ok<AGROW>
+            end
+        end
+
+        function lines = appendPreviewTimelineLines(obj, lines, slotIndices, rotationTime)
+            if nargin < 3 || isempty(slotIndices)
+                slotIndices = find([obj.Slots.Enabled]);
+            end
+            if nargin < 4
+                rotationTime = [];
+            end
+            if isempty(slotIndices)
+                lines(end + 1, 1) = "(no enabled character)";
+                return;
+            end
+
+            for i = 1:numel(slotIndices)
+                slot = obj.Slots(slotIndices(i));
+                actions = parseRotationTextTokens(slot.RotationText);
+                memberRotationTime = [];
+                if isscalar(slotIndices) && ~isempty(rotationTime) && rotationTime > 0
+                    memberRotationTime = rotationTime;
+                end
+                [durations, labels] = obj.estimateTimelineBlocks(slot, actions, memberRotationTime);
+                currentTime = slot.StartTime;
+                for j = 1:numel(durations)
+                    lines(end + 1, 1) = sprintf('[%6.2f, %6.2f] %s | %s', ...
+                        currentTime, currentTime + durations(j), char(slot.DisplayName), char(string(labels{j})));
+                    currentTime = currentTime + durations(j);
+                end
+            end
+        end
+
+        function lines = appendReportTable(obj, lines, titleText, sourceTable)
+            lines(end + 1, 1) = "";
+            lines(end + 1, 1) = "[" + string(titleText) + "]";
+            if ~istable(sourceTable) || height(sourceTable) == 0
+                lines(end + 1, 1) = "(none)";
+                return;
+            end
+
+            variableNames = string(sourceTable.Properties.VariableNames);
+            for rowIndex = 1:height(sourceTable)
+                values = strings(1, numel(variableNames));
+                for columnIndex = 1:numel(variableNames)
+                    raw = sourceTable{rowIndex, char(variableNames(columnIndex))};
+                    if iscell(raw) && numel(raw) == 1
+                        raw = raw{1};
+                    end
+                    values(columnIndex) = variableNames(columnIndex) + "=" + obj.formatReportValue(raw);
+                end
+                lines(end + 1, 1) = sprintf('%4d | %s', rowIndex, char(strjoin(values, " | ")));
+            end
+        end
+
+        function value = reportTableValue(obj, sourceTable, rowIndex, variableName) %#ok<INUSD>
+            value = "";
+            if ~ismember(variableName, sourceTable.Properties.VariableNames)
+                return;
+            end
+            raw = sourceTable{rowIndex, variableName};
+            if iscell(raw) && numel(raw) == 1
+                raw = raw{1};
+            end
+            value = string(raw);
+        end
+
+        function value = reportTableNumber(obj, sourceTable, rowIndex, variableName) %#ok<INUSD>
+            value = 0;
+            if ~ismember(variableName, sourceTable.Properties.VariableNames)
+                return;
+            end
+            raw = sourceTable{rowIndex, variableName};
+            if iscell(raw) && numel(raw) == 1
+                raw = raw{1};
+            end
+            if isnumeric(raw) || islogical(raw)
+                value = double(raw(1));
+            else
+                parsed = str2double(string(raw));
+                if ~isnan(parsed)
+                    value = parsed;
+                end
+            end
+        end
+
+        function value = formatReportValue(obj, raw) %#ok<INUSD>
+            if isempty(raw)
+                value = "[]";
+            elseif iscell(raw)
+                parts = strings(0, 1);
+                for i = 1:numel(raw)
+                    parts(end + 1, 1) = obj.formatReportValue(raw{i}); %#ok<AGROW>
+                end
+                value = "{" + strjoin(parts, ", ") + "}";
+            elseif isstring(raw) || ischar(raw) || iscategorical(raw)
+                value = string(raw);
+            elseif isnumeric(raw)
+                if isscalar(raw)
+                    value = string(sprintf('%.6g', double(raw)));
                 else
-                    value = fallback;
+                    value = string(mat2str(raw));
                 end
-            end
-            if ~isnumeric(value) || isempty(value) || isnan(value)
-                value = fallback;
-            end
-        end
-
-        function label = statusToneLabel(obj, tone) %#ok<INUSD>
-            switch char(string(tone))
-                case 'success'
-                    label = '完成';
-                case 'warn'
-                    label = '警告';
-                case 'error'
-                    label = '失败';
-                case 'ready'
-                    label = '就绪';
-                otherwise
-                    label = '待机';
-            end
-        end
-
-        function tone = classifyStatusTone(obj, message, hasResult) %#ok<INUSD>
-            text = lower(char(string(message)));
-            if contains(text, {'失败', '错误', 'error', 'exception'})
-                tone = 'error';
-            elseif contains(text, {'警告', 'warning', '注意'})
-                tone = 'warn';
-            elseif hasResult
-                tone = 'success';
-            elseif contains(text, {'预览', '刷新', '等待', '已加载', 'ready'})
-                tone = 'ready';
+            elseif islogical(raw)
+                value = string(mat2str(raw));
+            elseif isstruct(raw)
+                fields = fieldnames(raw);
+                parts = strings(0, 1);
+                for i = 1:min(numel(fields), 8)
+                    parts(end + 1, 1) = string(fields{i}) + "=" + obj.formatReportValue(raw.(fields{i})); %#ok<AGROW>
+                end
+                value = "{" + strjoin(parts, ", ") + "}";
             else
-                tone = 'idle';
+                value = string(raw);
             end
+            value = replace(value, [newline, sprintf('\r')], " ");
         end
 
         function labels = getCharacterDropdownLabels(obj)
@@ -2097,17 +1655,6 @@ classdef GenshinDMGApp < handle
             end
         end
 
-        function summary = buildSingleSummaryTable(obj, result)
-            % 将单人模拟结果转换成统一表格格式。
-            summary = table( ...
-                string(result.DisplayName), ...
-                result.TotalDMG, ...
-                result.DPS, ...
-                result.RotationTime, ...
-                result.DPS, ...
-                'VariableNames', {'Character', 'TotalDMG', 'TeamCycleDPS', 'ActionTime', 'StandaloneDPS'});
-        end
-
         function runSingleSimulation(obj)
             % 按当前选中角色执行单人模拟。
             obj.saveSelectedSlotState();
@@ -2117,13 +1664,14 @@ classdef GenshinDMGApp < handle
                 obj.LastTeamResult = struct();
                 obj.LastMemberResults = result;
                 obj.LastSimulationMode = "单人";
+                obj.LastResultMetrics = struct( ...
+                    'HasResult', true, ...
+                    'TotalDamage', result.TotalDMG, ...
+                    'DPS', result.DPS, ...
+                    'RotationTime', result.RotationTime);
 
-                summary = obj.buildSingleSummaryTable(result);
-                obj.updateResultTables(summary, result.Breakdown, table(), table());
-                obj.updateKpi(result.TotalDMG, result.DPS, result.RotationTime);
-                obj.renderBarChart(summary);
-                obj.renderTimeline(obj.SelectedSlot, result);
                 obj.setStatus(sprintf('已完成单人模拟：%s。', char(result.DisplayName)));
+                obj.updateResultConsole(true);
             catch ME
                 obj.showSimulationError(ME);
             end
@@ -2148,16 +1696,14 @@ classdef GenshinDMGApp < handle
                 obj.LastTeamResult = teamResult;
                 obj.LastMemberResults = memberResults;
                 obj.LastSimulationMode = "整队";
+                obj.LastResultMetrics = struct( ...
+                    'HasResult', true, ...
+                    'TotalDamage', teamResult.TotalDMG, ...
+                    'DPS', teamResult.DPS, ...
+                    'RotationTime', teamResult.RotationDuration);
 
-                obj.updateResultTables( ...
-                    teamResult.Summary, ...
-                    teamResult.Breakdown, ...
-                    getFieldOrDefault(teamResult, 'EnergyTimeline', table()), ...
-                    getFieldOrDefault(teamResult, 'ActiveEffectsTable', table()));
-                obj.updateKpi(teamResult.TotalDMG, teamResult.DPS, teamResult.RotationDuration);
-                obj.renderBarChart(teamResult.Summary);
-                obj.renderTimeline(slotIndices, teamResult);
                 obj.setStatus(obj.localBuildTeamStatus(teamResult, numel(slotIndices)));
+                obj.updateResultConsole(true);
                 obj.showTeamPlanningNotice(teamResult);
             catch ME
                 obj.showSimulationError(ME);
@@ -2865,100 +2411,6 @@ classdef GenshinDMGApp < handle
             obj.setStatus(sprintf('Applied ranked candidate: %s.', char(string(row.Candidate))));
         end
 
-        function updateResultTables(obj, summaryTable, breakdownTable, energyTable, effectsTable)
-            % 更新右侧结果表格。
-            obj.SummaryTable.Data = summaryTable;
-            obj.LastSummaryRows = obj.tableToHtmlRows(summaryTable, 8);
-            obj.LastBreakdownRows = obj.tableToHtmlRows(breakdownTable, 10);
-            if nargin < 4 || isempty(energyTable)
-                energyTable = table();
-            end
-            if nargin < 5 || isempty(effectsTable)
-                effectsTable = table();
-            end
-            obj.EnergyTable.Data = energyTable;
-            obj.BreakdownTable.Data = breakdownTable;
-            obj.EffectsTable.Data = effectsTable;
-            obj.syncDashboard();
-        end
-
-        function rows = tableToHtmlRows(obj, sourceTable, maxRows) %#ok<INUSD>
-            if nargin < 3
-                maxRows = 8;
-            end
-
-            rowTemplate = struct('Character', '', 'TotalDMG', 0, 'TeamCycleDPS', 0, ...
-                'ActionTime', 0, 'StandaloneDPS', 0, 'Name', '', 'Value', '');
-            rows = repmat(rowTemplate, 0, 1);
-            if isempty(sourceTable) || height(sourceTable) == 0
-                return;
-            end
-
-            count = min(height(sourceTable), maxRows);
-            rows = repmat(rowTemplate, 1, count);
-            variableNames = string(sourceTable.Properties.VariableNames);
-            for i = 1:count
-                rows(i).Character = obj.tableCellAsText(sourceTable, i, variableNames, ["Character", "角色", "Name", "Action"]);
-                rows(i).TotalDMG = obj.tableCellAsNumber(sourceTable, i, variableNames, ["TotalDMG", "TotalDamage", "总伤害"]);
-                rows(i).TeamCycleDPS = obj.tableCellAsNumber(sourceTable, i, variableNames, ["TeamCycleDPS", "DPS"]);
-                rows(i).ActionTime = obj.tableCellAsNumber(sourceTable, i, variableNames, ["ActionTime", "RotationTime", "Time"]);
-                rows(i).StandaloneDPS = obj.tableCellAsNumber(sourceTable, i, variableNames, ["StandaloneDPS", "DPS"]);
-                rows(i).Name = obj.tableCellAsText(sourceTable, i, variableNames, variableNames);
-                rows(i).Value = obj.tableRowSummary(sourceTable, i, variableNames);
-            end
-        end
-
-        function value = tableCellAsText(obj, sourceTable, rowIndex, variableNames, candidates) %#ok<INUSD>
-            value = '';
-            idx = find(ismember(variableNames, string(candidates)), 1, 'first');
-            if isempty(idx)
-                return;
-            end
-            raw = sourceTable{rowIndex, char(variableNames(idx))};
-            if iscell(raw)
-                raw = raw{1};
-            end
-            value = char(string(raw));
-        end
-
-        function value = tableCellAsNumber(obj, sourceTable, rowIndex, variableNames, candidates) %#ok<INUSD>
-            value = 0;
-            idx = find(ismember(variableNames, string(candidates)), 1, 'first');
-            if isempty(idx)
-                return;
-            end
-            raw = sourceTable{rowIndex, char(variableNames(idx))};
-            if iscell(raw)
-                raw = raw{1};
-            end
-            if isnumeric(raw) || islogical(raw)
-                value = double(raw(1));
-            else
-                parsed = str2double(string(raw));
-                if ~isnan(parsed)
-                    value = parsed;
-                end
-            end
-        end
-
-        function value = tableRowSummary(obj, sourceTable, rowIndex, variableNames)
-            pieces = strings(0, 1);
-            limit = min(numel(variableNames), 4);
-            for j = 1:limit
-                raw = sourceTable{rowIndex, char(variableNames(j))};
-                if iscell(raw)
-                    raw = raw{1};
-                end
-                if isnumeric(raw) || islogical(raw)
-                    text = string(obj.formatLargeNumber(double(raw(1))));
-                else
-                    text = string(raw);
-                end
-                pieces(end + 1, 1) = variableNames(j) + ": " + text; %#ok<AGROW>
-            end
-            value = char(strjoin(pieces, " / "));
-        end
-
         function updateKpi(obj, totalDamage, dps, rotationTime)
             % 更新右侧 KPI 数字卡。
             obj.LastResultMetrics = struct( ...
@@ -2978,174 +2430,6 @@ classdef GenshinDMGApp < handle
             else
                 text = sprintf('%.0f', value);
             end
-        end
-
-        function renderBarChart(obj, summaryTable)
-            % 绘制成员伤害柱状图。
-            cla(obj.BarAxes);
-            if isempty(summaryTable) || height(summaryTable) == 0
-                title(obj.BarAxes, '成员 DPS 对比');
-                return;
-            end
-
-            names = string(summaryTable.Character);
-            values = summaryTable.StandaloneDPS;
-            bar(obj.BarAxes, categorical(names), values, 'FaceColor', [0.35 0.63 0.76]);
-            title(obj.BarAxes, sprintf('%s模式：成员 DPS 对比', char(obj.LastSimulationMode)));
-            ylabel(obj.BarAxes, 'DPS');
-            xlabel(obj.BarAxes, 'Character');
-            grid(obj.BarAxes, 'on');
-        end
-
-        function renderTimeline(obj, slotIndexOrList, results)
-            % 根据轮转文本绘制输出轴。
-            cla(obj.TimelineAxes);
-            hold(obj.TimelineAxes, 'on');
-            if isstruct(results) && isscalar(results) && isfield(results, 'TimelineTable')
-                obj.renderSharedTimeline(results);
-                hold(obj.TimelineAxes, 'off');
-                return;
-            end
-
-            if isempty(slotIndexOrList)
-                title(obj.TimelineAxes, '输出轴预览');
-                hold(obj.TimelineAxes, 'off');
-                return;
-            end
-
-            slotIndices = slotIndexOrList;
-            resultList = results;
-
-            colors = lines(max(4, numel(slotIndices)));
-            maxEndTime = obj.TeamDurationField.Value;
-
-            for i = 1:numel(slotIndices)
-                slotIndex = slotIndices(i);
-                slot = obj.Slots(slotIndex);
-                yCenter = i;
-                actions = parseRotationTextTokens(slot.RotationText);
-
-                resultRotationTime = [];
-                if ~isempty(resultList)
-                    if isstruct(resultList) && isscalar(resultList)
-                        resultRotationTime = resultList.RotationTime;
-                    elseif numel(resultList) >= i
-                        resultRotationTime = resultList(i).RotationTime;
-                    end
-                end
-
-                [durations, labels] = obj.estimateTimelineBlocks(slot, actions, resultRotationTime);
-                currentTime = slot.StartTime;
-
-                if isempty(durations)
-                    durations = 1.0;
-                    labels = {char(slot.CharacterKey)};
-                end
-
-                for j = 1:numel(durations)
-                    duration = durations(j);
-                    label = labels{j};
-                    rectangle(obj.TimelineAxes, ...
-                        'Position', [currentTime, yCenter - 0.34, duration, 0.68], ...
-                        'FaceColor', colors(i, :) * 0.82 + 0.18, ...
-                        'EdgeColor', colors(i, :), ...
-                        'LineWidth', 1.2);
-
-                    if duration >= 0.42
-                        text(obj.TimelineAxes, currentTime + duration / 2, yCenter, label, ...
-                            'HorizontalAlignment', 'center', ...
-                            'VerticalAlignment', 'middle', ...
-                            'FontSize', 10, ...
-                            'Color', [0.08 0.10 0.14]);
-                    end
-
-                    currentTime = currentTime + duration;
-                end
-
-                maxEndTime = max(maxEndTime, currentTime);
-            end
-
-            xline(obj.TimelineAxes, obj.TeamDurationField.Value, '--', '团队轴长', ...
-                'Color', [0.68 0.28 0.28], 'LabelVerticalAlignment', 'middle');
-            ylim(obj.TimelineAxes, [0.4, numel(slotIndices) + 0.6]);
-            xlim(obj.TimelineAxes, [0, max(1, maxEndTime + 0.5)]);
-            yticks(obj.TimelineAxes, 1:numel(slotIndices));
-            yticklabels(obj.TimelineAxes, cellstr(string({obj.Slots(slotIndices).DisplayName})));
-            xlabel(obj.TimelineAxes, 'Time (s)');
-            ylabel(obj.TimelineAxes, 'Character');
-            title(obj.TimelineAxes, sprintf('%s模式：输出轴预览', char(obj.LastSimulationMode)));
-            grid(obj.TimelineAxes, 'on');
-            hold(obj.TimelineAxes, 'off');
-        end
-
-        function renderSharedTimeline(obj, teamResult)
-            % 根据共享时间线表渲染整队真实时间轴。
-            timelineTable = getFieldOrDefault(teamResult, 'TimelineTable', table());
-            if isempty(timelineTable) || ~istable(timelineTable) || height(timelineTable) == 0
-                title(obj.TimelineAxes, '整队时间线为空');
-                xlabel(obj.TimelineAxes, 'Time (s)');
-                ylabel(obj.TimelineAxes, 'Character');
-                grid(obj.TimelineAxes, 'on');
-                return;
-            end
-
-            names = string(timelineTable.Character);
-            orderedNames = unique(names, 'stable');
-            colors = lines(max(4, numel(orderedNames)));
-            maxEndTime = max([obj.TeamDurationField.Value; timelineTable.EndTime]);
-
-            for i = 1:height(timelineTable)
-                row = timelineTable(i, :);
-                name = string(row.Character);
-                duration = max(0, row.EndTime - row.StartTime);
-                if duration <= 0
-                    duration = 0.05;
-                end
-
-                yCenter = find(orderedNames == name, 1, 'first');
-                if isempty(yCenter)
-                    continue;
-                end
-
-                if strcmpi(char(name), 'Team')
-                    faceColor = [0.88 0.88 0.90];
-                    edgeColor = [0.45 0.45 0.48];
-                else
-                    faceColor = colors(yCenter, :) * 0.82 + 0.18;
-                    edgeColor = colors(yCenter, :);
-                end
-
-                rectangle(obj.TimelineAxes, ...
-                    'Position', [row.StartTime, yCenter - 0.34, duration, 0.68], ...
-                    'FaceColor', faceColor, ...
-                    'EdgeColor', edgeColor, ...
-                    'LineWidth', 1.2);
-
-                if duration >= 0.30
-                    label = char(string(row.Action));
-                    if strlength(string(getFieldOrDefault(row, 'Reaction', ""))) > 0 ...
-                            && ~strcmpi(char(name), 'Team')
-                        label = sprintf('%s | %s', char(string(row.Action)), char(string(row.Reaction)));
-                    end
-                    text(obj.TimelineAxes, row.StartTime + duration / 2, yCenter, label, ...
-                        'HorizontalAlignment', 'center', ...
-                        'VerticalAlignment', 'middle', ...
-                        'FontSize', 9, ...
-                        'Color', [0.08 0.10 0.14], ...
-                        'Interpreter', 'none');
-                end
-            end
-
-            xline(obj.TimelineAxes, obj.TeamDurationField.Value, '--', '团队轴长', ...
-                'Color', [0.68 0.28 0.28], 'LabelVerticalAlignment', 'middle');
-            ylim(obj.TimelineAxes, [0.4, numel(orderedNames) + 0.6]);
-            xlim(obj.TimelineAxes, [0, max(1, maxEndTime + 0.5)]);
-            yticks(obj.TimelineAxes, 1:numel(orderedNames));
-            yticklabels(obj.TimelineAxes, cellstr(orderedNames));
-            xlabel(obj.TimelineAxes, 'Time (s)');
-            ylabel(obj.TimelineAxes, 'Character');
-            title(obj.TimelineAxes, sprintf('%s模式：共享队伍时间线', char(obj.LastSimulationMode)));
-            grid(obj.TimelineAxes, 'on');
         end
 
         function message = localBuildTeamStatus(obj, teamResult, slotCount) %#ok<INUSD>
@@ -3224,12 +2508,8 @@ classdef GenshinDMGApp < handle
         function refreshTimelinePreview(obj)
             % 在未运行模拟时，也允许用户预览当前编辑的输出轴。
             obj.saveSelectedSlotState();
-            slotIndices = find([obj.Slots.Enabled]);
-            if isempty(slotIndices)
-                slotIndices = obj.SelectedSlot;
-            end
             obj.LastSimulationMode = "预览";
-            obj.renderTimeline(slotIndices, struct([]));
+            obj.LastResultMetrics.HasResult = false;
             obj.setStatus('已刷新输出轴预览。');
         end
 
