@@ -153,6 +153,7 @@ function candidate = localSelectBestPlanCandidate( ...
             members, seeds, scores, roles, memberJobs, carryIndex, ...
             rotationDuration, teamInfo.Archetype, swapBuffer);
         baseOrder = localBuildExecutionOrder(scores, roles, memberJobs, teamInfo.Archetype);
+        baseOrder = localBuildDependencyExecutionOrder(baseOrder, members, carryIndex);
         orderCandidates = localBuildOrderCandidates(baseOrder, members, carryIndex);
 
         for orderPos = 1:numel(orderCandidates)
@@ -257,6 +258,7 @@ function plans = localBuildRolePlans( ...
         rotationDuration, archetypeInfo, swapBuffer)
     plans = repmat(localEmptyMemberPlan(), 1, numel(members));
     order = localBuildExecutionOrder(scores, roles, memberJobs, archetypeInfo);
+    order = localBuildDependencyExecutionOrder(order, members, carryIndex);
     otherReservedDuration = 0;
 
     for orderPos = 1:numel(order)
@@ -288,8 +290,11 @@ end
 function orderCandidates = localBuildOrderCandidates(baseOrder, members, carryIndex)
     orderCandidates = {baseOrder};
     nonCarry = setdiff(baseOrder, carryIndex, 'stable');
+    carryMacro = getCharacterRotationMacro(members{carryIndex}.Name, "Carry", struct());
+    hasStrictSetupOrder = logical(getFieldOrDefault(carryMacro, 'Defined', false)) ...
+        && ~isempty(getFieldOrDefault(carryMacro, 'Requires', strings(0, 1)));
 
-    if ~isempty(nonCarry)
+    if ~hasStrictSetupOrder && ~isempty(nonCarry)
         permutations = localPermuteNumericOrder(nonCarry);
         baseCarryPosition = find(baseOrder == carryIndex, 1, 'first');
         insertPositions = localBuildCarryInsertPositions(numel(nonCarry), baseCarryPosition);
@@ -316,6 +321,9 @@ function orderCandidates = localBuildOrderCandidates(baseOrder, members, carryIn
     uniqueCandidates = cell(0, 1);
     for orderIndex = 1:numel(orderCandidates)
         candidate = orderCandidates{orderIndex};
+        if ~localOrderRespectsDependencies(candidate, members, carryIndex)
+            continue;
+        end
         signature = strjoin(string(candidate), '-');
         if any(signatures == signature)
             continue;
@@ -324,6 +332,48 @@ function orderCandidates = localBuildOrderCandidates(baseOrder, members, carryIn
         uniqueCandidates{end + 1, 1} = candidate; %#ok<AGROW>
     end
     orderCandidates = uniqueCandidates;
+end
+
+function order = localBuildDependencyExecutionOrder(baseOrder, members, carryIndex)
+    % Team macros define setup providers; the carry may only start after them.
+    nonCarry = setdiff(baseOrder, carryIndex, 'stable');
+    priorities = zeros(numel(nonCarry), 1);
+    for i = 1:numel(nonCarry)
+        macro = getCharacterRotationMacro(members{nonCarry(i)}.Name, "Support", struct());
+        priorities(i) = double(getFieldOrDefault(macro, 'SetupPriority', 50));
+    end
+    sortRows = [(1:numel(nonCarry)).', priorities];
+    sortRows = sortrows(sortRows, [2 1]);
+    order = [nonCarry(sortRows(:, 1).'), carryIndex];
+end
+
+function tf = localOrderRespectsDependencies(order, members, carryIndex)
+    carryPosition = find(order == carryIndex, 1, 'first');
+    if isempty(carryPosition)
+        tf = false;
+        return;
+    end
+    % A planned carry window starts only after every setup character has acted.
+    tf = carryPosition == numel(order);
+    if ~tf
+        return;
+    end
+    carryMacro = getCharacterRotationMacro(members{carryIndex}.Name, "Carry", struct());
+    requirements = string(getFieldOrDefault(carryMacro, 'Requires', strings(0, 1)));
+    for requirementIndex = 1:numel(requirements)
+        foundProvider = false;
+        for memberIndex = order(1:end - 1)
+            macro = getCharacterRotationMacro(members{memberIndex}.Name, "Support", struct());
+            if any(string(getFieldOrDefault(macro, 'Provides', strings(0, 1))) == requirements(requirementIndex))
+                foundProvider = true;
+                break;
+            end
+        end
+        if ~foundProvider
+            % Unknown external buffs are allowed; known providers simply order before the carry.
+            continue;
+        end
+    end
 end
 
 function positions = localBuildCarryInsertPositions(nonCarryCount, preferredPosition)
@@ -1685,6 +1735,12 @@ end
 
 function [tokens, source] = localBuildSupportTokens(member, seed, archetypeInfo, job)
     normalizedName = localNormalizeName(member.Name);
+    macro = getCharacterRotationMacro(member.Name, "Support", archetypeInfo);
+    if logical(getFieldOrDefault(macro, 'Defined', false)) && ~logical(getFieldOrDefault(seed, 'IsExplicit', false))
+        tokens = getFieldOrDefault(macro, 'Tokens', {});
+        source = "character-macro";
+        return;
+    end
     namedTokens = localNamedSupportTokens(normalizedName, archetypeInfo, job);
     useNamedTokens = ~logical(getFieldOrDefault(seed, 'IsExplicit', false)) ...
         && ~isempty(namedTokens) ...
@@ -1862,6 +1918,12 @@ end
 
 function [tokens, source] = localBuildCarryTokens(member, seed, archetypeInfo, job) %#ok<INUSD>
     normalizedName = localNormalizeName(member.Name);
+    macro = getCharacterRotationMacro(member.Name, "Carry", archetypeInfo);
+    if logical(getFieldOrDefault(macro, 'Defined', false)) && ~logical(getFieldOrDefault(seed, 'IsExplicit', false))
+        tokens = getFieldOrDefault(macro, 'Tokens', {});
+        source = "character-macro";
+        return;
+    end
     namedTokens = localNamedCarryTokens(normalizedName, archetypeInfo, job);
     if ~logical(getFieldOrDefault(seed, 'IsExplicit', false)) && ~isempty(namedTokens)
         tokens = namedTokens;

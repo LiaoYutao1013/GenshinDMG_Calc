@@ -8,6 +8,10 @@ function build = materializeArtifactPieceModel(characterName, build, teamContext
     if ~logical(getFieldOrDefault(build, 'ArtifactUsePieceModel', 1))
         return;
     end
+    if isfield(build, 'ArtifactEffectiveSubstatCount')
+        build = optimizeEffectiveArtifactSubstats(characterName, build, teamContext);
+        return;
+    end
     if ~logical(getFieldOrDefault(build, 'ArtifactAutoDistributeResidualSubstats', 1))
         return;
     end

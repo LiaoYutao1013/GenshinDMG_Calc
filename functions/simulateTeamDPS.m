@@ -16,20 +16,32 @@ function [teamResult, memberResults] = simulateTeamDPS(teamSpec, enemy)
         enemy = struct('Level', 90, 'Res', 0.10, 'DefReduct', 0);
     end
 
-    [members, rotationDuration, sharedBuffs, planOptions] = localResolveTeamSpec(teamSpec);
+    [members, rotationDuration, simulationHorizon, sharedBuffs, planOptions] = localResolveTeamSpec(teamSpec);
     if isempty(members)
         error('Team simulation requires at least one member.');
     end
 
     % 队伍模拟入口默认总是启用即时排轴；如后续需要做对比实验，
     % 仍可通过 teamSpec.PlanOptions.DisableAutoPlan 显式关闭。
+    customActions = getFieldOrDefault(planOptions, 'CustomRotationActions', struct([]));
     disableAutoPlan = logical(getFieldOrDefault(planOptions, 'DisableAutoPlan', false));
-    if disableAutoPlan
+    optimizerResult = struct('Enabled', false);
+    if ~isempty(customActions)
+        rotationPlan = buildCustomTeamRotationPlan(members, customActions, rotationDuration);
+    elseif disableAutoPlan
         rotationPlan = localBuildPassthroughPlan(members, rotationDuration);
     else
         rotationPlan = planTeamRotation(members, rotationDuration, enemy, sharedBuffs, planOptions);
-        members = localApplyPlannedRotationFiles(members, rotationPlan);
+        if logical(getFieldOrDefault(planOptions, 'EnableDPSOptimizer', false))
+            optimizerResult = optimizeTeamRotation( ...
+                members, rotationPlan, rotationDuration, enemy, sharedBuffs, planOptions);
+            if optimizerResult.BestIndex > 0
+                rotationPlan = optimizerResult.BestPlan;
+            end
+        end
     end
+    [rotationPlan, cutoffSummary] = localTruncateRotationPlan(rotationPlan, members, rotationDuration);
+    members = localApplyPlannedRotationFiles(members, rotationPlan);
 
     % 先在不递归推导 Furina 共享增伤的上下文下构造真实队伍时间线，
     % 再把时间线摘要回填到最终 teamContext，避免 Furina 队伍二次排轴/二次时间线。
@@ -85,9 +97,15 @@ function [teamResult, memberResults] = simulateTeamDPS(teamSpec, enemy)
     memberSummary = localAttachEnergySummary(memberSummary, timelineResult);
     memberSummary = localAttachTimelineSummary(memberSummary, timelineResult);
     planningWarnings = localBuildPlanningWarnings(rotationPlan, timelineResult, rotationDuration);
+    if cutoffSummary.TruncatedActionCount > 0
+        planningWarnings(end + 1, 1) = sprintf( ...
+            'Simulation cutoff at %.0fs removed %d unfinished action(s): %s.', ...
+            rotationDuration, cutoffSummary.TruncatedActionCount, char(strjoin(cutoffSummary.Characters, ', '))); %#ok<AGROW>
+    end
 
     teamResult = struct( ...
         'RotationDuration', rotationDuration, ...
+        'SimulationHorizon', simulationHorizon, ...
         'TotalDMG', totalDMG, ...
         'DPS', teamDPS, ...
         'Summary', memberSummary, ...
@@ -106,6 +124,8 @@ function [teamResult, memberResults] = simulateTeamDPS(teamSpec, enemy)
         'FinalEnemyState', getFieldOrDefault(timelineResult, 'FinalEnemyState', struct()), ...
         'CanLoopNextCycle', logical(getFieldOrDefault(timelineResult, 'CanLoopNextCycle', false)), ...
         'LoopReadiness', double(getFieldOrDefault(timelineResult, 'LoopReadiness', 0)), ...
+        'Cutoff', cutoffSummary, ...
+        'Optimization', optimizerResult, ...
         'PlanningWarnings', planningWarnings, ...
         'MemberRotationFiles', localCollectPlanFiles(rotationPlan, members), ...
         'MemberRotationTexts', localCollectPlanTexts(rotationPlan, members));
@@ -139,8 +159,10 @@ function sharedBuffs = localAttachTimelineSharedBuffs(sharedBuffs, timelineResul
     sharedBuffs.CanLoopNextCycle = logical(getFieldOrDefault(timelineResult, 'CanLoopNextCycle', false));
 end
 
-function [members, rotationDuration, sharedBuffs, planOptions] = localResolveTeamSpec(teamSpec)
-    rotationDuration = 20;
+function [members, rotationDuration, simulationHorizon, sharedBuffs, planOptions] = localResolveTeamSpec(teamSpec)
+    % Keep one combat cycle separate from an optional report horizon.
+    rotationDuration = getDefaultTeamCycleDuration();
+    simulationHorizon = getFixedSimulationDuration();
     sharedBuffs = struct();
     planOptions = struct();
 
@@ -173,9 +195,17 @@ function [members, rotationDuration, sharedBuffs, planOptions] = localResolveTea
         for i = 1:numel(rawMembers)
             members{i} = localResolveMemberSpec(rawMembers{i});
         end
-        rotationDuration = getFieldOrDefault(teamSpec, 'RotationDuration', rotationDuration);
         sharedBuffs = getFieldOrDefault(teamSpec, 'SharedBuffs', sharedBuffs);
         planOptions = getFieldOrDefault(teamSpec, 'PlanOptions', planOptions);
+        rotationDuration = double(getFieldOrDefault(teamSpec, 'CycleDuration', ...
+            getFieldOrDefault(teamSpec, 'RotationDuration', rotationDuration)));
+        simulationHorizon = double(getFieldOrDefault(teamSpec, 'SimulationHorizon', simulationHorizon));
+        if ~isscalar(rotationDuration) || ~isfinite(rotationDuration) || rotationDuration <= 0
+            rotationDuration = getDefaultTeamCycleDuration();
+        end
+        if ~isscalar(simulationHorizon) || ~isfinite(simulationHorizon) || simulationHorizon < rotationDuration
+            simulationHorizon = rotationDuration;
+        end
         return;
     end
 
@@ -215,6 +245,120 @@ function members = localApplyPlannedRotationFiles(members, rotationPlan)
             members{i}.RotationFile = char(string(currentPlan.TempRotationFile));
         end
     end
+end
+
+function [rotationPlan, summary] = localTruncateRotationPlan(rotationPlan, members, rotationDuration)
+    summary = struct( ...
+        'Duration', rotationDuration, ...
+        'TruncatedActionCount', 0, ...
+        'Characters', strings(0, 1));
+
+    memberPlans = getFieldOrDefault(rotationPlan, 'MemberPlans', struct([]));
+    if isempty(memberPlans)
+        return;
+    end
+
+    planRoot = string(getFieldOrDefault(rotationPlan, 'PlanDirectory', ""));
+    if strlength(planRoot) == 0 || exist(char(planRoot), 'dir') ~= 7
+        planRoot = fullfile(tempdir, 'genshin_dmg_calc_team_rotations');
+    end
+    if exist(char(planRoot), 'dir') ~= 7
+        mkdir(char(planRoot));
+    end
+
+    for i = 1:min(numel(memberPlans), numel(members))
+        plan = memberPlans(i);
+        tokens = localResolvePlanTokens(plan);
+        startTime = min(rotationDuration, max(0, double(getFieldOrDefault(plan, 'StartTime', 0))));
+        [keptTokens, truncatedCount] = localKeepCompletedTokens( ...
+            tokens, members{i}.Name, max(0, rotationDuration - startTime));
+
+        if truncatedCount > 0
+            summary.TruncatedActionCount = summary.TruncatedActionCount + truncatedCount;
+            summary.Characters(end + 1, 1) = string(getFieldOrDefault(members{i}, 'DisplayName', members{i}.Name)); %#ok<AGROW>
+        end
+
+        actualDuration = localEstimatePassthroughRotationDuration(keptTokens, members{i}.Name);
+        plan.StartTime = startTime;
+        plan.EndTime = startTime + actualDuration;
+        plan.EstimatedDuration = actualDuration;
+        plan.RotationTokens = keptTokens;
+        plan.RotationText = string(strjoin(string(keptTokens(:)), newline));
+        plan.Preview = strjoin(string(keptTokens(:)).', " > ");
+        plan.TempRotationFile = localWriteCutoffRotationFile(planRoot, i, members{i}.Name, plan.RotationText);
+        memberPlans(i) = plan;
+    end
+
+    rotationPlan.MemberPlans = memberPlans;
+    rotationPlan.RotationDuration = rotationDuration;
+    summary.Characters = unique(summary.Characters, 'stable');
+    rotationPlan.ExecutionTable = localBuildCutoffExecutionTable(memberPlans, members);
+end
+
+function tokens = localResolvePlanTokens(plan)
+    tokens = getFieldOrDefault(plan, 'RotationTokens', cell(0, 1));
+    if isempty(tokens)
+        rotationFile = string(getFieldOrDefault(plan, 'TempRotationFile', ""));
+        if strlength(rotationFile) > 0 && exist(char(rotationFile), 'file') == 2
+            tokens = readRotationTokens(char(rotationFile));
+        end
+    end
+    tokens = cellstr(string(tokens(:)));
+end
+
+function [keptTokens, truncatedCount] = localKeepCompletedTokens(tokens, characterName, timeBudget)
+    keptTokens = cell(0, 1);
+    truncatedCount = 0;
+    elapsed = 0;
+
+    for i = 1:numel(tokens)
+        token = tokens{i};
+        duration = estimateActionDuration(characterName, token, 0.60);
+        if ~isfinite(duration) || duration <= 0
+            duration = 0.60;
+        end
+        if elapsed + duration > timeBudget + 1e-9
+            truncatedCount = numel(tokens) - i + 1;
+            break;
+        end
+        keptTokens(end + 1, 1) = tokens(i); %#ok<AGROW>
+        elapsed = elapsed + duration;
+    end
+end
+
+function filePath = localWriteCutoffRotationFile(planRoot, memberIndex, characterName, rotationText)
+    safeName = regexprep(char(string(characterName)), '[^A-Za-z0-9_-]', '_');
+    filePath = fullfile(char(planRoot), sprintf('cutoff_%02d_%s.txt', memberIndex, safeName));
+    fid = fopen(filePath, 'w');
+    if fid == -1
+        error('Unable to create cutoff rotation file: %s', filePath);
+    end
+    cleaner = onCleanup(@() fclose(fid)); %#ok<NASGU>
+    fprintf(fid, '%s', char(rotationText));
+end
+
+function executionTable = localBuildCutoffExecutionTable(memberPlans, members)
+    executionRows = cell(0, 8);
+    order = zeros(numel(memberPlans), 1);
+    for i = 1:numel(memberPlans)
+        order(i) = double(getFieldOrDefault(memberPlans(i), 'Order', i));
+    end
+    [~, indices] = sort(order);
+    for i = 1:numel(indices)
+        memberIndex = indices(i);
+        plan = memberPlans(memberIndex);
+        executionRows(end + 1, :) = { ... %#ok<AGROW>
+            i, ...
+            string(getFieldOrDefault(members{memberIndex}, 'DisplayName', members{memberIndex}.Name)), ...
+            string(getFieldOrDefault(plan, 'Role', "")), ...
+            string(getFieldOrDefault(plan, 'Job', "")), ...
+            double(getFieldOrDefault(plan, 'StartTime', 0)), ...
+            double(getFieldOrDefault(plan, 'EndTime', 0)), ...
+            double(getFieldOrDefault(plan, 'EstimatedDuration', 0)), ...
+            string(getFieldOrDefault(plan, 'Preview', ""))};
+    end
+    executionTable = cell2table(executionRows, 'VariableNames', { ...
+        'Order', 'Character', 'Role', 'Job', 'StartTime', 'EndTime', 'ReservedTime', 'RotationPreview'});
 end
 
 function [role, startTime] = localLookupMemberPlan(rotationPlan, memberName)

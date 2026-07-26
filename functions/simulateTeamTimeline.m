@@ -45,9 +45,9 @@ function timelineResult = simulateTeamTimeline(members, rotationPlan, teamContex
     actionEvents = localExpandActionEventsWithBackgroundDrivers( ...
         actionEvents, rotationPlan, archetypeInfo, teamContext, rotationDuration);
     actionQueue = localSortActionEvents(actionEvents);
-    energyState = localInitializeEnergyState(members);
-    pendingEnergyDrops = repmat(localEmptyPendingEnergyDrop(), 1, 0);
     compiledBuilds = localCompileBuilds(members, teamContext);
+    energyState = localInitializeEnergyState(members, compiledBuilds);
+    pendingEnergyDrops = repmat(localEmptyPendingEnergyDrop(), 1, 0);
     runtimeTriggeredWindows = repmat(localEmptyActiveWindow(), 1, 0);
     runtimeTriggeredLastTriggerTimes = containers.Map('KeyType', 'char', 'ValueType', 'double');
     auraICDStates = struct();
@@ -343,6 +343,9 @@ function actionEvents = localBuildActionEvents(members, rotationPlan, rotationDu
             if ~isfinite(duration) || duration <= 0
                 duration = 0.60;
             end
+            if cursor + duration > rotationDuration + 1e-9
+                break;
+            end
 
             event = localEmptyEvent();
             event.MemberIndex = i;
@@ -353,7 +356,7 @@ function actionEvents = localBuildActionEvents(members, rotationPlan, rotationDu
             event.SequenceIndex = tokenIndex;
             event.Action = action;
             event.StartTime = cursor;
-            event.EndTime = min(rotationDuration, cursor + duration);
+            event.EndTime = cursor + duration;
             event.Duration = max(0, event.EndTime - event.StartTime);
             event.HitElement = string(getCharacterElement(members{i}.Name));
             event.DisableRuntimeBackgroundExpansion = disableRuntimeExpansion;
@@ -1463,7 +1466,10 @@ function builds = localCompileBuilds(members, teamContext)
     end
 end
 
-function energyState = localInitializeEnergyState(members)
+function energyState = localInitializeEnergyState(members, compiledBuilds)
+    if nargin < 2
+        compiledBuilds = {};
+    end
     energyState = repmat(struct( ...
         'Name', "", ...
         'DisplayName', "", ...
@@ -1480,6 +1486,9 @@ function energyState = localInitializeEnergyState(members)
             getFieldOrDefault(members{i}, 'TalentLevel', 10), ...
             getFieldOrDefault(members{i}, 'Constellation', 0));
         build = getFieldOrDefault(members{i}, 'Build', struct());
+        if numel(compiledBuilds) >= i && ~isempty(compiledBuilds{i})
+            build = compiledBuilds{i};
+        end
         er = double(getFieldOrDefault(build, 'ER', 1.0));
         startEnergy = localResolveStartingEnergy(members{i}, burstCost);
         if er <= 0

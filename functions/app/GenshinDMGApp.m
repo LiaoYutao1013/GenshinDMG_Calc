@@ -24,6 +24,8 @@ classdef GenshinDMGApp < handle
         LastComparisonMode = ""
         LastComparisonResults
         LastSimulationMode = "未运行"
+        TeamRotationMode = "algorithm"
+        TeamCustomActions = struct('SlotIndex', {}, 'Token', {})
     end
 
     properties (Access = private)
@@ -35,7 +37,6 @@ classdef GenshinDMGApp < handle
         SlotConstellationSpinners
         SlotTalentSpinners
         SlotRefinementSpinners
-        SlotStartTimeFields
         SlotEnableCheckboxes
         SlotEditButtons
         SlotPortraits
@@ -50,10 +51,9 @@ classdef GenshinDMGApp < handle
         SelectedTalentSpinner
         SelectedRefinementSpinner
         BuildTable
-        RotationTextArea
         BuildHintLabel
 
-        TeamDurationField
+        SimulationDuration = 120
         EnemyLevelField
         EnemyResField
         EnemyDefField
@@ -62,10 +62,15 @@ classdef GenshinDMGApp < handle
         LastResultMetrics
         LastResultReport = ""
 
-        RunSingleButton
         RunTeamButton
         ResetSlotButton
-        RefreshTimelineButton
+        EditTeamRotationButton
+
+        TeamRotationFigure
+        TeamRotationModeDropdown
+        TeamRotationCharacterDropdown
+        TeamRotationActionDropdown
+        TeamRotationActionTable
 
         ResultConsole
         ComparisonModeDropdown
@@ -92,6 +97,7 @@ classdef GenshinDMGApp < handle
             obj.PortraitCacheDir = fullfile(projectRoot, 'art', 'portraits');
             obj.TempRotationDir = fullfile(tempdir, 'genshin_dmg_calc_rotations');
             obj.LastStatusMessage = "界面已加载，等待模拟。";
+            obj.SimulationDuration = getFixedSimulationDuration();
             obj.LastComparisonResults = table();
             obj.LastResultMetrics = struct( ...
                 'HasResult', false, ...
@@ -103,7 +109,6 @@ classdef GenshinDMGApp < handle
             obj.createUI();
             obj.refreshAllSlotCards();
             obj.selectSlot(1);
-            obj.refreshTimelinePreview();
         end
 
         function delete(obj)
@@ -116,19 +121,9 @@ classdef GenshinDMGApp < handle
             end
         end
 
-        function runSingle(obj)
-            % 公开包装方法，便于脚本或自动化测试直接触发单人模拟。
-            obj.runSingleSimulation();
-        end
-
         function runTeam(obj)
             % 公开包装方法，便于脚本或自动化测试直接触发整队模拟。
             obj.runTeamSimulation();
-        end
-
-        function refreshTimeline(obj)
-            % 公开包装方法，便于脚本或自动化测试刷新输出轴预览。
-            obj.refreshTimelinePreview();
         end
 
         function runComparison(obj, mode)
@@ -146,7 +141,6 @@ classdef GenshinDMGApp < handle
 
             for i = 1:4
                 obj.loadCharacterIntoSlot(i, defaultCharacters(i), true);
-                obj.Slots(i).StartTime = (i - 1) * 2.5;
             end
         end
 
@@ -171,6 +165,7 @@ classdef GenshinDMGApp < handle
                 'ArtifactSet4Active', 1, ...
                 'RotationEdited', false, ...
                 'StartTime', 0, ...
+                'HasExplicitStartTime', false, ...
                 'Enabled', true, ...
                 'PortraitPath', "");
         end
@@ -211,7 +206,7 @@ classdef GenshinDMGApp < handle
             teamGrid = teamRootGrid;
 
             header = uilabel(teamGrid, ...
-                'Text', '选择 4 名角色，分别配置构筑、武器、命座与起轴时间。', ...
+                'Text', '选择 4 名角色并配置构筑、武器与命座；动作顺序由算法循环轴或总自定义轴决定。', ...
                 'FontSize', 12, ...
                 'FontColor', [0.32 0.36 0.45]);
             header.Layout.Row = 1;
@@ -226,7 +221,6 @@ classdef GenshinDMGApp < handle
             obj.SlotConstellationSpinners = cell(1, slotCount);
             obj.SlotTalentSpinners = cell(1, slotCount);
             obj.SlotRefinementSpinners = cell(1, slotCount);
-            obj.SlotStartTimeFields = cell(1, slotCount);
             obj.SlotEnableCheckboxes = cell(1, slotCount);
             obj.SlotEditButtons = cell(1, slotCount);
             obj.SlotPortraits = cell(1, slotCount);
@@ -325,14 +319,14 @@ classdef GenshinDMGApp < handle
                 controlGrid.Layout.Row = 6;
                 controlGrid.Layout.Column = [2 4];
                 controlGrid.RowHeight = {16, 28};
-                controlGrid.ColumnWidth = {'1x', '1x', '1x', '1x'};
+                controlGrid.ColumnWidth = {'1x', '1x', '1x'};
                 controlGrid.ColumnSpacing = 6;
                 controlGrid.RowSpacing = 2;
                 controlGrid.Padding = [0 0 0 0];
                 controlGrid.BackgroundColor = [1.00 1.00 1.00];
 
-                labelNames = {'命座', '天赋', '精炼', '起轴'};
-                for j = 1:4
+                labelNames = {'命座', '天赋', '精炼'};
+                for j = 1:3
                     label = uilabel(controlGrid, ...
                         'Text', labelNames{j}, ...
                         'HorizontalAlignment', 'center', ...
@@ -368,15 +362,6 @@ classdef GenshinDMGApp < handle
                 refinementSpinner.Layout.Row = 2;
                 refinementSpinner.Layout.Column = 3;
                 obj.SlotRefinementSpinners{i} = refinementSpinner;
-
-                startField = uieditfield(controlGrid, 'numeric', ...
-                    'Limits', [0 120], ...
-                    'LowerLimitInclusive', 'on', ...
-                    'ValueDisplayFormat', '%.1f s', ...
-                    'ValueChangedFcn', @(src, ~) obj.onSlotStartTimeChanged(i, src.Value));
-                startField.Layout.Row = 2;
-                startField.Layout.Column = 4;
-                obj.SlotStartTimeFields{i} = startField;
 
                 enableCheckbox = uicheckbox(slotGrid, ...
                     'Text', '参与队伍计算', ...
@@ -445,8 +430,8 @@ classdef GenshinDMGApp < handle
             editorPanel.Layout.Row = 1;
             editorPanel.Layout.Column = layoutColumn;
 
-            editorGrid = uigridlayout(editorPanel, [4 1]);
-            editorGrid.RowHeight = {34, 250, '1x', 240};
+            editorGrid = uigridlayout(editorPanel, [3 1]);
+            editorGrid.RowHeight = {34, 250, '1x'};
             editorGrid.ColumnWidth = {'1x'};
             editorGrid.RowSpacing = 12;
             editorGrid.Padding = [12 12 12 12];
@@ -560,7 +545,7 @@ classdef GenshinDMGApp < handle
             obj.SelectedSummaryText.Layout.Column = 2;
 
             buildPanel = uipanel(editorGrid, ...
-                'Title', '构筑面板参数', ...
+                'Title', '圣遗物有效词条', ...
                 'BackgroundColor', [1.00 1.00 1.00], ...
                 'ForegroundColor', [0.28 0.34 0.44]);
             buildPanel.Layout.Row = 3;
@@ -573,14 +558,14 @@ classdef GenshinDMGApp < handle
             buildGrid.Padding = [10 10 10 10];
 
             obj.BuildHintLabel = uilabel(buildGrid, ...
-                'Text', '说明：当前工程的“圣遗物”数据本质上是角色面板/构筑参数，表中字段均可直接编辑。', ...
+                'Text', '只需输入有效词条数。系统会按当前角色的最优属性取向分配副词条，并自动刷新最终面板。', ...
                 'FontSize', 12, ...
                 'FontColor', [0.35 0.39 0.47]);
             obj.BuildHintLabel.Layout.Row = 1;
             obj.BuildHintLabel.Layout.Column = 1;
 
             obj.BuildTable = uitable(buildGrid, ...
-                'ColumnName', {'字段', '值'}, ...
+                'ColumnName', {'参数', '数值'}, ...
                 'ColumnEditable', [false true], ...
                 'ColumnWidth', {190, 'auto'}, ...
                 'RowName', {}, ...
@@ -588,39 +573,6 @@ classdef GenshinDMGApp < handle
             obj.BuildTable.Layout.Row = 2;
             obj.BuildTable.Layout.Column = 1;
 
-            rotationPanel = uipanel(editorGrid, ...
-                'Title', '轮转脚本 / 输出轴文本', ...
-                'BackgroundColor', [1.00 1.00 1.00], ...
-                'ForegroundColor', [0.28 0.34 0.44]);
-            rotationPanel.Layout.Row = 4;
-            rotationPanel.Layout.Column = 1;
-
-            rotationGrid = uigridlayout(rotationPanel, [3 2]);
-            rotationGrid.RowHeight = {24, '1x', 34};
-            rotationGrid.ColumnWidth = {'1x', 140};
-            rotationGrid.RowSpacing = 8;
-            rotationGrid.ColumnSpacing = 10;
-            rotationGrid.Padding = [10 10 10 10];
-
-            tipLabel = uilabel(rotationGrid, ...
-                'Text', '支持逐行动作 token；空行与 # 注释会被忽略。若默认轮转为 AUTO，也可手动改写为更细时间轴。', ...
-                'FontSize', 12, ...
-                'FontColor', [0.35 0.39 0.47]);
-            tipLabel.Layout.Row = 1;
-            tipLabel.Layout.Column = [1 2];
-
-            obj.RotationTextArea = uitextarea(rotationGrid, ...
-                'FontName', 'Consolas', ...
-                'FontSize', 12, ...
-                'ValueChangedFcn', @(~, ~) obj.onRotationTextEdited());
-            obj.RotationTextArea.Layout.Row = 2;
-            obj.RotationTextArea.Layout.Column = [1 2];
-
-            restoreButton = uibutton(rotationGrid, 'push', ...
-                'Text', '恢复默认轮转', ...
-                'ButtonPushedFcn', @(~, ~) obj.onRestoreDefaultRotation());
-            restoreButton.Layout.Row = 3;
-            restoreButton.Layout.Column = 2;
         end
 
         function createResultPanel(obj, parent)
@@ -654,31 +606,21 @@ classdef GenshinDMGApp < handle
             configGrid.Padding = [10 10 10 10];
             configGrid.BackgroundColor = [0.96 0.97 0.99];
 
-            durationLabel = uilabel(configGrid, 'Text', '轴长(s)', 'FontColor', [0.30 0.34 0.42]);
-            durationLabel.Layout.Row = 1;
-            durationLabel.Layout.Column = 1;
-            obj.TeamDurationField = uieditfield(configGrid, 'numeric', ...
-                'Limits', [1 180], ...
-                'Value', 20, ...
-                'ValueDisplayFormat', '%.1f');
-            obj.TeamDurationField.Layout.Row = 1;
-            obj.TeamDurationField.Layout.Column = 2;
-
             levelLabel = uilabel(configGrid, 'Text', '敌等级', 'FontColor', [0.30 0.34 0.42]);
             levelLabel.Layout.Row = 1;
-            levelLabel.Layout.Column = 3;
+            levelLabel.Layout.Column = 1;
             obj.EnemyLevelField = uieditfield(configGrid, 'numeric', ...
                 'Limits', [1 200], ...
                 'Value', obj.Enemy.Level);
             obj.EnemyLevelField.Layout.Row = 1;
-            obj.EnemyLevelField.Layout.Column = 4;
+            obj.EnemyLevelField.Layout.Column = 2;
 
             obj.StatusLabel = uilabel(configGrid, ...
                 'Text', '等待运行模拟。', ...
                 'FontSize', 12, ...
                 'FontColor', [0.26 0.31 0.40]);
             obj.StatusLabel.Layout.Row = 1;
-            obj.StatusLabel.Layout.Column = [5 6];
+            obj.StatusLabel.Layout.Column = [3 6];
 
             resLabel = uilabel(configGrid, 'Text', '敌抗', 'FontColor', [0.30 0.34 0.42]);
             resLabel.Layout.Row = 2;
@@ -700,24 +642,22 @@ classdef GenshinDMGApp < handle
             obj.EnemyDefField.Layout.Row = 2;
             obj.EnemyDefField.Layout.Column = 4;
 
-            obj.RunSingleButton = uibutton(configGrid, 'push', ...
-                'Text', '单人模拟', ...
-                'BackgroundColor', [0.46 0.70 0.82], ...
-                'FontColor', [0.08 0.12 0.16], ...
-                'ButtonPushedFcn', @(~, ~) obj.runSingleSimulation());
-            obj.RunSingleButton.Layout.Row = 2;
-            obj.RunSingleButton.Layout.Column = 5;
-
             obj.RunTeamButton = uibutton(configGrid, 'push', ...
-                'Text', '整队模拟', ...
+                'Text', '计算整队 DPS', ...
                 'BackgroundColor', [0.92 0.76 0.45], ...
                 'FontColor', [0.16 0.12 0.08], ...
                 'ButtonPushedFcn', @(~, ~) obj.runTeamSimulation());
             obj.RunTeamButton.Layout.Row = 2;
-            obj.RunTeamButton.Layout.Column = 6;
+            obj.RunTeamButton.Layout.Column = 5;
+
+            obj.EditTeamRotationButton = uibutton(configGrid, 'push', ...
+                'Text', '总自定义轴', ...
+                'ButtonPushedFcn', @(~, ~) obj.openTeamRotationEditor());
+            obj.EditTeamRotationButton.Layout.Row = 2;
+            obj.EditTeamRotationButton.Layout.Column = 6;
 
             noteLabel = uilabel(configGrid, ...
-                'Text', '注：GUI 中的“构筑面板参数”直接映射到底层 build struct，并非逐件圣遗物求解器。', ...
+                'Text', '注：整队模拟固定为 120 秒；计时结束时未完成的动作将被截断后结算。构筑面板参数直接映射到底层 build struct。', ...
                 'FontColor', [0.36 0.39 0.47], ...
                 'FontSize', 12);
             noteLabel.Layout.Row = 3;
@@ -728,12 +668,6 @@ classdef GenshinDMGApp < handle
                 'ButtonPushedFcn', @(~, ~) obj.onResetCurrentSlot());
             obj.ResetSlotButton.Layout.Row = 3;
             obj.ResetSlotButton.Layout.Column = 5;
-
-            obj.RefreshTimelineButton = uibutton(configGrid, 'push', ...
-                'Text', '刷新输出轴', ...
-                'ButtonPushedFcn', @(~, ~) obj.refreshTimelinePreview());
-            obj.RefreshTimelineButton.Layout.Row = 3;
-            obj.RefreshTimelineButton.Layout.Column = 6;
 
             outputPanel = uipanel(resultGrid, ...
                 'Title', '命令窗口式模拟输出', ...
@@ -786,45 +720,28 @@ classdef GenshinDMGApp < handle
             lines(end + 1, 1) = "   Status: " + string(obj.LastStatusMessage);
             lines(end + 1, 1) = "";
             lines(end + 1, 1) = "[Simulation inputs]";
-            lines(end + 1, 1) = sprintf('Rotation duration: %.2f s | Enemy Lv.%g | RES %.2f | DEF reduction %.2f', ...
-                obj.TeamDurationField.Value, obj.EnemyLevelField.Value, obj.EnemyResField.Value, obj.EnemyDefField.Value);
+            lines(end + 1, 1) = sprintf('Report horizon: %.2f s | Planned cycle shown in result | Enemy Lv.%g | RES %.2f | DEF reduction %.2f', ...
+                obj.SimulationDuration, obj.EnemyLevelField.Value, obj.EnemyResField.Value, obj.EnemyDefField.Value);
 
             hasResult = isstruct(obj.LastResultMetrics) && isfield(obj.LastResultMetrics, 'HasResult') ...
                 && logical(obj.LastResultMetrics.HasResult);
             if hasResult && isstruct(obj.LastTeamResult) && isfield(obj.LastTeamResult, 'TotalDMG')
                 lines = obj.appendTeamResultReport(lines);
-            elseif hasResult && ~isempty(obj.LastMemberResults)
-                lines = obj.appendSingleResultReport(lines);
             else
                 lines(end + 1, 1) = "";
-                lines(end + 1, 1) = "[Rotation preview]";
-                lines = obj.appendPreviewTimelineLines(lines);
+                lines(end + 1, 1) = "[Team rotation]";
+                if obj.TeamRotationMode == "custom"
+                    lines(end + 1, 1) = "Custom team rotation is ready. Run team DPS to validate it.";
+                else
+                    lines(end + 1, 1) = "The optimizer will generate a loop rotation when team DPS is run.";
+                end
             end
-        end
-
-        function lines = appendSingleResultReport(obj, lines)
-            result = obj.LastMemberResults(1);
-            slot = obj.Slots(obj.SelectedSlot);
-            lines(end + 1, 1) = "";
-            lines(end + 1, 1) = "[Single character result]";
-            lines(end + 1, 1) = sprintf('Character: %s | Total damage: %.0f | DPS: %.2f | Rotation: %.2f s', ...
-                char(string(getFieldOrDefault(result, 'DisplayName', slot.DisplayName))), ...
-                double(getFieldOrDefault(result, 'TotalDMG', 0)), ...
-                double(getFieldOrDefault(result, 'DPS', 0)), ...
-                double(getFieldOrDefault(result, 'RotationTime', 0)));
-            lines = obj.appendBuildPanelLines(lines, obj.SelectedSlot);
-            lines(end + 1, 1) = "";
-            lines(end + 1, 1) = "[Estimated action timeline]";
-            lines = obj.appendPreviewTimelineLines(lines, obj.SelectedSlot, ...
-                double(getFieldOrDefault(result, 'RotationTime', 0)));
-            lines = obj.appendDamageBreakdownWithBuffs(lines, ...
-                getFieldOrDefault(result, 'Breakdown', table()), table(), table(), struct());
         end
 
         function lines = appendTeamResultReport(obj, lines)
             result = obj.LastTeamResult;
             totalDamage = double(getFieldOrDefault(result, 'TotalDMG', 0));
-            rotationDuration = double(getFieldOrDefault(result, 'RotationDuration', obj.TeamDurationField.Value));
+            rotationDuration = double(getFieldOrDefault(result, 'RotationDuration', obj.SimulationDuration));
             lines(end + 1, 1) = "";
             lines(end + 1, 1) = "[Team result]";
             lines(end + 1, 1) = sprintf('Total damage: %.0f | Team DPS: %.2f | Rotation: %.2f s | Next cycle: %s | Readiness: %.2f', ...
@@ -1028,35 +945,6 @@ classdef GenshinDMGApp < handle
             buffLines = unique(effectTags, 'stable');
         end
 
-        function lines = appendPreviewTimelineLines(obj, lines, slotIndices, rotationTime)
-            if nargin < 3 || isempty(slotIndices)
-                slotIndices = find([obj.Slots.Enabled]);
-            end
-            if nargin < 4
-                rotationTime = [];
-            end
-            if isempty(slotIndices)
-                lines(end + 1, 1) = "(no enabled character)";
-                return;
-            end
-
-            for i = 1:numel(slotIndices)
-                slot = obj.Slots(slotIndices(i));
-                actions = parseRotationTextTokens(slot.RotationText);
-                memberRotationTime = [];
-                if isscalar(slotIndices) && ~isempty(rotationTime) && rotationTime > 0
-                    memberRotationTime = rotationTime;
-                end
-                [durations, labels] = obj.estimateTimelineBlocks(slot, actions, memberRotationTime);
-                currentTime = slot.StartTime;
-                for j = 1:numel(durations)
-                    lines(end + 1, 1) = sprintf('[%6.2f, %6.2f] %s | %s', ...
-                        currentTime, currentTime + durations(j), char(slot.DisplayName), char(string(labels{j})));
-                    currentTime = currentTime + durations(j);
-                end
-            end
-        end
-
         function lines = appendReportTable(obj, lines, titleText, sourceTable)
             lines(end + 1, 1) = "";
             lines(end + 1, 1) = "[" + string(titleText) + "]";
@@ -1189,6 +1077,7 @@ classdef GenshinDMGApp < handle
 
             slot.Build = obj.applyWeaponStatsToBuild(slot.Build, slot.WeaponList, slot.WeaponName, slot.WeaponRefinement);
             slot.Build = obj.applyArtifactSelectionToBuild(slot.Build, slot);
+            slot.Build = initializeEffectiveArtifactBuild(slot.CharacterKey, slot.Build, 30);
             obj.Slots(slotIndex) = slot;
         end
 
@@ -1223,7 +1112,6 @@ classdef GenshinDMGApp < handle
             obj.SlotConstellationSpinners{slotIndex}.Value = slot.Constellation;
             obj.SlotTalentSpinners{slotIndex}.Value = slot.TalentLevel;
             obj.SlotRefinementSpinners{slotIndex}.Value = slot.WeaponRefinement;
-            obj.SlotStartTimeFields{slotIndex}.Value = slot.StartTime;
             obj.SlotEnableCheckboxes{slotIndex}.Value = slot.Enabled;
 
             footerText = sprintf('%s | %s', char(slot.DisplayName), char(slot.ArtifactSet1));
@@ -1285,22 +1173,22 @@ classdef GenshinDMGApp < handle
             obj.SelectedRefinementSpinner.Value = slot.WeaponRefinement;
             obj.updateSelectedWeaponDropdown();
 
+            panel = getCharacterFinalPanel(slot.CharacterKey, slot.Build, struct());
             summaryLines = { ...
                 sprintf('角色：%s | 英文键：%s', char(slot.DisplayName), char(slot.CharacterKey)), ...
                 sprintf('构筑预设：%s', char(obj.lookupPresetLabel(slot))), ...
                 sprintf('武器：%s | 精炼 %d', char(slot.WeaponName), slot.WeaponRefinement), ...
                 sprintf('圣遗物：%s (%s)', char(slot.ArtifactSet1), char(obj.resolveArtifactModeLabel(slot))), ...
+                sprintf('有效词条：%d | 分配：%s', getFieldOrDefault(slot.Build, 'ArtifactEffectiveSubstatCount', 30), char(string(getFieldOrDefault(slot.Build, 'ArtifactEffectiveSubstatProfile', '')))), ...
                 sprintf('命座：%d | 统一天赋等级：%d', slot.Constellation, slot.TalentLevel), ...
-                sprintf('起轴时间：%.1f s | 参与队伍计算：%s', slot.StartTime, obj.localOnOff(slot.Enabled)), ...
+                sprintf('参与队伍计算：%s', obj.localOnOff(slot.Enabled)), ...
                 '', ...
-                '维护提示：', ...
-                '1. 构筑表字段会直接写入底层 build struct。', ...
-                '2. 武器下拉会同步基础攻击、词条类型、词条数值与精炼等级。', ...
-                '3. 轮转文本仅决定角色模拟脚本输入与输出轴可视化，不改动核心模拟器。'};
+                '最终面板（用于后续配队 DPS）：', ...
+                sprintf('生命 %.0f | 攻击 %.0f | 防御 %.0f | 元素精通 %.0f | 充能 %.1f%%', panel.HP, panel.ATK, panel.DEF, panel.EM, panel.ER * 100), ...
+                sprintf('暴击率 %.1f%% | 暴击伤害 %.1f%% | 元素伤害加成 %.1f%%', panel.CritRate * 100, panel.CritDMG * 100, panel.ElementDMGBonus * 100)};
             obj.SelectedSummaryText.Value = summaryLines;
 
-            obj.BuildTable.Data = buildStructToTableData(slot.Build);
-            obj.RotationTextArea.Value = obj.rotationStringToTextAreaValue(slot.RotationText);
+            obj.BuildTable.Data = {'有效词条数', getFieldOrDefault(slot.Build, 'ArtifactEffectiveSubstatCount', 30)};
             obj.syncDashboard();
         end
 
@@ -1322,21 +1210,9 @@ classdef GenshinDMGApp < handle
             end
         end
 
-        function value = rotationStringToTextAreaValue(obj, rotationText) %#ok<MANU>
-            % 将轮转字符串转为文本框 Value。
-            lines = splitlines(string(rotationText));
-            lines = cellstr(lines);
-            if isempty(lines)
-                value = {''};
-            else
-                value = lines;
-            end
-        end
-
         function saveSelectedSlotState(obj)
             % 将中间编辑区的构筑表和轮转文本写回当前选中槽位。
-            if isempty(obj.BuildTable) || isempty(obj.RotationTextArea) || isempty(obj.Slots) ...
-                    || ~isvalid(obj.BuildTable) || ~isvalid(obj.RotationTextArea)
+            if isempty(obj.BuildTable) || isempty(obj.Slots) || ~isvalid(obj.BuildTable)
                 return;
             end
             if obj.SelectedSlot < 1 || obj.SelectedSlot > numel(obj.Slots)
@@ -1345,11 +1221,8 @@ classdef GenshinDMGApp < handle
 
             slot = obj.Slots(obj.SelectedSlot);
             if ~isempty(obj.BuildTable.Data)
-                slot.Build = tableDataToBuildStruct(obj.BuildTable.Data);
-                slot.Build = materializeArtifactPieceModel(slot.CharacterKey, slot.Build, struct());
+                slot.Build = initializeEffectiveArtifactBuild(slot.CharacterKey, slot.Build, obj.BuildTable.Data{1, 2});
             end
-            slot.RotationText = obj.getRotationTextValue();
-            slot.RotationEdited = obj.isCustomRotationText(slot.CharacterKey, slot.RotationText);
             slot.WeaponName = string(getFieldOrDefault(slot.Build, 'Weapon', slot.WeaponName));
             slot.WeaponRefinement = max(1, min(5, getFieldOrDefault(slot.Build, 'WeaponRefinement', slot.WeaponRefinement)));
             slot.ArtifactSet1 = string(getFieldOrDefault(slot.Build, 'ArtifactSet1', slot.ArtifactSet1));
@@ -1360,31 +1233,6 @@ classdef GenshinDMGApp < handle
             obj.Slots(obj.SelectedSlot) = slot;
 
             obj.refreshSlotCard(obj.SelectedSlot);
-        end
-
-        function rotationText = getRotationTextValue(obj)
-            % 读取当前轮转文本框内容。
-            rawValue = obj.RotationTextArea.Value;
-            if iscell(rawValue)
-                rotationText = string(strjoin(rawValue, newline));
-            elseif isstring(rawValue)
-                rotationText = string(strjoin(cellstr(rawValue), newline));
-            else
-                rotationText = string(rawValue);
-            end
-        end
-
-        function normalized = normalizeRotationText(obj, rotationText) %#ok<MANU>
-            lines = splitlines(string(rotationText));
-            lines = strip(lines(:));
-            lines = lines(strlength(lines) > 0);
-            normalized = join(lines, newline);
-        end
-
-        function tf = isCustomRotationText(obj, characterKey, rotationText)
-            defaultText = getCharacterDefaultRotationText(characterKey);
-            tf = ~strcmp(char(obj.normalizeRotationText(rotationText)), ...
-                char(obj.normalizeRotationText(defaultText)));
         end
 
         function updatePresetDropdown(obj, slotIndex)
@@ -1603,16 +1451,16 @@ classdef GenshinDMGApp < handle
             if strlength(strtrim(rotationText)) == 0
                 rotationText = getCharacterDefaultRotationText(slot.CharacterKey);
             end
-            hasCustomRotation = logical(getFieldOrDefault(slot, 'RotationEdited', false)) ...
-                || obj.isCustomRotationText(slot.CharacterKey, rotationText);
-            useExplicitRotationSeed = ~respectTeamAutoPlan || hasCustomRotation;
+            useExplicitRotationSeed = ~respectTeamAutoPlan;
 
             overrides = struct( ...
                 'Constellation', slot.Constellation, ...
                 'TalentLevel', slot.TalentLevel, ...
                 'Build', slot.Build, ...
-                'StartTime', slot.StartTime, ...
                 'HasExplicitRotationSeed', useExplicitRotationSeed);
+            if logical(getFieldOrDefault(slot, 'HasExplicitStartTime', false))
+                overrides.StartTime = slot.StartTime;
+            end
             if useExplicitRotationSeed
                 tempRotationPath = writeTempRotationFile( ...
                     obj.TempRotationDir, slot.CharacterKey, slotIndex, rotationText);
@@ -1629,16 +1477,16 @@ classdef GenshinDMGApp < handle
             if strlength(strtrim(rotationText)) == 0
                 rotationText = getCharacterDefaultRotationText(slot.CharacterKey);
             end
-            hasCustomRotation = logical(getFieldOrDefault(slot, 'RotationEdited', false)) ...
-                || obj.isCustomRotationText(slot.CharacterKey, rotationText);
-            useExplicitRotationSeed = ~respectTeamAutoPlan || hasCustomRotation;
+            useExplicitRotationSeed = ~respectTeamAutoPlan;
 
             overrides = struct( ...
                 'Constellation', slot.Constellation, ...
                 'TalentLevel', slot.TalentLevel, ...
                 'Build', slot.Build, ...
-                'StartTime', slot.StartTime, ...
                 'HasExplicitRotationSeed', useExplicitRotationSeed);
+            if logical(getFieldOrDefault(slot, 'HasExplicitStartTime', false))
+                overrides.StartTime = slot.StartTime;
+            end
             if useExplicitRotationSeed
                 tempRotationPath = writeTempRotationFile( ...
                     obj.TempRotationDir, slot.CharacterKey, slotIndex, rotationText);
@@ -1682,26 +1530,162 @@ classdef GenshinDMGApp < handle
             end
         end
 
-        function runSingleSimulation(obj)
-            % 按当前选中角色执行单人模拟。
-            obj.saveSelectedSlotState();
-            try
-                memberCfg = obj.buildMemberConfig(obj.SelectedSlot, false);
-                result = simulateCharacterDPS(memberCfg, obj.buildEnemy());
-                obj.LastTeamResult = struct();
-                obj.LastMemberResults = result;
-                obj.LastSimulationMode = "单人";
-                obj.LastResultMetrics = struct( ...
-                    'HasResult', true, ...
-                    'TotalDamage', result.TotalDMG, ...
-                    'DPS', result.DPS, ...
-                    'RotationTime', result.RotationTime);
-
-                obj.setStatus(sprintf('已完成单人模拟：%s。', char(result.DisplayName)));
-                obj.updateResultConsole(true);
-            catch ME
-                obj.showSimulationError(ME);
+        function options = buildTeamPlanOptions(obj, slotIndices)
+            options = struct();
+            if obj.TeamRotationMode ~= "custom"
+                return;
             end
+            if isempty(obj.TeamCustomActions)
+                error('请先在“总自定义轴”中添加至少一个动作。');
+            end
+
+            actions = repmat(struct('MemberIndex', 0, 'Token', ""), 1, numel(obj.TeamCustomActions));
+            for i = 1:numel(obj.TeamCustomActions)
+                memberIndex = find(slotIndices == obj.TeamCustomActions(i).SlotIndex, 1, 'first');
+                if isempty(memberIndex)
+                    error('总自定义轴包含未启用角色的动作，请先删除该动作或启用角色。');
+                end
+                actions(i).MemberIndex = memberIndex;
+                actions(i).Token = string(obj.TeamCustomActions(i).Token);
+            end
+            options.CustomRotationActions = actions;
+        end
+
+        function openTeamRotationEditor(obj)
+            if ~isempty(obj.TeamRotationFigure) && isvalid(obj.TeamRotationFigure)
+                obj.TeamRotationFigure.Visible = 'on';
+                obj.refreshTeamRotationEditor();
+                return;
+            end
+
+            obj.TeamRotationFigure = uifigure( ...
+                'Name', '总自定义轴', ...
+                'Position', [230 150 760 590], ...
+                'Color', [0.95 0.96 0.98]);
+            root = uigridlayout(obj.TeamRotationFigure, [4 1]);
+            root.RowHeight = {58, 46, '1x', 42};
+            root.Padding = [14 14 14 14];
+            root.RowSpacing = 10;
+
+            modeGrid = uigridlayout(root, [1 2]);
+            modeGrid.ColumnWidth = {100, '1x'};
+            modeGrid.Padding = [0 0 0 0];
+            uilabel(modeGrid, 'Text', '执行方式', 'FontWeight', 'bold');
+            obj.TeamRotationModeDropdown = uidropdown(modeGrid, ...
+                'Items', {'算法循环轴', '总自定义轴'}, ...
+                'ItemsData', {'algorithm', 'custom'}, ...
+                'ValueChangedFcn', @(src, ~) obj.onTeamRotationModeChanged(src.Value));
+            obj.TeamRotationModeDropdown.Layout.Column = 2;
+
+            controls = uigridlayout(root, [1 7]);
+            controls.ColumnWidth = {'1x', 92, 72, 66, 66, 66, 66};
+            controls.ColumnSpacing = 8;
+            controls.Padding = [0 0 0 0];
+            [labels, values] = obj.teamRotationCharacterChoices();
+            obj.TeamRotationCharacterDropdown = uidropdown(controls, 'Items', labels, 'ItemsData', values);
+            obj.TeamRotationActionDropdown = uidropdown(controls, ...
+                'Items', {'E', 'ExQ', 'Q', 'N1', 'N2', 'N3', 'N4', 'N5', 'CA', 'Charge', 'Plunge', 'HoldE'});
+            uibutton(controls, 'Text', '添加动作', 'ButtonPushedFcn', @(~, ~) obj.addTeamRotationAction());
+            uibutton(controls, 'Text', '上移', 'ButtonPushedFcn', @(~, ~) obj.moveTeamRotationAction(-1));
+            uibutton(controls, 'Text', '下移', 'ButtonPushedFcn', @(~, ~) obj.moveTeamRotationAction(1));
+            uibutton(controls, 'Text', '删除', 'ButtonPushedFcn', @(~, ~) obj.removeTeamRotationAction());
+            uibutton(controls, 'Text', '清空', 'ButtonPushedFcn', @(~, ~) obj.clearTeamRotationActions());
+
+            obj.TeamRotationActionTable = uitable(root, ...
+                'ColumnName', {'顺序', '角色', '动作'}, ...
+                'ColumnEditable', [false false false], ...
+                'ColumnWidth', {60, 220, 'auto'}, ...
+                'RowName', {});
+
+            footer = uigridlayout(root, [1 2]);
+            footer.ColumnWidth = {'1x', 130};
+            footer.Padding = [0 0 0 0];
+            uilabel(footer, 'Text', '同一角色的动作请保持连续，后端会按此顺序生成整队时间线。', ...
+                'FontColor', [0.35 0.39 0.47]);
+            uibutton(footer, 'Text', '保存并使用', ...
+                'ButtonPushedFcn', @(~, ~) obj.saveTeamRotationEditor());
+            obj.refreshTeamRotationEditor();
+        end
+
+        function [labels, values] = teamRotationCharacterChoices(obj)
+            labels = cell(1, numel(obj.Slots));
+            values = cell(1, numel(obj.Slots));
+            for i = 1:numel(obj.Slots)
+                labels{i} = sprintf('%d. %s', i, char(obj.Slots(i).DisplayName));
+                values{i} = num2str(i);
+            end
+        end
+
+        function refreshTeamRotationEditor(obj)
+            if isempty(obj.TeamRotationFigure) || ~isvalid(obj.TeamRotationFigure)
+                return;
+            end
+            [labels, values] = obj.teamRotationCharacterChoices();
+            obj.TeamRotationCharacterDropdown.Items = labels;
+            obj.TeamRotationCharacterDropdown.ItemsData = values;
+            obj.TeamRotationModeDropdown.Value = char(obj.TeamRotationMode);
+            rows = cell(numel(obj.TeamCustomActions), 3);
+            for i = 1:numel(obj.TeamCustomActions)
+                slotIndex = obj.TeamCustomActions(i).SlotIndex;
+                rows{i, 1} = i;
+                rows{i, 2} = char(obj.Slots(slotIndex).DisplayName);
+                rows{i, 3} = char(string(obj.TeamCustomActions(i).Token));
+            end
+            obj.TeamRotationActionTable.Data = rows;
+        end
+
+        function onTeamRotationModeChanged(obj, value)
+            obj.TeamRotationMode = string(value);
+            obj.syncDashboard();
+        end
+
+        function addTeamRotationAction(obj)
+            slotIndex = str2double(string(obj.TeamRotationCharacterDropdown.Value));
+            token = string(obj.TeamRotationActionDropdown.Value);
+            obj.TeamCustomActions(end + 1) = struct('SlotIndex', slotIndex, 'Token', token);
+            obj.TeamRotationMode = "custom";
+            obj.refreshTeamRotationEditor();
+        end
+
+        function removeTeamRotationAction(obj)
+            index = obj.selectedTeamRotationActionIndex();
+            if isempty(index), return; end
+            obj.TeamCustomActions(index) = [];
+            obj.refreshTeamRotationEditor();
+        end
+
+        function moveTeamRotationAction(obj, direction)
+            index = obj.selectedTeamRotationActionIndex();
+            target = index + direction;
+            if isempty(index) || target < 1 || target > numel(obj.TeamCustomActions), return; end
+            temp = obj.TeamCustomActions(index);
+            obj.TeamCustomActions(index) = obj.TeamCustomActions(target);
+            obj.TeamCustomActions(target) = temp;
+            obj.refreshTeamRotationEditor();
+        end
+
+        function clearTeamRotationActions(obj)
+            obj.TeamCustomActions = struct('SlotIndex', {}, 'Token', {});
+            obj.refreshTeamRotationEditor();
+        end
+
+        function index = selectedTeamRotationActionIndex(obj)
+            index = [];
+            if isempty(obj.TeamRotationActionTable.Selection)
+                return;
+            end
+            index = obj.TeamRotationActionTable.Selection(1);
+        end
+
+        function saveTeamRotationEditor(obj)
+            obj.TeamRotationMode = string(obj.TeamRotationModeDropdown.Value);
+            if obj.TeamRotationMode == "custom" && isempty(obj.TeamCustomActions)
+                uialert(obj.TeamRotationFigure, '请至少添加一个动作，或切换回算法循环轴。', '总自定义轴为空');
+                return;
+            end
+            obj.TeamRotationFigure.Visible = 'off';
+            obj.setStatus('总自定义轴已更新。');
+            obj.syncDashboard();
         end
 
         function runTeamSimulation(obj)
@@ -1714,9 +1698,10 @@ classdef GenshinDMGApp < handle
                     return;
                 end
 
+                planOptions = obj.buildTeamPlanOptions(slotIndices);
                 teamSpec = struct( ...
                     'Members', {members}, ...
-                    'RotationDuration', obj.TeamDurationField.Value, ...
+                    'PlanOptions', planOptions, ...
                     'SharedBuffs', struct());
 
                 [teamResult, memberResults] = simulateTeamDPS(teamSpec, obj.buildEnemy());
@@ -2187,7 +2172,6 @@ classdef GenshinDMGApp < handle
 
             teamSpec = struct( ...
                 'Members', {members}, ...
-                'RotationDuration', obj.TeamDurationField.Value, ...
                 'SharedBuffs', struct());
             [teamResult, memberResults] = simulateTeamDPS(teamSpec, obj.buildEnemy());
         end
@@ -2433,7 +2417,6 @@ classdef GenshinDMGApp < handle
             obj.Slots(obj.SelectedSlot) = slot;
             obj.refreshSlotCard(obj.SelectedSlot);
             obj.refreshEditorForSelectedSlot();
-            obj.refreshTimelinePreview();
             obj.setStatus(sprintf('Applied ranked candidate: %s.', char(string(row.Candidate))));
         end
 
@@ -2484,59 +2467,6 @@ classdef GenshinDMGApp < handle
                 message = sprintf('%s | Warnings %d | %s', ...
                     message, numel(warnings), char(warnings(1)));
             end
-        end
-
-        function [durations, labels] = estimateTimelineBlocks(obj, slot, actions, resultRotationTime)
-            % 为输出轴可视化估计每个动作的时长。
-            durations = [];
-            labels = {};
-
-            if isempty(actions)
-                if ~isempty(resultRotationTime)
-                    durations = resultRotationTime;
-                else
-                    durations = 1.0;
-                end
-                labels = {char(slot.CharacterKey)};
-                return;
-            end
-
-            if isscalar(actions) && strcmpi(actions{1}, 'AUTO')
-                durations = max(0.80, obj.defaultIfEmpty(resultRotationTime, 2.0));
-                labels = {'AUTO'};
-                return;
-            end
-
-            estimated = zeros(1, numel(actions));
-            labels = actions.';
-            for i = 1:numel(actions)
-                estimated(i) = estimateActionDuration(slot.CharacterKey, actions{i}, 0.60);
-            end
-
-            scale = 1.0;
-            if ~isempty(resultRotationTime)
-                estimatedTotal = sum(estimated);
-                if estimatedTotal > 0
-                    scale = resultRotationTime / estimatedTotal;
-                end
-            end
-            durations = estimated * scale;
-        end
-
-        function value = defaultIfEmpty(obj, inputValue, fallback) %#ok<MANU>
-            if isempty(inputValue)
-                value = fallback;
-            else
-                value = inputValue;
-            end
-        end
-
-        function refreshTimelinePreview(obj)
-            % 在未运行模拟时，也允许用户预览当前编辑的输出轴。
-            obj.saveSelectedSlotState();
-            obj.LastSimulationMode = "预览";
-            obj.LastResultMetrics.HasResult = false;
-            obj.setStatus('已刷新输出轴预览。');
         end
 
         function setStatus(obj, message)
@@ -2646,7 +2576,6 @@ classdef GenshinDMGApp < handle
             if obj.SelectedSlot == slotIndex
                 obj.refreshEditorForSelectedSlot();
             end
-            obj.refreshTimelinePreview();
         end
 
         function onSlotPresetChanged(obj, slotIndex, presetId)
@@ -2665,6 +2594,7 @@ classdef GenshinDMGApp < handle
             slot.WeaponList = listWeaponsForCharacter(slot.CharacterKey);
             slot.Build = obj.applyWeaponStatsToBuild(slot.Build, slot.WeaponList, slot.WeaponName, slot.WeaponRefinement);
             slot.Build = obj.applyArtifactSelectionToBuild(slot.Build, slot);
+            slot.Build = initializeEffectiveArtifactBuild(slot.CharacterKey, slot.Build, 30);
             obj.Slots(slotIndex) = slot;
             obj.refreshSlotCard(slotIndex);
             if obj.SelectedSlot == slotIndex
@@ -2758,55 +2688,20 @@ classdef GenshinDMGApp < handle
             obj.refreshEditorForSelectedSlot();
         end
 
-        function onSlotStartTimeChanged(obj, slotIndex, value)
-            % 起轴时间修改回写。
-            obj.Slots(slotIndex).StartTime = value;
-            obj.refreshTimelinePreview();
-        end
-
         function onSlotEnabledChanged(obj, slotIndex, value)
             % 队伍槽启用状态修改回写。
             obj.Slots(slotIndex).Enabled = logical(value);
-            obj.refreshTimelinePreview();
+            obj.syncDashboard();
         end
 
         function onBuildTableEdited(obj)
-            % 用户直接编辑 build 表格后的回写逻辑。
+            % The editor intentionally exposes only the effective substat count.
             slot = obj.Slots(obj.SelectedSlot);
-            slot.Build = tableDataToBuildStruct(obj.BuildTable.Data);
-            slot.Build = materializeArtifactPieceModel(slot.CharacterKey, slot.Build, struct());
-            slot.WeaponName = string(getFieldOrDefault(slot.Build, 'Weapon', slot.WeaponName));
-            slot.WeaponRefinement = max(1, min(5, getFieldOrDefault(slot.Build, 'WeaponRefinement', slot.WeaponRefinement)));
-            slot.ArtifactSet1 = string(getFieldOrDefault(slot.Build, 'ArtifactSet1', slot.ArtifactSet1));
-            slot.ArtifactSet1Pieces = getFieldOrDefault(slot.Build, 'ArtifactSet1Pieces', slot.ArtifactSet1Pieces);
-            slot.ArtifactSet2 = string(getFieldOrDefault(slot.Build, 'ArtifactSet2', slot.ArtifactSet2));
-            slot.ArtifactSet2Pieces = getFieldOrDefault(slot.Build, 'ArtifactSet2Pieces', slot.ArtifactSet2Pieces);
-            slot.ArtifactSet4Active = getFieldOrDefault(slot.Build, 'ArtifactSet4Active', slot.ArtifactSet4Active);
-            slot.Build = obj.applyWeaponStatsToBuild(slot.Build, slot.WeaponList, slot.WeaponName, slot.WeaponRefinement);
-            slot.Build = obj.applyArtifactSelectionToBuild(slot.Build, slot);
+            slot.Build = initializeEffectiveArtifactBuild(slot.CharacterKey, slot.Build, obj.BuildTable.Data{1, 2});
             obj.Slots(obj.SelectedSlot) = slot;
 
             obj.refreshSlotCard(obj.SelectedSlot);
             obj.refreshEditorForSelectedSlot();
-        end
-
-        function onRotationTextEdited(obj)
-            % 用户编辑轮转文本后的回写逻辑。
-            slot = obj.Slots(obj.SelectedSlot);
-            slot.RotationText = obj.getRotationTextValue();
-            slot.RotationEdited = obj.isCustomRotationText(slot.CharacterKey, slot.RotationText);
-            obj.Slots(obj.SelectedSlot) = slot;
-            obj.refreshTimelinePreview();
-        end
-
-        function onRestoreDefaultRotation(obj)
-            % 恢复当前角色默认轮转文本。
-            slot = obj.Slots(obj.SelectedSlot);
-            slot.RotationText = getCharacterDefaultRotationText(slot.CharacterKey);
-            slot.RotationEdited = false;
-            obj.Slots(obj.SelectedSlot) = slot;
-            obj.RotationTextArea.Value = obj.rotationStringToTextAreaValue(slot.RotationText);
-            obj.refreshTimelinePreview();
         end
 
         function onSelectedArtifactSetChanged(obj, setId)
@@ -2901,7 +2796,6 @@ classdef GenshinDMGApp < handle
 
             obj.refreshSlotCard(obj.SelectedSlot);
             obj.refreshEditorForSelectedSlot();
-            obj.refreshTimelinePreview();
             obj.setStatus('已重置当前角色为默认配置。');
         end
 
