@@ -65,7 +65,7 @@ function bonus = localTwoPieceBonus(setId, characterName, build)
     switch lower(char(setId))
         case {'atk18', 'fragmentofharmonicwhimsy', 'gladiatorsfinale', 'shimenawasreminiscence', ...
                 'resolutionofsojourner', 'braveheart', 'nighttimewhispersintheechoingwoods', 'unfinishedreverie', 'adaycarvedfromrisingwinds', ...
-                'disenchantmentindeepshadow'}
+                'disenchantmentindeepshadow', 'scarletproof', 'heartofthefurnace'}
             bonus.AtkBonus = 0.18;
 
         case {'hp20', 'tenacityofthemillelith', 'vourukashasglow'}
@@ -381,6 +381,17 @@ function bonus = localFourPieceBonus(setId, characterName, build, teamContext)
                 bonus.CritRate = bonus.CritRate + 0.16;
             end
 
+        case 'scarletproof'
+            if logical(getFieldOrDefault(build, 'ArtifactAssumeStellarSwirlActive', false))
+                bonus.CritRate = bonus.CritRate + 0.16;
+                bonus.StellarSwirlBonus = bonus.StellarSwirlBonus + 0.40;
+            end
+
+        case 'heartofthefurnace'
+            if logical(getFieldOrDefault(build, 'ArtifactAssumeStellarGlimmerActive', false))
+                bonus.AtkBonus = bonus.AtkBonus + 0.12;
+            end
+
         otherwise
             % 复杂或尚未显式建模的 4 件套，在 registry 中保留展示信息，
             % 这里先不对角色面板做错误近似。
@@ -502,5 +513,6 @@ function stats = localEmptyStatStruct()
         'ReactionDMGBonus', 0, ...
         'ShieldBonus', 0, ...
         'LunarChargedBonus', 0, ...
+        'StellarSwirlBonus', 0, ...
         'ResShred', 0);
 end

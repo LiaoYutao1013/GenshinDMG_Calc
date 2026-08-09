@@ -22,7 +22,7 @@ function baseDamage = getReactionBaseDamage(reactionName, reactionLevel)
             coefficient = 1.0;
         case {'stellarconduct', 'starconduct', 'star_superconduct'}
             coefficient = 1.0;
-        case 'swirl'
+        case {'swirl', 'stellarswirl', 'star_swirl'}
             coefficient = 1.2;
         case 'shatter'
             coefficient = 3.0;

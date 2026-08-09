@@ -131,7 +131,7 @@ function result = resolveReactionForHit(enemyState, hitDescriptor, build, teamCo
                 result.CatalyzeFlatDamage = localCatalyzeFlatDamage("Spread", em, reactionBonus);
             end
 
-        case {'electrocharged', 'overload', 'superconduct', 'stellarconduct', 'swirl', 'crystallize', 'bloom', 'burning', ...
+        case {'electrocharged', 'overload', 'superconduct', 'stellarconduct', 'swirl', 'stellarswirl', 'crystallize', 'bloom', 'burning', ...
                 'lunarcharged', 'lunarcrystallize', 'lunarbloom'}
             [result, postReactionApplyGauge] = localResolveTransformativeReaction( ...
                 result, directReaction, hitDescriptor, build, teamContext, enemy, applyGauge);
@@ -277,7 +277,12 @@ function totalBonus = localResolveReactionFamilyBonus(reactionName, build, teamC
         case 'stellarconduct'
             totalBonus = totalBonus ...
                 + getFieldOrDefault(teamContext, 'StellarConductBonus', 0) ...
-                + getFieldOrDefault(teamContext, 'SandroneStellarConductC1Bonus', 0);
+                + getFieldOrDefault(teamContext, 'SandroneStellarConductC1Bonus', 0) ...
+                + getFieldOrDefault(teamContext, 'StellarGlimmerBonus', 0);
+        case 'stellarswirl'
+            totalBonus = totalBonus + getFieldOrDefault(build, 'StellarSwirlBonus', 0) ...
+                + getFieldOrDefault(teamContext, 'StellarSwirlBonus', 0) ...
+                + getFieldOrDefault(teamContext, 'StellarGlimmerBonus', 0);
         case 'swirl'
             reactionElement = lower(char(string(getFieldOrDefault(hitDescriptor, 'ReactionElement', ""))));
             if strcmp(reactionElement, 'cryo')
@@ -313,7 +318,7 @@ function hitDescriptor = localDecorateReactionElement(hitDescriptor, reactionNam
     end
 
     switch lower(char(string(reactionName)))
-        case {'swirl', 'crystallize'}
+        case {'swirl', 'stellarswirl', 'crystallize'}
             hitDescriptor.ReactionElement = string(getFieldOrDefault(directReaction, 'ConsumedAura', ""));
         otherwise
             defaultElement = localReactionElement(reactionName);
@@ -509,7 +514,11 @@ function reaction = localResolvePrimaryReaction(enemyState, hitElement, forcedNa
             end
         case 'anemo'
             if any(strcmp(auraElement, ["Pyro", "Hydro", "Electro", "Cryo"]))
-                reaction.Name = "Swirl";
+                if auraElement == "Cryo" && logical(getFieldOrDefault(teamContext, 'StellarSwirlEnabled', false))
+                    reaction.Name = "StellarSwirl";
+                else
+                    reaction.Name = "Swirl";
+                end
             end
         case 'geo'
             if any(strcmp(auraElement, ["Pyro", "Hydro", "Electro", "Cryo"]))
@@ -1157,7 +1166,7 @@ function tf = localShouldDealDirectTransformativeDamage(reactionName, hitDescrip
     end
 
     switch lower(char(string(reactionName)))
-        case {'overload', 'superconduct', 'stellarconduct', 'swirl', 'lunarcharged', 'lunarbloom'}
+        case {'overload', 'superconduct', 'stellarconduct', 'swirl', 'stellarswirl', 'lunarcharged', 'lunarbloom'}
             tf = true;
         otherwise
             tf = false;
@@ -1166,7 +1175,7 @@ end
 
 function tf = localShouldConsumeAuraOnDirectTransformativeReaction(reactionName)
     switch lower(char(string(reactionName)))
-        case {'overload', 'superconduct', 'stellarconduct', 'swirl', 'crystallize', 'bloom', 'burning'}
+        case {'overload', 'superconduct', 'stellarconduct', 'swirl', 'stellarswirl', 'crystallize', 'bloom', 'burning'}
             tf = true;
         otherwise
             tf = false;
