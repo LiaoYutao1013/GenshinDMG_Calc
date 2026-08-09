@@ -748,9 +748,8 @@ classdef GenshinDMGApp < handle
             primaryDps = double(getFieldOrDefault(result, 'DPS', 0));
             rotationDuration = double(getFieldOrDefault(result, 'RotationDuration', 0));
             lines(end + 1, 1) = "[总览]";
-            lines(end + 1, 1) = sprintf("总伤害: %.0f | DPS（角色合计）: %.2f | 排轴周期: %.2f 秒", ...
-                totalDamage, primaryDps, rotationDuration);
-            lines(end + 1, 1) = "周期归一化数据已保存至日志。";
+            lines(end + 1, 1) = sprintf("DPS（角色合计）: %.2f | 实际排轴周期: %.2f 秒", ...
+                primaryDps, rotationDuration);
             logInfo = getFieldOrDefault(result, 'Log', struct());
             if logical(getFieldOrDefault(logInfo, 'Saved', false))
                 lines(end + 1, 1) = "日志编号: " + string(getFieldOrDefault(logInfo, 'LogId', ""));
@@ -768,8 +767,8 @@ classdef GenshinDMGApp < handle
                     if totalDamage > 0
                         share = 100 * damage / totalDamage;
                     end
-                    lines(end + 1, 1) = sprintf("%s | DPS %.2f | 伤害 %.0f | 占比 %.2f%%", ...
-                        char(character), standaloneDps, damage, share);
+                    lines(end + 1, 1) = sprintf("%s | 单人 DPS %.2f | 伤害占比 %.2f%%", ...
+                        char(character), standaloneDps, share);
                 end
             end
 
