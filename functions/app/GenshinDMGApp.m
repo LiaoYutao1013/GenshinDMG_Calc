@@ -126,6 +126,13 @@ classdef GenshinDMGApp < handle
             obj.runTeamSimulation();
         end
 
+        function [summary, records] = queryLogs(obj, criteria) %#ok<INUSD>
+            if nargin < 2
+                criteria = struct();
+            end
+            [summary, records] = querySimulationLogs(criteria);
+        end
+
         function runComparison(obj, mode)
             %#ok<INUSD>
             obj.setStatus('Comparison charts are not available in the native UI result workflow.');
@@ -715,97 +722,145 @@ classdef GenshinDMGApp < handle
 
         function lines = buildResultReportLines(obj)
             lines = strings(0, 1);
-            lines(end + 1, 1) = ">> Genshin DMG Calc simulation report";
-            lines(end + 1, 1) = "   Generated: " + string(datetime('now', 'Format', 'yyyy-MM-dd HH:mm:ss'));
-            lines(end + 1, 1) = "   Status: " + string(obj.LastStatusMessage);
+            lines(end + 1, 1) = "== 模拟结果 ==";
+            lines(end + 1, 1) = "时间: " + string(datetime('now', 'Format', 'yyyy-MM-dd HH:mm:ss')) ...
+                + " | 模拟窗口: " + string(sprintf('%.0f 秒', obj.SimulationDuration));
+            lines(end + 1, 1) = "DPS 口径: 角色单人 DPS 合计。";
             lines(end + 1, 1) = "";
-            lines(end + 1, 1) = "[Simulation inputs]";
-            lines(end + 1, 1) = sprintf('Report horizon: %.2f s | Planned cycle shown in result | Enemy Lv.%g | RES %.2f | DEF reduction %.2f', ...
-                obj.SimulationDuration, obj.EnemyLevelField.Value, obj.EnemyResField.Value, obj.EnemyDefField.Value);
 
             hasResult = isstruct(obj.LastResultMetrics) && isfield(obj.LastResultMetrics, 'HasResult') ...
                 && logical(obj.LastResultMetrics.HasResult);
             if hasResult && isstruct(obj.LastTeamResult) && isfield(obj.LastTeamResult, 'TotalDMG')
                 lines = obj.appendTeamResultReport(lines);
             else
-                lines(end + 1, 1) = "";
-                lines(end + 1, 1) = "[Team rotation]";
+                lines(end + 1, 1) = "当前没有可显示的整队模拟结果。";
                 if obj.TeamRotationMode == "custom"
-                    lines(end + 1, 1) = "Custom team rotation is ready. Run team DPS to validate it.";
+                    lines(end + 1, 1) = "自定义排轴已保存，请点击“计算整队 DPS”。";
                 else
-                    lines(end + 1, 1) = "The optimizer will generate a loop rotation when team DPS is run.";
+                    lines(end + 1, 1) = "请点击“计算整队 DPS”生成结果。";
                 end
             end
         end
 
+
         function lines = appendTeamResultReport(obj, lines)
             result = obj.LastTeamResult;
             totalDamage = double(getFieldOrDefault(result, 'TotalDMG', 0));
-            rotationDuration = double(getFieldOrDefault(result, 'RotationDuration', obj.SimulationDuration));
-            lines(end + 1, 1) = "";
-            lines(end + 1, 1) = "[Team result]";
-            lines(end + 1, 1) = sprintf('Total damage: %.0f | Team DPS: %.2f | Rotation: %.2f s | Next cycle: %s | Readiness: %.2f', ...
-                totalDamage, double(getFieldOrDefault(result, 'DPS', 0)), rotationDuration, ...
-                char(obj.localOnOff(logical(getFieldOrDefault(result, 'CanLoopNextCycle', false)))), ...
-                double(getFieldOrDefault(result, 'LoopReadiness', 0)));
+            primaryDps = double(getFieldOrDefault(result, 'DPS', 0));
+            lines(end + 1, 1) = "[总览]";
+            lines(end + 1, 1) = sprintf("总伤害: %.0f | DPS（角色合计）: %.2f", totalDamage, primaryDps);
+            lines(end + 1, 1) = "周期归一化数据已保存至日志。";
+            logInfo = getFieldOrDefault(result, 'Log', struct());
+            if logical(getFieldOrDefault(logInfo, 'Saved', false))
+                lines(end + 1, 1) = "日志编号: " + string(getFieldOrDefault(logInfo, 'LogId', ""));
+            end
 
             summary = getFieldOrDefault(result, 'Summary', table());
             if istable(summary) && height(summary) > 0
                 lines(end + 1, 1) = "";
-                lines(end + 1, 1) = "[Member damage and contribution]";
+                lines(end + 1, 1) = "[角色输出]";
                 for i = 1:height(summary)
                     character = obj.reportTableValue(summary, i, 'Character');
                     damage = obj.reportTableNumber(summary, i, 'TotalDMG');
-                    teamDps = obj.reportTableNumber(summary, i, 'TeamCycleDPS');
                     standaloneDps = obj.reportTableNumber(summary, i, 'StandaloneDPS');
                     share = 0;
                     if totalDamage > 0
                         share = 100 * damage / totalDamage;
                     end
-                    lines(end + 1, 1) = sprintf('%s | Damage %.0f | Share %.2f%% | Team-cycle DPS %.2f | Standalone DPS %.2f', ...
-                        char(character), damage, share, teamDps, standaloneDps);
+                    lines(end + 1, 1) = sprintf("%s | DPS %.2f | 伤害 %.0f | 占比 %.2f%%", ...
+                        char(character), standaloneDps, damage, share);
                 end
             end
 
             lines(end + 1, 1) = "";
-            lines(end + 1, 1) = "[Character build panels]";
+            lines(end + 1, 1) = "[角色配置]";
             for i = find([obj.Slots.Enabled])
                 lines = obj.appendBuildPanelLines(lines, i);
             end
 
             teamContext = getFieldOrDefault(result, 'TeamContext', struct());
             lines = obj.appendTeamContextBuffLines(lines, teamContext);
-            lines = obj.appendReportTable(lines, "Rotation plan", getFieldOrDefault(result, 'ExecutionTable', table()));
-            lines = obj.appendReportTable(lines, "Complete execution timeline", getFieldOrDefault(result, 'TimelineTable', table()));
-            lines = obj.appendReportTable(lines, "Energy summary", getFieldOrDefault(result, 'EnergySummary', table()));
-            lines = obj.appendReportTable(lines, "Energy events", getFieldOrDefault(result, 'EnergyTimeline', table()));
-            lines = obj.appendReportTable(lines, "Active effects and buffs", getFieldOrDefault(result, 'ActiveEffectsTable', table()));
-            lines = obj.appendDamageBreakdownWithBuffs(lines, ...
-                getFieldOrDefault(result, 'Breakdown', table()), ...
-                getFieldOrDefault(result, 'TimelineTable', table()), ...
-                getFieldOrDefault(result, 'ActiveEffectsTable', table()), teamContext);
+
+            lines(end + 1, 1) = "";
+            lines(end + 1, 1) = "[排轴]";
+            lines = obj.appendCompactRotationLines(lines, getFieldOrDefault(result, 'ExecutionTable', table()));
 
             warnings = string(getFieldOrDefault(result, 'PlanningWarnings', strings(0, 1)));
-            lines(end + 1, 1) = "";
-            lines(end + 1, 1) = "[Planning warnings]";
             if isempty(warnings)
-                lines(end + 1, 1) = "(none)";
+                return;
+            end
+            lines(end + 1, 1) = "";
+            lines(end + 1, 1) = "[提示]";
+            for i = 1:numel(warnings)
+                lines(end + 1, 1) = "- " + obj.translateReportText(warnings(i));
+            end
+        end
+
+
+        function label = reportFieldLabel(obj, fieldName) %#ok<INUSD>
+            normalized = lower(char(string(fieldName)));
+            if contains(normalized, 'critrate')
+                label = "暴击率";
+            elseif contains(normalized, 'critdmg')
+                label = "暴击伤害";
+            elseif contains(normalized, 'elementalmastery') || strcmp(normalized, 'em')
+                label = "元素精通";
+            elseif contains(normalized, 'energyrecharge') || strcmp(normalized, 'er')
+                label = "元素充能";
+            elseif contains(normalized, 'flatatk')
+                label = "固定攻击";
+            elseif contains(normalized, 'atk')
+                label = "攻击";
+            elseif contains(normalized, 'hp')
+                label = "生命";
+            elseif contains(normalized, 'def')
+                label = "防御";
+            elseif contains(normalized, 'dmgbonus') || contains(normalized, 'bonus')
+                label = "增伤";
             else
-                for i = 1:numel(warnings)
-                    lines(end + 1, 1) = "- " + warnings(i);
-                end
+                label = string(fieldName);
+            end
+        end
+
+        function lines = appendCompactRotationLines(obj, lines, executionTable)
+            if ~istable(executionTable) || height(executionTable) == 0
+                lines(end + 1, 1) = "（无排轴记录）";
+                return;
+            end
+            for i = 1:height(executionTable)
+                character = obj.reportTableValue(executionTable, i, 'Character');
+                startTime = obj.reportTableNumber(executionTable, i, 'StartTime');
+                endTime = obj.reportTableNumber(executionTable, i, 'EndTime');
+                preview = obj.reportTableValue(executionTable, i, 'RotationPreview');
+                lines(end + 1, 1) = sprintf('%s | %.2f-%.2f 秒 | %s', ...
+                    char(character), startTime, endTime, char(preview));
+            end
+        end
+
+        function textValue = translateReportText(obj, textValue) %#ok<INUSD>
+            textValue = string(textValue);
+            replacements = { ...
+                'Simulation cutoff', '模拟截止'; ...
+                'removed', '截去'; ...
+                'unfinished action(s)', '个未完成动作'; ...
+                'Planned timeline overlap', '排轴重叠'; ...
+                'Planned timeline leaves', '排轴空闲'; ...
+                'Loop energy missing', '循环能量不足'; ...
+                'Some planned member windows extend beyond the requested rotation duration.', '部分角色排轴超过循环时长。'};
+            for i = 1:size(replacements, 1)
+                textValue = replace(textValue, replacements{i, 1}, replacements{i, 2});
             end
         end
 
         function lines = appendBuildPanelLines(obj, lines, slotIndex)
             slot = obj.Slots(slotIndex);
-            lines(end + 1, 1) = sprintf('%s | Weapon: %s R%d | Artifact: %s (%d pc) | Constellation: C%d | Talent %d | Start %.2f s', ...
+            lines(end + 1, 1) = sprintf('%s | 武器: %s R%d | 圣遗物: %s（%d 件）| 命座: C%d | 天赋: %d', ...
                 char(slot.DisplayName), char(string(slot.WeaponName)), round(slot.WeaponRefinement), ...
                 char(string(slot.ArtifactSet1)), round(slot.ArtifactSet1Pieces), round(slot.Constellation), ...
-                round(slot.TalentLevel), slot.StartTime);
+                round(slot.TalentLevel));
 
             if ~isstruct(slot.Build) || isempty(fieldnames(slot.Build))
-                lines(end + 1, 1) = "  Panel: (no build values)";
+                lines(end + 1, 1) = "  面板: 无可用数据";
                 return;
             end
 
@@ -814,27 +869,27 @@ classdef GenshinDMGApp < handle
             for i = 1:numel(fields)
                 value = slot.Build.(fields{i});
                 if (isnumeric(value) || islogical(value) || isstring(value) || ischar(value)) && numel(value) <= 12
-                    values(end + 1, 1) = string(fields{i}) + "=" + obj.formatReportValue(value); %#ok<AGROW>
+                    values(end + 1, 1) = obj.reportFieldLabel(fields{i}) + "=" + obj.formatReportValue(value); %#ok<AGROW>
                 end
             end
             if isempty(values)
-                lines(end + 1, 1) = "  Panel: (no scalar build values)";
+                lines(end + 1, 1) = "  面板: 无可用数据";
             else
-                lines(end + 1, 1) = "  Panel: " + strjoin(values, " | ");
+                lines(end + 1, 1) = "  面板: " + strjoin(values, " | ");
             end
         end
 
         function lines = appendTeamContextBuffLines(obj, lines, teamContext) %#ok<INUSD>
             lines(end + 1, 1) = "";
-            lines(end + 1, 1) = "[Current team buffs]";
+            lines(end + 1, 1) = "[当前团队 Buff]";
             if ~isstruct(teamContext) || isempty(fieldnames(teamContext))
-                lines(end + 1, 1) = "(none)";
+                lines(end + 1, 1) = "（无）";
                 return;
             end
 
             buffLines = obj.collectTeamBuffValues(teamContext);
             if isempty(buffLines)
-                lines(end + 1, 1) = "(no non-zero scalar team buff fields)";
+                lines(end + 1, 1) = "（无常驻数值 Buff）";
             else
                 lines = [lines; "  " + buffLines]; %#ok<AGROW>
             end
@@ -853,7 +908,7 @@ classdef GenshinDMGApp < handle
                 isBuffField = any(contains(fieldName, {'Bonus', 'Buff', 'Shred', 'Crit', 'EM', 'Amplify'}, 'IgnoreCase', true));
                 if isBuffField && (isnumeric(value) || islogical(value)) && isscalar(value) ...
                         && isfinite(double(value)) && double(value) ~= 0
-                    buffLines(end + 1, 1) = string(fieldName) + "=" + obj.formatReportValue(value); %#ok<AGROW>
+                    buffLines(end + 1, 1) = obj.reportFieldLabel(fieldName) + "=" + obj.formatReportValue(value); %#ok<AGROW>
                 end
             end
         end
@@ -1688,6 +1743,74 @@ classdef GenshinDMGApp < handle
             obj.syncDashboard();
         end
 
+        function logInfo = saveTeamSimulationLog(obj, teamResult, memberResults, slotIndices)
+            logInfo = struct('Saved', false, 'LogId', "", 'FilePath', "");
+            try
+                record = obj.buildTeamSimulationLogRecord(teamResult, memberResults, slotIndices);
+                logInfo = writeSimulationLog(record);
+            catch ME
+                logInfo.Error = string(ME.message);
+            end
+        end
+
+        function record = buildTeamSimulationLogRecord(obj, teamResult, memberResults, slotIndices)
+            characters = obj.buildSimulationLogCharacters(slotIndices);
+            metrics = struct( ...
+                'SimulationHorizon', double(getFieldOrDefault(teamResult, 'SimulationHorizon', obj.SimulationDuration)), ...
+                'CycleDuration', double(getFieldOrDefault(teamResult, 'RotationDuration', 0)), ...
+                'TotalDMG', double(getFieldOrDefault(teamResult, 'TotalDMG', 0)), ...
+                'TeamDPS', double(getFieldOrDefault(teamResult, 'DPS', 0)), ...
+                'CycleDPS', double(getFieldOrDefault(teamResult, 'CycleDPS', 0)), ...
+                'MemberDPSSum', double(getFieldOrDefault(teamResult, 'MemberDPSSum', 0)), ...
+                'DPSRule', string(getFieldOrDefault(teamResult, 'DPSRule', "MemberStandaloneDPSSum")));
+            rotation = struct( ...
+                'Mode', obj.TeamRotationMode, ...
+                'CustomActions', obj.TeamCustomActions, ...
+                'ExecutionTable', getFieldOrDefault(teamResult, 'ExecutionTable', table()), ...
+                'TimelineTable', getFieldOrDefault(teamResult, 'TimelineTable', table()), ...
+                'MemberRotationTexts', getFieldOrDefault(teamResult, 'MemberRotationTexts', strings(0, 1)));
+            buffs = struct( ...
+                'TeamContext', getFieldOrDefault(teamResult, 'TeamContext', struct()), ...
+                'ActiveEffects', getFieldOrDefault(teamResult, 'ActiveEffectsTable', table()));
+            record = struct( ...
+                'Mode', "team", ...
+                'Configuration', struct('Enemy', obj.buildEnemy(), 'Characters', characters), ...
+                'Metrics', metrics, ...
+                'Rotation', rotation, ...
+                'Buffs', buffs, ...
+                'Result', teamResult, ...
+                'MemberResults', memberResults);
+        end
+
+        function characters = buildSimulationLogCharacters(obj, slotIndices)
+            template = struct( ...
+                'SlotIndex', 0, 'CharacterKey', "", 'DisplayName', "", ...
+                'Build', struct(), 'WeaponName', "", 'WeaponRefinement', 1, ...
+                'ArtifactSet1', "", 'ArtifactSet1Pieces', 0, ...
+                'ArtifactSet2', "", 'ArtifactSet2Pieces', 0, ...
+                'Constellation', 0, 'TalentLevel', 1, 'StartTime', 0, ...
+                'RotationText', "");
+            characters = repmat(template, numel(slotIndices), 1);
+            for i = 1:numel(slotIndices)
+                slot = obj.Slots(slotIndices(i));
+                characters(i) = struct( ...
+                    'SlotIndex', slotIndices(i), ...
+                    'CharacterKey', slot.CharacterKey, ...
+                    'DisplayName', slot.DisplayName, ...
+                    'Build', slot.Build, ...
+                    'WeaponName', slot.WeaponName, ...
+                    'WeaponRefinement', slot.WeaponRefinement, ...
+                    'ArtifactSet1', slot.ArtifactSet1, ...
+                    'ArtifactSet1Pieces', slot.ArtifactSet1Pieces, ...
+                    'ArtifactSet2', slot.ArtifactSet2, ...
+                    'ArtifactSet2Pieces', slot.ArtifactSet2Pieces, ...
+                    'Constellation', slot.Constellation, ...
+                    'TalentLevel', slot.TalentLevel, ...
+                    'StartTime', slot.StartTime, ...
+                    'RotationText', slot.RotationText);
+            end
+        end
+
         function runTeamSimulation(obj)
             % 按当前启用的全部角色执行整队模拟。
             obj.saveSelectedSlotState();
@@ -1701,10 +1824,13 @@ classdef GenshinDMGApp < handle
                 planOptions = obj.buildTeamPlanOptions(slotIndices);
                 teamSpec = struct( ...
                     'Members', {members}, ...
+                    'SimulationHorizon', obj.SimulationDuration, ...
                     'PlanOptions', planOptions, ...
                     'SharedBuffs', struct());
 
                 [teamResult, memberResults] = simulateTeamDPS(teamSpec, obj.buildEnemy());
+                logInfo = obj.saveTeamSimulationLog(teamResult, memberResults, slotIndices);
+                teamResult.Log = logInfo;
                 obj.LastTeamResult = teamResult;
                 obj.LastMemberResults = memberResults;
                 obj.LastSimulationMode = "整队";
