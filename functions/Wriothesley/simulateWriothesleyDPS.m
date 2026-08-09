@@ -33,7 +33,9 @@ function [totalDMG, dps, breakdown, rotationTime, audit] = simulateWriothesleyDP
     normalCritDMGBonus = 0.80 * double(constellation >= 6 && stellarConductReady);
     chargedCritRateBonus = 0.10 * double(constellation >= 6);
     chargedCritDMGBonus = 0.80 * double(constellation >= 6);
-    stellarTaggedBonus = getFieldOrDefault(teamContext, 'StellarConductTaggedDMGBonus', 0) + 0.30 * double(stellarConductReady);
+    stellarTaggedBonus = getFieldOrDefault(teamContext, 'StellarConductTaggedDMGBonus', 0) ...
+        + getFieldOrDefault(teamContext, 'StellarGlimmerBonus', 0) ...
+        + 0.30 * double(stellarConductReady);
 
     actions = struct();
     actions.E = struct( ...

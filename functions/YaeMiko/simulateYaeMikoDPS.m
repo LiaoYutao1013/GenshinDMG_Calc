@@ -40,7 +40,8 @@ function [totalDMG, dps, breakdown, rotationTime, audit] = simulateYaeMikoDPS(bu
     end
     tickHitCount = 9;
     p4ProcCount = 5 * double(reactionReady);
-    stellarTaggedBonus = getFieldOrDefault(teamContext, 'StellarConductTaggedDMGBonus', 0);
+    stellarTaggedBonus = getFieldOrDefault(teamContext, 'StellarConductTaggedDMGBonus', 0) ...
+        + getFieldOrDefault(teamContext, 'StellarGlimmerBonus', 0);
 
     actions = struct();
     actions.E1 = struct('TalentGroup', "Skill", 'TalentLevelOverride', skillLevel, 'Param', "SesshouSakuraDMGLevel1", 'DamageField', "SkillDMGBonus", ...
