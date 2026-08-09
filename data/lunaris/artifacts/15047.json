@@ -1,0 +1,57 @@
+{
+    "info": {
+        "pieces": {
+            "circlet": {
+                "icon": "UI_RelicIcon_15047_3",
+                "name": "Testament to Your Faith"
+            },
+            "flower": {
+                "icon": "UI_RelicIcon_15047_4",
+                "name": "Honor to Your Devotion"
+            },
+            "goblet": {
+                "icon": "UI_RelicIcon_15047_1",
+                "name": "Chalice of Your Blood and Sorrow"
+            },
+            "plume": {
+                "icon": "UI_RelicIcon_15047_2",
+                "name": "Glory to Your Legacy"
+            },
+            "sands": {
+                "icon": "UI_RelicIcon_15047_5",
+                "name": "Time Gifted Unto You"
+            }
+        },
+        "qualityType": "QUALITY_ORANGE",
+        "setBonuses": {
+            "2pc": {
+                "description": "ATK +18%.",
+                "params": [
+                    0.18000000715255737,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                ]
+            },
+            "4pc": {
+                "description": "Increases the equipping character's CRIT Rate by 16%, and their Stellar Swirl reaction dealt by 40%, for 10s after they trigger a Stellar Swirl reaction.",
+                "params": [
+                    0.1599999964237213,
+                    0.4000000059604645,
+                    10.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                ]
+            }
+        },
+        "setIcon": "UI_RelicIcon_15047_4",
+        "setName": "Scarlet Proof"
+    }
+}

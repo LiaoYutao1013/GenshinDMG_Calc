@@ -122,6 +122,8 @@ function teamContext = buildTeamContext(members, rotationDuration, sharedBuffs, 
     hasFaruzan = any(memberNames == "Faruzan");
     hasNahida = any(memberNames == "Nahida");
     hasSandrone = any(memberNames == "Sandrone");
+    hasOdette = any(memberNames == "Odette");
+    hasAlyosha = any(memberNames == "Alyosha");
     hasIlluga = any(memberNames == "Illuga");
     ascendantMoonsign = hasAscendantMoonsign(struct('MemberNames', memberNames));
 
@@ -381,6 +383,24 @@ function teamContext = buildTeamContext(members, rotationDuration, sharedBuffs, 
         sandroneStellarConductBonus = sandroneStellarConductBonus + 0.20;
         if sandroneConstellation >= 1
             sandroneStellarConductC1Bonus = sandroneStellarConductC1Bonus + 0.30 * double(sandroneStellarConductActive);
+        end
+    end
+
+    if hasOdette && stellarConductEnabled
+        odetteIndex = find(memberNames == "Odette", 1, 'first');
+        odetteATK = localApproxMemberATK(members{odetteIndex}, 335);
+        odetteReactionBonus = min(0.14, 0.00007 * max(0, odetteATK));
+        stellarConductBonus = stellarConductBonus + odetteReactionBonus;
+        cryoSwirlBonus = cryoSwirlBonus + odetteReactionBonus;
+    end
+
+    if hasAlyosha && stellarConductEnabled
+        alyoshaIndex = find(memberNames == "Alyosha", 1, 'first');
+        alyoshaConstellation = memberConstellations(alyoshaIndex);
+        if alyoshaConstellation >= 6
+            % The EM grant occurs after two Hunter's Precision stacks; the
+            % timeline applies the active-window gate when one is available.
+            emBonus = emBonus + 100;
         end
     end
 

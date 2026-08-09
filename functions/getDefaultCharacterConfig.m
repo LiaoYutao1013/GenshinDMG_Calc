@@ -10,6 +10,12 @@ function cfg = getDefaultCharacterConfig(name, overrides)
     key = lower(strtrim(char(string(name))));
 
     switch key
+        case {'odette'}
+            cfg = localBaseConfig('Odette', customArtifact_Odette(), fullfile(projectRoot, 'data', 'Odette', 'rotation_Odette.txt'));
+
+        case {'alyosha'}
+            cfg = localBaseConfig('Alyosha', customArtifact_Alyosha(), fullfile(projectRoot, 'data', 'Alyosha', 'rotation_Alyosha.txt'));
+
         case {'skirk'}
             cfg = localBaseConfig('Skirk', customArtifact_Skirk(), fullfile(projectRoot, 'data', 'Skirk', 'rotation_Skirk.txt'));
 

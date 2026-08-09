@@ -1,6 +1,6 @@
 ﻿{
-    "Version":  "6.5.54.2",
-    "GeneratedAt":  "2026-05-16T03:51:30",
+    "Version":  "6.7.54.2",
+    "GeneratedAt":  "2026-08-09T23:43:26",
     "Artifacts":  [
                       {
                           "Id":  10001,
@@ -1903,6 +1903,68 @@
                                          "sands":  {
                                                        "icon":  "UI_RelicIcon_15046_5",
                                                        "name":  "Moment That Ceased Upon Waking From Grand Dreams"
+                                                   }
+                                     }
+                      },
+                      {
+                          "Id":  15047,
+                          "SetId":  15047,
+                          "EnName":  "Scarlet Proof",
+                          "QualityType":  "QUALITY_ORANGE",
+                          "SetIcon":  "UI_RelicIcon_15047_4",
+                          "Effect2Pc":  "ATK +18%.",
+                          "Effect4Pc":  "Increases the equipping character\u0027s CRIT Rate by 16%, and their Stellar Swirl reaction dealt by 40%, for 10s after they trigger a Stellar Swirl reaction.",
+                          "Pieces":  {
+                                         "circlet":  {
+                                                         "icon":  "UI_RelicIcon_15047_3",
+                                                         "name":  "Testament to Your Faith"
+                                                     },
+                                         "flower":  {
+                                                        "icon":  "UI_RelicIcon_15047_4",
+                                                        "name":  "Honor to Your Devotion"
+                                                    },
+                                         "goblet":  {
+                                                        "icon":  "UI_RelicIcon_15047_1",
+                                                        "name":  "Chalice of Your Blood and Sorrow"
+                                                    },
+                                         "plume":  {
+                                                       "icon":  "UI_RelicIcon_15047_2",
+                                                       "name":  "Glory to Your Legacy"
+                                                   },
+                                         "sands":  {
+                                                       "icon":  "UI_RelicIcon_15047_5",
+                                                       "name":  "Time Gifted Unto You"
+                                                   }
+                                     }
+                      },
+                      {
+                          "Id":  15048,
+                          "SetId":  15048,
+                          "EnName":  "Heart of the Furnace",
+                          "QualityType":  "QUALITY_ORANGE",
+                          "SetIcon":  "UI_RelicIcon_15048_4",
+                          "Effect2Pc":  "ATK +18%.",
+                          "Effect4Pc":  "Increases the equipping character\u0027s ATK by 12% for 12s when they trigger a Stellar Glimmer reaction or deal Stellar Glimmer reaction DMG. Also increases Stellar Glimmer reaction DMG dealt by all nearby party members by 50%. The above effects can trigger even when the equipping character is not on the field, and he DMG bonus from multiple Artifact Sets with the same name do not stack.",
+                          "Pieces":  {
+                                         "circlet":  {
+                                                         "icon":  "UI_RelicIcon_15048_3",
+                                                         "name":  "Foundryman\u0027s Legacy"
+                                                     },
+                                         "flower":  {
+                                                        "icon":  "UI_RelicIcon_15048_4",
+                                                        "name":  "Foundryman\u0027s Conjecture"
+                                                    },
+                                         "goblet":  {
+                                                        "icon":  "UI_RelicIcon_15048_1",
+                                                        "name":  "Foundryman\u0027s Magnanimity"
+                                                    },
+                                         "plume":  {
+                                                       "icon":  "UI_RelicIcon_15048_2",
+                                                       "name":  "Foundryman\u0027s Observation"
+                                                   },
+                                         "sands":  {
+                                                       "icon":  "UI_RelicIcon_15048_5",
+                                                       "name":  "Foundryman\u0027s Calculus"
                                                    }
                                      }
                       }

@@ -1,0 +1,57 @@
+{
+    "info": {
+        "pieces": {
+            "circlet": {
+                "icon": "UI_RelicIcon_15048_3",
+                "name": "Foundryman's Legacy"
+            },
+            "flower": {
+                "icon": "UI_RelicIcon_15048_4",
+                "name": "Foundryman's Conjecture"
+            },
+            "goblet": {
+                "icon": "UI_RelicIcon_15048_1",
+                "name": "Foundryman's Magnanimity"
+            },
+            "plume": {
+                "icon": "UI_RelicIcon_15048_2",
+                "name": "Foundryman's Observation"
+            },
+            "sands": {
+                "icon": "UI_RelicIcon_15048_5",
+                "name": "Foundryman's Calculus"
+            }
+        },
+        "qualityType": "QUALITY_ORANGE",
+        "setBonuses": {
+            "2pc": {
+                "description": "ATK +18%.",
+                "params": [
+                    0.18000000715255737,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                ]
+            },
+            "4pc": {
+                "description": "Increases the equipping character's ATK by 12% for 12s when they trigger a Stellar Glimmer reaction or deal Stellar Glimmer reaction DMG. Also increases Stellar Glimmer reaction DMG dealt by all nearby party members by 50%. The above effects can trigger even when the equipping character is not on the field, and he DMG bonus from multiple Artifact Sets with the same name do not stack.",
+                "params": [
+                    0.11999999731779099,
+                    0.5,
+                    12.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                ]
+            }
+        },
+        "setIcon": "UI_RelicIcon_15048_4",
+        "setName": "Heart of the Furnace"
+    }
+}

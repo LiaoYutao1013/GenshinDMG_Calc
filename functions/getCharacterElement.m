@@ -1,6 +1,10 @@
 function element = getCharacterElement(name)
     % 将统一入口角色名映射为元素类型。
     switch lower(char(string(name)))
+        case 'odette'
+            element = "Cryo";
+        case 'alyosha'
+            element = "Electro";
         case 'skirk'
             element = "Cryo";
         case 'escoffier'
