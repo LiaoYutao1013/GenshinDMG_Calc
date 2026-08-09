@@ -199,3 +199,15 @@ Name,BaseATK,SubstatType,SubstatValue,Rank,Type
 祭礼剑,454.3631525,ER,0.612531802,4,1
 笛剑,509.605949,ATK,0.41346,4,1
 西风剑,454.3631525,ER,0.612531802,4,1
+"Heretic's Molten Blade",510,CR,0.276,4,1
+"Emberwell",510,EM,165,4,1
+"Whitelake Frostfeather",674,CR,0.221,5,1
+"Exaiphanes Blade",608,CR,0.331,5,1
+"Forged by the Golden Melody",510,CR,0.276,4,2
+"Blade of Atonement",565,ATK,0.276,4,2
+"Frostbreath",510,ER,0.459,4,4
+"Song of the Vigil",565,EM,110,4,4
+"Clash of Kings",510,CR,0.276,4,3
+"Echoes of the Heart",565,ATK,0.276,4,3
+"Jade Vista",510,CR,0.276,4,5
+"Covenant of Frost and Snow",510,DEF,0.517,4,5

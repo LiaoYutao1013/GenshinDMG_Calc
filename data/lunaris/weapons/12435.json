@@ -1,0 +1,485 @@
+{
+    "ascension": [
+        {
+            "count": 10,
+            "icon": "UI_ItemIcon_112080"
+        },
+        {
+            "count": 15,
+            "icon": "UI_ItemIcon_112081"
+        },
+        {
+            "count": 18,
+            "icon": "UI_ItemIcon_112082"
+        },
+        {
+            "count": 15,
+            "icon": "UI_ItemIcon_112098"
+        },
+        {
+            "count": 18,
+            "icon": "UI_ItemIcon_112099"
+        },
+        {
+            "count": 27,
+            "icon": "UI_ItemIcon_112100"
+        },
+        {
+            "count": 3,
+            "icon": "UI_ItemIcon_114053"
+        },
+        {
+            "count": 9,
+            "icon": "UI_ItemIcon_114054"
+        },
+        {
+            "count": 9,
+            "icon": "UI_ItemIcon_114055"
+        },
+        {
+            "count": 4,
+            "icon": "UI_ItemIcon_114056"
+        },
+        {
+            "count": 150000,
+            "icon": "UI_ItemIcon_202"
+        }
+    ],
+    "name": "Forged by the Golden Melody",
+    "passive": {
+        "name": "Day and Night in Counterpoint",
+        "refinements": {
+            "1": {
+                "description": "Every 10s, the equipping character plays a \"Harmonic Movement\" of the corresponding type for a boost in the following order: +18% ATK > +120 Elemental Mastery > +28% Stellar Glimmer reaction DMG. Each instance of Harmonic Movement lasts 10s. This effect can trigger even when the equipping character is not on the field.\\nTriggering a Stellar Glimmer reaction will also grant an additional 12-second instance of \"Harmonic Movement: Contrapuntal\" with the same effects as the Harmonic Movement active when Stellar Glimmer is triggered. This effect stacks with the original Harmonic Movement effect, and can trigger once every 12s.",
+                "params": [
+                    0.18000000715255737,
+                    120.0,
+                    0.2800000011920929,
+                    10.0,
+                    12.0,
+                    12.0,
+                    0.0,
+                    0.0
+                ]
+            },
+            "2": {
+                "description": "Every 10s, the equipping character plays a \"Harmonic Movement\" of the corresponding type for a boost in the following order: +22.5% ATK > +150 Elemental Mastery > +35% Stellar Glimmer reaction DMG. Each instance of Harmonic Movement lasts 10s. This effect can trigger even when the equipping character is not on the field.\\nTriggering a Stellar Glimmer reaction will also grant an additional 12-second instance of \"Harmonic Movement: Contrapuntal\" with the same effects as the Harmonic Movement active when Stellar Glimmer is triggered. This effect stacks with the original Harmonic Movement effect, and can trigger once every 12s.",
+                "params": [
+                    0.22499999403953552,
+                    150.0,
+                    0.3499999940395355,
+                    10.0,
+                    12.0,
+                    12.0,
+                    0.0,
+                    0.0
+                ]
+            },
+            "3": {
+                "description": "Every 10s, the equipping character plays a \"Harmonic Movement\" of the corresponding type for a boost in the following order: +27% ATK > +180 Elemental Mastery > +42% Stellar Glimmer reaction DMG. Each instance of Harmonic Movement lasts 10s. This effect can trigger even when the equipping character is not on the field.\\nTriggering a Stellar Glimmer reaction will also grant an additional 12-second instance of \"Harmonic Movement: Contrapuntal\" with the same effects as the Harmonic Movement active when Stellar Glimmer is triggered. This effect stacks with the original Harmonic Movement effect, and can trigger once every 12s.",
+                "params": [
+                    0.27000001072883606,
+                    180.0,
+                    0.41999998688697815,
+                    10.0,
+                    12.0,
+                    12.0,
+                    0.0,
+                    0.0
+                ]
+            },
+            "4": {
+                "description": "Every 10s, the equipping character plays a \"Harmonic Movement\" of the corresponding type for a boost in the following order: +31.5% ATK > +210 Elemental Mastery > +49% Stellar Glimmer reaction DMG. Each instance of Harmonic Movement lasts 10s. This effect can trigger even when the equipping character is not on the field.\\nTriggering a Stellar Glimmer reaction will also grant an additional 12-second instance of \"Harmonic Movement: Contrapuntal\" with the same effects as the Harmonic Movement active when Stellar Glimmer is triggered. This effect stacks with the original Harmonic Movement effect, and can trigger once every 12s.",
+                "params": [
+                    0.3149999976158142,
+                    210.0,
+                    0.49000000953674316,
+                    10.0,
+                    12.0,
+                    12.0,
+                    0.0,
+                    0.0
+                ]
+            },
+            "5": {
+                "description": "Every 10s, the equipping character plays a \"Harmonic Movement\" of the corresponding type for a boost in the following order: +36% ATK > +240 Elemental Mastery > +56% Stellar Glimmer reaction DMG. Each instance of Harmonic Movement lasts 10s. This effect can trigger even when the equipping character is not on the field.\\nTriggering a Stellar Glimmer reaction will also grant an additional 12-second instance of \"Harmonic Movement: Contrapuntal\" with the same effects as the Harmonic Movement active when Stellar Glimmer is triggered. This effect stacks with the original Harmonic Movement effect, and can trigger once every 12s.",
+                "params": [
+                    0.36000001430511475,
+                    240.0,
+                    0.5600000023841858,
+                    10.0,
+                    12.0,
+                    12.0,
+                    0.0,
+                    0.0
+                ]
+            }
+        }
+    },
+    "qualityType": "QUALITY_PURPLE",
+    "stats": {
+        "1": {
+            "CRIT Rate%": 6.0,
+            "atk": 42
+        },
+        "10": {
+            "CRIT Rate%": 8.2,
+            "atk": 74
+        },
+        "11": {
+            "CRIT Rate%": 8.2,
+            "atk": 77
+        },
+        "12": {
+            "CRIT Rate%": 8.2,
+            "atk": 81
+        },
+        "13": {
+            "CRIT Rate%": 8.2,
+            "atk": 84
+        },
+        "14": {
+            "CRIT Rate%": 8.2,
+            "atk": 88
+        },
+        "15": {
+            "CRIT Rate%": 9.4,
+            "atk": 91
+        },
+        "16": {
+            "CRIT Rate%": 9.4,
+            "atk": 95
+        },
+        "17": {
+            "CRIT Rate%": 9.4,
+            "atk": 98
+        },
+        "18": {
+            "CRIT Rate%": 9.4,
+            "atk": 102
+        },
+        "19": {
+            "CRIT Rate%": 9.4,
+            "atk": 105
+        },
+        "2": {
+            "CRIT Rate%": 6.0,
+            "atk": 46
+        },
+        "20": {
+            "CRIT Rate%": 10.6,
+            "atk": 109
+        },
+        "21": {
+            "CRIT Rate%": 10.6,
+            "atk": 138
+        },
+        "22": {
+            "CRIT Rate%": 10.6,
+            "atk": 142
+        },
+        "23": {
+            "CRIT Rate%": 10.6,
+            "atk": 145
+        },
+        "24": {
+            "CRIT Rate%": 10.6,
+            "atk": 149
+        },
+        "25": {
+            "CRIT Rate%": 11.8,
+            "atk": 152
+        },
+        "26": {
+            "CRIT Rate%": 11.8,
+            "atk": 156
+        },
+        "27": {
+            "CRIT Rate%": 11.8,
+            "atk": 159
+        },
+        "28": {
+            "CRIT Rate%": 11.8,
+            "atk": 163
+        },
+        "29": {
+            "CRIT Rate%": 11.8,
+            "atk": 166
+        },
+        "3": {
+            "CRIT Rate%": 6.0,
+            "atk": 49
+        },
+        "30": {
+            "CRIT Rate%": 13.0,
+            "atk": 170
+        },
+        "31": {
+            "CRIT Rate%": 13.0,
+            "atk": 173
+        },
+        "32": {
+            "CRIT Rate%": 13.0,
+            "atk": 177
+        },
+        "33": {
+            "CRIT Rate%": 13.0,
+            "atk": 180
+        },
+        "34": {
+            "CRIT Rate%": 13.0,
+            "atk": 184
+        },
+        "35": {
+            "CRIT Rate%": 14.2,
+            "atk": 187
+        },
+        "36": {
+            "CRIT Rate%": 14.2,
+            "atk": 191
+        },
+        "37": {
+            "CRIT Rate%": 14.2,
+            "atk": 194
+        },
+        "38": {
+            "CRIT Rate%": 14.2,
+            "atk": 198
+        },
+        "39": {
+            "CRIT Rate%": 14.2,
+            "atk": 201
+        },
+        "4": {
+            "CRIT Rate%": 6.0,
+            "atk": 53
+        },
+        "40": {
+            "CRIT Rate%": 15.4,
+            "atk": 205
+        },
+        "41": {
+            "CRIT Rate%": 15.4,
+            "atk": 234
+        },
+        "42": {
+            "CRIT Rate%": 15.4,
+            "atk": 238
+        },
+        "43": {
+            "CRIT Rate%": 15.4,
+            "atk": 241
+        },
+        "44": {
+            "CRIT Rate%": 15.4,
+            "atk": 245
+        },
+        "45": {
+            "CRIT Rate%": 16.7,
+            "atk": 248
+        },
+        "46": {
+            "CRIT Rate%": 16.7,
+            "atk": 252
+        },
+        "47": {
+            "CRIT Rate%": 16.7,
+            "atk": 255
+        },
+        "48": {
+            "CRIT Rate%": 16.7,
+            "atk": 259
+        },
+        "49": {
+            "CRIT Rate%": 16.7,
+            "atk": 262
+        },
+        "5": {
+            "CRIT Rate%": 7.0,
+            "atk": 56
+        },
+        "50": {
+            "CRIT Rate%": 17.9,
+            "atk": 266
+        },
+        "51": {
+            "CRIT Rate%": 17.9,
+            "atk": 295
+        },
+        "52": {
+            "CRIT Rate%": 17.9,
+            "atk": 299
+        },
+        "53": {
+            "CRIT Rate%": 17.9,
+            "atk": 302
+        },
+        "54": {
+            "CRIT Rate%": 17.9,
+            "atk": 306
+        },
+        "55": {
+            "CRIT Rate%": 19.1,
+            "atk": 309
+        },
+        "56": {
+            "CRIT Rate%": 19.1,
+            "atk": 313
+        },
+        "57": {
+            "CRIT Rate%": 19.1,
+            "atk": 316
+        },
+        "58": {
+            "CRIT Rate%": 19.1,
+            "atk": 320
+        },
+        "59": {
+            "CRIT Rate%": 19.1,
+            "atk": 323
+        },
+        "6": {
+            "CRIT Rate%": 7.0,
+            "atk": 60
+        },
+        "60": {
+            "CRIT Rate%": 20.3,
+            "atk": 327
+        },
+        "61": {
+            "CRIT Rate%": 20.3,
+            "atk": 356
+        },
+        "62": {
+            "CRIT Rate%": 20.3,
+            "atk": 360
+        },
+        "63": {
+            "CRIT Rate%": 20.3,
+            "atk": 363
+        },
+        "64": {
+            "CRIT Rate%": 20.3,
+            "atk": 367
+        },
+        "65": {
+            "CRIT Rate%": 21.5,
+            "atk": 370
+        },
+        "66": {
+            "CRIT Rate%": 21.5,
+            "atk": 374
+        },
+        "67": {
+            "CRIT Rate%": 21.5,
+            "atk": 377
+        },
+        "68": {
+            "CRIT Rate%": 21.5,
+            "atk": 381
+        },
+        "69": {
+            "CRIT Rate%": 21.5,
+            "atk": 384
+        },
+        "7": {
+            "CRIT Rate%": 7.0,
+            "atk": 63
+        },
+        "70": {
+            "CRIT Rate%": 22.7,
+            "atk": 388
+        },
+        "71": {
+            "CRIT Rate%": 22.7,
+            "atk": 417
+        },
+        "72": {
+            "CRIT Rate%": 22.7,
+            "atk": 421
+        },
+        "73": {
+            "CRIT Rate%": 22.7,
+            "atk": 424
+        },
+        "74": {
+            "CRIT Rate%": 22.7,
+            "atk": 428
+        },
+        "75": {
+            "CRIT Rate%": 23.9,
+            "atk": 431
+        },
+        "76": {
+            "CRIT Rate%": 23.9,
+            "atk": 435
+        },
+        "77": {
+            "CRIT Rate%": 23.9,
+            "atk": 438
+        },
+        "78": {
+            "CRIT Rate%": 23.9,
+            "atk": 442
+        },
+        "79": {
+            "CRIT Rate%": 23.9,
+            "atk": 445
+        },
+        "8": {
+            "CRIT Rate%": 7.0,
+            "atk": 67
+        },
+        "80": {
+            "CRIT Rate%": 25.1,
+            "atk": 449
+        },
+        "81": {
+            "CRIT Rate%": 25.1,
+            "atk": 478
+        },
+        "82": {
+            "CRIT Rate%": 25.1,
+            "atk": 482
+        },
+        "83": {
+            "CRIT Rate%": 25.1,
+            "atk": 485
+        },
+        "84": {
+            "CRIT Rate%": 25.1,
+            "atk": 489
+        },
+        "85": {
+            "CRIT Rate%": 26.4,
+            "atk": 492
+        },
+        "86": {
+            "CRIT Rate%": 26.4,
+            "atk": 496
+        },
+        "87": {
+            "CRIT Rate%": 26.4,
+            "atk": 499
+        },
+        "88": {
+            "CRIT Rate%": 26.4,
+            "atk": 503
+        },
+        "89": {
+            "CRIT Rate%": 26.4,
+            "atk": 506
+        },
+        "9": {
+            "CRIT Rate%": 7.0,
+            "atk": 70
+        },
+        "90": {
+            "CRIT Rate%": 27.6,
+            "atk": 510
+        }
+    },
+    "weaponDesc": "A greatsword decorated in gold. Legend has it that it was the favored weapon of a certain exalted Harmost back in the distant past.",
+    "weaponIcon": "UI_EquipIcon_Claymore_EscapeWheel",
+    "weaponType": "WEAPON_CLAYMORE"
+}

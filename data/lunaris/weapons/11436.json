@@ -1,0 +1,485 @@
+{
+    "ascension": [
+        {
+            "count": 10,
+            "icon": "UI_ItemIcon_112146"
+        },
+        {
+            "count": 15,
+            "icon": "UI_ItemIcon_112147"
+        },
+        {
+            "count": 18,
+            "icon": "UI_ItemIcon_112148"
+        },
+        {
+            "count": 15,
+            "icon": "UI_ItemIcon_112152"
+        },
+        {
+            "count": 18,
+            "icon": "UI_ItemIcon_112153"
+        },
+        {
+            "count": 27,
+            "icon": "UI_ItemIcon_112154"
+        },
+        {
+            "count": 3,
+            "icon": "UI_ItemIcon_114085"
+        },
+        {
+            "count": 9,
+            "icon": "UI_ItemIcon_114086"
+        },
+        {
+            "count": 9,
+            "icon": "UI_ItemIcon_114087"
+        },
+        {
+            "count": 4,
+            "icon": "UI_ItemIcon_114088"
+        },
+        {
+            "count": 150000,
+            "icon": "UI_ItemIcon_202"
+        }
+    ],
+    "name": "Emberwell",
+    "passive": {
+        "name": "Starfire Upon the Snowplains",
+        "refinements": {
+            "1": {
+                "description": "Triggering an Elemental Reaction increases the equipping character's ATK by 16% for 12s. Triggering a Stellar Glimmer reaction increases their Stellar Glimmer reaction DMG dealt by 16% for 12s. The aforementioned effects can trigger even when the character is not on the field.",
+                "params": [
+                    0.1599999964237213,
+                    12.0,
+                    0.1599999964237213,
+                    12.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                ]
+            },
+            "2": {
+                "description": "Triggering an Elemental Reaction increases the equipping character's ATK by 20% for 12s. Triggering a Stellar Glimmer reaction increases their Stellar Glimmer reaction DMG dealt by 20% for 12s. The aforementioned effects can trigger even when the character is not on the field.",
+                "params": [
+                    0.20000000298023224,
+                    12.0,
+                    0.20000000298023224,
+                    12.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                ]
+            },
+            "3": {
+                "description": "Triggering an Elemental Reaction increases the equipping character's ATK by 24% for 12s. Triggering a Stellar Glimmer reaction increases their Stellar Glimmer reaction DMG dealt by 24% for 12s. The aforementioned effects can trigger even when the character is not on the field.",
+                "params": [
+                    0.23999999463558197,
+                    12.0,
+                    0.23999999463558197,
+                    12.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                ]
+            },
+            "4": {
+                "description": "Triggering an Elemental Reaction increases the equipping character's ATK by 28% for 12s. Triggering a Stellar Glimmer reaction increases their Stellar Glimmer reaction DMG dealt by 28% for 12s. The aforementioned effects can trigger even when the character is not on the field.",
+                "params": [
+                    0.2800000011920929,
+                    12.0,
+                    0.2800000011920929,
+                    12.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                ]
+            },
+            "5": {
+                "description": "Triggering an Elemental Reaction increases the equipping character's ATK by 32% for 12s. Triggering a Stellar Glimmer reaction increases their Stellar Glimmer reaction DMG dealt by 32% for 12s. The aforementioned effects can trigger even when the character is not on the field.",
+                "params": [
+                    0.3199999928474426,
+                    12.0,
+                    0.3199999928474426,
+                    12.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                ]
+            }
+        }
+    },
+    "qualityType": "QUALITY_PURPLE",
+    "stats": {
+        "1": {
+            "Elemental Mastery": 36,
+            "atk": 42
+        },
+        "10": {
+            "Elemental Mastery": 49,
+            "atk": 74
+        },
+        "11": {
+            "Elemental Mastery": 49,
+            "atk": 77
+        },
+        "12": {
+            "Elemental Mastery": 49,
+            "atk": 81
+        },
+        "13": {
+            "Elemental Mastery": 49,
+            "atk": 84
+        },
+        "14": {
+            "Elemental Mastery": 49,
+            "atk": 88
+        },
+        "15": {
+            "Elemental Mastery": 56,
+            "atk": 91
+        },
+        "16": {
+            "Elemental Mastery": 56,
+            "atk": 95
+        },
+        "17": {
+            "Elemental Mastery": 56,
+            "atk": 98
+        },
+        "18": {
+            "Elemental Mastery": 56,
+            "atk": 102
+        },
+        "19": {
+            "Elemental Mastery": 56,
+            "atk": 105
+        },
+        "2": {
+            "Elemental Mastery": 36,
+            "atk": 46
+        },
+        "20": {
+            "Elemental Mastery": 64,
+            "atk": 109
+        },
+        "21": {
+            "Elemental Mastery": 64,
+            "atk": 138
+        },
+        "22": {
+            "Elemental Mastery": 64,
+            "atk": 142
+        },
+        "23": {
+            "Elemental Mastery": 64,
+            "atk": 145
+        },
+        "24": {
+            "Elemental Mastery": 64,
+            "atk": 149
+        },
+        "25": {
+            "Elemental Mastery": 71,
+            "atk": 152
+        },
+        "26": {
+            "Elemental Mastery": 71,
+            "atk": 156
+        },
+        "27": {
+            "Elemental Mastery": 71,
+            "atk": 159
+        },
+        "28": {
+            "Elemental Mastery": 71,
+            "atk": 163
+        },
+        "29": {
+            "Elemental Mastery": 71,
+            "atk": 166
+        },
+        "3": {
+            "Elemental Mastery": 36,
+            "atk": 49
+        },
+        "30": {
+            "Elemental Mastery": 78,
+            "atk": 170
+        },
+        "31": {
+            "Elemental Mastery": 78,
+            "atk": 173
+        },
+        "32": {
+            "Elemental Mastery": 78,
+            "atk": 177
+        },
+        "33": {
+            "Elemental Mastery": 78,
+            "atk": 180
+        },
+        "34": {
+            "Elemental Mastery": 78,
+            "atk": 184
+        },
+        "35": {
+            "Elemental Mastery": 85,
+            "atk": 187
+        },
+        "36": {
+            "Elemental Mastery": 85,
+            "atk": 191
+        },
+        "37": {
+            "Elemental Mastery": 85,
+            "atk": 194
+        },
+        "38": {
+            "Elemental Mastery": 85,
+            "atk": 198
+        },
+        "39": {
+            "Elemental Mastery": 85,
+            "atk": 201
+        },
+        "4": {
+            "Elemental Mastery": 36,
+            "atk": 53
+        },
+        "40": {
+            "Elemental Mastery": 93,
+            "atk": 205
+        },
+        "41": {
+            "Elemental Mastery": 93,
+            "atk": 234
+        },
+        "42": {
+            "Elemental Mastery": 93,
+            "atk": 238
+        },
+        "43": {
+            "Elemental Mastery": 93,
+            "atk": 241
+        },
+        "44": {
+            "Elemental Mastery": 93,
+            "atk": 245
+        },
+        "45": {
+            "Elemental Mastery": 100,
+            "atk": 248
+        },
+        "46": {
+            "Elemental Mastery": 100,
+            "atk": 252
+        },
+        "47": {
+            "Elemental Mastery": 100,
+            "atk": 255
+        },
+        "48": {
+            "Elemental Mastery": 100,
+            "atk": 259
+        },
+        "49": {
+            "Elemental Mastery": 100,
+            "atk": 262
+        },
+        "5": {
+            "Elemental Mastery": 42,
+            "atk": 56
+        },
+        "50": {
+            "Elemental Mastery": 107,
+            "atk": 266
+        },
+        "51": {
+            "Elemental Mastery": 107,
+            "atk": 295
+        },
+        "52": {
+            "Elemental Mastery": 107,
+            "atk": 299
+        },
+        "53": {
+            "Elemental Mastery": 107,
+            "atk": 302
+        },
+        "54": {
+            "Elemental Mastery": 107,
+            "atk": 306
+        },
+        "55": {
+            "Elemental Mastery": 115,
+            "atk": 309
+        },
+        "56": {
+            "Elemental Mastery": 115,
+            "atk": 313
+        },
+        "57": {
+            "Elemental Mastery": 115,
+            "atk": 316
+        },
+        "58": {
+            "Elemental Mastery": 115,
+            "atk": 320
+        },
+        "59": {
+            "Elemental Mastery": 115,
+            "atk": 323
+        },
+        "6": {
+            "Elemental Mastery": 42,
+            "atk": 60
+        },
+        "60": {
+            "Elemental Mastery": 122,
+            "atk": 327
+        },
+        "61": {
+            "Elemental Mastery": 122,
+            "atk": 356
+        },
+        "62": {
+            "Elemental Mastery": 122,
+            "atk": 360
+        },
+        "63": {
+            "Elemental Mastery": 122,
+            "atk": 363
+        },
+        "64": {
+            "Elemental Mastery": 122,
+            "atk": 367
+        },
+        "65": {
+            "Elemental Mastery": 129,
+            "atk": 370
+        },
+        "66": {
+            "Elemental Mastery": 129,
+            "atk": 374
+        },
+        "67": {
+            "Elemental Mastery": 129,
+            "atk": 377
+        },
+        "68": {
+            "Elemental Mastery": 129,
+            "atk": 381
+        },
+        "69": {
+            "Elemental Mastery": 129,
+            "atk": 384
+        },
+        "7": {
+            "Elemental Mastery": 42,
+            "atk": 63
+        },
+        "70": {
+            "Elemental Mastery": 136,
+            "atk": 388
+        },
+        "71": {
+            "Elemental Mastery": 136,
+            "atk": 417
+        },
+        "72": {
+            "Elemental Mastery": 136,
+            "atk": 421
+        },
+        "73": {
+            "Elemental Mastery": 136,
+            "atk": 424
+        },
+        "74": {
+            "Elemental Mastery": 136,
+            "atk": 428
+        },
+        "75": {
+            "Elemental Mastery": 144,
+            "atk": 431
+        },
+        "76": {
+            "Elemental Mastery": 144,
+            "atk": 435
+        },
+        "77": {
+            "Elemental Mastery": 144,
+            "atk": 438
+        },
+        "78": {
+            "Elemental Mastery": 144,
+            "atk": 442
+        },
+        "79": {
+            "Elemental Mastery": 144,
+            "atk": 445
+        },
+        "8": {
+            "Elemental Mastery": 42,
+            "atk": 67
+        },
+        "80": {
+            "Elemental Mastery": 151,
+            "atk": 449
+        },
+        "81": {
+            "Elemental Mastery": 151,
+            "atk": 478
+        },
+        "82": {
+            "Elemental Mastery": 151,
+            "atk": 482
+        },
+        "83": {
+            "Elemental Mastery": 151,
+            "atk": 485
+        },
+        "84": {
+            "Elemental Mastery": 151,
+            "atk": 489
+        },
+        "85": {
+            "Elemental Mastery": 158,
+            "atk": 492
+        },
+        "86": {
+            "Elemental Mastery": 158,
+            "atk": 496
+        },
+        "87": {
+            "Elemental Mastery": 158,
+            "atk": 499
+        },
+        "88": {
+            "Elemental Mastery": 158,
+            "atk": 503
+        },
+        "89": {
+            "Elemental Mastery": 158,
+            "atk": 506
+        },
+        "9": {
+            "Elemental Mastery": 42,
+            "atk": 70
+        },
+        "90": {
+            "Elemental Mastery": 165,
+            "atk": 510
+        }
+    },
+    "weaponDesc": "A longsword that is entirely gemstone, said to be crafted for the path of righteousness. When unsheathed, it glows with the luster of blue flame.",
+    "weaponIcon": "UI_EquipIcon_Sword_GlintstoneSword",
+    "weaponType": "WEAPON_SWORD_ONE_HAND"
+}

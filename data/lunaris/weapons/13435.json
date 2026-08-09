@@ -1,0 +1,485 @@
+{
+    "ascension": [
+        {
+            "count": 10,
+            "icon": "UI_ItemIcon_112149"
+        },
+        {
+            "count": 15,
+            "icon": "UI_ItemIcon_112150"
+        },
+        {
+            "count": 18,
+            "icon": "UI_ItemIcon_112151"
+        },
+        {
+            "count": 15,
+            "icon": "UI_ItemIcon_112152"
+        },
+        {
+            "count": 18,
+            "icon": "UI_ItemIcon_112153"
+        },
+        {
+            "count": 27,
+            "icon": "UI_ItemIcon_112154"
+        },
+        {
+            "count": 3,
+            "icon": "UI_ItemIcon_114089"
+        },
+        {
+            "count": 9,
+            "icon": "UI_ItemIcon_114090"
+        },
+        {
+            "count": 9,
+            "icon": "UI_ItemIcon_114091"
+        },
+        {
+            "count": 4,
+            "icon": "UI_ItemIcon_114092"
+        },
+        {
+            "count": 150000,
+            "icon": "UI_ItemIcon_202"
+        }
+    ],
+    "name": "Frostbreath",
+    "passive": {
+        "name": "A Cast Real Far",
+        "refinements": {
+            "1": {
+                "description": "Triggering a Cryo or Hydro-related elemental reaction increases the equipping character's ATK by 20% for the next 15s, as well as regenerates 6 Elemental Energy for other members of their party. This effect can trigger once every 16s.",
+                "params": [
+                    0.20000000298023224,
+                    15.0,
+                    6.0,
+                    16.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                ]
+            },
+            "2": {
+                "description": "Triggering a Cryo or Hydro-related elemental reaction increases the equipping character's ATK by 25% for the next 15s, as well as regenerates 7.5 Elemental Energy for other members of their party. This effect can trigger once every 16s.",
+                "params": [
+                    0.25,
+                    15.0,
+                    7.5,
+                    16.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                ]
+            },
+            "3": {
+                "description": "Triggering a Cryo or Hydro-related elemental reaction increases the equipping character's ATK by 30% for the next 15s, as well as regenerates 9 Elemental Energy for other members of their party. This effect can trigger once every 16s.",
+                "params": [
+                    0.30000001192092896,
+                    15.0,
+                    9.0,
+                    16.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                ]
+            },
+            "4": {
+                "description": "Triggering a Cryo or Hydro-related elemental reaction increases the equipping character's ATK by 35% for the next 15s, as well as regenerates 10.5 Elemental Energy for other members of their party. This effect can trigger once every 16s.",
+                "params": [
+                    0.3499999940395355,
+                    15.0,
+                    10.5,
+                    16.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                ]
+            },
+            "5": {
+                "description": "Triggering a Cryo or Hydro-related elemental reaction increases the equipping character's ATK by 40% for the next 15s, as well as regenerates 12 Elemental Energy for other members of their party. This effect can trigger once every 16s.",
+                "params": [
+                    0.4000000059604645,
+                    15.0,
+                    12.0,
+                    16.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                ]
+            }
+        }
+    },
+    "qualityType": "QUALITY_PURPLE",
+    "stats": {
+        "1": {
+            "Energy Recharge%": 10.0,
+            "atk": 42
+        },
+        "10": {
+            "Energy Recharge%": 13.6,
+            "atk": 74
+        },
+        "11": {
+            "Energy Recharge%": 13.6,
+            "atk": 77
+        },
+        "12": {
+            "Energy Recharge%": 13.6,
+            "atk": 81
+        },
+        "13": {
+            "Energy Recharge%": 13.6,
+            "atk": 84
+        },
+        "14": {
+            "Energy Recharge%": 13.6,
+            "atk": 88
+        },
+        "15": {
+            "Energy Recharge%": 15.7,
+            "atk": 91
+        },
+        "16": {
+            "Energy Recharge%": 15.7,
+            "atk": 95
+        },
+        "17": {
+            "Energy Recharge%": 15.7,
+            "atk": 98
+        },
+        "18": {
+            "Energy Recharge%": 15.7,
+            "atk": 102
+        },
+        "19": {
+            "Energy Recharge%": 15.7,
+            "atk": 105
+        },
+        "2": {
+            "Energy Recharge%": 10.0,
+            "atk": 46
+        },
+        "20": {
+            "Energy Recharge%": 17.7,
+            "atk": 109
+        },
+        "21": {
+            "Energy Recharge%": 17.7,
+            "atk": 138
+        },
+        "22": {
+            "Energy Recharge%": 17.7,
+            "atk": 142
+        },
+        "23": {
+            "Energy Recharge%": 17.7,
+            "atk": 145
+        },
+        "24": {
+            "Energy Recharge%": 17.7,
+            "atk": 149
+        },
+        "25": {
+            "Energy Recharge%": 19.7,
+            "atk": 152
+        },
+        "26": {
+            "Energy Recharge%": 19.7,
+            "atk": 156
+        },
+        "27": {
+            "Energy Recharge%": 19.7,
+            "atk": 159
+        },
+        "28": {
+            "Energy Recharge%": 19.7,
+            "atk": 163
+        },
+        "29": {
+            "Energy Recharge%": 19.7,
+            "atk": 166
+        },
+        "3": {
+            "Energy Recharge%": 10.0,
+            "atk": 49
+        },
+        "30": {
+            "Energy Recharge%": 21.7,
+            "atk": 170
+        },
+        "31": {
+            "Energy Recharge%": 21.7,
+            "atk": 173
+        },
+        "32": {
+            "Energy Recharge%": 21.7,
+            "atk": 177
+        },
+        "33": {
+            "Energy Recharge%": 21.7,
+            "atk": 180
+        },
+        "34": {
+            "Energy Recharge%": 21.7,
+            "atk": 184
+        },
+        "35": {
+            "Energy Recharge%": 23.7,
+            "atk": 187
+        },
+        "36": {
+            "Energy Recharge%": 23.7,
+            "atk": 191
+        },
+        "37": {
+            "Energy Recharge%": 23.7,
+            "atk": 194
+        },
+        "38": {
+            "Energy Recharge%": 23.7,
+            "atk": 198
+        },
+        "39": {
+            "Energy Recharge%": 23.7,
+            "atk": 201
+        },
+        "4": {
+            "Energy Recharge%": 10.0,
+            "atk": 53
+        },
+        "40": {
+            "Energy Recharge%": 25.8,
+            "atk": 205
+        },
+        "41": {
+            "Energy Recharge%": 25.8,
+            "atk": 234
+        },
+        "42": {
+            "Energy Recharge%": 25.8,
+            "atk": 238
+        },
+        "43": {
+            "Energy Recharge%": 25.8,
+            "atk": 241
+        },
+        "44": {
+            "Energy Recharge%": 25.8,
+            "atk": 245
+        },
+        "45": {
+            "Energy Recharge%": 27.8,
+            "atk": 248
+        },
+        "46": {
+            "Energy Recharge%": 27.8,
+            "atk": 252
+        },
+        "47": {
+            "Energy Recharge%": 27.8,
+            "atk": 255
+        },
+        "48": {
+            "Energy Recharge%": 27.8,
+            "atk": 259
+        },
+        "49": {
+            "Energy Recharge%": 27.8,
+            "atk": 262
+        },
+        "5": {
+            "Energy Recharge%": 11.6,
+            "atk": 56
+        },
+        "50": {
+            "Energy Recharge%": 29.8,
+            "atk": 266
+        },
+        "51": {
+            "Energy Recharge%": 29.8,
+            "atk": 295
+        },
+        "52": {
+            "Energy Recharge%": 29.8,
+            "atk": 299
+        },
+        "53": {
+            "Energy Recharge%": 29.8,
+            "atk": 302
+        },
+        "54": {
+            "Energy Recharge%": 29.8,
+            "atk": 306
+        },
+        "55": {
+            "Energy Recharge%": 31.8,
+            "atk": 309
+        },
+        "56": {
+            "Energy Recharge%": 31.8,
+            "atk": 313
+        },
+        "57": {
+            "Energy Recharge%": 31.8,
+            "atk": 316
+        },
+        "58": {
+            "Energy Recharge%": 31.8,
+            "atk": 320
+        },
+        "59": {
+            "Energy Recharge%": 31.8,
+            "atk": 323
+        },
+        "6": {
+            "Energy Recharge%": 11.6,
+            "atk": 60
+        },
+        "60": {
+            "Energy Recharge%": 33.8,
+            "atk": 327
+        },
+        "61": {
+            "Energy Recharge%": 33.8,
+            "atk": 356
+        },
+        "62": {
+            "Energy Recharge%": 33.8,
+            "atk": 360
+        },
+        "63": {
+            "Energy Recharge%": 33.8,
+            "atk": 363
+        },
+        "64": {
+            "Energy Recharge%": 33.8,
+            "atk": 367
+        },
+        "65": {
+            "Energy Recharge%": 35.9,
+            "atk": 370
+        },
+        "66": {
+            "Energy Recharge%": 35.9,
+            "atk": 374
+        },
+        "67": {
+            "Energy Recharge%": 35.9,
+            "atk": 377
+        },
+        "68": {
+            "Energy Recharge%": 35.9,
+            "atk": 381
+        },
+        "69": {
+            "Energy Recharge%": 35.9,
+            "atk": 384
+        },
+        "7": {
+            "Energy Recharge%": 11.6,
+            "atk": 63
+        },
+        "70": {
+            "Energy Recharge%": 37.9,
+            "atk": 388
+        },
+        "71": {
+            "Energy Recharge%": 37.9,
+            "atk": 417
+        },
+        "72": {
+            "Energy Recharge%": 37.9,
+            "atk": 421
+        },
+        "73": {
+            "Energy Recharge%": 37.9,
+            "atk": 424
+        },
+        "74": {
+            "Energy Recharge%": 37.9,
+            "atk": 428
+        },
+        "75": {
+            "Energy Recharge%": 39.9,
+            "atk": 431
+        },
+        "76": {
+            "Energy Recharge%": 39.9,
+            "atk": 435
+        },
+        "77": {
+            "Energy Recharge%": 39.9,
+            "atk": 438
+        },
+        "78": {
+            "Energy Recharge%": 39.9,
+            "atk": 442
+        },
+        "79": {
+            "Energy Recharge%": 39.9,
+            "atk": 445
+        },
+        "8": {
+            "Energy Recharge%": 11.6,
+            "atk": 67
+        },
+        "80": {
+            "Energy Recharge%": 41.9,
+            "atk": 449
+        },
+        "81": {
+            "Energy Recharge%": 41.9,
+            "atk": 478
+        },
+        "82": {
+            "Energy Recharge%": 41.9,
+            "atk": 482
+        },
+        "83": {
+            "Energy Recharge%": 41.9,
+            "atk": 485
+        },
+        "84": {
+            "Energy Recharge%": 41.9,
+            "atk": 489
+        },
+        "85": {
+            "Energy Recharge%": 43.9,
+            "atk": 492
+        },
+        "86": {
+            "Energy Recharge%": 43.9,
+            "atk": 496
+        },
+        "87": {
+            "Energy Recharge%": 43.9,
+            "atk": 499
+        },
+        "88": {
+            "Energy Recharge%": 43.9,
+            "atk": 503
+        },
+        "89": {
+            "Energy Recharge%": 43.9,
+            "atk": 506
+        },
+        "9": {
+            "Energy Recharge%": 11.6,
+            "atk": 70
+        },
+        "90": {
+            "Energy Recharge%": 45.9,
+            "atk": 510
+        }
+    },
+    "weaponDesc": "A spear of solid ice imbued with an icy chill. It is said that it once belonged to the Belyi Tsar who ruled Snezhnaya in the distant past.",
+    "weaponIcon": "UI_EquipIcon_Pole_FaesCrystalle",
+    "weaponType": "WEAPON_POLE"
+}

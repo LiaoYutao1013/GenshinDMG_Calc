@@ -1,0 +1,485 @@
+{
+    "ascension": [
+        {
+            "count": 10,
+            "icon": "UI_ItemIcon_112149"
+        },
+        {
+            "count": 15,
+            "icon": "UI_ItemIcon_112150"
+        },
+        {
+            "count": 18,
+            "icon": "UI_ItemIcon_112151"
+        },
+        {
+            "count": 15,
+            "icon": "UI_ItemIcon_112155"
+        },
+        {
+            "count": 18,
+            "icon": "UI_ItemIcon_112156"
+        },
+        {
+            "count": 27,
+            "icon": "UI_ItemIcon_112157"
+        },
+        {
+            "count": 3,
+            "icon": "UI_ItemIcon_114085"
+        },
+        {
+            "count": 9,
+            "icon": "UI_ItemIcon_114086"
+        },
+        {
+            "count": 9,
+            "icon": "UI_ItemIcon_114087"
+        },
+        {
+            "count": 4,
+            "icon": "UI_ItemIcon_114088"
+        },
+        {
+            "count": 150000,
+            "icon": "UI_ItemIcon_202"
+        }
+    ],
+    "name": "Covenant of Frost and Snow",
+    "passive": {
+        "name": "The Law's Equilibrium",
+        "refinements": {
+            "1": {
+                "description": "For 12s after the equipping character uses an Elemental Skill, their Elemental Mastery is increased by 120.",
+                "params": [
+                    120.0,
+                    12.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                ]
+            },
+            "2": {
+                "description": "For 12s after the equipping character uses an Elemental Skill, their Elemental Mastery is increased by 150.",
+                "params": [
+                    150.0,
+                    12.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                ]
+            },
+            "3": {
+                "description": "For 12s after the equipping character uses an Elemental Skill, their Elemental Mastery is increased by 180.",
+                "params": [
+                    180.0,
+                    12.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                ]
+            },
+            "4": {
+                "description": "For 12s after the equipping character uses an Elemental Skill, their Elemental Mastery is increased by 210.",
+                "params": [
+                    210.0,
+                    12.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                ]
+            },
+            "5": {
+                "description": "For 12s after the equipping character uses an Elemental Skill, their Elemental Mastery is increased by 240.",
+                "params": [
+                    240.0,
+                    12.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                ]
+            }
+        }
+    },
+    "qualityType": "QUALITY_PURPLE",
+    "stats": {
+        "1": {
+            "DEF%": 11.3,
+            "atk": 42
+        },
+        "10": {
+            "DEF%": 15.3,
+            "atk": 74
+        },
+        "11": {
+            "DEF%": 15.3,
+            "atk": 77
+        },
+        "12": {
+            "DEF%": 15.3,
+            "atk": 81
+        },
+        "13": {
+            "DEF%": 15.3,
+            "atk": 84
+        },
+        "14": {
+            "DEF%": 15.3,
+            "atk": 88
+        },
+        "15": {
+            "DEF%": 17.6,
+            "atk": 91
+        },
+        "16": {
+            "DEF%": 17.6,
+            "atk": 95
+        },
+        "17": {
+            "DEF%": 17.6,
+            "atk": 98
+        },
+        "18": {
+            "DEF%": 17.6,
+            "atk": 102
+        },
+        "19": {
+            "DEF%": 17.6,
+            "atk": 105
+        },
+        "2": {
+            "DEF%": 11.3,
+            "atk": 46
+        },
+        "20": {
+            "DEF%": 19.9,
+            "atk": 109
+        },
+        "21": {
+            "DEF%": 19.9,
+            "atk": 138
+        },
+        "22": {
+            "DEF%": 19.9,
+            "atk": 142
+        },
+        "23": {
+            "DEF%": 19.9,
+            "atk": 145
+        },
+        "24": {
+            "DEF%": 19.9,
+            "atk": 149
+        },
+        "25": {
+            "DEF%": 22.2,
+            "atk": 152
+        },
+        "26": {
+            "DEF%": 22.2,
+            "atk": 156
+        },
+        "27": {
+            "DEF%": 22.2,
+            "atk": 159
+        },
+        "28": {
+            "DEF%": 22.2,
+            "atk": 163
+        },
+        "29": {
+            "DEF%": 22.2,
+            "atk": 166
+        },
+        "3": {
+            "DEF%": 11.3,
+            "atk": 49
+        },
+        "30": {
+            "DEF%": 24.4,
+            "atk": 170
+        },
+        "31": {
+            "DEF%": 24.4,
+            "atk": 173
+        },
+        "32": {
+            "DEF%": 24.4,
+            "atk": 177
+        },
+        "33": {
+            "DEF%": 24.4,
+            "atk": 180
+        },
+        "34": {
+            "DEF%": 24.4,
+            "atk": 184
+        },
+        "35": {
+            "DEF%": 26.7,
+            "atk": 187
+        },
+        "36": {
+            "DEF%": 26.7,
+            "atk": 191
+        },
+        "37": {
+            "DEF%": 26.7,
+            "atk": 194
+        },
+        "38": {
+            "DEF%": 26.7,
+            "atk": 198
+        },
+        "39": {
+            "DEF%": 26.7,
+            "atk": 201
+        },
+        "4": {
+            "DEF%": 11.3,
+            "atk": 53
+        },
+        "40": {
+            "DEF%": 29.0,
+            "atk": 205
+        },
+        "41": {
+            "DEF%": 29.0,
+            "atk": 234
+        },
+        "42": {
+            "DEF%": 29.0,
+            "atk": 238
+        },
+        "43": {
+            "DEF%": 29.0,
+            "atk": 241
+        },
+        "44": {
+            "DEF%": 29.0,
+            "atk": 245
+        },
+        "45": {
+            "DEF%": 31.3,
+            "atk": 248
+        },
+        "46": {
+            "DEF%": 31.3,
+            "atk": 252
+        },
+        "47": {
+            "DEF%": 31.3,
+            "atk": 255
+        },
+        "48": {
+            "DEF%": 31.3,
+            "atk": 259
+        },
+        "49": {
+            "DEF%": 31.3,
+            "atk": 262
+        },
+        "5": {
+            "DEF%": 13.1,
+            "atk": 56
+        },
+        "50": {
+            "DEF%": 33.5,
+            "atk": 266
+        },
+        "51": {
+            "DEF%": 33.5,
+            "atk": 295
+        },
+        "52": {
+            "DEF%": 33.5,
+            "atk": 299
+        },
+        "53": {
+            "DEF%": 33.5,
+            "atk": 302
+        },
+        "54": {
+            "DEF%": 33.5,
+            "atk": 306
+        },
+        "55": {
+            "DEF%": 35.8,
+            "atk": 309
+        },
+        "56": {
+            "DEF%": 35.8,
+            "atk": 313
+        },
+        "57": {
+            "DEF%": 35.8,
+            "atk": 316
+        },
+        "58": {
+            "DEF%": 35.8,
+            "atk": 320
+        },
+        "59": {
+            "DEF%": 35.8,
+            "atk": 323
+        },
+        "6": {
+            "DEF%": 13.1,
+            "atk": 60
+        },
+        "60": {
+            "DEF%": 38.1,
+            "atk": 327
+        },
+        "61": {
+            "DEF%": 38.1,
+            "atk": 356
+        },
+        "62": {
+            "DEF%": 38.1,
+            "atk": 360
+        },
+        "63": {
+            "DEF%": 38.1,
+            "atk": 363
+        },
+        "64": {
+            "DEF%": 38.1,
+            "atk": 367
+        },
+        "65": {
+            "DEF%": 40.4,
+            "atk": 370
+        },
+        "66": {
+            "DEF%": 40.4,
+            "atk": 374
+        },
+        "67": {
+            "DEF%": 40.4,
+            "atk": 377
+        },
+        "68": {
+            "DEF%": 40.4,
+            "atk": 381
+        },
+        "69": {
+            "DEF%": 40.4,
+            "atk": 384
+        },
+        "7": {
+            "DEF%": 13.1,
+            "atk": 63
+        },
+        "70": {
+            "DEF%": 42.6,
+            "atk": 388
+        },
+        "71": {
+            "DEF%": 42.6,
+            "atk": 417
+        },
+        "72": {
+            "DEF%": 42.6,
+            "atk": 421
+        },
+        "73": {
+            "DEF%": 42.6,
+            "atk": 424
+        },
+        "74": {
+            "DEF%": 42.6,
+            "atk": 428
+        },
+        "75": {
+            "DEF%": 44.9,
+            "atk": 431
+        },
+        "76": {
+            "DEF%": 44.9,
+            "atk": 435
+        },
+        "77": {
+            "DEF%": 44.9,
+            "atk": 438
+        },
+        "78": {
+            "DEF%": 44.9,
+            "atk": 442
+        },
+        "79": {
+            "DEF%": 44.9,
+            "atk": 445
+        },
+        "8": {
+            "DEF%": 13.1,
+            "atk": 67
+        },
+        "80": {
+            "DEF%": 47.2,
+            "atk": 449
+        },
+        "81": {
+            "DEF%": 47.2,
+            "atk": 478
+        },
+        "82": {
+            "DEF%": 47.2,
+            "atk": 482
+        },
+        "83": {
+            "DEF%": 47.2,
+            "atk": 485
+        },
+        "84": {
+            "DEF%": 47.2,
+            "atk": 489
+        },
+        "85": {
+            "DEF%": 49.5,
+            "atk": 492
+        },
+        "86": {
+            "DEF%": 49.5,
+            "atk": 496
+        },
+        "87": {
+            "DEF%": 49.5,
+            "atk": 499
+        },
+        "88": {
+            "DEF%": 49.5,
+            "atk": 503
+        },
+        "89": {
+            "DEF%": 49.5,
+            "atk": 506
+        },
+        "9": {
+            "DEF%": 13.1,
+            "atk": 70
+        },
+        "90": {
+            "DEF%": 51.7,
+            "atk": 510
+        }
+    },
+    "weaponDesc": "A longbow crafted to preserve order. Its cold radiance perfectly emanates the ideals of absolute fairness and justice.",
+    "weaponIcon": "UI_EquipIcon_Bow_GlintstoneBow",
+    "weaponType": "WEAPON_BOW"
+}

@@ -1,0 +1,485 @@
+{
+    "ascension": [
+        {
+            "count": 10,
+            "icon": "UI_ItemIcon_112065"
+        },
+        {
+            "count": 15,
+            "icon": "UI_ItemIcon_112066"
+        },
+        {
+            "count": 18,
+            "icon": "UI_ItemIcon_112067"
+        },
+        {
+            "count": 15,
+            "icon": "UI_ItemIcon_112071"
+        },
+        {
+            "count": 18,
+            "icon": "UI_ItemIcon_112072"
+        },
+        {
+            "count": 27,
+            "icon": "UI_ItemIcon_112073"
+        },
+        {
+            "count": 3,
+            "icon": "UI_ItemIcon_114037"
+        },
+        {
+            "count": 9,
+            "icon": "UI_ItemIcon_114038"
+        },
+        {
+            "count": 9,
+            "icon": "UI_ItemIcon_114039"
+        },
+        {
+            "count": 4,
+            "icon": "UI_ItemIcon_114040"
+        },
+        {
+            "count": 150000,
+            "icon": "UI_ItemIcon_202"
+        }
+    ],
+    "name": "Clash of Kings",
+    "passive": {
+        "name": "Without Heed for Day nor Night",
+        "refinements": {
+            "1": {
+                "description": "Using an Elemental Skill grants the equipping character \"Laws of the Board,\" which increases their ATK by 20% and their Elemental Mastery by 100. This effect lasts 6s and can trigger once every 12s. Does not stack. The duration of this effect will also be extended by 6s if the equipping character hits an opponent with a Charged Attack while it is active. The effect can be extended for max 6s in this way.",
+                "params": [
+                    0.20000000298023224,
+                    100.0,
+                    6.0,
+                    12.0,
+                    6.0,
+                    0.0,
+                    0.0,
+                    0.0
+                ]
+            },
+            "2": {
+                "description": "Using an Elemental Skill grants the equipping character \"Laws of the Board,\" which increases their ATK by 25% and their Elemental Mastery by 125. This effect lasts 6s and can trigger once every 12s. Does not stack. The duration of this effect will also be extended by 6s if the equipping character hits an opponent with a Charged Attack while it is active. The effect can be extended for max 6s in this way.",
+                "params": [
+                    0.25,
+                    125.0,
+                    6.0,
+                    12.0,
+                    6.0,
+                    0.0,
+                    0.0,
+                    0.0
+                ]
+            },
+            "3": {
+                "description": "Using an Elemental Skill grants the equipping character \"Laws of the Board,\" which increases their ATK by 30% and their Elemental Mastery by 150. This effect lasts 6s and can trigger once every 12s. Does not stack. The duration of this effect will also be extended by 6s if the equipping character hits an opponent with a Charged Attack while it is active. The effect can be extended for max 6s in this way.",
+                "params": [
+                    0.30000001192092896,
+                    150.0,
+                    6.0,
+                    12.0,
+                    6.0,
+                    0.0,
+                    0.0,
+                    0.0
+                ]
+            },
+            "4": {
+                "description": "Using an Elemental Skill grants the equipping character \"Laws of the Board,\" which increases their ATK by 35% and their Elemental Mastery by 175. This effect lasts 6s and can trigger once every 12s. Does not stack. The duration of this effect will also be extended by 6s if the equipping character hits an opponent with a Charged Attack while it is active. The effect can be extended for max 6s in this way.",
+                "params": [
+                    0.3499999940395355,
+                    175.0,
+                    6.0,
+                    12.0,
+                    6.0,
+                    0.0,
+                    0.0,
+                    0.0
+                ]
+            },
+            "5": {
+                "description": "Using an Elemental Skill grants the equipping character \"Laws of the Board,\" which increases their ATK by 40% and their Elemental Mastery by 200. This effect lasts 6s and can trigger once every 12s. Does not stack. The duration of this effect will also be extended by 6s if the equipping character hits an opponent with a Charged Attack while it is active. The effect can be extended for max 6s in this way.",
+                "params": [
+                    0.4000000059604645,
+                    200.0,
+                    6.0,
+                    12.0,
+                    6.0,
+                    0.0,
+                    0.0,
+                    0.0
+                ]
+            }
+        }
+    },
+    "qualityType": "QUALITY_PURPLE",
+    "stats": {
+        "1": {
+            "CRIT Rate%": 6.0,
+            "atk": 42
+        },
+        "10": {
+            "CRIT Rate%": 8.2,
+            "atk": 74
+        },
+        "11": {
+            "CRIT Rate%": 8.2,
+            "atk": 77
+        },
+        "12": {
+            "CRIT Rate%": 8.2,
+            "atk": 81
+        },
+        "13": {
+            "CRIT Rate%": 8.2,
+            "atk": 84
+        },
+        "14": {
+            "CRIT Rate%": 8.2,
+            "atk": 88
+        },
+        "15": {
+            "CRIT Rate%": 9.4,
+            "atk": 91
+        },
+        "16": {
+            "CRIT Rate%": 9.4,
+            "atk": 95
+        },
+        "17": {
+            "CRIT Rate%": 9.4,
+            "atk": 98
+        },
+        "18": {
+            "CRIT Rate%": 9.4,
+            "atk": 102
+        },
+        "19": {
+            "CRIT Rate%": 9.4,
+            "atk": 105
+        },
+        "2": {
+            "CRIT Rate%": 6.0,
+            "atk": 46
+        },
+        "20": {
+            "CRIT Rate%": 10.6,
+            "atk": 109
+        },
+        "21": {
+            "CRIT Rate%": 10.6,
+            "atk": 138
+        },
+        "22": {
+            "CRIT Rate%": 10.6,
+            "atk": 142
+        },
+        "23": {
+            "CRIT Rate%": 10.6,
+            "atk": 145
+        },
+        "24": {
+            "CRIT Rate%": 10.6,
+            "atk": 149
+        },
+        "25": {
+            "CRIT Rate%": 11.8,
+            "atk": 152
+        },
+        "26": {
+            "CRIT Rate%": 11.8,
+            "atk": 156
+        },
+        "27": {
+            "CRIT Rate%": 11.8,
+            "atk": 159
+        },
+        "28": {
+            "CRIT Rate%": 11.8,
+            "atk": 163
+        },
+        "29": {
+            "CRIT Rate%": 11.8,
+            "atk": 166
+        },
+        "3": {
+            "CRIT Rate%": 6.0,
+            "atk": 49
+        },
+        "30": {
+            "CRIT Rate%": 13.0,
+            "atk": 170
+        },
+        "31": {
+            "CRIT Rate%": 13.0,
+            "atk": 173
+        },
+        "32": {
+            "CRIT Rate%": 13.0,
+            "atk": 177
+        },
+        "33": {
+            "CRIT Rate%": 13.0,
+            "atk": 180
+        },
+        "34": {
+            "CRIT Rate%": 13.0,
+            "atk": 184
+        },
+        "35": {
+            "CRIT Rate%": 14.2,
+            "atk": 187
+        },
+        "36": {
+            "CRIT Rate%": 14.2,
+            "atk": 191
+        },
+        "37": {
+            "CRIT Rate%": 14.2,
+            "atk": 194
+        },
+        "38": {
+            "CRIT Rate%": 14.2,
+            "atk": 198
+        },
+        "39": {
+            "CRIT Rate%": 14.2,
+            "atk": 201
+        },
+        "4": {
+            "CRIT Rate%": 6.0,
+            "atk": 53
+        },
+        "40": {
+            "CRIT Rate%": 15.4,
+            "atk": 205
+        },
+        "41": {
+            "CRIT Rate%": 15.4,
+            "atk": 234
+        },
+        "42": {
+            "CRIT Rate%": 15.4,
+            "atk": 238
+        },
+        "43": {
+            "CRIT Rate%": 15.4,
+            "atk": 241
+        },
+        "44": {
+            "CRIT Rate%": 15.4,
+            "atk": 245
+        },
+        "45": {
+            "CRIT Rate%": 16.7,
+            "atk": 248
+        },
+        "46": {
+            "CRIT Rate%": 16.7,
+            "atk": 252
+        },
+        "47": {
+            "CRIT Rate%": 16.7,
+            "atk": 255
+        },
+        "48": {
+            "CRIT Rate%": 16.7,
+            "atk": 259
+        },
+        "49": {
+            "CRIT Rate%": 16.7,
+            "atk": 262
+        },
+        "5": {
+            "CRIT Rate%": 7.0,
+            "atk": 56
+        },
+        "50": {
+            "CRIT Rate%": 17.9,
+            "atk": 266
+        },
+        "51": {
+            "CRIT Rate%": 17.9,
+            "atk": 295
+        },
+        "52": {
+            "CRIT Rate%": 17.9,
+            "atk": 299
+        },
+        "53": {
+            "CRIT Rate%": 17.9,
+            "atk": 302
+        },
+        "54": {
+            "CRIT Rate%": 17.9,
+            "atk": 306
+        },
+        "55": {
+            "CRIT Rate%": 19.1,
+            "atk": 309
+        },
+        "56": {
+            "CRIT Rate%": 19.1,
+            "atk": 313
+        },
+        "57": {
+            "CRIT Rate%": 19.1,
+            "atk": 316
+        },
+        "58": {
+            "CRIT Rate%": 19.1,
+            "atk": 320
+        },
+        "59": {
+            "CRIT Rate%": 19.1,
+            "atk": 323
+        },
+        "6": {
+            "CRIT Rate%": 7.0,
+            "atk": 60
+        },
+        "60": {
+            "CRIT Rate%": 20.3,
+            "atk": 327
+        },
+        "61": {
+            "CRIT Rate%": 20.3,
+            "atk": 356
+        },
+        "62": {
+            "CRIT Rate%": 20.3,
+            "atk": 360
+        },
+        "63": {
+            "CRIT Rate%": 20.3,
+            "atk": 363
+        },
+        "64": {
+            "CRIT Rate%": 20.3,
+            "atk": 367
+        },
+        "65": {
+            "CRIT Rate%": 21.5,
+            "atk": 370
+        },
+        "66": {
+            "CRIT Rate%": 21.5,
+            "atk": 374
+        },
+        "67": {
+            "CRIT Rate%": 21.5,
+            "atk": 377
+        },
+        "68": {
+            "CRIT Rate%": 21.5,
+            "atk": 381
+        },
+        "69": {
+            "CRIT Rate%": 21.5,
+            "atk": 384
+        },
+        "7": {
+            "CRIT Rate%": 7.0,
+            "atk": 63
+        },
+        "70": {
+            "CRIT Rate%": 22.7,
+            "atk": 388
+        },
+        "71": {
+            "CRIT Rate%": 22.7,
+            "atk": 417
+        },
+        "72": {
+            "CRIT Rate%": 22.7,
+            "atk": 421
+        },
+        "73": {
+            "CRIT Rate%": 22.7,
+            "atk": 424
+        },
+        "74": {
+            "CRIT Rate%": 22.7,
+            "atk": 428
+        },
+        "75": {
+            "CRIT Rate%": 23.9,
+            "atk": 431
+        },
+        "76": {
+            "CRIT Rate%": 23.9,
+            "atk": 435
+        },
+        "77": {
+            "CRIT Rate%": 23.9,
+            "atk": 438
+        },
+        "78": {
+            "CRIT Rate%": 23.9,
+            "atk": 442
+        },
+        "79": {
+            "CRIT Rate%": 23.9,
+            "atk": 445
+        },
+        "8": {
+            "CRIT Rate%": 7.0,
+            "atk": 67
+        },
+        "80": {
+            "CRIT Rate%": 25.1,
+            "atk": 449
+        },
+        "81": {
+            "CRIT Rate%": 25.1,
+            "atk": 478
+        },
+        "82": {
+            "CRIT Rate%": 25.1,
+            "atk": 482
+        },
+        "83": {
+            "CRIT Rate%": 25.1,
+            "atk": 485
+        },
+        "84": {
+            "CRIT Rate%": 25.1,
+            "atk": 489
+        },
+        "85": {
+            "CRIT Rate%": 26.4,
+            "atk": 492
+        },
+        "86": {
+            "CRIT Rate%": 26.4,
+            "atk": 496
+        },
+        "87": {
+            "CRIT Rate%": 26.4,
+            "atk": 499
+        },
+        "88": {
+            "CRIT Rate%": 26.4,
+            "atk": 503
+        },
+        "89": {
+            "CRIT Rate%": 26.4,
+            "atk": 506
+        },
+        "9": {
+            "CRIT Rate%": 7.0,
+            "atk": 70
+        },
+        "90": {
+            "CRIT Rate%": 27.6,
+            "atk": 510
+        }
+    },
+    "weaponDesc": "A golden box lavishly inlaid with precious jewels. It houses a game much beloved by the kings of the sands.",
+    "weaponIcon": "UI_EquipIcon_Catalyst_SandMemoria",
+    "weaponType": "WEAPON_CATALYST"
+}

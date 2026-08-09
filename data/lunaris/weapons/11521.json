@@ -1,0 +1,485 @@
+{
+    "ascension": [
+        {
+            "count": 15,
+            "icon": "UI_ItemIcon_112146"
+        },
+        {
+            "count": 23,
+            "icon": "UI_ItemIcon_112147"
+        },
+        {
+            "count": 27,
+            "icon": "UI_ItemIcon_112148"
+        },
+        {
+            "count": 23,
+            "icon": "UI_ItemIcon_112152"
+        },
+        {
+            "count": 27,
+            "icon": "UI_ItemIcon_112153"
+        },
+        {
+            "count": 41,
+            "icon": "UI_ItemIcon_112154"
+        },
+        {
+            "count": 5,
+            "icon": "UI_ItemIcon_114093"
+        },
+        {
+            "count": 14,
+            "icon": "UI_ItemIcon_114094"
+        },
+        {
+            "count": 14,
+            "icon": "UI_ItemIcon_114095"
+        },
+        {
+            "count": 6,
+            "icon": "UI_ItemIcon_114096"
+        },
+        {
+            "count": 225000,
+            "icon": "UI_ItemIcon_202"
+        }
+    ],
+    "name": "Exaiphanes Blade",
+    "passive": {
+        "name": "Traveler's Path",
+        "refinements": {
+            "1": {
+                "description": "When the Traveler equips this, their ATK will increase by 16% for 8s after they hit an opponent. At the same time, they will also regenerate 3 Elemental Energy. This effect can trigger once every 5s. This can be triggered even when the character is not on the field.",
+                "params": [
+                    0.1599999964237213,
+                    8.0,
+                    0.0,
+                    3.0,
+                    5.0,
+                    0.0,
+                    0.0,
+                    0.0
+                ]
+            },
+            "2": {
+                "description": "When the Traveler equips this, their CRIT DMG increases by 6% for every Element they have resonated with. Additionally, the Traveler's ATK will also increase by 20% for 8s, and regenerate 3 Elemental Energy, after they attack and hit an opponent. This effect can trigger once every 5s. This can be triggered even when the character is not on the field.",
+                "params": [
+                    0.20000000298023224,
+                    8.0,
+                    0.05999999865889549,
+                    3.0,
+                    5.0,
+                    0.0,
+                    0.0,
+                    0.0
+                ]
+            },
+            "3": {
+                "description": "When the Traveler equips this, their CRIT DMG increases by 6% for every Element they have resonated with. Additionally, the Traveler's ATK will also increase by 24% for 8s, and regenerate 5 Elemental Energy, after they attack and hit an opponent. This effect can trigger once every 5s. This can be triggered even when the character is not on the field.",
+                "params": [
+                    0.23999999463558197,
+                    8.0,
+                    0.05999999865889549,
+                    5.0,
+                    5.0,
+                    0.0,
+                    0.0,
+                    0.0
+                ]
+            },
+            "4": {
+                "description": "When the Traveler equips this, their CRIT DMG increases by 6% for every Element they have resonated with. Additionally, the Traveler's ATK will also increase by 32% for 8s, and regenerate 5 Elemental Energy, after they attack and hit an opponent. This effect can trigger once every 5s. This can be triggered even when the character is not on the field.",
+                "params": [
+                    0.3199999928474426,
+                    8.0,
+                    0.05999999865889549,
+                    5.0,
+                    5.0,
+                    0.0,
+                    0.0,
+                    0.0
+                ]
+            },
+            "5": {
+                "description": "When the Traveler equips this, their CRIT DMG increases by 6% for every Element they have resonated with. Additionally, the Traveler's ATK will also increase by 40% for 8s, and regenerate 5 Elemental Energy, after they attack and hit an opponent. This effect can trigger once every 5s. This can be triggered even when the character is not on the field.",
+                "params": [
+                    0.4000000059604645,
+                    8.0,
+                    0.05999999865889549,
+                    5.0,
+                    5.0,
+                    0.0,
+                    0.0,
+                    0.0
+                ]
+            }
+        }
+    },
+    "qualityType": "QUALITY_ORANGE",
+    "stats": {
+        "1": {
+            "CRIT Rate%": 7.2,
+            "atk": 46
+        },
+        "10": {
+            "CRIT Rate%": 9.8,
+            "atk": 82
+        },
+        "11": {
+            "CRIT Rate%": 9.8,
+            "atk": 86
+        },
+        "12": {
+            "CRIT Rate%": 9.8,
+            "atk": 90
+        },
+        "13": {
+            "CRIT Rate%": 9.8,
+            "atk": 94
+        },
+        "14": {
+            "CRIT Rate%": 9.8,
+            "atk": 98
+        },
+        "15": {
+            "CRIT Rate%": 11.3,
+            "atk": 102
+        },
+        "16": {
+            "CRIT Rate%": 11.3,
+            "atk": 106
+        },
+        "17": {
+            "CRIT Rate%": 11.3,
+            "atk": 110
+        },
+        "18": {
+            "CRIT Rate%": 11.3,
+            "atk": 114
+        },
+        "19": {
+            "CRIT Rate%": 11.3,
+            "atk": 118
+        },
+        "2": {
+            "CRIT Rate%": 7.2,
+            "atk": 50
+        },
+        "20": {
+            "CRIT Rate%": 12.7,
+            "atk": 122
+        },
+        "21": {
+            "CRIT Rate%": 12.7,
+            "atk": 157
+        },
+        "22": {
+            "CRIT Rate%": 12.7,
+            "atk": 161
+        },
+        "23": {
+            "CRIT Rate%": 12.7,
+            "atk": 165
+        },
+        "24": {
+            "CRIT Rate%": 12.7,
+            "atk": 169
+        },
+        "25": {
+            "CRIT Rate%": 14.2,
+            "atk": 173
+        },
+        "26": {
+            "CRIT Rate%": 14.2,
+            "atk": 177
+        },
+        "27": {
+            "CRIT Rate%": 14.2,
+            "atk": 181
+        },
+        "28": {
+            "CRIT Rate%": 14.2,
+            "atk": 185
+        },
+        "29": {
+            "CRIT Rate%": 14.2,
+            "atk": 190
+        },
+        "3": {
+            "CRIT Rate%": 7.2,
+            "atk": 54
+        },
+        "30": {
+            "CRIT Rate%": 15.6,
+            "atk": 194
+        },
+        "31": {
+            "CRIT Rate%": 15.6,
+            "atk": 198
+        },
+        "32": {
+            "CRIT Rate%": 15.6,
+            "atk": 202
+        },
+        "33": {
+            "CRIT Rate%": 15.6,
+            "atk": 206
+        },
+        "34": {
+            "CRIT Rate%": 15.6,
+            "atk": 210
+        },
+        "35": {
+            "CRIT Rate%": 17.1,
+            "atk": 214
+        },
+        "36": {
+            "CRIT Rate%": 17.1,
+            "atk": 219
+        },
+        "37": {
+            "CRIT Rate%": 17.1,
+            "atk": 223
+        },
+        "38": {
+            "CRIT Rate%": 17.1,
+            "atk": 227
+        },
+        "39": {
+            "CRIT Rate%": 17.1,
+            "atk": 231
+        },
+        "4": {
+            "CRIT Rate%": 7.2,
+            "atk": 58
+        },
+        "40": {
+            "CRIT Rate%": 18.5,
+            "atk": 235
+        },
+        "41": {
+            "CRIT Rate%": 18.5,
+            "atk": 270
+        },
+        "42": {
+            "CRIT Rate%": 18.5,
+            "atk": 275
+        },
+        "43": {
+            "CRIT Rate%": 18.5,
+            "atk": 279
+        },
+        "44": {
+            "CRIT Rate%": 18.5,
+            "atk": 283
+        },
+        "45": {
+            "CRIT Rate%": 20.0,
+            "atk": 287
+        },
+        "46": {
+            "CRIT Rate%": 20.0,
+            "atk": 292
+        },
+        "47": {
+            "CRIT Rate%": 20.0,
+            "atk": 296
+        },
+        "48": {
+            "CRIT Rate%": 20.0,
+            "atk": 300
+        },
+        "49": {
+            "CRIT Rate%": 20.0,
+            "atk": 304
+        },
+        "5": {
+            "CRIT Rate%": 8.4,
+            "atk": 62
+        },
+        "50": {
+            "CRIT Rate%": 21.4,
+            "atk": 308
+        },
+        "51": {
+            "CRIT Rate%": 21.4,
+            "atk": 344
+        },
+        "52": {
+            "CRIT Rate%": 21.4,
+            "atk": 348
+        },
+        "53": {
+            "CRIT Rate%": 21.4,
+            "atk": 352
+        },
+        "54": {
+            "CRIT Rate%": 21.4,
+            "atk": 357
+        },
+        "55": {
+            "CRIT Rate%": 22.9,
+            "atk": 361
+        },
+        "56": {
+            "CRIT Rate%": 22.9,
+            "atk": 365
+        },
+        "57": {
+            "CRIT Rate%": 22.9,
+            "atk": 370
+        },
+        "58": {
+            "CRIT Rate%": 22.9,
+            "atk": 374
+        },
+        "59": {
+            "CRIT Rate%": 22.9,
+            "atk": 378
+        },
+        "6": {
+            "CRIT Rate%": 8.4,
+            "atk": 66
+        },
+        "60": {
+            "CRIT Rate%": 24.4,
+            "atk": 382
+        },
+        "61": {
+            "CRIT Rate%": 24.4,
+            "atk": 418
+        },
+        "62": {
+            "CRIT Rate%": 24.4,
+            "atk": 422
+        },
+        "63": {
+            "CRIT Rate%": 24.4,
+            "atk": 427
+        },
+        "64": {
+            "CRIT Rate%": 24.4,
+            "atk": 431
+        },
+        "65": {
+            "CRIT Rate%": 25.8,
+            "atk": 435
+        },
+        "66": {
+            "CRIT Rate%": 25.8,
+            "atk": 440
+        },
+        "67": {
+            "CRIT Rate%": 25.8,
+            "atk": 444
+        },
+        "68": {
+            "CRIT Rate%": 25.8,
+            "atk": 448
+        },
+        "69": {
+            "CRIT Rate%": 25.8,
+            "atk": 453
+        },
+        "7": {
+            "CRIT Rate%": 8.4,
+            "atk": 70
+        },
+        "70": {
+            "CRIT Rate%": 27.3,
+            "atk": 457
+        },
+        "71": {
+            "CRIT Rate%": 27.3,
+            "atk": 492
+        },
+        "72": {
+            "CRIT Rate%": 27.3,
+            "atk": 497
+        },
+        "73": {
+            "CRIT Rate%": 27.3,
+            "atk": 501
+        },
+        "74": {
+            "CRIT Rate%": 27.3,
+            "atk": 506
+        },
+        "75": {
+            "CRIT Rate%": 28.7,
+            "atk": 510
+        },
+        "76": {
+            "CRIT Rate%": 28.7,
+            "atk": 515
+        },
+        "77": {
+            "CRIT Rate%": 28.7,
+            "atk": 519
+        },
+        "78": {
+            "CRIT Rate%": 28.7,
+            "atk": 523
+        },
+        "79": {
+            "CRIT Rate%": 28.7,
+            "atk": 528
+        },
+        "8": {
+            "CRIT Rate%": 8.4,
+            "atk": 74
+        },
+        "80": {
+            "CRIT Rate%": 30.2,
+            "atk": 532
+        },
+        "81": {
+            "CRIT Rate%": 30.2,
+            "atk": 568
+        },
+        "82": {
+            "CRIT Rate%": 30.2,
+            "atk": 572
+        },
+        "83": {
+            "CRIT Rate%": 30.2,
+            "atk": 577
+        },
+        "84": {
+            "CRIT Rate%": 30.2,
+            "atk": 581
+        },
+        "85": {
+            "CRIT Rate%": 31.6,
+            "atk": 586
+        },
+        "86": {
+            "CRIT Rate%": 31.6,
+            "atk": 590
+        },
+        "87": {
+            "CRIT Rate%": 31.6,
+            "atk": 595
+        },
+        "88": {
+            "CRIT Rate%": 31.6,
+            "atk": 599
+        },
+        "89": {
+            "CRIT Rate%": 31.6,
+            "atk": 604
+        },
+        "9": {
+            "CRIT Rate%": 8.4,
+            "atk": 78
+        },
+        "90": {
+            "CRIT Rate%": 33.1,
+            "atk": 608
+        }
+    },
+    "weaponDesc": "A longsword that once shone with the light of the very stars. In the voyager's hand, it becomes a brand-new light that has nothing to do with any past era.",
+    "weaponIcon": "UI_EquipIcon_Sword_WeaponQuestSnezhnaya",
+    "weaponType": "WEAPON_SWORD_ONE_HAND"
+}

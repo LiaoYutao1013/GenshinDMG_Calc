@@ -1,0 +1,485 @@
+{
+    "ascension": [
+        {
+            "count": 15,
+            "icon": "UI_ItemIcon_112149"
+        },
+        {
+            "count": 23,
+            "icon": "UI_ItemIcon_112150"
+        },
+        {
+            "count": 27,
+            "icon": "UI_ItemIcon_112151"
+        },
+        {
+            "count": 23,
+            "icon": "UI_ItemIcon_112155"
+        },
+        {
+            "count": 27,
+            "icon": "UI_ItemIcon_112156"
+        },
+        {
+            "count": 41,
+            "icon": "UI_ItemIcon_112157"
+        },
+        {
+            "count": 5,
+            "icon": "UI_ItemIcon_114089"
+        },
+        {
+            "count": 14,
+            "icon": "UI_ItemIcon_114090"
+        },
+        {
+            "count": 14,
+            "icon": "UI_ItemIcon_114091"
+        },
+        {
+            "count": 6,
+            "icon": "UI_ItemIcon_114092"
+        },
+        {
+            "count": 225000,
+            "icon": "UI_ItemIcon_202"
+        }
+    ],
+    "name": "Whitelake Frostfeather",
+    "passive": {
+        "name": "Snow Swan's Finale",
+        "refinements": {
+            "1": {
+                "description": "When the equipping character hits an opponent with their Elemental Skill, they gain \"Lake-Hued Lament\": ATK increases by 8% for 8s. This effect can trigger once every 0.1s. Max 3 stacks, and each stack's duration is independent. At 3 stacks, the CRIT DMG of any Stellar Glimmer reaction DMG caused by the equipping character is increased by 50%, and triggering Stellar Glimmer reactions or Stellar Glimmer reaction DMG will also restore 4 Elemental Energy to the character. This Energy recovery effect can trigger once every 3.5s. Can be triggered even when the equipping character is off-field.",
+                "params": [
+                    4.0,
+                    0.07999999821186066,
+                    8.0,
+                    3.0,
+                    0.5,
+                    3.5,
+                    0.0,
+                    0.0
+                ]
+            },
+            "2": {
+                "description": "When the equipping character hits an opponent with their Elemental Skill, they gain \"Lake-Hued Lament\": ATK increases by 10% for 8s. This effect can trigger once every 0.1s. Max 3 stacks, and each stack's duration is independent. At 3 stacks, the CRIT DMG of any Stellar Glimmer reaction DMG caused by the equipping character is increased by 65%, and triggering Stellar Glimmer reactions or Stellar Glimmer reaction DMG will also restore 4.5 Elemental Energy to the character. This Energy recovery effect can trigger once every 3.5s. Can be triggered even when the equipping character is off-field.",
+                "params": [
+                    4.5,
+                    0.10000000149011612,
+                    8.0,
+                    3.0,
+                    0.6499999761581421,
+                    3.5,
+                    0.0,
+                    0.0
+                ]
+            },
+            "3": {
+                "description": "When the equipping character hits an opponent with their Elemental Skill, they gain \"Lake-Hued Lament\": ATK increases by 12% for 8s. This effect can trigger once every 0.1s. Max 3 stacks, and each stack's duration is independent. At 3 stacks, the CRIT DMG of any Stellar Glimmer reaction DMG caused by the equipping character is increased by 80%, and triggering Stellar Glimmer reactions or Stellar Glimmer reaction DMG will also restore 5 Elemental Energy to the character. This Energy recovery effect can trigger once every 3.5s. Can be triggered even when the equipping character is off-field.",
+                "params": [
+                    5.0,
+                    0.11999999731779099,
+                    8.0,
+                    3.0,
+                    0.800000011920929,
+                    3.5,
+                    0.0,
+                    0.0
+                ]
+            },
+            "4": {
+                "description": "When the equipping character hits an opponent with their Elemental Skill, they gain \"Lake-Hued Lament\": ATK increases by 14% for 8s. This effect can trigger once every 0.1s. Max 3 stacks, and each stack's duration is independent. At 3 stacks, the CRIT DMG of any Stellar Glimmer reaction DMG caused by the equipping character is increased by 95%, and triggering Stellar Glimmer reactions or Stellar Glimmer reaction DMG will also restore 5.5 Elemental Energy to the character. This Energy recovery effect can trigger once every 3.5s. Can be triggered even when the equipping character is off-field.",
+                "params": [
+                    5.5,
+                    0.14000000059604645,
+                    8.0,
+                    3.0,
+                    0.949999988079071,
+                    3.5,
+                    0.0,
+                    0.0
+                ]
+            },
+            "5": {
+                "description": "When the equipping character hits an opponent with their Elemental Skill, they gain \"Lake-Hued Lament\": ATK increases by 16% for 8s. This effect can trigger once every 0.1s. Max 3 stacks, and each stack's duration is independent. At 3 stacks, the CRIT DMG of any Stellar Glimmer reaction DMG caused by the equipping character is increased by 110%, and triggering Stellar Glimmer reactions or Stellar Glimmer reaction DMG will also restore 6 Elemental Energy to the character. This Energy recovery effect can trigger once every 3.5s. Can be triggered even when the equipping character is off-field.",
+                "params": [
+                    6.0,
+                    0.1599999964237213,
+                    8.0,
+                    3.0,
+                    1.100000023841858,
+                    3.5,
+                    0.0,
+                    0.0
+                ]
+            }
+        }
+    },
+    "qualityType": "QUALITY_ORANGE",
+    "stats": {
+        "1": {
+            "CRIT Rate%": 4.8,
+            "atk": 48
+        },
+        "10": {
+            "CRIT Rate%": 6.5,
+            "atk": 87
+        },
+        "11": {
+            "CRIT Rate%": 6.5,
+            "atk": 92
+        },
+        "12": {
+            "CRIT Rate%": 6.5,
+            "atk": 96
+        },
+        "13": {
+            "CRIT Rate%": 6.5,
+            "atk": 101
+        },
+        "14": {
+            "CRIT Rate%": 6.5,
+            "atk": 106
+        },
+        "15": {
+            "CRIT Rate%": 7.5,
+            "atk": 110
+        },
+        "16": {
+            "CRIT Rate%": 7.5,
+            "atk": 115
+        },
+        "17": {
+            "CRIT Rate%": 7.5,
+            "atk": 119
+        },
+        "18": {
+            "CRIT Rate%": 7.5,
+            "atk": 124
+        },
+        "19": {
+            "CRIT Rate%": 7.5,
+            "atk": 129
+        },
+        "2": {
+            "CRIT Rate%": 4.8,
+            "atk": 52
+        },
+        "20": {
+            "CRIT Rate%": 8.5,
+            "atk": 133
+        },
+        "21": {
+            "CRIT Rate%": 8.5,
+            "atk": 169
+        },
+        "22": {
+            "CRIT Rate%": 8.5,
+            "atk": 174
+        },
+        "23": {
+            "CRIT Rate%": 8.5,
+            "atk": 179
+        },
+        "24": {
+            "CRIT Rate%": 8.5,
+            "atk": 183
+        },
+        "25": {
+            "CRIT Rate%": 9.5,
+            "atk": 188
+        },
+        "26": {
+            "CRIT Rate%": 9.5,
+            "atk": 193
+        },
+        "27": {
+            "CRIT Rate%": 9.5,
+            "atk": 197
+        },
+        "28": {
+            "CRIT Rate%": 9.5,
+            "atk": 202
+        },
+        "29": {
+            "CRIT Rate%": 9.5,
+            "atk": 207
+        },
+        "3": {
+            "CRIT Rate%": 4.8,
+            "atk": 56
+        },
+        "30": {
+            "CRIT Rate%": 10.4,
+            "atk": 212
+        },
+        "31": {
+            "CRIT Rate%": 10.4,
+            "atk": 217
+        },
+        "32": {
+            "CRIT Rate%": 10.4,
+            "atk": 221
+        },
+        "33": {
+            "CRIT Rate%": 10.4,
+            "atk": 226
+        },
+        "34": {
+            "CRIT Rate%": 10.4,
+            "atk": 231
+        },
+        "35": {
+            "CRIT Rate%": 11.4,
+            "atk": 236
+        },
+        "36": {
+            "CRIT Rate%": 11.4,
+            "atk": 241
+        },
+        "37": {
+            "CRIT Rate%": 11.4,
+            "atk": 246
+        },
+        "38": {
+            "CRIT Rate%": 11.4,
+            "atk": 251
+        },
+        "39": {
+            "CRIT Rate%": 11.4,
+            "atk": 256
+        },
+        "4": {
+            "CRIT Rate%": 4.8,
+            "atk": 61
+        },
+        "40": {
+            "CRIT Rate%": 12.4,
+            "atk": 261
+        },
+        "41": {
+            "CRIT Rate%": 12.4,
+            "atk": 297
+        },
+        "42": {
+            "CRIT Rate%": 12.4,
+            "atk": 302
+        },
+        "43": {
+            "CRIT Rate%": 12.4,
+            "atk": 306
+        },
+        "44": {
+            "CRIT Rate%": 12.4,
+            "atk": 311
+        },
+        "45": {
+            "CRIT Rate%": 13.3,
+            "atk": 316
+        },
+        "46": {
+            "CRIT Rate%": 13.3,
+            "atk": 321
+        },
+        "47": {
+            "CRIT Rate%": 13.3,
+            "atk": 326
+        },
+        "48": {
+            "CRIT Rate%": 13.3,
+            "atk": 331
+        },
+        "49": {
+            "CRIT Rate%": 13.3,
+            "atk": 336
+        },
+        "5": {
+            "CRIT Rate%": 5.6,
+            "atk": 65
+        },
+        "50": {
+            "CRIT Rate%": 14.3,
+            "atk": 341
+        },
+        "51": {
+            "CRIT Rate%": 14.3,
+            "atk": 378
+        },
+        "52": {
+            "CRIT Rate%": 14.3,
+            "atk": 383
+        },
+        "53": {
+            "CRIT Rate%": 14.3,
+            "atk": 388
+        },
+        "54": {
+            "CRIT Rate%": 14.3,
+            "atk": 393
+        },
+        "55": {
+            "CRIT Rate%": 15.3,
+            "atk": 398
+        },
+        "56": {
+            "CRIT Rate%": 15.3,
+            "atk": 403
+        },
+        "57": {
+            "CRIT Rate%": 15.3,
+            "atk": 408
+        },
+        "58": {
+            "CRIT Rate%": 15.3,
+            "atk": 413
+        },
+        "59": {
+            "CRIT Rate%": 15.3,
+            "atk": 418
+        },
+        "6": {
+            "CRIT Rate%": 5.6,
+            "atk": 69
+        },
+        "60": {
+            "CRIT Rate%": 16.2,
+            "atk": 423
+        },
+        "61": {
+            "CRIT Rate%": 16.2,
+            "atk": 460
+        },
+        "62": {
+            "CRIT Rate%": 16.2,
+            "atk": 465
+        },
+        "63": {
+            "CRIT Rate%": 16.2,
+            "atk": 470
+        },
+        "64": {
+            "CRIT Rate%": 16.2,
+            "atk": 475
+        },
+        "65": {
+            "CRIT Rate%": 17.2,
+            "atk": 480
+        },
+        "66": {
+            "CRIT Rate%": 17.2,
+            "atk": 485
+        },
+        "67": {
+            "CRIT Rate%": 17.2,
+            "atk": 491
+        },
+        "68": {
+            "CRIT Rate%": 17.2,
+            "atk": 496
+        },
+        "69": {
+            "CRIT Rate%": 17.2,
+            "atk": 501
+        },
+        "7": {
+            "CRIT Rate%": 5.6,
+            "atk": 74
+        },
+        "70": {
+            "CRIT Rate%": 18.2,
+            "atk": 506
+        },
+        "71": {
+            "CRIT Rate%": 18.2,
+            "atk": 543
+        },
+        "72": {
+            "CRIT Rate%": 18.2,
+            "atk": 548
+        },
+        "73": {
+            "CRIT Rate%": 18.2,
+            "atk": 553
+        },
+        "74": {
+            "CRIT Rate%": 18.2,
+            "atk": 558
+        },
+        "75": {
+            "CRIT Rate%": 19.1,
+            "atk": 563
+        },
+        "76": {
+            "CRIT Rate%": 19.1,
+            "atk": 569
+        },
+        "77": {
+            "CRIT Rate%": 19.1,
+            "atk": 574
+        },
+        "78": {
+            "CRIT Rate%": 19.1,
+            "atk": 579
+        },
+        "79": {
+            "CRIT Rate%": 19.1,
+            "atk": 585
+        },
+        "8": {
+            "CRIT Rate%": 5.6,
+            "atk": 78
+        },
+        "80": {
+            "CRIT Rate%": 20.1,
+            "atk": 590
+        },
+        "81": {
+            "CRIT Rate%": 20.1,
+            "atk": 626
+        },
+        "82": {
+            "CRIT Rate%": 20.1,
+            "atk": 632
+        },
+        "83": {
+            "CRIT Rate%": 20.1,
+            "atk": 637
+        },
+        "84": {
+            "CRIT Rate%": 20.1,
+            "atk": 642
+        },
+        "85": {
+            "CRIT Rate%": 21.1,
+            "atk": 648
+        },
+        "86": {
+            "CRIT Rate%": 21.1,
+            "atk": 653
+        },
+        "87": {
+            "CRIT Rate%": 21.1,
+            "atk": 658
+        },
+        "88": {
+            "CRIT Rate%": 21.1,
+            "atk": 664
+        },
+        "89": {
+            "CRIT Rate%": 21.1,
+            "atk": 669
+        },
+        "9": {
+            "CRIT Rate%": 5.6,
+            "atk": 83
+        },
+        "90": {
+            "CRIT Rate%": 22.1,
+            "atk": 674
+        }
+    },
+    "weaponDesc": "A longsword light as the feathers of a snow swan, and which stays pure and untainted at all times.",
+    "weaponIcon": "UI_EquipIcon_Sword_Swanlake",
+    "weaponType": "WEAPON_SWORD_ONE_HAND"
+}
