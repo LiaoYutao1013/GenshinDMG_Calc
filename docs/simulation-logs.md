@@ -18,3 +18,4 @@
 
 主展示 DPS 为所有角色单人 DPS 的合计，日志中的 `MemberDPSSum` 与 `TeamDPS`
 保持相同。`CycleDPS` 为总伤害按单轮周期归一化后的诊断数据，不作为主展示值。
+`SimulationHorizon` 保存请求的统计窗口，`CycleDuration` 保存本次实际排轴周期。

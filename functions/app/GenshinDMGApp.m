@@ -723,8 +723,7 @@ classdef GenshinDMGApp < handle
         function lines = buildResultReportLines(obj)
             lines = strings(0, 1);
             lines(end + 1, 1) = "== 模拟结果 ==";
-            lines(end + 1, 1) = "时间: " + string(datetime('now', 'Format', 'yyyy-MM-dd HH:mm:ss')) ...
-                + " | 模拟窗口: " + string(sprintf('%.0f 秒', obj.SimulationDuration));
+            lines(end + 1, 1) = "时间: " + string(datetime('now', 'Format', 'yyyy-MM-dd HH:mm:ss'));
             lines(end + 1, 1) = "DPS 口径: 角色单人 DPS 合计。";
             lines(end + 1, 1) = "";
 
@@ -747,8 +746,10 @@ classdef GenshinDMGApp < handle
             result = obj.LastTeamResult;
             totalDamage = double(getFieldOrDefault(result, 'TotalDMG', 0));
             primaryDps = double(getFieldOrDefault(result, 'DPS', 0));
+            rotationDuration = double(getFieldOrDefault(result, 'RotationDuration', 0));
             lines(end + 1, 1) = "[总览]";
-            lines(end + 1, 1) = sprintf("总伤害: %.0f | DPS（角色合计）: %.2f", totalDamage, primaryDps);
+            lines(end + 1, 1) = sprintf("总伤害: %.0f | DPS（角色合计）: %.2f | 排轴周期: %.2f 秒", ...
+                totalDamage, primaryDps, rotationDuration);
             lines(end + 1, 1) = "周期归一化数据已保存至日志。";
             logInfo = getFieldOrDefault(result, 'Log', struct());
             if logical(getFieldOrDefault(logInfo, 'Saved', false))
@@ -799,7 +800,25 @@ classdef GenshinDMGApp < handle
 
         function label = reportFieldLabel(obj, fieldName) %#ok<INUSD>
             normalized = lower(char(string(fieldName)));
-            if contains(normalized, 'critrate')
+            if any(strcmp(normalized, {'baseatk', 'base_atk'}))
+                label = "基础攻击";
+            elseif any(strcmp(normalized, {'atkbonus', 'atk_bonus'}))
+                label = "攻击%";
+            elseif contains(normalized, 'flatatk')
+                label = "固定攻击";
+            elseif any(strcmp(normalized, {'basehp', 'base_hp'}))
+                label = "基础生命";
+            elseif any(strcmp(normalized, {'hpbonus', 'hp_bonus'}))
+                label = "生命%";
+            elseif contains(normalized, 'flathp')
+                label = "固定生命";
+            elseif any(strcmp(normalized, {'basedef', 'base_def'}))
+                label = "基础防御";
+            elseif any(strcmp(normalized, {'defbonus', 'def_bonus'}))
+                label = "防御%";
+            elseif contains(normalized, 'flatdef')
+                label = "固定防御";
+            elseif contains(normalized, 'critrate')
                 label = "暴击率";
             elseif contains(normalized, 'critdmg')
                 label = "暴击伤害";
@@ -807,8 +826,44 @@ classdef GenshinDMGApp < handle
                 label = "元素精通";
             elseif contains(normalized, 'energyrecharge') || strcmp(normalized, 'er')
                 label = "元素充能";
-            elseif contains(normalized, 'flatatk')
-                label = "固定攻击";
+            elseif contains(normalized, 'hydroresshred')
+                label = "水抗降低";
+            elseif contains(normalized, 'pyroresshred')
+                label = "火抗降低";
+            elseif contains(normalized, 'cryoresshred')
+                label = "冰抗降低";
+            elseif contains(normalized, 'electroresshred')
+                label = "雷抗降低";
+            elseif contains(normalized, 'anemoresshred')
+                label = "风抗降低";
+            elseif contains(normalized, 'geosresshred')
+                label = "岩抗降低";
+            elseif contains(normalized, 'dendroresshred')
+                label = "草抗降低";
+            elseif contains(normalized, 'resshred')
+                label = "抗性降低";
+            elseif contains(normalized, 'normalattack')
+                label = "普通攻击增伤";
+            elseif contains(normalized, 'skilldmgbonus')
+                label = "元素战技增伤";
+            elseif contains(normalized, 'burstdmgbonus')
+                label = "元素爆发增伤";
+            elseif contains(normalized, 'hydrodmgbonus')
+                label = "水元素伤害加成";
+            elseif contains(normalized, 'pyrodmgbonus')
+                label = "火元素伤害加成";
+            elseif contains(normalized, 'cryodmgbonus')
+                label = "冰元素伤害加成";
+            elseif contains(normalized, 'electrodmgbonus')
+                label = "雷元素伤害加成";
+            elseif contains(normalized, 'anemodmgbonus')
+                label = "风元素伤害加成";
+            elseif contains(normalized, 'geodmgbonus')
+                label = "岩元素伤害加成";
+            elseif contains(normalized, 'dendrodmgbonus')
+                label = "草元素伤害加成";
+            elseif contains(normalized, 'damagebonus')
+                label = "伤害加成";
             elseif contains(normalized, 'atk')
                 label = "攻击";
             elseif contains(normalized, 'hp')
@@ -864,12 +919,25 @@ classdef GenshinDMGApp < handle
                 return;
             end
 
-            fields = fieldnames(slot.Build);
+            fields = string(fieldnames(slot.Build));
+            preferredFields = [ ...
+                "BaseATK", "ATK", "Atk", "AtkBonus", "FlatATK", ...
+                "BaseHP", "HP", "HPBonus", "FlatHP", ...
+                "BaseDEF", "DEF", "DefBonus", "FlatDEF", ...
+                "ElementalMastery", "EM", "EnergyRecharge", "ER", ...
+                "CritRate", "CritDMG"];
+            normalizedFields = lower(fields);
+            selected = ismember(normalizedFields, lower(preferredFields)) ...
+                | (contains(normalizedFields, 'dmgbonus') & ~contains(normalizedFields, 'artifact'));
             values = strings(0, 1);
-            for i = 1:numel(fields)
-                value = slot.Build.(fields{i});
-                if (isnumeric(value) || islogical(value) || isstring(value) || ischar(value)) && numel(value) <= 12
-                    values(end + 1, 1) = obj.reportFieldLabel(fields{i}) + "=" + obj.formatReportValue(value); %#ok<AGROW>
+            for i = find(selected(:)).'
+                value = slot.Build.(char(fields(i)));
+                if (isnumeric(value) || islogical(value)) && isscalar(value) && isfinite(double(value))
+                    if double(value) == 0
+                        continue;
+                    end
+                    values(end + 1, 1) = obj.reportFieldLabel(fields(i)) + "=" ...
+                        + obj.formatPanelMetric(fields(i), value); %#ok<AGROW>
                 end
             end
             if isempty(values)
@@ -881,7 +949,7 @@ classdef GenshinDMGApp < handle
 
         function lines = appendTeamContextBuffLines(obj, lines, teamContext) %#ok<INUSD>
             lines(end + 1, 1) = "";
-            lines(end + 1, 1) = "[当前团队 Buff]";
+            lines(end + 1, 1) = "[当前团队增益]";
             if ~isstruct(teamContext) || isempty(fieldnames(teamContext))
                 lines(end + 1, 1) = "（无）";
                 return;
@@ -889,7 +957,7 @@ classdef GenshinDMGApp < handle
 
             buffLines = obj.collectTeamBuffValues(teamContext);
             if isempty(buffLines)
-                lines(end + 1, 1) = "（无常驻数值 Buff）";
+                lines(end + 1, 1) = "（无常驻数值增益）";
             else
                 lines = [lines; "  " + buffLines]; %#ok<AGROW>
             end
@@ -905,10 +973,20 @@ classdef GenshinDMGApp < handle
             for i = 1:numel(fields)
                 fieldName = fields{i};
                 value = teamContext.(fieldName);
-                isBuffField = any(contains(fieldName, {'Bonus', 'Buff', 'Shred', 'Crit', 'EM', 'Amplify'}, 'IgnoreCase', true));
+                normalized = lower(fieldName);
+                isBuffField = contains(normalized, 'buff') ...
+                    || contains(normalized, 'shred') ...
+                    || contains(normalized, 'amplify') ...
+                    || contains(normalized, 'critratebonus') ...
+                    || contains(normalized, 'critdmgbonus') ...
+                    || contains(normalized, 'dmgbonus') ...
+                    || contains(normalized, 'damagebonus') ...
+                    || contains(normalized, 'embonus') ...
+                    || strcmp(normalized, 'em');
                 if isBuffField && (isnumeric(value) || islogical(value)) && isscalar(value) ...
                         && isfinite(double(value)) && double(value) ~= 0
-                    buffLines(end + 1, 1) = obj.reportFieldLabel(fieldName) + "=" + obj.formatReportValue(value); %#ok<AGROW>
+                    buffLines(end + 1, 1) = obj.reportFieldLabel(fieldName) + "=" ...
+                        + obj.formatPanelMetric(fieldName, value); %#ok<AGROW>
                 end
             end
         end
@@ -1083,6 +1161,18 @@ classdef GenshinDMGApp < handle
                 value = string(raw);
             end
             value = replace(value, [newline, sprintf('\r')], " ");
+        end
+
+        function value = formatPanelMetric(obj, fieldName, raw) %#ok<INUSD>
+            normalized = lower(char(string(fieldName)));
+            isRatio = contains(normalized, 'bonus') || contains(normalized, 'crit') ...
+                || contains(normalized, 'recharge') || contains(normalized, 'shred') ...
+                || contains(normalized, 'amplify') || strcmp(normalized, 'er');
+            if isRatio && (isnumeric(raw) || islogical(raw)) && isscalar(raw) && abs(double(raw)) <= 5
+                value = string(sprintf('%.1f%%', 100 * double(raw)));
+            else
+                value = obj.formatReportValue(raw);
+            end
         end
 
         function labels = getCharacterDropdownLabels(obj)
